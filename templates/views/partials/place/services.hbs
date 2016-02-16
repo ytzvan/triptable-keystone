@@ -1,0 +1,91 @@
+<!-- property price   -->   
+      {{#if data.place.hair}}
+      <div class="panel-wrapper" id="listing_price">
+        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseOne">
+        <span class="panel-title-arrow"></span>Cabello</a>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body panel-body-border">
+           {{# each data.place.hairCatalog}}
+            <div class="listing_detail col-md-6"><span class="item_head">{{name}}:</span> $ {{price}} - {{duration}}</div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      {{#if data.place.nails}}
+       <div class="panel-wrapper" id="listing_price">
+        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseOne">
+        <span class="panel-title-arrow"></span>Uñas</a>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body panel-body-border">
+           {{# each data.place.nailsCatalog}}
+            <div class="listing_detail col-md-6"><span class="item_head">{{name}}:</span> $ {{price}} - {{duration}}</div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      <div class="panel-wrapper">
+      <!-- property address   -->
+        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTwo">  <span class="panel-title-arrow"></span>Address</a>    
+        <div id="collapseTwo" class="panel-collapse collapse in">
+          <div class="panel-body panel-body-border">
+            <div class="listing_detail col-md-6">
+              <span class="item_head">Address:</span> Ridge Street
+            </div>
+            <div class="listing_detail col-md-6">
+              <span class="item_head">City:</span><a href="http://wprentals.org/city/new-york/" rel="tag">New York</a>
+            </div>
+            <div class="listing_detail col-md-6"><span class="item_head">Area:</span><a href="http://wprentals.org/area/east-side/" rel="tag">East Side</a></div>
+            <div class="listing_detail col-md-6"><span class="item_head">County:</span> New York County</div>
+            <div class="listing_detail col-md-6"><span class="item_head">State:</span> NY</div>
+            <div class="listing_detail col-md-6"><span class="item_head">Zip:</span> 10007</div>
+            <div class="listing_detail col-md-6"><span class="item_head">Country:</span> United States</div>
+          </div>
+        </div>
+      </div>
+      <!-- property details   -->  
+      <div class="panel-wrapper">
+        <a class="panel-title"  id="listing_details" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTree"><span class="panel-title-arrow"></span>Listing Details</a>
+          <div id="collapseTree" class="panel-collapse collapse in">
+            <div class="panel-body panel-body-border">
+              <div class="listing_detail col-md-6"><span class="item_head">Property Size:</span> 2,500 ft<sup>2</sup></div>
+              <div class="listing_detail col-md-6"><span class="item_head">Rooms:</span> 5</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Bedrooms:</span> 3</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Bathrooms:</span> 2</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Late Check-in:</span> Before 11 PM</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Optional Services:</span> kitchen fully equipped.</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Outdoor Facilities:</span> restaurants and bars.</div><div class="listing_detail col-md-6"><span class="item_head">Extra People:</span> 1 extra bed for $40/night.</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Cancellation:</span> free of charge.</div>
+            </div>
+          </div>
+      </div>
+      <!-- Features and Amenities -->
+      <div class="panel-wrapper">
+        <a class="panel-title" id="listing_ammenities" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFour"><span class="panel-title-arrow"></span>Features</a>
+          <div id="collapseFour" class="panel-collapse collapse in">
+            <div class="panel-body panel-body-border">
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Kitchen</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Smoking Allowed</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>TV</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Indoor Fireplace</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Heating</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Essentials</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pool</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Washer</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Hot Tub</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Dryer</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Gym</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Free Parking on Premises</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Wireless Internet</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pets Allowed</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Family/Kid Friendly</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Suitable for Events</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Phone (booth/lines)</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Bar / Restaurant</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Air Conditioner</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Scanner / Printer</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Fax</div>
+            </div>
+          </div>
+        </div>

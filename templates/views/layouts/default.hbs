@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Triptable</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor
+			- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style type="text/css">
+		img.wp-smiley,
+		img.emoji {
+			display: inline !important;
+			border: none !important;
+			box-shadow: none !important;
+			height: 1em !important;
+			width: 1em !important;
+			margin: 0 .07em !important;
+			vertical-align: -0.1em !important;
+			background: none !important;
+			padding: 0 !important;
+		}
+		</style>
+		<link rel='stylesheet' id='dashicons-css'  href='http://wprentals.org/wp-includes/css/dashicons.min.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-jquery-ui-dialog-css'  href='http://wprentals.org/wp-includes/css/jquery-ui-dialog.min.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='http://wprentals.org/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.1.1' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+.tp-caption a{color:#ff7302;text-shadow:none;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out}.tp-caption a:hover{color:#ffa902}
+</style>
+<link rel='stylesheet' id='wpestate_bootstrap-css'  href='http://wprentals.org/wp-content/themes/wprentals/css/bootstrap.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate_bootstrap-theme-css'  href='http://wprentals.org/wp-content/themes/wprentals/css/bootstrap-theme.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate_style-css'  href='http://wprentals.org/wp-content/themes/wprentals/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate_media-css'  href='http://wprentals.org/wp-content/themes/wprentals/css/my_media.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate_jquery.ui.theme-css'  href='http://wprentals.org/wp-content/themes/wprentals//css/jquery-ui.min.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate-railway-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A500%2C600%2C400%2C700%2C800&#038;subset=latin%2Clatin-ext&#038;ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C600%2C300&#038;subset=latin%2Clatin-ext&#038;ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wpestate_font-awesome.min-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='http://wprentals.org/wp-content/uploads/js_composer/js_composer_front_custom.css?ver=4.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bsf-Defaults-css'  href='http://wprentals.org/wp-content/uploads/smile_fonts/Defaults/Defaults.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ultimate-style-min-css'  href='http://wprentals.org/wp-content/plugins/Ultimate_VC_Addons/assets/min-css/ultimate.min.css?ver=3.13.7' type='text/css' media='all' /> 
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<!-- Fancybox-->
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/jquery.fancybox-thumbs.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/jquery.viewport.mini.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/modernizr.custom.62456.js?ver=1.0'></script>
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCspU52644nRBorMFnPywbaY5cGDzHEA20&callback=initMap">
+    </script>
+<style type='text/css'>
+</style>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://wprentals.org/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://wprentals.org/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1444213872221{margin-top: -20px !important;}.vc_custom_1440678882247{background-color: #ffffff !important;}.vc_custom_1444205883078{margin-top: 0px !important;margin-bottom: -45px !important;padding-top: 65px !important;padding-bottom: 75px !important;background-color: #b881fc !important;}.vc_custom_1443689357048{padding-bottom: 15px !important;}.vc_custom_1443689342618{padding-bottom: 15px !important;}.vc_custom_1440677774186{padding-right: 2.5px !important;padding-left: 0px !important;}.vc_custom_1438782048463{padding-right: 2.5px !important;padding-left: 2.5px !important;}.vc_custom_1440677781873{padding-right: 0px !important;padding-left: 2.5px !important;}.vc_custom_1444059396534{padding-bottom: 15px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+<link rel="shortcut icon" href="http://wprentals.org/wp-content/uploads/2015/08/fav.png" type="image/x-icon" />   
+<link href="/styles/site.css" rel="stylesheet"> 
+
+	</head>
+	 <body class="home page page-id-1193 page-template-default  top_bar_on wpb-js-composer js-comp-ver-4.8.1 vc_responsive"> 
+        <div class="mobilewrapper">
+    <div class="snap-drawers">
+        <!-- Left Sidebar-->
+        <div class="snap-drawer snap-drawer-left">
+    
+            <div class="mobilemenu-close"><i class="fa fa-times"></i></div>
+            
+            <ul id="menu-primary-menu" class="mobilex-menu"><li id="menu-item-863" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-863"><a href="#">Home</a>
+</li>
+<li id="menu-item-854" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-854"><a href="#">Properties</a>
+</li>
+<li id="menu-item-855" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-855"><a href="#">Owners</a>
+</li>
+<li id="menu-item-860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-860"><a href="#">Blog</a>
+</li>
+<li id="menu-item-862" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-862"><a href="#">Features</a>
+</li>
+<li id="menu-item-2416" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2416"><a href="http://themeforest.net/item/wp-rentals-booking-accommodation-wordpress-theme/12921802?ref=annapx">Buy</a></li>
+</ul>           
+        </div>  
+  </div>
+</div>  
+
+
+<div class="mobilewrapper-user">
+    <div class="snap-drawers">
+   
+    <!-- Right Sidebar-->
+        <div class="snap-drawer snap-drawer-right">
+    
+        <div class="mobilemenu-close-user"><i class="fa fa-times"></i></div>
+        
+        <div class="login_sidebar_mobile">
+            <h3 class="widget-title-sidebar"  id="login-div-title-mobile">Login</h3>
+            <div class="login_form" id="login-div-mobile">
+                <div class="loginalert" id="login_message_area_wd_mobile" ></div>
+
+                <input type="text" class="form-control" name="log" id="login_user_wd_mobile" placeholder="Username"/>
+                <input type="password" class="form-control" name="pwd" id="login_pwd_wd_mobile" placeholder="Password"/>                       
+                <input type="hidden" name="loginpop" id="loginpop_mobile" value="0">
+                <input type="hidden" id="security-login-mobile" name="security-login-mobile" value="e4541c2bd0" />   
+
+
+                <button class="wpb_button  wpb_btn-info  wpb_regularsize   wpestate_vc_button  vc_button" id="wp-login-but-wd-mobile">Login</button>
+
+                <div class="login-links">
+                    <a href="#" id="widget_register_mobile">Need an account? Register here!</a>
+                    <a href="#" id="forgot_pass_widget_mobile">Forgot Password?</a>
+                </div> <div id="facebooklogin_mb" data-social="facebook"><i class="fa fa-facebook"></i>Login with Facebook</div><div id="googlelogin_mb" data-social="google"><i class="fa fa-google"></i>Login with Google</div><div id="yahoologin_mb" data-social="yahoo"><i class="fa fa-yahoo"></i>Login with Yahoo</div>
+
+            </div>
+
+              <h3 class="widget-title-sidebar"  id="register-div-title-mobile">Register</h3>
+                <div class="login_form" id="register-div-mobile">
+                    <div class="loginalert" id="register_message_area_wd_mobile" ></div>
+                    <input type="text" name="user_login_register" id="user_login_register_wd_mobile" class="form-control" placeholder="Username"/>
+                    <input type="text" name="user_email_register" id="user_email_register_wd_mobile" class="form-control" placeholder="Email"  />
+                    <input type="checkbox" name="terms" id="user_terms_register_wd_mobile"><label id="user_terms_register_wd_label_mobile" for="user_terms_register_wd_mobile">I agree with <a href="http://wprentals.org/terms-and-conditions/" target="_blank" id="user_terms_register_topbar_link">terms &amp; conditions</a> </label>
+          
+                    <p id="reg_passmail_mobile">A password will be e-mailed to you</p>
+                    <input type="hidden" id="security-register-mobile" name="security-register-mobile" value="cdce4af219" />   
+                    <button class="wpb_button  wpb_btn-info  wpb_regularsize  wpestate_vc_button  vc_button" id="wp-submit-register_wd_mobile">Register</button>
+
+                    <div class="login-links">
+                        <a href="#" id="widget_login_sw_mobile">Back to Login</a>                       
+                    </div>   
+                 </div>
+                </div>
+                
+            <div id="mobile_forgot_wrapper">    
+                <h3 class="widget-title-sidebar"  id="forgot-div-title_mobile">Reset Password</h3>
+                <div class="login_form" id="forgot-pass-div_mobile">
+                    <div class="loginalert" id="forgot_pass_area_shortcode_wd_mobile"></div>
+                    <div class="loginrow">
+                            <input type="text" class="form-control" name="forgot_email" id="forgot_email_mobile" placeholder="Enter Your Email Address" size="20" />
+                    </div><input type="hidden" id="security-login-forgot_wd_mobile" name="security-login-forgot_wd_mobile" value="d0396b87cb" /><input type="hidden" name="_wp_http_referer" value="/" /><input type="hidden" id="postid" value="0">    
+                    <button class="wpb_btn-info wpb_regularsize wpestate_vc_button  vc_button" id="wp-forgot-but_mobile" name="forgot" >Reset Password</button>
+                    <div class="login-links shortlog">
+                    <a href="#" id="return_login_shortcode_mobile">Return to Login</a>
+                    </div>
+                </div>
+            </div>        
+           
+          
+           
+        </div>  
+        
+        </div>              
+    </div>
+              
+        <div class="website-wrapper  top_bar_on"  id="all_wrapper">
+            <div class="container main_wrapper  wide  ">
+                
+<div class="master_header  wide  ">  
+	<div class="mobile_header  top_bar_on">
+	    <div class="mobile-trigger"><i class=" fa fa-bars"></i></div>
+	    <div>
+	        <a href="/">
+	        <img src="/images/logo.png" class="img-responsive retina_ready" alt="logo" style="margin: 0px auto;
+    max-height: 60px;
+    width: auto;
+    max-width: 200px;
+    margin-top: 10px;"/>        </a>
+	    </div>   
+	    <div class="mobile-trigger-user"><i class=" fa fa-cogs"></i></div>
+	</div>
+    <div class="header_wrapper   top_bar_on">
+        <div class="header_wrapper_inside">
+            <div style="padding-left: 25px;
+					    display: inline-block;
+					    margin-top: 20px;
+					    float: left;
+					    margin-right: 75px;"> 
+				<a href="/">
+                <img class="img-responsive retina_ready" src="/images/logo.png" style="height: 35px;" alt="logo"/></a>           
+            </div>   
+    		<div class="user_menu" id="user_menu_u">   
+        		<!--<div class="signuplink" id="topbarlogin">Login</div>
+        		<div class="signuplink" id="topbarregister">Signup</div> -->
+        		<a href="http://wprentals.org/add-new-listing/" id="submit_action">Lista tu Negocio</a>
+            </div> 
+            <nav id="access">
+                <ul id="menu-primary-menu-1" class="menu">
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-854"><a href="#">¿Cómo Funciona?</a></li>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-855"><a href="#">Equipo</a></li>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-860"><a href="#">Blog</a></li>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-862"><a href="#">Contáctanos</a></li>
+				</ul>                            
+			</nav><!-- #access -->
+
+        </div>
+    </div>
+</div> 
+		<div id="body">
+			<!--
+				Flash messages allow you to display once-off status messages to users, e.g. form
+				validation errors, success messages, etc
+			-->
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+						{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+						{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+						{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+						{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
+			<!-- The content block should contain the body of your template's content-->
+			{{{body}}}
+		</div>
+		<!--<div class="container">
+			<div id="footer">
+				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+			</div>
+		</div> -->
+		{{!--
+			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
+			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
+			//- you can upgrade to 2.1.4 (also bundled) for better performance.
+		--}}
+		{{!--
+			//- Customise which Bootstrap javascript files are served by including
+			//- them specifically here, instead of bootstrap-3.3.5.min.js
+		--}}
+			<footer id="colophon"  class="  footer_back_repeat_no  ">    
+    <div id="footer-widget-area" class="row">
+        
+    <div id="first" class="widget-area col-md-4">
+        <ul class="xoxo">
+          <li id="text-2" class="widget-container widget_text"><h3 class="widget-title-footer">Acerca de Triptable</h3>			<div class="textwidget"><p>Triptable está comprometida en ofrecer experiencias turísticas de alto nivel, excepcional servicio al cliente, y toda la atención al momento de reservar un tour. </p>
+<p>Hemos desarrollado la mejor experiencia en reservas. Pruébalo tu mismo.</p>
+</div>
+		</li>        </ul>
+    </div><!-- #first .widget-area -->
+    
+    <div id="second" class="widget-area col-md-4">
+        <ul class="xoxo">
+        		<li id="recent-posts-3" class="widget-container widget_recent_entries">		<h3 class="widget-title-footer">Últimas Noticias</h3>		<ul>
+					<li>
+				<a href="#">Disponible pronto!</a>
+						</li>
+
+				</ul>
+		</li>   </ul>
+    </div><!-- #second .widget-area -->
+   
+    <div id="third" class="widget-area col-md-4">
+        <ul class="xoxo">
+        <li id="wpestate_contact_widget-2" class="widget-container contact_sidebar"><h3 class="widget-title-footer">Contacto</h3><div class="contact_sidebar_wrap"><p class="widget_contact_addr"><i class="fa fa-building-o"></i>Ciudad del Saber, Edificio 224, Piso 2, Salón 200. Clayton, Ciudad de Panamá</p><p class="widget_contact_phone"><i class="fa fa-phone"></i><a href="tel:%507%6808-0024">(507) 6808-0024</a></p><p class="widget_contact_email"><i class="fa fa-envelope-o"></i><a href="mailto:hello@triptableapp.com">hello@triptableapp.com</a></p><p class="widget_contact_url"><i class="fa fa-desktop"></i><a href="http://triptableapp.com">Triptable</a></p></div></li><li id="wpestate_social_widget-2" class="widget-container social_sidebar"><h3 class="widget-title-footer">Social:</h3><div class="social_sidebar_internal"><a href="http://fb.me/triptable" target="_blank"><i class="fa fa-facebook  fa-fw"></i></a><a href="http://twitter.com/triptableapp" target="_blank"><i class="fa fa-twitter  fa-fw"></i></a></div></li>        </ul>
+    </div><!-- #third .widget-area -->
+    </div><!-- #footer-widget-area -->
+
+    <div class="sub_footer">  
+        <div class="sub_footer_content">
+            <span class="copyright">
+                Copyright 2015 | Triptable. Todos los derechos reservados.            </span>
+
+            <div class="subfooter_menu">
+                <div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-884"><a href="#">Términos y Condiciones</a></li>
+<li id="menu-item-885" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-885"><a href="http://triptableapp.com">Contacto</a></li>
+</ul></div>            </div>  
+        </div>  
+    </div>
+</footer><!-- #colophon -->
+
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/placeholders.min.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/dense.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/jquery.ui.touch-punch.min.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/jquery.lazyload.min.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/i18n/datepicker-en-GB.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wprentals.org/wp-content/themes/wprentals//js/infobox.js?ver=1.0'></script>
+
+<script type='text/javascript' src='http://wprentals.org/wp-content/plugins/js_composer/assets/js/js_composer_front.js?ver=4.8.1'></script>
+
+
+
+</div> <!-- end class container -->
+
+
+
+</div> <!-- end website wrapper -->
+{{{isAdminEditorJS user}}}
+</body>
+</html>
