@@ -34,7 +34,8 @@ Tour.add({
 	food: {type: Types.Boolean, default: false },
 	insurance: {type: Types.Boolean, default: false },
 	latitude: {type: String },
-	longitude: {type: String }
+	longitude: {type: String },
+	location: { type: Types.Relationship, ref: 'Location', index: true },
 
 });
 

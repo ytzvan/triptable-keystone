@@ -1,20 +1,38 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-			<article>
-				<p><a href="/blog">&larr; back to the blog</a></p>
-				<hr>
-				<header>
-					<h1>{{data.post.title}}</h1>
-					<h5>
-						{{{categoryList data.post.categories prefix="Posted in "}}}
-						{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</h5>
-				</header>
-				<div class="post">
-					{{{data.post.content.extended}}}
-				</div>
-			</article>
-		</div>
-	</div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.7/css/lightgallery.min.css" rel="stylesheet">
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.7/js/lightgallery-all.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.7/js/lg-thumbnail.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.7/js/lg-fullscreen.min.js'></script>
+<div class="content_wrapper listing_wrapper row">
+  {{>place/header-img}}
+  <div class="property_header property_header2">
+    <div class="property_categs">
+      {{>place/description}}
+      {{>place/sidebar/booking-form}}
+    </div>
+  </div>
+  <div class="row content-fixed-listing">
+    <div class="col-md-8">
+      <div id="listing_ajax_container"></div>                
+      <div class="single-content listing-content">
+      <!-- property images   -->   
+        {{>place/images}}
+        {{>place/services}}
+      </div> <!-- end single content -->
+      </div><!-- end 8col container-->
+      <div class="clearfix visible-xs"></div>
+      <div class="col-md-4 widget-area-sidebar listingsidebar" id="primary" >
+        <ul class="xoxo listingsidebar">
+          {{>place/sidebar/search}}
+          {{>place/sidebar/login}}
+          {{>place/sidebar/tweets}}
+      </ul>
+    </div>
+  </div>   
+  <div class="full_width_row">
+    {{>place/reviews}}
+    {{>place/owner}}
+    {{>place/map}}
+    {{>place/similar-places}}
+  </div>
 </div>
+<!-- end content_wrapper started in header or full_width_row from prop list -->

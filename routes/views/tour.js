@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
 	// Set locals
 	locals.section = 'tours';
 	locals.filters = {
-		tour: req.params.tour
+		tour: req.params.slug
 	};
 	locals.data = {
 		tours: []
@@ -24,10 +24,11 @@ exports = module.exports = function(req, res) {
 		
 		q.exec(function(err, result) {
 			locals.data.tour = result;
+			console.log(result);
 			next(err);
 		});
-		
 	});
+
 	
 	// Load other posts
 	view.on('init', function(next) {
@@ -42,6 +43,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('tour');
+	view.render('post');
 	
 };

@@ -2,27 +2,15 @@
 <div class="panel-wrapper imagebody_wrapper">
   <div class="panel-body imagebody imagebody_new">
     <div id="selector1">
-      <div class="item col-md-4 image-thumb" data-src="http://wprentals.org/wp-content/uploads/2015/04/demo177-600x456.jpg">
+        {{# each data.tour.images}}
+      <div class="item col-md-4 image-thumb" data-src="{{url}}">
         <div class="img_listings_overlay"></div>
-        <img src="http://wprentals.org/wp-content/uploads/2015/04/demo177-600x456.jpg" />
-      </div>
-      <div class="item col-md-4 image-thumb" data-src="http://wprentals.org/wp-content/uploads/2015/04/demo572-600x456.jpg">
-        <div class="img_listings_overlay"></div>
-        <img src="http://wprentals.org/wp-content/uploads/2015/04/demo572-600x456.jpg" />
-      </div>
-       <div class="item col-md-4 image-thumb" data-src="http://wprentals.org/wp-content/uploads/2015/04/demo29-600x456.jpg">
-        <div class="img_listings_overlay"></div>
-        <img src="http://wprentals.org/wp-content/uploads/2015/04/demo29-600x456.jpg" />
-      </div>
-       <div class="item col-md-4 image-thumb" data-src="http://wprentals.org/wp-content/uploads/2015/04/demo29-600x456.jpg">
-        <div class="img_listings_overlay image-thumb-text"></div>
-        <span class="img_listings_mes">Ver Todas Las Fotos</span>
-        <img src="http://wprentals.org/wp-content/uploads/2015/04/demo29-600x456.jpg" />
-      </div>
+        <img src="{{url}}" />
     </div>
+     {{/each}}
   </div>
-</div>  
-
+    </div>
+    </div>
 <script type="text/javascript">
     $('#selector1').lightGallery({
       selector: '.item',
