@@ -1,13 +1,11 @@
 <div class="property_header_wrapper col-md-8">
         <div class="category_wrapper ">
           <div class="category_details_wrapper">
-            <a href="http://wprentals.org/action/entire-home/" rel="tag">Salón de Belleza</a> <span class="property_header_separator">|</span>
-            <a href="http://wprentals.org/listings/villa/" rel="tag">Cabello</a> <span class="property_header_separator">|</span> 
-            <span class="no_link_details">Uñas</span> <span class="property_header_separator">|</span>
-            <span class="no_link_details">Maquillaje</span><span class="property_header_separator">|</span>
-            <span class="no_link_details">Depilación</span>
+          <h4 class="no_link_details"><strong>Category: </strong></h4>
+          {{# each data.tour.categories}}
+            <span class="check_avalability">{{name}}</span>
+            {{/each}}
           </div>
-          <a href="#listing_calendar" class="check_avalability">Ver Disponibilidad</a>
         </div>
         <div id="listing_description">
           <h4 class="panel-title-description">Descripción</h4>

@@ -27,22 +27,17 @@
       {{/if}}
       <div class="panel-wrapper">
       <!-- property address   -->
-        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTwo">  <span class="panel-title-arrow"></span>Address</a>    
+        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTwo">  <span class="panel-title-arrow"></span>Lugar</a>    
         <div id="collapseTwo" class="panel-collapse collapse in">
           <div class="panel-body panel-body-border">
             <div class="listing_detail col-md-6">
-              <span class="item_head">Address:</span> Ridge Street
+              <span class="item_head">City: </span><a href="#" rel="tag">{{data.tour.location.city}}</a>
             </div>
-            <div class="listing_detail col-md-6">
-              <span class="item_head">City:</span><a href="http://wprentals.org/city/new-york/" rel="tag">New York</a>
-            </div>
-            <div class="listing_detail col-md-6"><span class="item_head">Area:</span><a href="http://wprentals.org/area/east-side/" rel="tag">East Side</a></div>
-            <div class="listing_detail col-md-6"><span class="item_head">County:</span> New York County</div>
-            <div class="listing_detail col-md-6"><span class="item_head">State:</span> NY</div>
-            <div class="listing_detail col-md-6"><span class="item_head">Zip:</span> 10007</div>
-            <div class="listing_detail col-md-6"><span class="item_head">Country:</span> United States</div>
+            <div class="listing_detail col-md-6"><span class="item_head">Country: </span><a href="#" rel="tag">{{data.tour.location.country}}</a></div>
+            <div class="listing_detail col-md-6"><span class="item_head">State:</span> {{data.tour.location.state}}
           </div>
         </div>
+      </div>
       </div>
       <!-- property details   -->  
       <div class="panel-wrapper">
@@ -62,30 +57,21 @@
       </div>
       <!-- Features and Amenities -->
       <div class="panel-wrapper">
-        <a class="panel-title" id="listing_ammenities" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFour"><span class="panel-title-arrow"></span>Features</a>
+        <a class="panel-title" id="listing_ammenities" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFour"><span class="panel-title-arrow"></span>Amenities</a>
           <div id="collapseFour" class="panel-collapse collapse in">
             <div class="panel-body panel-body-border">
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Kitchen</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Smoking Allowed</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>TV</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Indoor Fireplace</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Heating</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Essentials</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pool</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Washer</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Hot Tub</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Dryer</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Gym</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Free Parking on Premises</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Wireless Internet</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pets Allowed</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Family/Kid Friendly</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Suitable for Events</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Phone (booth/lines)</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Bar / Restaurant</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Air Conditioner</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Scanner / Printer</div>
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Fax</div>
+              {{#if data.tour.transportation}}
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Transportation During Tour</div>
+              {{/if}}
+              {{#if data.tour.hotelPickup}}
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pick up at Hotel</div>
+              {{/if}}
+              {{#if data.tour.food}}
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Food During Tour</div>
+              {{/if}}
+              {{#if data.tour.insurance}}
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Insurance</div>
+              {{/if}}
             </div>
           </div>
         </div>

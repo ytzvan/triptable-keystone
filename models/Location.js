@@ -26,7 +26,7 @@ Location.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 Location.relationship({ ref: 'Tour', path: 'tour', refPath: 'location' });
-Location.defaultColumns = 'country, state|20%, city|20%, publishedDate|20%';
+Location.defaultColumns = 'city, state|20%, country|20%, publishedDate|20%';
 Location.schema.pre('save', function(next) {
     this.locationId = this.id;
     next();
