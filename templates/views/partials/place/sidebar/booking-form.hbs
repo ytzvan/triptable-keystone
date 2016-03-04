@@ -1,19 +1,22 @@
+<script type="text/javascript">
+$(function() {
+    $( "#datepicker" ).datepicker();
+    $.datepicker.setDefaults( $.datepicker.regional[ "en-GB" ] );
+  });
+  
+</script>
 <div class="booking_form_request col-md-4" id="booking_form_request">
         <div id="booking_form_request_mess"></div>
-        <h3 >Book Now</h3>
+        <h3 >Reserva Ahora</h3>
         <div class="has_calendar calendar_icon">
-          <input type="text" id="start_date" placeholder="Check in"  class="form-control calendar_icon" size="40" name="start_date" value="">
-        </div>
-        <div class=" has_calendar calendar_icon">
-          <input type="text" id="end_date" disabled placeholder="Check Out" class="form-control calendar_icon" size="40" name="end_date" value="">
+          <input type="text" id="datepicker" placeholder="Fecha de Salida" class="form-control calendar_icon" size="40" name="date" value="">
         </div>
 
         <select class="dropdown form-control" class="dropdown-menu filter_menu">
-        <option value="one">One</option>
-        <option value="two">Two</option>
-        <option value="three">Three</option>
-        <option value="four">Four</option>
-        <option value="five">Five</option>
+        <option value="two">Personas: 2</option>
+        <option value="three">Personas: 3</option>
+        <option value="four">Personas: 4</option>
+        <option value="five">Personas: 5</option>
         </select>
 
         <!--<div class=" has_calendar guest_icon ">

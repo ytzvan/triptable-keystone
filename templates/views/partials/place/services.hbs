@@ -31,47 +31,47 @@
         <div id="collapseTwo" class="panel-collapse collapse in">
           <div class="panel-body panel-body-border">
             <div class="listing_detail col-md-6">
-              <span class="item_head">City: </span><a href="#" rel="tag">{{data.tour.location.city}}</a>
+              <span class="item_head">Ciudad: </span><a href="#" rel="tag">{{data.tour.location.city}}</a>
             </div>
-            <div class="listing_detail col-md-6"><span class="item_head">Country: </span><a href="#" rel="tag">{{data.tour.location.country}}</a></div>
-            <div class="listing_detail col-md-6"><span class="item_head">State:</span> {{data.tour.location.state}}
+            <div class="listing_detail col-md-6"><span class="item_head">País: </span><a href="#" rel="tag">{{data.tour.location.country}}</a></div>
+            <div class="listing_detail col-md-6"><span class="item_head">Estado:</span> {{data.tour.location.state}}
           </div>
         </div>
       </div>
       </div>
       <!-- property details   -->  
       <div class="panel-wrapper">
-        <a class="panel-title"  id="listing_details" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTree"><span class="panel-title-arrow"></span>Listing Details</a>
+        <a class="panel-title"  id="listing_details" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTree"><span class="panel-title-arrow"></span>Datos Adicionales</a>
           <div id="collapseTree" class="panel-collapse collapse in">
             <div class="panel-body panel-body-border">
-              <div class="listing_detail col-md-6"><span class="item_head">Property Size:</span> 2,500 ft<sup>2</sup></div>
-              <div class="listing_detail col-md-6"><span class="item_head">Rooms:</span> 5</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Bedrooms:</span> 3</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Bathrooms:</span> 2</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Late Check-in:</span> Before 11 PM</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Optional Services:</span> kitchen fully equipped.</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Outdoor Facilities:</span> restaurants and bars.</div><div class="listing_detail col-md-6"><span class="item_head">Extra People:</span> 1 extra bed for $40/night.</div>
-              <div class="listing_detail col-md-6"><span class="item_head">Cancellation:</span> free of charge.</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Hora de Salida:</span> {{data.tour.departureTime}}</div>
+              <div class="listing_detail col-md-6"><span class="item_head">Hora de Llegada: </span> {{data.tour.arrivalTime}}</div>
             </div>
           </div>
       </div>
       <!-- Features and Amenities -->
       <div class="panel-wrapper">
-        <a class="panel-title" id="listing_ammenities" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFour"><span class="panel-title-arrow"></span>Amenities</a>
+        <a class="panel-title" id="listing_ammenities" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFour"><span class="panel-title-arrow"></span>Está Incluído</a>
           <div id="collapseFour" class="panel-collapse collapse in">
             <div class="panel-body panel-body-border">
               {{#if data.tour.transportation}}
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Transportation During Tour</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Transporte Durante el Tour</div>
               {{/if}}
               {{#if data.tour.hotelPickup}}
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Pick up at Hotel</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Recogida en el Hotel</div>
               {{/if}}
               {{#if data.tour.food}}
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Food During Tour</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Comida durante el Tour</div>
               {{/if}}
               {{#if data.tour.insurance}}
-              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Insurance</div>
+              <div class="listing_detail col-md-6"><i class="fa fa-check checkon"></i>Seguro contra Accidentes</div>
               {{/if}}
+            </div>
+          </div>
+           <div id="listing_description">
+          <h4 class="panel-title-description">Notas Adicionales</h4>
+            <div class="panel-body" style="max-height : 100%;">
+             {{{data.tour.description.extended}}}
             </div>
           </div>
         </div>

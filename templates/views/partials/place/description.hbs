@@ -1,16 +1,16 @@
 <div class="property_header_wrapper col-md-8">
         <div class="category_wrapper ">
           <div class="category_details_wrapper">
-          <h4 class="no_link_details"><strong>Category: </strong></h4>
+          <h4 class="no_link_details"><strong>Categoría: </strong></h4>
           {{# each data.tour.categories}}
             <span class="check_avalability">{{name}}</span>
             {{/each}}
           </div>
         </div>
         <div id="listing_description">
-          <h4 class="panel-title-description">Descripción</h4>
+          <h4 class="panel-title-description">Descripción del Tour</h4>
             <div class="panel-body" style="max-height : 100%;">
-             {{{data.tour.description.extended}}}
+             {{{data.tour.description.short}}}
             </div>
           </div>
         <div id="view_more_desc">View more</div>
