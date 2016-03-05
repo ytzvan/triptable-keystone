@@ -12,10 +12,10 @@
           </div>
           <div class="theme-slider-price">
             <div class="price-slider-wrapper">
-              <span class="price-slider">$ 159 </span>/night
+              <span class="price-slider">$ 90 </span>/persona
             </div>        
           </div>
-          <a class="theme-slider-view" href="#">View more</a>
+          <a class="theme-slider-view" href="#">Ver Tour</a>
         </div> 
       </div>  
       <div class="slider-content-cover"></div>  
@@ -32,10 +32,10 @@
         </div>
         <div class="theme-slider-price">
           <div class="price-slider-wrapper">
-            <span class="price-slider">$ 65 </span>/night
+            <span class="price-slider">$ 65 </span>/persona
           </div>        
         </div>
-        <a class="theme-slider-view" href="http://wprentals.org/properties/victorian-bed-breakfast/">View more</a>
+        <a class="theme-slider-view" href="http://wprentals.org/properties/victorian-bed-breakfast/">Ver Tour</a>
       </div> 
     </div>  
     <div class="slider-content-cover"></div>  
@@ -50,100 +50,38 @@
   <a id="carousel-control-theme-prev"  class="carousel-control-theme-prev" href="#estate-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
 </div>
 <div class="search_wrapper type2 advpos_themeslider" id="search_wrapper">
-  <div class="adv-2-header">Haz una Reserva</div>  
+  <div class="adv-2-header">Buscar Tours</div>  
   <div class="adv-2-wrapper"></div>  
   <div class="adv-search-2" id="adv-search-1" data-postid="1193">
     <form  method="get"  id="main_search" action="http://wprentals.org/advanced-search/" >
       <div class="col-md-12">
-        <div class="dropdown form-control">
-          <div data-toggle="dropdown" id="guest_no" class="filter_menu_trigger" data-value="all"> Servicios <span class="caret caret_filter"></span></div>           
+        <div class="dropdown form-control" id="myDropdown">
+          <div data-toggle="dropdown" id="guest_no" class="filter_menu_trigger" data-value="all"> Tours <span class="caret caret_filter"></span></div>           
           <input type="hidden" name="guest_no" id="guest_no_main" value="">
           <ul class="dropdown-menu filter_menu" id="guest_no_main_list" role="menu" aria-labelledby="guest_no">
-            <li role="presentation" data-value="0">Todos</li>
-            <li role="presentation" data-value="1">Cabello</li>
-            <li role="presentation" data-value="2">Unas</li>
-            <li role="presentation" data-value="3">Maquillaje</li>
-            <li role="presentation" data-value="4">4 guests</li>
-            <li role="presentation" data-value="5">5 guests</li>
-            <li role="presentation" data-value="6">6 guests</li>
-            <li role="presentation" data-value="7">7 guests</li>
-            <li role="presentation" data-value="8">8 guests</li>
-            <li role="presentation" data-value="9">9 guests</li>
-            <li role="presentation" data-value="10">10 guests</li>
-            <li role="presentation" data-value="11">11 guests</li
-            ><li role="presentation" data-value="12">12 guests</li>
-            <li role="presentation" data-value="13">13 guests</li>
-            <li role="presentation" data-value="14">14 guests</li>
+            <li role="presentation" onclick="search($(this).data('value'));" data-value="Panama">Tours en Panama</li>
+            <li role="presentation" onclick="search($(this).data('value'));" data-value="Chiriquí">Tours en Chiriquí</li>
+            <li role="presentation" onclick="search($(this).data('value'));" data-value="Bocas del Toro">Tours en Bocas del Toro</li>
+            <li role="presentation" onclick="search($(this).data('value'));" data-value="Azuero">Tours en Azuero</li>
           </ul>        
         </div>
       </div>
-    <div class="col-md-12 map_icon">        
-      <input type="text" id="search_location" class="form-control" name="search_location" placeholder="Area?" value="" >
-      <input type="hidden" id="advanced_city" class="form-control" name="advanced_city" data-value=""   value="" >
-      <input type="hidden" id="advanced_area" class="form-control" name="advanced_area"   data-value="" value="" >
-      <input type="hidden" id="advanced_country" class="form-control" name="advanced_country"   data-value="" value="" >
-    </div>
+      <script type="text/javascript">
+        function search(name){
+          console.log(name);
+          $("#guest_no").html("Tours en " + name);
+        }
+      </script>
     <div class="col-md-12 has_calendar calendar_icon">
       <input type="text" id="check_in"    class="form-control " name="check_in"  placeholder="Cuando" value="" >       
     </div>
-    <div class="col-md-12  has_calendar calendar_icon">
-      <input type="text" id="check_out"   disabled class="form-control" name="check_out" placeholder="Check Out" value="">
-    </div>
     <div class="col-md-12">
-      <input name="submit" type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" id="advanced_submit_2" value="Search">
-    </div>
-    <div id="results">
-      We found  <span id="results_no">0</span> results.  
-      <span id="showinpage"> Show the results now ? </span>
+      <input name="submit" type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" id="advanced_submit_2" value="Reservar">
     </div>
   </form>   
 </div>
 </div>
-</div>
-<div id="adv-search-header-mobile">Advanced Search </div>   
-<div class="adv-search-mobile"  id="adv-search-mobile"> 
-  <form method="get"  id="form-search-mobile" action="http://wprentals.org/advanced-search/" >
-    <div class="col-md-4 map_icon">        
-      <input type="text" id="search_location_mobile"      class="form-control" name="search_location" placeholder="Where are you going?" value="" >              
-      <input type="hidden" id="advanced_city_mobile"      class="form-control" name="advanced_city" data-value=""   value="" >
-      <input type="hidden" id="advanced_area_mobile"      class="form-control" name="advanced_area"   data-value="" value="" >
-      <input type="hidden" id="advanced_country_mobile"   class="form-control" name="advanced_country"   data-value="" value="" >
-    </div>
-    <div class="col-md-2 has_calendar calendar_icon">
-      <input type="text" id="check_in_mobile"    class="form-control " name="check_in"  placeholder="Check in" value="" >
-    </div>
-    <div class="col-md-2  has_calendar calendar_icon">
-      <input type="text" id="check_out_mobile" disabled  class="form-control" name="check_out" placeholder="Check Out" value="">
-    </div>
-    <div class="col-md-2">
-    <div class="dropdown form-control guest_form">
-      <div data-toggle="dropdown" id="guest_no_mobile" class="filter_menu_trigger" data-value="all"> Guests <span class="caret caret_filter"></span>
-    </div>           
-    <input type="hidden" name="guest_no" id="guest_no_main_mobile" value="">
-    <ul  class="dropdown-menu filter_menu"  id="guest_no_main_list_mobile" role="menu" aria-labelledby="guest_no_mobile">
-      <li role="presentation" data-value="0">any</li>
-      <li role="presentation" data-value="1">1 guest</li>
-      <li role="presentation" data-value="2">2 guests</li>
-      <li role="presentation" data-value="3">3 guests</li>
-      <li role="presentation" data-value="4">4 guests</li>
-      <li role="presentation" data-value="5">5 guests</li>
-      <li role="presentation" data-value="6">6 guests</li>
-      <li role="presentation" data-value="7">7 guests</li>
-      <li role="presentation" data-value="8">8 guests</li>
-      <li role="presentation" data-value="9">9 guests</li>
-      <li role="presentation" data-value="10">10 guests</li>
-      <li role="presentation" data-value="11">11 guests</li>
-      <li role="presentation" data-value="12">12 guests</li>
-      <li role="presentation" data-value="13">13 guests</li>
-      <li role="presentation" data-value="14">14 guests</li>
-    </ul>        
-  </div>
-</div>
-<div class="col-md-2">
-  <input name="submit" type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" id="advanced_submit_2_mobile" value="Search">
-</div>
-</form>   
-</div>       
+</div>   
 <div class="content_wrapper row ">            
   <div id="post" class="row  post-1193 page type-page status-publish hentry">
     <div class="col-md-12 breadcrumb_container"></div>

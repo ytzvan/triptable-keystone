@@ -10,12 +10,12 @@
       <div class=" bottom-estate_property nobutton ">
         <div class="items_shortcode_wrapper">  
           {{# each data.tours.results}}
-          <div class="listing_wrapper col-md-4 shortcode-col property_unit_v2 property_flex " data-listid="115"> 
+          <div class="listing_wrapper col-md-3 shortcode-col property_unit_v2 property_flex " data-listid="115"> 
             <div class="property_listing " data-link="/tour/{{slug}}">
               <div class="listing-unit-img-wrapper">
                 <a href="/tour/{{slug}}">
-                <div id="img-container"style="position: relative; height: 285px;">
-                    <div style="background-image: url({{images.0.url}}); background-color: transparent; background-size: cover; background-position: center; height: 100%; width: 383px;">
+                <div id="img-container"style="position: relative; height: 225px;">
+                    <div style="background-image: url({{images.0.url}}); background-color: transparent; background-size: cover; background-position: center; height: 100%; width: auto;">
                     </div> 
                     </div> 
                 </a> 
@@ -31,11 +31,7 @@
                     {{name}}</a>
                   <div class="category_tagline">
                     <img src="http://wprentals.org/wp-content/themes/wprentals/img/unit_pin.png" alt="location">
-                    <a href="http://wprentals.org/area/mattapan/" rel="tag">Mattapan</a>, <a href="/tour/{{slug}}" rel="tag">Boston</a>
-                  </div>
-                  <div class="category_tagline">
-                    <img src="http://wprentals.org/wp-content/themes/wprentals/img/unit_category.png" alt="location">
-                    <a href="/tour/{{slug}}" rel="tag">sdsd</a>
+                    <a href="http://wprentals.org/area/mattapan/" rel="tag">{{location.city}}</a>, <a href="/tour/{{slug}}" rel="tag">{{location.country}}</a>
                   </div>
                   </div>
                   <div class="property_unit_action">

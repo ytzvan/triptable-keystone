@@ -26,7 +26,7 @@ exports = module.exports = function(req, res) {
 			})
 			.where('state', 'published')
 			.sort('-publishedDate')
-			.populate('owner categories');
+			.populate('owner categories location');
 		
 		if (locals.data.category) {
 			q.where('categories').in([locals.data.category]);
