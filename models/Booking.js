@@ -7,25 +7,23 @@ var Types = keystone.Field.Types;
  */
 
 var Booking = new keystone.List('Booking', {
-	nocreate: true,
-	noedit: true
 });
 
 Booking.add({
-	name: { type: Types.Name, required: true },
-	email: { type: Types.Email, required: true },
-	phone: { type: String },
-	enquiryType: { type: Types.Select, options: [
-		{ value: 'message', label: 'Just leaving a message' },
-		{ value: 'question', label: 'I\'ve got a question' },
-		{ value: 'other', label: 'Something else...' }
-	] },
-	message: { type: Types.Markdown, required: true },
-	createdAt: { type: Date, default: Date.now }
+	bookingID: { type: String, noedit: true },
+	email: { type: String },
+	tour: { type: String },
+	price: {type: Number},
+	date: { type: Date, default: Date.now },
+	people: { type: Number},
+	isConfirmed : {type: Boolean, default: false},
+	isPay : {type: Boolean, default: false},
+
 });
 
 Booking.schema.pre('save', function(next) {
 	this.wasNew = this.isNew;
+	this.bookingID = this.id;
 	next();
 });
 
@@ -41,23 +39,23 @@ Booking.schema.methods.sendNotificationEmail = function(callback) {
 		callback = function() {};
 	}
 	
-	var enquiry = this;
+	var booking = this;
 	
-	keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
+//	keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
 		
-		if (err) return callback(err);
-		
-		new keystone.Email('enquiry-notification').send({
-			to: admins,
+		if (err) return callback(console.log(err));
+		console.log("ready to send mail");
+		new keystone.Email('booking-notification').send({
+			to: 'mastino14@gmail.com',
 			from: {
 				name: 'Triptable',
-				email: 'contact@triptable.com'
+				email: 'y@triptableapp.com'
 			},
 			subject: 'New Enquiry for Triptable',
-			enquiry: enquiry
+			enquiry: booking
 		}, callback);
 		
-	});
+//	});
 	
 };
 

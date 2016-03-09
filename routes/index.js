@@ -20,5 +20,6 @@ exports = module.exports = function(app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.all('/contact', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
+	app.post('/booking', routes.views.booking);
 	
 };

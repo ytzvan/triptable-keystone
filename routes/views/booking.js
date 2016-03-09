@@ -8,20 +8,19 @@ exports = module.exports = function(req, res) {
 	
 	// Set locals
 	locals.section = 'booking';
-	locals.bookingTypes = Booking.fields.enquiryType.ops;
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
-	locals.enquirySubmitted = false;
-	
+	locals.bookingSubmitted = false;
+
 	// On POST requests, add the Booking item to the database
-	view.on('post', { action: 'contact' }, function(next) {
+	view.on('post', { action: 'booking' }, function(next) {
 		
 		var newBooking = new Booking.model(),
 			updater = newBooking.getUpdateHandler(req);
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, bookingType, message',
+			fields: 'date, people',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err) {
 			if (err) {

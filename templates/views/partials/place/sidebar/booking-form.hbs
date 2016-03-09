@@ -5,8 +5,8 @@ $(function() {
   });
   
 </script>
-<div class="booking_form_request col-md-4" id="booking_form_request">
-        <div id="booking_form_request_mess"></div>
+<form method="post" action="/booking">
+  <div class="booking_form_request col-md-4" id="booking_form_request">
         <h3 >Reserva Ahora</h3>
         <div class="has_calendar calendar_icon">
           <input type="text" id="datepicker" placeholder="Fecha de Salida" class="form-control calendar_icon" size="40" name="date" value="">
@@ -18,7 +18,7 @@ $(function() {
         <option value="four">Personas: 4</option>
         <option value="five">Personas: 5</option>
         </select>
-
+        <input type="hidden" name="people" value="5">
         <!--<div class=" has_calendar guest_icon ">
           <div class="dropdown form-control">
             <div data-toggle="dropdown" id="booking_guest_no_wrapper" class="filter_menu_trigger" data-value="all">Guests 
@@ -44,15 +44,13 @@ $(function() {
             </ul>        
           </div> 
         </div> -->
-
-        <p class="full_form " id="add_costs_here"></p>            
-        <input type="hidden" id="listing_edit" name="listing_edit" value="137" />
+       
         <div class="submit_booking_front_wrapper">
           <input type="submit" id="submit_booking_front" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" value="Book Now" />
-          <input type="hidden" id="security-register-booking_front" name="security-register-booking_front" value="54aad31468" />
-          <input type="hidden" name="_wp_http_referer" value="/properties/huge-sunny-villa-east-side/" />
+    
         </div>
-        <div class="third-form-wrapper">
+       
+          <!--div class="third-form-wrapper">
           <div class="col-md-6 reservation_buttons">
             <div id="add_favorites" class=" isnotfavorite" data-postid="137">Add to Favorites</div>                 
           </div>
@@ -60,11 +58,12 @@ $(function() {
             <div id="contact_host" class="col-md-6"  data-postid="137">Contact Owner</div>  
           </div>
         </div>
-        <div class="prop_social">
+       <div class="prop_social">
           <span class="prop_social_share">Share</span>
           <a href="http://www.facebook.com/sharer.php?u=http://wprentals.org/properties/huge-sunny-villa-east-side/&amp;t=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_facebook"><i class="fa fa-facebook fa-2"></i></a>
           <a href="http://twitter.com/home?status=Huge+Sunny+Villa+%26%238211%3B+East+Side+http%3A%2F%2Fwprentals.org%2Fproperties%2Fhuge-sunny-villa-east-side%2F" class="share_tweet" target="_blank"><i class="fa fa-twitter fa-2"></i></a>
           <a href="https://plus.google.com/share?url=http://wprentals.org/properties/huge-sunny-villa-east-side/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="share_google"><i class="fa fa-google-plus fa-2"></i></a> 
           <a href="http://pinterest.com/pin/create/button/?url=http://wprentals.org/properties/huge-sunny-villa-east-side/&amp;media=http://wprentals.org/wp-content/uploads/2015/04/demo38-1920x790.jpg&amp;description=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_pinterest"> <i class="fa fa-pinterest fa-2"></i></a>      
-        </div>             
+        </div>      -->       
       </div>
+       </form>
