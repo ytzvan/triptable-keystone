@@ -9,7 +9,6 @@
     "express-handlebars": "^1.1.0",
     "gulp-less": "^3.0.5",
     "handlebars": "^2.0.0",
-    // "keystone": "^0.3.14",
     "moment": "^2.10.6",
     "underscore": "^1.8.3"
   },
