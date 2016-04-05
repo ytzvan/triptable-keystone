@@ -32,17 +32,20 @@ Tour.add({
 	transportation: {type: Types.Boolean, default: true },
 	hotelPickup: {type: Types.Boolean, default: true },
 	food: {type: Types.Boolean, default: false },
+	featured: {type: Types.Boolean, default: false },
 	insurance: {type: Types.Boolean, default: false },
 	latitude: {type: String },
 	longitude: {type: String },
-	location: { type: Types.Relationship, ref: 'Location', index: true },
+	country: { type: Types.Relationship, ref: 'Country' },
+	province : { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
+	city : { type: Types.Relationship, ref: 'City', filters: { province: ':province' } },
 
 });
 
 Tour.schema.virtual('content.full').get(function() {
 	return this.description.extended || this.description.short;
 });
-
+Tour.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'tour' });
 Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;

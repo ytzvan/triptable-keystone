@@ -9,9 +9,34 @@ exports = module.exports = function(req, res) {
 	// Set locals
 	locals.section = 'contact';
 	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
-	locals.formData = req.body || {};
+	locals.formData = req.query || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
+	locals.data = {
+		tour: []
+	};
+	var tourId =  req.params.tourId;
+	
+
+	console.log("tourId", tourId);
+	console.log("Formdata", locals.formData);
+
+	view.on('init', function(next) {
+		
+		var q = keystone.list('Tour').model.findOne({
+			state: 'published',
+			tourId: tourId
+		}).populate('owner location');
+		
+		q.exec(function(err, result) {
+			if (err) {
+				console.log(err)
+			} else {
+				locals.data.tour = result;
+				next(err);
+			}
+		});
+	});
 	
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', { action: 'contact' }, function(next) {
@@ -21,7 +46,7 @@ exports = module.exports = function(req, res) {
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, enquiryType, message',
+			fields: 'name, email, phone, enquiryType, tour, message, hotel',
 			errorMessage: 'There was a problem submitting your enquiry:'
 		}, function(err) {
 			if (err) {

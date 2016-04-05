@@ -25,7 +25,24 @@ exports.initLocals = function(req, res, next) {
 /**
 	Fetches and clears the flashMessages before a view is rendered
 */
-
+exports.initErrorHandlers = function(req, res, next) {
+    
+    res.err = function(err, title, message) {
+        res.status(500).render('errors/500', {
+            err: err,
+            errorTitle: title,
+            errorMsg: message
+        });
+    }
+    
+    res.notfound = function() {
+        res.status(404).render('errors/404');
+    }
+    
+    next();
+    
+};
+ 
 exports.flashMessages = function(req, res, next) {
 	
 	var flashMessages = {

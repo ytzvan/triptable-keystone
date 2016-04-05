@@ -6,9 +6,14 @@ var importRoutes = keystone.importer(__dirname);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
+keystone.set('404', function(req, res, next) {
+    res.notfound();
+});
+
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views')
+	views: importRoutes('./views'),
+	search: importRoutes('./search')
 };
 
 // Setup Route Bindings
@@ -18,8 +23,10 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	app.all('/contact', routes.views.contact);
+	app.all('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
-	app.post('/booking', routes.views.booking);
+	app.get('/:country', routes.search.country);
+	app.get('/:country/:province', routes.search.province);
+	app.get('/:country/:province/:city', routes.search.city);
 	
 };

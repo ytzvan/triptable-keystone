@@ -1,40 +1,14 @@
 <!-- property price   -->   
-      {{#if data.place.hair}}
-      <div class="panel-wrapper" id="listing_price">
-        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseOne">
-        <span class="panel-title-arrow"></span>Cabello</a>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body panel-body-border">
-           {{# each data.place.hairCatalog}}
-            <div class="listing_detail col-md-6"><span class="item_head">{{name}}:</span> $ {{price}} - {{duration}}</div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-      {{/if}}
-      {{#if data.place.nails}}
-       <div class="panel-wrapper" id="listing_price">
-        <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseOne">
-        <span class="panel-title-arrow"></span>Uñas</a>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body panel-body-border">
-           {{# each data.place.nailsCatalog}}
-            <div class="listing_detail col-md-6"><span class="item_head">{{name}}:</span> $ {{price}} - {{duration}}</div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-      {{/if}}
       <div class="panel-wrapper">
       <!-- property address   -->
         <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseTwo">  <span class="panel-title-arrow"></span>Lugar</a>    
         <div id="collapseTwo" class="panel-collapse collapse in">
           <div class="panel-body panel-body-border">
             <div class="listing_detail col-md-6">
-              <span class="item_head">Ciudad: </span><a href="#" rel="tag">{{data.tour.location.city}}</a>
+              <span class="item_head">Ciudad: </span><a href="#" rel="tag">{{data.tour.city.city}}</a>
             </div>
-            <div class="listing_detail col-md-6"><span class="item_head">País: </span><a href="#" rel="tag">{{data.tour.location.country}}</a></div>
-            <div class="listing_detail col-md-6"><span class="item_head">Estado:</span> {{data.tour.location.state}}
+            <div class="listing_detail col-md-6"><span class="item_head">País: </span><a href="#" rel="tag">{{data.tour.country.country}}</a></div>
+            <div class="listing_detail col-md-6"><span class="item_head">Provincia:</span> {{data.tour.province.province}}
           </div>
         </div>
       </div>

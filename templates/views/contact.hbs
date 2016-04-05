@@ -1,7 +1,7 @@
 <div class="container">
-	<h1>Contact Us</h1>
+	<h1 style="padding-right:10px;">Reservar</h1>
 </div>
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<div class="col-sm-8 col-md-6">
 			{{#if enquirySubmitted}}
@@ -41,4 +41,56 @@
 			{{/if}}
 		</div>
 	</div>
+</div> -->
+
+<div class="content_wrapper row ">
+	<div class="row">
+		<div class="col-md-12">
+		{{#if enquirySubmitted}}
+			<h3>Su solicitud de Reserva se ha enviado.</h3>
+			{{else}}
+			<div class="contact-wrapper">    
+            	<div class="col-md-8 contact_page_company_details">  
+					<div class="agent_contanct_form">
+	                    <div class="alert-box-contact-page error">
+	                        <div class="alert-message" id="alert-agent-contact"></div>
+	                    </div> 
+	                    <form method="post">
+							<input type="hidden" name="action" value="contact">
+                    	<p class="third-form {{#if validationErrors.name}}has-error{{/if}} ">
+                        	<input type="text" placeholder="Nombre" name="name.full"  size="40" class="form-control" value="{{formData.name}}">
+                   	 	</p>
+
+                    	<p class="third-form  ">
+                        	<input type="email" name="email" placeholder="Email" size="40" class="form-control" value="{{formData.email}}">
+                    	</p>
+
+                    	<p class="third-form last-third">
+                        	<input type="text" name="phone" placeholder="Telefono" class="form-control" value="{{formData.phone}}">
+                    	</p>
+                    	<p class="third-form last-third">
+                        	<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+                    	</p>
+
+                    	<p class="third-form last-third">
+                        	<input type="text" name="hotel" placeholder="Hotel" class="form-control" value="{{formData.hotel}}">
+                    	</p>
+
+						<textarea name="message" placeholder="Comentarios adicionales..." rows="4" class="form-control">{{formData.message}}</textarea>
+
+                    	<button type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button">Send</button>
+                    	</form>
+                    	{{/if}}
+					</div>
+            	</div>
+            	<div class="col-md-4">
+            		Tour: {{data.tour.name}} <br>
+            		Precio: USD${{data.tour.price}}
+            		<div class="col-md-12">
+            			<img class="img-responsive" src="{{data.tour.images.0.url}}" />
+            		</div>
+            	</div>
+            </div>    
+        </div>
+	</div>   
 </div>

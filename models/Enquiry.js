@@ -5,7 +5,7 @@ var Types = keystone.Field.Types;
  * Enquiry Model
  * =============
  */
-
+var Mailgun = require('machinepack-mailgun');
 var Enquiry = new keystone.List('Enquiry', {
 	nocreate: true,
 	noedit: true
@@ -15,6 +15,8 @@ Enquiry.add({
 	name: { type: Types.Name, required: true },
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
+	hotel: { type: String },
+	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	enquiryType: { type: Types.Select, options: [
 		{ value: 'message', label: 'Just leaving a message' },
 		{ value: 'question', label: 'I\'ve got a question' },
@@ -31,7 +33,7 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		this.sendNotificationEmail();
+		this.sendUserEmail(this);
 	}
 });
 
@@ -46,12 +48,11 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 	keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
 		
 		if (err) return callback(err);
-		
 		new keystone.Email('enquiry-notification').send({
 			to: admins,
 			from: {
 				name: 'Triptable',
-				email: 'contact@triptable.com'
+				email: 'y@triptableapp.com'
 			},
 			subject: 'New Enquiry for Triptable',
 			enquiry: enquiry
@@ -60,6 +61,31 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 	});
 	
 };
+
+Enquiry.schema.methods.sendUserEmail = function (obj) {
+	var email = obj.email;
+	var name = obj.name.first;
+		Mailgun.sendHtmlEmail({
+			apiKey: process.env.MAILGUN_APIKEY,
+			domain: process.env.MAILGUN_DOMAIN,
+			toEmail: email,
+			toName: name,
+			subject: 'Welcome, ' + name,
+			textMessage: 'Jane,\nThanks for joining our community. If you have any questions, please don\'t hesitate to send them our way. Feel free to reply to this email directly.\n\nSincerely,\nThe Management',
+			htmlMessage: 'Jane,\nThanks for joining our community. If you have any questions, please don\'t hesitate to send them our way. Feel free to reply to this email directly.\n\nSincerely,\nThe Management',
+			fromEmail: 'bookings@triptableapp.com',
+			fromName: 'Hello from triptable',
+		}).exec({
+		// An unexpected error occurred.
+		error: function (err){
+		 	console.log("err", err);
+		},
+		// OK.
+		success: function (){
+		 console.log("sucess");
+		},
+	});
+}
 
 Enquiry.defaultSort = '-createdAt';
 Enquiry.defaultColumns = 'name, email, enquiryType, createdAt';

@@ -10,6 +10,7 @@
     "gulp-less": "^3.0.5",
     "handlebars": "^2.0.0",
     "keystone": "^0.3.14",
+    "machinepack-mailgun": "^0.5.0",
     "moment": "^2.10.6",
     "underscore": "^1.8.3"
   },

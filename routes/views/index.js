@@ -13,7 +13,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		tours: [],
-		categories: []
+		categories: [],
+		provinces: []
 	};
 	
 	// Load the places
@@ -36,6 +37,20 @@ exports = module.exports = function(req, res) {
 			locals.data.tours = results;
 			console.log(locals.data.tours);
 			next(err);
+		});
+		
+	});
+
+	view.on('init', function(next) {
+		
+		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.provinces = results;
+			return next();
+			
 		});
 		
 	});

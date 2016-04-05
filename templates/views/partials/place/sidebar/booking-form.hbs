@@ -5,20 +5,24 @@ $(function() {
   });
   
 </script>
-<form method="post" action="/booking">
+<form method="get" action="/contact/{{data.tour.tourId}}">
   <div class="booking_form_request col-md-4" id="booking_form_request">
         <h3 >Reserva Ahora</h3>
         <div class="has_calendar calendar_icon">
           <input type="text" id="datepicker" placeholder="Fecha de Salida" class="form-control calendar_icon" size="40" name="date" value="">
         </div>
-
-        <select class="dropdown form-control" class="dropdown-menu filter_menu">
-        <option value="two">Personas: 2</option>
-        <option value="three">Personas: 3</option>
-        <option value="four">Personas: 4</option>
-        <option value="five">Personas: 5</option>
+        <p class="third-form" style="padding:0;">
+          <input type="text" placeholder="E-mail" name="email"  size="40" class="form-control" value="">
+        </p>
+        <select id="people-select" class="dropdown form-control" class="dropdown-menu filter_menu" >
+        <option value="1">Personas: 1</option>
+        <option value="2">Personas: 2</option>
+        <option value="3">Personas: 3</option>
+        <option value="4">Personas: 4</option>
+        <option value="5">Personas: 5</option>
         </select>
         <input type="hidden" name="people" value="5">
+      
         <!--<div class=" has_calendar guest_icon ">
           <div class="dropdown form-control">
             <div data-toggle="dropdown" id="booking_guest_no_wrapper" class="filter_menu_trigger" data-value="all">Guests 
