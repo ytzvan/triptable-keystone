@@ -20,27 +20,29 @@ $(function() {
   <div class="booking_form_request col-md-4" id="booking_form_request">
         <h3 >Reserva Ahora</h3>
         <div class="has_calendar calendar_icon">
-          <input type='text' name="date" placeholder="Fecha de Salida" class="form-control" id='datetimepicker4' />
+          <input type='text' name="date" placeholder="Fecha" class="form-control" id='datetimepicker4' />
         </div>
           <script type="text/javascript">
              $(function () {
               var nowDate = new Date();
               var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
 
-              $('#datetimepicker4').datetimepicker();
+              $('#datetimepicker4').datetimepicker({
+                minDate: today,
+              });
             });        
           </script>
         <p class="third-form" style="padding:0;">
           <input type="text" placeholder="E-mail" name="email"  size="40" class="form-control" value="">
         </p>
-        <select id="people-select" class="dropdown form-control" class="dropdown-menu filter_menu" >
+        <select id="sel1" class="dropdown form-control" name="people" class="dropdown-menu filter_menu" >
         <option value="1">Personas: 1</option>
         <option value="2">Personas: 2</option>
         <option value="3">Personas: 3</option>
         <option value="4">Personas: 4</option>
         <option value="5">Personas: 5</option>
         </select>
-        <input type="hidden" name="people" value="5">
+        
       
         <!--<div class=" has_calendar guest_icon ">
           <div class="dropdown form-control">
