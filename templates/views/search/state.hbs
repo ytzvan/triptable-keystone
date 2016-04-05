@@ -1,4 +1,56 @@
-<h1>Province {{data.state}}</h1>
-states: {{data.states}}
-cities: {{data.cities}}
-tours: {{data.tours}}
+<div class="header_media">
+<div class="listing_main_image" id="listing_main_image_photo" style="background-image: url({{data.province.image.url}});height:315px;"><h1 class="entry-title entry-tax">{{data.province.province}}</h1><div class="tax_tagline">{{data.province.description}}</div><div class="img-overlay"></div></div>
+   
+</div>
+
+<div class="container" style="padding:30px;">
+	<div class="row">
+	<h1 style="padding:20px 20px;">Destinos en {{data.province.province}}</h1>
+	{{# each data.cities}}
+        <div class="col-md-4 portofolio-item">
+            <div class="module mid" style="background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url({{image.url}});background-size: cover;background-position: 50%;">
+			  <h2>{{city}}</h2>
+			</div>
+		</div>
+	{{/each}}	
+    </div>
+</div>
+
+<div class="container" style="padding:30px;">
+	<div class="row">
+	<h1 style="padding:20px 20px;">Tours en {{data.country.country}}</h1>
+	{{# each data.tours}}
+        <div class="col-md-4 portfolio-item">
+                <a href="/tour/{{slug}}">
+                    <img class="img-responsive" src="{{images.0.url}}" alt="">
+                </a>
+                <h3 style="padding-top:10px;margin-bottom:0;">
+                    <a href="#">{{name}}</a>
+                </h3>
+                {{{description.short}}}
+        </div>
+    {{/each}}    
+	</div>
+</div>
+
+<style>
+	.module {
+  
+  width: 100%;
+  height: 250px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.mid h2 {
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+</style>

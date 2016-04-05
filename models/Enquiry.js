@@ -70,11 +70,11 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 			domain: process.env.MAILGUN_DOMAIN,
 			toEmail: email,
 			toName: name,
-			subject: 'Welcome, ' + name,
-			textMessage: 'Jane,\nThanks for joining our community. If you have any questions, please don\'t hesitate to send them our way. Feel free to reply to this email directly.\n\nSincerely,\nThe Management',
-			htmlMessage: 'Jane,\nThanks for joining our community. If you have any questions, please don\'t hesitate to send them our way. Feel free to reply to this email directly.\n\nSincerely,\nThe Management',
-			fromEmail: 'bookings@triptableapp.com',
-			fromName: 'Hello from triptable',
+			subject: 'Tu reserva de Triptable',
+			textMessage: 'Hola ' + name+', Gracias por preferir Triptable. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
+			htmlMessage: name+', Gracias por preferir Triptable. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
+			fromEmail: 'hello@triptableapp.com',
+			fromName: 'Triptable Bookings',
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
