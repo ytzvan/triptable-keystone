@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
 <script type="text/javascript">
 $(function() {
     $( "#datepicker" ).datepicker();
@@ -5,12 +6,30 @@ $(function() {
   });
   
 </script>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+               
+            </div>
+        </div>
+        
+    </div>
+</div>
 <form method="get" action="/contact/{{data.tour.tourId}}">
   <div class="booking_form_request col-md-4" id="booking_form_request">
         <h3 >Reserva Ahora</h3>
         <div class="has_calendar calendar_icon">
-          <input type="text" id="datepicker" placeholder="Fecha de Salida" class="form-control calendar_icon" size="40" name="date" value="">
+          <input type='text' name="date" placeholder="Fecha de Salida" class="form-control" id='datetimepicker4' />
         </div>
+          <script type="text/javascript">
+             $(function () {
+              var nowDate = new Date();
+              var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
+
+              $('#datetimepicker4').datetimepicker();
+            });        
+          </script>
         <p class="third-form" style="padding:0;">
           <input type="text" placeholder="E-mail" name="email"  size="40" class="form-control" value="">
         </p>
@@ -64,10 +83,10 @@ $(function() {
         </div>
        <div class="prop_social">
           <span class="prop_social_share">Share</span>
-          <a href="http://www.facebook.com/sharer.php?u=http://wprentals.org/properties/huge-sunny-villa-east-side/&amp;t=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_facebook"><i class="fa fa-facebook fa-2"></i></a>
+          <a href="http://www.facebook.com/sharer.php?u=http://triptableapp.com/properties/huge-sunny-villa-east-side/&amp;t=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_facebook"><i class="fa fa-facebook fa-2"></i></a>
           <a href="http://twitter.com/home?status=Huge+Sunny+Villa+%26%238211%3B+East+Side+http%3A%2F%2Fwprentals.org%2Fproperties%2Fhuge-sunny-villa-east-side%2F" class="share_tweet" target="_blank"><i class="fa fa-twitter fa-2"></i></a>
-          <a href="https://plus.google.com/share?url=http://wprentals.org/properties/huge-sunny-villa-east-side/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="share_google"><i class="fa fa-google-plus fa-2"></i></a> 
-          <a href="http://pinterest.com/pin/create/button/?url=http://wprentals.org/properties/huge-sunny-villa-east-side/&amp;media=http://wprentals.org/wp-content/uploads/2015/04/demo38-1920x790.jpg&amp;description=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_pinterest"> <i class="fa fa-pinterest fa-2"></i></a>      
+          <a href="https://plus.google.com/share?url=http://triptableapp.com/properties/huge-sunny-villa-east-side/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="share_google"><i class="fa fa-google-plus fa-2"></i></a> 
+          <a href="http://pinterest.com/pin/create/button/?url=http://triptableapp.com/properties/huge-sunny-villa-east-side/&amp;media=http://triptableapp.com/wp-content/uploads/2015/04/demo38-1920x790.jpg&amp;description=Huge+Sunny+Villa+%26%238211%3B+East+Side" target="_blank" class="share_pinterest"> <i class="fa fa-pinterest fa-2"></i></a>      
         </div>      -->       
       </div>
        </form>
