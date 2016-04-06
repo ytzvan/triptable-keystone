@@ -26,8 +26,9 @@ exports = module.exports = function(req, res) {
 				maxPages: 10
 			})
 			.where('state', 'published')
+			.where('featured', true)
 			.sort('-publishedDate')
-			.populate('owner categories location');
+			.populate('owner categories country province city');
 		
 		if (locals.data.category) {
 			q.where('categories').in([locals.data.category]);

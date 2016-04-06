@@ -78,8 +78,6 @@ input[placeholder], [placeholder], *[placeholder] {
                     	<p class=" col-lg-4">Teléfono
                         	<input type="text" name="phone" placeholder="Ej: +507 6789-2398" class="form-control" value="{{formData.phone}}">
                     	</p>
-                    
-                        	<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
 
                     	<p class="col-lg-4">Hotel 
                         	<input type="text" name="hotel" placeholder="Lugar de recogida" class="form-control" value="{{formData.hotel}}">
@@ -87,6 +85,9 @@ input[placeholder], [placeholder], *[placeholder] {
 						<p class="col-lg-8">Comentarios adicionales
 						<textarea name="message" placeholder="Ej: Si es vegetariano o necesita atenciones adicionales" rows="4" class="form-control ">{{formData.message}}</textarea>
 						</p>
+						<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+
+						<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
 						
 						<p class="col-lg-12">
                     	<button type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button">Solicitar Reserva</button>
