@@ -73,8 +73,28 @@ input[placeholder], [placeholder], *[placeholder] {
                         	<input type="number" name="people" placeholder="Telefono" class="form-control" value="{{formData.people}}">
                     	</p>
                     	<p class=" col-lg-4">Fecha
-                        	<input type="datetime"  readonly name="date" placeholder="Fecha" class="form-control" value="{{formData.date}}">
+                        	<input type="date" name="date" id="date" placeholder="Fecha" class="form-control" value="">
                     	</p>
+                    	 <script type="text/javascript">
+				             $(function () {
+				              var today = new Date();
+								var dd = today.getDate();
+								var mm = today.getMonth()+1; //January is 0!
+								var yyyy = today.getFullYear();
+
+								if(dd<10) {
+								    dd='0'+dd
+								} 
+
+								if(mm<10) {
+								    mm='0'+mm
+								} 
+
+								today = yyyy+'-'+mm+'-'+dd;
+
+				              $('#date').attr("min", today);
+				            });        
+				          </script>
                     	<p class=" col-lg-4">Teléfono
                         	<input type="text" name="phone" placeholder="Ej: +507 6789-2398" class="form-control" value="{{formData.phone}}">
                     	</p>
@@ -86,7 +106,8 @@ input[placeholder], [placeholder], *[placeholder] {
 						<textarea name="message" placeholder="Ej: Si es vegetariano o necesita atenciones adicionales" rows="4" class="form-control ">{{formData.message}}</textarea>
 						</p>
 						<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
-
+						<input type="hidden" name="tourPrice" placeholder="TourID" class="form-control" value="{{data.tour.price}}">
+{{data.tour.price}}
 						<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
 						
 						<p class="col-lg-12">

@@ -7,23 +7,25 @@ var Types = keystone.Field.Types;
  */
 var Mailgun = require('machinepack-mailgun');
 var Enquiry = new keystone.List('Enquiry', {
-	nocreate: true,
-	noedit: true
+	nocreate: true
 });
 
 Enquiry.add({
 	name: { type: Types.Name, required: true },
-	email: { type: Types.Email, required: true },
+	email: { type: Types.Email, required: true, displayGravatar: true },
 	phone: { type: String },
 	hotel: { type: String },
+	people : {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
-	enquiryType: { type: Types.Select, options: [
-		{ value: 'message', label: 'Just leaving a message' },
-		{ value: 'question', label: 'I\'ve got a question' },
-		{ value: 'other', label: 'Something else...' }
-	] },
+	date: { type: Types.Date },
+	bookingStatus: { type: Types.Select, options: [
+		{ value: 'pending', label: 'Pending' },
+		{ value: 'confirmed', label: 'Confirmed' },
+		{ value: 'declined', label: 'Declined' }
+	], default: 'pending' },
 	operatorEmail:{ type: String },
-	message: { type: Types.Markdown, required: true },
+	message: { type: Types.Textarea},
+	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now }
 });
 
@@ -35,7 +37,7 @@ Enquiry.schema.pre('save', function(next) {
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		//this.sendUserEmail(this); //Send User email
-		this.sendOperatorEmail(this);
+		//this.sendOperatorEmail(this); // Send OP email
 	}
 });
 
@@ -115,5 +117,5 @@ Enquiry.schema.methods.sendOperatorEmail = function (obj) {
 	});
 }
 Enquiry.defaultSort = '-createdAt';
-Enquiry.defaultColumns = 'name, email, enquiryType, createdAt';
+Enquiry.defaultColumns = 'name, email, bookingStatus, tour, date';
 Enquiry.register();

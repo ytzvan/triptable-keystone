@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
 	
 	// Set locals
 	locals.section = 'contact';
-	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
+	locals.bookingStatus = Enquiry.fields.bookingStatus.ops;
 	locals.formData = req.query || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
@@ -46,8 +46,8 @@ exports = module.exports = function(req, res) {
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, enquiryType, tour, message, hotel, operatorEmail',
-			errorMessage: 'There was a problem submitting your enquiry:'
+			fields: 'name, email, phone, people, date, bookingStatus, tour, message, hotel, operatorEmail, tourPrice',
+			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err) {
 			if (err) {
 				locals.validationErrors = err.errors;

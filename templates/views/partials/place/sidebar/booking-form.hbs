@@ -19,9 +19,9 @@ $(function() {
 <form method="get" action="/contact/{{data.tour.tourId}}">
   <div class="booking_form_request col-md-4" id="booking_form_request">
         <h3 >Reserva Ahora</h3>
-        <div class="has_calendar calendar_icon">
+      {{!--   <div class="has_calendar calendar_icon">
           <input type='text' name="date" placeholder="Fecha" class="form-control" id='datetimepicker4' />
-        </div>
+        </div> --}}
           <script type="text/javascript">
              $(function () {
               var nowDate = new Date();
@@ -29,6 +29,7 @@ $(function() {
 
               $('#datetimepicker4').datetimepicker({
                 minDate: today,
+                format: 'MM/DD/YYYY'
               });
             });        
           </script>
