@@ -6,7 +6,7 @@ var cloudinary = require('cloudinary');
 
 
 // Declare Constants
-var CLOUDINARY_HOST = 'http://res.cloudinary.com';
+var CLOUDINARY_HOST = 'https://res.cloudinary.com';
 
 // Collection of templates to interpolate
 var linkTemplate = _.template('<a href="<%= url %>"><%= text %></a>');
@@ -190,6 +190,7 @@ module.exports = function() {
 		// if we dont pass in a context and just kwargs
 		// then `this` refers to our default scope block and kwargs
 		// are stored in context.hash
+		
 		if (!options && context.hasOwnProperty('hash')) {
 			// strategy is to place context kwargs into options
 			options = context;
@@ -202,6 +203,7 @@ module.exports = function() {
 		
 		if ((context) && (context.public_id)) {
 			var imageName = context.public_id.concat('.',context.format);
+			
 			return cloudinary.url(imageName, options.hash);
 		}
 		else {

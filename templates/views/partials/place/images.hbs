@@ -5,7 +5,7 @@
         {{# each data.tour.images}}
       <div class="item col-md-4 image-thumb" data-src="{{secure_url}}">
         <div class="img_listings_overlay"></div>
-        <img src="{{secure_url}}" />
+        <img src="{{cloudinaryUrl height=200 secure=true}} " />
     </div>
      {{/each}}
  </div>
