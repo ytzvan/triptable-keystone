@@ -1,5 +1,5 @@
 <div class="header_media">
-<div class="listing_main_image" id="listing_main_image_photo" style="background-image: url({{data.province.image.url}});height:315px;"><h1 class="entry-title entry-tax">{{data.province.province}}</h1><div class="tax_tagline">{{data.province.description}}</div><div class="img-overlay"></div></div>
+<div class="listing_main_image" id="listing_main_image_photo" style="background-image: url({{data.province.image.secure_url}});height:315px;"><h1 class="entry-title entry-tax">{{data.province.province}}</h1><div class="tax_tagline">{{data.province.description}}</div><div class="img-overlay"></div></div>
    
 </div>
 
@@ -15,9 +15,46 @@
 	{{/each}}	
     </div>
 </div> -->
+<div class="container" style="padding:30px;">
+  <div class="row row-eq-height">
+    {{# each data.tours}}
+    <div class="listing_wrapper col-md-4 shortcode-col property_unit_v2 property_flex " data-listid="115"> 
+      <div class="property_listing " data-link="/tour/{{slug}}">
+        <div class="listing-unit-img-wrapper">
+          <a href="/tour/{{slug}}">
+            <div id="img-container" style="position: relative; height: 225px;" >
+                <div style="background-image: url({{images.0.secure_url}}); background-color: transparent; background-size: cover; background-position: center; height: 100%; width: auto;">
+                </div> 
+              </div> 
+          </a> 
+        </div>
+                 
+          <div class="title-container">
+            <div class="price_unit_wrapper">
+              <div class="price_unit">$ {{price}} </div> 
+            </div>
+            <a href="http://triptableapp.com/owners/janetdemo/" class="owner_thumb" style="background-image: url('/styles/framework/css/css-images/profile.jpg')"></a>
+              <div class="category_name">
+                <a href="/tour/{{slug}}" class="listing_title_unit">
+                    {{name}}
+                </a>
+                <div class="category_tagline">
+                    <img src="/styles/framework/css/css-images/unit_pin.png" alt="location">
+                    <a href="http://triptableapp.com/area/mattapan/" rel="tag">{{province.province}}</a>, <a href="/tour/{{slug}}" rel="tag">{{country.country}}</a>
+                </div>
+              </div>
+                <div class="property_unit_action">
+                  <span class="icon-fav icon-fav-off" data-original-title="add to favorites" data-postid="115"><i class="fa fa-heart"></i></span>
+                </div>
+                </div>
+              </div>          
+          </div>
+            {{/each}}
+  </div>
+</div>
 
 <div class="container" style="padding:30px;">
-	<div class="row">
+	<div class="row row-eq-height">
 	<h1 style="padding:20px 20px;">Tours en {{data.province.province}}</h1>
 	{{# each data.tours}}
         <div class="col-md-4 portfolio-item">
