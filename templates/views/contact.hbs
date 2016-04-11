@@ -107,8 +107,9 @@ input[placeholder], [placeholder], *[placeholder] {
 						</p>
 						<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
 						<input type="hidden" name="tourPrice" placeholder="TourID" class="form-control" value="{{data.tour.price}}">
-{{data.tour.price}}
+						
 						<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
+						<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
 						
 						<p class="col-lg-12">
                     	<button type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button">Solicitar Reserva</button>

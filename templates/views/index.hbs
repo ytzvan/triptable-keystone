@@ -1,113 +1,142 @@
-<div class="header_media">
-  <div class="theme_slider_wrapper theme_slider_wrapper_type2  carousel  slide" data-ride="carousel" data-interval="" id="estate-carousel"> 
-    <div class="carousel-inner">
-      <div class="item  active ">
-        <div class="slider-content-wrapper">  
-          <div class="slider-content">
-            <div class="slider-title">
-              <h2><a href="#">Tránsito por El Canal de Panamá</a></h2>
+ <!-- start Main Wrapper -->
+    <div class="main-wrapper">
+    
+      <!-- start hero-header with windows height -->
+      <div class="hero" style="background-image:url('images/hero-header/01.jpg');">
+        
+        <div class="container">
+        
+          <div class="row">
+          
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            
+              <h1 class="hero-title">Únicas Experiencias Locales</h1>
+              <p class="lead">Vista Latinoamérica con Triptable!</p>
+
             </div>
-          <div class="listing-desc-slider"> 
-            <span>Desde USD $90 por persona. Incluye traslados. </span>
+            
           </div>
-          <div class="theme-slider-price">
-            <div class="price-slider-wrapper">
-              <span class="price-slider">$ 90 </span>/persona
-            </div>        
+          
+          <div class="main-search-wrapper full-width">
+          
+            <div class="inner">
+            
+              <div class="column-item">
+              
+                <div class="form-group">
+                
+                  <select name="destination" class="select2-multi form-control" data-placeholder="Choose a Destination">
+                    <option value="">Escoje un Destino</option>
+                    <option value="0">Cualquier Destino</option>
+                    <option value="Albania">Ciudad de Panamá</option>
+                    <option value="Austria">Boquete</option>
+                    <option value="Belgium">Azuero</option>
+                    <option value="Belgium">El Valle de Antón</option>
+                  </select>
+
+                </div>
+              
+              </div>
+              
+              <div class="column-item">
+              
+                <div class="form-group">
+                
+                  <select name="month" class="select2-multi form-control" data-placeholder="Choose a Departure Month" multiple>
+                    <option value="">Elige una Categoría</option>
+                    <option value="0">Todas</option>
+                    <option value="1">Ciudad</option>
+                    <option value="2">Extremos</option>
+                    <option value="3">Ecoturismo</option>
+                    <option value="4">Playa</option>
+                  </select>
+                  
+                </div>
+              
+              </div>
+              
+              <div class="column-item">
+              
+                <div class="form-group">
+
+                  <select name="year" class="select2-multi form-control" data-placeholder="Choose a Departure Year" multiple>
+                    <option value="">Choose a Departure Year</option>
+                    <option value="0">Any Departure Year</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                  </select>
+                  
+                </div>
+              
+              </div>
+              
+              <div class="column-item for-btn">
+              
+                <div class="form-group">
+                
+                  <a href="#" class="btn btn-primary btn-block">Search</a>
+                  
+                </div>
+              
+              </div>
+              
+            </div>
+            
           </div>
-          <a class="theme-slider-view" href="#">Reservar</a>
-        </div> 
-      </div>  
-      <div class="slider-content-cover"></div>  
-      <a href="#"><img width="1920" height="790" src="https://res.cloudinary.com/triptable/image/upload/q_18/v1460056276/gu5rxj8udmnqnt3rm18j.jpg" alt="demo99" /></a>
-    </div>
-    <div class="item">
-      <div class="slider-content-wrapper">  
-        <div class="slider-content">
-          <div class="slider-title">
-            <h2><a href="#">Reserva Tours y Actividades</a></h2>
-          </div>
-        <div class="listing-desc-slider"> 
-          <span>En las mejores ciudades de Latinoamérica</span>
+        
         </div>
-        <div class="theme-slider-price">
-          <div class="price-slider-wrapper">
-            <span class="price-slider">$ 65 </span>/persona
-          </div>        
-        </div>
-        <a class="theme-slider-view" href="#">Explorar</a>
-      </div> 
-    </div>  
-    <div class="slider-content-cover"></div>  
-    <a href="#"><img width="1920" height="790" src="https://res.cloudinary.com/triptable/image/upload/q_23/v1460062866/biomuseo_pjhtwe.jpg" class="img-responsive wp-post-image" alt="demo11" /></a>
-    </div>
-  </div>
-  <ol class="carousel-indicators">
-    <li data-target="#estate-carousel" data-slide-to="0" class=" active "></li>
-    <li data-target="#estate-carousel" data-slide-to="1" class=" "></li>
-  </ol>
-  <a id="carousel-control-theme-next"  class="carousel-control-theme-next" href="#estate-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-  <a id="carousel-control-theme-prev"  class="carousel-control-theme-prev" href="#estate-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-</div>
-<div class="search_wrapper type2 advpos_themeslider" id="search_wrapper">
-  <div class="adv-2-header">Buscar Tours</div>  
-  <div class="adv-2-wrapper"></div>  
-  <div class="adv-search-2" id="adv-search-1" data-postid="1193">
-    <form  method="get"  id="main_search" action="#" >
-      <div class="col-md-12">
-        <div class="dropdown form-control" id="myDropdown">
-          <div data-toggle="dropdown" id="guest_no" class="filter_menu_trigger" data-value="all"> Tours <span class="caret caret_filter"></span></div>           
-          <input type="hidden" name="guest_no" id="guest_no_main" value="">
-          <ul class="dropdown-menu filter_menu" id="guest_no_main_list" role="menu" aria-labelledby="guest_no">
-            <li role="presentation" onclick="search($(this).data('value'));" data-value="Panama">Tours en Panama</li>
-            <li role="presentation" onclick="search($(this).data('value'));" data-value="Chiriquí">Tours en Chiriquí</li>
-            <li role="presentation" onclick="search($(this).data('value'));" data-value="Bocas del Toro">Tours en Bocas del Toro</li>
-            <li role="presentation" onclick="search($(this).data('value'));" data-value="Azuero">Tours en Azuero</li>
-          </ul>        
-        </div>
+        
       </div>
-      <script type="text/javascript">
-        function search(name){
-          console.log(name);
-          $("#guest_no").html("Tours en " + name);
-        }
-      </script>
-    <div class="col-md-12 has_calendar calendar_icon">
-      <input type="text" id="check_in"    class="form-control " name="check_in"  placeholder="Cuando" value="" >       
-    </div>
-    <div class="col-md-12">
-      <input name="submit" type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" id="advanced_submit_2" value="Reservar">
-    </div>
-  </form>   
-</div>
-</div>
-</div>   
-<div class="content_wrapper row ">            
-  <div id="post" class="row  post-1193 page type-page status-publish hentry">
-    <div class="col-md-12 breadcrumb_container"></div>
-  <div class=" col-md-12 ">     
-    <span class="entry-title listing_loader_title">Your search results</span>
-      <div class="loader-inner ball-pulse" id="internal-loader">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
+      <!-- end hero-header with windows height -->
+      <div class="post-hero bg-light">
+      
+        <div class="container">
+          
+          <div class="row">
+          
+            <div class="col-sm-4">
+              <div class="featured-count clearfix">
+                <div class="icon"><i class="pe-7s-map-marker"></i></div>
+                <div class="content">
+                  <h6>300+ Destinations</h6>
+                  <span>Tastes giving in passed direct me valley supply.</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-4">
+              <div class="featured-count clearfix">
+                <div class="icon"> <i class="pe-7s-user"></i></div>
+                <div class="content">
+                  <h6>500+ Travel Guides</h6>
+                  <span>Prepared do an dissuade whatever steepest.</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-4">
+              <div class="featured-count clearfix">
+                <div class="icon"> <i class="pe-7s-smile"></i></div>
+                <div class="content">
+                  <h6>20000+ Happy Customers</h6>
+                  <span>Devonshire invitation discovered indulgence.</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>   
+      </div>    
+ {{>home/destinations}}
+ {{>home/tours}}
+ {{>home/bookingWithUs}}
+ {{>home/testimonials}}
+ {{>home/newsletter}}
+  <div class="overflow-hidden">
+      <div class="instagram-wrapper">
+          <div id="instagram" class="instagram"></div>
+        </div>      
   </div>
-  <div id="listing_ajax_container"></div>        
-  <div class="single-content">
-  <!-- ultimos salones -->
-  {{>home/tours}}
-  {{>home/experiences2}}
-  <!-- {{>home/atractions}}  -->
-
-
 </div>
-</div>
-</div>
-
-<div class="vc_row-full-width"></div>
-</div>    
-</div>
-<!-- begin sidebar -->
-<div class="clearfix visible-xs"></div>
-</div>   
-</div>
-<!-- {{>home/call2action}} -->
+    <!-- end Main Wrapper -->

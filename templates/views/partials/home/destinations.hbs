@@ -1,0 +1,63 @@
+			<section>
+			
+				<div class="container">
+				
+					<div class="row">
+						
+						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							
+							<div class="section-title">
+							
+								<h3>Top Destinos</h3>
+								
+							</div>
+							
+						</div>
+					
+					</div>
+					
+					<div class="grid destination-grid-wrapper">
+					{{#each data.provinces}}
+						<div class="grid-item" id="grid-item" data-colspan="10" data-rowspan="4">
+							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url({{image.secure_url}});">
+								<div class="relative">
+									<h4>{{province}}</h4>
+									<span>Starting from $322</span>
+								</div>
+							</a>
+						</div>
+							
+					{{/each}}
+
+						{{!-- <div class="grid-item" data-colspan="10" data-rowspan="4">
+							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
+								<div class="relative">
+									<h4>Croatia</h4>
+									<span>Starting from $322</span>
+								</div>
+							</a>
+						</div>
+						
+						<div class="grid-item" data-colspan="5" data-rowspan="6">
+							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/03.jpg');">
+								<div class="relative">
+									<h4>USA</h4>
+									<span>Starting from $322</span>
+								</div>
+							</a>
+						</div>
+						
+						<div class="grid-item" data-colspan="5" data-rowspan="6">
+							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
+								<div class="relative">
+									<h4>Emirates</h4>
+									<span>Starting from $322</span>
+								</div>
+							</a>
+						</div> --}}
+						
+					</div>
+					
+				</div>
+
+			</section>

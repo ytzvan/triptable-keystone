@@ -1,18 +1,31 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var moment = require('moment');
+moment.locale('es', {
+    months : "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"),
+    monthsShort : "en._feb._mar_abr._mayo_jun_jul._ago_sept._oct._nov._dec.".split("_"),
+    weekdays : "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split("_"),
+    weekdaysShort : "dom._lun._mar._mier._jue._vie._sáb.".split("_"),
+    weekdaysMin : "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"),
+	});
+moment.locale('es');
 
 /**
  * Enquiry Model
  * =============
  */
 var Mailgun = require('machinepack-mailgun');
+var bookingEmail = "bookings@triptableapp.com";
+var bookingEmailName = "Triptable Bookings";
+
+
 var Enquiry = new keystone.List('Enquiry', {
 	nocreate: true
 });
 
 Enquiry.add({
 	name: { type: Types.Name, required: true },
-	email: { type: Types.Email, required: true, displayGravatar: true },
+	email: { type: Types.Email, required: true},
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
@@ -24,6 +37,7 @@ Enquiry.add({
 		{ value: 'declined', label: 'Declined' }
 	], default: 'pending' },
 	operatorEmail:{ type: String },
+	operatorName: {type: String},
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now }
@@ -37,49 +51,26 @@ Enquiry.schema.pre('save', function(next) {
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		//this.sendUserEmail(this); //Send User email
-		//this.sendOperatorEmail(this); // Send OP email
+		var email = this.operatorEmail 
+		this.sendBookingNotificationEmail(this, email); // Send OP email
+		this.sendBookingNotificationEmail(this, bookingEmail); // Send OP email
 	}
 });
 
-Enquiry.schema.methods.sendNotificationEmail = function(callback) {
-	
-	if ('function' !== typeof callback) {
-		callback = function() {};
-	}
-	
-	var enquiry = this;
-	
-	keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
-		
-		if (err) return callback(err);
-		new keystone.Email('enquiry-notification').send({
-			to: admins,
-			from: {
-				name: 'Triptable',
-				email: 'y@triptableapp.com'
-			},
-			subject: 'New Enquiry for Triptable',
-			enquiry: enquiry
-		}, callback);
-		
-	});
-	
-};
-
 Enquiry.schema.methods.sendUserEmail = function (obj) {
-	console.log(obj);
 	var email = obj.email;
-	var name = obj.name.first;
+	var name = obj.name.full;
+
 		Mailgun.sendHtmlEmail({
 			apiKey: process.env.MAILGUN_APIKEY,
 			domain: process.env.MAILGUN_DOMAIN,
 			toEmail: email,
 			toName: name,
 			subject: 'Tu reserva de Triptable',
-			textMessage: 'Hola ' + name+', Gracias por preferir Triptable. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
-			htmlMessage: name+', Gracias por preferir Triptable. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
-			fromEmail: 'hello@triptableapp.com',
-			fromName: 'Triptable Bookings',
+			textMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. Te notificaremos cuando tu reserva esté confirmada. \nSaludos, El equipo de Triptable ',
+			htmlMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. Te notificaremos cuando tu reserva esté confirmada. \nSaludos, El equipo de Triptable',
+			fromEmail: bookingEmail,
+			fromName: bookingEmailName,
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
@@ -87,24 +78,34 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 		},
 		// OK.
 		success: function (){
-		 console.log("sucess");
+		 console.log("Enviado email de Usuario");
 		},
 	});
 }
-Enquiry.schema.methods.sendOperatorEmail = function (obj) {
-	var email = obj.operatorEmail;
-	var name = "Ytzvan Mastino";
-	console.log("sending OP Email");
+
+
+Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
+	var booking = obj; 
+	var tourId = obj.tour;
+	var email = email;
+	var name = obj.operatorName;
+	var bookerName = obj.name;
+	console.log("obj date:", obj.date);
+	var fecha = moment(obj.date).format("dddd, Do MMMM YYYY");
+	console.log(fecha);
+
+	keystone.list('Tour').model.findOne({'tourId': tourId}).exec(function(err, tour) {
+		if (err) return callback(err);
 		Mailgun.sendHtmlEmail({
 			apiKey: process.env.MAILGUN_APIKEY,
 			domain: process.env.MAILGUN_DOMAIN,
 			toEmail: email,
 			toName: name,
-			subject: 'Solicitud de Reserva de Triptable',
-			textMessage: 'Hola ' + name+', Alguien ha solicitado reservar tu tour. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
-			htmlMessage: name+', Gracias por preferir Triptable. Tu reserva está en proceso de confirmación. Te notificaremos cuando esté confirmada. \nSaludos, El equipo de Triptable ',
-			fromEmail: 'hello@triptableapp.com',
-			fromName: 'Triptable Bookings',
+			subject: 'Tienes una Solictud de Reserva',
+			htmlMessage: 'Hola '+name+', <br>' + bookerName + ' ha solicitado reservar el tour: <strong>' + tour.name +'</strong> para el día: ' + fecha + ' para '+ booking.people + ' personas. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> '+ tour.tourId +'.<br><strong>Ref:</strong> '+ obj._id + ' <br>El equipo de Triptable.' ,
+			textMessage: bookerName + ' ha solicitado reservar el tour' + tour.name +' para el día' + fecha + ' para '+ booking.people + ' personas. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: '+ tour.tourId +'.ref: '+ obj._id + ' \nEl equipo de Triptable.' ,
+			fromEmail: bookingEmail,
+			fromName:  bookingEmailName,
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
@@ -112,8 +113,9 @@ Enquiry.schema.methods.sendOperatorEmail = function (obj) {
 		},
 		// OK.
 		success: function (){
-		 console.log("sucess");
+		 console.log("Enviado email de Operador");
 		},
+	});
 	});
 }
 Enquiry.defaultSort = '-createdAt';
