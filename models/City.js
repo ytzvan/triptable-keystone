@@ -17,6 +17,7 @@ City.add({
 	image: { type: Types.CloudinaryImage },
 	country: { type: Types.Relationship, ref: 'Country' },
 	province: { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
+	featured: {type: Types.Boolean, default: false }
 });
 
 City.defaultColumns = 'City, description|20%, image|20%, publishedDate|20%';

@@ -11,7 +11,7 @@
             <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
             
               <h1 class="hero-title">Únicas Experiencias Locales</h1>
-              <p class="lead">Vista Latinoamérica con Triptable!</p>
+              <p class="lead">Explora Latinoamérica con Triptable!</p>
 
             </div>
             
@@ -25,13 +25,10 @@
               
                 <div class="form-group">
                 
-                  <select name="destination" class="select2-multi form-control" data-placeholder="Choose a Destination">
-                    <option value="">Escoje un Destino</option>
-                    <option value="0">Cualquier Destino</option>
-                    <option value="Albania">Ciudad de Panamá</option>
-                    <option value="Austria">Boquete</option>
-                    <option value="Belgium">Azuero</option>
-                    <option value="Belgium">El Valle de Antón</option>
+                  <select name="destination" class="select2-multi form-control" data-placeholder="Escoge un País">
+                    <option value="panama">Panamá</option>
+                    <option value="colombia" disabled>Colombia (Próx)</option>
+                    <option value="costa-rica" disabled>Costa Rica (Próx)</option>
                   </select>
 
                 </div>
@@ -42,13 +39,12 @@
               
                 <div class="form-group">
                 
-                  <select name="month" class="select2-multi form-control" data-placeholder="Choose a Departure Month" multiple>
-                    <option value="">Elige una Categoría</option>
-                    <option value="0">Todas</option>
-                    <option value="1">Ciudad</option>
-                    <option value="2">Extremos</option>
-                    <option value="3">Ecoturismo</option>
-                    <option value="4">Playa</option>
+                  <select name="month" class="select2-multi form-control province" id="destino" data-placeholder="Escoge un Destino">
+                    <option value="">Escoge un Destino</option>
+                    <option value="0">Todos</option>
+                    {{#each data.provinces}}
+                    <option value="{{slug}}">{{province}}</option>
+                    {{/each}}
                   </select>
                   
                 </div>
@@ -59,11 +55,13 @@
               
                 <div class="form-group">
 
-                  <select name="year" class="select2-multi form-control" data-placeholder="Choose a Departure Year" multiple>
-                    <option value="">Choose a Departure Year</option>
-                    <option value="0">Any Departure Year</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
+                  <select name="year" class="select2-multi form-control" data-placeholder="Tipo de Trip">
+                    <option value="">Escoge un tipo</option>
+                    <option value="0">Todos</option>
+                    <option value="2016">Tours de Ciudad</option>
+                    <option value="2017">Aventura</option>
+                    <option value="2017">Gastronómicos</option>
+                    <option value="2017">Ecoturismo</option>
                   </select>
                   
                 </div>
@@ -73,8 +71,20 @@
               <div class="column-item for-btn">
               
                 <div class="form-group">
-                
-                  <a href="#" class="btn btn-primary btn-block">Search</a>
+                <script type="text/javascript">
+                  $( document ).ready(function() {
+                     $('#destino').on('change', function(){
+                        var city = $('#destino').val();
+                        if (city == 0){
+                          var city = "";
+                        }
+                        console.log(city);
+                        $("#searchBtn").attr("href", "/panama/"+city);
+                     }); 
+                  });
+                  
+                </script>
+                  <a href="#" id="searchBtn" class="btn btn-primary btn-block">Buscar</a>
                   
                 </div>
               
@@ -98,8 +108,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"><i class="pe-7s-map-marker"></i></div>
                 <div class="content">
-                  <h6>300+ Destinations</h6>
-                  <span>Tastes giving in passed direct me valley supply.</span>
+                  <h6>10+ Destinos</h6>
+                  <span>Descubre tours y actividades en Latinomérica a un sólo click.</span>
                 </div>
               </div>
             </div>
@@ -108,8 +118,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"> <i class="pe-7s-user"></i></div>
                 <div class="content">
-                  <h6>500+ Travel Guides</h6>
-                  <span>Prepared do an dissuade whatever steepest.</span>
+                  <h6>20+ Guías y Tour Operadores</h6>
+                  <span>Reserva con guías turísticos y tour operadores certificados.</span>
                 </div>
               </div>
             </div>
@@ -118,8 +128,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"> <i class="pe-7s-smile"></i></div>
                 <div class="content">
-                  <h6>20000+ Happy Customers</h6>
-                  <span>Devonshire invitation discovered indulgence.</span>
+                  <h6>300+ Tours Reservados</h6>
+                  <span>Cada día viajeros de todo el mundo eligen Triptable para reservar tours y actividades.</span>
                 </div>
               </div>
             </div>
@@ -131,12 +141,12 @@
  {{>home/destinations}}
  {{>home/tours}}
  {{>home/bookingWithUs}}
- {{>home/testimonials}}
+ <!--{{>home/testimonials}} -->
  {{>home/newsletter}}
-  <div class="overflow-hidden">
+ <!-- <div class="overflow-hidden">
       <div class="instagram-wrapper">
           <div id="instagram" class="instagram"></div>
         </div>      
-  </div>
+  </div> -->
 </div>
     <!-- end Main Wrapper -->

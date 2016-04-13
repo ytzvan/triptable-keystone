@@ -14,7 +14,8 @@ Country.add({
 	countryId: { type: String, index: true, noedit: true},
 	country: { type: String },
 	description:  { type: String },
-	image: { type: Types.CloudinaryImage }
+	image: { type: Types.CloudinaryImage },
+	featured: {type: Types.Boolean, default: false },
 });
 
 Country.relationship({ ref: 'Tour', path: 'country' });

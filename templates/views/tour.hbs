@@ -10,7 +10,7 @@
             <div class="flex-column flex-md-8 flex-sm-12">
               
               <h1 class="hero-title">{{data.tour.name}}</h1>
-              <p class="line18">He do subjects prepared bachelor juvenile ye oh. He feelings removing informed he as ignorant we prepared.</p>
+              <p class="line18">{{{data.tour.description.short}}}</p>
               
               <ul class="list-col clearfix">
                 <li class="rating-box">
@@ -101,12 +101,9 @@
                       <h4>Highlights</h4>
                     </div>
                     
-                    <img src="/images/map-route.jpg" alt="Map" class="map-route" />
+                    <!--<img src="{{data.tour.images.0.secure_url}}" alt="Map" class="map-route" /> -->
                     
-                    <p>His exquisite sincerity education shameless ten earnestly breakfast add. So we me unknown as improve hastily sitting forming. Especially favourable compliment but thoroughly unreserved saw she themselves. Sufficient impossible him may ten insensible put continuing. Oppose exeter income simple few joy cousin but twenty. Scale began quiet up short wrong in in. Sportsmen shy forfeited engrossed may can.</p>
-                    
-
-                    <p>Mr oh winding it enjoyed by between. The servants securing material goodness her. Saw principles themselves ten are possession. So endeavor to continue cheerful doubtful we to. Turned advice the set vanity why mutual. Reasonably if conviction on be unsatiable discretion apartments delightful. Are melancholy appearance stimulated occasional entreaties end. Shy ham had esteem happen active county. Winding morning am shyness evident to. Garrets because elderly new manners however one village she.</p>
+                    {{{data.tour.description.extended}}}
                   </div> <!-- end secction 0 -->
 
                   <!-- start secction 1 -->
@@ -119,41 +116,23 @@
                     <div class="slick-gallery-slideshow">
           
                       <div class="slider gallery-slideshow">
-                        <div><div class="image"><img src="/images/detail-gallery/01.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/02.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/03.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/04.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/05.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/06.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/07.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/08.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/09.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/10.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/11.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/12.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/13.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/14.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/15.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/16.jpg" alt="Image" /></div></div>
+                        {{#each data.tour.images}}
+                        <div>
+                          <div class="image">
+                            <img src="{{cloudinaryUrl width=833 height=417 secure=true crop='fill' }}" alt="Image" />
+                          </div>
+                        </div>
+                        {{/each}}
                       </div>
-
+              
                       <div class="slider gallery-nav">
-                        <div><div class="image"><img src="/images/detail-gallery/01-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/02-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/03-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/04-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/05-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/06-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/07-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/08-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/09-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/10-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/11-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/12-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/13-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/14-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/15-sm.jpg" alt="Image" /></div></div>
-                        <div><div class="image"><img src="/images/detail-gallery/16-sm.jpg" alt="Image" /></div></div>
+                        {{#each data.tour.images}}
+                        <div>
+                          <div class="image">
+                            <img src="{{cloudinaryUrl width=105 height=53 secure=true crop='fill' }}" alt="Image" />
+                          </div>
+                        </div>
+                        {{/each}}
                       </div>
                       
                     </div>
@@ -161,7 +140,7 @@
                 </div>
                 <!-- end secction 1 -->
                 
-                <!-- secction 2 -->
+                <!-- secction 2 
                 <div id="section-2" class="detail-content">
                     
                     <div class="section-title text-left">
@@ -223,7 +202,7 @@
                                   </div>
 
                                 </div>
-                                <!-- end of panel -->
+                                
 
                                 <div class="panel itinerary-item">
                                   <div class="panel-heading">
@@ -244,7 +223,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- end of panel -->
+                               
 
                                 <div class="panel itinerary-item">
                                   <div class="panel-heading">
@@ -265,7 +244,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- end of panel -->
+                             
 
                                 <div class="panel itinerary-item">
                                   <div class="panel-heading">
@@ -286,7 +265,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- end of panel -->
+                               
 
                               </div>
                             
@@ -1519,8 +1498,8 @@
                     </li>
 
                   </ul>
-                  
-                  <a href="#" class="btn btn-primary">Reservar Ahora</a>
+                 <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
+                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-primary">Reservar Ahora</a>
                   
                   <div style="width: 100%; height: 20px;"></div>
                   
