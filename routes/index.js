@@ -10,7 +10,7 @@ keystone.set('404', function(req, res, next) {
     res.notfound();
 });
 
-// Import Route Controllers
+// Import Route Controller
 var routes = {
 	views: importRoutes('./views'),
 	search: importRoutes('./search')

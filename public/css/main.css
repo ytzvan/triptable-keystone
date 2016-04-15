@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
-* Project:        Tour Packer
-* Author:         Crenoveative
-* URL:            http://crenoveative.com
+* Project:        Triptable
+* Author:         Triptable
+* URL:            http://triptableapp.com
 * Version:        1.0.0
 * Created:        06/03/2016
 * Last change:    06/03/2016
@@ -569,7 +569,7 @@ ul.help-list li:last-child { margin-bottom: 0; }
  * Layout
  */
 .container-wrapper { padding-top: 110px; }
- section, .section { padding: 90px 0; background: #FFF; }
+ section, .section { padding: 45px 0; background: #FFF; }
 .content-wrapper { padding: 60px 0; }
 .main-wrapper { background: #FFF; }
 .container { position: relative; }

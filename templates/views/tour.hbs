@@ -16,20 +16,20 @@
                 <li class="rating-box">
                   <div class="rating-wrapper">
                     <div class="raty-wrapper">
-                      <div class="star-rating-white" data-rating-score="3.0"></div> 
-                      <span style="display: block;"> / 7 review</span>
+                      <div class="star-rating-white" data-rating-score="4.0"></div> 
+                      <span style="display: block;"> / 7 reviews</span>
                     </div>
                   </div>
                 </li>
                 
-                <li class="fav-box">
+                {{!-- <li class="fav-box">
                   <div class="meta">
                     <span class="block"><button class="btn btn-fav"><i class="fa fa-heart-o"></i></button></span>
                     98 Favorites 
                   </div>
-                </li>
+                </li> --}}
                 
-                <li class="duration-box">
+                {{!-- <li class="duration-box">
                   <div class="meta">
                     <span class="block">4</span>
                     Days
@@ -41,12 +41,12 @@
                     <span class="block">3</span>
                     Nights
                   </div>
-                </li>
+                </li> --}}
                 
                 <li class="price-box">
                   <div class="meta">
                     <span class="block">${{data.tour.price}}</span>
-                    starting from
+                    por persona
                   </div>
                 </li>
                 
@@ -56,7 +56,7 @@
             
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
-                <a href="#section-5" class="anchor btn btn-primary">See dates &amp; Book Now</a>
+                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-primary">Reservar Ahora</a>
               </div>
             </div>
           
@@ -73,10 +73,10 @@
         <div class="container">
         
           <ol class="breadcrumb-list">
-            <li><a href="index.html">Homepage</a></li>
-            <li><a href="#">Desinations</a></li>
-            <li><a href="#">City</a></li>
-            <li><span>Croatia Sailing &amp; Cruising</span></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/{{data.tour.country.slug}}">{{data.tour.country.country}}</a></li>
+            <li><a href="/{{data.tour.country.slug}}/{{data.tour.province.slug}}">{{data.tour.province.province}}</a></li>
+            <li><span>{{data.tour.name}}</span></li>
           </ol>
           
         </div>
@@ -94,11 +94,29 @@
             <div class="col-md-9" role="main">
 
               <div class="detail-content-wrapper">
+                {{#if data.tour.highlights}}
+                  <div id="section-0" class="detail-content">
+                    
+                    <div class="section-title text-left">
+                      <h4>Lo mejor</h4>
+                    </div>
+                    <ul class="list-with-icon col-3 clearfix">
+                      {{#each data.tour.highlights}}
+                      <li>
+                        <i class="fa fa-check-circle text-primary"></i>
+                        <p>{{this}}</p>
+                      </li>
+                      {{/each}}
+                      
+                    </ul>
+
+                  </div>
+                  {{/if}}  
 
                   <div id="section-0" class="detail-content">
                     
                     <div class="section-title text-left">
-                      <h4>Highlights</h4>
+                      <h4>Información</h4>
                     </div>
                     
                     <!--<img src="{{data.tour.images.0.secure_url}}" alt="Map" class="map-route" /> -->
@@ -110,7 +128,7 @@
                   <div id="section-1" class="detail-content">
                   
                     <div class="section-title text-left">
-                      <h4>Gallery</h4>
+                      <h4>Fotos del Tour</h4>
                     </div>
                     
                     <div class="slick-gallery-slideshow">
@@ -282,7 +300,7 @@
                   </div>
                 <!-- end secction 2 -->
 
-                <!-- secction 3 -->
+                <!-- secction 3 
                 <div id="section-3" class="detail-content">
                   
                     <div class="section-title text-left">
@@ -344,58 +362,71 @@
                     
                     <p>Unpacked now declared put you confined daughter improved. Celebrated imprudence few interested especially reasonable off one. Wonder bed elinor family secure met. It want gave west into high no in.</p>
                 </div>
-                <!-- end secction 3 -->
+               end secction 3 -->
 
                 <!-- secction 4 -->
                 <div id="section-4" class="detail-content">
                   
                     <div class="section-title text-left">
-                      <h4>What's included</h4>
+                      <h4>Está Incluido</h4>
                     </div>
                     
                     <ul class="list-with-icon with-heading">
-                    
+
+                      {{#if data.tour.hotelPickup}}                        
                       <li>
                         <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Guide</h6>
-                        <p>Adieus except say barton put feebly favour him.</p>
+                        <h6 class="heading mt-0">Recogida en el Hotel</h6>
+                        <p>Este tour incluye transporte desde el hotel u otra ubicación hasta el punto de inicio.</p>
                       </li>
-                      
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Meals</h6>
-                        <p>4 breakfast &amp; 3 dinners </p>
-                      </li>
-                      
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Transport</h6>
-                        <p>Modern air conditioned coach with reclining seats, TV for showing DVDs, and toilet</p>
-                      </li>
-                      
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">5 Experiences</h6>
-                        <p>Warmth object matter course active law spring six. Pursuit showing tedious unknown winding see had man add.</p>
-                      </li>
-                      
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Other</h6>
-                        <p>Free Wi-fi in all hotels <br />All taxes and fees <br />Any public transport used as part of the tour (excludes free days) <br />Free Expat Explore tour souvenir</p>
-                      </li>
-                      
+                      {{else}}
                       <li>
                         <i class="fa fa-times-circle text-light"></i>
-                        <h6 class="heading mt-0">Flights</h6>
-                        <p>Warmth object matter course active law spring six <a href="#">line to some where</a>. Pursuit showing tedious unknown winding see had man add.</p>
+                        <h6 class="heading mt-0">Recogida en el Hotel</h6>
+                        <p>Este tour no incluye transporte desde el hotel al punto de inicio. Deberá llegar al punto de inicio.</p>
                       </li>
-                      
+                      {{/if}}
+
+                      {{#if data.tour.transportation}}                        
+                      <li>
+                        <i class="fa fa-check-circle text-primary"></i>
+                        <h6 class="heading mt-0">Transporte durante el Tour</h6>
+                        <p>El transportante durante el tour está incluído en el precio.</p>
+                      </li>
+                      {{else}}
                       <li>
                         <i class="fa fa-times-circle text-light"></i>
-                        <h6 class="heading mt-0">Insurance</h6>
-                        <p>Had repulsive dashwoods suspicion sincerity but advantage now him. Remark easily garret nor nay <a href="#">line to some where</a>. Civil those mrs enjoy shy fat merry. You greatest jointure saw horrible.</p>
+                        <h6 class="heading mt-0">Transporte durante el Tour</h6>
+                        <p>El transportante durante el tour no está incluído. Deberá costear los gastos de transporte en el tour si existe alguno.</p>
                       </li>
+                      {{/if}}
+                      {{#if data.tour.food}}                        
+                      <li>
+                        <i class="fa fa-check-circle text-primary"></i>
+                        <h6 class="heading mt-0">Comidas</h6>
+                        <p>Este tour incluye comidas y/o bebidas.</p>
+                      </li>
+                      {{else}}
+                      <li>
+                        <i class="fa fa-times-circle text-light"></i>
+                        <h6 class="heading mt-0">Comidas</h6>
+                        <p>No se incluyen comidas en este tour.</p>
+                      </li>
+                      {{/if}}
+                      {{#if data.tour.insurance}}                        
+                      <li>
+                        <i class="fa fa-check-circle text-primary"></i>
+                        <h6 class="heading mt-0">Seguro contra accidentes</h6>
+                        <p>Este tour incluye seguro contra accidentes.</p>
+                      </li>
+                      {{else}}
+                      <li>
+                        <i class="fa fa-times-circle text-light"></i>
+                        <h6 class="heading mt-0">Seguro contra accidentes</h6>
+                        <p>Este tour no incluye seguro contra accidentes.</p>
+                      </li>
+                      {{/if}}
+                      
                       
                     </ul>
                     
