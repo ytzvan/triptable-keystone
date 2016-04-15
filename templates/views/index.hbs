@@ -71,19 +71,6 @@
               <div class="column-item for-btn">
               
                 <div class="form-group">
-                <script type="text/javascript">
-                  $( document ).ready(function() {
-                     $('#destino').on('change', function(){
-                        var city = $('#destino').val();
-                        if (city == 0){
-                          var city = "";
-                        }
-                        console.log(city);
-                        $("#searchBtn").attr("href", "/panama/"+city);
-                     }); 
-                  });
-                  
-                </script>
                   <a href="#" id="searchBtn" class="btn btn-primary btn-block">Buscar</a>
                   
                 </div>
@@ -149,4 +136,17 @@
         </div>      
   </div> -->
 </div>
+<script type="text/javascript" defer="defer">
+                  var changeSearch = $( document ).ready(function() {
+                     $('#destino').on('change', function(){
+                        var city = $('#destino').val();
+                        if (city == 0){
+                          var city = "";
+                        }
+                        console.log(city);
+                        $("#searchBtn").attr("href", "/panama/"+city);
+                     }); 
+                  });
+                  
+                </script>
     <!-- end Main Wrapper -->
