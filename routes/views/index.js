@@ -20,11 +20,12 @@ exports = module.exports = function(req, res) {
 	// Load the places
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Tour').paginate({
+		var q = keystone.list('Tour')
+		/*	.paginate({
 				page: req.query.page || 1,
-				perPage: 6,
+				perPage: 9,
 				maxPages: 10
-			})
+			})*/
 			.where('state', 'published')
 			.where('featured', true)
 			.sort('-publishedDate')
