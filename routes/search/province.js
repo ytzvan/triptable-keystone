@@ -17,7 +17,6 @@ exports = module.exports = function(req, res) {
 	query = {
 		'slug' : req.params.province,
 	};
-	console.log(query);
 	
 	// Load all categories
 	view.on('init', function(next) {

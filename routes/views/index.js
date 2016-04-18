@@ -36,7 +36,6 @@ exports = module.exports = function(req, res) {
 		
 		q.exec(function(err, results) {
 			locals.data.tours = results;
-			console.log(locals.data.tours);
 			next(err);
 		});
 		

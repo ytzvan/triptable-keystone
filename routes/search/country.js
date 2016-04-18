@@ -27,9 +27,7 @@ exports = module.exports = function(req, res) {
 				return res.status(404).render('errors/404');
 			}
 			locals.data.country = results;
-			console.log("country", locals.data.country)
 			var id = results._id;
-			console.log("id", id);
 			keystone.list('Province').model.find({"country": id}).exec(function (err, provinces){ //Query states
 				console.log("provinces", provinces);
 				locals.data.provinces = provinces;

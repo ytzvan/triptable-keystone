@@ -74,7 +74,9 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
 	'enquiries': 'enquiries',
-	'users': 'users'
+	'users': 'users',
+	'tours' : 'tours',
+	'locations' : ['countries', 'provinces', 'cities'],
 });
 
 keystone.start();

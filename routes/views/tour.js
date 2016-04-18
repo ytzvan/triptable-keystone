@@ -25,7 +25,9 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.tour = result;
 			next(err);
+			console.log(result);
 		});
+
 	});
 
 	
@@ -40,7 +42,6 @@ exports = module.exports = function(req, res) {
 		});
 		
 	});
-	
 	// Render the view
 	view.render('tour');
 	

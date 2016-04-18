@@ -2,7 +2,7 @@
     <div class="main-wrapper">
     
       <!-- start hero-header with windows height -->
-      <div class="hero" style="background-image:url('images/hero-header/01.jpg');">
+      <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_60,w_1440/v1460674515/01_tqumqz.jpg');">
         
         <div class="container">
         
@@ -71,19 +71,6 @@
               <div class="column-item for-btn">
               
                 <div class="form-group">
-                <script type="text/javascript">
-                  $( document ).ready(function() {
-                     $('#destino').on('change', function(){
-                        var city = $('#destino').val();
-                        if (city == 0){
-                          var city = "";
-                        }
-                        console.log(city);
-                        $("#searchBtn").attr("href", "/panama/"+city);
-                     }); 
-                  });
-                  
-                </script>
                   <a href="#" id="searchBtn" class="btn btn-primary btn-block">Buscar</a>
                   
                 </div>
@@ -149,4 +136,17 @@
         </div>      
   </div> -->
 </div>
+<script type="text/javascript" defer="defer">
+                  var changeSearch = $( document ).ready(function() {
+                     $('#destino').on('change', function(){
+                        var city = $('#destino').val();
+                        if (city == 0){
+                          var city = "";
+                        }
+                        console.log(city);
+                        $("#searchBtn").attr("href", "/panama/"+city);
+                     }); 
+                  });
+                  
+                </script>
     <!-- end Main Wrapper -->
