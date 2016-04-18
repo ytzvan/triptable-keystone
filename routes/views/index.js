@@ -55,6 +55,20 @@ exports = module.exports = function(req, res) {
 		
 	});
 
+	view.on('init', function(next) {
+		
+		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.categories = results;
+			return next();
+			
+		});
+		
+	});
+
 	// Render the view
 	view.render('index');
 };
