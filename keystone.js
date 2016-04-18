@@ -30,7 +30,6 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'signin url': '/login',
 	'user model': 'User'
 
 });
