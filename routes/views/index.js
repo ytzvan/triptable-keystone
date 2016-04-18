@@ -20,11 +20,12 @@ exports = module.exports = function(req, res) {
 	// Load the places
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Tour').paginate({
+		var q = keystone.list('Tour')
+		/*	.paginate({
 				page: req.query.page || 1,
-				perPage: 6,
+				perPage: 9,
 				maxPages: 10
-			})
+			})*/
 			.where('state', 'published')
 			.where('featured', true)
 			.sort('-publishedDate')
@@ -49,6 +50,20 @@ exports = module.exports = function(req, res) {
 				return res.status(404);
 			}
 			locals.data.provinces = results;
+			return next();
+			
+		});
+		
+	});
+
+	view.on('init', function(next) {
+		
+		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.categories = results;
 			return next();
 			
 		});

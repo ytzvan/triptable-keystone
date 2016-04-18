@@ -404,8 +404,8 @@ jQuery(function($) {
 		
 		
 		/**
-		 * Instagram
-		 */
+		 * Instagram 
+		 
 		function createPhotoElement(photo) {
 			var innerHtml = $('<img>')
 			.addClass('instagram-image')
@@ -438,6 +438,6 @@ jQuery(function($) {
 			accessToken: '1689202124.b80cccd.22e7456f9f174048acb7119193cd52d4'
 			});
 
-		});
-
+		}); */
+		
 })(jQuery);

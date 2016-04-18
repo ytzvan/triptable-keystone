@@ -55,13 +55,12 @@
               
                 <div class="form-group">
 
-                  <select name="year" class="select2-multi form-control" data-placeholder="Tipo de Trip">
+                  <select name="year" class="select2-multi form-control" data-placeholder="Tipo de Trip" id="categoria">
                     <option value="">Escoge un tipo</option>
                     <option value="0">Todos</option>
-                    <option value="2016">Tours de Ciudad</option>
-                    <option value="2017">Aventura</option>
-                    <option value="2017">Gastronómicos</option>
-                    <option value="2017">Ecoturismo</option>
+                    {{#each data.categories}}
+                    <option value="{{slug}}">{{name}}</option>
+                    {{/each}}
                   </select>
                   
                 </div>
@@ -147,6 +146,20 @@
                         $("#searchBtn").attr("href", "/panama/"+city);
                      }); 
                   });
-                  
+
+                  var changeCategory = $( document ).ready(function() {
+                     $('#categoria').on('change', function(){
+                        var categoria = $('#categoria').val();
+                        if (categoria == 0){
+                          var categoria = "";
+                        }
+                        console.log(categoria);
+                        var url = $("#searchBtn").attr("href");
+                        $("#searchBtn").attr("href", url + '?categoria=' + categoria);
+                     }); 
+                  });
+                  $(document).ready(function(){
+                    $("#searchBtn").attr("href", "/panama/");
+                  });
                 </script>
     <!-- end Main Wrapper -->
