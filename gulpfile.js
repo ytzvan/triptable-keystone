@@ -10,7 +10,6 @@ var path = require('path');
 var rename = require('gulp-rename');
 var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
-var nodemon = require('gulp-nodemon');
 
 var paths = {
 	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
@@ -47,13 +46,6 @@ gulp.task('css', function () {
     .pipe(gulp.dest('./public/css/dist/'));
 });
 
-gulp.task('start', function () {
-  nodemon({
-    script: 'keystone.js'
-//  , ext: 'js html'
-  , env: { 'NODE_ENV': 'development' }
-  })
-});
 
 gulp.task('runKeystone', shell.task('node keystone.js'));
 gulp.task('watch', [
@@ -61,4 +53,4 @@ gulp.task('watch', [
   'watch:lint'
 ]);
 
-gulp.task('default', ['start', 'css', 'runKeystone']);
+gulp.task('default', ['css', 'runKeystone']);
