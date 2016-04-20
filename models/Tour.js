@@ -39,7 +39,10 @@ Tour.add({
 	country: { type: Types.Relationship, ref: 'Country' },
 	province : { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
 	city : { type: Types.Relationship, ref: 'City', filters: { province: ':province' } },
-	highlights: { type: Types.TextArray}
+	highlights: { type: Types.TextArray},
+	startingPoint : {type: String},
+	finishPoint: {type: String}
+
 
 });
 

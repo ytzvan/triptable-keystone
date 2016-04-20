@@ -8,17 +8,35 @@ exports = module.exports = function(req, res) {
 	
 	// Init locals
 	locals.section = 'country';
+
+	var category = req.query.categoria;
 	locals.data = {
 		provinces: [],
 		tours: [],
+		filters: [],
+		categories : []
 	};
 	locals.data.country;
 	query = {
 		'slug' : req.params.country,
 	};
 	console.log(query);
-	
-	// Load all categories
+
+
+	view.on('init', function(next) {
+			
+			if (req.query.categoria) {
+				keystone.list('PostCategory').model.findOne({ slug: category }).exec(function(err, result) {
+					locals.data.filters = result;
+					console.log(result);
+					next(err);
+				});
+			} else {
+				next();
+			}
+			
+		});
+
 	view.on('init', function(next) {
 		
 		keystone.list('Country').model.findOne(query).exec(function(err, results) { //Query Pais
@@ -28,24 +46,57 @@ exports = module.exports = function(req, res) {
 			}
 			locals.data.country = results;
 			var id = results._id;
-			keystone.list('Province').model.find({"country": id}).exec(function (err, provinces){ //Query states
-				console.log("provinces", provinces);
-				locals.data.provinces = provinces;
-				keystone.list('Tour').model.find({"country": id}).exec(function (err, tours){ //Query Featured tours
-					locals.data.tours = tours;
-					return next();
+		
+			var q = keystone.list('Tour')
+				.paginate({
+					page: req.query.page || 1,
+					perPage: 5,
+				})
+				.where("country", id)
+				.populate('city province categories');
+				console.log(category);
+				if (category) {
+					q.where('categories').in([locals.data.filters]);
+				}
+		
+				q.exec(function(err, results) {
+						locals.data.tours = results;
+						next(err);
 				});
 			})
 
 			
 		});
+	
+	// Load the tour categories
+
+	view.on('init', function(next) {
+		
+		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.categories = results;
+			return next();
+			
+		});
 		
 	});
-	
-	// Load the current category filter
-	
-	// Load the posts
 
+	view.on('init', function(next) {
+		
+		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.provinces = results;
+			return next();
+			
+		});
+		
+	});
 	
 	// Render the view
 	view.render('search/country');

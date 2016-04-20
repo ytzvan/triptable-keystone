@@ -242,7 +242,7 @@
  /**
  * Page Title & Breadcrumb
  */
-.page-title { position:relative; padding:40px 0; background-position:center center; background-repeat:no-repeat; background-size:cover; color: rgba(255,255,255,0.9); position: relative; text-align: center; }
+.page-title { position:relative; padding:75px 0; background-position:center center; background-repeat:no-repeat; background-size:cover; color: rgba(255,255,255,0.9); position: relative; text-align: center; }
 .page-title::before{position:absolute;left:0;top:0;width:100%;height:100%; background: rgba(0,0,0,0.4); content:""}
 .page-title h1 { color: rgba(255,255,255,1); margin: 0 0 5px; }
 .page-title p.lead { font-weight: 300; }

@@ -10,13 +10,12 @@
           
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
             
-              <h1 class="hero-title">Result list</h1>
+              <h1 class="hero-title">Tours en {{data.province.province}}</h1>
               
               <ol class="breadcrumb-list">
-                <li><a href="index.html">Homepage</a></li>
-                <li><a href="#">Desinations</a></li>
-                <li><a href="#">City</a></li>
-                <li><span>Result list</span></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="#">Panama</a></li>
+                <li><span>{{data.province.province}}</span></li>
               </ol>
               
             </div>
@@ -40,97 +39,65 @@
                 <div class="sidebar-search-wrapper bg-light-2">
                 
                   <div class="sidebar-search-header">
-                    <h4>Search Again</h4>
+                    <h4>Escoge un Destino</h4>
                   </div>
                   
                   <div class="sidebar-search-content">
-
+                    
                     <div class="form-group">
                       
-                      <select name="destination" class="select2-multi form-control" data-placeholder="Choose a Destination" multiple>
-                        <option value="">Choose a Destination</option>
-                        <option value="0">Any Destination</option>
-                        <option value="Albania">Albania</option>
-                        <option value="Austria" selected>Austria</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Bosnia">Bosnia</option>
-                        <option value="Croatia">Croatia</option>
-                        <option value="Czech Republic">Czech Republic</option>
-                        <option value="Denmark">Denmark</option>
-                        <option value="Egypt">Egypt</option>
-                        <option value="England">England</option>
-                        <option value="Estonia">Estonia</option>
-                        <option value="Finland">Finland</option>
-                        <option value="France" selected>France</option>
-                        <option value="Germany" selected>Germany</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Herzegovina">Herzegovina</option>
-                        <option value="Hungary">Hungary</option>
-                        <option value="Ireland">Ireland</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Latvia">Latvia</option>
-                        <option value="Liechtenstein">Liechtenstein</option>
-                        <option value="Lithuania">Lithuania</option>
-                        <option value="Luxembourg">Luxembourg</option>
-                        <option value="Monaco">Monaco</option>
-                        <option value="Montenegro">Montenegro</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Northern Ireland">Northern Ireland</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Russia">Russia</option>
-                        <option value="Scotland">Scotland</option>
-                        <option value="Serbia">Serbia</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="Vatican City">Vatican City</option>
-                        <option value="Wales">Wales</option>
+                      <select name="province" id="province" class="select2-multi form-control" data-placeholder="Escoge una Ciudad">
+                        <option value="0" selected>Todos los Destinos</option>
+                        {{#each data.provinces}}
+                        <option value="{{slug}}">{{province}}</option>
+                        {{/each}}
                       </select>
-
                     </div>
-                  
+
                     <div class="form-group">
-                            
-                      <select name="month" class="select2-multi form-control" data-placeholder="Choose a Departure Month" multiple>
-                        <option value="">Choose a Departure Month</option>
-                        <option value="0">Any Departure Month</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4" selected>April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                      <select name="category" id="category" class="select2-multi form-control" data-placeholder="Escoge un tipo de Tour">
+                        <option value="">Tipo de Tour</option>
+                        <option value="0">Todos</option>
+                        {{#each data.categories}}
+                        <option value="{{slug}}">{{name}}</option>
+                        {{/each}}
                       </select>
                       
                     </div>
                     
-                    <div class="form-group">
-
-                      <select name="year" class="select2-multi form-control" data-placeholder="Choose a Departure Year" multiple>
-                        <option value="">Choose a Departure Year</option>
-                        <option value="0">Any Departure Year</option>
-                        <option value="2016" selected>2016</option>
-                        <option value="2017">2017</option>
-                      </select>
-                      
-                    </div>
-                  
-                    <a href="#" class="btn btn-primary btn-block">Search</a>
+                    <a href="#" id="search" class="btn btn-primary btn-block">Búsqueda</a>
                   
                   </div>
                   
                 </div>
-                
+                <script type="text/javascript">
+                    var province = $("#province").val();
+                    var category = $("#category").val();
+                    var url = "/{{data.country}}/"+province+"?categoria="+category;
+                    var parsedUrl = url.replace(/[0-9]/g, '');
+                    $('#search').attr('href', parsedUrl);
+                    
+                  $("#province").on('change', function(){
+                    var province = $("#province").val();
+                    var category = $("#category").val();
+                    var url = "/{{data.country}}/"+province+"?categoria="+category;
+                    var parsedUrl = url.replace(/[0-9]/g, '');
+                    return $('#search').attr('href', parsedUrl);
+        
+
+                  });
+
+                  $("#category").on('change', function(){
+                    var province = $("#province").val();
+                    var category = $("#category").val();
+                    //url = url+province;
+                    var url = "/{{data.country}}/"+province+"?categoria="+category;
+                    var parsedUrl = url.replace(/[0-9]/g, '');
+                    return $('#search').attr('href', parsedUrl);;
+                    
+                  });
+                </script>
+                <!--
                 <div class="sidebar-header clearfix">
                   <h4>Filter Results</h4>
                   <a href="#" class="sidebar-reset-filter"><i class="fa fa-times"></i> reset filter</a>
@@ -310,15 +277,16 @@
                   
                   <div class="clear"></div>
                   
-                </div>
+                </div>-->
                 
-                <div class="sidebar-box">
+                <!--<div class="sidebar-box">
                   <h4 class="sidebar-title">Sidebar Text</h4>
                   <p>Park fat she nor does play deal our. Procured sex material his offering humanity laughing moderate can. Unreserved had she nay dissimilar admiration interested.</p>
-                </div>
+                </div> -->
               
               </aside>
-            </div><!-- end col-sm-4 -->
+            </div> 
+            <!-- end col-sm-4 -->
           
             <div class="col-sm-8 col-md-9">
               
@@ -326,10 +294,14 @@
       
                 <div class="sorting-header">
                   <h3 class="sorting-title uppercase">{{data.province.province}}</h3>
-                  <p class="sorting-lead">587 results found</p>
+                    <p class="sorting-lead">Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades</p>
+                    {{#if data.filters}}
+                    <h5>El filtro {{data.filters.name}} está activado</h5>
+                    <a href="/{{data.country}}/{{data.province.slug}}"> Quitar filtro </a>
+                    {{/if}}
                 </div>
                 
-                <div class="sorting-content">
+               <!-- <div class="sorting-content">
                 
                   <div class="row">
                   
@@ -360,18 +332,17 @@
                     
                   </div>
                 
-                </div>
+                </div> -->
 
               </div>
-              
               <div class="package-list-item-wrapper on-page-result-page">
-              {{#each data.tours}}
+              {{#each data.tours.results}}
                 <div class="package-list-item clearfix">
                   <div class="image">
                     <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="Tour Package" />
-                    <div class="absolute-in-image">
+                   <!-- <div class="absolute-in-image">
                       <div class="duration"><span>4 days 3 nights</span></div>
-                    </div>
+                    </div> -->
                   </div>
                   
                   <div class="content">
@@ -379,12 +350,12 @@
                     <div class="row gap-10">
                       <div class="col-sm-12 col-md-9">
                         
-                        <p class="line18">Letter wooded direct two men indeed income sister. Impression up admiration partiality is...</p>
-                        
+                        <div class="elipsis">{{{description.short}}}</div>
+                        <p></p>
                         <ul class="list-info">
-                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Countries: (1)</span> France</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Starting Point:</span> Paris</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Ending Point:</span> Paris</li>
+                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Ciudad:</span> {{city.city}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Categoría:</span> {{#each categories}}{{name}} {{/each}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Duración:</span> {{duration}} horas</li>
                         </ul>
                         
                       </div>
@@ -392,13 +363,13 @@
                         
                         <div class="rating-wrapper">
                           <div class="raty-wrapper">
-                            <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / 7 review</span>
+                            <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / 7 reviews</span>
                           </div>
                         </div>
                         
                         <div class="price">${{price}}</div>
                         
-                        <a href="detail-page.html" class="btn btn-primary btn-sm">view</a>
+                        <a href="/tour/{{slug}}" class="btn btn-primary btn-sm">ver</a>
                         
                       </div>
                     </div>
@@ -415,26 +386,42 @@
                   <div class="flex-row flex-align-middle">
                       
                     <div class="flex-column flex-sm-12">
-                      Showing reslut 1 to 15 from 248 
-                    </div>
+                      Mostrando resultados {{data.tours.first}} al {{data.tours.last}} de {{data.tours.total}}
                     
                     <div class="flex-column flex-sm-12">
                       <nav class="pager-right">
                         <ul class="pagination">
-                          <li>
-                            <a href="#" aria-label="Previous">
+                         <li>
+                            <a href="?page={{data.tours.previous}}" aria-label="Anterior">
                               <span aria-hidden="true">&laquo;</span>
                             </a>
                           </li>
-                          <li class="active"><a href="#">1</a></li>
-                          <li><a href="#">2</a></li>
-                          <li><a href="#">3</a></li>
-                          <li><span>...</span></li>
-                          <li><a href="#">11</a></li>
-                          <li><a href="#">12</a></li>
-                          <li><a href="#">13</a></li>
+                          {{#each data.tours.pages}}
+                          <li class="" id="pag{{this}}"><a onClick="activo($(this))" href="?page={{this}}">{{this}}</a></li>
+                          {{/each}}
+                          <script type="text/javascript">
+
+                           function getParameterByName(name, url) {
+                              if (!url) url = window.location.href;
+                              name = name.replace(/[\[\]]/g, "\\$&");
+                              var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+                                  results = regex.exec(url);
+                              if (!results) return null;
+                              if (!results[2]) return '';
+                              return decodeURIComponent(results[2].replace(/\+/g, " "));
+                            }
+                            var page = getParameterByName('page');
+                            if (page == null) {
+                              $('#pag1').addClass('active');
+                            } else {
+                            $ ( document ).on("ready", function(){
+                              $('li.active').removeClass('active');
+                              $('#pag'+page).addClass('active');
+                            });
+                            }
+                          </script>
                           <li>
-                            <a href="#" aria-label="Next">
+                            <a href="?page={{data.tours.next}}" aria-label="Siguiente">
                               <span aria-hidden="true">&raquo;</span>
                             </a>
                           </li>
