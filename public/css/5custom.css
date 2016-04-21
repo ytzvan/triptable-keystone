@@ -1,3 +1,11 @@
 p.highlights {
 	font-weight: 700;
 }
+.elipsis{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-height: 1.5em;
+}
