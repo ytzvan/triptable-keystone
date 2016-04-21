@@ -15,8 +15,8 @@ moment.locale('es');
  * =============
  */
 var Mailgun = require('machinepack-mailgun');
-var bookingEmail = "bookings@triptableapp.com";
-var bookingEmailName = "Triptable Bookings";
+var bookingEmail = "hello@triptableapp.com";
+var bookingEmailName = "Reservas Triptable";
 
 
 var Enquiry = new keystone.List('Enquiry', {
@@ -89,7 +89,7 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	var tourId = obj.tour;
 	var email = email;
 	var name = obj.operatorName;
-	var bookerName = obj.name;
+	var bookerName = obj.name.full;
 	console.log("obj date:", obj.date);
 	var fecha = moment(obj.date).format("dddd, Do MMMM YYYY");
 	console.log(fecha);

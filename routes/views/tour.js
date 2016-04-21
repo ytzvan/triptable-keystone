@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var striptags = require('striptags');
 
 exports = module.exports = function(req, res) {
 	
@@ -13,6 +14,7 @@ exports = module.exports = function(req, res) {
 	locals.data = {
 		tours: []
 	};
+	locals.meta = {};
 	
 	// Load the current post
 	view.on('init', function(next) {
@@ -26,6 +28,12 @@ exports = module.exports = function(req, res) {
 			locals.data.tour = result;
 			next(err);
 			console.log(result);
+			locals.meta.title = result.name + " en "+result.province.province+", "+result.country.country;
+			locals.meta.keywords = result.keywords;
+			var desc = result.description.short;
+			var description = striptags(desc);
+			console.log(description);
+			locals.meta.description = desc;
 		});
 
 	});

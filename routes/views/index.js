@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 	locals.data = {
 		tours: [],
 		categories: [],
-		provinces: []
+		provinces: [],
 	};
 	
 	// Load the places
