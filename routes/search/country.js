@@ -51,7 +51,7 @@ exports = module.exports = function(req, res) {
 			var id = results._id;
 			var country = results.country;
 			locals.meta.title = "Triptable: Reserva Tours Baratos, Actividades y Qué hacer en " + results.country; + "| Triptable";
-			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country;
+			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
 			locals.meta.description =  "Reserva tours en " + country  + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " +country; 
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + country;
