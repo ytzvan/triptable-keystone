@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.tour = result;
 			next(err);
-			locals.meta.title = result.name +". Reserva Tours en Triptable."
+			locals.meta.title = result.name +" Desde USD "+result.price+"$ por persona. Reserva Tours, Actividades y Excursiones en Triptable."
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);

@@ -102,7 +102,7 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	var tourId = obj.tour;
 	var email = email;
 	var name = obj.operatorName;
-	var bookerName = obj.name.full;
+	var bookerName = obj.name.first;
 	console.log("obj date:", obj.date);
 	var fecha = moment(obj.date).format("dddd, Do MMMM YYYY");
 	console.log(fecha);
