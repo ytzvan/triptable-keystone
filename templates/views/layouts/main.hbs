@@ -33,9 +33,13 @@
 	{{else}}
 	<meta property="og:description" content="Descubre y reserva tours, actividades, viajes y turismo en Panama. Con Triptable reservas experiencias locales unicas." />
 	{{/if}}
-	<meta property="og:url" content="https://www.triptableapp.com"/>
+	{{#if meta.url}}
+	<meta property="og:url" content="{{meta.url}}"/>
+	{{else}}
+	<meta property="og:url" content="https://www.triptableapp.com"/>	
+	{{/if}}
 	<meta property="og:site_name" content="Triptable: Reserva Tours y Actividades"/>
-	<meta property="og:type" content="place"/>
+	<meta property="og:type" content="website"/>
 	{{#if meta.image}}
 	<meta property="og:image" content="{{meta.image}}" />
 	<meta property="og:image:secure_url" content="{{meta.image}}" />
