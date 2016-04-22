@@ -18,6 +18,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data.country;
 	locals.meta = {};
+	var url = req.url;
+	locals.meta.url = "https://www.triptableapp.com"+url;
 	query = {
 		'slug' : req.params.country,
 	};
