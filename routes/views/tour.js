@@ -15,7 +15,8 @@ exports = module.exports = function(req, res) {
 		tours: []
 	};
 	locals.meta = {};
-	
+	var url = req.url;
+	locals.meta.url = "https://www.triptableapp.com"+url;
 	// Load the current post
 	view.on('init', function(next) {
 		
@@ -27,13 +28,16 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.tour = result;
 			next(err);
-			console.log(result);
-			locals.meta.title = result.name + " en "+result.province.province+", "+result.country.country;
+			locals.meta.title = result.name + " en "+result.city.city+", "+result.country.country;
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
-			var description = striptags(desc);
-			console.log(description);
-			locals.meta.description = desc;
+			var cleanStr = striptags(desc);
+			locals.meta.description = cleanStr;
+			locals.meta.ogTitle = locals.meta.title;
+			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + result.city.city;
+			if (result.images[0]) {
+				locals.meta.image = result.images[0].secure_url;
+			}
 		});
 
 	});
