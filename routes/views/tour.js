@@ -35,8 +35,9 @@ exports = module.exports = function(req, res) {
 			locals.meta.description = cleanStr;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + result.city.city;
-			if (result.images[0]) {
-				locals.meta.image = result.images[0].secure_url;
+			var img = result.images[0];
+			if (img) {
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v"+img.version+"/"+img.public_id+"."+img.format;
 			}
 		});
 
