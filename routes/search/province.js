@@ -20,6 +20,7 @@ exports = module.exports = function(req, res) {
 	var category = req.query.categoria;
 	console.log(category);
 	locals.data.province;
+	locals.meta = {};
 	query = {
 		'slug' : req.params.province,
 	};
@@ -48,6 +49,15 @@ exports = module.exports = function(req, res) {
 			}
 			locals.data.province = province;
 			var id = province._id;
+			var provinceName = province.province;
+			locals.meta.title = "Reserva Tours Baratos, Actividades y Qué hacer en " + provinceName;
+			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
+			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName; 
+			locals.meta.ogTitle = locals.meta.title;
+			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + provinceName;
+			if (province.image) {
+				locals.meta.image = province.image.secure_url;
+			}
 			var q = keystone.list('Tour')
   			.paginate({
   				page: req.query.page || 1,

@@ -1,1 +1,150 @@
-Sucessfully send
+<div class="main-wrapper">
+			
+			<div class="breadcrumb-wrapper bg-light-2">
+				
+				<div class="container">
+				
+					<ol class="breadcrumb-list booking-step">
+						<li><a href="">Inicio</a></li>
+						<li><a href="">Tour</a></li>
+						<li><a href="#">Información</a></li>
+						<li><span>Confirmación</span></li>
+					</ol>
+					
+				</div>
+				
+			</div>
+			
+			<div class="content-wrapper">
+			
+				<div class="container">
+			
+					<div class="row">
+					
+						<div class="col-sm-8 col-md-9">
+	
+							<div class="confirmation-wrapper">
+							
+								<div class="payment-success">
+								
+									<div class="icon">
+										<i class="pe-7s-check text-success"></i>
+									</div>
+								
+									<div class="content">
+										
+										<h2 class="heading uppercase mt-0 text-success">Gracias, tu reserva ha sido enviada!</h2>
+										<p>Tú número de reserva es <span class="text-primary font700" style="text-transform: uppercase;">{{bookingInfo.friendlyId}}</span></p>
+									
+									</div>
+									
+								</div>
+								<div class="confirmation-content">
+								
+									<div class="section-title text-left">
+										<h4>Información de la Reserva</h4>
+									</div>
+								
+									<ul class="book-sum-list">
+										<li><span class="font600"> Número de Reserva: </span> <p style="text-transform: uppercase;">{{bookingInfo.friendlyId}}</p></li>
+										<li><span class="font600">Nombre: </span>{{bookingInfo.name.full}}</li>
+										<li><span class="font600">Tour: </span>{{data.tour.name}}</li>
+										<li><span class="font600">Fecha: </span> {{bookingInfo.datePretty}}</li>
+										<li><span class="font600">Personas: </span>{{bookingInfo.people}}</li>
+										<!-- <li><span class="font600">Incluído: </span>Guide, Meals, Transport, 5 Experiences</li> -->
+										<li><span class="font600">Email de Contacto: </span>{{bookingInfo.email}}</li>
+										<li><span class="font600">Dirección </span>{{bookingInfo.hotel}}</li>
+										<li><span class="font600">Monto a Pagar </span>USD ${{bookingInfo.tourPrice}} </li>
+									</ul>
+									
+								</div>
+								
+								
+								<div class="confirmation-content">
+								
+									<div class="section-title text-left">
+										<h4>Información Importante</h4>
+									</div>
+									
+									<p>Su reserva ha sido enviada al operador del tour para verificar disponibilidad en la fecha seleccionada. Cuando el operador confirme su disponibilidad, recibirá un e-mail con sus datos de contacto para coordinar detalles adicionales en caso de existir alguno. Si el operador no tiene disponibilidad en la fecha seleccionada, le notificaremos y le recomendaremos otro proveedor de la actividad, en la misma fecha y hora seleccionada. No dude en contactarnos, estaremos felices en ayudarle.</p>
+								
+								</div>
+								<div class="confirmation-content">
+								
+									<div class="section-title text-left">
+										<h4>Pago</h4>
+										
+									</div>
+								
+									<p>El pago será coordinado directamente con el operador del tour o la actividad. Recomendamos pagar en efectivo al momento del encuentro con el operador.</p>
+										
+								</div>
+								
+								<!-- <button class="btn btn-primary"><i class="fa fa-print"></i> Imprimir</button>
+								<button class="btn btn-primary btn-inverse"><i class="fa fa-envelope-o"></i> Compartir</button> -->
+							
+							</div>
+							
+						</div>
+
+						<div class="col-sm-4 col-md-3 mt-50-xs">
+
+							<aside class="sidebar with-filter">
+							
+								<div class="sidebar-inner">
+								
+									<div class="sidebar-module">
+										<h4 class="heading mt-0">Necesitas Ayuda con tu Reserva?</h4>
+										<div class="sidebar-module-inner">
+											<p class="mb-10">Estamos disponibles de 5 AM a 10 PM todos los días de la semana.</p>
+											<ul class="help-list">
+												<li><span class="font600">Llámanos</span>: +507 680 800 24</li>
+												<li><span class="font600">E-mail</span>: hello@triptableapp.com</li>
+												<li><span class="font600">Chatea</span>: triptable (Skype)</li>
+											</ul>
+										</div>
+									</div>
+									
+									
+									<div class="sidebar-module">
+										<h4 class="heading mt-0">¿Porqué Reservar con Nosotros?</h4>
+										<div class="sidebar-module-inner">
+											<ul class="featured-list-sm">
+												<li>
+													<span class="icon"><i class="fa fa-thumbs-up"></i></span>
+													<h6 class="heading mt-0">Sin Cargos Adicionales</h6>
+													Reservar con Triptable asegura el mismo precio que obtendrás directo con el proveedor, más beneficios adicionales.
+												</li>
+												<li>
+													<span class="icon"><i class="fa fa-credit-card"></i></span>
+													<h6 class="heading mt-0">Política de Cancelación Flexible</h6>
+													Si desea posponer su tour para otro día, no te costará una fortuna adicional.
+												</li>
+												<li>
+													<span class="icon"><i class="fa fa-inbox"></i></span>
+													<h6 class="heading mt-0">Confirmación Inmediata</h6>
+													Respondemos la mayoría de las reservas en menos de 30 minutos.
+												</li>
+												<li>
+													<span class="icon"><i class="fa fa-calendar"></i></span>
+													<h6 class="heading mt-0">Reserva de Donde Sea</h6>
+													¿No traes tu computadora? ¡No hay problema! Triptable está diseñado para que puedas consultar tus reservas desde tu smartphone o tableta.
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+								</div>
+								
+							</aside>
+
+						</div>
+
+					</div>
+				
+				</div>
+					
+			</div>
+
+		</div>
+		<!-- end Main Wrapper -->

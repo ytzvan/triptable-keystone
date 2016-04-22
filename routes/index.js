@@ -26,7 +26,8 @@ exports = module.exports = function(app) {
 	//Dinamic Views
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	app.all('/contact/:tourId', routes.views.contact);
+	app.get('/contact/:tourId', routes.views.booking);
+	app.post('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
 	//Search Views
 	app.get('/:country', routes.search.country);

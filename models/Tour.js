@@ -1,5 +1,14 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var moment = require('moment');
+moment.locale('es', {
+    months : "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"),
+    monthsShort : "en._feb._mar_abr._mayo_jun_jul._ago_sept._oct._nov._dec.".split("_"),
+    weekdays : "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split("_"),
+    weekdaysShort : "dom._lun._mar._mier._jue._vie._sáb.".split("_"),
+    weekdaysMin : "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"),
+	});
+moment.locale('es');
 
 /**
  * Post Model

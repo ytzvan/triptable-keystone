@@ -1,4 +1,4 @@
-/* Este controlador maneja el POST del booking */
+/* Este controlador hace el GET del booking */
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 
@@ -16,7 +16,6 @@ exports = module.exports = function(req, res) {
 	locals.data = {
 		tour: []
 	};
-	locals.bookingInfo = {};
 	var tourId =  req.params.tourId;
 	
 
@@ -39,29 +38,7 @@ exports = module.exports = function(req, res) {
 			}
 		});
 	});
+
+	view.render('contact');
 	
-	// On POST requests, add the Enquiry item to the database
-	view.on('post', { action: 'contact' }, function(next) {
-		
-		var newEnquiry = new Enquiry.model(),
-			updater = newEnquiry.getUpdateHandler(req);
-		
-		updater.process(req.body, {
-			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, message, hotel, operatorEmail, operatorName, tourPrice',
-			errorMessage: 'There was a problem submitting your booking:'
-		}, function(err, data) {
-			if (err) {
-				locals.validationErrors = err.errors;
-			} else {
-				locals.bookingInfo = data;
-				locals.enquirySubmitted = true;
-			}
-			next();
-		});
-		
-	});
-	
-	view.render('bookingConfirmation');
-	
-};
+};	

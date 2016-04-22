@@ -26,9 +26,11 @@
                   <a href="/tour/{{slug}}">
                     <div class="image">
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="Tour Package" />
+                      {{#if featured}}
                       <div class="absolute-in-image">
                         <div class="duration"><span>Destacado</span></div>
                       </div>
+                      {{/if}}
                     </div>
                     <div class="content clearfix">
                       <h5>{{name}}</h5>

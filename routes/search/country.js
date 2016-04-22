@@ -17,6 +17,7 @@ exports = module.exports = function(req, res) {
 		categories : []
 	};
 	locals.data.country;
+	locals.meta = {};
 	query = {
 		'slug' : req.params.country,
 	};
@@ -46,7 +47,15 @@ exports = module.exports = function(req, res) {
 			}
 			locals.data.country = results;
 			var id = results._id;
-		
+			var country = results.country;
+			locals.meta.title = "Reserva Tours Baratos, Actividades y Qué hacer en " + results.country; + "| Triptable";
+			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country;
+			locals.meta.description =  "Reserva tours en " + country  + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " +country; 
+			locals.meta.ogTitle = locals.meta.title;
+			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + country;
+			if (results.image) {
+				locals.meta.image = results.image.secure_url;
+			}
 			var q = keystone.list('Tour')
 				.paginate({
 					page: req.query.page || 1,

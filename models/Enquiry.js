@@ -40,19 +40,32 @@ Enquiry.add({
 	operatorName: {type: String},
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
-	createdAt: { type: Date, default: Date.now }
+	createdAt: { type: Date, default: Date.now },
+	friendlyId: {type: String, unique: true},
+	datePretty: {type: String}
 });
 
 Enquiry.schema.pre('save', function(next) {
 	this.wasNew = this.isNew;
+	var currentId = "" ;
+	currentId = this._id;
+	currentId = currentId.toString();
+	var str1 = currentId.toString().substring(0,4);
+	var largo = currentId.length - 4;
+	var str2 = currentId.toString().substring(largo);
+	str1 += str2;
+	this.friendlyId = str1;
+	var date = this.date;
+	var datePretty = moment(date).format("dddd, Do MMMM YYYY");
+	this.datePretty = datePretty;
 	next();
 });
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		this.sendUserEmail(this); //Send User email
+	//	this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail 
-		this.sendBookingNotificationEmail(this, email); // Send OP email
+	//	this.sendBookingNotificationEmail(this, email); // Send OP email
 		this.sendBookingNotificationEmail(this, bookingEmail); // Send OP email
 	}
 });
@@ -102,8 +115,8 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 			toEmail: email,
 			toName: name,
 			subject: 'Tienes una Solictud de Reserva',
-			htmlMessage: 'Hola '+name+', <br>' + bookerName + ' ha solicitado reservar el tour: <strong>' + tour.name +'</strong> para el día: ' + fecha + ' para '+ booking.people + ' personas. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> '+ tour.tourId +'.<br><strong>Ref:</strong> '+ obj._id + ' <br>El equipo de Triptable.' ,
-			textMessage: bookerName + ' ha solicitado reservar el tour' + tour.name +' para el día' + fecha + ' para '+ booking.people + ' personas. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: '+ tour.tourId +'.ref: '+ obj._id + ' \nEl equipo de Triptable.' ,
+			htmlMessage: 'Hola '+name+', <br>' + bookerName + ' ha solicitado reservar el tour: <strong>' + tour.name +'</strong> para el día: ' + fecha + ' para '+ booking.people + ' personas. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> '+ tour.tourId +'.<br><strong>Ref:</strong> '+ obj.friendlyId + ' <br>El equipo de Triptable.' ,
+			textMessage: bookerName + ' ha solicitado reservar el tour' + tour.name +' para el día' + fecha + ' para '+ booking.people + ' personas. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: '+ tour.tourId +'.ref: '+ obj.friendlyId + ' \nEl equipo de Triptable.' ,
 			fromEmail: bookingEmail,
 			fromName:  bookingEmailName,
 		}).exec({
