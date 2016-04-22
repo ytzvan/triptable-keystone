@@ -28,13 +28,13 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.tour = result;
 			next(err);
-			locals.meta.title = result.name + " en "+result.city.city+", "+result.country.country;
+			locals.meta.title = result.name +". Reserva Tours en Triptable."
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);
 			locals.meta.description = cleanStr;
 			locals.meta.ogTitle = locals.meta.title;
-			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + result.city.city;
+			locals.meta.ogDescription = locals.meta.description + ". Con Triptable descubres y reservas Tours y actividades baratas en " + result.city.city + ", "+result.country.country +".";
 			var img = result.images[0];
 			if (img) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v"+img.version+"/"+img.public_id+"."+img.format;

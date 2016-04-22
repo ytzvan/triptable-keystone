@@ -21,6 +21,8 @@ exports = module.exports = function(req, res) {
 	console.log(category);
 	locals.data.province;
 	locals.meta = {};
+	var url = req.url;
+	locals.meta.url = "https://www.triptableapp.com"+url;
 	query = {
 		'slug' : req.params.province,
 	};
