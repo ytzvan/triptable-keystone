@@ -52,13 +52,13 @@ exports = module.exports = function(req, res) {
 			locals.data.province = province;
 			var id = province._id;
 			var provinceName = province.province;
-			locals.meta.title = "Reserva Tours Baratos, Actividades y Qué hacer en " + provinceName;
+			locals.meta.title = "Triptable: Reserva Tours Baratos, Actividades y Qué hacer en " + provinceName.;
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
 			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName; 
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + provinceName;
 			if (province.image) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v"+province.image.version+"/"+province.image.public_id+"."+province.image.format;
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+province.image.version+"/"+province.image.public_id+"."+province.image.format;
 			}
 			var q = keystone.list('Tour')
   			.paginate({

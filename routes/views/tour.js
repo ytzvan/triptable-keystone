@@ -37,7 +37,7 @@ exports = module.exports = function(req, res) {
 			locals.meta.ogDescription = locals.meta.description + ". Con Triptable descubres y reservas Tours y actividades baratas en " + result.city.city + ", "+result.country.country +".";
 			var img = result.images[0];
 			if (img) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v"+img.version+"/"+img.public_id+"."+img.format;
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_75/v"+img.version+"/"+img.public_id+"."+img.format;
 			}
 		});
 
