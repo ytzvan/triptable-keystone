@@ -52,7 +52,7 @@ exports = module.exports = function(req, res) {
 			locals.data.province = province;
 			var id = province._id;
 			var provinceName = province.province;
-			locals.meta.title = "Triptable: Reserva Tours Baratos, Actividades y Qué hacer en " + provinceName.;
+			locals.meta.title = "Triptable: Reserva Tours Baratos, Actividades y Qué hacer en " + provinceName + ".";
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
 			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName; 
 			locals.meta.ogTitle = locals.meta.title;
