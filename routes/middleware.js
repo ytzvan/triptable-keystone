@@ -1,5 +1,6 @@
 var _ = require('underscore');
-
+var keystone = require('keystone');
+var passport = require('passport');
 
 /**
 	Initialises the standard view locals
@@ -20,6 +21,17 @@ exports.initLocals = function(req, res, next) {
 	next();
 	
 };
+
+exports.crsfAuth = function (req, res, next) {
+	var locals = res.locals;
+	var csrf = keystone.security.csrf;
+	locals.token = {
+		key : csrf.TOKEN_KEY,
+		value : csrf.getToken(req, res)
+	};
+	
+	next();
+}
 
 
 /**
@@ -73,3 +85,15 @@ exports.requireUser = function(req, res, next) {
 	}
 	
 };
+
+exports.userInfo = function(req, res, next) {
+	var locals = res.locals;
+	if (req.user) {
+		locals.userInfo = req.user;
+		next();
+	} else {
+		locals.userInfo = null;
+		next();
+	}
+};
+

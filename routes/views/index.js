@@ -16,7 +16,7 @@ exports = module.exports = function(req, res) {
 		categories: [],
 		provinces: [],
 	};
-	
+	console.log(req);
 	// Load the places
 	view.on('init', function(next) {
 		

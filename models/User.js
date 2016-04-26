@@ -10,18 +10,18 @@ var User = new keystone.List('User');
 
 User.add({
 	name: { type: Types.Name, required: true, index: true },
-	email: { type: Types.Email, initial: true, required: true, index: true },
-	password: { type: Types.Password, initial: true, required: true }
+	email: { type: Types.Email, initial: true, required: true, index: {unique: true } },
+	password: { type: Types.Password, initial: true, required: true },
+	image: {type: Types.CloudinaryImage}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
-	image: {type: Types.CloudinaryImage}
+	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true}
 });
 
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
-
 
 /**
  * Relationships

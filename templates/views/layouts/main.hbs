@@ -189,7 +189,8 @@
 					<!-- End | Lost Password Form -->
 								
 					<!-- Begin | Register Form -->
-					<form id="register-form" style="display:none;">
+					<form id="register-form" method="POST" action="/signup" style="display:none;">
+						<input type="hidden" name="action" value="login">
 					
 						<div class="modal-body pb-5">
 						
@@ -203,15 +204,18 @@
 							
 							
 							<div class="form-group"> 
-								<input id="register_email" class="form-control" type="email" placeholder="Email">
+								<input id="register_name" name="name" value="" class="form-control" type="text" placeholder="Nombre">
 							</div>
 							
 							<div class="form-group"> 
-								<input id="register_password" class="form-control" type="password" placeholder="Contraseña">
+								<input id="register_email" name="email", value="" class="form-control" type="email" placeholder="Email">
 							</div>
 							
 							<div class="form-group"> 
-								<input id="register_password_confirm" class="form-control" type="password" placeholder="Confirmar Contraseña">
+								<input id="register_password" name='password', value="" class="form-control" type="password" placeholder="Contraseña">
+							</div>
+							<div class="form-group"> 
+								<input id="register_password" name='password_confirm' value="" class="form-control" type="password" placeholder="Contraseña">
 							</div>
 
 						</div>
@@ -243,7 +247,7 @@
 		</div>
 	</div>
 	<!-- END # MODAL LOGIN -->
-	
+
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
 
@@ -309,9 +313,19 @@
 												</ul>
 											</li> -->
 											
-											<!--<li class="user-action">
+											<!-- <li class="user-action">
 												<a data-toggle="modal" href="#loginModal" class="btn">Regístrate / Ingresa</a>
-											</li>-->
+											</li> -->
+											{{#if userInfo}}
+											<li class="user-action">
+												<a href="#" class="">Hola, {{userInfo.name.full}}</a>
+											</li>
+											{{else}}
+											<li class="user-action">
+												<a href="/signup" class="btn">Regístrate / Ingresa</a>
+											</li>
+											{{/if}}
+											
 
 										</ul>
 									</div>
@@ -369,7 +383,7 @@
 		</header>
 
 		<div class="clear"></div>
-		
+
 			{{{body}}}
 
 		<footer class="footer scrollspy-footer">

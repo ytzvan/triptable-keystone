@@ -1,0 +1,86 @@
+{{data.validationErrors}}
+		{{#if data.validationErrors.password}}
+		<div class="alert alert-danger">
+  			<strong>Error:</strong> Las contraseñas no coinciden
+		</div>
+		{{/if}}
+
+		{{#if validationErrors.isEmpty}}
+		<div class="alert alert-danger">
+  			<strong>Error:</strong> {{validationErrors.isEmpty}}
+		</div>
+		{{/if}}
+
+		
+		{{#if validationErrors.csrfError}}
+		<div class="alert alert-danger">
+  			<strong>Error:</strong> {{validationErrors.csrfError}}
+		</div>
+		{{/if}}
+
+		<div class="row">
+		<div class="col-md-3"></div>
+			<div class="col-md-6">
+				
+				<div class="clear"></div>
+				
+				<!-- Begin # DIV Form -->
+				<div id="modal-login-form-wrapper">
+					
+					<!-- Begin # Login Form -->
+					<form id="register-form" method="POST" action="/signup">
+						<input type="hidden" name="action" value="login">
+					
+						<div class="modal-body pb-5">
+						
+							<h3 class="text-center heading mt-10 mb-20">Regístrate</h3>
+							
+							<div class="modal-seperator">
+								<span></span>
+							</div>
+							
+							
+							<div class="form-group"> 
+								<input id="register_name" name="name" value="" class="form-control" type="text" placeholder="Nombre Completo">
+							</div>
+							
+							<div class="form-group"> 
+								<input id="register_email" name="email", value="" class="form-control" type="email" placeholder="Email">
+							</div>
+							
+							<div class="form-group"> 
+								<input id="register_password" name='password', value="" class="form-control" type="password" placeholder="Contraseña">
+							</div>
+							<div class="form-group"> 
+								<input id="register_password" name='password_confirm' value="" class="form-control" type="password" placeholder="Repetir Contraseña">
+							</div>
+
+						</div>
+							
+						<div class="modal-footer mt-10">
+						
+							<div class="row gap-10">
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<button type="submit" class="btn btn-primary btn-block">Regístrate</button>
+								</div>
+								<div class="col-xs-6 col-sm-6 mb-10">
+									<a href="/" class="btn btn-primary btn-inverse btn-block">Cancelar</a>
+								</div>
+							</div>
+							
+							<div class="text-left">
+									¿Ya tienes una Cuenta? <a href="/signin" id="register_login_btn"  class="btn btn-link">Ingresa</a>
+							</div>
+							
+						</div>
+							
+					</form>
+					<!-- End # Login Form -->			
+					
+								
+				</div>
+				<!-- End # DIV Form -->
+								
+			</div>
+			<div class="col-md-3"></div>
+		</div>

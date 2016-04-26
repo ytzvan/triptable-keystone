@@ -30,7 +30,12 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+	'signin url': '/signin',
+	'signin redirect' : '/',
+	//'signout url' : '/signout',
+	//'signout redirect' : '/'
+
 
 });
 
