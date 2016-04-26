@@ -51,12 +51,15 @@
                 </li>
                 
               </ul>
-              
             </div>
-            
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
+              {{#if userInfo}}
                 <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-primary">Reservar Ahora</a>
+              {{else}}
+              <a href="/signup" class="anchor btn btn-primary">Reservar Ahora</a>
+              {{/if}}
+              
               </div>
             </div>
           
@@ -339,8 +342,11 @@
 
                   </ul>
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
+                 {{#if userInfo}}
                   <a href="/contact/{{data.tour.tourId}}" class="btn btn-primary">Reservar Ahora</a>
-                  
+                  {{else}}
+                  <a href="/signup" class="btn btn-primary">Reservar Ahora</a>
+                  {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
                   
                 </div>
