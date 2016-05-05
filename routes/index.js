@@ -17,19 +17,19 @@ var routes = {
 	views: importRoutes('./views'),
 	search: importRoutes('./search'),
 	auth: importRoutes('./auth'),
-	
+
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	
+
 	// Views
 	app.get('/', routes.views.index);
 	//Static views
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
 	//Dinamic Views
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	app.get('/blog/', routes.views.blog);
+	app.get('/blog/:post', routes.views.post);
 	app.get('/contact/:tourId', routes.views.booking);
 	app.post('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
@@ -38,6 +38,6 @@ exports = module.exports = function(app) {
 	app.get('/:country/:province', routes.search.province);
 	app.get('/:country/:province/:city', routes.search.city);
 
-	
+
 };
 

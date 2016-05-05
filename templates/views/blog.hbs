@@ -1,126 +1,62 @@
-<div class="container">
-	<h1>Blog</h1>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.posts.results.length}} post.</h4>
-			<div class="blog">
-				{{# each data.posts.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
-					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</p>
-					<p>{{{content.extended}}}</p>
-					<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>
-				</div>
-				{{/each}}
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/blog" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
-				{{/each}}
-			</div>
-		</div>
-	</div>
-	{{>pagination}}
-</div>
-
-			<section>
-			
+<section>
 				<div class="container">
-				
-					<div class="row">
-						
-						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-							
-							<div class="section-title">
-							
-								<h3>Últimas Publicaciones</h3>
-								
-							</div>
-							
-						</div>
-					
-					</div>
-					
-					<div class="grid destination-grid-wrapper">
-					<div class="grid-item" data-colspan="20" data-rowspan="8">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('http://curious-jgtghostdemo.rhcloud.com/content/images/2016/03/New-York.jpg');">
-								<div class="relative">
-									<div class="blog-category"><span class="blog-category">Travel</span><span class="blog-category">Hola</span></div>
-									<h4 class="blog-title">
-									What To Know Before Moving To New York</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-					<div class="grid-item" data-colspan="10" data-rowspan="8">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
-								<div class="relative">
-									<h4 class="blog-title">Short text blog title goes here</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						<div class="grid-item" data-colspan="10" data-rowspan="8">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
-								<div class="relative">
-									<h4 class="blog-title">Super long text blog title goes here try it out</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						<div class="grid-item" data-colspan="20" data-rowspan="8">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
-								<div class="relative">
-									<h4>Croatia</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/03.jpg');">
-								<div class="relative">
-									<h4>USA</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
-								<div class="relative">
-									<h4>Emirates</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
-								<div class="relative">
-									<h4>Emirates</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
-								<div class="relative">
-									<h4>Emirates</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						
-					</div>
-					
-				</div>
 
+					<div class="row">
+						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+							<div class="section-title">
+
+								<h3>Artículos</h3>
+
+							</div>
+
+						</div>
+
+					</div>
+          <script type="text/javascript">
+             var status = parseInt(0);
+
+            </script>
+				  <div class="grid destination-grid-wrapper">
+          {{#each data.posts.results}}
+					<div class="grid-item" data-colspan="20" data-rowspan="8" id=post{{@index}}>
+							<a href="/blog/{{slug}}" class="top-destination-image-bg" style="background-image:url('{{image.secure_url}}');">
+								<div class="relative">
+									<div class="blog-category">
+                  {{#each categories}}
+                    <span class="blog-category">{{name}}</span>
+                    {{/each}}
+                  </div>
+									<h4 class="blog-title">
+									{{{title}}}</h4>
+									<span>{{{content.brief}}}</span>
+								</div>
+							</a>
+						</div>
+            <script type="text/javascript">
+
+            console.log("status", status)
+            if (status == 0){
+              var postId = $.find('#post{{@index}}');
+              $(postId).attr('data-colspan', 20);
+              $(postId).attr('data-rowspan', 8);
+            }
+            if (status == 1){
+              var postId = $.find('#post{{@index}}');
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 8);
+            }
+            if (status == 2){
+              var postId = $.find('#post{{@index}}');
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 8);
+            }
+            status++;
+            if (status >= 3){
+              status = 0;
+            }
+            </script>
+      {{/each}}
+            </div> <!-- main -->
+	{{>pagination}}
 			</section>

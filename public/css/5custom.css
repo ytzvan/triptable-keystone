@@ -27,3 +27,19 @@ h4.blog-title{
     line-height: 1.2;
     text-transform: capitalize;
 }
+.page-title {
+    padding: 200px 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgba(255,255,255,.5);
+    position: relative;
+}
+.blog-content h1{
+  font-size: 40px;
+  font-family: inherit;
+  text-transform: capitalize;
+}
+h1.hero-title{
+  text-transform: capitalize;
+}
