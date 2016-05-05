@@ -28,6 +28,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
  */
 
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
+User.relationship({ ref: 'Review', path: 'reviews', refPath: 'author' });
 User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
 
 

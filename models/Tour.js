@@ -51,7 +51,8 @@ Tour.add({
 	city : { type: Types.Relationship, ref: 'City', filters: { province: ':province' } },
 	highlights: { type: Types.TextArray},
 	startingPoint : {type: String},
-	finishPoint: {type: String}
+	finishPoint: {type: String},
+	reviews : { type: Types.Relationship, ref: 'Review', many: true },
 
 
 });
@@ -60,6 +61,7 @@ Tour.schema.virtual('content.full').get(function() {
 	return this.description.extended || this.description.short;
 });
 Tour.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'tour' });
+Tour.relationship({ ref: 'Review', path: 'reviews', refPath: 'tour' });
 Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
