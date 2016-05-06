@@ -9,12 +9,13 @@
 
 						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 
-							<h1 class="hero-title">{{data.post.title}}</h1>
+							<!--<h1 class="hero-title">{{data.post.title}}</h1>
+              <h4>{{{data.post.content.brief}}}</h4> -->
 
-							<ol class="breadcrumb-list">
+							<!--<ol class="breadcrumb-list">
 								<li><a href="index.html">Homepage</a></li>
 								<li><span>Blog</span></li>
-							</ol>
+							</ol> -->
 
 						</div>
 
@@ -24,7 +25,7 @@
 
 			</div>
 			<!-- end Page title -->
-			<div class="content-wrapper">
+			<div>
 
 				<div class="container">
 
@@ -43,50 +44,24 @@
 									<div class="blog-content">
 										<h1>{{data.post.title}}</h1>
 										<ul class="blog-meta clearfix">
-											<li>por: <a href="#">{{data.post.author.name.full}}</a></li>
-											<li>el: {{data.post.publishedDate}}</li>
-											<li>en: {{#each data.post.categories}}{{name}}, {{/each}}
+											<li>Por: <a href="#">{{data.post.author.name.full}}</a></li>
+											<li>Publicado: {{data.post.datePretty}}</li>
+											<li>En: {{#each data.post.categories}}{{name}}, {{/each}}
 										</ul>
 										<div class="blog-entry">
-
-											<p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. </p>
-
-											<div class="blockquote">She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Bed one supposing breakfast day fulfilled off depending questions. Whatever boy her exertion his extended. Ecstatic followed handsome drawings entirely mrs one yet outweigh. Of acceptance insipidity remarkably is invitation.</div>
-
-											<p>Abilities or he perfectly pretended so strangers be exquisite. Oh to another chamber pleased imagine do in. Went me rank at last loud shot an draw. Excellent so to no sincerity smallness. Removal request delight if on he we. Unaffected in we by apartments astonished to decisively themselves. Offended ten old consider speaking. </p>
-
-											<ul class="mb-15">
-												<li>Lorem ipsum dolor sit amet</li>
-												<li>Consectetur adipiscing elit</li>
-												<li>Nulla volutpat aliquam velit
-													<ul>
-														<li>Phasellus iaculis neque</li>
-														<li>Purus sodales ultricies</li>
-														<li>Vestibulum laoreet</li>
-														<li>Ac tristique libero</li>
-													</ul>
-												</li>
-												<li>Faucibus porta lacus fringilla vel</li>
-												<li>Aenean sit amet erat nunc</li>
-											</ul>
-
-											<p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. </p>
-
-											<p>Breakfast agreeable incommode departure it an. By ignorant at on wondered relation. Enough at tastes really so cousin am of. Extensive therefore supported by extremity of contented. Is pursuit compact demesne invited elderly be. View him she roof tell her case has sigh. Moreover is possible he admitted sociable concerns. By in cold no less been sent hard hill. </p>
-										</div>
-									</div>
-
+											{{{data.post.content.html}}}
 									<div class="blog-extra">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-7 xs-mb">
 												<div class="tag-cloud clearfix mt-0">
 													<span><i class="fa fa-tags"></i> tags: </span>
-													<a href="#" class="tag-item">HTML5</a> <a href="#" class="tag-item">CSS3</a> <a href="#" class="tag-item">jQuery</a>
-													<a href="#" class="tag-item">Creative</a>
+                          {{#each data.post.categories}}
+                          <a href="#" class="tag-item">{{name}}</a>
+                          {{/each}}
 												</div>
 											</div>
 
-											<div class="col-xs-12 col-sm-6 col-md-5 xs-mb">
+											<!--<div class="col-xs-12 col-sm-6 col-md-5 xs-mb">
 												<ul class="social-share-sm mt-5 pull-right pull-left-xs mt-20-xs">
 
 													<li><span><i class="fa fa-share-square"></i> share</span></li>
@@ -95,25 +70,25 @@
 													<li class="the-label"><a href="#">Google Plus</a></li>
 
 												</ul>
-											</div>
+											</div> -->
 											<div class="clear"></div>
 										</div>
 									</div>
 
-									<h4 class="uppercase">About author</h4>
+									<h4 class="uppercase">Acerca del autor</h4>
 									<div class="blog-author">
 										<div class="author-label">
-											<img src="images/man/01.jpg" alt="author image" class="img-circle" />
+											<img src="{{data.post.author.image.secure_url}}" alt="author image" class="img-circle" />
 										</div>
 										<div class="author-details">
-											<ul class="social-share-sm pull-right pull-left-xs">
+											<!--<ul class="social-share-sm pull-right pull-left-xs">
 												<li class="the-label"><a href="#">Facebook</a></li>
 												<li class="the-label"><a href="#">Twitter</a></li>
 												<li class="the-label"><a href="#">Google Plus</a></li>
-											</ul>
+											</ul> -->
 											<div class="clear-xs"></div>
-											<h5 class="heading"><a href="#">John Joe</a></h5>
-											<p>Prepared do an dissuade be so whatever steepest. Yet her beyond looked either day wished nay. By doubtful disposed do juvenile an. Now curiosity you explained immediate why behaviour. An dispatched impossible of of melancholy favourable. </p>
+											<h5 class="heading"><a href="#">{{data.post.author.name.full}}</a></h5>
+											<p>{{data.post.author.description}}</p>
 										</div>
 									</div>
 									<!-- comment partial goes here -->
@@ -132,3 +107,7 @@
 
 		</div>
 		<!-- end Main Wrapper -->
+        <script type="text/javascript">
+             var images = $.find('img');
+          //  $(images).attr('class', 'img-responsive');
+        </script>

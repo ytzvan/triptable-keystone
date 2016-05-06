@@ -17,6 +17,7 @@ var routes = {
 	views: importRoutes('./views'),
 	search: importRoutes('./search'),
 	auth: importRoutes('./auth'),
+	static: importRoutes('./static'),
 
 };
 // Setup Route Bindings
@@ -27,6 +28,8 @@ exports = module.exports = function(app) {
 	//Static views
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
+  app.all('/nosotros', routes.static.about_us);
+  app.all('/terminos', routes.static.terms);
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);

@@ -42,4 +42,21 @@ h4.blog-title{
 }
 h1.hero-title{
   text-transform: capitalize;
+  font-size: 40px;
+  font-family: inherit;
+}
+.blog-entry{
+    font-family: inherit;
+    font-size: 15px;
+    text-align: justify;
+}
+.page-title::before {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+}
+.blog-author {
+    padding: 0 0 30px;
+    position: relative;
+    border-bottom: 0;
+    margin-bottom: 40px;
 }
