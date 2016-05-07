@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"triptabledb.enquiries"},{"v":1,"key":{"tour":1},"name":"tour_1","ns":"triptabledb.enquiries","background":true,"safe":null},{"v":1,"unique":true,"key":{"friendlyId":1},"name":"friendlyId_1","safe":null,"ns":"triptabledb.enquiries","background":true}]}
