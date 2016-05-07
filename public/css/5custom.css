@@ -60,3 +60,14 @@ h1.hero-title{
     border-bottom: 0;
     margin-bottom: 40px;
 }
+.about{
+    padding: 150px 0;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgba(255,255,255,.5);
+    position: relative;
+}
+.press-logo{
+    max-width: 150px !important;
+}
