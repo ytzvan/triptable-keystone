@@ -52,7 +52,7 @@ h1.hero-title{
 }
 .page-title::before {
     position: absolute;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0);
 }
 .blog-author {
     padding: 0 0 30px;

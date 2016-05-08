@@ -7,14 +7,15 @@ exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
+	var tourId;
 	// Set locals
 	locals.section = 'tours';
 	locals.filters = {
 		tour: req.params.slug
 	};
 	locals.data = {
-		tours: []
+		tours: [],
+		reviews: []
 	};
 	locals.meta = {};
 	var url = req.url;
@@ -25,11 +26,14 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			slug: locals.filters.tour
-		}).populate('owner categories country province city review');
+		}).populate('owner categories country province city');
 		
 		q.exec(function(err, result) {
 			locals.data.tour = result;
-			next(err);
+			tourId = result._id;
+
+			/*Load Reviews */
+			loadReviews(next);
 			locals.meta.title = result.name +" Desde USD "+result.price+"$ por persona. Reserva Tours, Actividades y Excursiones en Triptable."
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
@@ -59,12 +63,23 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				locals.reviewSubmitted = true;
+				console.log('data', data);
 			}
 			next();
 		});
 		
 	});
-	
+	function loadReviews(next){
+		var r = keystone.list('Review').model.find({'tour': tourId}).limit('3')
+		.populate('author');
+			r.exec(function(err, results) {
+				console.log("err", err);
+				console.log("res", results);
+				locals.data.reviews = results;
+				next(err);
+			});
+
+	}
 	// Load other posts
 	view.on('init', function(next) {
 		
@@ -72,16 +87,6 @@ exports = module.exports = function(req, res) {
 		
 		q.exec(function(err, results) {
 			locals.data.tours = results;
-			next(err);
-		});
-		
-	});
-	view.on('init', function(next) {
-		
-		var q = keystone.list('Review').model.find();
-		
-		q.exec(function(err, results) {
-			locals.data.reviews = results;
 			next(err);
 		});
 		

@@ -4,7 +4,6 @@ var Types = keystone.Field.Types;
  * Reviews Model
  * ==================
  */
-
 var Review = new keystone.List('Review', {
 	//autokey: { from: 'name', path: 'key', unique: true }
 	autokey: { path: 'slug', from: 'author', unique: true }
@@ -17,6 +16,7 @@ Review.add({
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 });
 
-//Reviews.relationship({ ref: 'Postspath: 'categories', refPath: 'messa' });
-Review.defaultColumns = 'author, score|20%, message|20%, tour|20%';
+Review.relationship({ ref: 'Tour', path: 'reviews' });
+Review.defaultColumns = 'author, score|20%, message|20%';
+
 Review.register();

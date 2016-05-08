@@ -1,7 +1,6 @@
-{{data.tour}}
 <div class="review-wrapper">
             
-                      <div class="review-header">
+                      <!-- <div class="review-header">
                         <div class="row">
                         
                           <div class="col-sm-4 col-md-3">
@@ -127,23 +126,23 @@
                           </div>
                           
                         </div>
-                      </div>
+                      </div> -->
                       
                       <div class="review-content">
                       
                         <div class="row gap-20">
                         
                           <div class="col-sm-6">
-                            <h5>There are 2135 reviews</h5>
+                            <h5>Existen {{data.reviews.length}} reviews</h5>
                           </div>
                           
-                          <div class="col-sm-6 text-right text-left-xs">
+                          <!-- <div class="col-sm-6 text-right text-left-xs">
                             <a href="#leave-comment" class="anchor btn btn-primary btn-inverse btn-sm">Leave comments</a>
-                          </div>
+                          </div> -->
                         
                         </div>
                         
-                        
+                        {{#each data.reviews}}
                         <ul class="review-list">                  
                           
                           <li class="clearfix">
@@ -151,27 +150,27 @@
                               <img class="img-circle" src="/images/avatar.png" alt="Man" />
                             </div>
                             <div class="content">
-                              <div class="row gap-20">
+                              <div class="row gap-20" style="min-width: 300px;">
                                 <div class="col-sm-9">
-                                  <h6>Mohammed Salem <span>/ from Turkey</span></h6>
+                                  <h6>{{author.name.full}}</h6>
                                 </div>
-                                <div class="col-sm-3">
+                                <!--<div class="col-sm-3">
                                   <p class="review-date">18/03/2016</p>
-                                </div>
+                                </div> -->
                               </div>
                               <div class="rating-wrapper">
                                 <div class="raty-wrapper">
-                                  <div class="star-rating-12px" data-rating-score="4.0"></div>
+                                  <div class="star-rating-12px" data-rating-score="{{score}}"></div>
                                 </div>
                               </div>
                               
                               <div class="review-text">
                               
-                                <p>She meant new their sex could defer child. An lose at quit to life do dull. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire.</p>
+                                <p>{{message}}</p>
                               
                               </div>
                               
-                              <div class="review-other">
+                              <!--<div class="review-other">
                                 
                                 <div class="row gap-20 mb-0">
                                   
@@ -200,11 +199,12 @@
                                 
                                 </div>
                                 
-                              </div>
+                              </div> -->
                             </div>
                           </li>
                           
                         </ul>
+                        {{/each}}
                       
                         <div class="bt text-center pt-30">
                           <a href="#" class="btn btn-primary">Cargar Más</a>
