@@ -45,7 +45,8 @@ Post.add({
 	image: { type: Types.CloudinaryImage },
   content: { type: Types.Markdown, height: 400},
   brief: {type: Types.Textarea },
-	categories: { type: Types.Relationship, ref: 'BlogCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'BlogCategory', many: true },
+  keywords: {type: String},
 });
 
 Post.schema.virtual('content.full').get(function() {

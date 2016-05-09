@@ -11,10 +11,20 @@ exports = module.exports = function(req, res) {
 	locals.filters = {
 		category: req.params.category
 	};
+  locals.meta = {};
+  	var url = req.url;
+	locals.meta.url = "https://www.triptableapp.com"+url;
 	locals.data = {
 		posts: [],
 		categories: []
 	};
+
+      locals.meta.title = "El blog de viajes de Triptable";
+			locals.meta.keywords = "blog, viajes, travel, triptable blog, latinoamerica, cosas que hacer, tripts, tours, articulos";
+			locals.meta.description = "El blog de viajes de Triptable es un espacio creado para descubrir tours y los mejores destinos turísticos en latinoamérica";
+			locals.meta.ogTitle = locals.meta.title;
+			locals.meta.ogType = "website";
+			locals.meta.ogDescription = locals.meta.description;
 
 	// Load all categories
 	view.on('init', function(next) {

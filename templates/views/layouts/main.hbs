@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	{{#if meta.title}}
-	<title>{{meta.title}} | Triptable</title>
+	<title>{{meta.title}}</title>
 	{{else}}
 	<title>Triptable: Reserva Tours, Actividades y Qué hacer en Panama</title>
 	{{/if}}
@@ -36,10 +36,14 @@
 	{{#if meta.url}}
 	<meta property="og:url" content="{{meta.url}}"/>
 	{{else}}
-	<meta property="og:url" content="https://www.triptableapp.com"/>	
+	<meta property="og:url" content="https://www.triptableapp.com"/>
 	{{/if}}
 	<meta property="og:site_name" content="Triptable: Reserva Tours y Actividades"/>
+  {{#if meta.ogType}}
+  <meta property="og:type" content="{{meta.ogType}}"/>
+  {{else}}
 	<meta property="og:type" content="website"/>
+  {{/if}}
 	{{#if meta.image}}
 	<meta property="og:image" content="{{meta.image}}" />
 	<meta property="og:image:secure_url"  content="{{meta.image}}" />
@@ -55,7 +59,7 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 	<link rel="shortcut icon" href="/images/ico/favicon.png">
-	
+
 	<!-- CSS Font Icons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -72,8 +76,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 	<!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" media="screen">	
-	
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" media="screen">
+
 	<link href="/css/dist/style.min.css" rel="stylesheet">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -87,59 +91,59 @@
 <body>
 
 	<div id="introLoader" class="introLoading"></div>
-	
+
 	<!-- BEGIN # MODAL LOGIN -->
 	<div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				
+
 				<button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
 					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</button>
-				
+
 				<div class="clear"></div>
-				
+
 				<!-- Begin # DIV Form -->
 				<div id="modal-login-form-wrapper">
-					
+
 					<!-- Begin # Login Form -->
 					<form id="login-form">
-					
+
 						<div class="modal-body pb-5">
-					
+
 							<h4 class="text-center heading mt-10 mb-20">Ingresa</h4>
-						
+
 							<button class="btn btn-facebook btn-block">Ingresa con Facebook</button>
-							
+
 							<div class="modal-seperator">
 								<span>o</span>
 							</div>
-							
-							<div class="form-group"> 
-								<input id="login_username" class="form-control" placeholder="email" type="text"> 
+
+							<div class="form-group">
+								<input id="login_username" class="form-control" placeholder="email" type="text">
 							</div>
-							<div class="form-group"> 
-								<input id="login_password" class="form-control" placeholder="contraseña" type="password"> 
+							<div class="form-group">
+								<input id="login_password" class="form-control" placeholder="contraseña" type="password">
 							</div>
-			
+
 							<div class="form-group">
 								<div class="row gap-5">
 									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="checkbox-block fa-checkbox"> 
-											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
+										<div class="checkbox-block fa-checkbox">
+											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
 											<label class="" for="remember_me_checkbox">recuérdame</label>
 										</div>
 									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 text-right"> 
+									<div class="col-xs-6 col-sm-6 col-md-6 text-right">
 										<button id="login_lost_btn" type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
 									</div>
 								</div>
 							</div>
-						
+
 						</div>
-						
+
 						<div class="modal-footer">
-						
+
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6 mb-10">
 									<button type="submit" class="btn btn-primary btn-block">Ingresa</button>
@@ -149,32 +153,32 @@
 								</div>
 							</div>
 							<div class="text-left">
-								No tienes cuenta? 
+								No tienes cuenta?
 								<button id="login_register_btn" type="button" class="btn btn-link">Regístrate</button>
 							</div>
-							
+
 						</div>
 					</form>
 					<!-- End # Login Form -->
-								
+
 					<!-- Begin | Lost Password Form -->
 					<form id="lost-form" style="display:none;">
 						<div class="modal-body pb-5">
-						
+
 							<h3 class="text-center heading mt-10 mb-20">Recuperar Contraseña</h3>
-							<div class="form-group mb-10"> 
+							<div class="form-group mb-10">
 								<input id="lost_email" class="form-control" type="text" placeholder="Ingresa tu Email">
 							</div>
-							
+
 							<div class="text-center">
-								<button id="lost_login_btn" type="button" class="btn btn-link">Ingresa</button> o 
+								<button id="lost_login_btn" type="button" class="btn btn-link">Ingresa</button> o
 								<button id="lost_register_btn" type="button" class="btn btn-link">Regístrate</button>
 							</div>
-							
+
 						</div>
-						
+
 						<div class="modal-footer mt-10">
-							
+
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6">
 									<button type="submit" class="btn btn-primary btn-block">Enviar</button>
@@ -183,46 +187,46 @@
 									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancelar</button>
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 					</form>
 					<!-- End | Lost Password Form -->
-								
+
 					<!-- Begin | Register Form -->
 					<form id="register-form" method="POST" action="/signup" style="display:none;">
 						<input type="hidden" name="action" value="login">
-					
+
 						<div class="modal-body pb-5">
-						
+
 							<h3 class="text-center heading mt-10 mb-20">Regístrate</h3>
-							
+
 							<button class="btn btn-facebook btn-block">Regístrate con Facebook</button>
-							
+
 							<div class="modal-seperator">
 								<span>o</span>
 							</div>
-							
-							
-							<div class="form-group"> 
+
+
+							<div class="form-group">
 								<input id="register_name" name="name" value="" class="form-control" type="text" placeholder="Nombre">
 							</div>
-							
-							<div class="form-group"> 
+
+							<div class="form-group">
 								<input id="register_email" name="email", value="" class="form-control" type="email" placeholder="Email">
 							</div>
-							
-							<div class="form-group"> 
+
+							<div class="form-group">
 								<input id="register_password" name='password', value="" class="form-control" type="password" placeholder="Contraseña">
 							</div>
-							<div class="form-group"> 
+							<div class="form-group">
 								<input id="register_password" name='password_confirm' value="" class="form-control" type="password" placeholder="Contraseña">
 							</div>
 
 						</div>
-							
+
 						<div class="modal-footer mt-10">
-						
+
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6 mb-10">
 									<button type="submit" class="btn btn-primary btn-block">Regístrate</button>
@@ -231,19 +235,19 @@
 									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancelar</button>
 								</div>
 							</div>
-							
+
 							<div class="text-left">
 									¿Ya tienes una Cuenta? <button id="register_login_btn" type="button" class="btn btn-link">Ingresa</button>
 							</div>
-							
+
 						</div>
-							
+
 					</form>
 					<!-- End | Register Form -->
-								
+
 				</div>
 				<!-- End # DIV Form -->
-								
+
 			</div>
 		</div>
 	</div>
@@ -254,27 +258,27 @@
 
 		<!-- start Header -->
 		<header id="header">
-	  
+
 			<!-- start Navbar (Header) -->
 			<nav class="navbar navbar-primary navbar-fixed-top navbar-sticky-function">
 
 				<div class="navbar-top">
-				
+
 					<div class="container">
-						
+
 						<div class="flex-row flex-align-middle">
 							<div class="flex-shrink flex-columns">
-								<a class="navbar-logo" href="/" style=" color: ghostwhite; font-size: xX-large; font-family: 'Lobster', 'Lato', SANS-SERIF;">	
+								<a class="navbar-logo" href="/" style=" color: ghostwhite; font-size: xX-large; font-family: 'Lobster', 'Lato', SANS-SERIF;">
 									Triptable
 									<!-- <img src="/images/logo.png" alt="Logo" /> -->
 								</a>
 							</div>
 							<div class="flex-columns">
 								<div class="pull-right">
-								
+
 									<div class="navbar-mini">
 										<ul class="clearfix">
-										
+
 											<!-- <li class="dropdown bt-dropdown-click hidden-xs">
 												<a id="language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 													<i class="ion-social-usd hidden-xss"></i> Dollar
@@ -286,7 +290,7 @@
 													<li><a href="#"><i class="ion-social-yen"></i> Yen</a></li>
 												</ul>
 											</li> -->
-											
+
 											<!-- <li class="dropdown bt-dropdown-click hidden-xs">
 												<a id="currncy-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 													<i class="ion-android-globe hidden-xss"></i> English
@@ -298,7 +302,7 @@
 													<li><a href="#">Japanese</a></li>
 												</ul>
 											</li> -->
-											
+
 											<!--<li class="dropdown bt-dropdown-click visible-xs">
 												<a id="currncy-language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 													<i class="fa fa-cog"></i>
@@ -313,7 +317,7 @@
 													<li><a href="#">Japanese</a></li>
 												</ul>
 											</li> -->
-											
+
 											<!-- <li class="user-action">
 												<a data-toggle="modal" href="#loginModal" class="btn">Regístrate / Ingresa</a>
 											</li> -->
@@ -326,27 +330,27 @@
 												<a href="/signup" class="btn">Regístrate / Ingresa</a>
 											</li>
 											{{/if}}
-											
+
 
 										</ul>
 									</div>
-						
+
 								</div>
 							</div>
 						</div>
 
 					</div>
-					
+
 				</div>
-				
+
 				<div class="navbar-bottom hidden-sm hidden-xs">
-				
+
 					<div class="container">
-					
+
 						<div class="row">
-						
+
 							<div class="col-sm-9">
-								
+
 								<div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
 										<li><a href="/">Inicio</a>
@@ -361,23 +365,23 @@
 										<li><a href="mailto:hello@triptableapp.com">Contáctanos</a></li>
 									</ul>
 								</div><!--/.nav-collapse -->
-								
+
 							</div>
-							
+
 							<div class="col-sm-3">
-							
+
 								<div class="navbar-phone"><i class="fa fa-phone"></i> Llámanos: +507 680 800 24</div>
-							
+
 							</div>
 
 						</div>
-						
+
 					</div>
-				
+
 				</div>
 
 				<div id="slicknav-mobile"></div>
-				
+
 			</nav>
 			<!-- end Navbar (Header) -->
 
@@ -388,105 +392,105 @@
 			{{{body}}}
 
 		<footer class="footer scrollspy-footer">
-			
+
 			<div class="container">
-			
+
 				<div class="main-footer">
-				
+
 					<div class="row">
-				
+
 						<div class="col-xs-12 col-sm-5 col-md-3">
-						
-							<div class="footer-logo row" style="padding-left:15px;"> 
-								<a class="navbar-logo" href="/" style=" color: #F56961; font-size: 50px; font-family: 'Lobster', 'Lato', SANS-SERIF;">	
+
+							<div class="footer-logo row" style="padding-left:15px;">
+								<a class="navbar-logo" href="/" style=" color: #F56961; font-size: 50px; font-family: 'Lobster', 'Lato', SANS-SERIF;">
 									Triptable
 									<!-- <img src="/images/logo.png" alt="Logo" /> -->
 								</a>
 							</div>
-							
+
 							<p class="footer-address">Edificio 234, Ciudad del Saber, Clayton, República de Panamá <br/> <i class="fa fa-phone"></i> +507 680 800 24 <br/> <i class="fa fa-phone"></i> +507 671 235 55<br/> <i class="fa fa-envelope-o"></i> <a href="#">hello@triptableapp.com</a></p>
-							
+
 							<div class="footer-social">
-							
+
 								<a href="http://facebook.com/triptable" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
 								<a href="https://twitter.com/triptableapp" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
 								<a href="http://instagram.com/triptable" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
 								<a href="#" data-toggle="tooltip" data-placement="top" title="Medium"><i class="fa fa-medium"></i></a>
-							
+
 							</div>
-							
+
 							<p class="copy-right">&#169; Copyright 2016 Triptable. Todos los Derechos Reservados</p>
-							
+
 						</div>
-						
+
 						<div class="col-xs-12 col-sm-7 col-md-9">
 
 							<div class="row gap-10">
-							
+
 								<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-3 mt-30-xs">
-								
+
 									<h5 class="footer-title">Acerca de Triptable</h5>
-									
+
 									<ul class="footer-menu">
-									
+
 										<li><a href="/nosotros">Quienes Somos</a></li>
 										<li><a href="/blog">Blog</a></li>
 										<li><a href="/términos">Términos y Condiciones</a></li>
 										<li><a href="#">Política de Cancelación</a></li>
 										<li><a href="mailto:hello@triptableapp.com">Contactanos</a></li>
-										
+
 									</ul>
-									
+
 								</div>
-								
+
 								<div class="col-xs-12 col-sm-4 col-md-3 mt-30-xs">
 
 									<h5 class="footer-title">Servicio al Cliente</h5>
-									
+
 									<ul class="footer-menu">
-									
+
 										<li><a href="#">Pagos</a></li>
 										<li><a href="#">Feedback</a></li>
 										<li><a href="#">Visas</a></li>
 										<li><a href="#">Seguros de Viaje</a></li>
 										<li><a href="#">Mapa del Sitio</a></li>
-										
+
 									</ul>
-									
+
 								</div>
-								
+
 								<div class="col-xs-12 col-sm-4 col-md-3 mt-30-xs">
 
 									<h5 class="footer-title">Trabaja con Nosotros</h5>
-									
+
 									<ul class="footer-menu">
-									
+
 										<li><a href="http://bit.ly/1SoSaIO">Tour Operadores</a></li>
 										<li><a href="http://bit.ly/1SoSaIO">Guías Turísticos</a></li>
 										<li><a href="http://bit.ly/1SoSaIO">Hoteles</a></li>
 										<li><a href="http://bit.ly/1SoSaIO">Agencias de Viaje</a></li>
 										<li><a href="http://bit.ly/1SoSaIO">Servicios de Transporte</a></li>
-										
+
 									</ul>
-									
+
 								</div>
-								
+
 							</div>
 
 						</div>
-						
+
 					</div>
 
 				</div>
-				
-			</div>
-			
-		</footer>
-		
-	</div>  <!-- end Container Wrapper -->
- 
 
- 
+			</div>
+
+		</footer>
+
+	</div>  <!-- end Container Wrapper -->
+
+
+
 	<!-- start Back To Top -->
 	<div id="back-to-top">
 		 <a href="#"><i class="fa fa-angle-up"></i></a>
@@ -511,7 +515,7 @@
 <script type="text/javascript" src="/js/readmore.min.js"></script>
 <script type="text/javascript" src="/js/slick.min.js"></script>
 <script type="text/javascript" src="/js/validator.min.js"></script>
-<script type="text/javascript" src="/js/jquery.raty.js"></script> 
+<script type="text/javascript" src="/js/jquery.raty.js"></script>
 <script type="text/javascript" src="/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/js/customs.js"></script>
 <script>
@@ -580,7 +584,7 @@
         }
       })
     }, 100)
-		
+
   })
 
 }(window.jQuery)

@@ -8,10 +8,6 @@ keystone.pre('render', middleware.crsfAuth);
 keystone.pre('routes', middleware.userInfo);
 keystone.pre('render', middleware.userInfo);
 
-keystone.set('404', function(req, res, next) {
-    res.notfound();
-});
-
 // Import Route Controller
 var routes = {
 	views: importRoutes('./views'),

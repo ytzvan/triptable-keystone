@@ -4,7 +4,7 @@ var Review = keystone.list('Review');
 
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var tourId;
@@ -22,12 +22,12 @@ exports = module.exports = function(req, res) {
 	locals.meta.url = "https://www.triptableapp.com"+url;
 	// Load the current post
 	view.on('init', function(next) {
-		
+
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			slug: locals.filters.tour
 		}).populate('owner categories country province city');
-		
+
 		q.exec(function(err, result) {
 			locals.data.tour = result;
 			tourId = result._id;
@@ -50,10 +50,9 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('post', { action: 'review' }, function(next) {
-		
+
 		var newReview = new Review.model(),
 			updater = newReview.getUpdateHandler(req);
-		console.log(req.body);
 		updater.process(req.body, {
 			flashErrors: true,
 			fields: 'author, message, score, tour',
@@ -63,18 +62,17 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				locals.reviewSubmitted = true;
-				console.log('data', data);
+        return res.redirect('back');
 			}
 			next();
 		});
-		
+
 	});
 	function loadReviews(next){
-		var r = keystone.list('Review').model.find({'tour': tourId}).limit('3')
+		var r = keystone.list('Review').model.find({'tour': tourId})
+    //.limit('3')
 		.populate('author');
 			r.exec(function(err, results) {
-				console.log("err", err);
-				console.log("res", results);
 				locals.data.reviews = results;
 				next(err);
 			});
@@ -82,16 +80,16 @@ exports = module.exports = function(req, res) {
 	}
 	// Load other posts
 	view.on('init', function(next) {
-		
+
 		var q = keystone.list('Tour').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
-		
+
 		q.exec(function(err, results) {
 			locals.data.tours = results;
 			next(err);
 		});
-		
+
 	});
 	// Render the view
 	view.render('tour');
-	
+
 };

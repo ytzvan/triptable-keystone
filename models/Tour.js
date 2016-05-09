@@ -52,6 +52,7 @@ Tour.add({
 	highlights: { type: Types.TextArray},
 	startingPoint : {type: String},
 	finishPoint: {type: String},
+  nOfReviews: {type: Types.TextArray},
 	reviews : { type: Types.Relationship, ref: 'Review', many: true },
 
 

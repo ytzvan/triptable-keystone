@@ -1,34 +1,34 @@
 <div class="main-wrapper scrollspy-container">
-    
+
       <!-- start end Page title -->
       <div class="page-title detail-page-title" style="background-image:url('{{data.tour.images.0.secure_url}}');">
-        
+
         <div class="container">
-        
+
           <div class="flex-row">
-            
+
             <div class="flex-column flex-md-8 flex-sm-12">
-              
+
               <h1 class="hero-title">{{data.tour.name}}</h1>
               <p class="line18">{{{data.tour.description.short}}}</p>
-              
+
               <ul class="list-col clearfix">
                 <li class="rating-box">
                   <div class="rating-wrapper">
                     <div class="raty-wrapper">
-                      <div class="star-rating-white" data-rating-score="4.0"></div> 
-                      <span style="display: block;"> / 7 reviews</span>
+                      <div class="star-rating-white" data-rating-score="4.0"></div>
+                      <span style="display: block;"> / {{data.reviews.length}} reviews</span>
                     </div>
                   </div>
                 </li>
-                
+
                 {{!-- <li class="fav-box">
                   <div class="meta">
                     <span class="block"><button class="btn btn-fav"><i class="fa fa-heart-o"></i></button></span>
-                    98 Favorites 
+                    98 Favorites
                   </div>
                 </li> --}}
-                
+
                 {{!-- <li class="duration-box">
                   <div class="meta">
                     <span class="block">4</span>
@@ -42,14 +42,14 @@
                     Nights
                   </div>
                 </li> --}}
-                
+
                 <li class="price-box">
                   <div class="meta">
                     <span class="block">${{data.tour.price}}</span>
                     por persona
                   </div>
                 </li>
-                
+
               </ul>
             </div>
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
@@ -59,46 +59,46 @@
               {{else}}
               <a href="/signup" class="anchor btn btn-primary">Reservar Ahora</a>
               {{/if}}
-              
+
               </div>
             </div>
-          
+
           </div>
 
         </div>
-        
+
       </div>
     <!-- end Page title -->
     <!-- breadcumb section -->
     <div class="breadcrumb-wrapper bg-light-2">
-        
+
         <div class="container">
-        
+
           <ol class="breadcrumb-list">
             <li><a href="/">Inicio</a></li>
             <li><a href="/{{data.tour.country.slug}}">{{data.tour.country.country}}</a></li>
             <li><a href="/{{data.tour.country.slug}}/{{data.tour.province.slug}}">{{data.tour.province.province}}</a></li>
             <li><span>{{data.tour.name}}</span></li>
           </ol>
-          
+
         </div>
-        
+
     </div>
      <!-- end breadcumb section -->
 
     <!-- container secction -->
     <div class="content-wrapper">
-      
+
         <div class="container">
-      
+
           <div class="row">
-          
+
             <div class="col-md-9" role="main">
 
               <div class="detail-content-wrapper">
                 {{#if data.tour.highlights}}
                   <div id="section-0" class="detail-content">
-                    
+
                     <div class="section-title text-left">
                       <h4>Lo mejor</h4>
                     </div>
@@ -109,32 +109,32 @@
                         <p class="highlights">{{this}}</p>
                       </li>
                       {{/each}}
-                      
+
                     </ul>
 
                   </div>
-                  {{/if}}  
+                  {{/if}}
 
                   <div id="section-0" class="detail-content">
-                    
+
                     <div class="section-title text-left">
                       <h4>Información</h4>
                     </div>
-                    
+
                     <!--<img src="{{data.tour.images.0.secure_url}}" alt="Map" class="map-route" /> -->
-                    
+
                     {{{data.tour.description.extended}}}
                   </div> <!-- end secction 0 -->
 
                   <!-- start secction 1 -->
                   <div id="section-1" class="detail-content">
-                  
+
                     <div class="section-title text-left">
                       <h4>Galería</h4>
                     </div>
-                    
+
                     <div class="slick-gallery-slideshow">
-          
+
                       <div class="slider gallery-slideshow">
                         {{#each data.tour.images}}
                         <div>
@@ -144,7 +144,7 @@
                         </div>
                         {{/each}}
                       </div>
-              
+
                       <div class="slider gallery-nav">
                         {{#each data.tour.images}}
                         <div>
@@ -154,16 +154,16 @@
                         </div>
                         {{/each}}
                       </div>
-                      
+
                     </div>
 
                 </div>
                 <!-- end secction 1 -->
-                
+
                 <!-- secction 2 Itinerary -->
 
                 <!-- here goes _itinerary partial -->
-                
+
                 <!-- end secction 2 -->
 
                 <!-- secction 3 Tour Accomodation-->
@@ -174,14 +174,14 @@
 
                 <!-- secction 4 -->
                 <div id="section-4" class="detail-content">
-                  
+
                     <div class="section-title text-left">
                       <h4>Está Incluido</h4>
                     </div>
-                    
+
                     <ul class="list-with-icon with-heading">
 
-                      {{#if data.tour.hotelPickup}}                        
+                      {{#if data.tour.hotelPickup}}
                       <li>
                         <i class="fa fa-check-circle text-primary"></i>
                         <h6 class="heading mt-0">Recogida en el Hotel</h6>
@@ -195,7 +195,7 @@
                       </li>
                       {{/if}}
 
-                      {{#if data.tour.transportation}}                        
+                      {{#if data.tour.transportation}}
                       <li>
                         <i class="fa fa-check-circle text-primary"></i>
                         <h6 class="heading mt-0">Transporte durante el Tour</h6>
@@ -208,7 +208,7 @@
                         <p>El transportante durante el tour no está incluído. Deberá costear los gastos de transporte en el tour si existe alguno.</p>
                       </li>
                       {{/if}}
-                      {{#if data.tour.food}}                        
+                      {{#if data.tour.food}}
                       <li>
                         <i class="fa fa-check-circle text-primary"></i>
                         <h6 class="heading mt-0">Comidas</h6>
@@ -221,7 +221,7 @@
                         <p>No se incluyen comidas en este tour.</p>
                       </li>
                       {{/if}}
-                      {{#if data.tour.insurance}}                        
+                      {{#if data.tour.insurance}}
                       <li>
                         <i class="fa fa-check-circle text-primary"></i>
                         <h6 class="heading mt-0">Seguro contra accidentes</h6>
@@ -234,10 +234,10 @@
                         <p>Este tour no incluye seguro contra accidentes.</p>
                       </li>
                       {{/if}}
-                      
-                      
+
+
                     </ul>
-              
+
                 </div>
                 <!-- end secction 4 -->
 
@@ -246,17 +246,17 @@
                 <!-- here goes booking dates partial -->
 
                   <div class="detail-content">
-                  
+
                     <div class="section-title text-left">
                       <h4>Tours Similares</h4>
                     </div>
-                    
+
                     <div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
-            
+
                       <div class="GridLex-grid-noGutter-equalHeight">
                       {{#each_upto data.tours 3}}
                         <div class="GridLex-col-4_sm-4_xs-12 mb-20">
-                          <div class="package-grid-item"> 
+                          <div class="package-grid-item">
                             <a href="/tour/{{slug}}">
                               <div class="image">
                                 <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
@@ -283,7 +283,7 @@
                         </div>
                         {{/each_upto}}
                       </div>
-                  
+
                     </div>
 
                 </div>
@@ -297,37 +297,46 @@
 
                 <!-- secction 7 -->
                 <div id="section-7" class="detail-content">
-                  
+
                     <div class="section-title text-left">
-                      <h4>Reviews</h4>
+                      <h4>Reviews ({{data.reviews.length}})</h4>
                     </div>
-                    
+
                  {{>tour/_reviews}} <!-- here goes review partial -->
 
                 </div>
                 <!-- end secction 7 -->
 
                 <!-- leave review partial -->
-                {{>tour/_leaveReview}}
+                {{#if userInfo}}
+                  {{>tour/_leaveReview}}
+                {{else}}
+                  <div class="blog-extra">
+                    <div class=" text-center">
+                          <a href="/signin" class="btn btn-primary">Escribe un Review</a>
+                    </div>
+
+                </div>
+                {{/if}}
                 <!-- here goes leave a review partial -->
 
                 <!-- end leave comment secction -->
 
                 <!-- call 2 action -->
                 <div class="call-to-action">
-                  
+
                     ¿Preguntas? <a href="mailto:hello@triptableapp.com" class="btn btn-primary btn-sm btn-inverse">Escríbenos</a> o llámanos al +507 680 800 24
-                  
+
                 </div>
                 <!-- end call 2 action -->
                   </div> <!-- DETAIL CONTENT WRAPPER -->
                 </div> <!-- COL MD 9 -->
                 <div class="col-sm-3 hidden-sm hidden-xs">
-              
+
                 <div class="scrollspy-sidebar sidebar-detail" role="complementary">
-                
+
                   <ul class="scrollspy-sidenav">
-                  
+
                     <li>
                       <ul class="nav">
                         <li><a href="#section-0" class="anchor">Lo Mejor</a></li>
@@ -348,16 +357,16 @@
                   <a href="/signup" class="btn btn-primary">Reservar Ahora</a>
                   {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
-                  
+
                 </div>
 
               </div>
-    
+
                </div><!-- ROW -->
              </div> <!-- CONTAINER -->
            </div> <!-- CONTENT WRAPPER -->
 
-                
+
 
 
 

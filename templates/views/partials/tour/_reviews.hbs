@@ -1,30 +1,30 @@
 <div class="review-wrapper">
-            
+
                       <!-- <div class="review-header">
                         <div class="row">
-                        
+
                           <div class="col-sm-4 col-md-3">
-                          
+
                             <div class="review-overall">
-                            
+
                               <h5>Excellent</h5>
                               <p class="review-overall-point"><span>4.6</span> / 5.0</p>
                               <p class="review-overall-recommend">90% recommend this package</p>
                             </div>
-                          
+
                           </div>
-                          
+
                           <div class="col-sm-8 col-md-9">
-                            
+
                             <div class="review-overall-breakdown">
 
                               <div class="row gap-20">
-                              
+
                                 <div class="col-xss-12 col-xs-12 col-sm-7">
-          
+
                                   <h6>Score Breakdown</h6>
                                   <ul class="breakdown-list">
-                                  
+
                                     <li class="clearfix">
                                       <div class="rating-wrapper">
                                         <div class="raty-wrapper">
@@ -36,7 +36,7 @@
                                       </div>
                                       <div class="breakdown-count"> (58)</div>
                                     </li>
-                                    
+
                                     <li class="clearfix">
                                       <div class="rating-wrapper">
                                         <div class="raty-wrapper">
@@ -48,7 +48,7 @@
                                       </div>
                                       <div class="breakdown-count"> (132)</div>
                                     </li>
-                                    
+
                                     <li class="clearfix">
                                       <div class="rating-wrapper">
                                         <div class="raty-wrapper">
@@ -60,7 +60,7 @@
                                       </div>
                                       <div class="breakdown-count"> (89)</div>
                                     </li>
-                                    
+
                                     <li class="clearfix">
                                       <div class="rating-wrapper">
                                         <div class="raty-wrapper">
@@ -72,7 +72,7 @@
                                       </div>
                                       <div class="breakdown-count"> (58)</div>
                                     </li>
-                                    
+
                                     <li class="clearfix">
                                       <div class="rating-wrapper">
                                         <div class="raty-wrapper">
@@ -84,67 +84,71 @@
                                       </div>
                                       <div class="breakdown-count"> (9)</div>
                                     </li>
-                                    
+
                                   </ul>
 
                                 </div>
-                                
+
                                 <div class="col-xss-12 col-xs-7 col-sm-5 col-md-4 mt-30-xs">
-                                
+
                                   <h6>Average Rating For</h6>
                                   <ul class="breakdown-list for-avg clearfix">
-                                              
+
                                     <li>
                                       Cleanliness <span class="pull-right">4.5</span>
                                     </li>
-                                    
+
                                     <li>
                                       Service <span class="pull-right">4.5</span>
                                     </li>
-                                    
+
                                     <li>
                                       Comfort <span class="pull-right">4.2</span>
                                     </li>
-                                    
+
                                     <li>
                                       Condition <span class="pull-right">3.8</span>
                                     </li>
-                                    
+
                                     <li>
                                       Neighbourhood <span class="pull-right">4.4</span>
                                     </li>
-                                  
+
                                   </ul>
-                                  
+
                                 </div>
-                                
+
                               </div>
-                              
-                            
+
+
                             </div>
-                          
+
                           </div>
-                          
+
                         </div>
                       </div> -->
-                      
+
                       <div class="review-content">
-                      
+
                         <div class="row gap-20">
-                        
+
                           <div class="col-sm-6">
-                            <h5>Existen {{data.reviews.length}} reviews</h5>
+                            {{#if data.reviews}}
+                              <h5>Existen {{data.reviews.length}} reviews</h5>
+                            {{else}}
+                            <h5>No existen reviews todavía</h5>
+                            {{/if}}
                           </div>
-                          
+
                           <!-- <div class="col-sm-6 text-right text-left-xs">
                             <a href="#leave-comment" class="anchor btn btn-primary btn-inverse btn-sm">Leave comments</a>
                           </div> -->
-                        
+
                         </div>
-                        
+
                         {{#each data.reviews}}
-                        <ul class="review-list">                  
-                          
+                        <ul class="review-list">
+
                           <li class="clearfix">
                             <div class="image">
                               <img class="img-circle" src="/images/avatar.png" alt="Man" />
@@ -163,53 +167,53 @@
                                   <div class="star-rating-12px" data-rating-score="{{score}}"></div>
                                 </div>
                               </div>
-                              
+
                               <div class="review-text">
-                              
+
                                 <p>{{message}}</p>
-                              
+
                               </div>
-                              
+
                               <!--<div class="review-other">
-                                
+
                                 <div class="row gap-20 mb-0">
-                                  
+
                                   <div class="col-sm-6">
-                                  
+
                                     <ul class="social-share-sm">
-                                    
+
                                       <li><span><i class="fa fa-share-square"></i> share</span></li>
                                       <li class="the-label"><a href="#">Facebook</a></li>
                                       <li class="the-label"><a href="#">Twitter</a></li>
                                       <li class="the-label"><a href="#">Google Plus</a></li>
-                                      
+
                                     </ul>
-                                  
+
                                   </div>
-                                  
+
                                   <div class="col-sm-6">
-                                  
+
                                     <ul class="social-share-sm for-useful">
                                       <li><span>Was this review helpful? </span></li>
                                       <li class="the-label"><a href="#"><i class="fa fa-thumbs-up"></i></a> 2</li>
                                       <li class="the-label"><a href="#"><i class="fa fa-thumbs-down"></i></a> 1</li>
                                     </ul>
-                                  
+
                                   </div>
-                                
+
                                 </div>
-                                
+
                               </div> -->
                             </div>
                           </li>
-                          
+
                         </ul>
                         {{/each}}
-                      
-                        <div class="bt text-center pt-30">
+
+                        <!-- <div class="bt text-center pt-30">
                           <a href="#" class="btn btn-primary">Cargar Más</a>
-                        </div>
-                        
+                        </div> -->
+
                       </div>
-                      
+
                     </div>

@@ -32,7 +32,6 @@ h4.blog-title{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: rgba(255,255,255,.5);
     position: relative;
 }
 .blog-content h1{
@@ -40,9 +39,9 @@ h4.blog-title{
   font-family: inherit;
   text-transform: capitalize;
 }
-h1.hero-title{
+.blog-title{
   text-transform: capitalize;
-  font-size: 40px;
+  font-size: 32px;
   font-family: inherit;
 }
 .blog-entry{
@@ -50,24 +49,12 @@ h1.hero-title{
     font-size: 15px;
     text-align: justify;
 }
-.page-title::before {
-    position: absolute;
-    background: rgba(0,0,0,0);
-}
 .blog-author {
     padding: 0 0 30px;
     position: relative;
     border-bottom: 0;
     margin-bottom: 40px;
 }
-.about{
-    padding: 150px 0;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: rgba(255,255,255,.5);
-    position: relative;
-}
-.press-logo{
-    max-width: 150px !important;
+.blog-header-img::before{
+  background: rgba(0,0,0,0);
 }
