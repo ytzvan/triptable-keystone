@@ -2,8 +2,6 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var Tour = require('./Tour');
 var tour = keystone.list('Tour');
-var mongoose = require('mongoose');
-
 /**
  * Reviews Model
  * ==================
@@ -36,33 +34,11 @@ Review.schema.post('save', function() {
   body = {
     'reviews' : tourId
   }
-  var ObjectId =  mongoose.Schema.Types.ObjectId(reviewId);
-
-
- // var update = tour.model.findByIdAndUpdate({'tourId': tourId}, {'reviews': reviewId});
   var update = tour.model.findByIdAndUpdate(tourId, {$push: {nOfReviews: reviewId}},{safe: true, upsert: true});
   update.exec(function(err, results) {
       console.log(err);
       console.log(results);
   });
-
-//    var model =  tour.model(),
-//  			updater = model.getUpdateHandler();
-//  		updater.process(body, {
-// 			flashErrors: false,
-// 			fields: 'reviews',
-// 		}, function(err, data) {
-// 			if (err) {
-// 				console.log(err)
-// 			} else {
-//          console.log(data);
-// 			}
-// 			return true;
-// 		});
-
-
-
-
 	return true;
 });
 Review.register();

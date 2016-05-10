@@ -58,3 +58,7 @@ h4.blog-title{
 .blog-header-img::before{
   background: rgba(0,0,0,0);
 }
+.static-header{
+  padding: 150px 0;
+   background-position: center top;
+}

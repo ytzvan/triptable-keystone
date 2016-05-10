@@ -346,7 +346,7 @@
                   </div>
                   
                   <div class="content">
-                    <h5>{{name}}<button class="btn"><i class="fa fa-heart-o"></i></button></h5>
+                    <h5><a href="/tour/{{slug}}">{{name}}</a><button class="btn"><i class="fa fa-heart-o"></i></button></h5>
                     <div class="row gap-10">
                       <div class="col-sm-12 col-md-9">
                         
@@ -363,7 +363,11 @@
                         
                         <div class="rating-wrapper">
                           <div class="raty-wrapper">
-                            <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / 7 reviews</span>
+                            <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / {{#if nOfReviews}}
+                            {{nOfReviews.length}} 
+                           {{else}}
+                           0
+                           {{/if}} reviews</span>
                           </div>
                         </div>
                         
