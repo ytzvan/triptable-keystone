@@ -29,10 +29,18 @@
                   </div>
 									<h4 class="blog-title">
 									{{{title}}}</h4>
-									<span>{{{content.brief}}}</span>
+									<p id="info{{this._id}}"><i class="fa fa-user"></i> {{author.name.full}} <i class="fa fa-clock-o" style="margin-left:15px;"></i>   </p>
 								</div>
 							</a>
 						</div>
+            <script>
+                      $(function() {
+                          var date = new Date("{{publishedDate}}");
+                          var pretty = moment(date).fromNow();
+                          console.log(date);
+                          $('#info{{this._id}}').append(pretty);
+                      });
+                      </script>
             <script type="text/javascript">
 
             console.log("status", status)

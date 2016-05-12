@@ -10,7 +10,7 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 
 							<!--<h1 class="hero-title blog-title">{{data.post.title}}</h1>
-              <h4>{{{data.post.content.brief}}}</h4> -->
+              <h4>{{{data.post.brief}}}</h4> -->
 
 							<!--<ol class="breadcrumb-list">
 								<li><a href="index.html">Homepage</a></li>
@@ -44,8 +44,18 @@
 									<div class="blog-content">
 										<h1>{{data.post.title}}</h1>
 										<ul class="blog-meta clearfix">
+
 											<li>Por: <a href="#">{{data.post.author.name.full}}</a></li>
-											<li>Publicado: {{data.post.datePretty}}</li>
+                      <script>
+
+                      $(function() {
+                          var date = new Date("{{data.post.publishedDate}}");
+                          var pretty = moment(date).fromNow();
+                          console.log(date);
+                          $('#date').append(pretty);
+                      });
+                      </script>
+											<li id="date">Publicado: hace </li>
 											<li>En: {{#each data.post.categories}}{{name}}, {{/each}}
 										</ul>
 										<div class="blog-entry">
