@@ -1,0 +1,68 @@
+			<section>
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-sm-8 col-md-6  col-sm-offset-2 col-md-offset-3">
+
+							<div class="section-title">
+
+								<h3>Top Atracciones</h3>
+
+							</div>
+
+						</div>
+
+					</div>
+             <script type="text/javascript">
+             var status = parseInt(0);
+
+            </script>
+					<div class="grid destination-grid-wrapper">
+					{{#each data.provinces}}
+						<div id="attraction{{@index}}" class="grid-item" id="grid-item" data-colspan="20" data-rowspan="8">
+							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url({{{cloudinaryUrl image width=1200 secure=true}}});">
+								<div class="relative">
+									<h4>{{province}}</h4>
+									<!--<span>Starting from $322</span> -->
+								</div>
+							</a>
+						</div>
+            <script type="text/javascript">
+
+            console.log("status", status)
+            if (status == 0){
+              var postId = $.find('#attraction{{@index}}');
+              $(postId).attr('data-colspan', 15);
+              $(postId).attr('data-rowspan', 6);
+            }
+            if (status == 1){
+              var postId = $.find('#attraction{{@index}}');
+              $(postId).attr('data-colspan', 5);
+              $(postId).attr('data-rowspan', 6);
+            }
+            if (status == 2){
+              var postId = $.find('#attraction{{@index}}');
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 6);
+            }
+            if (status == 3){
+              var postId = $.find('#attraction{{@index}}');
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 6);
+            }
+            status++;
+            if (status >= 4){
+              status = 0;
+            }
+            </script>
+
+					{{/each}}
+
+
+					</div>
+
+				</div>
+
+			</section>
