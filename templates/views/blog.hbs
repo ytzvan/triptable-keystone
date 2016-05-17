@@ -1,18 +1,5 @@
-<section>
+<section class="no-padding">
 				<div class="container">
-
-					<div class="row">
-						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-
-							<div class="section-title">
-
-								<h3>Blog</h3>
-
-							</div>
-
-						</div>
-
-					</div>
           <script type="text/javascript">
              var status = parseInt(0);
 
@@ -49,18 +36,13 @@
               $(postId).attr('data-colspan', 20);
               $(postId).attr('data-rowspan', 8);
             }
-            if (status == 1){
+            if (status != 0){
               var postId = $.find('#post{{@index}}');
               $(postId).attr('data-colspan', 10);
-              $(postId).attr('data-rowspan', 8);
-            }
-            if (status == 2){
-              var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 10);
-              $(postId).attr('data-rowspan', 8);
+              $(postId).attr('data-rowspan', 6);
             }
             status++;
-            if (status >= 3){
+            if (status >= 9){
               status = 0;
             }
             </script>

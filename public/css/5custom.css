@@ -23,7 +23,7 @@ span.blog-category{
 h4.blog-title{
 	font-family: 'Montserrat', 'Lato', sans-serif;
 	font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.2;
     text-transform: capitalize;
 }
@@ -61,4 +61,7 @@ h4.blog-title{
 .static-header{
   padding: 150px 0;
    background-position: center top;
+}
+.no-padding{
+  padding: 0;
 }
