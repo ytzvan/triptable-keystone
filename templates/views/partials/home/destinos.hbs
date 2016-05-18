@@ -34,23 +34,23 @@
             console.log("status", status)
             if (status == 0){
               var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 12);
-              $(postId).attr('data-rowspan', 6);
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 10);
             }
             if (status == 1){
               var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 8);
-              $(postId).attr('data-rowspan', 6);
+              $(postId).attr('data-colspan', 10);
+              $(postId).attr('data-rowspan', 5);
             }
             if (status == 2){
               var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 8);
-              $(postId).attr('data-rowspan', 6);
+              $(postId).attr('data-colspan', 5);
+              $(postId).attr('data-rowspan', 5);
             }
             if (status == 3){
               var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 12);
-              $(postId).attr('data-rowspan', 6);
+              $(postId).attr('data-colspan', 5);
+              $(postId).attr('data-rowspan', 5);
             }
             status++;
             if (status >= 4){
