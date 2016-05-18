@@ -148,3 +148,15 @@
 
 		</div>
 		<!-- end Main Wrapper -->
+    <script type="text/javascript">
+$(function() {
+    var activity_name = "Solicito_booking";
+// TODO: Replace ACTIVITY_NAME with a suitable one-word name for the activity. eg. "booking_confirmed"
+
+var activity_properties = {};
+// TODO Optional: You can track additional data attached to this activity. eg. {check_in_date: "2016-01-20T13:00:28+00:00"}. Refer https://nudgespot.readme.io/docs/js-track-an-activity
+
+nudgespot.track(activity_name, activity_properties);
+});
+
+</script>
