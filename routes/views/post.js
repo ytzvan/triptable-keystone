@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			locals.data.post = result;
 
-      locals.meta.title = result.title + " - El blog de Triptable";
+      locals.meta.title = result.title + " - Triptable";
 			locals.meta.keywords = "blog, viajes, travel, " + result.keywords;
 			locals.meta.description = result.brief;
 			locals.meta.ogTitle = locals.meta.title;

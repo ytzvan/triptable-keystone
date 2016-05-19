@@ -50,7 +50,7 @@ exports = module.exports = function(req, res) {
 			locals.data.country = results;
 			var id = results._id;
 			var country = results.country;
-			locals.meta.title = "Triptable: Reserva Tours Baratos, Actividades y Qué hacer en " + results.country;
+			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + results.country;
 			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
 			locals.meta.description =  "Reserva tours en " + country  + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " +country;
 			locals.meta.ogTitle = locals.meta.title;
@@ -64,6 +64,7 @@ exports = module.exports = function(req, res) {
 					perPage: 5,
 				})
 				.where("country", id)
+        .sort('-publishedDate')
 				.populate('city province categories');
 				console.log(category);
 				if (category) {
