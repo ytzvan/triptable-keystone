@@ -1,16 +1,42 @@
+<script>
+  $(function() {
+                          var date = new Date("{{data.post.publishedDate}}");
+                          var pretty = moment(date).fromNow();
+                          console.log(pretty);
+                          $('#date').append(pretty);
+    });
+$(function() {
+  var initial_Imgwidth = $(window).height() / 2 - 116;
+  var initial_Txtwidth = $(window).height() / 2 - 116 -70;
+  $('#mainImg').attr('style', 'padding:'+ initial_Imgwidth + 'px 0; background-image:url({{data.post.image.secure_url}})');
+  $('#mainTxt').attr('style', 'top:' +initial_Txtwidth+ 'px;');
+  $( window ).resize(function() {
+    var initial_Imgwidth = $(window).height() / 2 - 116;
+    var initial_Txtwidth = $(window).height() / 2 - 116 -70;
+    $('#mainImg').attr('style', 'padding:'+ initial_Imgwidth + 'px 0; background-image:url({{data.post.image.secure_url}})');
+    $('#mainTxt').attr('style', 'top:' +initial_Txtwidth+ 'px;');
+  });
+});
+
+</script>
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
 <div class="main-wrapper scrollspy-container">
 
 			<!-- start end Page title -->
-			<div class="page-title blog-header-img" style="background-image:url('{{data.post.image.secure_url}}');">
+			<div id="mainImg" class="page-title blog-header-img">
 
 				<div class="container">
 
 					<div class="row">
 
-						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-
-							<!--<h1 class="hero-title blog-title">{{data.post.title}}</h1>
-              <h4>{{{data.post.brief}}}</h4> -->
+						<!-- <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3"> -->
+						<div id="mainTxt" class="col-sm-10 col-md-6 post-title">
+            <div class="blog-category">
+                   {{#each data.post.categories}} <span class="blog-category">{{name}}</span>{{/each}}
+                  </div>
+						<h1 class="hero-title post-title">{{data.post.title}}</h1>
+             	   <span class="sub-head user"><i class="fa fa-user"></i> Ytzvan Mastino</span>. <span class="sub-head" id="date"> </span>.
 
 							<!--<ol class="breadcrumb-list">
 								<li><a href="index.html">Homepage</a></li>
@@ -37,27 +63,6 @@
 
 								<div class="blog-item blog-single">
 
-									<!--<div class="blog-media">
-										<img src="images/blog/blog-01.jpg" alt="" />
-									</div> -->
-
-									<div class="blog-content">
-										<h1>{{data.post.title}}</h1>
-										<ul class="blog-meta clearfix">
-
-											<li>Por: <a href="#">{{data.post.author.name.full}}</a></li>
-                      <script>
-
-                      $(function() {
-                          var date = new Date("{{data.post.publishedDate}}");
-                          var pretty = moment(date).fromNow();
-                          console.log(date);
-                          $('#date').append(pretty);
-                      });
-                      </script>
-											<li id="date">Publicado: hace </li>
-											<li>En: {{#each data.post.categories}}{{name}}, {{/each}}
-										</ul>
 										<div class="blog-entry">
 											{{{data.post.content.html}}}
 									<div class="blog-extra">

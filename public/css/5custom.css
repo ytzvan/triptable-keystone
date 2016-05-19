@@ -55,8 +55,28 @@ h4.blog-title{
     border-bottom: 0;
     margin-bottom: 40px;
 }
+.blog-header-img{
+  padding: 300px 0;
+}
+h1.post-title{
+ font-size: 3.157em;
+ text-transform: capitalize;
+  font-family: 'Raleway', 'Lato', Sans-serif;
+}
+div.post-title{
+  top:280px;
+  text-align: justify;
+}
+span.sub-head{
+  font-family: 'Raleway', 'Lato', Sans-serif;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+span.sub-head.user{
+  font-weight: 700;
+}
 .blog-header-img::before{
-  background: rgba(0,0,0,0);
+  background: rgba(0,0,0,0.5);
 }
 .static-header{
   padding: 150px 0;
