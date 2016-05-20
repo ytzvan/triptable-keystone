@@ -123,3 +123,14 @@ a.top-destination-image-bg {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
 }
+h3{
+  font-size: 35px;
+  font-weight: 200;
+  text-transform: capitalize !important;
+}
+.center{
+  text-align: center;
+}
+.featured-text{
+  font-size: 45px !important;
+}
