@@ -126,11 +126,31 @@ a.top-destination-image-bg {
 h3{
   font-size: 35px;
   font-weight: 200;
-  text-transform: capitalize !important;
 }
 .center{
   text-align: center;
 }
 .featured-text{
   font-size: 45px !important;
+}
+.why-us-half-image-content {
+    padding: 0px 100px;
+}
+.why-us-half-image-wrapper{
+  padding-top:50px;
+}
+.pt15{
+  padding-top:15px;
+}
+.p50{
+  padding:50px;
+}
+.pb50{
+  padding-bottom:50px;
+}
+.pt100{
+  padding-top:100px;
+}
+.hero p.lead{
+  font-size: 20px;
 }
