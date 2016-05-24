@@ -154,3 +154,9 @@ h3{
 .hero p.lead{
   font-size: 20px;
 }
+.blog-article{
+  padding:30px !important;
+}
+.blog-article-main{
+  height: auto !important;
+}

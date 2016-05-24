@@ -7,8 +7,8 @@
             </script>
 				  <div class="grid destination-grid-wrapper">
           {{#each data.posts.results}}
-					<div class="grid-item" data-colspan="20" data-rowspan="8" id=post{{@index}}>
-							<a href="/blog/{{slug}}" class="top-destination-image-bg" style="background-image:url('{{image.secure_url}}');">
+					<div class="grid-item" data-colspan="10" data-rowspan="7" id=post{{@index}}>
+							<a href="/blog/{{slug}}" class="top-destination-image-bg blog-article" style="background-image:url('{{image.secure_url}}');">
 								<div class="relative">
 									<div class="blog-category">
                   {{#each categories}}
@@ -20,6 +20,7 @@
 									<p id="info{{this._id}}"><i class="fa fa-user"></i> {{author.name.full}} <i class="fa fa-clock-o" style="margin-left:15px;"></i>   </p>
 								</div>
 							</a>
+  
 						</div>
             <script>
                       $(function() {
@@ -29,7 +30,7 @@
                           $('#info{{this._id}}').append(pretty);
                       });
                       </script>
-            <script type="text/javascript">
+            <!--<script type="text/javascript">
 
             console.log("status", status)
             if (status == 0){
@@ -40,13 +41,13 @@
             if (status != 0){
               var postId = $.find('#post{{@index}}');
               $(postId).attr('data-colspan', 10);
-              $(postId).attr('data-rowspan', 6);
+              $(postId).attr('data-rowspan', 7);
             }
             status++;
             if (status >= 9){
               status = 0;
             }
-            </script>
+            </script> -->
       {{/each}}
             </div> <!-- main -->
 	{{>pagination}}

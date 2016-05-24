@@ -19,9 +19,9 @@ exports = module.exports = function(req, res) {
 		categories: []
 	};
 
-      locals.meta.title = "El blog de viajes de Triptable";
+      locals.meta.title = "Travel blog - Triptable";
 			locals.meta.keywords = "blog, viajes, travel, triptable blog, latinoamerica, cosas que hacer, tripts, tours, articulos";
-			locals.meta.description = "El blog de viajes de Triptable es un espacio creado para descubrir tours y los mejores destinos turísticos en latinoamérica";
+			locals.meta.description = "Blog de viajes de Triptable enfocado en destinos, tours y actividades en Latinoamerica";
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogType = "website";
 			locals.meta.ogDescription = locals.meta.description;
