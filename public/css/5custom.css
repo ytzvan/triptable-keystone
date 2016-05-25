@@ -160,3 +160,6 @@ h3{
 .blog-article-main{
   height: auto !important;
 }
+.form-control {
+    height: 56px;
+}
