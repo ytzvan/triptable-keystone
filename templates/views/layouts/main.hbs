@@ -35,8 +35,10 @@
 	{{/if}}
 	{{#if meta.url}}
 	<meta property="og:url" content="{{meta.url}}"/>
+  <link rel="canonical" href="{{meta.url}}" />
 	{{else}}
 	<meta property="og:url" content="https://www.triptableapp.com"/>
+  <link rel="canonical" href="https://www.triptableapp.com" />
 	{{/if}}
 	<meta property="og:site_name" content="Triptable: Reserva Tours y Actividades"/>
   {{#if meta.ogType}}
