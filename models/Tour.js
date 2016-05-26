@@ -28,7 +28,7 @@ Tour.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	images: { type: Types.CloudinaryImages },
 	description: {
-		short: { type: Types.Html, wysiwyg: true, height: 150 },
+		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
 	keywords: {type: String},
@@ -54,6 +54,7 @@ Tour.add({
 	finishPoint: {type: String},
   nOfReviews: {type: Types.TextArray},
 	reviews : { type: Types.Relationship, ref: 'Review', many: true },
+  attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
 
 
 });

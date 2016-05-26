@@ -70,6 +70,20 @@ exports = module.exports = function(req, res) {
 
 	});
 
+  view.on('init', function(next) {
+
+		keystone.list('Attraction').model.find().where({'featured': true}).exec(function(err, results) { //Query attractions
+			if (err || !results) {
+				console.log("err", err);
+				return res.status(404);
+			}
+			locals.data.attractions = results;
+			return next();
+
+		});
+
+	});
+
 	// Render the view
 	view.render('index');
 };

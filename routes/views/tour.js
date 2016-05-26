@@ -34,7 +34,7 @@ exports = module.exports = function(req, res) {
 
 			/*Load Reviews */
 			loadReviews(next);
-			locals.meta.title = result.name +" . Reserva Tours, Actividades en Triptable."
+			locals.meta.title = result.name +". Reserva Tours y Actividades en Triptable."
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);

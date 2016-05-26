@@ -21,6 +21,7 @@ Country.add({
 Country.relationship({ ref: 'Tour', path: 'country' });
 Country.relationship({ ref: 'Province', path: 'country' });
 Country.relationship({ ref: 'City', path: 'country' });
+Country.relationship({ ref: 'Attraction', path: 'country' });
 Country.defaultColumns = 'country, description|20%, image|20%, publishedDate|20%';
 Country.schema.pre('save', function(next) {
     this.countryId = this.id;

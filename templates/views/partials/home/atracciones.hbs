@@ -1,68 +1,46 @@
-			<section>
+<section class="bg-light">
+        <div class="container">
 
-				<div class="container">
+          <div class="row">
 
-					<div class="row">
+            <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 
-						<div class="col-sm-8 col-md-6  col-sm-offset-2 col-md-offset-3">
+              <div class="section-title">
 
-							<div class="section-title">
+                <h3>Atracciones</h3>
+                <p>Estas actividades no pueden faltar en tu próxima visita</p>
 
-								<h3>Top Atracciones</h3>
+              </div>
 
-							</div>
+            </div>
 
-						</div>
+          </div>
 
-					</div>
-             <script type="text/javascript">
-             var status = parseInt(0);
+          <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
 
-            </script>
-					<div class="grid destination-grid-wrapper">
-					{{#each data.provinces}}
-						<div id="attraction{{@index}}" class="grid-item" id="grid-item" data-colspan="20" data-rowspan="8">
-							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url({{{cloudinaryUrl image width=1200 secure=true}}});">
-								<div class="relative">
-									<h4>{{province}}</h4>
-									<!--<span>Starting from $322</span> -->
-								</div>
-							</a>
-						</div>
-            <script type="text/javascript">
-
-            console.log("status", status)
-            if (status == 0){
-              var postId = $.find('#attraction{{@index}}');
-              $(postId).attr('data-colspan', 15);
-              $(postId).attr('data-rowspan', 6);
-            }
-            if (status == 1){
-              var postId = $.find('#attraction{{@index}}');
-              $(postId).attr('data-colspan', 5);
-              $(postId).attr('data-rowspan', 6);
-            }
-            if (status == 2){
-              var postId = $.find('#attraction{{@index}}');
-              $(postId).attr('data-colspan', 10);
-              $(postId).attr('data-rowspan', 6);
-            }
-            if (status == 3){
-              var postId = $.find('#attraction{{@index}}');
-              $(postId).attr('data-colspan', 10);
-              $(postId).attr('data-rowspan', 6);
-            }
-            status++;
-            if (status >= 4){
-              status = 0;
-            }
-            </script>
-
-					{{/each}}
+            <div class="GridLex-grid-noGutter-equalHeight">
+             {{# each data.attractions}}
+              <div class="GridLex-col-4_sm-6_xs-12 mb-30">
+                <div class="package-grid-item">
+                  <a href="/atracciones/{{slug}}">
+                    <div class="image">
+                      <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{image.version}}/{{image.public_id}}.{{image.format}}" alt="{{name}}" />
+                    </div>
+                    <div class="attraction clearfix">
+                      <h5 class="title">{{name}}</h5>
 
 
-					</div>
 
-				</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              {{/each}}
 
-			</section>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>

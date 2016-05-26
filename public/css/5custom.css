@@ -148,6 +148,10 @@ h3{
 .pb50{
   padding-bottom:50px;
 }
+.ptb50{
+  padding-top:25px;
+  padding-bottom: 50px;
+}
 .pt100{
   padding-top:100px;
 }
@@ -162,4 +166,24 @@ h3{
 }
 .form-control {
     height: 56px;
+}
+.attraction {
+    padding: 20px 0px 10px 15px;
+    position: relative;
+    text-align: center;
+}
+.attraction .title{
+  color: #3498db;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.attraction-title{
+     font-size: 25px;
+    font-weight: 400;
+  text-transform: uppercase;
+}
+.attraction-subtitle {
+     font-size: 15px;
+    font-weight: 200;
+  text-transform: capitalize;
 }

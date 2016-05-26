@@ -1,10 +1,10 @@
 
-jQuery(function($) {
+$(function() {
 
 	"use strict";
 
-		
-		
+
+
 		/**
 		 * introLoader - Preloader
 		 */
@@ -19,10 +19,10 @@ jQuery(function($) {
 							exitTime: 300
 					}
 			}
-		});	
+		});
 
-		
-		
+
+
 		/**
 		 * Sticky Header
 		 */
@@ -31,13 +31,13 @@ jQuery(function($) {
 			$(".navbar").toggleClass("navbar-sticky");
 			return false;
 		}, { offset: "-20px" });
-		
-		
-		
+
+
+
 		/**
 		 * Main Menu Slide Down Effect
 		 */
-		 
+
 		// Mouse-enter dropdown
 		$('#navbar li').on("mouseenter", function() {
 				$(this).find('ul').first().stop(true, true).delay(350).slideDown(500, 'easeInOutQuad');
@@ -47,21 +47,21 @@ jQuery(function($) {
 		$('#navbar li').on("mouseleave", function() {
 				$(this).find('ul').first().stop(true, true).delay(100).slideUp(150, 'easeInOutQuad');
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Effect to Bootstrap Dropdown
 		 */
-		$('.bt-dropdown-click').on('show.bs.dropdown', function(e) {   
-			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(500, 'easeInOutQuad'); 
-		}); 
-		$('.bt-dropdown-click').on('hide.bs.dropdown', function(e) { 
-			$(this).find('.dropdown-menu').first().stop(true, true).slideUp(250, 'easeInOutQuad'); 
+		$('.bt-dropdown-click').on('show.bs.dropdown', function(e) {
+			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(500, 'easeInOutQuad');
 		});
-		
-		
-		
+		$('.bt-dropdown-click').on('hide.bs.dropdown', function(e) {
+			$(this).find('.dropdown-menu').first().stop(true, true).slideUp(250, 'easeInOutQuad');
+		});
+
+
+
 		/**
 		 * Icon Change on Collapse
 		 */
@@ -72,9 +72,9 @@ jQuery(function($) {
 		.on('hide.bs.collapse', function(a) {
 			$(a.target).prev('.panel-heading').removeClass('active');
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Slicknav - a Mobile Menu
 		 */
@@ -86,11 +86,11 @@ jQuery(function($) {
 			openedSymbol: '<i class="fa fa-minus"></i>',
 			prependTo: '#slicknav-mobile',
 			allowParentLinks: true,
-			label:"" 
+			label:""
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Smooth scroll to anchor
 		 */
@@ -106,9 +106,9 @@ jQuery(function($) {
 				}
 			}
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Sign-in Modal
 		 */
@@ -117,13 +117,13 @@ jQuery(function($) {
 		var $formRegister = $('#register-form');
 		var $divForms = $('#modal-login-form-wrapper');
 		var $modalAnimateTime = 300;
-		
+
 		$('#login_register_btn').on("click", function () { modalAnimate($formLogin, $formRegister) });
 		$('#register_login_btn').on("click", function () { modalAnimate($formRegister, $formLogin); });
 		$('#login_lost_btn').on("click", function () { modalAnimate($formLogin, $formLost); });
 		$('#lost_login_btn').on("click", function () { modalAnimate($formLost, $formLogin); });
 		$('#lost_register_btn').on("click", function () { modalAnimate($formLost, $formRegister); });
-		
+
 		function modalAnimate ($oldForm, $newForm) {
 			var $oldH = $oldForm.height();
 			var $newH = $newForm.height();
@@ -135,17 +135,17 @@ jQuery(function($) {
 			});
 		}
 
-		
-		
+
+
 		/**
 		 * select2 - custom select
 		 */
 		$(".select2-single").select2({allowClear: true});
 		$(".select2-no-search").select2({dropdownCssClass : 'select2-no-search',allowClear: true});
 		$(".select2-multi").select2({});
-		
-		
-		
+
+
+
 		/**
 		 * Show more-less button
 		 */
@@ -155,30 +155,30 @@ jQuery(function($) {
 			});
 		});
 
-		
-		
+
+
 		/**
 		 *  Arrow for Menu has sub-menu
 		 */
 		$(".navbar-arrow > ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-down'></i>");
 		$(".navbar-arrow ul ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-right'></i>");
-		
-		
-		
+
+
+
 		/**
 		 *  Placeholder
 		 */
 		$("input, textarea").placeholder();
 
-	
-	
+
+
 		/**
 		 * Bootstrap tooltips
 		 */
 		 $('[data-toggle="tooltip"]').tooltip();
-		 
-		 
-		 
+
+
+
 		/**
 		 * responsivegrid - layout grid
 		 */
@@ -218,9 +218,9 @@ jQuery(function($) {
 				},
 			}
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Payment Option
 		 */
@@ -230,15 +230,15 @@ jQuery(function($) {
 				$("div.payment-option-form").hide();
 				$("#" + test).show();
 		});
-		
-		
-		
+
+
+
 		/**
 		 * Raty - Rating Star
 		 */
 		$.fn.raty.defaults.path = '/images/raty';
-		
-		// Default size star 
+
+		// Default size star
 		$('.star-rating').raty({
 			round : { down: .2, full: .6, up: .8 },
 			half: true,
@@ -247,7 +247,7 @@ jQuery(function($) {
 				return $(this).attr('data-rating-score');
 			}
 		});
-		
+
 		// Read onlu default size star
 		$('.star-rating-read-only').raty({
 			readOnly: true,
@@ -258,7 +258,7 @@ jQuery(function($) {
 				return $(this).attr('data-rating-score');
 			}
 		});
-		
+
 		// Smaller size star
 		$('.star-rating-12px').raty({
 			path: '/images/raty',
@@ -273,7 +273,7 @@ jQuery(function($) {
 				return $(this).attr('data-rating-score');
 			}
 		});
-		
+
 		// White color default size star
 		$('.star-rating-white').raty({
 			path: '/images/raty',
@@ -288,9 +288,9 @@ jQuery(function($) {
 				return $(this).attr('data-rating-score');
 			}
 		});
-		
-		
-		
+
+
+
 		/**
 		 * readmore - read more/less
 		 */
@@ -302,12 +302,12 @@ jQuery(function($) {
 			heightMargin: 25
 		});
 
-		
-		
+
+
 		/**
 		 * ionRangeSlider - range slider
 		 */
-		 
+
 		 // Price Range Slider
 		$("#price_range").ionRangeSlider({
 			type: "double",
@@ -318,7 +318,7 @@ jQuery(function($) {
 			to: 800,
 			prefix: "$"
 		});
-		
+
 		// Star Range Slider
 		$("#star_range").ionRangeSlider({
 			type: "double",
@@ -326,15 +326,15 @@ jQuery(function($) {
 			from: 1,
 			to: 2,
 			values: [
-				"<i class='fa fa-star'></i>", 
+				"<i class='fa fa-star'></i>",
 				"<i class='fa fa-star'></i> <i class='fa fa-star'></i>",
-				"<i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i>", 
+				"<i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i>",
 				"<i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i>",
-				"<i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i>" 
+				"<i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i>"
 			]
 		});
 
-		
+
 
 		/**
 		 * slick
@@ -362,19 +362,19 @@ jQuery(function($) {
 				settings: {
 					slidesToShow: 7,
 					}
-				}, 
+				},
 				{
 				breakpoint: 991,
 				settings: {
 					slidesToShow: 5,
 					}
-				}, 
+				},
 				{
 				breakpoint: 767,
 				settings: {
 					slidesToShow: 5,
 					}
-				}, 
+				},
 				{
 				breakpoint: 480,
 				settings: {
@@ -385,7 +385,7 @@ jQuery(function($) {
 		});
 
 
-		
+
 		/**
 		 * Back To Top
 		 */
@@ -400,12 +400,12 @@ jQuery(function($) {
 			  $('html, body').animate({ scrollTop:0 }, '800');
 			  return false;
 		});
-		
-		
-		
+
+
+
 		/**
-		 * Instagram 
-		 
+		 * Instagram
+
 		function createPhotoElement(photo) {
 			var innerHtml = $('<img>')
 			.addClass('instagram-image')
@@ -430,7 +430,7 @@ jQuery(function($) {
 		}
 
 		$(document).ready(function() {
-			
+
 			$('#instagram').on('didLoadInstagram', didLoadInstagram);
 			$('#instagram').instagram({
 			count: 20,
@@ -439,5 +439,5 @@ jQuery(function($) {
 			});
 
 		}); */
-		
-})(jQuery);
+
+});

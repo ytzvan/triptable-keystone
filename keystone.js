@@ -10,13 +10,13 @@ keystone.init({
 
 	'name': 'Triptable',
 	'brand': 'Triptable',
-	
+
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'hbs',
-	
+
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
 		partialsDir: 'templates/views/partials',
@@ -24,15 +24,18 @@ keystone.init({
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
-	
+
 	'emails': 'templates/emails',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
 	'signin url': '/signin',
 	'signin redirect' : '/',
+  'wysiwyg images': true,
+  'wysiwyg cloudinary images': true,
+  'wysiwyg additional plugins':'paste, preview, searchreplace, visualchars, wordcount'
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
 
@@ -81,6 +84,8 @@ keystone.set('nav', {
 	'enquiries': 'enquiries',
 	'users': 'users',
 	'tours' : 'tours',
+  'attractions' : 'attractions',
+  'reviews' : 'reviews',
 	'locations' : ['countries', 'provinces', 'cities'],
 });
 
