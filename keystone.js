@@ -88,5 +88,4 @@ keystone.set('nav', {
   'reviews' : 'reviews',
 	'locations' : ['countries', 'provinces', 'cities'],
 });
-
 keystone.start();

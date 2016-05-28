@@ -16,7 +16,6 @@ exports = module.exports = function(req, res) {
 		categories: [],
 		provinces: [],
 	};
-	console.log(req);
 	// Load the places
 	view.on('init', function(next) {
 
@@ -46,7 +45,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
+				
 				return res.status(404);
 			}
 			locals.data.provinces = results;
@@ -60,7 +59,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
+				
 				return res.status(404);
 			}
 			locals.data.categories = results;
@@ -74,7 +73,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Attraction').model.find().where({'featured': true}).exec(function(err, results) { //Query attractions
 			if (err || !results) {
-				console.log("err", err);
+				
 				return res.status(404);
 			}
 			locals.data.attractions = results;

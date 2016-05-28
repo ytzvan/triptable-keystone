@@ -24,15 +24,16 @@ exports = module.exports = function(app) {
 	//Static views
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
-  app.all('/nosotros', routes.static.about_us);
-  app.all('/terminos', routes.static.terms);
+  	app.all('/nosotros', routes.static.about_us);
+  	app.all('/terminos', routes.static.terms);
+  	app.all('/crm', routes.views.crm);
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
 	app.get('/contact/:tourId', routes.views.booking);
 	app.post('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
-  app.all('/atracciones/:slug', routes.views.attractions);
+  	app.all('/atracciones/:slug', routes.views.attractions);
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);
