@@ -14,6 +14,7 @@ var routes = {
 	search: importRoutes('./search'),
 	auth: importRoutes('./auth'),
 	static: importRoutes('./static'),
+	api: importRoutes('./api'),
 
 };
 // Setup Route Bindings
@@ -26,6 +27,14 @@ exports = module.exports = function(app) {
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
   app.all('/terminos', routes.static.terms);
+
+  //API Routes - Tours
+  app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);
+	app.all('/api/tour/create', keystone.middleware.api, routes.api.tour.create);
+  app.get('/api/tour/:id', keystone.middleware.api, routes.api.tour.get);
+	app.all('/api/tour/:id/update', keystone.middleware.api, routes.api.tour.update);
+	app.get('/api/tour/:id/remove', keystone.middleware.api, routes.api.tour.remove);
+
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
