@@ -281,17 +281,18 @@
 									<div class="navbar-mini">
 										<ul class="clearfix">
 
-
+                       {{#unless userInfo}}
 											 <li class="user-action no-margin hidden-xs hidden-sm">
-												<a href="http://bit.ly/1SoSaIO" target="_blank" class="btn no-border">Listar mis tours</a>
+												<a href="/partners" target="_blank" class="btn no-border">Listar mis tours</a>
 											</li>
 
                        <li class="user-action no-margin hidden-xs hidden-sm">
 												<a href="/signup" class="btn no-border">Registrarse</a>
 											</li>
+                      {{/unless}}
 											{{#if userInfo}}
 											<li class="user-action">
-												<a href="#" class="">Hola, {{userInfo.name.full}}</a>
+												<a href="#" class="">Bienvenido {{userInfo.name.full}}</a>
 											</li>
 											{{else}}
 											<li class="user-action">
@@ -326,9 +327,9 @@
 										<!--<li><a href="#">Acerca de Nosotros</a>
 										</li> -->
 										<li><a href="/nosotros">Acerca de Nosotros</a></li>
-										<li><a target="_blank" href="http://bit.ly/1SoSaIO">Tour Operadores</a>
+										<li><a href="/partners">Tour Operadores</a>
 										</li>
-										<li><a target="_blank" href="http://bit.ly/1SoSaIO">Sé un Guía</a>
+										<li><a href="/partners">Sé un Guía</a>
 										</li>
 										<li><a href="mailto:hello@triptableapp.com">Contáctanos</a></li>
 									</ul>
@@ -404,7 +405,6 @@
 										<li><a href="/nosotros">Quienes Somos</a></li>
 										<li><a href="/blog">Blog</a></li>
 										<li><a href="/terminos">Términos y Condiciones</a></li>
-										<li><a href="#">Política de Cancelación</a></li>
 										<li><a href="mailto:hello@triptableapp.com">Contactanos</a></li>
 
 									</ul>
@@ -418,11 +418,10 @@
 
 									<ul class="footer-menu">
 
-										<li><a href="http://bit.ly/1SoSaIO">Tour Operadores</a></li>
-										<li><a href="http://bit.ly/1SoSaIO">Guías Turísticos</a></li>
-										<li><a href="http://bit.ly/1SoSaIO">Hoteles</a></li>
-										<li><a href="http://bit.ly/1SoSaIO">Agencias de Viaje</a></li>
-										<li><a href="http://bit.ly/1SoSaIO">Servicios de Transporte</a></li>
+										<li><a href="/partners">Tour Operadores</a></li>
+										<li><a href="/partners">Guías Turísticos</a></li>
+										<li><a href="/partners">Agencias de Viaje</a></li>
+										<li><a href="/partners">Servicios de Transporte</a></li>
 
 									</ul>
 

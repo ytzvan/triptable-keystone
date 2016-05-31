@@ -27,6 +27,7 @@ exports = module.exports = function(app) {
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
   app.all('/terminos', routes.static.terms);
+  app.all('/partners', routes.views.crm);
 
   //API Routes - Tours
   app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);
@@ -41,7 +42,7 @@ exports = module.exports = function(app) {
 	app.get('/contact/:tourId', routes.views.booking);
 	app.post('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
-  app.all('/atracciones/:slug', routes.views.attractions);
+  	app.all('/atracciones/:slug', routes.views.attractions);
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);
