@@ -53,12 +53,12 @@ color: darkslategray !important;
 {{#if enquirySubmitted}}
 <h3>Su solicitud de Reserva se ha enviado.</h3>
 {{else}}
-<div class="contact-wrapper">    
-<div class="col-xs-12 col-sm-12 col-lg-8 contact_page_company_details">  
+<div class="contact-wrapper">
+<div class="col-xs-12 col-sm-12 col-lg-8 contact_page_company_details">
 <div class="agent_contanct_form">
 <div class="alert-box-contact-page error">
 <div class="alert-message" id="alert-agent-contact"></div>
-</div> 
+</div>
 <form method="post">
 <div class="row">
 <input type="hidden" name="action" value="contact">
@@ -84,22 +84,22 @@ var yyyy = today.getFullYear();
 
 if(dd<10) {
 dd='0'+dd
-} 
+}
 
 if(mm<10) {
 mm='0'+mm
-} 
+}
 
 today = yyyy+'-'+mm+'-'+dd;
 
 $('#date').attr("min", today);
-});        
+});
 </script>
 <p class=" col-lg-4">Teléfono
 <input type="text" name="phone" placeholder="Ej: +507 6789-2398" class="form-control" value="{{formData.phone}}">
 </p>
 
-<p class="col-lg-4">Hotel 
+<p class="col-lg-4">Hotel
 <input type="text" name="hotel" placeholder="Lugar de recogida" class="form-control" value="{{formData.hotel}}">
 </p>
 <p class="col-lg-8">Comentarios adicionales
@@ -127,10 +127,10 @@ Precio: USD${{data.tour.price}}
 <img class="img-responsive" src="{{data.tour.images.0.secure_url}}" />
 </div>
 </div>
-</div>  
-{{/if}}  
 </div>
-</div>   
+{{/if}}
+</div>
+</div>
 </div> -->
 
 <div class="main-wrapper">
@@ -163,7 +163,7 @@ Precio: USD${{data.tour.price}}
 <ul class="price-summary-list">
 <li>
 <h6 class="heading mt-0 mb-0">{{data.tour.name}}</h6>
-<p class="font12 text-light">{{{data.tour.description.short}}}</p> 
+<p class="font12 text-light">{{{data.tour.description.short}}}</p>
 </li>
 
 <li class="divider"></li>
@@ -240,8 +240,9 @@ Número de Viajeros
 <div class="payment-container">
 
 <form method="post">
-<input type="hidden" name="action" value="contact">	
+<input type="hidden" name="action" value="contact">
 <input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+<input type="hidden" name="tourName" placeholder="TourName" class="form-control" value="{{data.tour.name}}">
 <input type="hidden" name="tourPrice" placeholder="TourID" class="form-control" value="{{data.tour.price}}">
 
 <input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
@@ -341,7 +342,7 @@ Número de Viajeros
 <div class="col-sm-3 col-md-2">
 <input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
 <select name="people" id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
-<option value="">Viajeros</option>	
+<option value="">Viajeros</option>
 {{#for data.tour.minPerson data.tour.maxPerson 1}}
 <option value="{{this}}">{{this}}</option>
 {{/for}}
@@ -373,7 +374,7 @@ Número de Viajeros
 <label class="col-sm-3 col-md-2 control-label">Idioma / Language:</label>
 <div class="col-sm-5 col-md-4">
 <select class="select2-single form-control" data-placeholder="Idioma / Language">
-<option value="">Idioma / Language</option>	
+<option value="">Idioma / Language</option>
 <option value="ingles">English</option>
 <option value="espanol">Español</option>
 </select>
@@ -454,7 +455,7 @@ Número de Viajeros
 <label class="col-sm-3 col-md-3 control-label">Card Type </label>
 <div class="col-sm-3 col-md-2">
 <select class="select2-no-search form-control" data-placeholder="Card Type">
-<option value="">Card Type</option>	
+<option value="">Card Type</option>
 <option value="1">Options 1</option>
 <option value="2">Options 2</option>
 <option value="3">Options 3</option>
@@ -473,7 +474,7 @@ Número de Viajeros
 <label class="col-sm-3 col-md-3 control-label">Expiry date </label>
 <div class="col-sm-3 col-md-3">
 <select class="select2-no-search form-control" data-placeholder="Month">
-<option value="">Month</option>	
+<option value="">Month</option>
 <option value="1">Options 1</option>
 <option value="2">Options 2</option>
 <option value="3">Options 3</option>
@@ -620,15 +621,15 @@ Número de Viajeros
 </div> <!-- sm 4 -->
 
 
-</div> <!-- row -->	
-</div> <!-- container -->	
-</div> <!-- content wrapper -->	
+</div> <!-- row -->
+</div> <!-- container -->
+</div> <!-- content wrapper -->
 
 
 
 
 
-</div> <!-- end main wrapper -->			
+</div> <!-- end main wrapper -->
 
 
 

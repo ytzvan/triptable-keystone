@@ -1,0 +1,28 @@
+bOOKING INFO view: a <br> <BR> <BR>
+{{data.bookings}}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tour</th>
+      <th># de Viajeros</th>
+      <th>Precio p. Persona</th>
+      <th>Precio Total</th>
+      <th>Estado de la Reserva</th>
+     </tr>
+    </thead>
+    <tbody>
+      {{#each data.bookings}}
+      <tr>
+        <th scope="row">{{friendlyId}}</th>
+        <td>{{tourName}}</td>
+        <td>{{people}}</td>
+        <td>{{tourPrice}}</td>
+        <td>100</td>
+        <td>{{bookingStatus}}</td>
+       </tr>
+       <tr>
+     {{/each}}
+
+     </tbody>
+   </table>

@@ -29,6 +29,7 @@ Enquiry.add({
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
+  tourName: { type:String},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	date: { type: Types.Date },
 	bookingStatus: { type: Types.Select, options: [
@@ -42,7 +43,8 @@ Enquiry.add({
 	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now },
 	friendlyId: {type: String, unique: true},
-	datePretty: {type: String}
+	datePretty: {type: String},
+  owner : { type: Types.Relationship, ref: 'User', index: true }
 });
 
 Enquiry.schema.pre('save', function(next) {
@@ -64,7 +66,7 @@ Enquiry.schema.pre('save', function(next) {
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		this.sendUserEmail(this); //Send User email
-		var email = this.operatorEmail 
+		var email = this.operatorEmail
 		this.sendBookingNotificationEmail(this, email); // Send OP email
 		this.sendBookingNotificationEmail(this, bookingEmail); // Send OP email
 	}
@@ -98,7 +100,7 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 
 
 Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
-	var booking = obj; 
+	var booking = obj;
 	var tourId = obj.tour;
 	var email = email;
 	var name = obj.operatorName;

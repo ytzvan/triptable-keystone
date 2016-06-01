@@ -42,7 +42,9 @@ exports = module.exports = function(app) {
 	app.get('/contact/:tourId', routes.views.booking);
 	app.post('/contact/:tourId', routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
-  	app.all('/atracciones/:slug', routes.views.attractions);
+  app.all('/atracciones/:slug', routes.views.attractions);
+  //User Views
+  app.all('/user/:username', routes.views.user.home);
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);

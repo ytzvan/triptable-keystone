@@ -48,7 +48,7 @@ exports = module.exports = function(req, res) {
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, message, hotel, operatorEmail, operatorName, tourPrice',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, message, hotel, operatorEmail, operatorName, tourPrice',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {
