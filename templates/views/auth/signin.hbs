@@ -1,6 +1,11 @@
-		
-		
 
+
+
+    {{#if messages.error}}
+		<div class="alert alert-danger">
+  			<strong>{{messages.error}}</strong> 
+		</div>
+		{{/if}}
 		{{#if validationErrors.mismatch}}
 		<div class="alert alert-danger">
   			<strong>Error:</strong> {{validationErrors.mismatch}}
@@ -13,7 +18,7 @@
 		</div>
 		{{/if}}
 
-		
+
 		{{#if validationErrors.csrfError}}
 		<div class="alert alert-danger">
   			<strong>Error:</strong> {{validationErrors.csrfError}}
@@ -23,48 +28,48 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				
+
 				<div class="clear"></div>
-				
+
 				<!-- Begin # DIV Form -->
 				<div id="modal-login-form-wrapper">
-					
+
 					<!-- Begin # Login Form -->
 					<form id="login-form" method="POST" novalidate>
 					<input type="hidden" name="{{token.key}}" value="{{token.value}}">
 						<div class="modal-body pb-5">
-					
+
 							<h4 class="text-center heading mt-10 mb-20">Ingresa</h4>
-						
+
 							<div class="modal-seperator">
 								<span></span>
 							</div>
-							
-							<div class="form-group"> 
+
+							<div class="form-group">
 								<input type="email" class="form-control" placeholder="Email" name="email" value="">
 							</div>
-							<div class="form-group"> 
+							<div class="form-group">
 								<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
 							</div>
-			
+
 							<div class="form-group">
 								<div class="row gap-5">
 									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="checkbox-block fa-checkbox"> 
-											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
+										<div class="checkbox-block fa-checkbox">
+											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
 											<label class="" for="remember_me_checkbox">recuérdame</label>
 										</div>
 									</div>
-									<!--<div class="col-xs-6 col-sm-6 col-md-6 text-right"> 
+									<!--<div class="col-xs-6 col-sm-6 col-md-6 text-right">
 										<button id="login_lost_btn" type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
 									</div> -->
 								</div>
 							</div>
-						
+
 						</div>
-						
+
 						<div class="modal-footer">
-						
+
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6 mb-10">
 									<button type="submit" class="btn btn-primary btn-block">Ingresa</button>
@@ -74,15 +79,15 @@
 								</div>
 							</div>
 							<div class="text-left">
-								No tienes cuenta? 
+								No tienes cuenta?
 								<a href="/signup" id="login_register_btn" class="btn btn-link">Regístrate</a>
 							</div>
-							
+
 						</div>
 					</form>
-					<!-- End # Login Form -->			
-					
-								
+					<!-- End # Login Form -->
+
+
 				</div>
 				<!-- End # DIV Form -->
 				<div class="col-md-3"></div>

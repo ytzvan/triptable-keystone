@@ -3,10 +3,10 @@ var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
+
 	// Set locals
 	locals.section = 'contact';
 	locals.bookingStatus = Enquiry.fields.bookingStatus.ops;
@@ -14,22 +14,22 @@ exports = module.exports = function(req, res) {
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
 	locals.data = {
-		tour: []
+		tour: [],
 	};
 	locals.bookingInfo = {};
 	var tourId =  req.params.tourId;
-	
+
 
 	console.log("tourId", tourId);
-	console.log("Formdata", locals.formData);
+	console.log("req", req);
 
 	view.on('init', function(next) {
-		
+
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			tourId: tourId
 		}).populate('owner location');
-		
+
 		q.exec(function(err, result) {
 			if (err) {
 				console.log(err)
@@ -39,16 +39,16 @@ exports = module.exports = function(req, res) {
 			}
 		});
 	});
-	
+
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', { action: 'contact' }, function(next) {
-		
+
 		var newEnquiry = new Enquiry.model(),
 			updater = newEnquiry.getUpdateHandler(req);
-		
+
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, message, hotel, operatorEmail, operatorName, tourPrice',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, tourPrice, user',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {
@@ -59,9 +59,9 @@ exports = module.exports = function(req, res) {
 			}
 			next();
 		});
-		
+
 	});
-	
+
 	view.render('bookingConfirmation');
-	
+
 };

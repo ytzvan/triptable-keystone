@@ -280,6 +280,17 @@
 
 									<div class="navbar-mini">
 										<ul class="clearfix">
+<!--                       <li class="user-action dropdown bt-dropdown-click hidden-xs">
+												<a id="language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+													<i class="ion-social-usd hidden-xss"></i> Dollar
+													<span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
+													<li><a href="#"><i class="ion-social-usd"></i> Cerrar Sesión</a></li>
+													<li><a href="#"><i class="ion-social-euro"></i> Europe</a></li>
+													<li><a href="#"><i class="ion-social-yen"></i> Yen</a></li>
+												</ul>
+											</li> -->
 
                        {{#unless userInfo}}
 											 <li class="user-action no-margin hidden-xs hidden-sm">
@@ -291,8 +302,11 @@
 											</li>
                       {{/unless}}
 											{{#if userInfo}}
-											<li class="user-action">
-												<a href="#" class="">Bienvenido {{userInfo.name.full}}</a>
+                      <li class="user-action">
+												<a href="/user" class="">Mis Reservas</a>
+											</li>
+											<li class="user-action hidden-xs ">
+												<a href="/user" class="">Bienvenido {{userInfo.name.first}}</a>
 											</li>
 											{{else}}
 											<li class="user-action">
@@ -329,7 +343,7 @@
 										<li><a href="/nosotros">¿Quienes Somos?</a></li>
 										<li><a href="/partners">Tour Operadores</a>
 										</li>
-									
+
 										<li><a href="mailto:hello@triptableapp.com">Contáctanos</a></li>
 									</ul>
 								</div><!--/.nav-collapse -->

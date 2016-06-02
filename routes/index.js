@@ -14,7 +14,6 @@ var routes = {
 	search: importRoutes('./search'),
 	auth: importRoutes('./auth'),
 	static: importRoutes('./static'),
-	api: importRoutes('./api'),
 
 };
 // Setup Route Bindings
@@ -27,24 +26,14 @@ exports = module.exports = function(app) {
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
   app.all('/terminos', routes.static.terms);
-  app.all('/partners', routes.views.crm);
-
-  //API Routes - Tours
-  app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);
-	app.all('/api/tour/create', keystone.middleware.api, routes.api.tour.create);
-  app.get('/api/tour/:id', keystone.middleware.api, routes.api.tour.get);
-	app.all('/api/tour/:id/update', keystone.middleware.api, routes.api.tour.update);
-	app.get('/api/tour/:id/remove', keystone.middleware.api, routes.api.tour.remove);
-
+  app.all('/user', middleware.requireUser, routes.views.user.home);
 	//Dinamic Views
+
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
-	app.get('/contact/:tourId', routes.views.booking);
-	app.post('/contact/:tourId', routes.views.contact);
+	app.get('/contact/:tourId', middleware.requireUser, routes.views.booking);
+	app.post('/contact/:tourId', middleware.requireUser, routes.views.contact);
 	app.all('/tour/:slug', routes.views.tour);
-  app.all('/atracciones/:slug', routes.views.attractions);
-  //User Views
-  app.all('/user/:username', routes.views.user.home);
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);

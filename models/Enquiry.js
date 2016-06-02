@@ -29,14 +29,15 @@ Enquiry.add({
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
-  tourName: { type:String},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
+	tourName: { type: String },
+	tourUrl: { type: String },
 	date: { type: Types.Date },
 	bookingStatus: { type: Types.Select, options: [
-		{ value: 'pending', label: 'Pending' },
-		{ value: 'confirmed', label: 'Confirmed' },
-		{ value: 'declined', label: 'Declined' }
-	], default: 'pending' },
+		{ value: '0', label: 'Pendiente' },
+		{ value: '1', label: 'Confirmada' },
+		{ value: '2', label: 'Declinada' }
+	], default: '0' },
 	operatorEmail:{ type: String },
 	operatorName: {type: String},
 	message: { type: Types.Textarea},
@@ -44,7 +45,7 @@ Enquiry.add({
 	createdAt: { type: Date, default: Date.now },
 	friendlyId: {type: String, unique: true},
 	datePretty: {type: String},
-  owner : { type: Types.Relationship, ref: 'User', index: true }
+  user: { type: Types.Relationship, ref: 'User', index: true },
 });
 
 Enquiry.schema.pre('save', function(next) {

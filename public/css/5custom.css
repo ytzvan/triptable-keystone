@@ -187,3 +187,15 @@ h3{
     font-weight: 200;
   text-transform: capitalize;
 }
+.badge.confirm{
+    background-color: #27ae60;
+    font-size: 14px;
+}
+.badge.pending{
+    background-color: #f39c12;
+    font-size: 14px;
+}
+.badge.declined{
+    background-color: #c0392b;
+    font-size: 14px;
+}

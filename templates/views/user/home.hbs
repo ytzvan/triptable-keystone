@@ -1,28 +1,61 @@
-bOOKING INFO view: a <br> <BR> <BR>
-{{data.bookings}}
+<div class="container">
+  <div class="row">
+  <h3>Mis Reservas</h3>
+    {{#if data.bookings}}
+
+  <div class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
+      <th class="hidden-xs">ID</th>
+      <th class="hidden-xs">Fecha Reservada</th>
       <th>Tour</th>
-      <th># de Viajeros</th>
-      <th>Precio p. Persona</th>
+      <th class="hidden-xs">Nombre</th>
+      <th class="hidden-xs"># de Viajeros</th>
+      <th class="hidden-xs">Precio p. Persona</th>
       <th>Precio Total</th>
-      <th>Estado de la Reserva</th>
+      <th>Estado</th>
      </tr>
     </thead>
     <tbody>
       {{#each data.bookings}}
       <tr>
-        <th scope="row">{{friendlyId}}</th>
-        <td>{{tourName}}</td>
-        <td>{{people}}</td>
-        <td>{{tourPrice}}</td>
-        <td>100</td>
-        <td>{{bookingStatus}}</td>
+        <th scope="row" class="hidden-xs">{{friendlyId}}</th>
+        <td class="hidden-xs">{{datePretty}}</td>
+         <td>{{tourName}}</td>
+        <td class="hidden-xs">{{name.full}}</td>
+        <td class="hidden-xs">{{people}}</td>
+        <td class="hidden-xs">{{tourPrice}}</td>
+        <td> 100</td>
+        <td> <span id="status{{friendlyId}}" class="badge"></span></td>
        </tr>
        <tr>
+       <script type="text/javascript">
+       var status = {{bookingStatus}};
+       var elem = $('#status{{friendlyId}}');
+       console.log(status);
+       if (status == 0) {
+         elem.addClass("pending");
+         elem.append("Pendiente");
+       }
+       if (status == 1) {
+         elem.addClass("confirm");
+         elem.append("Confirmada");
+
+       }
+       if (status == 2) {
+         elem.addClass("declined");
+         elem.append("Declinada");
+
+       }
+       </script>
      {{/each}}
 
      </tbody>
    </table>
+   </div>
+    {{else}}
+      <h4>No tienes reservas </h4>
+    {{/if}}
+   </div>
+ </div>
