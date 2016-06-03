@@ -18,13 +18,27 @@ CRM.add({
 		{ value: 'Insider', label: "Quiero enseñarle mi ciudad a viajeros" },
 	], required: false },
 	message: { type: String, required: false },
+  status: { type: Types.Select, options: [
+		{ value: '0', label: "Lead" },
+		{ value: '1', label: "Reunión confirmada" },
+		{ value: '2', label: "Cerrado" },
+		{ value: '3', label: "No Interesado" }
+	], required: false, default: 0 },
 });
 
 CRM.track = true;
 CRM.defaultSort = '-createdAt';
-CRM.defaultColumns = 'name, email, enquiryType, createdAt';
+CRM.defaultColumns = 'name, email, enquiryType, createdAt, status';
+CRM.schema.pre('save', function(next) {
+  console.log(this);
+  if (this.firstTime){
+	  this.sendCRMEmail(this); // Send OP emai
+    //this.firstTime = false;
+   }
+  next();
+});
 CRM.schema.post('save', function() {
-	this.sendCRMEmail(this); // Send OP emai
+   console.log("exist post save ", this.firstTime);
 });
 
 CRM.schema.methods.sendCRMEmail = function (obj) {
