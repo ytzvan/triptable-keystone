@@ -26,9 +26,10 @@ exports = module.exports = function(app) {
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
   app.all('/terminos', routes.static.terms);
+  app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
-	//Dinamic Views
 
+	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
 	app.get('/contact/:tourId', middleware.requireUser, routes.views.booking);
