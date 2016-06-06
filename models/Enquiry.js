@@ -66,10 +66,10 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		this.sendUserEmail(this); //Send User email
+	//	this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail
-		this.sendBookingNotificationEmail(this, email); // Send OP email
-		this.sendBookingNotificationEmail(this, bookingEmail); // Send OP email
+	//	this.sendBookingNotificationEmail(this, email); // Send OP email
+	//	this.sendBookingNotificationEmail(this, bookingEmail); // Send OP email
 	}
 });
 

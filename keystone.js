@@ -33,9 +33,6 @@ keystone.init({
 	'user model': 'User',
 	'signin url': '/signin',
 	'signin redirect' : '/',
-  'wysiwyg images': true,
-  'wysiwyg cloudinary images': true,
-  'wysiwyg additional plugins':'paste, preview, searchreplace, visualchars, wordcount'
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
 

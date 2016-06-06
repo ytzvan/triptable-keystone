@@ -136,503 +136,384 @@ Precio: USD${{data.tour.price}}
 </div> -->
 
 <div class="main-wrapper">
-
-<div class="breadcrumb-wrapper bg-light-2">
-
-<div class="container">
-
-<ol class="breadcrumb-list booking-step">
-<li><a href="">Búsqueda</a></li>
-<li><a href="/tour/{{data.tour.slug}}">{{data.tour.name}}</a></li>
-<li><span>Reservar</span></li>
-</ol>
-
-</div>
-
-</div>
-<div class="content-wrapper">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-sm-12 visible-xs mb-50">
-
-<div class="price-summary-wrapper">
-
-<h4 class="heading mt-0 text-primary uppercase">{{data.tour.name}}</h4>
-
-<ul class="price-summary-list">
-<li>
-<h6 class="heading mt-0 mb-0">{{data.tour.name}}</h6>
-<p class="font12 text-light">{{{data.tour.description.short}}}</p>
-</li>
-
-<li class="divider"></li>
-
-<li>
-<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
-<div class="row gap-10 mt-10">
-<div class="col-xs-7 col-sm-7">
-Precio del Tour
-</div>
-<div class="col-xs-5 col-sm-5 text-right">
-${{data.tour.price}}
-</div>
-</div>
-<div class="row gap-10 mt-10">
-<div class="col-xs-7 col-sm-7">
-Impuestos
-</div>
-<div class="col-xs-5 col-sm-5 text-right">
-$0
-</div>
-</div>
-</li>
-
-<li class="divider"></li>
-
-<li class="text-right font600 font14">
-${{data.tour.price}}
-</li>
-
-<li class="divider"></li>
-
-<li>
-
-<div class="row gap-10 font600 font14">
-<div class="col-xs-9 col-sm-9">
-Número de Viajeros
-</div>
-<div class="col-xs-3 col-sm-3 text-right">
-1
-</div>
-</div>
-
-</li>
-
-<li class="total-price">
-
-<div class="row gap-10">
-<div class="col-xs-6 col-sm-6">
-<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
-<p class="font12">Pago en Sitio</p>
-</div>
-<div class="col-xs-6 col-sm-6 text-right">
-<span class="block font20 font600 mb-5">${{data.tour.price}}</span>
-<span class="font10 line10 block">**Mejor Precio Garantizado </span>
-</div>
-</div>
-
-</li>
-
-</ul>
-
-</div>
-
-</div> <!-- sm12 -->
-<div class="col-sm-8 col-md-9" role="main">
-
-<div class="section-title text-left">
-
-<h3>{{data.tour.name}} <!--<small> / 4 days 3 nights</small> --></h3>
-
-</div>
-
-<div class="payment-container">
-
-<form method="post">
-<input type="hidden" name="action" value="contact">
-<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
-<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
-<input type="hidden" name="tourPrice" placeholder="TourPrice" class="form-control" value="{{data.tour.price}}">
-  <input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{data.user._id}}">
-<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
-
-<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
-<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
-
-<div class="payment-box">
-
-<div class="payment-header clearfix">
-
-<div class="number">
-1
-</div>
-
-<div class="row gap-10">
-
-<div class="col-sm-9">
-<h5 class="heading mt-0">Fecha del Tour</h5>
-</div>
-
-<!--<div class="col-sm-3">
-<a href="#" class="btn btn-primary btn-inverse btn-sm pull-right pull-left-xs mb-20-xss">change</a>
-</div> -->
-
-</div>
-
-</div>
-
-<div class="payment-content">
-
-<div class="payment-content">
-<p><input type="date" required=true name="date"></p>
-</div>
-
-</div>
-
-</div>
-
-<div class="payment-box">
-
-<div class="payment-header clearfix">
-
-<div class="number">
-2
-</div>
-
-<h5 class="heading mt-0">Información de Contacto</h5>
-
-</div>
-
-<div class="payment-content">
-
-<div class="payment-traveller">
-
-<div class="row gap-0">
-
-<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
-<h6 class="heading">Detalles de Contacto</h6>
-</div>
-
-</div>
-
-<div class="form-horizontal">
-</div>
-
-<div class="form-horizontal">
-<div class="form-group gap-20 {{#if validationErrors.name}}has-error{{/if}}">
-{{#if validationErrors.name}}<p>El Nombre no puede estar vacío </p>{{/if}}
-<label class="col-sm-3 col-md-2 control-label">Nombre:</label>
-<div class="col-sm-5 col-md-4">
-<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required="true" value="">
-</div>
-</div>
-</div>
-
-<div class="form-horizontal">
-<div class="form-group gap-20 {{#if validationErrors.email}}has-error{{/if}}">
-{{#if validationErrors.email}}<p>Ingrese un email válido </p>{{/if}}
-<label class="col-sm-3 col-md-2 control-label">Email:</label>
-<div class="col-sm-5 col-md-4">
-<input type="email" name="email" value="{{data.user.email}}" class="form-control" required=true value="">
-</div>
-</div>
-</div>
-
-<div class="form-horizontal">
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-2 control-label">Teléfono:</label>
-<div class="col-sm-5 col-md-4">
-<input type="text" name="phone" class="form-control" value="">
-</div>
-</div>
-</div>
-
-<div class="form-horizontal">
-<div class="form-group gap-20 select2-input-hide">
-<label class="col-sm-3 col-md-2 control-label">Cantidad de Viajeros:</label>
-<div class="col-sm-3 col-md-2">
-<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
-<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
-<option value="">Viajeros</option>
-{{#for data.tour.minPerson data.tour.maxPerson 1}}
-<option value="{{this}}">{{this}}</option>
-{{/for}}
-</select>
-</div>
-</div>
-</div>
-
-<script type="text/javascript">
-	$("#people").on('change', function(){
-		var value = $('#people').val();
-		$('#people_field').val = value;
-	});
-</script>
-
-{{#if data.tour.hotelPickup}}
-<div class="form-horizontal">
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-2 control-label">Dirección:</label>
-<div class="col-sm-5 col-md-4">
-<input type="text" name="hotel"  placeholder="Hotel o lugar de recogida " class="form-control" value="">
-</div>
-</div>
-</div>
-{{/if}}
-
-<div class="form-horizontal">
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-2 control-label">Idioma / Language:</label>
-<div class="col-sm-5 col-md-4">
-<select class="select2-single form-control" data-placeholder="Idioma / Language">
-<option value="">Idioma / Language</option>
-<option value="ingles">English</option>
-<option value="espanol">Español</option>
-</select>
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="payment-box">
-
-<div class="payment-header clearfix">
-
-<div class="number">
-3
-</div>
-
-<h5 class="heading mt-0">Pago <small>/ <i class="fa fa-lock"></i> seguro</small></h5>
-
-</div>
-
-<div class="payment-content">
-
-<p>Escoge el método de pago que mejor te convenga</p>
-
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Esta actividad sólo acepta pagos en efectivo directo con el guía el día de la reserva.</div>
-
-<div id="paymentOption" class="payment-option-wrapper">
-
-<div class="row">
-
-<div class="col-sm-12">
-
-<div class="radio-block">
-<input disabled id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard"/>
-<label class="" for="payments1"><span>Tarjeta de Crédito (No disponible)</span> <img src="/images/payment-credit-cards.jpg" alt="Image"></label>
-</div>
-
-</div>
-
-<div class="clear"></div>
-
-<div class="col-sm-12">
-<div class="radio-block">
-<input disabled id="payments2" name="payments" type="radio" class="radio" value="paymentPaypal"/>
-<label class="" for="payments2"><span>Paypal (No disponible)</span> <img src="/images/payment-paypal.jpg" alt="Image"></label>
-</div>
-</div>
-
-<div class="col-sm-12">
-<div class="radio-block">
-<input id="payments3" name="payments" type="radio" class="radio" value="paymentCash"/>
-<label class="" for="payments3"><span>Pago en Efectivo</span> <!--<img src="/images/payment-paypal.jpg" alt="Image"> --><span class="fa fa-money" style="padding:3px;font-size: 28px;color: green;"></</span></label>
-</div>
-</div>
-
-</div>
-
-<div id="paymentsCreditCard" class="payment-option-form">
-
-<div class="inner">
-
-<h5 class="mb-15">El pago total es de: $ {{data.tour.price}} US</h5>
-<p>The booking amount will be debited from your credit card once the booking is completed. </p>
-
-<div class="form-horizontal">
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-3 control-label">Cardholder's name </label>
-<div class="col-sm-6 col-md-6">
-<input type="text" class="form-control mb-0" placeholder="">
-</div>
-</div>
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-3 control-label">Card Type </label>
-<div class="col-sm-3 col-md-2">
-<select class="select2-no-search form-control" data-placeholder="Card Type">
-<option value="">Card Type</option>
-<option value="1">Options 1</option>
-<option value="2">Options 2</option>
-<option value="3">Options 3</option>
-<option value="4">Options 4</option>
-<option value="5">Options 5</option>
-</select>
-</div>
-</div>
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-3 control-label">Card number </label>
-<div class="col-sm-6 col-md-6">
-<input type="text" class="form-control mb-0" placeholder="">
-</div>
-</div>
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-3 control-label">Expiry date </label>
-<div class="col-sm-3 col-md-3">
-<select class="select2-no-search form-control" data-placeholder="Month">
-<option value="">Month</option>
-<option value="1">Options 1</option>
-<option value="2">Options 2</option>
-<option value="3">Options 3</option>
-<option value="4">Options 4</option>
-<option value="5">Options 5</option>
-</select>
-</div>
-<div class="col-sm-3 col-md-3">
-<select class="select2-no-search form-control" data-placeholder="Year">
-<option value="">Year</option>
-<option value="1">Options 1</option>
-<option value="2">Options 2</option>
-<option value="3">Options 3</option>
-<option value="4">Options 4</option>
-<option value="5">Options 5</option>
-</select>
-</div>
-</div>
-<div class="form-group gap-20">
-<label class="col-sm-3 col-md-3 control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug.">What is it?</small> </label>
-<div class="col-sm-3 col-md-2">
-<input type="text" class="form-control mb-0" placeholder="">
-</div>
-</div>
-</div>
-
-
-</div>
-
-</div>
-<div id="paymentCash" class="payment-option-form">
-<div class="inner">
-
-<h5 class="mb-15">El pago total es de: $ {{data.tour.price}} US</h5>
-<p>El pago será en efectivo directamente con el guía el día del tour.</p>
-<p>Al reservar se le notificará al guía para verificar disponibilidad. <strong>En caso que el guía no esté disponible</strong> te contactaremos para recomendarte otro. </p>
-
-<!-- <a href="#" class="btn btn-primary">Proceed to paypal</a> -->
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
-<div class="checkbox-block">
-<input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
-<label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a href="#">términos y condiciones</a> así mismo con la <a href="#">política de cancelación</a> y la <a href="#">buena conducta</a> .</label>
-</div>
-
-<div class="row mt-20">
-
-<div class="col-sm-8 col-md-6">
-
-<button class="btn btn-primary">Reservar Ahora</button>
-
-<p class="line18 mt-10"><span class="font600">Gracias por preferir Triptable</span>.</p>
-
-</div>
-
-</div>
-
-</form>
-
-</div>
-
-</div> <!-- sm 8 -->
-<div class="col-sm-4 col-md-3 hidden-xs">
-
-<div class="price-summary-wrapper">
-
-<h4 class="heading mt-0 text-primary uppercase">{{data.tour.name}}</h4>
-
-<ul class="price-summary-list">
-
-<li>
-<h6 class="heading mt-0 mb-0">{{data.tour.name}}</h6>
-<p class="font12 text-light">{{{data.tour.description.short}}}</p>
-</li>
-<li class="divider"></li>
-
-<li>
-<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
-<div class="row gap-10 mt-10">
-<div class="col-xs-7 col-sm-7">
-Precio del Tour
-</div>
-<div class="col-xs-5 col-sm-5 text-right">
-${{data.tour.price}}
-</div>
-</div>
-<div class="row gap-10 mt-10">
-<div class="col-xs-7 col-sm-7">
-Impuestos
-</div>
-<div class="col-xs-5 col-sm-5 text-right">
-$0
-</div>
-</div>
-</li>
-
-<li class="divider"></li>
-
-<li class="text-right font600 font14">
-${{data.tour.price}}
-</li>
-
-<li class="divider"></li>
-
-<li>
-
-<div class="row gap-10 font600 font14">
-<div class="col-xs-9 col-sm-9">
-Número de Viajeros
-</div>
-<div class="col-xs-3 col-sm-3 text-right">
-1
-</div>
-</div>
-
-</li>
-
-<li class="total-price">
-
-<div class="row gap-10">
-<div class="col-xs-6 col-sm-6">
-<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
-<p class="font12">Pago en Sitio</p>
-</div>
-<div class="col-xs-6 col-sm-6 text-right">
-<span class="block font20 font600 mb-5">${{data.tour.price}}</span>
-<span class="font10 line10 block">**Mejor Precio Garantizado </span>
-</div>
-</div>
-
-</li>
-
-</ul>
-
-</div>
-
-</div> <!-- sm 4 -->
-
-
-</div> <!-- row -->
-</div> <!-- container -->
-</div> <!-- content wrapper -->
-
-
-
-
-
+	<div class="breadcrumb-wrapper bg-light-2">
+		<div class="container">
+		<ol class="breadcrumb-list booking-step">
+			<li><a href="">Búsqueda</a></li>
+			<li><a href="/tour/{{data.tour.slug}}">{{data.tour.name}}</a></li>
+			<li><span>Reservar</span></li>
+		</ol>
+		</div>
+	</div>
+		<div class="content-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 visible-xs mb-50">
+						<div class="price-summary-wrapper">
+							<h4 class="heading mt-0 text-primary uppercase">{{data.tour.name}}</h4>
+							<ul class="price-summary-list">
+								<li>
+									<h6 class="heading mt-0 mb-0">{{data.tour.name}}</h6>
+									<p class="font12 text-light">{{{data.tour.description.short}}}</p>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
+									<div class="row gap-10 mt-10">
+										<div class="col-xs-7 col-sm-7">Precio del Tour</div>
+										<div class="col-xs-5 col-sm-5 text-right">
+											${{data.tour.price}}
+										</div>
+									</div>
+									<div class="row gap-10 mt-10">
+										<div class="col-xs-7 col-sm-7">
+											Impuestos
+										</div>
+										<div class="col-xs-5 col-sm-5 text-right">
+											$0
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li class="text-right font600 font14">
+									${{data.tour.price}}
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="row gap-10 font600 font14">
+										<div class="col-xs-9 col-sm-9">
+											Número de Viajeros
+										</div>
+										<div class="col-xs-3 col-sm-3 text-right">
+											1
+										</div>
+									</div>
+								</li>
+								<li class="total-price">
+									<div class="row gap-10">
+										<div class="col-xs-6 col-sm-6">
+											<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
+											<p class="font12">Pago en Sitio</p>
+										</div>
+										<div class="col-xs-6 col-sm-6 text-right">
+											<span class="block font20 font600 mb-5">$<span id="price"></span></span>
+											<span class="font10 line10 block">**Mejor Precio Garantizado </span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div> <!-- sm12 -->
+				<div class="col-sm-8 col-md-9" role="main">
+					<div class="section-title text-left">
+						<h3>{{data.tour.name}} <!--<small> / 4 days 3 nights</small> --></h3>
+					</div>
+					<div class="payment-container">
+						<form method="post">
+							<input type="hidden" name="action" value="booking">
+							<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+							<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
+							<input type="hidden" name="tourPrice" placeholder="TourPrice" class="form-control" value="{{data.tour.price}}">
+				  		<input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{data.user._id}}">
+							<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
+							<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
+							<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
+							<div class="payment-box">
+								<div class="payment-header clearfix">
+									<div class="number">
+										1
+									</div>
+									<div class="row gap-10">
+										<div class="col-sm-9">
+											<h5 class="heading mt-0">Fecha del Tour</h5>
+										</div>
+				<!--<div class="col-sm-3">
+				<a href="#" class="btn btn-primary btn-inverse btn-sm pull-right pull-left-xs mb-20-xss">change</a>
+				</div> -->
+									</div>
+								</div>
+								<div class="payment-content">
+									<div class="payment-content">
+										<p><input type="date" required=true name="date"></p>
+									</div>
+								</div>
+							</div>
+							<div class="payment-box">
+								<div class="payment-header clearfix">
+									<div class="number">
+										2
+									</div>
+									<h5 class="heading mt-0">Información de Contacto</h5>
+								</div>
+								<div class="payment-content">
+									<div class="payment-traveller">
+										<div class="row gap-0">
+											<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
+												<h6 class="heading">Detalles de Contacto</h6>
+											</div>
+										</div>
+										<div class="form-horizontal">
+										</div>
+										<div class="form-horizontal">
+											<div class="form-group gap-20 {{#if validationErrors.name}}has-error{{/if}}">
+												{{#if validationErrors.name}}<p>El Nombre no puede estar vacío </p>{{/if}}
+												<label class="col-sm-3 col-md-2 control-label">Nombre:</label>
+												<div class="col-sm-5 col-md-4">
+													<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required="true" value="">
+												</div>
+											</div>
+										</div>
+										<div class="form-horizontal">
+											<div class="form-group gap-20 {{#if validationErrors.email}}has-error{{/if}}">
+												{{#if validationErrors.email}}<p>Ingrese un email válido </p>{{/if}}
+												<label class="col-sm-3 col-md-2 control-label">Email:</label>
+												<div class="col-sm-5 col-md-4">
+													<input type="email" name="email" value="{{data.user.email}}" class="form-control" required=true value="">
+												</div>
+											</div>
+										</div>
+										<div class="form-horizontal">
+											<div class="form-group gap-20">
+												<label class="col-sm-3 col-md-2 control-label">Teléfono:</label>
+												<div class="col-sm-5 col-md-4">
+													<input type="text" name="phone" class="form-control" value="">
+												</div>
+											</div>
+										</div>
+										<div class="form-horizontal">
+											<div class="form-group gap-20 select2-input-hide">
+												<label class="col-sm-3 col-md-2 control-label">Cantidad de Viajeros:</label>
+												<div class="col-sm-3 col-md-2">
+													<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
+													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
+													<option value="">Viajeros</option>
+													{{#for data.tour.minPerson data.tour.maxPerson 1}}
+													<option value="{{this}}">{{this}}</option>
+													{{/for}}
+													</select>
+												</div>
+											</div>
+										</div>
+										
+										<script type="text/javascript">
+										$(function() {
+												var min = {{data.tour.minPerson}};
+												var price = {{data.tour.price}};
+												var initPrice = min*price;
+										    $('span#price').html(initPrice);
+										    $('span#nOfTravelers').html(min);
+										});
+										
+											$("#people").on('change', function(){
+												console.log("cambio");
+												var value = $('#people').val();
+												$('#people_field').val = value;
+												var travelers = value;
+												var price = {{data.tour.price}};
+												var changePrice = travelers*price;
+												$('span#price').html(changePrice);
+												$('span#nOfTravelers').html(travelers);
+											});
+										</script>
+				
+										{{#if data.tour.hotelPickup}}
+										<div class="form-horizontal">
+											<div class="form-group gap-20">
+												<label class="col-sm-3 col-md-2 control-label">Dirección2:</label>
+												<div class="col-sm-5 col-md-4">
+													<input type="text" name="hotel"  placeholder="Hotel o lugar de recogida " class="form-control" value="">
+												</div>
+											</div>
+										</div>
+										{{/if}}
+										<div class="form-horizontal">
+											<div class="form-group gap-20">
+												<label class="col-sm-3 col-md-2 control-label">Idioma / Language:</label>
+												<div class="col-sm-5 col-md-4">
+													<select class="select2-single form-control" data-placeholder="Idioma / Language">
+													<option value="">Idioma / Language</option>
+													<option value="ingles">English</option>
+													<option value="espanol">Español</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="payment-box">
+								<div class="payment-header clearfix">
+									<div class="number">
+										3
+									</div>
+									<h5 class="heading mt-0">Pago <small>/ <i class="fa fa-lock"></i> seguro</small></h5>
+								</div>
+								<div class="payment-content">
+									<p>Escoge el método de pago que mejor te convenga</p>
+									<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Esta actividad sólo acepta pagos en efectivo directo con el guía el día de la reserva.</div>
+									<div id="paymentOption" class="payment-option-wrapper">
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="radio-block">
+													<input id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard"/>
+													<label class="" for="payments1"><span>Tarjeta de Crédito</span> <img src="/images/payment-credit-cards.jpg" alt="Image"></label>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="col-sm-12">
+												<div class="radio-block">
+													<input disabled id="payments2" name="payments" type="radio" class="radio" value="paymentPaypal"/>
+													<label class="" for="payments2"><span>Paypal (No disponible)</span> <img src="/images/payment-paypal.jpg" alt="Image"></label>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<div class="radio-block">
+													<input id="payments3" name="payments" type="radio" class="radio" value="paymentCash"/>
+													<label class="" for="payments3"><span>Pago en Efectivo</span> <!--<img src="/images/payment-paypal.jpg" alt="Image"> --><span class="fa fa-money" style="padding:3px;font-size: 28px;color: green;"></</span></label>
+												</div>
+											</div>
+										</div>
+										<div id="paymentsCreditCard" class="payment-option-form">
+											<div class="inner">
+												<h5 class="mb-15">El pago total es de: $ <span id="price"></span> US</h5>
+												<p>Su pago se procesará de manera segura. </p>
+												<div class="form-horizontal">
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-3 control-label">Nombre (Como aparece en la tarjeta)</label>
+														<div class="col-sm-6 col-md-6">
+															<input type="text" name="cardholder" class="form-control mb-0" placeholder="">
+														</div>
+													</div>
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-3 control-label">Tipo de Tarjeta </label>
+														<div class="col-sm-3 col-md-2">
+															<select class="select2-no-search form-control" data-placeholder="Card Type">
+															<option value="">Card Type</option>
+															<option value="1">Visa</option>
+															<option value="2">Mastercard</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-3 control-label">Número de tarjeta </label>
+														<div class="col-sm-6 col-md-6">
+															<input type="text" name="cardNumber" class="form-control mb-0" placeholder="">
+														</div>
+													</div>
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-3 control-label">Fecha de Expiración </label>
+															<input type="hidden" name="expiration" value="0919" class="form-control mb-0" placeholder="">
+														<div class="col-sm-3 col-md-3">
+															<select class="select2-no-search form-control" data-placeholder="Month">
+															<option value="">Mes</option>
+															<option value="01">01</option>
+															<option value="02">02</option>
+															<option value="03">03</option>
+															<option value="04">04</option>
+															<option value="05">05</option>
+															<option value="06">06</option>
+															<option value="07">07</option>
+															<option value="08">08</option>
+															<option value="09">09</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															</select>
+														</div>
+														<div class="col-sm-3 col-md-3">
+															<select class="select2-no-search form-control" data-placeholder="Year">
+															<option value="">Año</option>
+															<option value="2016">2016</option>
+															<option value="2017">2017</option>
+															<option value="2018">2018</option>
+															<option value="2019">2019</option>
+															<option value="2020">2020</option>
+															<option value="2021">2021</option>
+															<option value="2022">2022</option>
+															<option value="2023">2023</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-3 control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug.">What is it?</small> </label>
+														<div class="col-sm-3 col-md-2">
+															<input type="text" name="cvv2" class="form-control mb-0" placeholder="">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="paymentCash" class="payment-option-form">
+											<div class="inner">
+												<h5 class="mb-15">El pago total es de: $<span id="price"></span> US</h5>
+												<p>El pago será en efectivo directamente con el guía el día del tour.</p>
+												<p>Al reservar se le notificará al guía para verificar disponibilidad. <strong>En caso que el guía no esté disponible</strong> te contactaremos para recomendarte otro. </p>
+												<!-- <a href="#" class="btn btn-primary">Proceed to paypal</a> -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="checkbox-block">
+							<input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
+							<label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a href="#">términos y condiciones</a> así mismo con la <a href="#">política de cancelación</a> y la <a href="#">buena conducta</a> .</label>
+						</div>
+						<div class="row mt-20">
+							<div class="col-sm-8 col-md-6">
+								<button class="btn btn-primary">Reservar Ahora</button>
+								<p class="line18 mt-10"><span class="font600">Gracias por preferir Triptable</span>.</p>
+							</div>
+						</div>
+					</form>
+					</div>
+				</div> <!-- sm 8 -->
+				<div class="col-sm-4 col-md-3 hidden-xs">
+					<div class="price-summary-wrapper">
+						<h4 class="heading mt-0 text-primary uppercase">{{data.tour.name}}</h4>
+						<ul class="price-summary-list">
+							<li>
+								<h6 class="heading mt-0 mb-0">{{data.tour.name}}</h6>
+								<p class="font12 text-light">{{{data.tour.description.short}}}</p>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
+								<div class="row gap-10 mt-10">
+									<div class="col-xs-7 col-sm-7">Precio del Tour</div>
+									<div class="col-xs-5 col-sm-5 text-right">${{data.tour.price}}</div>
+								</div>
+								<div class="row gap-10 mt-10">
+									<div class="col-xs-7 col-sm-7">Impuestos</div>
+									<div class="col-xs-5 col-sm-5 text-right">$0</div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li class="text-right font600 font14">${{data.tour.price}}</li>
+							<li class="divider"></li>
+							<li>
+								<div class="row gap-10 font600 font14">
+									<div class="col-xs-9 col-sm-9">Número de Viajeros</div>
+									<div class="col-xs-3 col-sm-3 text-right"><span id="nOfTravelers"></span></div>
+								</div>
+							</li>
+							<li class="total-price">
+								<div class="row gap-10">
+									<div class="col-xs-6 col-sm-6">
+										<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
+										<p class="font12">Pago en Sitio</p>
+									</div>
+									<div class="col-xs-6 col-sm-6 text-right">
+										<span class="block font20 font600 mb-5">$<span id="price"></span></span>
+										<span class="font10 line10 block">**Mejor Precio Garantizado </span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div> <!-- sm 4 -->
+			</div> <!-- row -->
+		</div> <!-- container -->
+	</div> <!-- content wrapper -->
 </div> <!-- end main wrapper -->
 
 

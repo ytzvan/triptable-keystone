@@ -1,6 +1,7 @@
 /* Este controlador maneja el POST del booking */
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
+var request = require('request');
 
 exports = module.exports = function(req, res) {
 
@@ -19,9 +20,42 @@ exports = module.exports = function(req, res) {
 	locals.bookingInfo = {};
 	var tourId =  req.params.tourId;
 
-
-	console.log("tourId", tourId);
-	console.log("req", req);
+	view.on('post', {action: 'booking'}, function(next) {
+		console.log(req.body);
+	    var body = req.body;
+		var result;
+		var response;
+		var options = { method: 'POST',
+		  url: 'https://gatewaysandbox.merchantprocess.net/transaction.aspx',
+		  qs: 
+		   { AccCode: '123123',
+		     procCode: '000000',
+		     merchant: '100177',
+		     terminal: '100177001',
+		     cardNumber: body.cardNumber,
+		     expiration: body.expiration,
+		     amount: '34.00',
+		     currencyCode: '840',
+		     cardHolder: 'cardholdername',
+		     cvv2: body.cvv2 }
+		};
+		
+		request(options, function (error, response, body) {
+		  if (error) throw new Error(error);
+				
+		  result = body;
+		  response = result.split('~');
+		  var status = response[0];
+		  console.log(status);
+		  if (status != 00) {
+		    return res.status(500).render('errors/404');
+		  } else {
+		  	createBooking(next);
+		  }
+		  
+		});
+		
+	});
 
 	view.on('init', function(next) {
 
@@ -41,7 +75,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	// On POST requests, add the Enquiry item to the database
-	view.on('post', { action: 'contact' }, function(next) {
+	function createBooking(next){
 
 		var newEnquiry = new Enquiry.model(),
 			updater = newEnquiry.getUpdateHandler(req);
@@ -60,7 +94,7 @@ exports = module.exports = function(req, res) {
 			next();
 		});
 
-	});
+	};
 
 	view.render('bookingConfirmation');
 
