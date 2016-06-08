@@ -52,7 +52,6 @@ exports = module.exports = function(req, res) {
 			locals.validationErrors = {
 				mismatch : message
 			};
-			console.log("err", message);
 			renderView();
 		};
 

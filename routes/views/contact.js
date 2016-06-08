@@ -13,6 +13,7 @@ exports = module.exports = function(req, res) {
 	locals.bookingStatus = Enquiry.fields.bookingStatus.ops;
 	locals.formData = req.query || {};
 	locals.validationErrors = {};
+	locals.transactionErrors = {};
 	locals.enquirySubmitted = false;
 	locals.data = {
 		tour: [],
@@ -46,9 +47,48 @@ exports = module.exports = function(req, res) {
 		  result = body;
 		  response = result.split('~');
 		  var status = response[0];
-		  console.log(status);
+		  console.log(status)
+		  if (status == 116){
+		  	var errorMessage = "Número de tarjeta inválido, por favor verifíque.";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
+		  if (status == 107){
+		  	var errorMessage = "Nombre del propietario de la tarjeta es requerido, por favor verifíque.";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
+		  if (status == 110){
+		  	var errorMessage = "Tipo de tarjeta inválida, por favor ingrese una tarjeta VISA o MASTERCARD";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
+		  if (status == 999){
+		  	var errorMessage = "Error de sistema, no hemos cobrado nada a su cuenta, por favor intente de nuevo";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
+		  if (status == 117){
+		  	var errorMessage = "Tarjeta expirada, por favor introduzca una tarjeta válida";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
+		  if (status == 105){
+		  	var errorMessage = "El CVV es necesario";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
 		  if (status != 00) {
-		    return res.status(500).render('errors/404');
+		  	var errorMessage = "Hubo un problema al procesar su transacción, por favor intente nuevamente";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
 		  } else {
 		  	createBooking(next);
 		  }
