@@ -12,7 +12,7 @@ exports.home = function(req, res) {
     var username = req.user._id;
 
     view.on('init', function(next) {
-				keystone.list('Enquiry').model.find({ user: username}).exec(function(err, result) {
+				keystone.list('Enquiry').model.find({ user: username}).sort('-createdAt').exec(function(err, result) {
           if(result == null){ //si hay resultado
              console.log("sin bookings")
             }

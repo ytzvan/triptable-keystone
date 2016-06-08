@@ -22,6 +22,7 @@ Review.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	score: {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
+	createdAt: { type: Date, default: Date.now, noedit: true },
 });
 
 Review.relationship({ ref: 'Tour', path: 'reviews' });

@@ -21,6 +21,7 @@ exports = module.exports = function(req, res) {
 	locals.bookingInfo = {};
 	var tourId =  req.params.tourId;
 	var updateBody = {};
+	var transactionInfo = {};
 
 	view.on('post', {action: 'booking'}, function(next) {
 		console.log(req.body);
@@ -32,19 +33,23 @@ exports = module.exports = function(req, res) {
 		//Here goes the payment logic 
 	    var tourPrice = locals.data.tour.price;
 	    var travelers = req.body.people;
-	    
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
 	    var processorTax = 3.9; // % del procesador
 	    var processorFee = 0.30; // fee individual por transaccion
-	    
 	    var commisionPercentaje = 15; //porcentaje de commision que nos llevamos nosotros
 	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
-	    
 	    var tourOperatorCost = flatPrice - commision;
-	    
+	   
 	    var taxPrice = flatPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 	    var transactionCost = taxPrice + processorFee; // cantidad a pagarle al gateway por la transaccion
 	    var totalPrice =  flatPrice + taxPrice + processorFee; // costo total de la transacción
+	    
+	    totalPrice = totalPrice.toFixed(2);
+	    commision = commision.toFixed(2);
+	    flatPrice = flatPrice.toFixed(2);
+	    tourOperatorCost = tourOperatorCost.toFixed(2);
+	    taxPrice = taxPrice.toFixed(2);
+	    transactionCost = transactionCost.toFixed(2);
 	    
 	    console.log("precio del tour", flatPrice);
 	    console.log("precio total del tour con impuesto", totalPrice);
@@ -82,10 +87,22 @@ exports = module.exports = function(req, res) {
 		
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
-				
+		  	
 		  result = body;
 		  response = result.split('~');
 		  var status = response[0];
+		  
+		  transactionInfo = {
+		  	transactionResponseCode : response[0],
+		  	transactionReference : response[1],
+		  	transactionAuthorizationNumber : response[2],
+		  	transactionTime : response[3],
+		  	transactionDate : response[4],
+		  	transactionBallot : response[5],
+		  }
+		  extend(updateBody, transactionInfo);
+		  console.log(updateBody);
+		  
 		  console.log(status)
 		  if (status == 116){
 		  	var errorMessage = "Número de tarjeta inválido, por favor verifíque.";
@@ -129,6 +146,7 @@ exports = module.exports = function(req, res) {
 		   // return res.status(500).render('errors/404');
 		    return res.redirect(req.get('referer'));
 		  } else {
+		  
 		  	console.log(updateBody);
 		  	createBooking(next, updateBody);
 		  }
@@ -162,7 +180,7 @@ exports = module.exports = function(req, res) {
 
 		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {

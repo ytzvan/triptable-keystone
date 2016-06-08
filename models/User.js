@@ -19,6 +19,7 @@ User.add({
     instagram: {type: Types.Url},
   },
   description: {type: Types.Textarea },
+  createdAt: { type: Date, default: Date.now, noedit: true },
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true}

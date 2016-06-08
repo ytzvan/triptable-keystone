@@ -55,6 +55,7 @@ Tour.add({
   nOfReviews: {type: Types.TextArray},
 	reviews : { type: Types.Relationship, ref: 'Review', many: true },
   attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
+  createdAt: { type: Date, default: Date.now, noedit: true },
 
 
 });

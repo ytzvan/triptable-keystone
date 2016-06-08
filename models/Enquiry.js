@@ -50,6 +50,12 @@ Enquiry.add({
 	bookingTransactionFee : {type: Types.Money, noedit: true}, // cantidad a pagar a metro pago
 	bookingOperatorFee : {type: Types.Money, noedit: true}, // cantidad a pagar a operador
 	bookingRevenue : {type: Types.Money, noedit: true}, // cantidad que nos toca
+	transactionResponseCode : {type: String, noedit: true},
+	transactionReference : {type: String, noedit: true},
+	transactionAuthorizationNumber : {type: String, noedit: true},
+	transactionTime : {type: String, noedit: true},
+	transactionDate : {type: String, noedit: true},
+	transactionBallot : {type: String, noedit: true},
   user: { type: Types.Relationship, ref: 'User', index: true },
 });
 
