@@ -2,7 +2,7 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 var request = require('request');
-
+var extend = require('extend');
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -20,12 +20,51 @@ exports = module.exports = function(req, res) {
 	};
 	locals.bookingInfo = {};
 	var tourId =  req.params.tourId;
+	var updateBody = {};
 
 	view.on('post', {action: 'booking'}, function(next) {
 		console.log(req.body);
 	    var body = req.body;
 		var result;
 		var response;
+		
+		
+		//Here goes the payment logic 
+	    var tourPrice = locals.data.tour.price;
+	    var travelers = req.body.people;
+	    
+	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
+	    var processorTax = 3.9; // % del procesador
+	    var processorFee = 0.30; // fee individual por transaccion
+	    
+	    var commisionPercentaje = 15; //porcentaje de commision que nos llevamos nosotros
+	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
+	    
+	    var tourOperatorCost = flatPrice - commision;
+	    
+	    var taxPrice = flatPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
+	    var transactionCost = taxPrice + processorFee; // cantidad a pagarle al gateway por la transaccion
+	    var totalPrice =  flatPrice + taxPrice + processorFee; // costo total de la transacción
+	    
+	    console.log("precio del tour", flatPrice);
+	    console.log("precio total del tour con impuesto", totalPrice);
+	    console.log("comision que nos toca", commision);
+	    console.log("cantidad a pagar al gateway", transactionCost);
+	    console.log("cantidad a pagar al tour operador", tourOperatorCost);
+	    
+		 updateBody = {
+	    	bookingTotalPrice : totalPrice,
+	    	bookingFlatPrice : flatPrice,
+	    	bookingTransactionFee : transactionCost,
+	    	bookingOperatorFee : tourOperatorCost,
+	    	bookingRevenue : commision
+	    };
+		
+//		var finalObj = {};
+		extend(updateBody, req.body);
+//		console.log("final body", updateBody);
+	    
+	    
 		var options = { method: 'POST',
 		  url: 'https://gatewaysandbox.merchantprocess.net/transaction.aspx',
 		  qs: 
@@ -90,7 +129,8 @@ exports = module.exports = function(req, res) {
 		   // return res.status(500).render('errors/404');
 		    return res.redirect(req.get('referer'));
 		  } else {
-		  	createBooking(next);
+		  	console.log(updateBody);
+		  	createBooking(next, updateBody);
 		  }
 		  
 		});
@@ -115,14 +155,14 @@ exports = module.exports = function(req, res) {
 	});
 
 	// On POST requests, add the Enquiry item to the database
-	function createBooking(next){
+	function createBooking(next, updateBody){
 
 		var newEnquiry = new Enquiry.model(),
 			updater = newEnquiry.getUpdateHandler(req);
 
-		updater.process(req.body, {
+		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, tourPrice, user',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {

@@ -45,6 +45,11 @@ Enquiry.add({
 	createdAt: { type: Date, default: Date.now },
 	friendlyId: {type: String, unique: true},
 	datePretty: {type: String},
+	bookingTotalPrice : {type: Types.Money, noedit: true}, //precio total
+	bookingFlatPrice : {type: Types.Money, noedit: true}, //precio sin costo de metro pago
+	bookingTransactionFee : {type: Types.Money, noedit: true}, // cantidad a pagar a metro pago
+	bookingOperatorFee : {type: Types.Money, noedit: true}, // cantidad a pagar a operador
+	bookingRevenue : {type: Types.Money, noedit: true}, // cantidad que nos toca
   user: { type: Types.Relationship, ref: 'User', index: true },
 });
 
