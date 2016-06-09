@@ -302,12 +302,24 @@ Precio: USD${{data.tour.price}}
 										</div>
 										
 										<script type="text/javascript">
-										$(function() {
+										var processorTax = 3.9; // % del procesador
+	    								var processorFee = 0.30; // fee individual por transaccion
+											$(function() {
 												var min = {{data.tour.minPerson}};
 												var price = {{data.tour.price}};
 												var initPrice = min*price;
+												
+												var taxPrice = initPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
+												var transactionCost = taxPrice + processorFee;
+												transactionCost = Math.round(transactionCost)+1;
+												var totalPrice = initPrice + taxPrice + processorFee; 
+												totalPrice = Math.round(totalPrice)+1;
+												
 										    $('span#price').html(initPrice);
 										    $('span#nOfTravelers').html(min);
+										    $('span#costOfTransaction').html(transactionCost);
+										    $('span#tourTravelersPrice').html(initPrice);
+										    $('span#totalPrice').html(totalPrice);
 										});
 										
 											$("#people").on('change', function(){
@@ -317,15 +329,26 @@ Precio: USD${{data.tour.price}}
 												var travelers = value;
 												var price = {{data.tour.price}};
 												var changePrice = travelers*price;
+												
+												var taxPrice = changePrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
+												var transactionCost = taxPrice + processorFee + 0.01;
+												transactionCost = Math.round(transactionCost)+1;
+												
+												var totalPrice = changePrice + taxPrice + processorFee; 
+												totalPrice = Math.round(totalPrice)+1;
+												
 												$('span#price').html(changePrice);
 												$('span#nOfTravelers').html(travelers);
+												$('span#costOfTransaction').html(transactionCost);
+												$('span#tourTravelersPrice').html(changePrice);
+										    	$('span#totalPrice').html(totalPrice);
 											});
 										</script>
 				
 										{{#if data.tour.hotelPickup}}
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">Dirección2:</label>
+												<label class="col-sm-3 col-md-2 control-label">Dirección:</label>
 												<div class="col-sm-5 col-md-4">
 													<input type="text" name="hotel"  placeholder="Hotel o lugar de recogida " class="form-control" value="">
 												</div>
@@ -408,9 +431,9 @@ Precio: USD${{data.tour.price}}
 													</div>
 													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">Fecha de Expiración </label>
-															<input type="hidden" name="expiration" value="0919" class="form-control mb-0" placeholder="">
+															<input type="hidden" name="expiration" id="ccDate" class="form-control mb-0" placeholder="">
 														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Month">
+															<select class="select2-no-search form-control" data-placeholder="Month" id="ccMonth">
 															<option value="">Mes</option>
 															<option value="01">01</option>
 															<option value="02">02</option>
@@ -427,19 +450,49 @@ Precio: USD${{data.tour.price}}
 															</select>
 														</div>
 														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Year">
+															<select class="select2-no-search form-control" data-placeholder="Year" id="ccYear">
 															<option value="">Año</option>
-															<option value="2016">2016</option>
-															<option value="2017">2017</option>
-															<option value="2018">2018</option>
-															<option value="2019">2019</option>
-															<option value="2020">2020</option>
-															<option value="2021">2021</option>
-															<option value="2022">2022</option>
-															<option value="2023">2023</option>
+															<option value="16">16</option>
+															<option value="17">17</option>
+															<option value="18">18</option>
+															<option value="19">19</option>
+															<option value="20">20</option>
+															<option value="21">21</option>
+															<option value="22">22</option>
+															<option value="23">23</option>
+															<option value="24">24</option>
+															<option value="25">25</option>
+															<option value="26">26</option>
+															<option value="27">27</option>
+															<option value="28">28</option>
+															<option value="29">29</option>
+															<option value="30">30</option>
 															</select>
 														</div>
 													</div>
+													<script type="text/javascript">
+														var year;
+														var month;
+														var concat;
+														$('#ccMonth').on('change', function(){
+														    month = $('#ccMonth').val();
+															console.log(month);
+															concat = month + year;
+															console.log("concat in month", concat);
+															
+														});
+														$('#ccYear').on('change', function(){
+														    year = $('#ccYear').val();
+															console.log(year);
+															concat = month + year;
+															console.log("concat in year", concat);
+														});
+														$("form").submit(function(){
+														    $('#ccDate').attr('value', concat);
+														    console.log($('#ccDate'));
+														});
+													</script>
+											
 													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug.">What is it?</small> </label>
 														<div class="col-sm-3 col-md-2">
@@ -483,33 +536,46 @@ Precio: USD${{data.tour.price}}
 							</li>
 							<li class="divider"></li>
 							<li>
-								<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
-								<div class="row gap-10 mt-10">
-									<div class="col-xs-7 col-sm-7">Precio del Tour</div>
-									<div class="col-xs-5 col-sm-5 text-right">${{data.tour.price}}</div>
-								</div>
-								<div class="row gap-10 mt-10">
-									<div class="col-xs-7 col-sm-7">Impuestos</div>
-									<div class="col-xs-5 col-sm-5 text-right">$0</div>
-								</div>
+								<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio del Tour</h6>
+								
+			
 							</li>
-							<li class="divider"></li>
-							<li class="text-right font600 font14">${{data.tour.price}}</li>
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Número de Viajeros</div>
+									<div class="col-xs-9 col-sm-9">Precio por Viajero</div>
+									<div class="col-xs-3 col-sm-3 text-right">${{data.tour.price}}</div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="row gap-10 font600 font14">
+									<div class="col-xs-9 col-sm-9">Cantidad de Viajeros</div>
 									<div class="col-xs-3 col-sm-3 text-right"><span id="nOfTravelers"></span></div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="row gap-10 font600 font14">
+									<div class="col-xs-9 col-sm-9">Precio Total</div>
+									<div class="col-xs-3 col-sm-3 text-right">$<span id="tourTravelersPrice"></span></div>
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="row gap-10 font600 font14">
+									<div class="col-xs-9 col-sm-9">Tarifa de Servicio</div>
+									<div class="col-xs-3 col-sm-3 text-right">$<span id="costOfTransaction"></span></div>
 								</div>
 							</li>
 							<li class="total-price">
 								<div class="row gap-10">
 									<div class="col-xs-6 col-sm-6">
-										<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
-										<p class="font12">Pago en Sitio</p>
+										<h5 class="heading mt-0 mb-0 text-white">Total</h5>
+										<p class="font12">Los precios se muestran en USD</p>
 									</div>
 									<div class="col-xs-6 col-sm-6 text-right">
-										<span class="block font20 font600 mb-5">$<span id="price"></span></span>
+										<span class="block font20 font600 mb-5">$<span id="totalPrice"></span></span>
 										<span class="font10 line10 block">**Mejor Precio Garantizado </span>
 									</div>
 								</div>

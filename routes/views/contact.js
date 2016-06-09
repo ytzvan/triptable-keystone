@@ -69,7 +69,7 @@ exports = module.exports = function(req, res) {
 		extend(updateBody, req.body);
 //		console.log("final body", updateBody);
 	    
-	    
+	    console.log("total price", totalPrice)
 		var options = { method: 'POST',
 		  url: 'https://gatewaysandbox.merchantprocess.net/transaction.aspx',
 		  qs: 
@@ -79,9 +79,9 @@ exports = module.exports = function(req, res) {
 		     terminal: '100177001',
 		     cardNumber: body.cardNumber,
 		     expiration: body.expiration,
-		     amount: '34.00',
+		     amount: totalPrice,
 		     currencyCode: '840',
-		     cardHolder: 'cardholdername',
+		     cardHolder: body.cardholder,
 		     cvv2: body.cvv2 }
 		};
 		
@@ -101,9 +101,7 @@ exports = module.exports = function(req, res) {
 		  	transactionBallot : response[5],
 		  }
 		  extend(updateBody, transactionInfo);
-		  console.log(updateBody);
-		  
-		  console.log(status)
+	
 		  if (status == 116){
 		  	var errorMessage = "Número de tarjeta inválido, por favor verifíque.";
 		  	req.flash('error', errorMessage);
@@ -147,7 +145,6 @@ exports = module.exports = function(req, res) {
 		    return res.redirect(req.get('referer'));
 		  } else {
 		  
-		  	console.log(updateBody);
 		  	createBooking(next, updateBody);
 		  }
 		  

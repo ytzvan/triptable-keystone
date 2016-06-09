@@ -50,11 +50,14 @@
 										<li><span class="font600">Nombre: </span>{{bookingInfo.name.full}}</li>
 										<li><span class="font600">Tour: </span>{{data.tour.name}}</li>
 										<li><span class="font600">Fecha: </span> {{bookingInfo.datePretty}}</li>
+										<li><span class="font600">Precio por Persona: </span> ${{bookingInfo.tourPrice}} USD</li>
 										<li><span class="font600">Personas: </span>{{bookingInfo.people}}</li>
 										<!-- <li><span class="font600">Incluído: </span>Guide, Meals, Transport, 5 Experiences</li> -->
 										<li><span class="font600">Email de Contacto: </span>{{bookingInfo.email}}</li>
+										{{#if bookingInfo.hotel}}
 										<li><span class="font600">Dirección </span>{{bookingInfo.hotel}}</li>
-										<li><span class="font600">Monto a Pagar </span>USD ${{bookingInfo.tourPrice}} </li>
+										{{/if}}
+										<li><span class="font600">Precio Total </span> ${{bookingInfo.bookingTotalPrice}} USD</li>
 									</ul>
 									
 								</div>
@@ -76,7 +79,7 @@
 										
 									</div>
 								
-									<p>El pago será coordinado directamente con el operador del tour o la actividad. Recomendamos pagar en efectivo al momento del encuentro con el operador.</p>
+									<p>Haremos el cobro a su tarjeta de crédito cuando el operador confirme su reserva.</p>
 										
 								</div>
 								

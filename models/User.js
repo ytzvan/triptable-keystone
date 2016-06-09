@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Mailgun = require('machinepack-mailgun');
 
 /**
  * User Model
@@ -42,6 +43,36 @@ User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
 /**
  * Registration
  */
+ User.schema.post('save', function() {
+     console.log(this);
+		this.notificationEmail(this); // Send notificationEmail 
+});
+ User.schema.methods.notificationEmail = function (obj) {
+	var email = obj.email;
+	var name = obj.name.full;
+
+		Mailgun.sendHtmlEmail({
+			apiKey: process.env.MAILGUN_APIKEY,
+			domain: process.env.MAILGUN_DOMAIN,
+			toEmail: "hello@triptableapp.com",
+			toName: "Triptable",
+			subject: 'Nuevo Usuario Registrado',
+			textMessage: 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: ' + name + '<br>email: '+ email,
+			htmlMessage: 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: '+ name +'<br>email: '+ email,
+			fromEmail: "hello@triptableapp.com",
+			fromName: "Triptable",
+		}).exec({
+		// An unexpected error occurred.
+		error: function (err){
+		 	console.log("err", err);
+		},
+		// OK.
+		success: function (){
+		 console.log("Enviada Notificacion");
+		},
+	});
+}
+ 
 
 User.defaultColumns = 'name, email, isAdmin';
 User.register();
