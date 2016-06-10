@@ -28,9 +28,9 @@ exports = module.exports = function(req, res) {
 	    var body = req.body;
 		var result;
 		var response;
-		
-		
-		//Here goes the payment logic 
+
+
+		//Here goes the payment logic
 	    var tourPrice = locals.data.tour.price;
 	    var travelers = req.body.people;
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
@@ -39,24 +39,24 @@ exports = module.exports = function(req, res) {
 	    var commisionPercentaje = 15; //porcentaje de commision que nos llevamos nosotros
 	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
 	    var tourOperatorCost = flatPrice - commision;
-	   
+
 	    var taxPrice = flatPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 	    var transactionCost = taxPrice + processorFee; // cantidad a pagarle al gateway por la transaccion
 	    var totalPrice =  flatPrice + taxPrice + processorFee; // costo total de la transacción
-	    
+
 	    totalPrice = totalPrice.toFixed(2);
 	    commision = commision.toFixed(2);
 	    flatPrice = flatPrice.toFixed(2);
 	    tourOperatorCost = tourOperatorCost.toFixed(2);
 	    taxPrice = taxPrice.toFixed(2);
 	    transactionCost = transactionCost.toFixed(2);
-	    
+
 	    console.log("precio del tour", flatPrice);
 	    console.log("precio total del tour con impuesto", totalPrice);
 	    console.log("comision que nos toca", commision);
 	    console.log("cantidad a pagar al gateway", transactionCost);
 	    console.log("cantidad a pagar al tour operador", tourOperatorCost);
-	    
+
 		 updateBody = {
 	    	bookingTotalPrice : totalPrice,
 	    	bookingFlatPrice : flatPrice,
@@ -64,19 +64,21 @@ exports = module.exports = function(req, res) {
 	    	bookingOperatorFee : tourOperatorCost,
 	    	bookingRevenue : commision
 	    };
-		
+
 //		var finalObj = {};
 		extend(updateBody, req.body);
-//		console.log("final body", updateBody);
-	    
-	    console.log("total price", totalPrice)
-		var options = { method: 'POST',
-		  url: 'https://gatewaysandbox.merchantprocess.net/transaction.aspx',
-		  qs: 
-		   { AccCode: '123123',
-		     procCode: '000000',
-		     merchant: '100177',
-		     terminal: '100177001',
+
+		  var options = { method: 'POST',
+      proxy: process.env.QUOTAGUARDSTATIC_URL,
+      headers: {
+        'User-Agent': 'node.js'
+      },
+		  url: process.env.METROPAGO_URL,
+		  qs:
+		   { AccCode: process.env.METROPAGO_ACCCODE,
+		     procCode: process.env.METROPAGO_PROCCODE,
+		     merchant: process.env.METROPAGO_MERCHANT,
+		     terminal: process.env.METROPAGO_TERMINAL,
 		     cardNumber: body.cardNumber,
 		     expiration: body.expiration,
 		     amount: totalPrice,
@@ -84,14 +86,14 @@ exports = module.exports = function(req, res) {
 		     cardHolder: body.cardholder,
 		     cvv2: body.cvv2 }
 		};
-		
+
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
-		  	
+
 		  result = body;
 		  response = result.split('~');
 		  var status = response[0];
-		  
+
 		  transactionInfo = {
 		  	transactionResponseCode : response[0],
 		  	transactionReference : response[1],
@@ -101,7 +103,7 @@ exports = module.exports = function(req, res) {
 		  	transactionBallot : response[5],
 		  }
 		  extend(updateBody, transactionInfo);
-	
+
 		  if (status == 116){
 		  	var errorMessage = "Número de tarjeta inválido, por favor verifíque.";
 		  	req.flash('error', errorMessage);
@@ -144,12 +146,12 @@ exports = module.exports = function(req, res) {
 		   // return res.status(500).render('errors/404');
 		    return res.redirect(req.get('referer'));
 		  } else {
-		  
+
 		  	createBooking(next, updateBody);
 		  }
-		  
+
 		});
-		
+
 	});
 
 	view.on('init', function(next) {

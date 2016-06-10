@@ -137,7 +137,7 @@ Precio: USD${{data.tour.price}}
 
  {{#if messages.error}}
 		<div class="alert alert-danger center">
-  			<strong class="center">{{messages.error}}</strong> 
+  			<strong class="center">{{messages.error}}</strong>
 		</div>
 		{{/if}}
 
@@ -300,7 +300,7 @@ Precio: USD${{data.tour.price}}
 												</div>
 											</div>
 										</div>
-										
+
 										<script type="text/javascript">
 										var processorTax = 3.9; // % del procesador
 	    								var processorFee = 0.30; // fee individual por transaccion
@@ -308,20 +308,20 @@ Precio: USD${{data.tour.price}}
 												var min = {{data.tour.minPerson}};
 												var price = {{data.tour.price}};
 												var initPrice = min*price;
-												
+
 												var taxPrice = initPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 												var transactionCost = taxPrice + processorFee;
 												transactionCost = Math.round(transactionCost)+1;
-												var totalPrice = initPrice + taxPrice + processorFee; 
+												var totalPrice = initPrice + taxPrice + processorFee;
 												totalPrice = Math.round(totalPrice)+1;
-												
+
 										    $('span#price').html(initPrice);
 										    $('span#nOfTravelers').html(min);
 										    $('span#costOfTransaction').html(transactionCost);
 										    $('span#tourTravelersPrice').html(initPrice);
 										    $('span#totalPrice').html(totalPrice);
 										});
-										
+
 											$("#people").on('change', function(){
 												console.log("cambio");
 												var value = $('#people').val();
@@ -329,14 +329,14 @@ Precio: USD${{data.tour.price}}
 												var travelers = value;
 												var price = {{data.tour.price}};
 												var changePrice = travelers*price;
-												
+
 												var taxPrice = changePrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 												var transactionCost = taxPrice + processorFee + 0.01;
 												transactionCost = Math.round(transactionCost)+1;
-												
-												var totalPrice = changePrice + taxPrice + processorFee; 
+
+												var totalPrice = changePrice + taxPrice + processorFee;
 												totalPrice = Math.round(totalPrice)+1;
-												
+
 												$('span#price').html(changePrice);
 												$('span#nOfTravelers').html(travelers);
 												$('span#costOfTransaction').html(transactionCost);
@@ -344,7 +344,7 @@ Precio: USD${{data.tour.price}}
 										    	$('span#totalPrice').html(totalPrice);
 											});
 										</script>
-				
+
 										{{#if data.tour.hotelPickup}}
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
@@ -378,8 +378,7 @@ Precio: USD${{data.tour.price}}
 									<h5 class="heading mt-0">Pago <small>/ <i class="fa fa-lock"></i> seguro</small></h5>
 								</div>
 								<div class="payment-content">
-									<p>Escoge el método de pago que mejor te convenga</p>
-									<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Esta actividad sólo acepta pagos en efectivo directo con el guía el día de la reserva.</div>
+									<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Escoge el método de pago que mejor te convenga.</div>
 									<div id="paymentOption" class="payment-option-wrapper">
 										<div class="row">
 											<div class="col-sm-12">
@@ -391,12 +390,6 @@ Precio: USD${{data.tour.price}}
 											<div class="clear"></div>
 											<div class="col-sm-12">
 												<div class="radio-block">
-													<input disabled id="payments2" name="payments" type="radio" class="radio" value="paymentPaypal"/>
-													<label class="" for="payments2"><span>Paypal (No disponible)</span> <img src="/images/payment-paypal.jpg" alt="Image"></label>
-												</div>
-											</div>
-											<div class="col-sm-12">
-												<div class="radio-block">
 													<input id="payments3" name="payments" type="radio" class="radio" value="paymentCash"/>
 													<label class="" for="payments3"><span>Pago en Efectivo</span> <!--<img src="/images/payment-paypal.jpg" alt="Image"> --><span class="fa fa-money" style="padding:3px;font-size: 28px;color: green;"></</span></label>
 												</div>
@@ -404,7 +397,7 @@ Precio: USD${{data.tour.price}}
 										</div>
 										<div id="paymentsCreditCard" class="payment-option-form">
 											<div class="inner">
-												<h5 class="mb-15">El pago total es de: $ <span id="price"></span> US</h5>
+												<h5 class="mb-15">El pago total es de: $ <span id="totalPrice"></span> US</h5>
 												<p>Su pago se procesará de manera segura. </p>
 												<div class="form-horizontal">
 													<div class="form-group gap-20">
@@ -479,7 +472,7 @@ Precio: USD${{data.tour.price}}
 															console.log(month);
 															concat = month + year;
 															console.log("concat in month", concat);
-															
+
 														});
 														$('#ccYear').on('change', function(){
 														    year = $('#ccYear').val();
@@ -492,7 +485,7 @@ Precio: USD${{data.tour.price}}
 														    console.log($('#ccDate'));
 														});
 													</script>
-											
+
 													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug.">What is it?</small> </label>
 														<div class="col-sm-3 col-md-2">
@@ -504,7 +497,7 @@ Precio: USD${{data.tour.price}}
 										</div>
 										<div id="paymentCash" class="payment-option-form">
 											<div class="inner">
-												<h5 class="mb-15">El pago total es de: $<span id="price"></span> US</h5>
+												<h5 class="mb-15">El pago total es de: $<span id="totalPrice"></span> US</h5>
 												<p>El pago será en efectivo directamente con el guía el día del tour.</p>
 												<p>Al reservar se le notificará al guía para verificar disponibilidad. <strong>En caso que el guía no esté disponible</strong> te contactaremos para recomendarte otro. </p>
 												<!-- <a href="#" class="btn btn-primary">Proceed to paypal</a> -->
@@ -537,8 +530,8 @@ Precio: USD${{data.tour.price}}
 							<li class="divider"></li>
 							<li>
 								<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio del Tour</h6>
-								
-			
+
+
 							</li>
 							<li class="divider"></li>
 							<li>

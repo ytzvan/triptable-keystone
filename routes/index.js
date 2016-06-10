@@ -26,15 +26,14 @@ exports = module.exports = function(app) {
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
   app.all('/terminos', routes.static.terms);
-  app.all('/util', routes.static.util);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
 
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
-	app.get('/contact/:tourId', routes.views.booking); //Donde se llena la data
-	app.post('/contact/:tourId', routes.views.contact); //al momento del post
+	app.get('/contact/:tourId', middleware.requireUser, routes.views.booking); //Donde se llena la data
+	app.post('/contact/:tourId', middleware.requireUser, routes.views.contact); //al momento del post
 	app.all('/tour/:slug', routes.views.tour);
 	//Search Views
 	app.get('/:country', routes.search.country);
