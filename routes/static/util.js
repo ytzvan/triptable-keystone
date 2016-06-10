@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 
 var options = {
     proxy: process.env.QUOTAGUARDSTATIC_URL,
-    url: 'http://ip.jsontest.com/',
+    url: 'http://api.ipify.org',
     headers: {
         'User-Agent': 'node.js'
     }
@@ -15,12 +15,17 @@ var options = {
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
         console.log(body);
-      next();
+        res.setHeader('Content-Type', 'application/json');
+         return  res.send(JSON.stringify(body));
+       next();
+    } else {
+      console.log("error", error);
+      console.log("response", response);
+      return view.render('index');
     }
 }
 
 request(options, callback);
-view.render('/');
 }
 
 
