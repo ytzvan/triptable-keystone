@@ -154,7 +154,7 @@ Precio: USD${{data.tour.price}}
 		<div class="content-wrapper">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-12 visible-xs mb-50">
+					<div class="col-sm-12 mb-50" style="display: none;">
 						<div class="price-summary-wrapper">
 							<h4 class="heading mt-0 text-primary uppercase">{{data.tour.name}}</h4>
 							<ul class="price-summary-list">
@@ -257,14 +257,17 @@ Precio: USD${{data.tour.price}}
                       $(function () {
 
                         var today = new Date();
-                        var numberOfDaysToAdd = 3;
+                        var numberOfDaysToAdd = {{data.tour.skipDays}};
+                        if (numberOfDaysToAdd == 0) {
+                          numberOfDaysToAdd = 1;
+                        }
                         var date = today.setDate(today.getDate() + numberOfDaysToAdd);
 
                           $('#datetimepicker11').datetimepicker({
-                              daysOfWeekDisabled: [1],
+                              daysOfWeekDisabled: [{{data.tour.daysDisabled}}],
                               format : 'YYYY-MM-DD',
                               minDate : date,
-                              disabledDates : ['2016-06-24', '2016-06-28'],
+                              disabledDates :  [{{#each data.tour.disabledDates}}"{{this}}", {{/each}}],
                               debug:true
                           });
                       });
@@ -427,35 +430,25 @@ Precio: USD${{data.tour.price}}
 										<div id="paymentsCreditCard" class="payment-option-form">
 											<div class="inner">
 												<h5 class="mb-15">El pago total es de: $ <span id="totalPrice"></span> US</h5>
-												<p>Su pago se procesará de manera segura. </p>
+												<p>Para brindarle mayor seguridad, no almacenamos los datos de su tarjeta de crédito.</p>
 												<div class="form-horizontal">
 													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">Nombre (Como aparece en la tarjeta)</label>
+														<label class="col-sm-3 col-md-3 control-label">Nombre del tarjetahabiente</label>
 														<div class="col-sm-6 col-md-6">
 															<input type="text" name="cardholder" class="form-control mb-0" placeholder="">
 														</div>
 													</div>
 													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">Tipo de Tarjeta </label>
-														<div class="col-sm-3 col-md-2">
-															<select class="select2-no-search form-control" data-placeholder="Card Type">
-															<option value="">Card Type</option>
-															<option value="1">Visa</option>
-															<option value="2">Mastercard</option>
-															</select>
-														</div>
-													</div>
-													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">Número de tarjeta </label>
 														<div class="col-sm-6 col-md-6">
-															<input type="text" name="cardNumber" class="form-control mb-0" placeholder="">
+															<input type="tel" name="cardNumber" class="form-control mb-0" placeholder="">
 														</div>
 													</div>
 													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">Fecha de Expiración </label>
 															<input type="hidden" name="expiration" id="ccDate" class="form-control mb-0" placeholder="">
 														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Month" id="ccMonth">
+															<select class="select2-no-search form-control" data-placeholder="Mes" id="ccMonth">
 															<option value="">Mes</option>
 															<option value="01">01</option>
 															<option value="02">02</option>
@@ -472,7 +465,7 @@ Precio: USD${{data.tour.price}}
 															</select>
 														</div>
 														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Year" id="ccYear">
+															<select class="select2-no-search form-control" data-placeholder="Año" id="ccYear">
 															<option value="">Año</option>
 															<option value="16">16</option>
 															<option value="17">17</option>
@@ -515,7 +508,7 @@ Precio: USD${{data.tour.price}}
 													</script>
 
 													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug.">What is it?</small> </label>
+														<label class="col-sm-3 col-md-3 control-label">CVV <small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Son los 3 dígitos que aparecen al reverso de su tarjeta."> <i class="fa fa-question-circle"></i></small> </label>
 														<div class="col-sm-3 col-md-2">
 															<input type="text" name="cvv2" class="form-control mb-0" placeholder="">
 														</div>
