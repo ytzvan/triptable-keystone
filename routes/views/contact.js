@@ -51,12 +51,6 @@ exports = module.exports = function(req, res) {
 	    taxPrice = taxPrice.toFixed(2);
 	    transactionCost = transactionCost.toFixed(2);
 
-	    console.log("precio del tour", flatPrice);
-	    console.log("precio total del tour con impuesto", totalPrice);
-	    console.log("comision que nos toca", commision);
-	    console.log("cantidad a pagar al gateway", transactionCost);
-	    console.log("cantidad a pagar al tour operador", tourOperatorCost);
-
 		 updateBody = {
 	    	bookingTotalPrice : totalPrice,
 	    	bookingFlatPrice : flatPrice,

@@ -232,6 +232,7 @@ Precio: USD${{data.tour.price}}
 									<div class="row gap-10">
 										<div class="col-sm-9">
 											<h5 class="heading mt-0">Fecha del Tour</h5>
+
 										</div>
 				<!--<div class="col-sm-3">
 				<a href="#" class="btn btn-primary btn-inverse btn-sm pull-right pull-left-xs mb-20-xss">change</a>
@@ -239,11 +240,39 @@ Precio: USD${{data.tour.price}}
 									</div>
 								</div>
 								<div class="payment-content">
-									<div class="payment-content">
+<!-- 									<div class="payment-content">
 										<p><input type="date" required=true name="date"></p>
-									</div>
-								</div>
-							</div>
+									</div> -->
+                      <div class="form-group">
+                          <div class='input-group date col-sm-5 col-md-4' id='datetimepicker11'>
+                              <input type='text' name="date" class="form-control" />
+                              <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar">
+                                  </span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <script type="text/javascript">
+                      $(function () {
+
+                        var today = new Date();
+                        var numberOfDaysToAdd = 3;
+                        var date = today.setDate(today.getDate() + numberOfDaysToAdd);
+
+                          $('#datetimepicker11').datetimepicker({
+                              daysOfWeekDisabled: [1],
+                              format : 'YYYY-MM-DD',
+                              minDate : date,
+                              disabledDates : ['2016-06-24', '2016-06-28'],
+                              debug:true
+                          });
+                      });
+                  </script>
+              </div>
+
+
+
 							<div class="payment-box">
 								<div class="payment-header clearfix">
 									<div class="number">
@@ -472,7 +501,6 @@ Precio: USD${{data.tour.price}}
 															console.log(month);
 															concat = month + year;
 															console.log("concat in month", concat);
-
 														});
 														$('#ccYear').on('change', function(){
 														    year = $('#ccYear').val();
@@ -557,7 +585,7 @@ Precio: USD${{data.tour.price}}
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Tarifa de Servicio</div>
+									<div class="col-xs-9 col-sm-9">Tarifa de Servicio<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Una pequeña tarifa por el servicio de cobros por internet."> <i class="fa fa-question-circle"></i></small></div>
 									<div class="col-xs-3 col-sm-3 text-right">$<span id="costOfTransaction"></span></div>
 								</div>
 							</li>
