@@ -54,7 +54,7 @@ User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
 		Mailgun.sendHtmlEmail({
 			apiKey: process.env.MAILGUN_APIKEY,
 			domain: process.env.MAILGUN_DOMAIN,
-			toEmail: "hello@triptableapp.com",
+			toEmail: "hello@triptable.com",
 			toName: "Triptable",
 			subject: 'Nuevo Usuario Registrado',
 			textMessage: 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: ' + name + '<br>email: '+ email,
