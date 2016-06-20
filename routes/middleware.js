@@ -86,6 +86,22 @@ exports.requireUser = function(req, res, next) {
 
 };
 
+exports.isAdmin = function (req, res, next) {
+  var locals = res.locals;
+  if (req.user) {
+    if (req.user.isAdmin == true) {
+      locals.isAdmin = true;
+      next();
+    } else {
+      locals.isAdmin = false;
+      next();
+    }
+  }
+    else {
+      next();
+    }
+};
+
 exports.userInfo = function(req, res, next) {
 	var locals = res.locals;
 	if (req.user) {

@@ -5,12 +5,11 @@ exports = module.exports = function(req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var csrf = keystone.security.csrf;
-	locals.validationErrors = {};	
+	locals.validationErrors = {};
 	locals.token = {
 		key : csrf.TOKEN_KEY,
 		value : csrf.getToken(req, res)
 	};
-
 	function renderView() {
 		view.render('auth/signin');
 	}
@@ -47,7 +46,7 @@ exports = module.exports = function(req, res) {
 		};
 
 		var onFail = function (err) {
-			var message = (err && err.message) ? err.message : 'Disculpe, el e-mail introducido y la contraseña no coinciden.';
+			var message = (err && err.message) ? err.message : 'El e-mail introducido y la contraseña no coinciden.';
 			req.flash('error', message );
 			locals.validationErrors = {
 				mismatch : message

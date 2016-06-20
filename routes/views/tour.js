@@ -13,12 +13,16 @@ exports = module.exports = function(req, res) {
 	locals.filters = {
 		tour: req.params.slug
 	};
+  var url = req.url;
+
 	locals.data = {
 		tours: [],
-		reviews: []
+		reviews: [],
+    url : url
 	};
+
 	locals.meta = {};
-	var url = req.url;
+
 	locals.meta.url = "https://www.triptableapp.com"+url;
 	// Load the current post
 	view.on('init', function(next) {

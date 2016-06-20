@@ -291,7 +291,6 @@
 													<li><a href="#"><i class="ion-social-yen"></i> Yen</a></li>
 												</ul>
 											</li> -->
-
                        {{#unless userInfo}}
 											 <li class="user-action no-margin hidden-xs hidden-sm">
 												<a href="/partners" class="btn no-border">Listar un tour</a>
@@ -301,6 +300,11 @@
 												<a href="/signup" class="btn no-border">Registrarse</a>
 											</li>
                       {{/unless}}
+                      {{#if isAdmin}}
+                      <li class="user-action">
+												<a href="/keystone" class="">Panel de Administracion</a>
+											</li>
+                      {{/if}}
 											{{#if userInfo}}
                       <li class="user-action">
 												<a href="/user" class="">Mis Reservas</a>

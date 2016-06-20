@@ -36,7 +36,8 @@
               {{#if userInfo}}
                 <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
               {{else}}
-              <a href="/signup" class="anchor btn btn-danger">Reservar Ahora</a>
+
+              <a href="/signin?from={{data.url}}" class="anchor btn btn-danger">Reservar Ahora</a>
               {{/if}}
 
               </div>
@@ -304,8 +305,8 @@
 
                 </div>
                 <!-- end call 2 action -->
-                  </div> 
-                </div> 
+                  </div>
+                </div>
                 <div class="col-sm-3 hidden-sm hidden-xs">
 
                 <div class="scrollspy-sidebar sidebar-detail" role="complementary">

@@ -7,6 +7,8 @@ keystone.pre('render', middleware.flashMessages);
 keystone.pre('render', middleware.crsfAuth);
 keystone.pre('routes', middleware.userInfo);
 keystone.pre('render', middleware.userInfo);
+keystone.pre('routes', middleware.isAdmin);
+keystone.pre('render', middleware.isAdmin);
 
 // Import Route Controller
 var routes = {

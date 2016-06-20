@@ -45,7 +45,7 @@ User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
  */
  User.schema.post('save', function() {
      console.log(this);
-		this.notificationEmail(this); // Send notificationEmail 
+		this.notificationEmail(this); // Send notificationEmail
 });
  User.schema.methods.notificationEmail = function (obj) {
 	var email = obj.email;
@@ -72,7 +72,7 @@ User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
 		},
 	});
 }
- 
+
 
 User.defaultColumns = 'name, email, isAdmin';
 User.register();
