@@ -285,11 +285,7 @@ Precio: USD${{data.tour.price}}
 								</div>
 								<div class="payment-content">
 									<div class="payment-traveller">
-										<div class="row gap-0">
-											<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
-												<h6 class="heading">Detalles de Contacto</h6>
-											</div>
-										</div>
+
 										<div class="form-horizontal">
 										</div>
 										<div class="form-horizontal">
@@ -320,8 +316,8 @@ Precio: USD${{data.tour.price}}
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20 select2-input-hide">
-												<label class="col-sm-3 col-md-2 control-label">Cantidad de Viajeros:</label>
-												<div class="col-sm-3 col-md-2">
+												<label class="col-sm-3 col-md-2 control-label">Personas:</label>
+												<div class="col-sm-3 col-md-4">
 													<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
 													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
 													<option value="">Viajeros</option>
@@ -387,18 +383,6 @@ Precio: USD${{data.tour.price}}
 											</div>
 										</div>
 										{{/if}}
-										<div class="form-horizontal">
-											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">Idioma / Language:</label>
-												<div class="col-sm-5 col-md-4">
-													<select class="select2-single form-control" data-placeholder="Idioma / Language">
-													<option value="">Idioma / Language</option>
-													<option value="ingles">English</option>
-													<option value="espanol">Español</option>
-													</select>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -407,30 +391,22 @@ Precio: USD${{data.tour.price}}
 									<div class="number">
 										3
 									</div>
-									<h5 class="heading mt-0">Pago <small>/ <i class="fa fa-lock"></i> seguro</small></h5>
+									<h5 class="heading mt-0">Total a Pagar: $<span id="totalPrice"></span> US</h5>
 								</div>
 								<div class="payment-content">
-									<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Escoge el método de pago que mejor te convenga.</div>
 									<div id="paymentOption" class="payment-option-wrapper">
 										<div class="row">
 											<div class="col-sm-12">
 												<div class="radio-block">
-													<input id="payments1" name="payments" type="radio" class="radio" value="paymentsCreditCard"/>
-													<label class="" for="payments1"><span>Tarjeta de Crédito</span> <img src="/images/payment-credit-cards.jpg" alt="Image"></label>
-												</div>
-											</div>
-											<div class="clear"></div>
-											<div class="col-sm-12">
-												<div class="radio-block">
-													<input id="payments3" name="payments" type="radio" class="radio" value="paymentCash"/>
-													<label class="" for="payments3"><span>Pago en Efectivo</span> <!--<img src="/images/payment-paypal.jpg" alt="Image"> --><span class="fa fa-money" style="padding:3px;font-size: 28px;color: green;"></</span></label>
+													<input id="payments1" name="payments" type="radio" class="radio" checked="checked" value="paymentsCreditCard"/>
+													<label class="" for="payments1"><span>Tarjeta de Crédito</span> <img src="/images/payment-credit-cards.jpg" alt="Image"</label>
 												</div>
 											</div>
 										</div>
-										<div id="paymentsCreditCard" class="payment-option-form">
+                    <div class="alert alert-info" role="alert"><i class="fa fa-lock"></i> Triptable no almacena los datos de su tarjeta de crédito.</div>
+										<!--<div id="paymentsCreditCard" class="payment-option-form"> -->
+										<div id="paymentsCreditCard">
 											<div class="inner">
-												<h5 class="mb-15">El pago total es de: $ <span id="totalPrice"></span> US</h5>
-												<p>Para brindarle mayor seguridad, no almacenamos los datos de su tarjeta de crédito.</p>
 												<div class="form-horizontal">
 													<div class="form-group gap-20">
 														<label class="col-sm-3 col-md-3 control-label">Nombre del tarjetahabiente</label>
@@ -516,20 +492,12 @@ Precio: USD${{data.tour.price}}
 												</div>
 											</div>
 										</div>
-										<div id="paymentCash" class="payment-option-form">
-											<div class="inner">
-												<h5 class="mb-15">El pago total es de: $<span id="totalPrice"></span> US</h5>
-												<p>El pago será en efectivo directamente con el guía el día del tour.</p>
-												<p>Al reservar se le notificará al guía para verificar disponibilidad. <strong>En caso que el guía no esté disponible</strong> te contactaremos para recomendarte otro. </p>
-												<!-- <a href="#" class="btn btn-primary">Proceed to paypal</a> -->
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
 							<div class="checkbox-block">
 							<input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
-							<label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a href="#">términos y condiciones</a> así mismo con la <a href="#">política de cancelación</a> y la <a href="#">buena conducta</a> .</label>
+							<label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
 						</div>
 						<div class="row mt-20">
 							<div class="col-sm-8 col-md-6">
