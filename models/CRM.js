@@ -54,8 +54,8 @@ CRM.schema.methods.sendCRMEmail = function (obj) {
 			subject: 'Información acerca de Triptable',
 			htmlMessage: texto,
 			textMessage: texto,
-			fromEmail: 'hello@triptableapp.com',
-			fromName:  'Triptable - Reserva de tours',
+			fromEmail: process.env.DEFAULT_EMAIL,
+			fromName:  'Triptable, LLC',
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){

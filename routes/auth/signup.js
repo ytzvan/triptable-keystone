@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {
             fields: 'email, password',
-            flashErrors: true,
+            flashErrors: false,
             logErrors: true
         }, function(err,result) {
             if (err) {

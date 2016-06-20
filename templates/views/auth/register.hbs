@@ -1,3 +1,4 @@
+
     {{#if messages.error}}
       <div class="alert alert-danger center">
   			<strong>Error:</strong> {{messages.error}}
@@ -5,21 +6,21 @@
     {{/if}}
 
 		{{#if data.validationErrors.password}}
-		<div class="alert alert-danger">
+		<div class="alert center alert-danger">
   			<strong>Error:</strong> Las contraseñas no coinciden
 		</div>
 		{{/if}}
 
-		{{#if validationErrors.isEmpty}}
+		{{#if data.validationErrors.isEmpty}}
 		<div class="alert alert-danger">
-  			<strong>Error:</strong> {{validationErrors.isEmpty}}
+  			<strong>Error:</strong> La contraseña no puede estar vacía
 		</div>
 		{{/if}}
 
 
-		{{#if validationErrors.csrfError}}
+		{{#if data.validationErrors.csrfError}}
 		<div class="alert alert-danger">
-  			<strong>Error:</strong> {{validationErrors.csrfError}}
+  			<strong>Error:</strong> Por favor, actualize la página
 		</div>
 		{{/if}}
 		<div class="container">

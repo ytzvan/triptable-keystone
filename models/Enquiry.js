@@ -15,7 +15,7 @@ moment.locale('es');
  * =============
  */
 var Mailgun = require('machinepack-mailgun');
-var bookingEmail = "hello@triptableapp.com";
+var bookingEmail = process.env.DEFAULT_EMAIL;
 var bookingEmailName = "Reservas Triptable";
 
 

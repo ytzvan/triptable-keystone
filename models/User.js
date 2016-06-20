@@ -59,7 +59,7 @@ User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
 			subject: 'Nuevo Usuario Registrado',
 			textMessage: 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: ' + name + '<br>email: '+ email,
 			htmlMessage: 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: '+ name +'<br>email: '+ email,
-			fromEmail: "hello@triptableapp.com",
+			fromEmail: process.env.DEFAULT_EMAIL,
 			fromName: "Triptable",
 		}).exec({
 		// An unexpected error occurred.
