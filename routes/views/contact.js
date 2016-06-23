@@ -24,12 +24,18 @@ exports = module.exports = function(req, res) {
 	var transactionInfo = {};
 
 	view.on('post', {action: 'booking'}, function(next) {
-		console.log(req.body);
 	    var body = req.body;
-		var result;
-		var response;
+		  var result;
+		  var response;
 
-
+      console.log(req.body.people);
+        var invalidTravelers = isNaN(req.body.people);
+         if (invalidTravelers){
+		  	 var errorMessage = "Número de Viajeros inválido";
+		  	req.flash('error', errorMessage);
+		   // return res.status(500).render('errors/404');
+		    return res.redirect(req.get('referer'));
+		  }
 		//Here goes the payment logic
 	    var tourPrice = locals.data.tour.price;
 	    var travelers = req.body.people;
@@ -61,7 +67,10 @@ exports = module.exports = function(req, res) {
 
 //		var finalObj = {};
 		extend(updateBody, req.body);
-
+      var cardNumber = body.cardNumber;
+      cardNumber = cardNumber.replace(/ /g,'');
+      var cardDate = body.expiration;
+      cardDate = cardDate.replace(' / ', '');
 		  var options = { method: 'POST',
       proxy: process.env.QUOTAGUARDSTATIC_URL,
       headers: {
@@ -73,14 +82,14 @@ exports = module.exports = function(req, res) {
 		     procCode: process.env.METROPAGO_PROCCODE,
 		     merchant: process.env.METROPAGO_MERCHANT,
 		     terminal: process.env.METROPAGO_TERMINAL,
-		     cardNumber: body.cardNumber,
-		     expiration: body.expiration,
+		     cardNumber: cardNumber,
+		     expiration: cardDate,
 		     amount: totalPrice,
 		     currencyCode: '840',
 		     cardHolder: body.cardholder,
 		     cvv2: body.cvv2 }
 		};
-
+    console.log(options);
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
 

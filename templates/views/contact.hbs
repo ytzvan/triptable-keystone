@@ -1,140 +1,3 @@
-<!-- <div class="container">
-<h1 style="padding-right:10px;">Reservar</h1>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-sm-8 col-md-6">
-{{#if enquirySubmitted}}
-<h3>Thanks for getting in touch.</h3>
-{{else}}
-<form method="post">
-<input type="hidden" name="action" value="contact">
-<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
-<label>Name</label>
-<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
-</div>
-<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
-<label>Email</label>
-<input type="email" name="email" class="form-control" value="{{formData.email}}">
-</div>
-<div class="form-group">
-<label>Phone</label>
-<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
-</div>
-<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
-<label>What are you contacting us about?</label>
-<select name="enquiryType" class="form-control">
-<option value="">(select one)</option>
-{{#each enquiryTypes}}
-<option value="{{value}}">{{label}}</option>
-{{/each}}
-</select>
-</div>
-<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
-<label>Message</label>
-<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>
-</div>
-<div class="form-actions">
-<button type="submit" class="btn btn-primary">Send</button>
-</div>
-</form>
-{{/if}}
-</div>
-</div>
-</div> -->
-<!--<style>
-input[placeholder], [placeholder], *[placeholder] {
-color: darkslategray !important;
-}
-</style>
-<div class="content_wrapper row ">
-<div class="row">
-<div class="col-md-12">
-{{#if enquirySubmitted}}
-<h3>Su solicitud de Reserva se ha enviado.</h3>
-{{else}}
-<div class="contact-wrapper">
-<div class="col-xs-12 col-sm-12 col-lg-8 contact_page_company_details">
-<div class="agent_contanct_form">
-<div class="alert-box-contact-page error">
-<div class="alert-message" id="alert-agent-contact"></div>
-</div>
-<form method="post">
-<div class="row">
-<input type="hidden" name="action" value="contact">
-<p class="{{#if validationErrors.name}}has-error{{/if}} col-lg-4 ">Nombre
-<input type="text" placeholder="Nombre" name="name.full"  size="40" class="form-control" value="{{formData.name}}">
-</p>
-
-<p class="col-lg-4">E-mail
-<input type="email" name="email" placeholder="Email" size="40" class="form-control" value="{{formData.email}}">
-</p>
-<p class="col-lg-4">Cantidad de Personas
-<input type="number" name="people" placeholder="Telefono" class="form-control" value="{{formData.people}}">
-</p>
-<p class=" col-lg-4">Fecha
-<input type="date" name="date" id="date" placeholder="Fecha" class="form-control" value="">
-</p>
-<script type="text/javascript">
-$(function () {
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-dd='0'+dd
-}
-
-if(mm<10) {
-mm='0'+mm
-}
-
-today = yyyy+'-'+mm+'-'+dd;
-
-$('#date').attr("min", today);
-});
-</script>
-<p class=" col-lg-4">Teléfono
-<input type="text" name="phone" placeholder="Ej: +507 6789-2398" class="form-control" value="{{formData.phone}}">
-</p>
-
-<p class="col-lg-4">Hotel
-<input type="text" name="hotel" placeholder="Lugar de recogida" class="form-control" value="{{formData.hotel}}">
-</p>
-<p class="col-lg-8">Comentarios adicionales
-<textarea name="message" placeholder="Ej: Si es vegetariano o necesita atenciones adicionales" rows="4" class="form-control ">{{formData.message}}</textarea>
-</p>
-<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
-<input type="hidden" name="tourPrice" placeholder="TourID" class="form-control" value="{{data.tour.price}}">
-
-<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
-<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
-
-
-
-<p class="col-lg-12">
-<button type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button">Solicitar Reserva</button>
-</p>
-</div>
-</form>
-
-</div>
-</div>
-<div class="col-xs-12 col-sm-12 col-lg-4">
-Tour: {{data.tour.name}} <br>
-Precio: USD${{data.tour.price}}
-{{data.tour.maxPeople}}
-<div class="col-md-12">
-<img class="img-responsive" src="{{data.tour.images.0.secure_url}}" />
-</div>
-</div>
-</div>
-{{/if}}
-</div>
-</div>
-</div> -->
-
  {{#if messages.error}}
 		<div class="alert alert-danger center">
   			<strong class="center">{{messages.error}}</strong>
@@ -224,7 +87,7 @@ Precio: USD${{data.tour.price}}
 							<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
 							<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
 							<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
-							<div class="payment-box">
+							<div class="payment-box" style="border-bottom: none;">
 								<div class="payment-header clearfix">
 									<div class="number">
 										1
@@ -276,7 +139,7 @@ Precio: USD${{data.tour.price}}
 
 
 
-							<div class="payment-box">
+							<div class="payment-box" style="border-bottom: none;">
 								<div class="payment-header clearfix">
 									<div class="number">
 										2
@@ -320,7 +183,6 @@ Precio: USD${{data.tour.price}}
 												<div class="col-sm-3 col-md-4">
 													<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
 													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
-													<option value="">Viajeros</option>
 													{{#for data.tour.minPerson data.tour.maxPerson 1}}
 													<option value="{{this}}">{{this}}</option>
 													{{/for}}
@@ -386,7 +248,7 @@ Precio: USD${{data.tour.price}}
 									</div>
 								</div>
 							</div>
-							<div class="payment-box">
+							<div class="payment-box" style="border-bottom: none;">
 								<div class="payment-header clearfix">
 									<div class="number">
 										3
@@ -403,119 +265,41 @@ Precio: USD${{data.tour.price}}
 												</div>
 											</div>
 										</div>
-                    <div class="alert alert-info" role="alert"><i class="fa fa-lock"></i> Triptable no almacena los datos de su tarjeta de crédito.</div>
+                    <div class="alert alert-info" role="alert" style="margin-left: 15px; margin-right: 15px;"><i class="fa fa-lock"></i> Triptable no almacena los datos de su tarjeta de crédito.</div>
 										<!--<div id="paymentsCreditCard" class="payment-option-form"> -->
 										<div id="paymentsCreditCard">
 											<div class="inner">
-												<div class="form-horizontal">
-													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">Nombre del tarjetahabiente</label>
-														<div class="col-sm-6 col-md-6">
-															<input type="text" name="cardholder" class="form-control mb-0" placeholder="">
-														</div>
+												<div class="form">
+													<div class="form-group col-md-6">
+														<label class="control-label">Nombre del tarjetahabiente</label>
+														<input type="text" name="cardholder" class="form-control mb-0 col-md-6" placeholder="Ejm: Juan Pérez">
 													</div>
-													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">Número de tarjeta </label>
-														<div class="col-sm-6 col-md-6">
-															<input type="tel" name="cardNumber" class="form-control mb-0" placeholder="">
-														</div>
-													</div>
-													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">Fecha de Expiración </label>
-															<input type="hidden" name="expiration" id="ccDate" class="form-control mb-0" placeholder="">
-														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Mes" id="ccMonth">
-															<option value="">Mes</option>
-															<option value="01">01</option>
-															<option value="02">02</option>
-															<option value="03">03</option>
-															<option value="04">04</option>
-															<option value="05">05</option>
-															<option value="06">06</option>
-															<option value="07">07</option>
-															<option value="08">08</option>
-															<option value="09">09</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															</select>
-														</div>
-														<div class="col-sm-3 col-md-3">
-															<select class="select2-no-search form-control" data-placeholder="Año" id="ccYear">
-															<option value="">Año</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-															<option value="24">24</option>
-															<option value="25">25</option>
-															<option value="26">26</option>
-															<option value="27">27</option>
-															<option value="28">28</option>
-															<option value="29">29</option>
-															<option value="30">30</option>
-															</select>
-														</div>
-													</div>
-													<script type="text/javascript">
-														var year;
-														var month;
-														var concat;
-														$('#ccMonth').on('change', function(){
-														    month = $('#ccMonth').val();
-															console.log(month);
-															concat = month + year;
-															console.log("concat in month", concat);
-														});
-														$('#ccYear').on('change', function(){
-														    year = $('#ccYear').val();
-															console.log(year);
-															concat = month + year;
-															console.log("concat in year", concat);
-														});
-
-													</script>
-
-                          <div class="form-group">
-        <label for="cc-number" class="control-label">Card number formatting <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
-        <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
-      </div>
-
-      <div class="form-group">
-        <label for="cc-exp" class="control-label">Card expiry formatting</label>
-        <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required>
-      </div>
-
-      <div class="form-group">
-        <label for="cc-cvc" class="control-label">Card CVC formatting</label>
-        <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="•••" required>
-      </div>
-
-
-
-
-													<div class="form-group gap-20">
-														<label class="col-sm-3 col-md-3 control-label">CVV <small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Son los 3 dígitos que aparecen al reverso de su tarjeta."> <i class="fa fa-question-circle"></i></small> </label>
-														<div class="col-sm-3 col-md-2">
-															<input type="text" name="cvv2" class="form-control mb-0" placeholder="">
-														</div>
-													</div>
+                          <div class="form-group col-md-6">
+                            <label for="cc-number" class="control-label">Número de Tarjeta <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
+                            <input type="tel" name="cardNumber" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="cc-exp" class="control-label">Fecha de Expiración</label>
+                            <input id="cc-exp" type="tel" name="expiration" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="cc-cvc" class="control-label">CVC<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Son los 3 dígitos que aparecen al reverso de su tarjeta."> <i class="fa fa-question-circle"></i></small></label>
+                            <input id="cc-cvc" type="tel" name="cvv2" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="•••" required>
+                          </div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-                <h2 class="validation"></h2>
-							<div class="checkbox-block">
-							<input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
-							<label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
-						</div>
-						<div class="row mt-20">
+              <div class="row">
+                <div class="checkbox-block col-md-6">
+                <input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
+                <label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
+              </div>
+            </div>
+
+						<div class="row">
 							<div class="col-sm-8 col-md-6">
 								<button class="btn btn-primary">Reservar Ahora</button>
 								<p class="line18 mt-10"><span class="font600">Gracias por preferir Triptable</span>.</p>
@@ -585,9 +369,10 @@ Precio: USD${{data.tour.price}}
 		</div> <!-- container -->
 	</div> <!-- content wrapper -->
 </div> <!-- end main wrapper -->
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.4.2/jquery.payment.min.js"></script>
 
-<style type="text/css" media="screen">
+  <style type="text/css" media="screen">
     .has-error input {
       border-width: 2px;
     }
@@ -601,22 +386,20 @@ Precio: USD${{data.tour.price}}
 
   <script>
     jQuery(function($) {
-      $('.cc-number').payment('formatCardNumber');
-      $('.cc-exp').payment('formatCardExpiry');
-      $('.cc-cvc').payment('formatCardCVC');
-      $.fn.toggleInputError = function(erred) {
+       $('.cc-exp').payment('formatCardExpiry');
+       $('.cc-number').payment('formatCardNumber');
+       $('.cc-cvc').payment('formatCardCVC');
+       $.fn.toggleInputError = function(erred) {
         this.parent('.form-group').toggleClass('has-error', erred);
         return this;
       };
+
+
       $('form').submit(function(e) {
-        var valid = $.payment.validateCardNumber($('.cc-number').val());
-        console.log($('.cc-number').val());
-        console.log(valid);
+          var valid = $.payment.validateCardNumber($('.cc-number').val());
           if (!valid) {
             alert('Your card is not valid!');
              e.preventDefault();
-
-
             var cardType = $.payment.cardType($('.cc-number').val());
             $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
             $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
@@ -628,8 +411,8 @@ Precio: USD${{data.tour.price}}
             } else {
               $('.validation').removeClass('text-danger text-success');
               $('.validation').removeClass($('.has-error').length ? 'text-danger' : 'text-success');
+              return true;
             }
-
       });
     });
   </script>
