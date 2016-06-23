@@ -57,7 +57,119 @@
             </div>
           </div>
         </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <input type="search" id="autocomplete-dataset" class="form-control" placeholder="Search for vacation rentals or cities" />.
+    </div>
+  </div>
+</div>
 
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.js"></script>
+<style>
+
+.algolia-autocomplete {
+  width: 100%;
+}
+.ad-example-dropdown-menu {
+  width: 100%;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+  padding: .5em;
+  box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
+}
+.ad-example-dropdown-menu .ad-example-suggestion {
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+.ad-example-dropdown-menu .ad-example-suggestion img {
+  height: 2em;
+  margin-top: .5em;
+  margin-right: 10px;
+  float: left;
+}
+.ad-example-dropdown-menu .ad-example-suggestion small {
+  font-size: .8em;
+  color: #bbb;
+}
+.ad-example-dropdown-menu .ad-example-suggestion.ad-example-cursor {
+  background-color: #B2D7FF;
+}
+.ad-example-dropdown-menu .ad-example-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.ad-example-header {
+  font-weight: bold;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/places.js/1/placesAutocompleteDataset.min.js"></script>
+<script>
+(function() {
+  var client = algoliasearch('CLO2E2RKP1', 'bf4587ef5d150368765803e8c74440d0');
+  var index = client.initIndex('tours');
+
+  // create the first autocomplete.js dataset: vacation rentals
+  var rentalsDataset = {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 3}),
+    displayKey: 'name',
+    name: 'tours',
+    templates: {
+      header: '<div class="ad-example-header">Tours</div>',
+      suggestion: function(suggestion) {
+        console.log(suggestion);
+        return '<a href="/tour/' + suggestion.slug + '"><div class="ad-example-suggestion">' +
+          '<div class="row"><div class="col-md-5" style="background-image:url('+suggestion.fields.images[0].secure_url+');background-position: center;background-size: cover;height: 6em;"></div>' +
+          '<div class="col-md-7">' +
+             suggestion._highlightResult.name.value + '<br />' +
+            '<p style="color:#666"><i class="fa fa-money" style="color:#8a7676"></i> ' + suggestion.fields.price + '$ <i class="fa fa-clock-o col-xs-offset-2" style="color:#8a7676"></i> ' + suggestion.fields.duration + ' horas</p>' +
+          '</div></a>';
+      }
+    }
+  };
+
+  // create the second dataset: places
+  // we automatically inject the default CSS
+  // all the places.js options are available
+  var placesDataset = placesAutocompleteDataset({
+    countries: ['pa'],
+    algoliasearch: algoliasearch,
+    templates: {
+      header: '<div class="ad-example-header">Destinos</div>'
+    },
+    hitsPerPage: 3
+  });
+
+  // init
+  var autocompleteInstance = autocomplete(document.querySelector('#autocomplete-dataset'), {
+    hint: false,
+    debug: true,
+    cssClasses: {prefix: 'ad-example'}
+  }, [
+    rentalsDataset,
+    placesDataset
+  ]);
+
+  var autocompleteChangeEvents = ['selected', 'autocompleted'];
+
+  autocompleteChangeEvents.forEach(function(eventName) {
+    autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
+      console.log(datasetName, suggestion);
+    });
+  });
+})();
+  $('.ad-example-dataset-tours').addClass("col-md-6");
+  $('.ad-example-dataset-places').addClass("col-md-6");
+</script>
 
 
 
