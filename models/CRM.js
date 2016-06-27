@@ -24,6 +24,7 @@ CRM.add({
 		{ value: '2', label: "Cerrado" },
 		{ value: '3', label: "No Interesado" }
 	], required: false, default: 0 },
+  createdAt: { type: Date, default: Date.now, noedit: true },
 });
 
 CRM.track = true;

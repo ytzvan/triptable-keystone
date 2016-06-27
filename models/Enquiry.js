@@ -40,6 +40,7 @@ Enquiry.add({
 	], default: '0' },
 	operatorEmail:{ type: String },
 	operatorName: {type: String},
+  operator: { type: Types.Relationship, ref: 'User', index: true },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now },
@@ -77,10 +78,10 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		this.sendUserEmail(this); //Send User email
+	//	this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail
-		this.sendBookingNotificationEmail(this, email); //Email al operador
-		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+//		this.sendBookingNotificationEmail(this, email); //Email al operador
+//		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
 	}
 });
 
@@ -146,5 +147,5 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	});
 }
 Enquiry.defaultSort = '-createdAt';
-Enquiry.defaultColumns = 'name, email, bookingStatus, tour, date';
+Enquiry.defaultColumns = 'name, bookingStatus, date, bookingTotalPrice, bookingRevenue';
 Enquiry.register();

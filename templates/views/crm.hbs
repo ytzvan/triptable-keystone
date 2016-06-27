@@ -1,11 +1,10 @@
 <!-- start Main Wrapper -->
 <div class="main-wrapper scrollspy-container">
-  <div class="page-title static-header" style="background-image:url('https://static.pexels.com/photos/21014/pexels-photo.jpg');background-position: center;">
+  <div class="page-title static-header" style="background-image:url('https://static.pexels.com/photos/21014/pexels-photo.jpg');background-position: center;padding: 100px 0;">
     <div class="container">
       <div class="row">
 			  <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-          <h1 class="hero-title">La Plataforma más Avanzada de Reservas Online</h1>
-          <p class="hero-title">Regístrate y ofrece tus servicios a cientos de viajeros al día</p>
+          <h1 class="hero-title static">Aumenta tus reservas en línea</h1>
           <ol class="breadcrumb-list">
 					  <li><a href="/">Inicio</a></li>
 					  <li><span>Tour Operadores</span></li>
@@ -17,7 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-     <blockquote>Nunca más pierdas una reserva. En Triptable hemos creado la más poderosa herramienta de reservas online para guías locales y tour operadores para que te enfoques en tu negocio mientras nosotros nos ocupamos de las ventas. ¡Ven a construir el futuro con nosotros!</blockquote>
+     <blockquote class="margin10 center">En Triptable hemos creado la más poderosa herramienta de reservas online para guías locales y tour operadores para que te enfoques en tu negocio mientras nosotros nos ocupamos de las ventas. <strong>¡Ven a construir el futuro con nosotros!</strong></blockquote>
       </div>
     </div>
   </div>
@@ -25,182 +24,60 @@
 
 
         <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"><i class="pe-7s-map-2"></i></div>
-                <div class="content">
-                  <h4 class="description">Descubre Cosas que Hacer</h4>
-                  <span>en Triptable encontrarás los mejores tours y cosas que hacer en donde te encuentres.</span>
+          <div class="row partners">
+            <div class="col-sm-6 col-md-4">
+              <div class="featured-count clearfix no-margin">
+                <div class="icon-np no-padding featured-icon-static center"><i class="pe-7s-note2"></i></div>
+                <div class="content no-margin">
+                  <h3 class="description no-margin center title">Aplica</h3>
+                  <div><p class="center pt15">El primer paso es enviarnos tus datos a través del formulario que está abajo.</span></p></div>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"> <i class="pe-7s-id"></i></div>
-                <div class="content">
-                  <h4 class="description">Encuentra los mejores guías</h4>
-                  <span>Cientos de guías y operadores turísticos de clase mundial ofrecen sus tours aquí.</span>
+            <div class="col-sm-6 col-md-4">
+              <div class="featured-count clearfix no-margin">
+                <div class="icon-np no-padding featured-icon-static center"> <i class="pe-7s-date"></i></div>
+                <div class="content no-margin">
+                  <h3 class="description no-margin center title">Entrevista</h3>
+                  <div><p class="center pt15">Un representante de Triptable se contactará contigo para conocer más acerca de tu negocio.</span></p></div>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"> <i class="pe-7s-lock"></i></div>
-                <div class="content">
-                  <h4 class="description">Reserva con seguridad</h4>
-                  <span>Procesamos y protegemos cada transacción que haces para que reserves con confianza.</span>
+            <div class="col-sm-6 col-md-4">
+              <div class="featured-count clearfix no-margin">
+                <div class="icon-np no-padding featured-icon-static center"> <i class="pe-7s-check"></i></div>
+                <div class="content no-margin">
+                  <h3 class="description no-margin center title">Bienvenido a Triptable</h3>
+                  <div><p class="center pt15">Podrás vender online y aumentar tus reservas con nuestra herramientas para operadores.</span></p></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <input type="search" id="autocomplete-dataset" class="form-control" placeholder="Search for vacation rentals or cities" />.
-    </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.js"></script>
-<style>
-
-.algolia-autocomplete {
-  width: 100%;
-}
-.ad-example-dropdown-menu {
-  width: 100%;
-  color: black;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 5px;
-  padding: .5em;
-  box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
-}
-.ad-example-dropdown-menu .ad-example-suggestion {
-  cursor: pointer;
-  padding-left: 15px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-}
-.ad-example-dropdown-menu .ad-example-suggestion img {
-  height: 2em;
-  margin-top: .5em;
-  margin-right: 10px;
-  float: left;
-}
-.ad-example-dropdown-menu .ad-example-suggestion small {
-  font-size: .8em;
-  color: #bbb;
-}
-.ad-example-dropdown-menu .ad-example-suggestion.ad-example-cursor {
-  background-color: #B2D7FF;
-}
-.ad-example-dropdown-menu .ad-example-suggestion em {
-  font-weight: bold;
-  font-style: normal;
-}
-.ad-example-header {
-  font-weight: bold;
-  padding: .5em 0;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #ccc;
-}
-</style>
-<script src="https://cdn.jsdelivr.net/places.js/1/placesAutocompleteDataset.min.js"></script>
-<script>
-(function() {
-  var client = algoliasearch('CLO2E2RKP1', 'bf4587ef5d150368765803e8c74440d0');
-  var index = client.initIndex('tours');
-
-  // create the first autocomplete.js dataset: vacation rentals
-  var rentalsDataset = {
-    source: autocomplete.sources.hits(index, {hitsPerPage: 3}),
-    displayKey: 'name',
-    name: 'tours',
-    templates: {
-      header: '<div class="ad-example-header">Tours</div>',
-      suggestion: function(suggestion) {
-        console.log(suggestion);
-        return '<a href="/tour/' + suggestion.slug + '"><div class="ad-example-suggestion">' +
-          '<div class="row"><div class="col-md-5" style="background-image:url('+suggestion.fields.images[0].secure_url+');background-position: center;background-size: cover;height: 6em;"></div>' +
-          '<div class="col-md-7">' +
-             suggestion._highlightResult.name.value + '<br />' +
-            '<p style="color:#666"><i class="fa fa-money" style="color:#8a7676"></i> ' + suggestion.fields.price + '$ <i class="fa fa-clock-o col-xs-offset-2" style="color:#8a7676"></i> ' + suggestion.fields.duration + ' horas</p>' +
-          '</div></a>';
-      }
-    }
-  };
-
-  // create the second dataset: places
-  // we automatically inject the default CSS
-  // all the places.js options are available
-  var placesDataset = placesAutocompleteDataset({
-    countries: ['pa'],
-    algoliasearch: algoliasearch,
-    templates: {
-      header: '<div class="ad-example-header">Destinos</div>'
-    },
-    hitsPerPage: 3
-  });
-
-  // init
-  var autocompleteInstance = autocomplete(document.querySelector('#autocomplete-dataset'), {
-    hint: false,
-    debug: true,
-    cssClasses: {prefix: 'ad-example'}
-  }, [
-    rentalsDataset,
-    placesDataset
-  ]);
-
-  var autocompleteChangeEvents = ['selected', 'autocompleted'];
-
-  autocompleteChangeEvents.forEach(function(eventName) {
-    autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
-      console.log(datasetName, suggestion);
-    });
-  });
-})();
-  $('.ad-example-dataset-tours').addClass("col-md-6");
-  $('.ad-example-dataset-places').addClass("col-md-6");
-</script>
-
-
-
-<div class="container">
-<div class="row">
-<div class="col-sm-offset-3 col-md-6 col-sm-offset-3">
-	<h1>Regístrate como partner</h1>
-	</div>
-	</div>
-</div>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-offset-3 col-md-6 col-sm-offset-3 ">
+		<div class="col-md-10 col-sm-10 col-sm-offset-1">
 			{{#if enquirySubmitted}}
 			<h3>Hemos enviado la informacion a tu correo</h3>
 			{{else}}
 			<form method="post">
 				<input type="hidden" name="action" value="contact">
-				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+				<div class="form-group col-md-6 {{#if validationErrors.name}}has-error{{/if}}">
 					<label>Nombre</label>
 					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
 				</div>
-				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+				<div class="form-group col-md-6 {{#if validationErrors.email}}has-error{{/if}}">
 					<label>Email</label>
 					<input type="email" name="email" class="form-control" value="{{formData.email}}">
 				</div>
-				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+				<div class="form-group col-md-6 {{#if validationErrors.message}}has-error{{/if}} ">
 					<label>Sitio Web</label>
 					<input type="text" name="message" placeholder="Sitio Web" class="form-control" value="{{formData.phone}}">
 				</div>
-				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
+				<div class="form-group  col-md-6 {{#if validationErrors.enquiryType}}has-error{{/if}}">
 					<label>Soy un:</label>
 					<select name="enquiryType" class="form-control">
 						<option value="">Escoge</option>
@@ -210,10 +87,13 @@
 					</select>
 				</div>
 				<div class="form-actions center pb50">
-					<button type="submit" class="btn btn-primary ">Aplica</button>
+					<button type="submit" class="btn btn-primary" style="margin: 20px;padding: 20px;">Aplicar Ahora</button>
 				</div>
 			</form>
 			{{/if}}
 		</div>
 	</div>
 </div>
+{{>whyUs}}
+{{>home/testimonials}}
+{{>supportUs}}

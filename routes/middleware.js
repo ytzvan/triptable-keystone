@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var keystone = require('keystone');
 var passport = require('passport');
+var Keen = require('keen-js');
 
 /**
 	Initialises the standard view locals
