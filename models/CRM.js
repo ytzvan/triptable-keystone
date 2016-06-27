@@ -9,6 +9,7 @@ CRM.add({
 	name: { type: Types.Name, required: true },
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
+  company: { type: String, },
 	enquiryType: { type: Types.Select, options: [
 		{ value: 'Tour Operador', label: "Tour Operador" },
 		{ value: 'Guia', label: "Guía Independiente" },
@@ -29,7 +30,7 @@ CRM.add({
 
 CRM.track = true;
 CRM.defaultSort = '-createdAt';
-CRM.defaultColumns = 'name, email, enquiryType, createdAt, status';
+CRM.defaultColumns = 'name, email, company, phone, status';
 CRM.schema.pre('save', function(next) {
   console.log(this);
   if (this.firstTime){
