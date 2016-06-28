@@ -69,7 +69,6 @@ User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
 		},
 		// OK.
 		success: function (){
-		 console.log("Enviada Notificacion");
 		},
 	});
 }

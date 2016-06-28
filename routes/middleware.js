@@ -77,10 +77,10 @@ exports.flashMessages = function(req, res, next) {
  */
 
 exports.requireUser = function(req, res, next) {
-
+  var locals = res.locals;
 	if (!req.user) {
-		req.flash('error', 'Inicia sesión para acceder a esta página.');
-		res.redirect('/signin');
+    req.session.loginError = "Por favor incia sesión para continuar";
+		res.redirect('/signin?from='+req.url);
 	} else {
 		next();
 	}

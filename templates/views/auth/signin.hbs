@@ -3,7 +3,11 @@
   			<strong class="center">{{messages.success}}</strong>
 		</div>
 		{{/if}}
-
+    {{#if validationErrors.requireLogin}}
+		<div class="alert center alert-danger">
+  			<strong>Error:</strong> {{validationErrors.requireLogin}}
+		</div>
+		{{/if}}
 
 		{{#if validationErrors.mismatch}}
 		<div class="alert center alert-danger">

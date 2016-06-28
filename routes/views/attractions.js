@@ -15,7 +15,6 @@ exports = module.exports = function(req, res) {
 			slug: req.params.slug
 		}).exec(function(err, results) { //Query attractions
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404);
 			}
       locals.meta.title = "Reserva tours y actividades en " + results.name + " - Triptable";

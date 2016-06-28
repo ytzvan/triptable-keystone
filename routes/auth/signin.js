@@ -1,11 +1,9 @@
 var keystone = require('keystone');
 var session = require('../../node_modules/keystone/lib/session');
-
 exports = module.exports = function(req, res) {
 	var view = new keystone.View(req, res);
-	var locals = res.locals;
 	var csrf = keystone.security.csrf;
-	locals.validationErrors = {};
+  var locals = res.locals;
 	locals.token = {
 		key : csrf.TOKEN_KEY,
 		value : csrf.getToken(req, res)
@@ -13,7 +11,12 @@ exports = module.exports = function(req, res) {
 	function renderView() {
 		view.render('auth/signin');
 	}
-
+  if (req.session.loginError){
+    req.flash('error', req.session.loginError);
+    locals.validationErrors = {
+				requireLogin : req.session.loginError
+			};
+  };
 	// If a form was submitted, process the login attempt
 	if (req.method === 'POST') {
 		if (!csrf.validate(req)) {
@@ -32,7 +35,6 @@ exports = module.exports = function(req, res) {
 		}
 
 		var onSuccess = function (user) {
-			console.log(user);
 			if (req.query.from && req.query.from.match(/^(?!http|\/\/|javascript).+/)) {
 				res.redirect(req.query.from);
 			} else if ('string' === typeof keystone.get('signin redirect')) {

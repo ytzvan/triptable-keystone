@@ -102,7 +102,6 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
-		 	console.log("err", err);
 		},
 		// OK.
 		success: function (){

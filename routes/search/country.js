@@ -23,7 +23,6 @@ exports = module.exports = function(req, res) {
 	query = {
 		'slug' : req.params.country,
 	};
-	console.log(query);
 
 
 	view.on('init', function(next) {
@@ -31,7 +30,6 @@ exports = module.exports = function(req, res) {
 			if (req.query.categoria) {
 				keystone.list('PostCategory').model.findOne({ slug: category }).exec(function(err, result) {
 					locals.data.filters = result;
-					console.log(result);
 					next(err);
 				});
 			} else {
@@ -44,7 +42,6 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Country').model.findOne(query).exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404).render('errors/404');
 			}
 			locals.data.country = results;
@@ -66,7 +63,6 @@ exports = module.exports = function(req, res) {
 				.where("country", id)
         .sort('-publishedDate')
 				.populate('city province categories');
-				console.log(category);
 				if (category) {
 					q.where('categories').in([locals.data.filters]);
 				}
@@ -86,7 +82,6 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404);
 			}
 			locals.data.categories = results;
@@ -100,7 +95,6 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404);
 			}
 			locals.data.provinces = results;

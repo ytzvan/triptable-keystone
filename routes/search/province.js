@@ -18,7 +18,6 @@ exports = module.exports = function(req, res) {
     country : req.params.country
 	};
 	var category = req.query.categoria;
-	console.log(category);
 	locals.data.province;
 	locals.meta = {};
 	var url = req.url;
@@ -32,7 +31,6 @@ exports = module.exports = function(req, res) {
 		if (req.query.categoria) {
 			keystone.list('PostCategory').model.findOne({ slug: category }).exec(function(err, result) {
 				locals.data.filters = result;
-				console.log(result);
 				next(err);
 			});
 		} else {
@@ -45,7 +43,6 @@ exports = module.exports = function(req, res) {
 		keystone.list('Province').model.findOne(query).exec(function(err, province) { //Query states
 
 			if (err || !province) {
-				console.log("err", err);
 				return res.status(404).render('errors/404');
 			}
 			locals.data.province = province;
@@ -67,7 +64,6 @@ exports = module.exports = function(req, res) {
 			 .where("province", id)
         .sort('-publishedDate')
 			 .populate('city province categories');
-			 console.log(category);
   			if (category) {
   				q.where('categories').in([locals.data.filters]);
   			}
@@ -84,7 +80,6 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404);
 			}
 			locals.data.provinces = results;
@@ -98,7 +93,6 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				console.log("err", err);
 				return res.status(404);
 			}
 			locals.data.categories = results;

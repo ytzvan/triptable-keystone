@@ -32,7 +32,6 @@ CRM.track = true;
 CRM.defaultSort = '-createdAt';
 CRM.defaultColumns = 'name, email, company, phone, status';
 CRM.schema.pre('save', function(next) {
-  console.log(this);
   if (this.firstTime){
 	  this.sendCRMEmail(this); // Send OP emai
     //this.firstTime = false;
@@ -40,7 +39,6 @@ CRM.schema.pre('save', function(next) {
   next();
 });
 CRM.schema.post('save', function() {
-   console.log("exist post save ", this.firstTime);
 });
 
 CRM.schema.methods.sendCRMEmail = function (obj) {
@@ -61,11 +59,9 @@ CRM.schema.methods.sendCRMEmail = function (obj) {
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
-		 	console.log("err", err);
 		},
 		// OK.
 		success: function (){
-		 console.log("Enviado email");
 		},
 	});
 }

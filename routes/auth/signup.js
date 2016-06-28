@@ -21,7 +21,6 @@ exports = module.exports = function(req, res) {
         var q = keystone.list('User').model.findOne().where('email', req.body.email);
         q.exec(function(err, result) {
           if (result){
-            console.log(result);
               req.flash('error', 'El e-mail introducido ya se encuentra registrado.');
               return res.redirect('/signup');
           //    next();
@@ -41,7 +40,6 @@ exports = module.exports = function(req, res) {
         }, function(err,result) {
             if (err) {
                 locals.data.validationErrors = err.errors;
-                console.log(err.errors);
             } else {
                 recordEvent(result, req);
                 req.flash('success', 'Cuenta creada. Por favor inicia sesión');
@@ -75,11 +73,9 @@ exports = module.exports = function(req, res) {
     // Send it to the "purchases" collection
      client.addEvent("signup", signUpEvent, function(err, res){
       if (err) {
-        console.log(err);
         return true;
       }
       else {
-        console.log(res);
          return true;
       }
     });
