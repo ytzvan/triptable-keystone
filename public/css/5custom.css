@@ -273,3 +273,37 @@ img {
     position: absolute;
     background: rgba(0,0,0,0);
 }
+.ccs {
+	font-family: 'creditcardstack';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	width: 1em;
+	height: .7em;
+	line-height: .7em;
+	position:relative;
+	display: inline-block;
+}
+
+.ccs:before, .ccs:after, .ccs span:before, .ccs span:after{
+	position:absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	padding: 0 .1em;
+}
+
+.ccs-visa:before {
+	content: "\e600";
+	color: #faa519;
+}
+.ccs-visa:after {
+	content: "\e601";
+	color: #00579f;
+}

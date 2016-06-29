@@ -1,0 +1,65 @@
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<div class="container">
+  <div class="row">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tour</th>
+                <th>Fecha Reservada</th>
+                <th>Cantidad</th>
+                <th>Precio Pagado</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Tour</th>
+                <th>Fecha Reservada</th>
+                <th>Cantidad</th>
+                <th>Precio Pagado</th>
+                <th>Estado</th>
+            </tr>
+        </tfoot>
+        <tbody>
+          {{#each data.bookings}}
+            <tr>
+                <td>{{friendlyId}}</td>
+                <td>{{tourName}}</td>
+                <td>{{datePretty}}</td>
+                <td>{{people}}</td>
+                <td>{{bookingFlatPrice}}$</td>
+                <td><span id="status{{friendlyId}}" class="badge"></span></td>
+            </tr>
+          <script type="text/javascript">
+           var status = {{bookingStatus}};
+           var elem = $('#status{{friendlyId}}');
+           console.log(status);
+           if (status == 0) {
+             elem.addClass("pending");
+             elem.append("Pendiente");
+           }
+           if (status == 1) {
+             elem.addClass("confirm");
+             elem.append("Confirmada");
+
+           }
+           if (status == 2) {
+             elem.addClass("declined");
+             elem.append("Declinada");
+
+           }
+           </script>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{data.bookings}}
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').DataTable();
+});
+</script>

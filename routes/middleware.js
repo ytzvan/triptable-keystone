@@ -102,6 +102,21 @@ exports.isAdmin = function (req, res, next) {
       next();
     }
 };
+exports.isGuide = function (req, res, next) {
+  var locals = res.locals;
+  if (req.user) {
+    if (req.user.isGuide == true) {
+      locals.isGuide = true;
+      next();
+    } else {
+      locals.isGuide = false;
+      next();
+    }
+  }
+    else {
+      next();
+    }
+};
 
 exports.userInfo = function(req, res, next) {
 	var locals = res.locals;

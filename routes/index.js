@@ -9,6 +9,8 @@ keystone.pre('routes', middleware.userInfo);
 keystone.pre('render', middleware.userInfo);
 keystone.pre('routes', middleware.isAdmin);
 keystone.pre('render', middleware.isAdmin);
+keystone.pre('routes', middleware.isGuide);
+keystone.pre('render', middleware.isGuide);
 
 // Import Route Controller
 var routes = {
@@ -16,6 +18,7 @@ var routes = {
 	search: importRoutes('./search'),
 	auth: importRoutes('./auth'),
 	static: importRoutes('./static'),
+	admin: importRoutes('./admin'),
 
 };
 // Setup Route Bindings
@@ -30,6 +33,7 @@ exports = module.exports = function(app) {
   app.all('/terminos', routes.static.terms);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
+  app.all('/admin', routes.admin.home.index);
 
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
