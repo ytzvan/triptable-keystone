@@ -1,36 +1,40 @@
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 <div class="container">
   <div class="row">
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tour</th>
+                <th>Tour Reservado</th>
                 <th>Fecha Reservada</th>
                 <th>Cantidad</th>
                 <th>Precio Pagado</th>
                 <th>Estado</th>
+                <th>Ver Reserva</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>Tour</th>
+                <th>Tour Reservado</th>
                 <th>Fecha Reservada</th>
                 <th>Cantidad</th>
                 <th>Precio Pagado</th>
                 <th>Estado</th>
+                <th>Ver Reserva</th>
             </tr>
         </tfoot>
         <tbody>
           {{#each data.bookings}}
             <tr>
-                <td>{{friendlyId}}</td>
-                <td>{{tourName}}</td>
+                <td class="id"><a href="/admin/booking/{{friendlyId}}"><i class="fa fa-arrow-right"></i> {{friendlyId}}</a></td>
+                <td><a href="/tour/{{tourUrl}}">{{tourName}}</a></td>
                 <td>{{datePretty}}</td>
-                <td>{{people}}</td>
-                <td>{{bookingFlatPrice}}$</td>
+                <td class="center">{{people}}</td>
+                <td class="center">{{bookingFlatPrice}}$</td>
                 <td><span id="status{{friendlyId}}" class="badge"></span></td>
+                <td class="center"><a href="/admin/booking/{{friendlyId}}"><i class="fa fa-eye" style="color:black;"></i></a></td>
             </tr>
           <script type="text/javascript">
            var status = {{bookingStatus}};
@@ -56,10 +60,17 @@
     </table>
   </div>
 </div>
-{{data.bookings}}
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#example').DataTable();
+    $('#example').DataTable({
+      "paging":   false,
+       "ordering": false,
+      // "info": false,
+       "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+    });
 });
 </script>

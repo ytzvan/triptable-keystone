@@ -1,0 +1,136 @@
+ {{#if messages.error}}
+		<div class="alert alert-success center">
+  			<strong class="center">{{messages.error}}</strong>
+		</div>
+		{{/if}}
+<div class="container" style="margin-bottom:30px;">
+<div class="row">
+  <div class="col-md-8">
+    <h3>Reserva</h3>
+      <div class="col-md-4">
+        <p>ID de Reserva: <strong>{{data.booking.friendlyId}}</strong></p>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <p>Fecha de Reserva: <strong>{{data.booking.datePretty}}</strong></p>
+      </div>
+     <div class="col-md-4">
+        <p>Precio Pagado: <strong>$ {{data.booking.bookingFlatPrice}}</strong></p>
+      </div>
+    <div class="col-md-6 col-md-offset-1">
+        <p>Comisión Triptable: <strong>$ {{data.booking.bookingRevenue}}</strong></p>
+    </div>
+    <div class="col-md-4">
+        <p>Cantidad de Personas: <strong>{{data.booking.people}}</strong></p>
+      </div>
+    <div class="col-md-6 col-md-offset-1">
+        <p>Precio por Persona: <strong>$ {{data.booking.tourPrice}}</strong></p>
+    </div>
+    <h3>Información del Cliente:</h3>
+     {{#if_eq data.booking.bookingStatus 0}}
+       <div class="alert alert-info center col-md-12">
+  			<strong class="center">Debes aceptar esta reserva para ver la información completa del cliente.</strong>
+		  </div>
+    <div class="col-md-4">
+        <p>Nombre: <strong>{{data.booking.name.first}} {{{getFirstLetter data.booking.name.last}}}.</strong></p>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <p>E-mail: <strong>Oculto</strong></p>
+      </div>
+    {{else}}
+    {{#if_eq data.booking.bookingStatus 2}}
+    <div class="alert alert-warning center">
+  			<strong class="center">No disponible</strong>
+		</div>
+    {{else}}
+    <div class="col-md-4">
+     <p>Nombre: <strong>{{data.booking.name.full}}</strong></p>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <p>E-mail: <strong>{{data.booking.name.email}}</strong></p>
+      </div>
+    <div class="col-md-4">
+        <p>Teléfono: <strong>{{data.booking.phone}}</strong></p>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <p>Dirección de Recogida: <strong>{{data.booking.hotel}}</strong></p>
+      </div>
+      {{/if_eq}}
+    {{/if_eq}}
+    {{#if_eq data.booking.bookingStatus 0}} <!-- Pending -->
+    <h3>Estado de la Reserva: Pendiente</h3>
+    <div class="alert alert-warning">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Atención!</strong> Esta Reserva está pendiente de confirmación, por favor acéptala o declínala
+     </div>
+      <div class="col-md-6">
+        <a href="#" class="btn btn-lg btn-success">Confirmar Reserva</a>
+    </div>
+      <div class="col-md-6">
+        <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#declineModal">Declinar Reserva</a>
+    </div>
+    <div class="col-md-12"><p>Al confirmar o declinar una reserva estás de acuerdo con nuestro términos de uso </p></div>
+    {{else}}
+   {{#if_eq data.booking.bookingStatus 1}} <!-- Aceptada -->
+    <h3>Estado de la Reserva: Aceptada</h3>
+     <div class="alert alert-success center">
+  			<strong class="center">Esta reserva ha sido confirmada</strong>
+		</div>
+   {{else}} <!-- denegada -->
+    <h3>Estado de la Reserva: Declinada</h3>
+     <div class="alert alert-danger center">
+  			<strong class="center">Esta reserva ha sido declinada</strong>
+		</div>
+     {{/if_eq}}
+    {{/if_eq}}
+  </div> <!-- end col md 8 -->
+  <div class="col-md-4">
+     <h3>Tour Reservado</h3>
+    <div class="col-md-12"><p>Nombre: {{data.tour.name}}</p></div>
+     <div class="col-md-12"><img class="img-responsive" src="{{data.tour.images.0.secure_url}}" /></div>
+    <div class="col-md-12"><p>Descripción: {{{data.tour.description.short}}}</p></div>
+  </div>
+ </div> <!-- end row -->
+</div> <!-- end container -->
+
+<!-- Modal -->
+<div id="declineModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Declinar Reserva</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger">
+          <strong>¡Atención!</strong> Estas a punto de declinar esta reserva
+       </div>
+          <form id="decline-form" method="POST" action="/admin/booking/{{data.booking.friendlyId}}/decline" >
+            <input type="hidden" name="action" value="decline">
+            <div class="form-horizontal">
+              <div class="form-group gap-20 ">
+               <label class="col-sm-3 col-md-5" style="padding-top: 15px;">Motivo de Declinar:</label>
+								<div class="col-sm-9 col-md-7">
+									<input type="text" placeholder="Ej: No tengo disponiblidad para ese día" name="comment" class="form-control" required="true">
+								</div>
+						  </div>
+
+              <div class="form-group gap-20 ">
+               <label class="col-sm-3 col-md-5" style="padding-top: 15px;">¿Deseas re-agendar esta reserva?</label>
+								<div class="col-sm-9 col-md-7">
+									<input type="date" name="reschedule" class="form-control" required="true">
+								</div>
+						  </div>
+
+            </div>
+         <button type="submit" class="btn btn-danger">Declinar Reserva</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

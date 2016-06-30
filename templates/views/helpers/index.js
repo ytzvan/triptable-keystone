@@ -366,7 +366,19 @@ module.exports = function() {
 
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
-	}
+	};
+
+  _helpers.if_eq = function (a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+  };
+
+  _helpers.getFirstLetter = function (name){
+    var firstLetter = (name.charAt(0)); // alerts 's'
+    return firstLetter;
+  }
 
 	return _helpers;
 };

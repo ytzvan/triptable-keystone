@@ -34,6 +34,8 @@ exports = module.exports = function(app) {
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
   app.all('/admin', routes.admin.home.index);
+  app.all('/admin/booking/:id', routes.admin.booking.index);
+  app.all('/admin/booking/:id/decline', routes.admin.booking.decline);
 
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
