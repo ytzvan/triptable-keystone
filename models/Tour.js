@@ -38,6 +38,7 @@ Tour.add({
 	departureTime: { type: String},
 	arrivalTime: {type: String},
 	price: {type: Types.Money},
+  comission: {type: Types.Number, default: 15},
 	duration: {type: Types.Number },
 	transportation: {type: Types.Boolean, default: true },
 	hotelPickup: {type: Types.Boolean, default: true },

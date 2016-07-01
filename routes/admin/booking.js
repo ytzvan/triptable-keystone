@@ -40,12 +40,15 @@ exports.index = function(req, res) {
     view.render('admin/booking');
 };
 
-exports.decline = function(req, res) {
+exports.update = function(req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
-    req.body.bookingStatus = 2;
-    console.log(req.body);
-    view.on('post', { action: 'decline' }, function(next) {
+    if (req.body.action === 'decline') {
+      req.body.bookingStatus = 2;
+    } else {
+      req.body.bookingStatus = 1;
+    };
+    view.on('post', function(next) {
 
       keystone.list('Enquiry').model.findOne({friendlyId: req.params.id}).exec(function(err, result) {
        if (err){
@@ -59,9 +62,15 @@ exports.decline = function(req, res) {
               return res.redirect(req.get('referer'));
             }
             else {
+              console.log("estado previo", result.bookingStatus);
+              if (result.bookingStatus != 0) {
+                var message = "Esta reserva ya ha sido aceptada o declinada";
+                console.log(message);
+                req.flash('error', message);
+                return res.redirect(req.get('referer'));
+              }
               var application = result;
               var updater = application.getUpdateHandler(req);
-              console.log("updater", updater);
               updater.process(req.body, {
                 flashErrors: true,
                 fields: 'bookingStatus',
@@ -71,7 +80,12 @@ exports.decline = function(req, res) {
                     req.flash('error', message);
                     return res.redirect(req.get('referer'));
                 } else {
-                    var message = "La reserva ha sido declinada";
+                    if (req.body.bookingStatus == 1) {
+                      var action = "confirmada";
+                    } else {
+                      var action = "declinada"
+                    }
+                    var message = "La reserva ha sido " + action + " con éxito";
                     req.flash('success', message);
                     return res.redirect(req.get('referer'));
                 }
@@ -79,24 +93,8 @@ exports.decline = function(req, res) {
               });
 
             }
-		 });
-
-
-
-
-
-
-
-
-
-
-         var errorMessage = "La reserva ha sido declinada";
-		  	  req.flash('error', errorMessage);
-
+		     });
      });
-     view.render('admin/booking');
-    function getEnquiryById(enquiryId) {
-
-    };
+  view.render('admin/booking');
 };
 

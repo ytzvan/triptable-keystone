@@ -38,7 +38,6 @@ exports = module.exports = function(req, res) {
 		  var result;
 		  var response;
 
-      console.log(req.body.people);
         var invalidTravelers = isNaN(req.body.people);
          if (invalidTravelers){
 		  	 var errorMessage = "Número de Viajeros inválido";
@@ -52,7 +51,12 @@ exports = module.exports = function(req, res) {
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
 	    var processorTax = 3.9; // % del procesador
 	    var processorFee = 0.30; // fee individual por transaccion
-	    var commisionPercentaje = 15; //porcentaje de commision que nos llevamos nosotros
+      if (locals.data.tour.comission){
+        var commisionPercentaje = locals.data.tour.comission; //porcentaje de commision que nos llevamos nosotros
+      } else {
+        var commisionPercentaje = 15;
+      }
+      console.log(commisionPercentaje);
 	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
 	    var tourOperatorCost = flatPrice - commision;
 
@@ -72,9 +76,10 @@ exports = module.exports = function(req, res) {
 	    	bookingFlatPrice : flatPrice,
 	    	bookingTransactionFee : transactionCost,
 	    	bookingOperatorFee : tourOperatorCost,
-	    	bookingRevenue : commision
+	    	bookingRevenue : commision,
+        bookingComission : commisionPercentaje
 	    };
-
+      console.log(updateBody);
 //		var finalObj = {};
 		extend(updateBody, req.body);
       var cardNumber = body.cardNumber;
@@ -99,7 +104,6 @@ exports = module.exports = function(req, res) {
 		     cardHolder: body.cardholder,
 		     cvv2: body.cvv2 }
 		};
-    console.log(options);
 		request(options, function (error, response, body) {
 		  if (error) throw new Error(error);
 
@@ -192,7 +196,7 @@ exports = module.exports = function(req, res) {
 
 		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {
@@ -211,7 +215,6 @@ exports = module.exports = function(req, res) {
 };
 
 function recordEvent(data){
-  console.log(data);
     var bookingEvent = {
       item: data.tour,
       description: data.tourName,
@@ -234,7 +237,6 @@ function recordEvent(data){
         return true;
       }
       else {
-        console.log(res);
          return true;
       }
     });

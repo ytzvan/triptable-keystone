@@ -3,6 +3,11 @@
   			<strong class="center">{{messages.error}}</strong>
 		</div>
 		{{/if}}
+ {{#if messages.success}}
+		<div class="alert alert-success center">
+  			<strong class="center">{{messages.success}}</strong>
+		</div>
+		{{/if}}
 <div class="container" style="margin-bottom:30px;">
 <div class="row">
   <div class="col-md-8">
@@ -36,6 +41,12 @@
       <div class="col-md-6 col-md-offset-1">
         <p>E-mail: <strong>Oculto</strong></p>
       </div>
+    <div class="col-md-4">
+        <p>Teléfono: <strong>Oculto</strong></p>
+      </div>
+      <div class="col-md-6 col-md-offset-1">
+        <p>Dirección de Recogida: <strong>Oculto</strong></p>
+      </div>
     {{else}}
     {{#if_eq data.booking.bookingStatus 2}}
     <div class="alert alert-warning center">
@@ -46,7 +57,7 @@
      <p>Nombre: <strong>{{data.booking.name.full}}</strong></p>
       </div>
       <div class="col-md-6 col-md-offset-1">
-        <p>E-mail: <strong>{{data.booking.name.email}}</strong></p>
+        <p>E-mail: <strong>{{data.booking.email}}</strong></p>
       </div>
     <div class="col-md-4">
         <p>Teléfono: <strong>{{data.booking.phone}}</strong></p>
@@ -62,13 +73,15 @@
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Atención!</strong> Esta Reserva está pendiente de confirmación, por favor acéptala o declínala
      </div>
-      <div class="col-md-6">
-        <a href="#" class="btn btn-lg btn-success">Confirmar Reserva</a>
+      <div class="col-md-6" style="padding:15px 0px;">
+        <form id="accept-form" method="POST" action="/admin/booking/{{data.booking.friendlyId}}/update">
+          <input type="hidden" name="action" value="accept">
+          <button type="submit" class="btn btn-lg btn-success">Confirmar Reserva</button>
+        </form>
     </div>
-      <div class="col-md-6">
+      <div class="col-md-6" style="padding:15px 0px;">
         <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#declineModal">Declinar Reserva</a>
     </div>
-    <div class="col-md-12"><p>Al confirmar o declinar una reserva estás de acuerdo con nuestro términos de uso </p></div>
     {{else}}
    {{#if_eq data.booking.bookingStatus 1}} <!-- Aceptada -->
     <h3>Estado de la Reserva: Aceptada</h3>
@@ -106,7 +119,7 @@
         <div class="alert alert-danger">
           <strong>¡Atención!</strong> Estas a punto de declinar esta reserva
        </div>
-          <form id="decline-form" method="POST" action="/admin/booking/{{data.booking.friendlyId}}/decline" >
+          <form id="decline-form" method="POST" action="/admin/booking/{{data.booking.friendlyId}}/update" >
             <input type="hidden" name="action" value="decline">
             <div class="form-horizontal">
               <div class="form-group gap-20 ">

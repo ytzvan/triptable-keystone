@@ -44,13 +44,14 @@ Enquiry.add({
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now },
-	friendlyId: {type: String, unique: true},
+	friendlyId: {type: String, unique: true, noedit:true},
 	datePretty: {type: String},
 	bookingTotalPrice : {type: Types.Money, noedit: true}, //precio total
 	bookingFlatPrice : {type: Types.Money, noedit: true}, //precio sin costo de metro pago
 	bookingTransactionFee : {type: Types.Money, noedit: true}, // cantidad a pagar a metro pago
 	bookingOperatorFee : {type: Types.Money, noedit: true}, // cantidad a pagar a operador
 	bookingRevenue : {type: Types.Money, noedit: true}, // cantidad que nos toca
+	bookingComission : {type: Types.Number, noedit: true}, // % de comision establecida
 	transactionResponseCode : {type: String, noedit: true},
 	transactionReference : {type: String, noedit: true},
 	transactionAuthorizationNumber : {type: String, noedit: true},
