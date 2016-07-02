@@ -79,10 +79,10 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-	//	this.sendUserEmail(this); //Send User email
+		this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail
-//		this.sendBookingNotificationEmail(this, email); //Email al operador
-//		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+		this.sendBookingNotificationEmail(this, email); //Email al operador
+		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
 	}
 });
 
@@ -106,7 +106,6 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 		},
 		// OK.
 		success: function (){
-		 console.log("Enviado email de Usuario");
 		},
 	});
 }
