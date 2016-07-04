@@ -11,22 +11,6 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/chiriqui</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/nosotros</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city</loc>
-  <changefreq>daily</changefreq>
-</url>  
-<url>
   <loc>https://www.triptable.com/partners</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -39,6 +23,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>https://www.triptable.com/nosotros</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>https://www.triptable.com/tour/island-hopping-en-san-blas-day-tour</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -48,6 +36,18 @@
 </url>
 <url>
   <loc>https://www.triptable.com/tour/afro-panamanian-food-tour-in-panama-city</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/panama-city</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/chiriqui</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
