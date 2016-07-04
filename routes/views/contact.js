@@ -4,6 +4,7 @@ var Enquiry = keystone.list('Enquiry');
 var request = require('request');
 var extend = require('extend');
 var Keen = require('keen-js');
+var moment = require('moment');
 var client = new Keen({
     projectId: "577145c107271968d3a2107d", // String (required always)
     writeKey: "5f180e718b659d108d1517d2be385b5e5c2f9740dc0758649d78935f971c27fb77f1d7462a33c1e2dca28ba69d63e61fd357a5b348ad5c325a66bab2ecbb58f8011cc0d765bfa6a48d483a7b582a247e13786047447585db3db1144d65d6fb9b",   // String (required for sending data)
@@ -84,8 +85,11 @@ exports = module.exports = function(req, res) {
 		extend(updateBody, req.body);
       var cardNumber = body.cardNumber;
       cardNumber = cardNumber.replace(/ /g,'');
+
       var cardDate = body.expiration;
-      cardDate = cardDate.replace(' / ', '');
+      cardDate = moment("01/"+body.expiration,"DD-MM-YYYY");
+      var formatDate = cardDate.format("MMYY");
+      cardDate = formatDate;
 		  var options = { method: 'POST',
       proxy: process.env.QUOTAGUARDSTATIC_URL,
       headers: {
