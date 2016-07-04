@@ -89,15 +89,15 @@ Enquiry.schema.post('save', function() {
 Enquiry.schema.methods.sendUserEmail = function (obj) {
 	var email = obj.email;
 	var name = obj.name.full;
-
+  var friendlyId = obj.friendlyId;
 		Mailgun.sendHtmlEmail({
 			apiKey: process.env.MAILGUN_APIKEY,
 			domain: process.env.MAILGUN_DOMAIN,
 			toEmail: email,
 			toName: name,
 			subject: 'Tu reserva de Triptable',
-			textMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. Te notificaremos cuando tu reserva esté confirmada. \nSaludos, El equipo de Triptable ',
-			htmlMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. Te notificaremos cuando tu reserva esté confirmada. \nSaludos, El equipo de Triptable',
+			textMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el '+friendlyId+'. <br>Los datos de tu reservas son los siguientes: <br>Tour: '+obj.tourName+'. <br>Fecha de reserva: '+obj.datePretty+'. <br>Cantidad de Personas: '+ obj.people + '. <br> Precio total: '+obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
+			htmlMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el '+friendlyId+'. <br>Los datos de tu reservas son los siguientes: <br>Tour: '+obj.tourName+'. <br>Fecha de reserva: '+obj.datePretty+'. <br>Cantidad de Personas: '+ obj.people + '. <br> Precio total: '+obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
 			fromEmail: bookingEmail,
 			fromName: bookingEmailName,
 		}).exec({

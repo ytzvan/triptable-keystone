@@ -281,3 +281,7 @@ input{
 td.id{
   text-transform: uppercase;
 }
+.payment-box {
+    margin: 0 0 10px;
+    padding-bottom: 15px;
+}

@@ -1,4 +1,5 @@
- {{#if messages.error}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.10.2/validator.min.js"></script>
+{{#if messages.error}}
 		<div class="alert alert-danger center">
   			<strong class="center">{{messages.error}}</strong>
 		</div>
@@ -108,18 +109,23 @@
 										<p><input type="date" required=true name="date"></p>
 									</div> -->
                       <div class="form-group">
-                          <div class='input-group date col-sm-5 col-md-4' id='datetimepicker11'>
-                              <input type='text' name="date" class="form-control" />
-                              <span class="input-group-addon">
-                                  <span class="glyphicon glyphicon-calendar">
-                                  </span>
-                              </span>
-                          </div>
+                            <div class='input-group date col-sm-5 col-md-4' id='datetimepicker11'>
+                                <input type='text' required name="date" id="date" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                            <div  id="dateEmpty" class="alert alert-danger center" style="display:none">
+                               <strong class="center">Por favor, escoge una fecha para tu reserva</strong>
+                             </div>
                       </div>
                   </div>
                   <script type="text/javascript">
                       $(function () {
-
+                        $('.input-group-addon').on('click', function(){
+                           $('#dateEmpty').attr('style', 'display:none');
+                        });
                         var today = new Date();
                         var numberOfDaysToAdd = {{data.tour.skipDays}};
                         if (numberOfDaysToAdd == 0) {
@@ -132,9 +138,11 @@
                               format : 'YYYY-MM-DD',
                               minDate : date,
                               disabledDates :  [{{#each data.tour.disabledDates}}"{{this}}", {{/each}}],
+                              useCurrent : false,
                               debug:true
                           });
                       });
+
                   </script>
               </div>
 
@@ -157,7 +165,7 @@
 												{{#if validationErrors.name}}<p>El Nombre no puede estar vacío </p>{{/if}}
 												<label class="col-sm-3 col-md-2 control-label">Nombre:</label>
 												<div class="col-sm-5 col-md-4">
-													<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required="true" value="">
+													<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required value="">
 												</div>
 											</div>
 										</div>
@@ -202,9 +210,22 @@
 
 												var taxPrice = initPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 												var transactionCost = taxPrice + processorFee;
-												transactionCost = Math.round(transactionCost)+1;
+                        var decimals = decimalPlaces(transactionCost);
+                        if (decimals > 2) {
+                          transactionCost = Math.floor(transactionCost * 100) / 100
+                        }
+                        if (decimals === 1) {
+                          transactionCost = transactionCost.toFixed(3).slice(0, -1)
+                        }
+
 												var totalPrice = initPrice + taxPrice + processorFee;
-												totalPrice = Math.round(totalPrice)+1;
+												var decimals = decimalPlaces(totalPrice);
+                        if (decimals > 2) {
+                          totalPrice = Math.floor(totalPrice * 100) / 100
+                        }
+                        if (decimals === 1) {
+                          totalPrice = totalPrice.toFixed(3).slice(0, -1)
+                        }
 
 										    $('span#price').html(initPrice);
 										    $('span#nOfTravelers').html(min);
@@ -222,11 +243,23 @@
 												var changePrice = travelers*price;
 
 												var taxPrice = changePrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
-												var transactionCost = taxPrice + processorFee + 0.01;
-												transactionCost = Math.round(transactionCost)+1;
+												var transactionCost = taxPrice + processorFee;
+												 var decimals = decimalPlaces(transactionCost);
+                        if (decimals > 2) {
+                          transactionCost = Math.floor(transactionCost * 100) / 100
+                        }
+                        if (decimals === 1) {
+                          transactionCost = transactionCost.toFixed(3).slice(0, -1)
+                        }
 
 												var totalPrice = changePrice + taxPrice + processorFee;
-												totalPrice = Math.round(totalPrice)+1;
+                        var decimals = decimalPlaces(totalPrice);
+                        if (decimals > 2) {
+                          totalPrice = Math.floor(totalPrice * 100) / 100
+                        }
+                        if (decimals === 1) {
+                          totalPrice = totalPrice.toFixed(3).slice(0, -1)
+                        }
 
 												$('span#price').html(changePrice);
 												$('span#nOfTravelers').html(travelers);
@@ -234,6 +267,18 @@
 												$('span#tourTravelersPrice').html(changePrice);
 										    	$('span#totalPrice').html(totalPrice);
 											});
+
+                      function decimalPlaces(num) {
+                        console.log(num);
+                        var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+                        if (!match) { return 0; }
+                        return Math.max(
+                             0,
+                             // Number of digits right of decimal point.
+                             (match[1] ? match[1].length : 0)
+                             // Adjust for scientific notation.
+                             - (match[2] ? +match[2] : 0));
+                      }
 										</script>
 
 										{{#if data.tour.hotelPickup}}
@@ -241,7 +286,7 @@
 											<div class="form-group gap-20">
 												<label class="col-sm-3 col-md-2 control-label">Dirección:</label>
 												<div class="col-sm-5 col-md-4">
-													<input type="text" name="hotel"  placeholder="Hotel o lugar de recogida " class="form-control" value="">
+													<input type="text" name="hotel" id="hotel" placeholder="Hotel o lugar de recogida " required class="form-control" value="">
 												</div>
 											</div>
 										</div>
@@ -273,10 +318,10 @@
 												<div class="form">
 													<div class="form-group col-md-6">
 														<label class="control-label">Nombre del tarjetahabiente</label>
-														<input type="text" name="cardholder" class="form-control mb-0 col-md-6" placeholder="Ejm: Juan Pérez">
+														<input type="text" name="cardholder" required class="form-control mb-0 col-md-6" placeholder="Ejm: Juan Pérez">
 													</div>
                           <div class="form-group col-md-6">
-                            <label for="cc-number" class="control-label">Número de Tarjeta <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
+                            <label for="cc-number" class="control-label">Número de Tarjeta <small class="text-muted"></small></label>
                             <input type="tel" name="cardNumber" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
                           </div>
                           <div class="form-group col-md-6">
@@ -295,14 +340,21 @@
 							</div>
               <div class="row">
                 <div class="checkbox-block col-md-6">
-                <input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
-                <label class="" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
+
+
+                <input id="accept_booking" required name="accept_booking" type="checkbox" class="checkbox"/>
+                <label class="check-with-label"  id="terms" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
+                  <div class="error" id="showError" style="display:none">
+                     <div class="alert alert-danger center">
+                        <strong class="center">Por favor, acepta los términos y condiciones</strong>
+                    </div>
+                  </div>
               </div>
             </div>
 
 						<div class="row">
 							<div class="col-sm-8 col-md-6">
-								<button class="btn btn-primary">Reservar Ahora</button>
+								<button class="btn btn-primary" id="book_now">Reservar Ahora</button>
 								<p class="line18 mt-10"><span class="font600">Gracias por preferir Triptable</span>.</p>
 							</div>
 						</div>
@@ -394,6 +446,30 @@
         this.parent('.form-group').toggleClass('has-error', erred);
         return this;
       };
+
+      $(document).ready(function() {
+      $('form').validator().on('submit', function (e) {
+        var dateVal = $('#date').val();
+        if (!dateVal){
+          $( '#date' ).focus();
+          $('#dateEmpty').attr('style', 'display:block;margin: 15px 0px;');
+        }
+        var hotelVal = $('#hotel').val();
+
+        if (!hotelVal) {
+            $( '#hotel' ).focus();
+        }
+        var isChecked = $('#accept_booking').is(':checked');
+        if  (!isChecked){
+           $( '#accept_booking' ).focus();
+           $('#showError').attr('style', 'display:block');
+          e.preventDefault();
+        } else {
+          $('#showError').attr('style', 'display:none');
+          return true;
+        }
+      })
+      });
 
 
       $('form').submit(function(e) {
