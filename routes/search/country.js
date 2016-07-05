@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
 	locals.data.country;
 	locals.meta = {};
 	var url = req.url;
-	locals.meta.url = "https://www.triptableapp.com"+url;
+	locals.meta.url = "https://www.triptable.com"+url;
 	query = {
 		'slug' : req.params.country,
 	};
@@ -60,6 +60,7 @@ exports = module.exports = function(req, res) {
 					page: req.query.page || 1,
 					perPage: 5,
 				})
+        .find({"state": "published"})
 				.where("country", id)
         .sort('-publishedDate')
 				.populate('city province categories');

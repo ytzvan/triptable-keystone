@@ -61,6 +61,7 @@ exports = module.exports = function(req, res) {
   				page: req.query.page || 1,
   				perPage: 5,
 			})
+      .find({"state": "published"})
 			 .where("province", id)
         .sort('-publishedDate')
 			 .populate('city province categories');

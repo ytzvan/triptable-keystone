@@ -21,6 +21,9 @@ User.add({
   },
   description: {type: Types.Textarea },
   createdAt: { type: Date, default: Date.now, noedit: true },
+  contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
+  personalIdentification: { type: Types.S3File, dependsOn: { isGuide: true } }, // copia de identificacion
+  operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true}

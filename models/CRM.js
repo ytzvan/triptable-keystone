@@ -33,8 +33,7 @@ CRM.defaultSort = '-createdAt';
 CRM.defaultColumns = 'name, email, company, phone, status';
 CRM.schema.pre('save', function(next) {
   if (this.firstTime){
-	  this.sendCRMEmail(this); // Send OP emai
-    //this.firstTime = false;
+	  this.sendCRMEmail(this);
    }
   next();
 });
