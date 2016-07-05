@@ -266,7 +266,8 @@ h1.hero-title.static{
 }
 .partner-image-item
 img {
-  width: 300px;
+  width: 200px;
+  height: 100px;
   padding: 10px;
 }
 .page-title.static::before {
@@ -284,4 +285,8 @@ td.id{
 .payment-box {
     margin: 0 0 10px;
     padding-bottom: 15px;
+}
+.team-item .image {
+    width: 300px;
+    margin: 0 auto;
 }
