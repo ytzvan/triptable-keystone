@@ -1,10 +1,13 @@
 var keystone = require('keystone');
 var User = keystone.list('User');
 var Keen = require('keen-js');
-
+var session = require('../../node_modules/keystone/lib/session');
+var url = require('url');
+var querystring = require('querystring');
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
+  var redirectUrl;
 	var locals = res.locals;
   locals.data = {
   };
@@ -17,6 +20,34 @@ exports = module.exports = function(req, res) {
     // host: "api.keen.io/3.0",   // String (optional)
     // requestType: "jsonp"       // String (optional: jsonp, xhr, beacon)
   });
+
+	function renderView() {
+		view.render('auth/signin');
+	}
+  var onSuccess = function (user) {
+        var origin = url.parse(req.headers.referer);
+        var redirectUrl = querystring.parse(origin.query);
+			  if (redirectUrl.from) {
+				res.redirect(redirectUrl.from);
+			} else if ('string' === typeof keystone.get('signin redirect')) {
+				res.redirect(keystone.get('signin redirect'));
+			} else if ('function' === typeof keystone.get('signin redirect')) {
+				keystone.get('signin redirect')(user, req, res);
+			} else {
+				res.redirect('/');
+			}
+
+		};
+
+   var onFail = function (err) {
+                 var message = (err && err.message) ? err.message : 'El e-mail introducido y la contraseña no coinciden.';
+                  req.flash('error', message );
+                  locals.validationErrors = {
+                    mismatch : message
+                  };
+                  renderView();
+                };
+
 	view.on('post', { action: 'login' }, function(next) {
         var q = keystone.list('User').model.findOne().where('email', req.body.email);
         q.exec(function(err, result) {
@@ -41,9 +72,12 @@ exports = module.exports = function(req, res) {
             if (err) {
                 locals.data.validationErrors = err.errors;
             } else {
-                recordEvent(result, req);
+                //recordEvent(result, req);
+
+
                 req.flash('success', 'Cuenta creada. Por favor inicia sesión');
-                return res.redirect('/signin');
+                //return res.redirect('/signin');
+                return session.signin(req.body, req, res, onSuccess, onFail);
             }
             next();
         });
@@ -54,6 +88,9 @@ exports = module.exports = function(req, res) {
 
 
     view.on('init', function(next) {
+         console.log(req.url);
+          console.log(req.query.from);
+        redirectUrl = req.query.from;
         next();
     });
    view.render('auth/register');
