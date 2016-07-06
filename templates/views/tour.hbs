@@ -1,7 +1,9 @@
 <div class="main-wrapper scrollspy-container">
 
       <!-- start end Page title -->
-      <div class="page-title detail-page-title" style="background-image:url('{{data.tour.images.0.secure_url}}');">
+
+
+      <div class="page-title detail-page-title" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.tour.images.0.public_id}}.{{data.tour.images.0.format}}');">
 
         <div class="container">
 
@@ -126,7 +128,7 @@
                         {{#each data.tour.images}}
                         <div>
                           <div class="image">
-                            <img src="{{cloudinaryUrl width=833 height=417 secure=true crop='fill' }}" alt="Image" />
+                            <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto,ar_16:9/dpr_auto,w_auto/c_limit,w_800/{{public_id}}.{{format}}" alt="Image" />
                           </div>
                         </div>
                         {{/each}}
