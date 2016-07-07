@@ -59,14 +59,6 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>https://www.triptable.com/terminos</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/573e05408ac8ae0300ec0354</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
   <loc>https://www.triptable.com/tour/day-tour-en-isla-aguja-san-blas</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -79,51 +71,7 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>https://www.triptable.com/signin?from=/contact/573b41ed9c2fec030064045e</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5715394ec1e4db5531dde2ee</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
   <loc>https://www.triptable.com/tour/the-panama-papers-tour</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama?page=false</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama?page=1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama?page=2</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama?page=3</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama?page=4</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city?page=false</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city?page=1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city?page=2</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city?page=3</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -135,51 +83,11 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/chiriqui?page=false</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/chiriqui?page=1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
   <loc>https://www.triptable.com/tour/pasa-dia-en-el-parque-natural-coiba</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/veraguas?page=false</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/veraguas?page=1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
   <loc>https://www.triptable.com/tour/tour-en-bote-en-bocas-del-toro-cayo-zapatilla</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/bocas-del-toro?page=false</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/bocas-del-toro?page=1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/57519c0d78815c03001a520f</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5751a1f278815c03001a5219</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5745c39c5c759f03008d5add</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/573b39e09c2fec030064045a</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -216,58 +124,6 @@
 </url>
 <url>
   <loc>https://www.triptable.com/tour/take-a-walking-tour-of-the-real-panama-city</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/570eee4226947e0300fbe8b9</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/570ee9a726947e0300fbe8b1</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5714325ab1efa00300830450</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/571edd7dcf2dc40300d52cea</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5730f58542bb82030082b359</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5720db793271af0300658acf</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5722731b94d2700300e7c884</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5722756894d2700300e7c886</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5717febfab6c340300112e12</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/570e9b3326947e0300fbe8ab</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/570ea6e626947e0300fbe8ad</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/5704521110326b0300cb6a32</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/signin?from=/contact/570572808393d90300dd8fd4</loc>
   <changefreq>daily</changefreq>
 </url>
 </urlset>

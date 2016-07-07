@@ -21,9 +21,11 @@ CRM.add({
 	message: { type: String, required: false },
   status: { type: Types.Select, options: [
 		{ value: '0', label: "Lead" },
-		{ value: '1', label: "Reunión confirmada" },
-		{ value: '2', label: "Cerrado" },
-		{ value: '3', label: "No Interesado" }
+		{ value: '1', label: "Se envió el formulario" },
+		{ value: '2', label: "Se envió el contrato" },
+		{ value: '3', label: "Se recibieron todos los documentos" },
+		{ value: '4', label: "Venta Cerrada" },
+    { value: '5', label: "No está interesado" },
 	], required: false, default: 0 },
   createdAt: { type: Date, default: Date.now, noedit: true },
 });
@@ -31,37 +33,4 @@ CRM.add({
 CRM.track = true;
 CRM.defaultSort = '-createdAt';
 CRM.defaultColumns = 'name, email, company, phone, status';
-CRM.schema.pre('save', function(next) {
-  if (this.firstTime){
-	  this.sendCRMEmail(this);
-   }
-  next();
-});
-CRM.schema.post('save', function() {
-});
-
-CRM.schema.methods.sendCRMEmail = function (obj) {
-	var lead = obj;
-	var name = obj.name.full;
-	var texto = "Hola " + name + ". <br> Triptable es una plataforma web y móvil que le permite a viajeros reservar tours y actividades online y ayuda a los proveedores de turismo a aumentar sus reservas y ventas en línea. <br> Actualmente trabajamos con los mejores proveedores de turismo de Latinoamérica para ofrecerle a nuestros usuarios la mejor experiencia posible.<br> Publicar en Triptable es gratis, sin embargo requerimos verificar unos datos primero. El primer paso para convertirte en proveedor es crear una cuenta en: http://triptableapp.com/signup. <br> Pronto te estaré contactando para que me cuentes más acerca de tu negocio y mostrarte como puedes hacerlo crecer con Triptable. <br>Saludos, <br>Ytzvan Mastino<br>Co-founder & CEO"
-
-	Mailgun.sendHtmlEmail({
-			apiKey: process.env.MAILGUN_APIKEY,
-			domain: process.env.MAILGUN_DOMAIN,
-			toEmail: obj.email,
-			toName: name,
-			subject: 'Información acerca de Triptable',
-			htmlMessage: texto,
-			textMessage: texto,
-			fromEmail: process.env.DEFAULT_EMAIL,
-			fromName:  'Triptable, LLC',
-		}).exec({
-		// An unexpected error occurred.
-		error: function (err){
-		},
-		// OK.
-		success: function (){
-		},
-	});
-}
 CRM.register();

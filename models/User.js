@@ -7,7 +7,7 @@ var Mailgun = require('machinepack-mailgun');
  * ==========
  */
 
-var User = new keystone.List('User');
+var User = new keystone.List('User', {defaultSort: '-createdAt' });
 
 User.add({
 	name: { type: Types.Name, required: true, index: true },
@@ -76,5 +76,5 @@ User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
 }
 
 
-User.defaultColumns = 'name, email, isAdmin';
+User.defaultColumns = 'name, email, isAdmin, isGuide, -createdAt';
 User.register();
