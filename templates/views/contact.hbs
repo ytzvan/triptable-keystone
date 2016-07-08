@@ -491,5 +491,33 @@
               return true;
             }
       });
+
+
+      if ({{data.tour.hasDiscount}}){
+
+        var count = {{data.tour.discountTypes.length}};
+        var travelers = $('#people_field').val();
+        for (var i = 0; i<count; i++){
+
+          var res = [1,4,5]; //Make this dynamic and you got it
+
+          if (res[0] === 'min'){
+            res[0] = {{data.tour.minPerson}};
+          }
+          if (res[1] === 'max'){
+            res[1] = {{data.tour.maxPerson}};
+            console.log(res[1]);
+          }
+          console.log("travelers", travelers)
+          console.log("travelers", travelers)
+          if (travelers >= res[0] && travelers <= res[1]){
+            var pricefinal = res[2];
+            debugger
+            console.log("travelers", travelers);
+            console.log("precio final", pricefinal);
+          }
+        }
+      }
+
     });
   </script>

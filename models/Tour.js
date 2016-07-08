@@ -59,7 +59,9 @@ Tour.add({
   createdAt: { type: Date, default: Date.now, noedit: true },
   daysDisabled: { type: Types.TextArray, label: 'Dias Desactivados', note : '0 - Domingo, 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sábado'},
   skipDays : {type: Types.Number, default: 1, label: 'Dias con los que se necesita reservar con anticipación', note: 'Esto define el mínimo de días necesarios para hacer una reserva'},
-  disabledDates : {type: Types.TextArray, label: 'Fechas no disponibles', note: 'Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28'}
+  disabledDates : {type: Types.TextArray, label: 'Fechas no disponibles', note: 'Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28'},
+  hasDiscount : {type : Types.Boolean, default:false},
+  discountTypes : {type : Types.TextArray, dependsOn: { hasDiscount: true }},
 });
 
 Tour.schema.virtual('content.full').get(function() {
