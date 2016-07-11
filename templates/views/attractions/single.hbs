@@ -1,8 +1,5 @@
-<!-- start Main Wrapper -->
-		<div class="main-wrapper scrollspy-container">
-
-			<!-- start end Page title -->
-			<div class="page-title static-header" style="background-image:url('{{data.attraction.image.secure_url}}');">
+<div class="main-wrapper scrollspy-container">
+  <div class="page-title static-header" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.attraction.image.public_id}}.{{data.attraction.image.format}}');padding: 170px 0;background-position: center;">
 
 				<div class="container">
 
@@ -11,7 +8,13 @@
 						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 
 							<h1 class="hero-title">{{data.attraction.name}}</h1>
-               <p>{{data.attraction.description}}</p>
+
+							<ol class="breadcrumb-list">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/attractions">Atracciones</a></li>
+                <li><a href="/attractions/{{data.attraction.slug}}">{{data.attraction.name}}</a></li>
+							</ol>
+
 						</div>
 
 					</div>
@@ -19,34 +22,34 @@
 				</div>
 
 			</div>
-      <section class="ptb50">
+</div>
+<section>
 
-        <div class="container">
+				<div class="container">
 
-          <div class="row">
+					<div class="row">
 
-            <div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 
-              <div class="section-title">
+							<div class="section-title">
 
-                <h1 class="attraction-title">Tours en {{data.attraction.name}}</h1>
-                <h3 class="attraction-subtitle">Reserva tours y actividades en {{data.attraction.name}}</h3>
+								<h3>Tours hacia {{data.attraction.name}}</h3>
 
-              </div>
+							</div>
 
-            </div>
+						</div>
 
-          </div>
+					</div>
 
-          <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
+					 <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
 
             <div class="GridLex-grid-noGutter-equalHeight">
-             {{#each data.tours}}
-              <div class="GridLex-col-4_sm-6_xs-12 mb-30">
+             {{#each data.tours }}
+              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="/tour/{{slug}}">
                     <div class="image">
-                      <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+                      <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{#if featured}}
                       <div class="absolute-in-image">
                         <div class="duration"><span>Destacado</span></div>
@@ -77,11 +80,8 @@
               {{/each}}
 
             </div>
+            </div>
 
-          </div>
+				</div>
 
-        </div>
-
-      </section>
-
-</div>
+			</section>

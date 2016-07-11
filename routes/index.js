@@ -37,6 +37,11 @@ exports = module.exports = function(app) {
   app.all('/admin/booking/:id', routes.admin.booking.index);
   app.post('/admin/booking/:id/update', routes.admin.booking.update);
 
+  //Attractions
+  app.get('/attractions', routes.views.attractions.index);
+  app.get('/atracciones', routes.views.attractions.index);
+  app.get('/attractions/:slug', routes.views.attractions.single);
+
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
 	app.get('/blog/:post', routes.views.post);
