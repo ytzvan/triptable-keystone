@@ -12,6 +12,7 @@ var User = new keystone.List('User', {defaultSort: '-createdAt' });
 User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: {unique: true } },
+  cellphone: {type: String},
 	password: { type: Types.Password, initial: true, required: true },
 	image: {type: Types.CloudinaryImage},
   socialmedia: {

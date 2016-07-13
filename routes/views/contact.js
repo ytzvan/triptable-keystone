@@ -5,6 +5,7 @@ var request = require('request');
 var extend = require('extend');
 var Keen = require('keen-js');
 var moment = require('moment');
+var Sms = require('../../utils').Sms;
 var client = new Keen({
     projectId: "577145c107271968d3a2107d", // String (required always)
     writeKey: "5f180e718b659d108d1517d2be385b5e5c2f9740dc0758649d78935f971c27fb77f1d7462a33c1e2dca28ba69d63e61fd357a5b348ad5c325a66bab2ecbb58f8011cc0d765bfa6a48d483a7b582a247e13786047447585db3db1144d65d6fb9b",   // String (required for sending data)
@@ -200,7 +201,7 @@ exports = module.exports = function(req, res) {
 
 		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
+			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {
@@ -209,6 +210,7 @@ exports = module.exports = function(req, res) {
 				locals.bookingInfo = data;
 				locals.enquirySubmitted = true;
         recordEvent(data);
+        Sms.sendSms(data);
 			}
 			next();
 		});

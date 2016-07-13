@@ -40,6 +40,7 @@ Enquiry.add({
 	], default: '0' },
 	operatorEmail:{ type: String },
 	operatorName: {type: String},
+	operatorCellphone: {type: String},
   operator: { type: Types.Relationship, ref: 'User', index: true },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
