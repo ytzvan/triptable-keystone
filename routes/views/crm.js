@@ -32,11 +32,11 @@ exports = module.exports = function (req, res) {
         console.log(err);
 			} else {
 				locals.enquirySubmitted = true;
-        console.log("submited")
+
         var subject = "Conviértete en partner de Triptable";
         var message = EmailTemplates.newLead(req.body);//carga el template
         if (message){
-        Email.sendEmail(req.body, subject, message); // en el callback envia el email
+          Email.sendEmail(req.body, subject, message); // en el callback envia el email
         }
 			}
 			next();

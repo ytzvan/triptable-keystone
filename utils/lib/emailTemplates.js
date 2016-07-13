@@ -16,5 +16,10 @@ module.exports = {
     Saludos, <br>Ytzvan Mastino<br>Co-founder & CEO.";
     console.log(message);
     return message;
+  },
+
+  newUserRegister : function(obj) {
+    var message = 'Hola, un nuevo usuario se ha registrado en triptable. <br> Nombre: '+ obj.name.full +'<br>email: '+ obj.email;
+    return message;
   }
 }

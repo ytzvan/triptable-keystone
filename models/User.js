@@ -47,9 +47,7 @@ User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
 /**
  * Registration
  */
- User.schema.post('save', function() {
-		this.notificationEmail(this); // Send notificationEmail
-});
+
  User.schema.methods.notificationEmail = function (obj) {
 	var email = obj.email;
 	var name = obj.name.full;

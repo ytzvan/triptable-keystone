@@ -87,6 +87,23 @@ exports.requireUser = function(req, res, next) {
 
 };
 
+exports.requireGuide = function(req, res, next) {
+ var locals = res.locals;
+  if (req.user) {
+    if (req.user.isGuide == true) { //Es Guia
+      next();
+    } else {
+      req.session.loginError = "No tienes permisos para ver esta página";
+		  res.redirect('/signin?from='+req.url);
+    }
+  }
+    else { // Requiere Login
+      req.session.loginError = "Por favor incia sesión para continuar";
+		  res.redirect('/signin?from='+req.url);
+    }
+
+};
+
 exports.isAdmin = function (req, res, next) {
   var locals = res.locals;
   if (req.user) {

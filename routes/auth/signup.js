@@ -4,6 +4,8 @@ var Keen = require('keen-js');
 var session = require('../../node_modules/keystone/lib/session');
 var url = require('url');
 var querystring = require('querystring');
+var Email = require('../../utils').Email;
+var EmailTemplates = require('../../utils').EmailTemplates;
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -73,9 +75,8 @@ exports = module.exports = function(req, res) {
                 locals.data.validationErrors = err.errors;
             } else {
                 //recordEvent(result, req);
-
-
                 req.flash('success', 'Cuenta creada. Por favor inicia sesión');
+                sendNotificationEmail(result);
                 //return res.redirect('/signin');
                 return session.signin(req.body, req, res, onSuccess, onFail);
             }
@@ -117,4 +118,13 @@ exports = module.exports = function(req, res) {
       }
     });
   };
+
+  function sendNotificationEmail(result) {
+    var subject = "Nuevo Usuario Registrado";
+    console.log(result);
+    var message = EmailTemplates.newUserRegister(result);//carga el template
+     if (message){
+        Email.sendEmail(result, subject, message); // en el callback envia el email
+     };
+    };
 };

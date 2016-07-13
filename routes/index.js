@@ -33,9 +33,9 @@ exports = module.exports = function(app) {
   app.all('/terminos', routes.static.terms);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
-  app.all('/admin', routes.admin.home.index);
-  app.all('/admin/booking/:id', routes.admin.booking.index);
-  app.post('/admin/booking/:id/update', routes.admin.booking.update);
+  app.all('/admin', middleware.requireGuide, routes.admin.home.index);
+  app.all('/admin/booking/:id', middleware.requireGuide, routes.admin.booking.index);
+  app.post('/admin/booking/:id/update', middleware.requireGuide, routes.admin.booking.update);
 
   //Attractions
   app.get('/attractions', routes.views.attractions.index);
