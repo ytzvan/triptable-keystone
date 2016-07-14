@@ -8,19 +8,18 @@
 
               <div class="section-title">
 
-                <h3>Tours para Reservar</h3>
-                <p>Estas actividades no pueden faltar en tu próxima visita</p>
+                <h3>Tours Destacados</h3>
+                <p>Estos tours han marcado tendencias en nuestros usuarios</p>
 
               </div>
 
             </div>
 
           </div>
-
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
 
             <div class="GridLex-grid-noGutter-equalHeight">
-             {{#each_upto data.tours.results 3}}
+             {{#each_upto data.tours.results 6}}
               <div class="GridLex-col-4_sm-6_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="/tour/{{slug}}">
@@ -28,7 +27,7 @@
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{#if featured}}
                       <div class="absolute-in-image">
-                        <div class="duration"><span>Destacado</span></div>
+                        <div class="duration"><span>{{categories.[0].name}}</span></div>
                       </div>
                       {{/if}}
                     </div>
@@ -57,7 +56,7 @@
 
             </div>
             <div class="text-center pt-10">
-            <a href="/panama" class="btn btn-primary">Ver todos los tours </a>
+            <a href="/panama" class="btn btn-primary">Ver Todos </a>
             </div>
           </div>
 
