@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
-
+;
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -18,7 +18,6 @@ exports = module.exports = function(req, res) {
 	};
 	// Load the places
 	view.on('init', function(next) {
-
 		var q = keystone.list('Tour')
 			.paginate({
 				page: req.query.page || 1,
@@ -45,7 +44,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				
+
 				return res.status(404);
 			}
 			locals.data.provinces = results;
@@ -59,7 +58,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
-				
+
 				return res.status(404);
 			}
 			locals.data.categories = results;
@@ -73,7 +72,7 @@ exports = module.exports = function(req, res) {
 
 		keystone.list('Attraction').model.find().where({'featured': true}).exec(function(err, results) { //Query attractions
 			if (err || !results) {
-				
+
 				return res.status(404);
 			}
 			locals.data.attractions = results;

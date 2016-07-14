@@ -6,6 +6,7 @@ var url = require('url');
 var querystring = require('querystring');
 var Email = require('../../utils').Email;
 var EmailTemplates = require('../../utils').EmailTemplates;
+var Mailchimp = require('../../utils').Mailchimp;
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -76,7 +77,10 @@ exports = module.exports = function(req, res) {
             } else {
                 //recordEvent(result, req);
                 req.flash('success', 'Cuenta creada. Por favor inicia sesión');
-                sendNotificationEmail(result);
+                if (process.env.NODE_ENV === 'production'){
+                  sendNotificationEmail(result);
+                  Mailchimp.addToMainList(result);
+                };
                 //return res.redirect('/signin');
                 return session.signin(req.body, req, res, onSuccess, onFail);
             }
