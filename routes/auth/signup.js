@@ -128,7 +128,7 @@ exports = module.exports = function(req, res) {
     console.log(result);
     var message = EmailTemplates.newUserRegister(result);//carga el template
      if (message){
-        Email.sendEmail(result, subject, message); // en el callback envia el email
+        Email.notifyNewUser(result, subject, message); // en el callback envia el email
      };
     };
 };
