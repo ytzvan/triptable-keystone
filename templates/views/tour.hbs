@@ -2,8 +2,11 @@
 
       <!-- start end Page title -->
 
-
+      {{#if data.tour.heroImage.secure_url}}
+      <div class="page-title detail-page-title" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}');">
+      {{else}}
       <div class="page-title detail-page-title" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.tour.images.0.public_id}}.{{data.tour.images.0.format}}');">
+      {{/if}}
 
         <div class="container">
 
@@ -36,10 +39,10 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
+                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-success">Reservar Ahora</a>
               {{else}}
 
-              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-success">Reservar Ahora</a>
               {{/if}}
 
               </div>
@@ -237,7 +240,11 @@
                           <div class="package-grid-item">
                             <a href="/tour/{{slug}}">
                               <div class="image">
+                                {{#if heroImage.secure_url}}
+                                <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}" />
+                                {{else}}
                                 <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+                                {{/if}}
                                 {{#if featured}}
                                 <div class="absolute-in-image">
                                   <div class="duration"><span>Destacado</span></div>
@@ -330,9 +337,9 @@
                   </ul>
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
                  {{#if userInfo}}
-                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-danger">Reservar Ahora</a>
+                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-success">Reservar Ahora</a>
                   {{else}}
-                  <a href="/signup" class="btn btn-danger">Reservar Ahora</a>
+                  <a href="/signup" class="btn btn-success">Reservar Ahora</a>
                   {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
 

@@ -338,7 +338,11 @@
               {{#each data.tours.results}}
                 <div class="package-list-item clearfix">
                   <div class="image">
-                    <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="Tour Package" />
+                    {{#if heroImage.secure_url}}
+                    <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}" />
+                    {{else}}
+                    <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+                    {{/if}}
                    <!-- <div class="absolute-in-image">
                       <div class="duration"><span>4 days 3 nights</span></div>
                     </div> -->
@@ -363,7 +367,7 @@
                         <div class="rating-wrapper">
                           <div class="raty-wrapper">
                             <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / {{#if nOfReviews}}
-                            {{nOfReviews.length}} 
+                            {{nOfReviews.length}}
                            {{else}}
                            0
                            {{/if}}
@@ -373,7 +377,7 @@
 
                         <div class="price">${{price}}</div>
 
-                        <a href="/tour/{{slug}}" class="btn btn-primary btn-sm">ver</a>
+                        <a href="/tour/{{slug}}" class="btn btn-success btn-sm">Reservar</a>
 
                       </div>
                     </div>
