@@ -290,3 +290,17 @@ td.id{
     width: 300px;
     margin: 0 auto;
 }
+div.booking{
+  margin:15px 0;
+}
+.btn-booking {
+    background: #52B545;
+    border-color: #52B545;
+}
+.btn-booking.focus, .btn-booking:focus, .btn-booking:hover {
+    background: #358D44;
+    border-color: #358D44;
+}
+a.booking-cta{
+  font-size: 13px;
+}
