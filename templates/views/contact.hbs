@@ -237,7 +237,9 @@
 
 											$("#people").on('change', function(){
 												console.log("cambio");
+
 												var value = $('#people').val();
+                         multiPrice(value);
 												$('#people_field').val = value;
 												var travelers = value;
 												var price = {{data.tour.price}};
@@ -270,7 +272,6 @@
 											});
 
                       function decimalPlaces(num) {
-                        console.log(num);
                         var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
                         if (!match) { return 0; }
                         return Math.max(
@@ -469,9 +470,47 @@
           $('#showError').attr('style', 'display:none');
           return true;
         }
-      })
-      });
+      }); //End Form validator
 
+
+
+        //Star Multiprice func
+        window.multiPrice = function(travelers){
+      if ({{data.tour.multiPrice}}){
+        var priceCatalog = [];
+        {{#each data.tour.multiPriceCatalog}}
+          var current = "{{this}}".split(',');
+          for (var index=0;index < current.length;index++){
+            current[index] = parseInt(current[index]);
+          }
+          priceCatalog.push(current);
+          console.log(priceCatalog);
+        {{/each}}
+        console.log(priceCatalog.length)
+        for (var i = 0; i< priceCatalog.length; i++){
+          if (isNaN(priceCatalog[i][0])) {
+            priceCatalog[i][0] = {{data.tour.minPerson}};
+          }
+          if (isNaN(priceCatalog[i][1])) {
+            priceCatalog[i][1] = {{data.tour.maxPerson}};
+          }
+          //if logic
+
+          if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
+            console.log("travelers", travelers);
+            console.log("min", priceCatalog[i][0]);
+            console.log("max", priceCatalog[i][1]);
+            console.log("final Price", priceCatalog[i][2]);
+            var pricePerTraveler = priceCatalog[i][2];
+            return pricePerTraveler;
+          } else {
+             console.log("error");
+          }
+        } // end for
+      } // end if
+     } //end func
+        //end multiprice func
+      });
 
       $('form').submit(function(e) {
           var valid = $.payment.validateCardNumber($('.cc-number').val());
