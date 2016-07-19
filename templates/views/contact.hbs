@@ -1,3 +1,39 @@
+<script type="text/javascript">
+  getPrice = function(travelers){
+    if ({{data.tour.multiPrice}}){
+      var priceCatalog = [];
+      {{#each data.tour.multiPriceCatalog}}
+      var current = "{{this}}".split(',');
+        for (var index=0;index < current.length;index++){
+          current[index] = parseInt(current[index]);
+        }
+        priceCatalog.push(current);
+        console.log(priceCatalog);
+        {{/each}}
+        console.log(priceCatalog.length)
+        for (var i = 0; i< priceCatalog.length; i++){
+          if (isNaN(priceCatalog[i][0])) {
+            priceCatalog[i][0] = {{data.tour.minPerson}};
+        }
+          if (isNaN(priceCatalog[i][1])) {
+            priceCatalog[i][1] = {{data.tour.maxPerson}};
+         }
+         //if logic
+
+         if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
+           console.log("travelers", travelers);
+           console.log("min", priceCatalog[i][0]);
+           console.log("max", priceCatalog[i][1]);
+           console.log("final Price", priceCatalog[i][2]);
+           var pricePerTraveler = priceCatalog[i][2];
+           return pricePerTraveler;
+         } else {
+           console.log("error");
+         }
+        } // end for
+       } // end if
+      } //end func
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.10.2/validator.min.js"></script>
 {{#if messages.error}}
 		<div class="alert alert-danger center">
@@ -202,11 +238,16 @@
 										</div>
 
 										<script type="text/javascript">
-										var processorTax = 3.9; // % del procesador
+										  var processorTax = 3.9; // % del procesador
 	    								var processorFee = 0.30; // fee individual por transaccion
 											$(function() {
 												var min = {{data.tour.minPerson}};
-												var price = {{data.tour.price}};
+                        if ({{data.tour.multiPrice}}) {
+                          var price = getPrice(min);
+                        } else {
+												  var price = {{data.tour.price}};
+                        }
+                        console.log(price);
 												var initPrice = min*price;
 
 												var taxPrice = initPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
@@ -227,7 +268,7 @@
                         if (decimals === 1) {
                           totalPrice = totalPrice.toFixed(3).slice(0, -1)
                         }
-
+                        $('span#pricePerTraveler').html(price);
 										    $('span#price').html(initPrice);
 										    $('span#nOfTravelers').html(min);
 										    $('span#costOfTransaction').html(transactionCost);
@@ -236,13 +277,16 @@
 										});
 
 											$("#people").on('change', function(){
-												console.log("cambio");
 
 												var value = $('#people').val();
-                         multiPrice(value);
+
 												$('#people_field').val = value;
 												var travelers = value;
-												var price = {{data.tour.price}};
+												if ({{data.tour.multiPrice}}) {
+                          var price = getPrice(travelers);
+                        } else {
+												  var price = {{data.tour.price}};
+                        }
 												var changePrice = travelers*price;
 
 												var taxPrice = changePrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
@@ -263,7 +307,7 @@
                         if (decimals === 1) {
                           totalPrice = totalPrice.toFixed(3).slice(0, -1)
                         }
-
+                        $('span#pricePerTraveler').html(price);
 												$('span#price').html(changePrice);
 												$('span#nOfTravelers').html(travelers);
 												$('span#costOfTransaction').html(transactionCost);
@@ -381,7 +425,7 @@
 							<li>
 								<div class="row gap-10 font600 font14">
 									<div class="col-xs-9 col-sm-9">Precio por Viajero</div>
-									<div class="col-xs-3 col-sm-3 text-right">${{data.tour.price}}</div>
+									<div class="col-xs-3 col-sm-3 text-right">$<span id="pricePerTraveler"></span></div>
 								</div>
 							</li>
 							<li class="divider"></li>
@@ -447,69 +491,30 @@
        $.fn.toggleInputError = function(erred) {
         this.parent('.form-group').toggleClass('has-error', erred);
         return this;
-      };
+        };
 
       $(document).ready(function() {
-      $('form').validator().on('submit', function (e) {
-        var dateVal = $('#date').val();
-        if (!dateVal){
-          $( '#date' ).focus();
-          $('#dateEmpty').attr('style', 'display:block;margin: 15px 0px;');
-        }
-        var hotelVal = $('#hotel').val();
-
-        if (!hotelVal) {
-            $( '#hotel' ).focus();
-        }
-        var isChecked = $('#accept_booking').is(':checked');
-        if  (!isChecked){
-           $( '#accept_booking' ).focus();
-           $('#showError').attr('style', 'display:block');
-          e.preventDefault();
-        } else {
-          $('#showError').attr('style', 'display:none');
-          return true;
-        }
-      }); //End Form validator
-
-
-
-        //Star Multiprice func
-        window.multiPrice = function(travelers){
-      if ({{data.tour.multiPrice}}){
-        var priceCatalog = [];
-        {{#each data.tour.multiPriceCatalog}}
-          var current = "{{this}}".split(',');
-          for (var index=0;index < current.length;index++){
-            current[index] = parseInt(current[index]);
+        $('form').validator().on('submit', function (e) {
+          var dateVal = $('#date').val();
+          if (!dateVal){
+            $( '#date' ).focus();
+            $('#dateEmpty').attr('style', 'display:block;margin: 15px 0px;');
           }
-          priceCatalog.push(current);
-          console.log(priceCatalog);
-        {{/each}}
-        console.log(priceCatalog.length)
-        for (var i = 0; i< priceCatalog.length; i++){
-          if (isNaN(priceCatalog[i][0])) {
-            priceCatalog[i][0] = {{data.tour.minPerson}};
-          }
-          if (isNaN(priceCatalog[i][1])) {
-            priceCatalog[i][1] = {{data.tour.maxPerson}};
-          }
-          //if logic
+          var hotelVal = $('#hotel').val();
 
-          if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
-            console.log("travelers", travelers);
-            console.log("min", priceCatalog[i][0]);
-            console.log("max", priceCatalog[i][1]);
-            console.log("final Price", priceCatalog[i][2]);
-            var pricePerTraveler = priceCatalog[i][2];
-            return pricePerTraveler;
+          if (!hotelVal) {
+              $( '#hotel' ).focus();
+          }
+          var isChecked = $('#accept_booking').is(':checked');
+          if  (!isChecked){
+             $( '#accept_booking' ).focus();
+             $('#showError').attr('style', 'display:block');
+            e.preventDefault();
           } else {
-             console.log("error");
+            $('#showError').attr('style', 'display:none');
+            return true;
           }
-        } // end for
-      } // end if
-     } //end func
-        //end multiprice func
+        }); //End Form validator
       });
 
       $('form').submit(function(e) {

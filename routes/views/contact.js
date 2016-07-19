@@ -48,8 +48,15 @@ exports = module.exports = function(req, res) {
 		    return res.redirect(req.get('referer'));
 		  }
 		//Here goes the payment logic
-	    var tourPrice = locals.data.tour.price;
-	    var travelers = req.body.people;
+      var travelers = req.body.people;
+      if (locals.data.tour.multiPrice){
+         var tourPrice = getPrice(travelers, locals);
+          console.log("Precio individual mod", tourPrice);
+      } else {
+        var tourPrice = locals.data.tour.price;
+      };
+      body.tourPrice = tourPrice;
+      req.body.tourPrice = tourPrice;
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
 	    var processorTax = 3.9; // % del procesador
 	    var processorFee = 0.30; // fee individual por transaccion
@@ -79,7 +86,7 @@ exports = module.exports = function(req, res) {
 	    	bookingTransactionFee : transactionCost,
 	    	bookingOperatorFee : tourOperatorCost,
 	    	bookingRevenue : commision,
-        bookingComission : commisionPercentaje
+        bookingComission : commisionPercentaje,
 	    };
       console.log(updateBody);
 //		var finalObj = {};
@@ -247,3 +254,36 @@ function recordEvent(data){
       }
     });
 };
+
+function getPrice(travelers, locals){
+      var priceCatalog = [];
+      console.log(locals.data.tour.multiPriceCatalog)
+      for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
+      var current = locals.data.tour.multiPriceCatalog[i].split(',');
+        for (var index=0;index < current.length;index++){
+          current[index] = parseInt(current[index]);
+        }
+        priceCatalog.push(current);
+        console.log(priceCatalog);
+        }
+        for (var i = 0; i< priceCatalog.length; i++){
+          if (isNaN(priceCatalog[i][0])) {
+            priceCatalog[i][0] = locals.data.tour.minPerson;
+        }
+          if (isNaN(priceCatalog[i][1])) {
+            priceCatalog[i][1] = locals.data.tour.maxPerson;
+         }
+         //if logic
+
+         if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
+           console.log("travelers", travelers);
+           console.log("min", priceCatalog[i][0]);
+           console.log("max", priceCatalog[i][1]);
+           console.log("final Price", priceCatalog[i][2]);
+           var pricePerTraveler = priceCatalog[i][2];
+           return pricePerTraveler;
+         } else {
+           console.log("error");
+         }
+        } // end for
+      } //end func

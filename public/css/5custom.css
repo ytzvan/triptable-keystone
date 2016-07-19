@@ -304,3 +304,33 @@ div.booking{
 a.booking-cta{
   font-size: 13px;
 }
+td.day{
+  background-color:#27ae60;
+  color: white;
+}
+td.day:hover{
+  background-color:#52B545;
+  color: black;
+}
+td.day.new{
+  background-color:#27ae60;
+  color: white !important;
+}
+.bootstrap-datetimepicker-widget table td.disabled{
+  background-color: #ecf0f1;
+  color: #777 !important;
+}
+.bootstrap-datetimepicker-widget table td.new.disabled{
+  background-color: #ecf0f1;
+  color: #777 !important;
+}
+.bootstrap-datetimepicker-widget table td.day:hover{
+    background: #3498db;
+    color: white;
+}
+.bootstrap-datetimepicker-widget table td.active{
+   background-color: #2980b9;
+}
+.bootstrap-datetimepicker-widget table td.old, .bootstrap-datetimepicker-widget table td.new {
+    color: white;
+}
