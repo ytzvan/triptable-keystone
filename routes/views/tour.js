@@ -33,6 +33,9 @@ exports = module.exports = function(req, res) {
 		}).populate('owner categories country province city');
 
 		q.exec(function(err, result) {
+      if (err || !result) {
+				return res.status(404).render('errors/404');
+			}
 			locals.data.tour = result;
 			tourId = result._id;
 
