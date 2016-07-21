@@ -2,8 +2,11 @@
     <div class="main-wrapper">
 
       <!-- start hero-header with windows height -->
+      {{#if data.homeImage}}
+       <div class="hero" style="background-image:url('{{data.homeImage.image.secure_url}}');">
+      {{else}}
       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/w_1440/v1463514314/mgtknwnnuiv14poppjex.jpg');">
-
+      {{/if}}
         <div class="container">
 
           <div class="row">
@@ -81,7 +84,11 @@
           </div>
 
         </div>
-
+        {{#if data.homeImage}}
+         <div class="text-hero-home">
+           <a href="{{data.homeImage.url}}" target="_blank">{{data.homeImage.description}}</a>
+         </div>
+      {{/if}}
       </div>
       <!-- end hero-header with windows height -->
       <div class="post-hero bg-light pt15">

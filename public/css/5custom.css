@@ -397,3 +397,24 @@ td.day.new{
 .ribbon-green:after {
   right: 0;
 }
+.page-title.detail-page-title .meta span{
+  font-size:22px;
+}
+.no-padding-r-l{
+  padding-right:0px;
+  padding-left:0px;
+}
+.text-hero-home{
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.text-hero-home
+a {
+  color: #bdc3c7;
+}
+.text-hero-home
+a:hover{
+  color: #ecf0f1;
+}

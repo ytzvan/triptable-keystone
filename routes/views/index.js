@@ -15,6 +15,7 @@ exports = module.exports = function(req, res) {
 		tours: [],
 		categories: [],
 		provinces: [],
+    homeImage: [],
 	};
 	// Load the places
 	view.on('init', function(next) {
@@ -81,6 +82,17 @@ exports = module.exports = function(req, res) {
 		});
 
 	});
+
+  view.on('init', function(next){
+    keystone.list('homeGallery').model.find()
+    .exec(function(err, result){
+      if (result){
+        locals.data.homeImage = result[0];
+        console.log(locals.data.homeImage);
+      }
+      next();
+    })
+  });
 
 	// Render the view
 	view.render('index');
