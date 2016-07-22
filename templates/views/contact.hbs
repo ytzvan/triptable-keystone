@@ -21,10 +21,6 @@
          //if logic
 
          if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
-           console.log("travelers", travelers);
-           console.log("min", priceCatalog[i][0]);
-           console.log("max", priceCatalog[i][1]);
-           console.log("final Price", priceCatalog[i][2]);
            var pricePerTraveler = priceCatalog[i][2];
            return pricePerTraveler;
          } else {
@@ -165,8 +161,8 @@
                         });
                         var today = new Date();
                         var numberOfDaysToAdd = {{data.tour.skipDays}};
-                        if (numberOfDaysToAdd == 0) {
-                          numberOfDaysToAdd = 1;
+                        if (numberOfDaysToAdd > 0) {
+                          numberOfDaysToAdd = numberOfDaysToAdd -1 ;
                         }
                         var date = today.setDate(today.getDate() + numberOfDaysToAdd);
 

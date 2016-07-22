@@ -88,7 +88,6 @@ exports = module.exports = function(req, res) {
     .exec(function(err, result){
       if (result){
         locals.data.homeImage = result[0];
-        console.log(locals.data.homeImage);
       }
       next();
     })
