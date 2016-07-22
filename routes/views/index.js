@@ -87,7 +87,9 @@ exports = module.exports = function(req, res) {
     keystone.list('homeGallery').model.find()
     .exec(function(err, result){
       if (result){
-        locals.data.homeImage = result[0];
+        var id = Math.floor((Math.random() * result.length));
+        console.log(id);
+        locals.data.homeImage = result[id];
       }
       next();
     })
