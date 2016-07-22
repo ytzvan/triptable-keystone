@@ -418,3 +418,7 @@ a {
 a:hover{
   color: #ecf0f1;
 }
+.bootstrap-datetimepicker-widget table td.today{
+    background-color: #ecf0f1;
+    color: #777!important;
+}
