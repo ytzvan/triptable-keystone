@@ -1,9 +1,8 @@
  <!-- start Main Wrapper -->
     <div class="main-wrapper">
-
       <!-- start hero-header with windows height -->
-      {{#if data.homeImage}}
-       <div class="hero" style="background-image:url('{{data.homeImage.image.secure_url}}'); background-position: center {{data.homeImage.verticalPosition}}%;">
+      {{#if data.homeImage.image}}
+       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}'); background-position: center {{data.homeImage.verticalPosition}}%;">
       {{else}}
       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/w_1440/v1463514314/mgtknwnnuiv14poppjex.jpg');">
       {{/if}}

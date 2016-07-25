@@ -23,7 +23,7 @@ exports = module.exports = function(req, res) {
 
 	locals.meta = {};
 
-	locals.meta.url = "https://www.triptableapp.com"+url;
+	locals.meta.url = "https://www.triptable.com"+url;
 	// Load the current post
 	view.on('init', function(next) {
 

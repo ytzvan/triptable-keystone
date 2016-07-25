@@ -88,7 +88,6 @@ exports = module.exports = function(req, res) {
     .exec(function(err, result){
       if (result){
         var id = Math.floor((Math.random() * result.length));
-        console.log(id);
         locals.data.homeImage = result[id];
       }
       next();

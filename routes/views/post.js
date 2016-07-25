@@ -12,7 +12,7 @@ exports = module.exports = function(req, res) {
 	};
   locals.meta = {};
   var url = req.url;
-	locals.meta.url = "https://www.triptableapp.com"+url;
+	locals.meta.url = "https://www.triptable.com"+url;
 	locals.data = {
 		posts: []
 	};
