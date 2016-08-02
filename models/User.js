@@ -14,6 +14,7 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, index: {unique: true } },
   cellphone: {type: String},
 	password: { type: Types.Password, initial: true, required: true },
+  referalCode : {type: String},
 	image: {type: Types.CloudinaryImage},
   socialmedia: {
     facebook: {type: Types.Url},
@@ -75,5 +76,5 @@ User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
 }
 
 
-User.defaultColumns = 'name, email, isAdmin, isGuide, -createdAt';
+User.defaultColumns = 'name, email, isAdmin, isGuide, -createdAt, referalCode';
 User.register();

@@ -68,7 +68,7 @@ exports = module.exports = function(req, res) {
         });
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {
-            fields: 'email, password',
+            fields: 'email, password, referalCode',
             flashErrors: false,
             logErrors: true
         }, function(err,result) {

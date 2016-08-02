@@ -75,7 +75,7 @@ Tour.schema.virtual('content.full').get(function() {
 });
 Tour.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'tour' });
 Tour.relationship({ ref: 'Review', path: 'reviews', refPath: 'tour' });
-Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
+Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdAt';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
     next();
