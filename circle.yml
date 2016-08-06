@@ -1,5 +1,9 @@
 deployment:
-  staging:
+  production:
     branch: master
     heroku:
-      appname: foo-bar-123
+      appname: triptable
+  staging:
+    branch: dev
+    heroku:
+      appname: trip-sandbox
