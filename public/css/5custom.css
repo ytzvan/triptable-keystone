@@ -426,7 +426,7 @@ a:hover{
 	font-size: 15px;
 }
 article.description-language{
-	padding: 15px 0px;
+	padding-top: 15px;
 	text-align: justify;
 	white-space: initial;
   font-size: 14px;
