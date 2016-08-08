@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
 <div class="main-wrapper scrollspy-container">
 
       <!-- start end Page title -->
@@ -114,9 +114,45 @@
                       <h4>Información</h4>
                     </div>
 
+                    <div>
+
+                      <!-- Nav tabs -->
+                      <ul id="#myTabs" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#description_es" class="tour-description" aria-controls="home" role="tab" data-toggle="tab">Descripción <span class="flag-icon flag-icon-es"></span></a></li>
+                        <li role="presentation"><a href="#description_en" aria-controls="profile" role="tab" data-toggle="tab">Description <span class="flag-icon flag-icon-gb"></span></a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="description_es">
+                          {{#if data.tour.description.extended}}
+                            <article class="description-language">{{{data.tour.description.extended}}}</article>
+                          {{else}}
+                            <p>No hay descripción disponible en Español.<p>
+                          {{/if}}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="description_en">
+                          {{#if data.tour.description_eng.extended}}
+                            <article class="description-language">{{{data.tour.description_eng.extended}}}</article>
+                          {{else}}
+                            <p>There's no English description available.<p>
+                          {{/if}}
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <script>
+                    $(function() {
+                      $('#myTabs a').click(function (e) {
+                        e.preventDefault()
+                        $(this).tab('show')
+                      });
+                    });
+                    </script>
                     <!--<img src="{{data.tour.images.0.secure_url}}" alt="Map" class="map-route" /> -->
 
-                    <article>{{{data.tour.description.extended}}}</article>
+                    <article></article>
                   </div> <!-- end secction 0 -->
                   <script type="text/javascript">
                     $(function() {
@@ -405,7 +441,7 @@
                     </li>
 
                   </ul>
-                    
+
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
                  {{#if userInfo}}
                   <a href="/contact/{{data.tour.tourId}}" class="btn btn-success">Reservar Ahora</a>
