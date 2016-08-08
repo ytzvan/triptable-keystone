@@ -32,6 +32,10 @@ Tour.add({
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
+  description_eng: {
+		short: { type: String},
+		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+	},
 	keywords: {type: String},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	minPerson: {type: Types.Number, default: 1 },

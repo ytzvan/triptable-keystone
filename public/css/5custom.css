@@ -422,3 +422,13 @@ a:hover{
     background-color: #ecf0f1;
     color: #777!important;
 }
+.nav-tabs>li>a{
+	font-size: 15px;
+}
+article.description-language{
+	padding: 15px 0px;
+	text-align: justify;
+	white-space: initial;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+}
