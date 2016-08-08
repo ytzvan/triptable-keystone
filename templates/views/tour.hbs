@@ -118,24 +118,24 @@
 
                       <!-- Nav tabs -->
                       <ul id="#myTabs" class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#description_es" class="tour-description" aria-controls="home" role="tab" data-toggle="tab">Descripción <span class="flag-icon flag-icon-es"></span></a></li>
-                        <li role="presentation"><a href="#description_en" aria-controls="profile" role="tab" data-toggle="tab">Description <span class="flag-icon flag-icon-gb"></span></a></li>
+                        <li role="presentation" class="" id="list-description_es"><a href="#description_es" class="tour-description" aria-controls="home" role="tab" data-toggle="tab">Descripción <span class="flag-icon flag-icon-es"></span></a></li>
+                        <li role="presentation" class="" id="list-description_en"><a href="#description_en" aria-controls="profile" role="tab" data-toggle="tab">Description <span class="flag-icon flag-icon-gb"></span></a></li>
                       </ul>
 
                       <!-- Tab panes -->
                       <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="description_es">
+                        <div role="tabpanel" class="tab-pane" id="description_es">
                           {{#if data.tour.description.extended}}
                             <article class="description-language">{{{data.tour.description.extended}}}</article>
                           {{else}}
-                            <p>No hay descripción disponible en Español.<p>
+                            <article class="description-language">No hay descripción disponible en Español.</article>
                           {{/if}}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="description_en">
                           {{#if data.tour.description_eng.extended}}
                             <article class="description-language">{{{data.tour.description_eng.extended}}}</article>
                           {{else}}
-                            <p>There's no English description available.<p>
+                            <article class="description-language">There's no English description available.</article>
                           {{/if}}
                         </div>
                       </div>
@@ -148,6 +148,13 @@
                         e.preventDefault()
                         $(this).tab('show')
                       });
+                      {{#if data.tour.description.extended}}
+                      $('#description_es').addClass('active');
+                      $('#list-description_es').addClass('active');
+                      {{else}}
+                      $('#description_en').addClass('active');
+                      $('#list-description_en').addClass('active');
+                      {{/if}}
                     });
                     </script>
                     <!--<img src="{{data.tour.images.0.secure_url}}" alt="Map" class="map-route" /> -->
