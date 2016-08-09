@@ -54,7 +54,7 @@ exports = module.exports = function(app) {
 
 	//Fallback
 	app.all('*', function (req, res){
-		res.send(404);
+		res.status(404).render('errors/404');
 	});
 
 
