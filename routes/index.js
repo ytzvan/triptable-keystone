@@ -44,7 +44,6 @@ exports = module.exports = function(app) {
 
 	//Dinamic Views
 	app.get('/blog/', routes.views.blog);
-	app.get('/blog/:post', routes.views.post);
 	app.get('/contact/:tourId', middleware.requireUser, routes.views.booking); //Donde se llena la data
 	app.post('/contact/:tourId', middleware.requireUser, routes.views.contact); //al momento del post
 	app.all('/tour/:slug', routes.views.tour);
@@ -53,6 +52,10 @@ exports = module.exports = function(app) {
 	app.get('/:country/:province', routes.search.province);
 	app.get('/:country/:province/:city', routes.search.city);
 
+	//Fallback
+	app.all('*', function (req, res){
+		res.send(404);
+	});
+
 
 };
-
