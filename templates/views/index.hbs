@@ -2,7 +2,7 @@
     <div class="main-wrapper">
       <!-- start hero-header with windows height -->
       {{#if data.homeImage.image}}
-       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}'); background-position: center {{data.homeImage.verticalPosition}}%;">
+       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1440/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}'); background-position: center {{data.homeImage.verticalPosition}}%;">
       {{else}}
       <div class="hero" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/w_1440/v1463514314/mgtknwnnuiv14poppjex.jpg');">
       {{/if}}
@@ -148,7 +148,6 @@
                         if (city == 0){
                           var city = "";
                         }
-                        console.log(city);
                         $("#searchBtn").attr("href", "/panama/"+city);
                      });
                   });
@@ -159,7 +158,6 @@
                         if (categoria == 0){
                           var categoria = "";
                         }
-                        console.log(categoria);
                         var url = $("#searchBtn").attr("href");
                         $("#searchBtn").attr("href", url + '?categoria=' + categoria);
                      });

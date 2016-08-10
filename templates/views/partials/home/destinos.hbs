@@ -22,7 +22,7 @@
 					<div class="grid destination-grid-wrapper">
 					{{#each data.provinces}}
 						<div id="post{{@index}}" class="grid-item" id="grid-item" data-colspan="20" data-rowspan="8">
-							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url({{{cloudinaryUrl image width=1200 q=auto crop='fill' secure=true}}});">
+							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url(https://res.cloudinary.com/triptable/image/upload/c_fill,h_300,w_300,q_auto/v{{image.version}}/{{image.public_id}}.{{image.format}});">
 								<div class="relative">
 									<h4 class="featured-province">{{province}}</h4>
 									<!--<span>Starting from $322</span> -->
