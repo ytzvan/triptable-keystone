@@ -32,7 +32,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'signin url': '/signin',
+	//'signin url': '/signin',
 	'signin redirect' : '/',
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
