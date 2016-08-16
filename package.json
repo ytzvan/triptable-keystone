@@ -12,7 +12,7 @@
     "gulp-less": "^3.0.5",
     "handlebars": "^2.0.0",
     "keen-js": "^3.4.1",
-    "keystone": "0.3.17",
+    "keystone": "0.3.19",
     "machinepack-mailgun": "^0.5.0",
     "messagebird": "^2.1.0",
     "moment": "^2.12.0",
