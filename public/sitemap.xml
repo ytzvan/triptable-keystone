@@ -5,125 +5,278 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
   <loc>https://www.triptable.com/</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
 </url>
-<url>
-  <loc>https://www.triptable.com/panama</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/chiriqui</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/nosotros</loc>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://www.triptable.com/panama/panama-city</loc>
-  <changefreq>daily</changefreq>
-</url>  
 <url>
   <loc>https://www.triptable.com/partners</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/signup</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/signin</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/island-hopping-en-san-blas-day-tour</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/nosotros</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/casco-viejo-nightlife-experience</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/tour/caminata-a-la-cima-del-volcan-baru-ruta-volcan-paso-ancho</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/afro-panamanian-food-tour-in-panama-city</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/tour/anton-valley-tour-a-beauty-of-its-nature-and-culture</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/pasadia-a-las-islas-de-san-blas</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/day-tour-a-isla-tres-islas-isla-leones-y-el-golfo-de-montijo-con-langosta-de-almuerzo</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/avistamiento-de-ballenas-en-el-golfo-de-chiriqui</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/inshore-fishing-day-trip</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/panama-city</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/chiriqui</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/panama/veraguas</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/panama/bocas-del-toro</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/day-tour-en-isla-aguja-san-blas</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/panama/comarca-guna-yala-san-blas</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-franklin</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/panama/colon</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/take-a-trip-to-coiba-island</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/panama/cocle</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/the-panama-papers-tour</loc>
-  <changefreq>daily</changefreq>
+  <loc>https://www.triptable.com/terminos</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/portobelo-history-and-beach-tour-full-day</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/panama-city-and-canal-tour-with-guide</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-acampar</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/tour-a-colon-con-visita-a-la-zona-libre-y-esclusas-de-agua-clara</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/panama-city-half-day-tour</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/panama-city-tour</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/monkey-island-indian-village-and-lake-gatun-tour</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/panama-food-tours-visita-gastronomica-al-casco-viejo</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+  <loc>https://www.triptable.com/tour/caminata-a-la-cima-del-volcan-baru-ruta-boquete</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/explore-boquete-with-an-experienced-guide</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/tour-a-coffee-farm-in-boquete</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/day-tour-de-pesca-offshore</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/take-a-trip-to-coiba-island</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/pasa-dia-en-el-parque-natural-coiba</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/tour-en-bote-en-bocas-del-toro-cayo-zapatilla</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-cabanas</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-iguana</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/day-tour-en-isla-aguja-san-blas</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/snorkeling-adventure-on-portobelo</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/tour-to-el-valle-de-anton</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/cocle?page=false</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/panama/cocle?page=1</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-franklin</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/casco-viejo-nightlife-experience</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/island-hopping-en-san-blas-day-tour</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/transporte-hacia-desde-el-aeropuerto-de-tocumen</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/tour-a-la-comarca-embera</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/transporte-a-las-islas-de-san-blas</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/tour-a-san-blas-noche-en-isla-aguja</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/casa-bruja-craft-beer-tour</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.triptable.com/tour/afro-panamanian-food-tour-in-panama-city</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/zip-line-aventure-in-panama-1</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/transito-por-el-canal-de-panama</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/panama-beer-experience</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.triptable.com/tour/take-a-walking-tour-of-the-real-panama-city</loc>
-  <changefreq>daily</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 </urlset>
