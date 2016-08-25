@@ -1,6 +1,5 @@
 var keystone = require('keystone');
 var async = require('async');
-var Email = require('../../utils').Email;
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -93,11 +92,6 @@ exports = module.exports = function(req, res) {
       next();
     })
   });
-
-  view.on('init', function(next){
-      Email.sendTemplateEmail(req, res);
-  });
-
 	// Render the view
 	view.render('index');
 };

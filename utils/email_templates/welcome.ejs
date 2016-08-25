@@ -14,14 +14,14 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">Bienvenido a Triptable.</span>
+            <span class="preheader">Bienvenido a Triptable <%= locals.name.first %></span>
 
             <!-- START HEADER -->
             <div class="header">
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="align-center">
-                    <a href="http://triptable.com" target="_blank"><img src="https://s3.amazonaws.com/assets-triptable/Triptable+logo+round.png" width="70" height="70" alt="Triptable" align="center"></a>
+                    <a href="http://www.triptable.com/?utm_source=welcome-email&utm_medium=email&utm_campaign=Welcome%20Email" target="_blank"><img src="https://s3.amazonaws.com/assets-triptable/Triptable+logo+round.png" width="70" height="70" alt="Triptable" align="center"></a>
                   </td>
                 </tr>
               </table>
@@ -41,8 +41,9 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>Bienvenido a Triptable! </h1>
-                        <p>Hola <%= locals.name %>, bienvenido a Triptable. Nos alegra tenerte por acá.</p>
+                        <h1>Bienvenido a Triptable <%= locals.name.first %>! </h1>
+                        <p>Hola <%= locals.name.first %>, bienvenido a Triptable. Nos alegra tenerte por acá.</p>
+                        <p>En Triptable puedes encontrar y reservar los mejores tours y actividades en Panamá al mejor precio, conectando directamente con guías y operadores turísticos y sin costos escondidos.<p>
                         <hr>
                         <h2>1. Descubre los tours que tenemos disponibles</h2>
                         <p>Los mejores destinos de Panamá te esperan al alcanze de un click.</p>
@@ -53,7 +54,8 @@
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="https://www.triptable.com/panama" target="_blank">Ver los tours</a> </td>
+                                      <td> <a href="http://www.triptable.com/panama?utm_source=welcome-email&utm_medium=email&utm_campaign=Welcome%20Email
+" target="_blank">Ver los tours</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -62,8 +64,8 @@
                           </tbody>
                         </table>
                         <hr>
-                        <h2>2. Consulta el estado de tu reserva</h2>
-                        <p>En tu panel de usuario puedes conocer el estado de tu reserva y contactar directamente con el guía.</p>
+                        <h2>2. Convierte en partner de Triptable</h2>
+                        <p>Aumenta tus reservas de tours en línea con nuestra plataforma de distribución. Aplica para ser un partner.</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-secondary">
                           <tbody>
                             <tr>
@@ -71,7 +73,8 @@
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="https://triptable.com/user" target="_blank">Ver mis Reservas</a> </td>
+                                      <td> <a href="http://www.triptable.com/partners?utm_source=welcome-email&utm_medium=email&utm_campaign=Welcome%20Email
+" target="_blank">Aplica ya</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -110,7 +113,7 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td class="align-center">
-                        Nos alegra de tenerte a bordo Ytzvan :-)
+                        Nos alegra de tenerte a bordo <%= locals.name.first %> :-)
                       </td>
                     </tr>
                   </table>

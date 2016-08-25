@@ -50,21 +50,22 @@ module.exports = {
       });
     },
 
-    sendTemplateEmail : function (req, res) {
-      var template = process.env.TEMPLATE;
+   sendWelcomeEmail : function (model) { //
+      var template = template; //template name
       var to = process.env.TO;
-
+      console.log(model);
       var mailgunApiKey = process.env.MAILGUN_APIKEY;
       var mailgunDomain = process.env.MAILGUN_DOMAIN;
-      var locals = {	name:	'Ytzvan', supplies:	['mop', 'broom', 'duster']	};
+      var locals = model;
       var templateOptions = {pretty: true, locals: locals};
       var templatePath = 'utils/email_templates/welcome.ejs';
-
+      var subject = 'Bienvenido a Triptable '+ locals.name.first;
       var toArray = [
         to,
-        { name: 'Ytzvan Mastino', email: 'y@triptable.com' }
+        { name: locals.name.first, email: locals.email }
       ];
-
+      sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
+      return true;
       /* var emaill = new Email(templatePath).render(locals, function(err, result) {
 
           if (!err) {
@@ -72,13 +73,20 @@ module.exports = {
           }
         }); */
 
+
+ },
+
+}
+
+ var sendEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain) {
+
     Email.send(
      templatePath,
      {transport: 'mailgun'},
      templateOptions,
      {
       to: toArray,
-      subject: 'Bienvenido a Triptable',
+      subject: subject,
       from: { name: 'Triptable', email: 'hello@triptable.com' },
       apiKey: mailgunApiKey,
       domain: mailgunDomain,
@@ -86,25 +94,17 @@ module.exports = {
 		function (err, result) {
 			if (err) {
 				console.error('🤕 Mailgun test failed with error:\n', err);
-       // return false;
-        
+        return false;
+
 			} else {
 				console.log('📬 Successfully sent Mailgun test with result:\n', result);
      //   return true;
-        return res.redirect('/panama');
+        return true;
 			}
 		}
 	);
 
-		// Email options
-
-		// Template locals
-		// Send options
-		// callback
- },
-
-
-}
+  }
 
 
 //module.exports = exports = Email;
