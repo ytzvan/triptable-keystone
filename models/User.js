@@ -15,6 +15,7 @@ User.add({
   cellphone: {type: String},
 	password: { type: Types.Password, initial: true, required: true },
   referalCode : {type: String},
+  promoCode: { type: Types.Relationship, ref: 'PromoCode', index: true, many: true},
 	image: {type: Types.CloudinaryImage},
   socialmedia: {
     facebook: {type: Types.Url},

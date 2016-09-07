@@ -33,6 +33,7 @@ Enquiry.add({
 	tourName: { type: String },
 	tourUrl: { type: String },
 	date: { type: Types.Date },
+  promocode: { type: Types.Relationship, ref: 'PromoCode', many: true },
 	bookingStatus: { type: Types.Select, options: [
 		{ value: '0', label: 'Pendiente' },
 		{ value: '1', label: 'Confirmada' },

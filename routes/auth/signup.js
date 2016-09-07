@@ -7,6 +7,7 @@ var querystring = require('querystring');
 var Email = require('../../utils').Email;
 var EmailTemplates = require('../../utils').EmailTemplates;
 var Mailchimp = require('../../utils').Mailchimp;
+var Utils = require('../../utils').GeneralUtils;
 
 exports = module.exports = function(req, res) {
 
@@ -83,6 +84,7 @@ exports = module.exports = function(req, res) {
                   Email.sendWelcomeEmail(result);
                   Mailchimp.addToMainList(result);
                 };
+                Utils.addPromoCodeToUser(result, req);
                 //return res.redirect('/signin');
                 return session.signin(req.body, req, res, onSuccess, onFail);
             }

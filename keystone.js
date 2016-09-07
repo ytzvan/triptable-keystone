@@ -86,6 +86,7 @@ keystone.set('nav', {
   'attractions' : 'attractions',
   'reviews' : 'reviews',
 	'locations' : ['countries', 'provinces', 'cities'],
-  'crms' : 'crms'
+  'crms' : 'crms',
+  'PromoCode' : 'PromoCode'
 });
 keystone.start();
