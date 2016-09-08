@@ -16,6 +16,7 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
   referalCode : {type: String},
   promoCode: { type: Types.Relationship, ref: 'PromoCode', index: true, many: true},
+  credit : {type: Types.Money, default: 0},
 	image: {type: Types.CloudinaryImage},
   socialmedia: {
     facebook: {type: Types.Url},

@@ -17,8 +17,8 @@ module.exports = {
              console.log("No match");
             }
           else {
-            registerUserInPromoCode(result, user._id, req);
-					  return true;
+            registerUserInPromoCode(result, user._id, req); //Reference the user in promocode
+            addCreditFromPromoCode(result, user, req); //Add credit to user account and reference promocode in User
 			    }
 		    });
     return true;
@@ -28,16 +28,13 @@ module.exports = {
 };
 var registerUserInPromoCode = function (promoCodeModel, userId, req) {
     console.log("entro a register user in promo code" );
-
     var application = promoCodeModel;
     var users = promoCodeModel.users;
-    console.log("pre-push", users);
     users.push(userId);
-    console.log("post-push", users);
     var updater = application.getUpdateHandler(req);
     updater.process({users : users}, {
               //  flashErrors: true,
-              //  fields: 'users',
+                fields: 'users',
                 }, function (err) {
                 if (err) {
                     console.log("fallo: " + err);
@@ -50,3 +47,30 @@ var registerUserInPromoCode = function (promoCodeModel, userId, req) {
               });
      return true;
   };
+
+var addCreditFromPromoCode = function (promoCodeModel, userModel, req) {
+    console.log("user model "+userModel);
+    var application = userModel;
+    var credit = userModel.credit;
+    console.log("pre credit" + credit);
+    credit = credit + promoCodeModel.amount;
+    console.log("post credit" + credit)
+
+    var updater = application.getUpdateHandler(req);
+    updater.process({credit : credit,
+                    promoCode: promoCodeModel._id}, {
+              //  flashErrors: true,
+                fields: 'credit, promoCode',
+                }, function (err) {
+                if (err) {
+                    console.log(err);
+                    return true;
+                } else {
+                    console.log("Exito");
+                    return true;
+                }
+                return true;
+              });
+     return true;
+
+};
