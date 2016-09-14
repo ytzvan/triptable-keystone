@@ -1,4 +1,10 @@
- {{#if messages.success}}
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+  //do work
+    mixpanel.track("Creo Cuenta o Inicio Sesión");
+});
+</script>
+{{#if messages.success}}
 		<div class="alert alert-success center">
   			<strong class="center">{{messages.success}}</strong>
 		</div>
@@ -62,7 +68,7 @@
 											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox">
 											<label class="" for="remember_me_checkbox">recuérdame</label>
 										</div> -->
-									</div> 
+									</div>
 									<!--<div class="col-xs-6 col-sm-6 col-md-6 text-right">
 										<button id="login_lost_btn" type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
 									</div> -->

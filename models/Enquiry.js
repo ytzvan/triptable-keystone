@@ -83,8 +83,11 @@ Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail
-		this.sendBookingNotificationEmail(this, email); //Email al operador
-		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+    console.log("env", process.env.NODE_ENV);
+    if (process.env.NODE_ENV == 'production') {
+		  this.sendBookingNotificationEmail(this, email); //Email al operador
+		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+    }
 	}
 });
 

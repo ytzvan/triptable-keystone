@@ -1,4 +1,9 @@
-
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+  //do work
+    mixpanel.track("Creo Cuenta o Inicio Sesión");
+});
+</script>
     {{#if messages.error}}
       <div class="alert alert-danger center">
   			<strong>Error:</strong> {{messages.error}}

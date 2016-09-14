@@ -1,4 +1,11 @@
 <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+  //do work
+    mixpanel.track("Inició el Checkout");
+});
+
+</script>
+<script type="text/javascript">
 fbq('track', 'InitiateCheckout');
   getPrice = function(travelers){
     if ({{data.tour.multiPrice}}){
