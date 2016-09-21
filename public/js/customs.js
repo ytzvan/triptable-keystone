@@ -404,7 +404,7 @@ $(function() {
 
 
 		/**
-		 * Instagram
+		 * Instagram **/
 
 		function createPhotoElement(photo) {
 			var innerHtml = $('<img>')
@@ -434,10 +434,10 @@ $(function() {
 			$('#instagram').on('didLoadInstagram', didLoadInstagram);
 			$('#instagram').instagram({
 			count: 20,
-			userId: 1689202124,
-			accessToken: '1689202124.b80cccd.22e7456f9f174048acb7119193cd52d4'
+			userId: 3133475546,
+			accessToken: '3133475546.b80cccd.6384f36385d64d299abdffd9739d49b4'
 			});
 
-		}); */
+		});
 
 });
