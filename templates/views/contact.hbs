@@ -513,6 +513,8 @@ fbq('track', 'InitiateCheckout');
           if  (!isChecked){
              $( '#accept_booking' ).focus();
              $('#showError').attr('style', 'display:block');
+             var loader = $('#anchor').data('introLoader');
+            loader.stop();
             e.preventDefault();
           } else {
             $('#showError').attr('style', 'display:none');
@@ -537,9 +539,24 @@ fbq('track', 'InitiateCheckout');
             } else {
               $('.validation').removeClass('text-danger text-success');
               $('.validation').removeClass($('.has-error').length ? 'text-danger' : 'text-success');
+                      // show gif here, eg:
+              $("#anchor").introLoader({
+                animation: {
+                  name: 'gifLoader',
+                  options: {
+                      ease: "easeInOutCirc",
+                       style: 'light',
+                       delayBefore: 500,
+                      delayAfter: 0,
+                      exitTime: 300,
+                     stop: false
+                  }
+                }
+              });
               return true;
             }
       });
 
     });
   </script>
+  <a href="#" id="anchor"></a>

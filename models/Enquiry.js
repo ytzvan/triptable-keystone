@@ -81,7 +81,7 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		this.sendUserEmail(this); //Send User email
+		 this.sendUserEmail(this); //Send User email
 		var email = this.operatorEmail
     console.log("env", process.env.NODE_ENV);
     if (process.env.NODE_ENV == 'production') {
