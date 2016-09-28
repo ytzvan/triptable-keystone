@@ -5,6 +5,8 @@
 */
 var keystone = require('keystone');
 var extend = require('extend');
+var Mixpanel = require('mixpanel');
+
 module.exports = {
   addPromoCodeToUser : function(user, req){
     var user = user;
@@ -24,6 +26,14 @@ module.exports = {
     return true;
   },
 
+  addEventToMixPanel : function (eventName) {
+    // initialize mixpanel client configured to communicate over https
+    var mixpanel = Mixpanel.init('e61a9c6f2bbe99a8395b4e5fc417e275', {
+        protocol: 'https'
+    });
+    mixpanel.track(eventName);
+    return true;
+  }
 
 };
 var registerUserInPromoCode = function (promoCodeModel, userId, req) {

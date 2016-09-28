@@ -83,6 +83,7 @@ exports = module.exports = function(req, res) {
                   sendNotificationEmail(result);
                   Email.sendWelcomeEmail(result);
                   Mailchimp.addToMainList(result);
+									Utils.addEventToMixPanel('Cuenta Creada');
                 };
                 Utils.addPromoCodeToUser(result, req);
                 //return res.redirect('/signin');
