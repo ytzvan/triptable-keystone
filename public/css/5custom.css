@@ -432,3 +432,7 @@ article.description-language{
   font-size: 14px;
   text-rendering: optimizeLegibility;
 }
+
+.bootstrap-datetimepicker-widget.dropdown-menu{
+	z-index: 99999;
+}
