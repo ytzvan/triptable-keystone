@@ -61,6 +61,10 @@ Enquiry.add({
 	transactionDate : {type: String, noedit: true},
 	transactionBallot : {type: String, noedit: true},
   user: { type: Types.Relationship, ref: 'User', index: true },
+  isPay : {type : Types.Boolean},
+  dateOfPayment : {type:  Types.Date, dependsOn: {isPay: true}},
+  paymentConfirmationNumber : {type: String, dependsOn: {isPay: true}},
+
 });
 
 Enquiry.schema.pre('save', function(next) {
