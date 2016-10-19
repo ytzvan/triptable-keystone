@@ -44,10 +44,10 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-success">Reservar Ahora</a>
+                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
               {{else}}
 
-              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-success">Reservar Ahora</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
               {{/if}}
 
               </div>
@@ -107,7 +107,134 @@
 
                   </div>
                   {{/if}}
+                  <div id="section-4" class="detail-content col-md-12 no-padding-r-l">
+                        <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
+                        <div class="section-title text-left ">
+                          <h4>Está Incluido</h4>
+                        </div>
 
+                      <ul class="list-with-icon with-heading">
+
+                        {{#if data.tour.hotelPickup}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Recogida en el Hotel</h6>
+                          <p>Este tour incluye pick-up en su hotel dentro del área.</p>
+                        </li>
+                        {{/if}}
+
+                        {{#if data.tour.transportation}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Transporte durante el Tour</h6>
+                          <p>Transportante terrestre o marítimo.</p>
+                        </li>
+
+                        {{/if}}
+                        {{#if data.tour.food}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Comidas</h6>
+                          <p>Se incluyen las comidas.</p>
+                        </li>
+                        {{/if}}
+                         {{#if data.tour.drinks}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Bebidas</h6>
+                          <p>Se incluyen las bebidas.</p>
+                        </li>
+                        {{/if}}
+                        {{#if data.tour.insurance}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Seguro contra accidentes</h6>
+                          <p>Seguro personal contra accidentes.</p>
+                        </li>
+                        {{/if}}
+                        {{#if data.tour.taxes}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Impuestos</h6>
+                          <p>Se incluyen todos los impuestos de visitantes</p>
+                        </li>
+                        {{/if}}
+                        {{#if data.tour.tickets}}
+                        <li>
+                          <i class="fa fa-check-circle text-primary"></i>
+                          <h6 class="heading mt-0">Boletos</h6>
+                          <p>Se incluyen los tickets de entrada</p>
+                        </li>
+                        {{/if}}
+
+
+                      </ul>
+                        </div> <!-- col md 6 -->
+                        <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
+                        <div class="section-title text-left ">
+                          <h4>No Está Incluido</h4>
+                        </div>
+
+                      <ul class="list-with-icon with-heading">
+
+                        {{#unless data.tour.hotelPickup}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Recogida en el Hotel</h6>
+                          <p>Deberas llegar al punto de inicio del tour.</p>
+                        </li>
+                        {{/unless}}
+
+                        {{#unless data.tour.transportation}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Transporte durante el Tour</h6>
+                          <p>Deberas costear los gastos de movilización durante el tour.</p>
+                        </li>
+                        {{/unless}}
+                        {{#unless data.tour.food}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Comidas</h6>
+                          <p>Recomendamos llevar su propia merienda</p>
+                        </li>
+                        {{/unless}}
+                        {{#unless data.tour.drinks}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Bebidas</h6>
+                          <p>Bebidas no incluídas</p>
+                        </li>
+                        {{/unless}}
+                        {{#unless data.tour.insurance}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Seguro contra accidentes</h6>
+                          <p>No se incluye seguro alguno.</p>
+                        </li>
+                        {{/unless}}
+                        {{#if data.tour.hasTaxes}}
+                         {{#unless data.tour.taxes}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Impuestos</h6>
+                          <p>Los impuestos no se incluyen en el precio</p>
+                        </li>
+                        {{/unless}}
+                        {{/if}}
+                        {{#if data.tour.hasTickets}}
+                        {{#unless data.tour.tickets}}
+                        <li>
+                          <i class="fa fa-times-circle text-danger"></i>
+                          <h6 class="heading mt-0">Boletos</h6>
+                          <p>No se incluyen los tickets de entrada</p>
+                        </li>
+                        {{/unless}}
+                       {{/if}}
+
+                      </ul>
+                        </div> <!-- col md 6 -->
+                  </div> <!-- end secction 4 -->
                   <div id="section-0" class="detail-content">
 
                     <div class="section-title text-left">
@@ -205,134 +332,7 @@
                 <!-- end secction 1 -->
                 <!-- Accomodation -->
 
-                <div id="section-4" class="detail-content col-md-12 no-padding-r-l">
-                      <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
-                      <div class="section-title text-left ">
-                        <h4>Está Incluido</h4>
-                      </div>
 
-                    <ul class="list-with-icon with-heading">
-
-                      {{#if data.tour.hotelPickup}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Recogida en el Hotel</h6>
-                        <p>Este tour incluye pick-up en su hotel dentro del área.</p>
-                      </li>
-                      {{/if}}
-
-                      {{#if data.tour.transportation}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Transporte durante el Tour</h6>
-                        <p>Transportante terrestre o marítimo.</p>
-                      </li>
-
-                      {{/if}}
-                      {{#if data.tour.food}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Comidas</h6>
-                        <p>Se incluyen las comidas.</p>
-                      </li>
-                      {{/if}}
-                       {{#if data.tour.drinks}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Bebidas</h6>
-                        <p>Se incluyen las bebidas.</p>
-                      </li>
-                      {{/if}}
-                      {{#if data.tour.insurance}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Seguro contra accidentes</h6>
-                        <p>Seguro personal contra accidentes.</p>
-                      </li>
-                      {{/if}}
-                      {{#if data.tour.taxes}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Impuestos</h6>
-                        <p>Se incluyen todos los impuestos de visitantes</p>
-                      </li>
-                      {{/if}}
-                      {{#if data.tour.tickets}}
-                      <li>
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <h6 class="heading mt-0">Boletos</h6>
-                        <p>Se incluyen los tickets de entrada</p>
-                      </li>
-                      {{/if}}
-
-
-                    </ul>
-                      </div> <!-- col md 6 -->
-                      <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
-                      <div class="section-title text-left ">
-                        <h4>No Está Incluido</h4>
-                      </div>
-
-                    <ul class="list-with-icon with-heading">
-
-                      {{#unless data.tour.hotelPickup}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Recogida en el Hotel</h6>
-                        <p>Deberas llegar al punto de inicio del tour.</p>
-                      </li>
-                      {{/unless}}
-
-                      {{#unless data.tour.transportation}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Transporte durante el Tour</h6>
-                        <p>Deberas costear los gastos de movilización durante el tour.</p>
-                      </li>
-                      {{/unless}}
-                      {{#unless data.tour.food}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Comidas</h6>
-                        <p>Recomendamos llevar su propia merienda</p>
-                      </li>
-                      {{/unless}}
-                      {{#unless data.tour.drinks}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Bebidas</h6>
-                        <p>Bebidas no incluídas</p>
-                      </li>
-                      {{/unless}}
-                      {{#unless data.tour.insurance}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Seguro contra accidentes</h6>
-                        <p>No se incluye seguro alguno.</p>
-                      </li>
-                      {{/unless}}
-                      {{#if data.tour.hasTaxes}}
-                       {{#unless data.tour.taxes}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Impuestos</h6>
-                        <p>Los impuestos no se incluyen en el precio</p>
-                      </li>
-                      {{/unless}}
-                      {{/if}}
-                      {{#if data.tour.hasTickets}}
-                      {{#unless data.tour.tickets}}
-                      <li>
-                        <i class="fa fa-times-circle text-danger"></i>
-                        <h6 class="heading mt-0">Boletos</h6>
-                        <p>No se incluyen los tickets de entrada</p>
-                      </li>
-                      {{/unless}}
-                     {{/if}}
-
-                    </ul>
-                      </div> <!-- col md 6 -->
-                </div> <!-- end secction 4 -->
 
                 <!-- secction 5 Booking dates-->
 
@@ -452,9 +452,9 @@
 
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
                  {{#if userInfo}}
-                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-success">Reservar Ahora</a>
+                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-danger">Reservar Ahora</a>
                   {{else}}
-                  <a href="/signup?from=/contact/{{data.tour.tourId}}" class="btn btn-success">Reservar Ahora</a>
+                  <a href="/signup?from=/contact/{{data.tour.tourId}}" class="btn btn-danger">Reservar Ahora</a>
                   {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
 

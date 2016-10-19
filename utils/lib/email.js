@@ -75,6 +75,32 @@ module.exports = {
 
 
  },
+ sendPendingConfirmationEmail : function () { //
+    var template = template; //template name
+    var to = process.env.TO;
+    var model = {};
+    console.log(model);
+    var mailgunApiKey = process.env.MAILGUN_APIKEY;
+    var mailgunDomain = process.env.MAILGUN_DOMAIN;
+    var locals = model;
+    var templateOptions = {pretty: true, locals: locals};
+    var templatePath = 'utils/email_templates/pending.ejs';
+    var subject = 'Tu reserva de Triptable ';
+    var toArray = [
+      to,
+      { name: "Moises", email: "moises@triptable.com" }
+    ];
+    sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
+    return true;
+    /* var emaill = new Email(templatePath).render(locals, function(err, result) {
+
+        if (!err) {
+          return res.send(result.html)
+        }
+      }); */
+
+
+},
 
 }
 

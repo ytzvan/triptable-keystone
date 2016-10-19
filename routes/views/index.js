@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
+var Email = require('../../utils').Email;
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -18,6 +19,7 @@ exports = module.exports = function(req, res) {
 	};
 	// Load the places
 	view.on('init', function(next) {
+		Email.sendPendingConfirmationEmail();
 		var q = keystone.list('Tour')
 			.paginate({
 				page: req.query.page || 1,

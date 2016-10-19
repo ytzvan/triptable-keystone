@@ -77,23 +77,28 @@ Enquiry.schema.pre('save', function(next) {
 	var str2 = currentId.toString().substring(largo);
 	str1 += str2;
 	this.friendlyId = str1;
-	var date = this.date;
-	var datePretty = moment(date).format("dddd, Do MMMM YYYY");
-	this.datePretty = datePretty;
 	next();
 });
 
+
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
-		 this.sendUserEmail(this); //Send User email
+    this.prettyDate(this);
 		var email = this.operatorEmail
     console.log("env", process.env.NODE_ENV);
     if (process.env.NODE_ENV == 'production') {
+      this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
     }
 	}
 });
+
+Enquiry.schema.methods.prettyDate = function (obj) {
+  var date = obj.date;
+	var datePretty = moment(date).format("dddd, Do MMMM YYYY");
+	obj.datePretty = datePretty;
+}
 
 Enquiry.schema.methods.sendUserEmail = function (obj) {
 	var email = obj.email;
