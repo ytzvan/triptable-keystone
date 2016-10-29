@@ -1,9 +1,9 @@
+
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
   //do work
     mixpanel.track("Inició el Checkout");
 });
-
 </script>
 <script type="text/javascript">
 fbq('track', 'InitiateCheckout');
@@ -164,14 +164,29 @@ fbq('track', 'InitiateCheckout');
                   </div>
                   <script type="text/javascript">
                       $(function () {
+													function calcTime(offset) {
+														// create Date <o></o>bject for current location
+														var date = new Date();
+														var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+														var newDate = new Date(utc + (3600000 * offset));
+														return newDate;
+												};
+												var localT = calcTime("-5");
+												var timeOfBooking = moment(localT);
+												timeOfBooking = timeOfBooking._i.getHours();
+												console.log("Hora en Panama: ", timeOfBooking);	
+
                         $('.input-group-addon').on('click', function(){
                            $('#dateEmpty').attr('style', 'display:none');
                         });
                         var today = new Date();
                         var numberOfDaysToAdd = {{data.tour.skipDays}};
                         if (numberOfDaysToAdd > 0) {
-                          numberOfDaysToAdd = numberOfDaysToAdd -1 ;
+                         numberOfDaysToAdd = numberOfDaysToAdd -1 ;
                         }
+												if (timeOfBooking > 17 && {{data.tour.skipDays}} < 2) {
+													  numberOfDaysToAdd = numberOfDaysToAdd + 1 ;
+												} 
                         var date = today.setDate(today.getDate() + numberOfDaysToAdd);
 
                           $('#datetimepicker11').datetimepicker({
@@ -180,7 +195,9 @@ fbq('track', 'InitiateCheckout');
                               minDate : date,
                               disabledDates :  [{{#each data.tour.disabledDates}}"{{this}}", {{/each}}],
                               useCurrent : false,
-                              debug:true
+                              debug:true,
+															disabledHours : [0, 1, 2, 3],
+															
                           });
                       });
 
@@ -474,7 +491,6 @@ fbq('track', 'InitiateCheckout');
 </div> <!-- end main wrapper -->
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.4.2/jquery.payment.min.js"></script>
-
   <style type="text/css" media="screen">
     .has-error input {
       border-width: 2px;
@@ -525,6 +541,14 @@ fbq('track', 'InitiateCheckout');
 
       $('form').submit(function(e) {
           var valid = $.payment.validateCardNumber($('.cc-number').val());
+					var cvc = $(".cc-cvc").val();
+					var exp = $(".cc-exp").val();
+					if (!cvc) {
+						valid = false;
+					}
+					if (!exp) {
+						valid = false;
+					}
           if (!valid) {
             alert('Your card is not valid!');
              e.preventDefault();
@@ -537,9 +561,10 @@ fbq('track', 'InitiateCheckout');
             $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
             return false;
             } else {
+							console.log("valid: " + valid);
               $('.validation').removeClass('text-danger text-success');
               $('.validation').removeClass($('.has-error').length ? 'text-danger' : 'text-success');
-                      // show gif here, eg:
+              // show gif here, eg:
               $("#anchor").introLoader({
                 animation: {
                   name: 'gifLoader',

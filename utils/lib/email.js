@@ -75,10 +75,10 @@ module.exports = {
 
 
  },
- sendPendingConfirmationEmail : function () { //
+ sendPendingConfirmationEmail : function (model) { //
+    console.log(model);
     var template = template; //template name
     var to = process.env.TO;
-    var model = {};
     console.log(model);
     var mailgunApiKey = process.env.MAILGUN_APIKEY;
     var mailgunDomain = process.env.MAILGUN_DOMAIN;
@@ -88,7 +88,7 @@ module.exports = {
     var subject = 'Tu reserva de Triptable ';
     var toArray = [
       to,
-      { name: "Moises", email: "moises@triptable.com" }
+      { name: model.name.first + " " + model.name.last, email: model.email }
     ];
     sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
     return true;

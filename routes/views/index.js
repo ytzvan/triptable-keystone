@@ -19,7 +19,6 @@ exports = module.exports = function(req, res) {
 	};
 	// Load the places
 	view.on('init', function(next) {
-		Email.sendPendingConfirmationEmail();
 		var q = keystone.list('Tour')
 			.paginate({
 				page: req.query.page || 1,

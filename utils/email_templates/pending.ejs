@@ -47,7 +47,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
 
 <!-- HIDDEN PREHEADER TEXT -->
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Open Sans, Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-Confirmación de reserva triptable.
+Solicitud de reserva enviada.
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -55,7 +55,7 @@ Confirmación de reserva triptable.
         <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
             <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" class="mobile-table">
                 <tr>
-                    <td align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#044767">
+                    <td align="center" valign="top" style="font-size:0; padding: 15px;" bgcolor="#044767">
                         <table align="left" border="0" cellpadding="0" cellspacing="0" width="250" class="mobile-table">
                             <tr>
                                   <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
@@ -63,22 +63,7 @@ Confirmación de reserva triptable.
                                   </td>
                               </tr>
                         </table>
-                        <table align="right" border="0" cellpadding="0" cellspacing="0" width="250" class="mobile-hide">
-                            <tr>
-                                <td align="right" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
-                                    <table cellspacing="0" cellpadding="0" border="0" align="right">
-                                        <tr>
-                                            <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
-                                                <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;"><singleline label="Shop Text"><a href="http://triptable.com" target="_blank" style="color: #ffffff; text-decoration: none;">Tours &nbsp;</a></singleline></p>
-                                            </td>
-                                            <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">
-                                                <a href="http://triptable.com" target="_blank" style="color: #ffffff; text-decoration: none;"><img editable label="Shop Icon" src="http://res.cloudinary.com/triptable/image/upload/v1476909291/shop_ckis1p.png" width="27" height="23" style="display: block; border: 0px;"/></a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
+                    
                     </td>
                 </tr>
                 <tr>
@@ -96,11 +81,22 @@ Confirmación de reserva triptable.
                                 <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 15px;">
                                     <multiline label="Introduction Paragraph">
                                     <p style="font-size: 18px; font-weight: 800; line-height: 24px; color: #333333;">
-                                        Hola {NAME},
+                                        Hola <%= locals.name.first %> <%= locals.name.last %>!
                                     </p>
                                     <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;">
-                                        Estamos procesando tu reserva y pronto la confirmaremos. Tu ID de reserva es el <strong>3452HBSA</strong>. Puedes consultar el estado de tu reserva haciendo click en el botón de abajo.
+                                        Estamos procesando tu reserva y pronto la confirmaremos. Tu ID de reserva es el <strong style="text-transformation: uppercase;"><%= locals.friendlyId %></strong>.
                                     </p>
+                                    </multiline>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                    <multiline label="Section 2">
+                                    <p style="font-size: 20px; font-weight: 800; line-height: 24px; color: #333333; margin: 0;">Tus Datos:</p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Nombre: </strong><%= locals.name.full %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Dirección: </strong><%= locals.hotel %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Teléfono: </strong><%= locals.phone %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>E-mail: </strong><%= locals.email %></p>
                                     </multiline>
                                 </td>
                             </tr>
@@ -127,10 +123,10 @@ Confirmación de reserva triptable.
                                 <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
                                     <multiline label="Section 2">
                                     <p style="font-size: 20px; font-weight: 800; line-height: 24px; color: #333333; margin: 0;">Datos de la Reserva:</p>
-                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Tour: </strong>Tour a San Blas - Pasadía a las islas de San Blas</p>
-                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Fecha: </strong>Sábado, 29 de Octubre de 2016</p>
-                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Número de Viajeros: </strong>3</p>
-                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Precio: </strong>$145 USD</p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Tour: </strong><%= locals.tourName %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Fecha: </strong><%= locals.datePretty %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Número de Viajeros: </strong><%= locals.people %></p>
+                                    <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;"><strong>Precio: </strong>$<%= locals.bookingTotalPrice %> USD</p>
                                     </multiline>
                                 </td>
                             </tr>
@@ -139,7 +135,7 @@ Confirmación de reserva triptable.
                                     <table border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="border-radius: 5px;" bgcolor="#ed8e20">
-                                                <singleline label="Call to Action 2"><a href="http://litmus.com" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #3498db; padding: 15px 30px; border: 1px solid #3498db; display: block;">Ver Estado</a></singleline>
+                                                <singleline label="Call to Action 2"><a href="http://triptable.com/user" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #3498db; padding: 15px 30px; border: 1px solid #3498db; display: block;">Ver Estado</a></singleline>
                                             </td>
                                         </tr>
                                     </table>
@@ -170,7 +166,8 @@ Confirmación de reserva triptable.
                                 <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;">
                                     <multiline label="Unsubscribe Text">
                                       <p style="font-size: 14px; font-weight: 400; line-height: 20px; color: #777777;">
-                                        Las reservas pueden tardar hasta un máximo de 24 horas para ser confirmadas. Si es una emergencia puedes escribirnos a <a href="mailto:hello@triptable.com" target="_blank" style="color: #777777;">hello@triptable.com</a>.
+                                        La reserva no tardará mas de 24 horas en ser confirmada. Si tu reserva es para manaña te contactaremos en breve. ¿Dudas? Escríbenos a: <a href="mailto:hello@triptable.com" target="_blank" style="color: #777777;">hello@triptable.com</a>.
+                                    
                                       </p>
                                     </multiline>
                                 </td>

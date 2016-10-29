@@ -6,6 +6,7 @@ var extend = require('extend');
 var Keen = require('keen-js');
 var moment = require('moment');
 var Sms = require('../../utils').Sms;
+var Email = require('../../utils').Email;
 var client = new Keen({
     projectId: "577145c107271968d3a2107d", // String (required always)
     writeKey: "5f180e718b659d108d1517d2be385b5e5c2f9740dc0758649d78935f971c27fb77f1d7462a33c1e2dca28ba69d63e61fd357a5b348ad5c325a66bab2ecbb58f8011cc0d765bfa6a48d483a7b582a247e13786047447585db3db1144d65d6fb9b",   // String (required for sending data)
@@ -88,7 +89,6 @@ exports = module.exports = function(req, res) {
 	    	bookingRevenue : commision,
         bookingComission : commisionPercentaje,
 	    };
-      console.log(updateBody);
 //		var finalObj = {};
 		extend(updateBody, req.body);
       var cardNumber = body.cardNumber;
@@ -214,6 +214,7 @@ exports = module.exports = function(req, res) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
+        Email.sendPendingConfirmationEmail(data);
 				locals.bookingInfo = data;
 				locals.enquirySubmitted = true;
         recordEvent(data);
