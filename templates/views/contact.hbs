@@ -174,7 +174,7 @@ fbq('track', 'InitiateCheckout');
 												var localT = calcTime("-5");
 												var timeOfBooking = moment(localT);
 												timeOfBooking = timeOfBooking._i.getHours();
-												console.log("Hora en Panama: ", timeOfBooking);	
+												console.log("Hora en Panama: ", timeOfBooking);
 
                         $('.input-group-addon').on('click', function(){
                            $('#dateEmpty').attr('style', 'display:none');
@@ -184,9 +184,9 @@ fbq('track', 'InitiateCheckout');
                         if (numberOfDaysToAdd > 0) {
                          numberOfDaysToAdd = numberOfDaysToAdd -1 ;
                         }
-												if (timeOfBooking > 17 && {{data.tour.skipDays}} < 2) {
+												if (timeOfBooking > 19 && {{data.tour.skipDays}} < 2) {
 													  numberOfDaysToAdd = numberOfDaysToAdd + 1 ;
-												} 
+												}
                         var date = today.setDate(today.getDate() + numberOfDaysToAdd);
 
                           $('#datetimepicker11').datetimepicker({
@@ -197,7 +197,7 @@ fbq('track', 'InitiateCheckout');
                               useCurrent : false,
                               debug:true,
 															disabledHours : [0, 1, 2, 3],
-															
+
                           });
                       });
 
