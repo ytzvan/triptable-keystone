@@ -608,7 +608,7 @@ a.top-destination-image-bg { display: block; color: rgba(255,255,255,1); positio
 .package-grid-item a { color: #666; font-weight: 400; }
 .package-grid-item a h5, .package-grid-item a h6 { color: #333; margin: 0 0 10px; line-height: 1.2; }
 .package-grid-item .content { padding: 15px; padding-right: 90px; position: relative; }
-.absolute-in-content { position: absolute; right: 15px; top: 15px; width: 60px; line-height: 1; text-align: right; }
+.absolute-in-content { position: absolute; right: 15px; top: 15px; width: 80px; line-height: 1; text-align: right; }
 .absolute-in-content .btn { background: none; padding: 4px 0; font-size: 18px; }
 .absolute-in-content .price { color: #3498db; font-size: 16px; font-weight: 700; }
 .package-grid-item .raty-wrapper > div { float: left; margin-right: 7px; margin-top: -1px; }
@@ -1226,5 +1226,3 @@ ul.static-page-menu li a:hover, ul.static-page-menu li.active a { border-right:4
 @media (max-width: 479px) {
 
 }
-
-

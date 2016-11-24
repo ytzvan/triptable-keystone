@@ -295,10 +295,10 @@ $(function() {
 		 * readmore - read more/less
 		 */
 		$('.read-more-div').readmore({
-			speed: 220,
+			speed: 500,
 			moreLink: '<a href="#" class="read-more-div-open">Read More</a>',
 			lessLink: '<a href="#" class="read-more-div-close">Read less</a>',
-			collapsedHeight: 45,
+			collapsedHeight: 100,
 			heightMargin: 25
 		});
 
