@@ -38,6 +38,8 @@ exports = module.exports = function (req, res) {
         if (message){
           Email.sendEmail(req.body, subject, message); // en el callback envia el email
         }
+				var notificationEmail = EmailTemplates.newPartner(req.body);
+        Email.emailNotificationTriptable(req.body, "Nuevo partner registrado", notificationEmail); // en el callback envia el email de notificacion a nosotros.
 			}
 			next();
 		});
