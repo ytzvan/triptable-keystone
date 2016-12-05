@@ -36,6 +36,8 @@ Tour.add({
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
+	videoUrl: {type: String, label: "Youtube Video URL"}, 
+	videoId : {type: String, hidden: true}, //Created if added a Video URL
 	keywords: {type: String},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	minPerson: {type: Types.Number, default: 1 },
@@ -83,5 +85,16 @@ Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdA
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
     next();
+});
+Tour.schema.pre('save', function(next){
+	console.log("enter post save");
+	var video_id = this.videoUrl.split('v=')[1];
+  var ampersandPosition = video_id.indexOf('&');
+  if(ampersandPosition != -1) {
+  	this.videoId = video_id.substring(0, ampersandPosition);
+  } else {
+		this.videoId = video_id;
+	}
+next();
 });
 Tour.register();

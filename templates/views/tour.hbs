@@ -107,6 +107,21 @@
 
                   </div>
                   {{/if}}
+                  {{#if data.tour.videoUrl}}
+                 <div id="section-7" class="detail-content">
+
+                    <div class="section-title text-left">
+                      <h4>Video</h4>
+                    </div>
+
+                    <article class="video">
+
+                      
+                    <iframe src="https://www.youtube.com/embed/{{data.tour.videoId}}" frameborder="0" allowfullscreen></iframe> 
+                    </article>
+
+                </div>
+                {{/if}}
                   <div id="section-4" class="detail-content col-md-12 no-padding-r-l">
                         <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
                         <div class="section-title text-left ">
@@ -292,10 +307,10 @@
                   <script type="text/javascript">
                     $(function() {
                       $('article').readmore({
-                        heightMargin: 25,
-                        collapsedHeight: 325,
-                        moreLink: '<a href="#" style="width: 20%;" class="btn btn-primary">Leer todo</a>',
-                        lessLink: '<a href="#" style="width: 20%;" class="btn btn-primary">Cerrar</a>',
+                        heightMargin: 50,
+                        collapsedHeight: 330,
+                        moreLink: '<a href="#" class="btn btn-primary center">Leer todo</a>',
+                        lessLink: '<a href="#" class="btn btn-primary">Cerrar</a>',
                       });
                     });
 
@@ -333,6 +348,7 @@
 
                 </div>
                 <!-- end secction 1 -->
+                
                 <!-- Accomodation -->
 
 
@@ -427,7 +443,7 @@
                 <!-- call 2 action -->
                 <div class="call-to-action">
 
-                    ¿Preguntas? <a href="mailto:hello@triptableapp.com" class="btn btn-primary btn-sm btn-inverse">Escríbenos</a> o llámanos al +507 680 800 24
+                    ¿Preguntas? <a href="mailto:hello@triptable.com" class="btn btn-primary btn-sm btn-inverse">Escríbenos</a> o llámanos al +507 680 800 24
 
                 </div>
                 <!-- end call 2 action -->
@@ -474,10 +490,14 @@
 
 
 </div>    <!-- end main wrapper -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
   //do work
     mixpanel.track("Tour View");
 });
-
+  $(document).ready(function(){
+    // Target your .container, .wrapper, .post, etc.
+    $("article").fitVids();
+  });
 </script>
