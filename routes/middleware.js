@@ -2,7 +2,8 @@ var _ = require('underscore');
 var keystone = require('keystone');
 var passport = require('passport');
 var Keen = require('keen-js');
-
+var i18n = require("i18n");
+  
 /**
 	Initialises the standard view locals
 */
@@ -144,5 +145,20 @@ exports.userInfo = function(req, res, next) {
 		locals.userInfo = null;
 		next();
 	}
+};
+
+exports.intl = function (req, res, next) {
+i18n.configure({
+  locales: ['es', 'en'],
+  cookie: 'lang',
+  directory: './locales',
+  queryParameter: 'lang'
+});
+  if (req.query.lang) {
+    process.env.LANG = req.query.lang;
+    i18n.setLocale(process.env.LANG);
+  }
+  //var hello = i18n.__('Hello');
+  next();
 };
 

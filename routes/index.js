@@ -12,6 +12,8 @@ keystone.pre('render', middleware.isAdmin);
 keystone.pre('routes', middleware.isGuide);
 keystone.pre('render', middleware.isGuide);
 
+keystone.pre('routes', middleware.intl);
+
 // Import Route Controller
 var routes = {
 	views: importRoutes('./views'),
