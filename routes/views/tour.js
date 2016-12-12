@@ -1,6 +1,7 @@
 var keystone = require('keystone');
 var striptags = require('striptags');
 var Review = keystone.list('Review');
+var TourModel = keystone.list('Tour');
 
 
 exports = module.exports = function(req, res) {
@@ -69,7 +70,8 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				locals.reviewSubmitted = true;
-        return res.redirect('back');
+				updatedReviewsN(data);
+        	return res.redirect('back');
 			}
 			next();
 		});
@@ -83,6 +85,37 @@ exports = module.exports = function(req, res) {
 				locals.data.reviews = results;
 				next(err);
 			});
+
+	}
+
+	function updatedReviewsN(data){
+		var tourId = data.tour;
+		var query = keystone.list('Tour').model.findOne({'_id': tourId});
+		query.exec(function(err, tour){
+			if (!err) {
+				var currentReviews = tour.nOfReviews; //Get the # of reviews 
+				console.log("current reviews", currentReviews);
+				currentReviews = currentReviews + 1;
+				console.log("after update",currentReviews);
+
+				var application = tour; //Modelo a actualizar
+              	var updater = application.getUpdateHandler(req);				
+					updater.process({nOfReviews : currentReviews}, {
+					flashErrors: true,
+					fields: 'nOfReviews',
+					errorMessage: 'There was a problem submitting your review:'
+				}, function(err, data) {
+					if (err){
+						console.log("err", err);
+					} else {
+						console.log("success", data);
+					}
+				});
+				return true;
+			} else { //si falla el query de obtener el tour;
+				return true;
+			}
+		});
 
 	}
 	// Load other posts

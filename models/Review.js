@@ -26,16 +26,4 @@ Review.add({
 
 Review.relationship({ ref: 'Tour', path: 'reviews' });
 Review.defaultColumns = 'author, score|20%, message|20%';
-Review.schema.post('save', function() {
-  var reviewId = this._id;
-  var tourId = this.tour;
-  var body = {}
-  body = {
-    'reviews' : tourId
-  }
-  var update = tour.model.findByIdAndUpdate(tourId, {$push: {nOfReviews: reviewId}},{safe: true, upsert: true});
-  update.exec(function(err, results) {
-  });
-	return true;
-});
 Review.register();

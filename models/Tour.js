@@ -65,7 +65,8 @@ Tour.add({
 	highlights: { type: Types.TextArray},
 	startingPoint : {type: String},
 	finishPoint: {type: String},
-  nOfReviews: {type: Types.TextArray},
+  nOfReviews: {type: Types.Number, default: 0},
+	nOfStars: {type: Types.Number, default: 4.5},
 	reviews : { type: Types.Relationship, ref: 'Review', many: true },
   attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
   createdAt: { type: Date, default: Date.now, noedit: true },
@@ -80,21 +81,21 @@ Tour.schema.virtual('content.full').get(function() {
 	return this.description.extended || this.description.short;
 });
 Tour.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'tour' });
-Tour.relationship({ ref: 'Review', path: 'reviews', refPath: 'tour' });
+Tour.relationship({ ref: 'Review', path: 'reviews'});
 Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdAt';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
     next();
 });
 Tour.schema.pre('save', function(next){
-	console.log("enter post save");
-	var video_id = this.videoUrl.split('v=')[1];
-  var ampersandPosition = video_id.indexOf('&');
-  if(ampersandPosition != -1) {
-  	this.videoId = video_id.substring(0, ampersandPosition);
-  } else {
-		this.videoId = video_id;
-	}
-next();
+		if (this.videoUrl) {
+		var video_id = this.videoUrl.split('v=')[1];
+		var ampersandPosition = video_id.indexOf('&');
+		if(ampersandPosition != -1) {
+			this.videoId = video_id.substring(0, ampersandPosition);
+		} else {
+			this.videoId = video_id;
+		}
+	next(); }
 });
 Tour.register();
