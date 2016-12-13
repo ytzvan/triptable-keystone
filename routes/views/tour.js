@@ -58,7 +58,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('post', { action: 'review' }, function(next) {
-
 		var newReview = new Review.model(),
 			updater = newReview.getUpdateHandler(req);
 		updater.process(req.body, {
@@ -70,13 +69,27 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				locals.reviewSubmitted = true;
-				updatedReviewsN(data);
-        	return res.redirect('back');
+        		return res.redirect('back');
 			}
 			next();
 		});
 
 	});
+
+	view.on('post', {action: 'review'}, function(){
+		console.log(req.body);
+		var tourId = req.body.tour;
+		var q = keystone.list('Tour').model.findOne({"_id": tourId});
+		q.exec(function(err, tour){
+			var nOfReviews = tour.nOfReviews + 1;
+			keystone.list('Tour').model.update({"_id": tour._id},{ $set: { nOfReviews: nOfReviews } })
+				.exec(function(err,result){
+				return true;
+			});
+		});
+		return true;
+		});
+
 	function loadReviews(next){
 		var r = keystone.list('Review').model.find({'tour': tourId})
     //.limit('3')
@@ -88,36 +101,7 @@ exports = module.exports = function(req, res) {
 
 	}
 
-	function updatedReviewsN(data){
-		var tourId = data.tour;
-		var query = keystone.list('Tour').model.findOne({'_id': tourId});
-		query.exec(function(err, tour){
-			if (!err) {
-				var currentReviews = tour.nOfReviews; //Get the # of reviews 
-				console.log("current reviews", currentReviews);
-				currentReviews = currentReviews + 1;
-				console.log("after update",currentReviews);
-
-				var application = tour; //Modelo a actualizar
-              	var updater = application.getUpdateHandler(req);				
-					updater.process({nOfReviews : currentReviews}, {
-					flashErrors: true,
-					fields: 'nOfReviews',
-					errorMessage: 'There was a problem submitting your review:'
-				}, function(err, data) {
-					if (err){
-						console.log("err", err);
-					} else {
-						console.log("success", data);
-					}
-				});
-				return true;
-			} else { //si falla el query de obtener el tour;
-				return true;
-			}
-		});
-
-	}
+	
 	// Load other posts
 	view.on('init', function(next) {
 
