@@ -42,13 +42,8 @@
                       <h5>{{name}}</h5>
                       <div class="rating-wrapper">
                         <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> /
-                          {{#if nOfReviews}}
-                            {{nOfReviews.length}}
-                           {{else}}
-                           0
-                           {{/if}}
-                          reviews</span>
+                          <div class="star-rating-read-only" data-rating-score="{{nOfStars}}"></div> <span> /
+                            {{nOfReviews}} reviews</span>
                         </div>
                       </div>
                       <div class="absolute-in-content">

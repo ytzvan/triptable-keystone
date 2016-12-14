@@ -76,20 +76,6 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	view.on('post', {action: 'review'}, function(){
-		console.log(req.body);
-		var tourId = req.body.tour;
-		var q = keystone.list('Tour').model.findOne({"_id": tourId});
-		q.exec(function(err, tour){
-			var nOfReviews = tour.nOfReviews + 1;
-			keystone.list('Tour').model.update({"_id": tour._id},{ $set: { nOfReviews: nOfReviews } })
-				.exec(function(err,result){
-				return true;
-			});
-		});
-		return true;
-		});
-
 	function loadReviews(next){
 		var r = keystone.list('Review').model.find({'tour': tourId})
     //.limit('3')
