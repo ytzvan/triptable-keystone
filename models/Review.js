@@ -27,7 +27,7 @@ Review.add({
 Review.schema.post('save', function() {
     var score = this.score;
 	var tourId = this.tour;
-	var count = Number(score);
+	var count = Number(0);
 	var finalScore;
 	var q = keystone.list('Review').model.find({"tour": tourId});
 	q.exec(function(err, Reviews){
@@ -51,25 +51,37 @@ Review.schema.post('save', function() {
 Review.schema.post('remove', function(){
 	var score = this.score;
 	var tourId = this.tour;
-	var count = Number(score);
+	var count = Number(0);
 	var finalScore;
 	var q = keystone.list('Review').model.find({"tour": tourId});
 	q.exec(function(err, Reviews){
-			var Reviews = Reviews;
-			for(var i=0;i<Reviews.length;i++){
-				var reviewScore = Number(Reviews[i].score);
-				count = count + reviewScore;
-			} // end for
-			var nOfReviews = Reviews.length; 
-			finalScore = count / nOfReviews;
-			finalScore = finalScore.toFixed(2);
-			keystone.list('Tour').model.update({"_id": tourId},{ $set: { nOfStars: finalScore, nOfReviews: nOfReviews } })
-				.exec(function(err,result){
-					console.log(err);
-					console.log(result);
-				return true;
-			});
+			if (Reviews) {
+				var Reviews = Reviews;
+				for(var i=0;i<Reviews.length;i++){
+					var reviewScore = Number(Reviews[i].score);
+					count = count + reviewScore;
+				} // end for
+				var nOfReviews = Reviews.length; 
+				finalScore = count / nOfReviews;
+				finalScore = finalScore.toFixed(2);
+				keystone.list('Tour').model.update({"_id": tourId},{ $set: { nOfStars: finalScore, nOfReviews: nOfReviews } })
+					.exec(function(err,result){
+						console.log(err);
+						console.log(result);
+					return true;
+				});
+			} else {
+				var nOfStars = Number(4.5);
+				var nOfReviews = Number(0);
+				keystone.list('Tour').model.update({"_id": tourId},{ $set: { nOfStars: nOfStars, nOfReviews: nOfReviews } })
+					.exec(function(err,result){
+						console.log(err);
+						console.log(result);
+					return true;
+				});
+			}
 	});
+
 	
 });
 

@@ -366,18 +366,14 @@
 
                         <div class="rating-wrapper">
                           <div class="raty-wrapper">
-                            <div class="star-rating-12px" data-rating-score="4.0"></div> <span> / {{#if nOfReviews}}
-                            {{nOfReviews.length}}
-                           {{else}}
-                           0
-                           {{/if}}
+                            <div class="star-rating-read-only" data-rating-score="{{nOfStars}}"></div> <span> / {{nOfReviews}}
                           reviews</span>
                           </div>
                         </div>
 
-                        <div class="price">${{price}}</div>
+                        <div class="price">${{price}} USD</div>
 
-                        <a href="/tour/{{slug}}" class="btn btn-success btn-sm">Reservar</a>
+                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">Ver Tour</a>
 
                       </div>
                     </div>
