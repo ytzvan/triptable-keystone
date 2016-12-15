@@ -26,8 +26,8 @@ exports = module.exports = function(req, res) {
 				maxPages: 10
 			})
 			.where('state', 'published')
-			.where('featured', false)
-			.sort('-publishedDate')
+	//		.where('featured', false)
+			.sort('-updatedAt')
 			.populate('owner categories country province city');
 
 		if (locals.data.category) {

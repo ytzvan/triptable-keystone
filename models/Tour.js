@@ -36,8 +36,7 @@ Tour.add({
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	videoUrl: {type: String, label: "Youtube Video URL"}, 
-	videoId : {type: String, hidden: true}, //Created if added a Video URL
+	videoId : {type: String}, //Created if added a Video URL
 	keywords: {type: String},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	minPerson: {type: Types.Number, default: 1 },
@@ -69,7 +68,8 @@ Tour.add({
 	nOfStars: {type: Types.Number, default: 4.5},
 	reviews : { type: Types.Relationship, ref: 'Review', many: true },
   attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
-  createdAt: { type: Date, default: Date.now, noedit: true },
+  createdAt: { type: Date, noedit: true },
+	updatedAt: { type: Date, noedit: true },
   daysDisabled: { type: Types.TextArray, label: 'Dias Desactivados', note : '0 - Domingo, 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sábado'},
   skipDays : {type: Types.Number, default: 0, label: 'Dias con los que se necesita reservar con anticipación', note: 'Esto define el mínimo de días necesarios para hacer una reserva'},
   disabledDates : {type: Types.TextArray, label: 'Fechas no disponibles', note: 'Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28'},
@@ -85,17 +85,11 @@ Tour.relationship({ ref: 'Review', path: 'reviews'});
 Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdAt';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
+		now = new Date();
+  	this.updatedAt = now;
+  	if ( !this.createdAt ) {
+    	this.createdAt = now;
+  	}	
     next();
-});
-Tour.schema.pre('save', function(next){
-		if (this.videoUrl) {
-		var video_id = this.videoUrl.split('v=')[1];
-		var ampersandPosition = video_id.indexOf('&');
-		if(ampersandPosition != -1) {
-			this.videoId = video_id.substring(0, ampersandPosition);
-		} else {
-			this.videoId = video_id;
-		}
-	next(); }
 });
 Tour.register();
