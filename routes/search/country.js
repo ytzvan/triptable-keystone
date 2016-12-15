@@ -58,7 +58,7 @@ exports = module.exports = function(req, res) {
 			var q = keystone.list('Tour')
 				.paginate({
 					page: req.query.page || 1,
-					perPage: 5,
+					perPage: 10,
 				})
         .find({"state": "published"})
 				.where("country", id)
