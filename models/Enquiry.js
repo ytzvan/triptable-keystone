@@ -90,7 +90,7 @@ Enquiry.schema.post('save', function() {
       this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-    }
+    	}
 	}
 });
 
@@ -159,6 +159,6 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	});
 	});
 }
-Enquiry.defaultSort = '-createdAt';
+Enquiry.defaultSort = '-date';
 Enquiry.defaultColumns = 'name, bookingStatus, date, bookingTotalPrice, bookingRevenue';
 Enquiry.register();
