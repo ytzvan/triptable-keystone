@@ -23,6 +23,7 @@ User.add({
     twitter: {type: Types.Url},
     instagram: {type: Types.Url},
   },
+  toursPurchased: {type: Types.Relationship, ref: "Tour", many: true},
   description: {type: Types.Textarea },
   createdAt: { type: Date, default: Date.now, noedit: true },
   contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
@@ -45,8 +46,8 @@ User.schema.virtual('canAccessKeystone').get(function() {
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 User.relationship({ ref: 'Review', path: 'reviews', refPath: 'author' });
 User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
-User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
-
+//User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
+User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'user' });
 
 /**
  * Registration

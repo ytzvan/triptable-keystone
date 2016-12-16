@@ -77,6 +77,7 @@ Enquiry.schema.pre('save', function(next) {
 	var str2 = currentId.toString().substring(largo);
 	str1 += str2;
 	this.friendlyId = str1;
+
 	next();
 });
 
@@ -92,6 +93,15 @@ Enquiry.schema.post('save', function() {
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
     	}
 	}
+	//Add tour to purchase from user: 
+	var tourToSave = this.tour;
+	var user = this.user;
+	keystone.list('User').model.update({"_id": user},{ $set: { toursPurchased: tourToSave} })
+		.exec(function(err,result){
+			console.log(err);
+			console.log(result);
+			return true;
+		});
 });
 
 Enquiry.schema.methods.prettyDate = function (obj) {
