@@ -52,7 +52,6 @@ exports = module.exports = function(req, res) {
       var travelers = req.body.people;
       if (locals.data.tour.multiPrice){
          var tourPrice = getPrice(travelers, locals);
-          console.log("Precio individual mod", tourPrice);
       } else {
         var tourPrice = locals.data.tour.price;
       };
@@ -66,7 +65,6 @@ exports = module.exports = function(req, res) {
       } else {
         var commisionPercentaje = 15;
       }
-      console.log(commisionPercentaje);
 	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
 	    var tourOperatorCost = flatPrice - commision;
 
@@ -214,11 +212,13 @@ exports = module.exports = function(req, res) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
-        Email.sendPendingConfirmationEmail(data);
+				if (process.env.NODE_ENV == 'production') {
+        	Email.sendPendingConfirmationEmail(data);
+					recordEvent(data);
+        	Sms.sendSms(data);
+				}
 				locals.bookingInfo = data;
 				locals.enquirySubmitted = true;
-        recordEvent(data);
-        Sms.sendSms(data);
 			}
 			next();
 		});
@@ -265,7 +265,6 @@ function getPrice(travelers, locals){
           current[index] = parseInt(current[index]);
         }
         priceCatalog.push(current);
-        console.log(priceCatalog);
         }
         for (var i = 0; i< priceCatalog.length; i++){
           if (isNaN(priceCatalog[i][0])) {
@@ -277,10 +276,6 @@ function getPrice(travelers, locals){
          //if logic
 
          if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
-           console.log("travelers", travelers);
-           console.log("min", priceCatalog[i][0]);
-           console.log("max", priceCatalog[i][1]);
-           console.log("final Price", priceCatalog[i][2]);
            var pricePerTraveler = priceCatalog[i][2];
            return pricePerTraveler;
          } else {

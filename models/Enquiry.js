@@ -96,7 +96,9 @@ Enquiry.schema.post('save', function() {
 	//Add tour to purchase from user: 
 	var tourToSave = this.tour;
 	var user = this.user;
-	keystone.list('User').model.update({"_id": user},{ $set: { toursPurchased: tourToSave} })
+	var string = tourToSave.toString();
+	console.log(this.tour.toString());
+	keystone.list('User').model.findByIdAndUpdate({"_id": user},{ $push: { 'toursPurchased': tourToSave} }, { 'new': true})
 		.exec(function(err,result){
 			console.log(err);
 			console.log(result);
