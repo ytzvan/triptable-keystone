@@ -54,7 +54,7 @@ Tour.add({
 	drinks: {type: Types.Boolean, default: false },
 	featured: {type: Types.Boolean, default: false },
 	insurance: {type: Types.Boolean, default: false },
-	tourGuide: {type: Types.Boolean, default: false },
+	tourGuide: {type: Types.Boolean, default: true },
   hasTaxes : {type : Types.Boolean, default: false},
 	taxes: {type: Types.Boolean, default: false,  dependsOn: { hasTaxes: true } },
   hasTickets : {type : Types.Boolean, default: false},
