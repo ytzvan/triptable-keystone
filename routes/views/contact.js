@@ -52,22 +52,36 @@ exports = module.exports = function(req, res) {
       var travelers = req.body.people;
       if (locals.data.tour.multiPrice){
          var tourPrice = getPrice(travelers, locals);
+				 var cost = getCost(travelers, locals);
       } else {
         var tourPrice = locals.data.tour.price;
+					if (locals.data.tour.cost) {
+					var cost = locals.data.tour.cost;
+				} else {
+					cost = 0;
+				}
       };
       body.tourPrice = tourPrice;
       req.body.tourPrice = tourPrice;
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
-	    var processorTax = 3.9; // % del procesador
+	    var processorTax = 4; // % del procesador
 	    var processorFee = 0.30; // fee individual por transaccion
       if (locals.data.tour.comission){
         var commisionPercentaje = locals.data.tour.comission; //porcentaje de commision que nos llevamos nosotros
       } else {
         var commisionPercentaje = 15;
       }
-	    var commision = flatPrice * commisionPercentaje / 100; //Nuestro revenue por el tour vendido
-	    var tourOperatorCost = flatPrice - commision;
-
+			
+			cost = cost * travelers;
+			var tourOperatorCost = cost;
+			if (tourOperatorCost > 0) {
+				var revenue = flatPrice - tourOperatorCost;
+			} else {    
+				var commision = flatPrice * commisionPercentaje / 100; //Deprecated
+				var revenue = commision;
+			}
+	    
+			var commision = flatPrice * commisionPercentaje / 100; //Deprecated
 	    var taxPrice = flatPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 	    var transactionCost = taxPrice + processorFee; // cantidad a pagarle al gateway por la transaccion
 	    var totalPrice =  flatPrice + taxPrice + processorFee; // costo total de la transacción
@@ -84,7 +98,7 @@ exports = module.exports = function(req, res) {
 	    	bookingFlatPrice : flatPrice,
 	    	bookingTransactionFee : transactionCost,
 	    	bookingOperatorFee : tourOperatorCost,
-	    	bookingRevenue : commision,
+	    	bookingRevenue : revenue,
         bookingComission : commisionPercentaje,
 	    };
 //		var finalObj = {};
@@ -279,7 +293,40 @@ function getPrice(travelers, locals){
            var pricePerTraveler = priceCatalog[i][2];
            return pricePerTraveler;
          } else {
-           console.log("error");
+           console.log("Not returned");
+         }
+        } // end for
+      } //end func
+
+			function getCost(travelers, locals){
+      var priceCatalog = [];
+      console.log(locals.data.tour.multiPriceCatalog)
+      for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
+      var current = locals.data.tour.multiPriceCatalog[i].split(',');
+        for (var index=0;index < current.length;index++){
+          current[index] = parseInt(current[index]);
+        }
+        priceCatalog.push(current);
+        }
+        for (var i = 0; i< priceCatalog.length; i++){
+          if (isNaN(priceCatalog[i][0])) {
+            priceCatalog[i][0] = locals.data.tour.minPerson;
+        }
+          if (isNaN(priceCatalog[i][1])) {
+            priceCatalog[i][1] = locals.data.tour.maxPerson;
+         }
+         //if logic
+
+         if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
+           var costPerTraveler = priceCatalog[i][3];
+					 if (costPerTraveler) {
+           	return costPerTraveler;
+					 } else {
+						 var costPerTraveler =0;
+						 return costPerTraveler;
+					 }
+         } else {
+           console.log("Not returned");
          }
         } // end for
       } //end func

@@ -104,7 +104,33 @@ Enquiry.schema.post('save', function() {
 			console.log(result);
 			return true;
 		});
+	//Send Email to get review after tour
+	this.sendReviewEmail(this);	
 });
+
+Enquiry.schema.methods.sendReviewEmail = function (enquiry) {  
+		/* Cron test */
+		var schedule = require('node-schedule');
+		var date =  moment(enquiry.date);
+		var new_date = moment(date, "DD-MM-YYYY").add(1, 'days');
+		var year = new_date.year();
+		var month = new_date.month();
+		var day = new_date.date();
+		var hour = 9;
+		var minute = 00;
+		var dateToSend = new Date(year, month, day, hour, minute, 0);
+		var test = new Date(2016, 11, 27, 18, 39, 0);
+		console.log("date to send", dateToSend);
+		try {
+			var j = schedule.scheduleJob(test, function(){
+				console.log('Cron works.'); //Send email logic
+			});  
+		} catch (err) {
+				console.log("Error en schedule");
+		}
+
+		/*End cron test */
+}
 
 Enquiry.schema.methods.prettyDate = function (obj) {
   var date = obj.date;
