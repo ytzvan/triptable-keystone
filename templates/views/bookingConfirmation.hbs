@@ -2,6 +2,10 @@
   document.addEventListener("DOMContentLoaded", function(event) {
   //do work
     mixpanel.track("Compro el tour");
+		var metadata = {
+			price: '{{bookingInfo.bookingTotalPrice}}'
+		};
+Intercom('trackEvent', 'tour-purchased', metadata);
 });
 </script>
 <div class="main-wrapper">

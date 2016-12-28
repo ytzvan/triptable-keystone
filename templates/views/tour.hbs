@@ -414,6 +414,7 @@
                 <!-- end secction 6 -->
 
                 <!-- secction 7 -->
+                
                 <div id="section-7" class="detail-content">
 
                     <div class="section-title text-left">
@@ -424,14 +425,14 @@
 
                 </div>
                 <!-- end secction 7 -->
-
+                
                 <!-- leave review partial -->
                 {{#if userInfo}}
                   {{>tour/_leaveReview}}
                 {{else}}
                   <div class="blog-extra">
                     <div class=" text-center">
-                          <a href="/signin" class="btn btn-primary">Escribe un Review</a>
+                          <a href="/signin?from=/tour/{{data.tour.slug}}" class="btn btn-primary">Escribe un Review</a>
                     </div>
 
                 </div>

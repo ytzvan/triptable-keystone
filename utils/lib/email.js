@@ -126,6 +126,29 @@ module.exports = {
 
 },
 
+ askForFeedbackEmail : function (model) { //
+    var template = template; //template name
+    var to = process.env.TO;
+    var mailgunApiKey = process.env.MAILGUN_APIKEY;
+    var mailgunDomain = process.env.MAILGUN_DOMAIN;
+    var locals = model;
+    var templateOptions = {pretty: true, locals: locals};
+    var templatePath = 'utils/email_templates/askForFeedback.ejs';
+    var subject = 'Cuéntanos cómo estuvo el tour';
+    var toArray = [
+      to,
+      { name: model.name.first + " " + model.name.last, email: model.email }
+    ];
+    sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
+    return true;
+    /* var emaill = new Email(templatePath).render(locals, function(err, result) {
+
+        if (!err) {
+          return res.send(result.html)
+        }
+      }); */
+},
+
 }
 
  var sendEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain) {

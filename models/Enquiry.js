@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Email = require('../utils').Email;
 var moment = require('moment');
 moment.locale('es', {
     months : "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"),
@@ -91,6 +92,7 @@ Enquiry.schema.post('save', function() {
       this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+			this.sendReviewEmail(this);	
     	}
 	}
 	//Add tour to purchase from user: 
@@ -105,25 +107,25 @@ Enquiry.schema.post('save', function() {
 			return true;
 		});
 	//Send Email to get review after tour
-	this.sendReviewEmail(this);	
+	
 });
 
 Enquiry.schema.methods.sendReviewEmail = function (enquiry) {  
 		/* Cron test */
 		var schedule = require('node-schedule');
 		var date =  moment(enquiry.date);
-		var new_date = moment(date, "DD-MM-YYYY").add(1, 'days');
+		var new_date = moment(date, "DD-MM-YYYY").add(2, 'days');
 		var year = new_date.year();
 		var month = new_date.month();
 		var day = new_date.date();
 		var hour = 9;
 		var minute = 00;
 		var dateToSend = new Date(year, month, day, hour, minute, 0);
-		var test = new Date(2016, 11, 27, 18, 39, 0);
-		console.log("date to send", dateToSend);
+		//var test = new Date(2016, 11, 28, 16, 42, 0);
 		try {
-			var j = schedule.scheduleJob(test, function(){
-				console.log('Cron works.'); //Send email logic
+			var j = schedule.scheduleJob(dateToSend, function(){	
+				//Send email logic
+				Email.askForFeedbackEmail(enquiry);
 			});  
 		} catch (err) {
 				console.log("Error en schedule");
@@ -198,5 +200,5 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	});
 }
 Enquiry.defaultSort = '-date';
-Enquiry.defaultColumns = 'name, bookingStatus, date, bookingTotalPrice, bookingRevenue';
+Enquiry.defaultColumns = 'name, bookingStatus, people, date, bookingTotalPrice, bookingRevenue, createdAt';
 Enquiry.register();
