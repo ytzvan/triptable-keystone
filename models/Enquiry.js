@@ -96,10 +96,11 @@ Enquiry.schema.post('save', function() {
     	}
 	}
 	//Add tour to purchase from user: 
+	try {
 	var tourToSave = this.tour;
 	var user = this.user;
 	var string = tourToSave.toString();
-	console.log(this.tour.toString());
+	
 	keystone.list('User').model.findByIdAndUpdate({"_id": user},{ $push: { 'toursPurchased': tourToSave} }, { 'new': true})
 		.exec(function(err,result){
 			console.log(err);
@@ -107,6 +108,10 @@ Enquiry.schema.post('save', function() {
 			return true;
 		});
 	//Send Email to get review after tour
+} catch (err) {
+	console.log("Error in adding tour to user"),
+	}
+}
 	
 });
 
