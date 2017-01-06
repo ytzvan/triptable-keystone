@@ -25,7 +25,7 @@ exports.init = function(req, res) {
  getBalance = function(view, locals) {
     Enquiry.model.aggregate([
         { $match: {
-            bookingStatus: "1"
+    
         }},
         
      //   { $unwind: "$records" },
@@ -33,29 +33,40 @@ exports.init = function(req, res) {
             $project: {
                 _id: "$_id",
                 bookingRevenue: true,
+                bookingTotalPrice: true,
                 date : true,
                 year: {$year: "$createdAt"},
                 month: {$month: "$createdAt"},
-                day: { $dayOfMonth: "$createdAt" }
+                day: { $dayOfMonth: "$createdAt" },
+                people: true,
+                name : true,
+                tourName: true,
+                bookingStatus: true,
+                friendlyId: true
+
                // stringdate : {$dateToString: "$createdAt"},
             }
         },
-        {
+        /*{
             $group : {
                // _id: {month:"$month", stringdate: "$stringdate"},
                 _id : { month: "$month"},
-                count: {$sum: 1},
-                total: { $sum: "$bookingRevenue"  }
+                reservasPorMes: {$sum: 1},
+                revenue: { $sum: "$bookingRevenue"  },
+                viajeros : {$sum: "$people"},
+                grossRevenueMensual : {$sum : "$bookingTotalPrice"} 
+
             },  
-        },
+
+        }, 
         { 
             $sort: {
                 '_id.month': 1, 
                 /*'_id.year': 1, 
                 '_id.month': 1, 
-                '_id.day': 1*/
-            } 
-        }
+                '_id.day': 1
+            }  
+        } */
        
         
     ], function (err, result) {
@@ -64,8 +75,9 @@ exports.init = function(req, res) {
         }
         console.log(result);
         locals.data.results = result;
-        view.render('dashboard/index'); 
+        view.render('dashboard/index', {layout: 'dashboard'}); 
         
     });
+
 }
 

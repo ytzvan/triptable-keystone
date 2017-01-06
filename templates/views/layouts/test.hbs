@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Nava</title>
+      <meta charset="utf-8">
+      <meta name="description" content="Traveling HTML5 Template" />
+      <meta name="author" content="Design Hooks" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700" rel="stylesheet" />
+      <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+      <link href="img/favicon.png" type="image/x-icon" rel="shortcut icon" />
+      <link href="/test-layout/screen.css" rel="stylesheet" />
+   </head>
+   <body class="home" id="page">
+      <!-- Header -->
+      <header class="main-header">
+         <div class="container">
+            <div class="header-content">
+               <a href="/" style=" color: ghostwhite; font-size: xX-large; font-family: 'Lobster', 'Lato', SANS-SERIF; letter-spacing: 1.5px; color: #3498db">
+                           Triptable
+                           <!-- <img src="/images/logo.png" alt="Logo" /> -->
+                        </a>
+
+               <nav class="site-nav">
+                  <ul class="clean-list site-links">
+                     <li>
+                        <a href="#">Top Destinos</a>
+                     </li>
+                     <li>
+                        <a href="#">Añadir un Tour</a>
+                     </li>
+                  </ul>
+
+                  <a href="#" class="btn btn-outlined">Registrate</a>
+               </nav>
+            </div>
+         </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="content-box">
+         <!-- Hero Section -->
+         <section class="section section-hero">
+            <div class="hero-box">
+               <div class="container">
+                  <div class="hero-text align-center">
+                     <h1>Reserva un Tour Ahora!</h1>
+                     <p>Y empieza tu aventura con Triptable! </p>
+                  </div>
+
+                  <form class="destinations-form">
+                     <div class="input-line">
+                        <input type="text" name="destination" value="" class="form-input check-value" placeholder="¿CUAL ES TU DESTINO, VIAJERO?" />
+                        <button type="button" name="destination-submit" class="form-submit btn btn-special">Buscar Tours</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+
+            <!-- Statistics Box -->
+            <div class="container">
+               <div class="statistics-box">
+                  <div class="statistics-item">
+                     <span class="value">10</span>
+                     <p class="title">Destinos</p>
+                  </div>
+
+                  <div class="statistics-item">
+                     <span class="value">1,000</span>
+                     <p class="title">Guías Listados</p>
+                  </div>
+
+                  <div class="statistics-item">
+                     <span class="value">35,000</span>
+                     <p class="title">Tours</p>
+                  </div>
+
+                  <div class="statistics-item">
+                     <span class="value">50,000</span>
+                     <p class="title">Viajeros</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!-- Destinations Section -->
+         <section class="section section-destination">
+            <!-- Title -->
+            <div class="section-title">
+               <div class="container">
+                  <h2 class="title">Explora nuestros mejores Destinos</h2>
+                  <p class="sub-title">Estos son los destinos preferidos por los viajeros</p>
+               </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="container">
+               <div class="row">
+               {{#each data.provinces}}
+               {{#if_eq @index 0}}
+                  <div class="col-md-16 col-xs-24">
+                     <div class="destination-box">
+                        <div class="box-cover">
+                           <a href="#">
+                              <img src="https://res.cloudinary.com/triptable/image/upload/q_auto/v{{image.version}}/{{image.public_id}}.{{image.format}}" alt="destination image" />
+                           </a>
+                        </div>
+
+                        <span class="boats-qty">730</span>
+
+                        <div class="box-details">
+                           <div class="box-meta">
+                              <h4 class="city">{{province}}</h4>
+                              <p class="country">Panama</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  {{else}}
+                  <div class="col-md-8 col-sm-12 col-xs-24">
+                     <div class="destination-box">
+                        <div class="box-cover">
+                           <a href="#">
+                              <img src="https://res.cloudinary.com/triptable/image/upload/q_auto/v{{image.version}}/{{image.public_id}}.{{image.format}}" alt="destination image" style="height: 378px;"/>
+                           </a>
+                        </div>
+
+                        <span class="boats-qty">621</span>
+
+                        <div class="box-details">
+                           <div class="box-meta">
+                              <h4 class="city">{{province}}</h4>
+                              <p class="country">Spain</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                 {{/if_eq}}
+                {{/each}}  
+                  </div>
+               </div>
+
+               <div class="align-center">
+                  <a href="#" class="btn btn-default btn-load-destination"><span class="text">Explorar más destinos</span><i class="icon-spinner6"></i></a>
+               </div>
+            </div>
+         </section>
+
+         <!-- Parallax Box -->
+         <div class="parallax-box">
+            <div class="container">
+               <div class="text align-center">
+                  <h1>Eres un tour operador?</h1>
+                  <p>Aumenta tus reservas con Triptable</p>
+
+                  <a href="#" class="btn btn-special no-icon size-2x">Listar mis tours</a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Boats Section -->
+         <section class="section section-boats">
+            <!-- Title -->
+            <div class="section-title">
+               <div class="container">
+                  <h2 class="title">Tours Destacados</h2>
+                  <p class="sub-title">Estos tours marcan tendencias entre los viajeros</p>
+               </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container">
+               <div class="row">
+                 {{#each_upto data.tours.results 6}}
+                  <div class="col-sm-12 col-xs-24">
+                     <div class="boat-box">
+                        <div class="box-cover">
+                            {{#if heroImage.secure_url}}
+                            <img src="https://res.cloudinary.com/triptable/image/upload/h_500,w_800,q_auto/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}" />
+                            {{else}}
+                            <img src="https://res.cloudinary.com/triptable/image/upload/h_500,w_800,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+                            {{/if}}
+                        </div>
+
+                        <span class="boat-price">${{price}} / Persona</span>
+
+                        <div class="box-details">
+                           <div class="box-meta">
+                              <h4 class="boat-name">{{name}}</h4>
+                              <ul class="clean-list boat-meta">
+                                 <li class="location">{{province.province}}, {{country.country}}</li>
+                                 <li class="berths">{{minPerson}} - {{maxPerson}} Viajeros</li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  {{/each_upto}}
+            
+                  </div>
+               </div>
+
+               <div class="align-center">
+                  <a href="#" class="btn btn-default btn-load-boats"><span class="text">Cargar mas tours</span><i class="icon-spinner6"></i></a>
+               </div>
+            </div>
+         </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <div class="widget widget_links">
+                     <h5 class="widget-title">Destinos Destacados</h5>
+                     <ul>
+                        <li><a href="#">Tours en Ciudad de Panama</a></li>
+                        <li><a href="#">Tours en Bocas del Toro</a></li>
+                        <li><a href="#">Tours en San Blas</a></li>
+                        <li><a href="#">Tours en Azuero</a></li>
+                        <li><a href="#">Tours en Veraguas</a></li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="col-md-5">
+                  <div class="widget widget_links">
+                     <h5 class="widget-title">Atracciones Destacados</h5>
+                     <ul>
+                        <li><a href="#">Pasadía en San Blas</a></li>
+                        <li><a href="#">Tours al Canal de Panamá</a></li>
+                        <li><a href="#">Tours en Casco Viejo</a></li>
+                        <li><a href="#">Tours al Volcan Barú</a></li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="col-md-9">
+                  <div class="widget widget_social">
+                     <h5 class="widget-title">Subscribe to our newsletter</h5>
+                     <form class="subscribe-form">
+                        <div class="input-line">
+                           <input type="text" name="subscribe-email" value="" placeholder="Your email address" />
+                        </div>
+                        <button type="button" name="subscribe-submit" class="btn btn-special no-icon">Subscribe</button>
+                     </form>
+
+                     <ul class="clean-list social-block">
+                        <li>
+                           <a href="#"><i class="icon-facebook"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="icon-twitter"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="icon-google-plus"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="col-md-5">
+                  <div class="widget widget_links">
+                     <h5 class="widget-title">Contact us</h5>
+                     <ul>
+                        <li><a href="#">Lorem impsum dolor</a></li>
+                        <li><a href="#">Sit amet consectetur</a></li>
+                        <li><a href="#">Adipisicing elit</a></li>
+                        <li><a href="#">Eiusmod tempor</a></li>
+                        <li><a href="#">incididunt ut labore</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <!-- Scripts -->
+      <script src="/test-layout/js/jquery.js"></script>
+      <script src="/test-layout/js/functions.js"></script>
+   </body>
+</html>

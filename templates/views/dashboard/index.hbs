@@ -1,35 +1,115 @@
-
-
-<script>
+<!--<script>
     $(function() {
         console.log( "ready!" );
         var ctx = document.getElementById("myChart");
         var months = [];
-        var bookings = [];
+        var reservasPorMes = [];
+        var viajeros = [];
         var revenue = [];
+        var grossRevenueMensual = [];
         var monthNames = ["0", "January", "February", "March", "April", "May", "June",
         "July", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
         ];
         {{#each data.results}}
          //<li>Month: {{this._id.month}}, Count: {{this.count}}, Total: {{this.total}}</li>
          months.push(monthNames[{{this._id.month}}]);
-         bookings.push({{this.count}});
+         reservasPorMes.push({{this.reservasPorMes}});
          revenue.push({{this.total}})
+         grossRevenueMensual.push({{this.grossRevenueMensual}})
+         viajeros.push({{this.viajeros}})
          {{/each}}
+
+
     var myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: months,
         datasets: [{
-            label: '# of Bookings',
-            data: revenue,
+            label: 'Reservas Mensuales',
+            data: reservasPorMes,
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)',
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
             ],
-            borderWidth: 2
+            borderWidth: 2,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            spanGaps: false,
+        },
+        {
+            label: 'Viajeros Mensuales',
+            data: viajeros,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+            ],
+            borderWidth: 2,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            spanGaps: false,
+        },]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+    });
+
+    var money = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: months,
+        datasets: [{
+            label: 'Reservas Mensuales',
+            data: reservasPorMes,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+            ],
+            borderWidth: 2,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
         },]
     },
     options: {
@@ -44,11 +124,10 @@
     });
     });
     
-</script>
+</script> -->
 
-Canvas Bellow: count: 
 
- 
-<div class="container">
-<canvas id="myChart" width="200" height="200"></canvas>
-</div>
+hola
+       
+
+
