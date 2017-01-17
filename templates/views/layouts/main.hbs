@@ -9,18 +9,18 @@
 	{{#if meta.title}}
 	<title>{{meta.title}}</title>
 	{{else}}
-	<title>Triptable: Reserva Tours, Actividades y Qué hacer en Panama</title>
+	<title>{{i18n "title"}}</title>
 	{{/if}}
 	<meta name="author" content="Triptable">
 	{{#if meta.keywords}}
-	<meta name="keywords" content="tours, experiencias, reserva, cosas que hacer, trips, {{meta.keywords}}" />
+	<meta name="keywords" content="tours, experiencias, excursiones, reserva, cosas que hacer, trips, {{meta.keywords}}" />
 	{{else}}
-	<meta name="keywords" content="tours panama, latinoamerica, tours, que hacer, booking, trips, travel, turismo, panama" />
+	<meta name="keywords" content="tours en latinoamerica, tours, excursiones, que hacer, booking, trips, travel, turismo, latinoamerica" />
 	{{/if}}
 	{{#if meta.description}}
 	<meta name="description" content="{{meta.description}}">
 	{{else}}
-	<meta name="description" content="Reserva tours, actividades, viajes y turismo en Panama. Con Triptable reservas experiencias locales unicas.">
+	<meta name="description" content="{{i18n "meta_description"}}">
 	{{/if}}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	{{#if meta.ogTitle}}
@@ -320,7 +320,7 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
                       {{#if userInfo}}
                       <li class="dropdown bt-dropdown-click">
 												<a id="language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:white;">
-													<i></i> Bienvenido {{userInfo.name.first}}
+													<i></i> {{i18n "welcome"}} {{userInfo.name.first}}
 													<span class="caret hidden-xs"></span>
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
@@ -371,7 +371,7 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
                  {{#if userInfo}}
                  <div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
-										<li><a href="/">Inicio</a>
+										<li><a href="/">{{i18n "home"}}</a>
 										</li>
 										<!--<li><a href="#">Acerca de Nosotros</a>
 										</li> -->
@@ -392,13 +392,13 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
                 <div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
                     <li><a href="/">Inicio</a></li>
-										<li><a href="/como-funciona">¿Cómo Funciona?</a></li>
-										<li><a href="/partners">Tour Operadores</a>
-                    <li class="visible-sm visible-xs"><a href="/partners">Listar un tour</a></li>
-                    <li class="visible-sm visible-xs"><a href="/signup">Registrarse</a></li>
+										<li><a href="/como-funciona">{{i18n "how_it_works"}}</a></li>
+										<li><a href="/partners">{{i18n "tour_operators"}}</a>
+                    <li class="visible-sm visible-xs"><a href="/partners">{{i18n "list_a_tour"}}</a></li>
+                    <li class="visible-sm visible-xs"><a href="/signup">{{i18n "signup"}}</a></li>
 										</li>
 
-										<li><a href="mailto:hello@triptable.com">Contáctanos</a></li>
+										<li><a href="mailto:hello@triptable.com">{{i18n "contact_us"}}</a></li>
 									</ul>
 								</div><!--/.nav-collapse -->
 
@@ -407,7 +407,7 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 
 							<div class="col-sm-3">
 
-								<div class="navbar-phone"><i class="fa fa-phone"></i> Llámanos: +507 671 235 55</div>
+								<div class="navbar-phone"><i class="fa fa-phone"></i> {{i18n "call_us"}}: +507 680 800 24</div>
 
 							</div>
 
@@ -455,7 +455,7 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 
 							</div>
 
-							<p class="copy-right">&#169; Copyright 2016 Triptable. Todos los Derechos Reservados</p>
+							<p class="copy-right">&#169; Copyright 2017 Triptable. {{i18n "all_rights_reserved"}}</p>
 
 						</div>
 
@@ -465,11 +465,11 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 
 								<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-6 mt-30-xs">
 
-									<h5 class="footer-title">Acerca de Triptable</h5>
+									<h5 class="footer-title">{{i18n "about"}} Triptable</h5>
 
 									<ul class="footer-menu">
 
-										<li><a href="/nosotros">Quienes Somos</a></li>
+										<li><a href="/nosotros">{{i18n "how_are_we"}}</a></li>
 										<li><a href="/como-funciona">Preguntas Frecuentes</a></li>
 										<li><a href="/terminos">Términos y Condiciones</a></li>
 										<li><a href="mailto:hello@triptable.com">Contactanos</a></li>

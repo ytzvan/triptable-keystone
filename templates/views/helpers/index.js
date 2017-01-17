@@ -3,6 +3,7 @@ var _ = require('underscore');
 var hbs = require('handlebars');
 var keystone = require('keystone');
 var cloudinary = require('cloudinary');
+var i18n = require("i18n");
 
 
 // Declare Constants
@@ -378,7 +379,12 @@ module.exports = function() {
   _helpers.getFirstLetter = function (name){
     var firstLetter = (name.charAt(0)); // alerts 's'
     return firstLetter;
-  }
+  };
+
+  _helpers.i18n = function (str) {
+  	var text = i18n.__(str);
+  	return text;
+  };
 
 	return _helpers;
 };

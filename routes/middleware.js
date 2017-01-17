@@ -151,14 +151,13 @@ exports.intl = function (req, res, next) {
 i18n.configure({
   locales: ['es', 'en'],
   cookie: 'lang',
-  directory: './locales',
+  directory: './templates/locales',
   queryParameter: 'lang'
 });
   if (req.query.lang) {
     process.env.LANG = req.query.lang;
     i18n.setLocale(process.env.LANG);
   }
-  //var hello = i18n.__('Hello');
   next();
 };
 
