@@ -33,6 +33,7 @@ exports.init = function(req, res) {
             $project: {
                 _id: "$_id",
                 bookingRevenue: true,
+                bookingTotalPrice: true,
                 date : true,
                 year: {$year: "$createdAt"},
                 month: {$month: "$createdAt"},
@@ -43,7 +44,7 @@ exports.init = function(req, res) {
         {
             $group : {
                // _id: {month:"$month", stringdate: "$stringdate"},
-                _id : { month: "$month"},
+                _id : null,
                 count: {$sum: 1},
                 total: { $sum: "$bookingRevenue"  }
             },  

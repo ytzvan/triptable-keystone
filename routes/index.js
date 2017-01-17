@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
+var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -41,6 +42,7 @@ exports = module.exports = function(app) {
   app.all('/admin/booking/:id', middleware.requireGuide, routes.admin.booking.index);
   app.post('/admin/booking/:id/update', middleware.requireGuide, routes.admin.booking.update);
   app.all('/dashboard', routes.dashboard.index.init);
+ 
 
   //Attractions
   app.get('/attractions', routes.views.attractions.index);
@@ -48,7 +50,6 @@ exports = module.exports = function(app) {
   app.get('/attractions/:slug', routes.views.attractions.single);
 
 	//Dinamic Views
-	app.get('/blog/', routes.views.blog);
 	app.get('/contact/:tourId', middleware.requireUser, routes.views.booking); //Donde se llena la data
 	app.post('/contact/:tourId', middleware.requireUser, routes.views.contact); //al momento del post
 	app.all('/tour/:slug', routes.views.tour);

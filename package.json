@@ -8,6 +8,7 @@
     "dotenv": "^1.1.0",
     "ejs": "^2.5.1",
     "express-handlebars": "^1.1.0",
+    "express-http-proxy": "^0.10.1",
     "extend": "^3.0.0",
     "gulp-clean-css": "^2.0.6",
     "gulp-less": "^3.0.5",
