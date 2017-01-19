@@ -23,6 +23,7 @@ var routes = {
 	static: importRoutes('./static'),
 	admin: importRoutes('./admin'),
 	dashboard: importRoutes('./dashboard'),
+	v2: importRoutes('./v2')
 
 };
 // Setup Route Bindings
@@ -42,6 +43,8 @@ exports = module.exports = function(app) {
   app.all('/admin/booking/:id', middleware.requireGuide, routes.admin.booking.index);
   app.post('/admin/booking/:id/update', middleware.requireGuide, routes.admin.booking.update);
   app.all('/dashboard', routes.dashboard.index.init);
+  app.all('/v2', middleware.requireGuide, routes.v2.index.init);
+  app.all('/v2/tour/', middleware.requireGuide, routes.v2.tour.init);
  
 
   //Attractions

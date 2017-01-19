@@ -8,8 +8,8 @@
 	"post_hero_subtitle_2": "Hundreds of tour guides list their tours on Triptable",
 	"post_hero_title_3": "Book Safely",
 	"post_hero_subtitle_3": "Book your tours in a secure way using with your credit card.",
-	"featured_tours": "Featured Tours",
-	"featured_tours_subtitle": "This tours are trending among our users",
+	"featured_tours": "Best Things to Do",
+	"featured_tours_subtitle": " Explore some of the best tours from Latin America from our top rated guides",
 	"sale": "Sale",
 	"book_now": "Book Now",
 	"see_all": "See All",
@@ -34,5 +34,10 @@
 	"call_us": "Call us",
 	"all_rights_reserved": "All Rights Reserved",
 	"about": "About",
-	"how_are_we": "Who are we"
+	"how_are_we": "Who are we",
+	"how_it_works": "how_it_works",
+	"tour_operators": "tour_operators",
+	"list_a_tour": "list_a_tour",
+	"signup": "signup",
+	"contact_us": "contact_us"
 }
