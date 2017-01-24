@@ -1,3 +1,5 @@
+
+
 <div id="listing_sidebar_date_2" class="widget">
                     <h3 class="widget_sidebar_title" style="text-align: center;"> Make an Online Reservation</h3>
                     <div class="wc-bookings-booking-form">
@@ -20,10 +22,66 @@
                         <div id="datepicker" style="margin-bottom: 10px;"></div>
                       </div>
                     </fieldset>
-                      <script>
-                      $( "#datepicker" ).datepicker();
-                      </script>
+                      
                       <div class="wc-bookings-booking-cost" style="position: relative; zoom: 1;">
                         Booking cost: <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>621.00</span></strong></div>
                         <button type="submit" class="wc-bookings-booking-form-button single_add_to_cart_button button alt">Book now</button>
                     </div>
+
+<script>
+$(function() {
+                      function calcTime(offset) {
+                            // create Date <o></o>bject for current location
+                            var date = new Date();
+                            var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+                            var newDate = new Date(utc + (3600000 * offset));
+                            return newDate;
+                        };
+                        var localT = calcTime("-5");
+                        var timeOfBooking = moment(localT);
+                        timeOfBooking = timeOfBooking._i.getHours();
+
+                      Date.prototype.addDays = function(days)
+                        {
+                          var dat = new Date(this.valueOf());
+                          dat.setDate(dat.getDate() + days);
+                          
+                          return dat;
+                      }
+                      var numberOfDaysToAdd = {{data.tour.skipDays}};
+                   
+                      if (timeOfBooking > 18 && {{data.tour.skipDays}} < 2) {
+                            numberOfDaysToAdd = numberOfDaysToAdd + 1 ;
+                        }
+
+                        console.log("days t add", numberOfDaysToAdd);
+                        console.log("time", timeOfBooking);
+                      var today = new Date();
+                      today = today.addDays(numberOfDaysToAdd); //cantidad de dias minimos para el booking
+
+                      var disableddates = [{{#each data.tour.disabledDates}}"{{this}}", {{/each}}];
+                      var disabledDays = [{{data.tour.daysDisabled}}]; //dias desactivados
+
+                      var datepicker = $.datepicker;
+
+                      function DisableSpecificDates(date) {
+                        var day = date.getDay();
+                        for (var i=0; i<disabledDays.length;i++){
+                          if (day == disabledDays[i]) {
+                            return [false]; 
+                         } 
+                        }
+
+                        var string = datepicker.formatDate('yy-mm-dd', date);
+                        return [disableddates.indexOf(string) == -1];
+                      }
+
+                     
+
+                      $( "#datepicker").datepicker({ 
+                        minDate: today, 
+                        beforeShowDay: DisableSpecificDates});
+          });
+
+
+                       </script>
