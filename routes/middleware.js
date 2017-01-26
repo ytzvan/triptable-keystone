@@ -35,7 +35,6 @@ exports.crsfAuth = function (req, res, next) {
 	next();
 }
 
-
 /**
 	Fetches and clears the flashMessages before a view is rendered
 */
@@ -154,10 +153,15 @@ i18n.configure({
   directory: './templates/locales',
   queryParameter: 'lang'
 });
+if (!process.env.LANG) {
+    process.env.LANG = 'es';
+    i18n.setLocale(process.env.LANG);
+}
   if (req.query.lang) {
     process.env.LANG = req.query.lang;
     i18n.setLocale(process.env.LANG);
-  }
+  } 
+  
   next();
 };
 

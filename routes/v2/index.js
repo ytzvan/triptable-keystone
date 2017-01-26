@@ -35,6 +35,7 @@ exports.init = function(req, res) {
 
 		q.exec(function(err, results) {
 			locals.data.tours = results;
+			
 			next(err);
 		});
 
@@ -48,10 +49,20 @@ exports.init = function(req, res) {
 				return res.status(404);
 			}
 			locals.data.provinces = results;
-			return next();
 
 		});
 
+		keystone.list('PostCategory').model.find().exec(function(err, categories) { //Query Pais
+			if (err || !categories) {
+
+				return res.status(404);
+			}
+			locals.data.categories = categories;
+			console.log("categories", locals.data.categories);
+
+		});
+
+		return next();
 	});
 
 	/*view.on('init', function(next) {

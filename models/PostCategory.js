@@ -13,8 +13,9 @@ var PostCategory = new keystone.List('PostCategory', {
 
 PostCategory.add({
 	name: { type: String, required: true },
-  image: { type: Types.CloudinaryImage },
-	featured: {type: Types.Boolean, default: false }
+  	image: { type: Types.CloudinaryImage },
+	featured: {type: Types.Boolean, default: false },
+	icon : {type: String, default: "fa-bus"}
 });
 
 PostCategory.relationship({ ref: 'Tour', path: 'categories', refPath: 'name' });
