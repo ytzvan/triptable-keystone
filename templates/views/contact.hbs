@@ -51,7 +51,7 @@ fbq('track', 'InitiateCheckout');
 		<ol class="breadcrumb-list booking-step">
 			<li><a href="">Búsqueda</a></li>
 			<li><a href="/tour/{{data.tour.slug}}">{{data.tour.name}}</a></li>
-			<li><span>Reservar</span></li>
+			<li><span>{{i18n "book_now"}}</span></li>
 		</ol>
 		</div>
 	</div>
@@ -68,16 +68,16 @@ fbq('track', 'InitiateCheckout');
 								</li>
 								<li class="divider"></li>
 								<li>
-									<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio por persona</h6>
+									<h6 class="heading mt-20 mb-5 text-primary uppercase">{{i18n "price"}} {{i18n "per_person"}}</h6>
 									<div class="row gap-10 mt-10">
-										<div class="col-xs-7 col-sm-7">Precio del Tour</div>
+										<div class="col-xs-7 col-sm-7">{{i18n "tour_price"}}</div>
 										<div class="col-xs-5 col-sm-5 text-right">
 											${{data.tour.price}}
 										</div>
 									</div>
 									<div class="row gap-10 mt-10">
 										<div class="col-xs-7 col-sm-7">
-											Impuestos
+											{{i18n "taxes"}}
 										</div>
 										<div class="col-xs-5 col-sm-5 text-right">
 											$0
@@ -92,7 +92,7 @@ fbq('track', 'InitiateCheckout');
 								<li>
 									<div class="row gap-10 font600 font14">
 										<div class="col-xs-9 col-sm-9">
-											Número de Viajeros
+											{{i18n "number_of_travelers"}}
 										</div>
 										<div class="col-xs-3 col-sm-3 text-right">
 											1
@@ -102,12 +102,12 @@ fbq('track', 'InitiateCheckout');
 								<li class="total-price">
 									<div class="row gap-10">
 										<div class="col-xs-6 col-sm-6">
-											<h5 class="heading mt-0 mb-0 text-white">Precio Total</h5>
+											<h5 class="heading mt-0 mb-0 text-white">{{i18n "total_price"}}</h5>
 											<p class="font12">Pago en Sitio</p>
 										</div>
 										<div class="col-xs-6 col-sm-6 text-right">
 											<span class="block font20 font600 mb-5">$<span id="price"></span></span>
-											<span class="font10 line10 block">**Mejor Precio Garantizado </span>
+											<span class="font10 line10 block">**{{i18n "best_price_guarantee"}} </span>
 										</div>
 									</div>
 								</li>
@@ -137,7 +137,7 @@ fbq('track', 'InitiateCheckout');
 									</div>
 									<div class="row gap-10">
 										<div class="col-sm-9">
-											<h5 class="heading mt-0">Fecha del Tour</h5>
+											<h5 class="heading mt-0">{{i18n "tour_date"}}</h5>
 
 										</div>
 				<!--<div class="col-sm-3">
@@ -158,7 +158,7 @@ fbq('track', 'InitiateCheckout');
                                 </span>
                             </div>
                             <div  id="dateEmpty" class="alert alert-danger center" style="display:none">
-                               <strong class="center">Por favor, escoge una fecha para tu reserva</strong>
+                               <strong class="center">{{i18n "tour_date_error_msg"}}</strong>
                              </div>
                       </div>
                   </div>
@@ -210,7 +210,7 @@ fbq('track', 'InitiateCheckout');
 									<div class="number">
 										2
 									</div>
-									<h5 class="heading mt-0">Información de Contacto</h5>
+									<h5 class="heading mt-0">{{i18n "contact_info"}}</h5>
 								</div>
 								<div class="payment-content">
 									<div class="payment-traveller">
@@ -219,8 +219,8 @@ fbq('track', 'InitiateCheckout');
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20 {{#if validationErrors.name}}has-error{{/if}}">
-												{{#if validationErrors.name}}<p>El Nombre no puede estar vacío </p>{{/if}}
-												<label class="col-sm-3 col-md-2 control-label">Nombre:</label>
+												{{#if validationErrors.name}}<p>{{i18n "error_invalid_name"}}</p>{{/if}}
+												<label class="col-sm-3 col-md-2 control-label">{{i18n "name"}}:</label>
 												<div class="col-sm-5 col-md-4">
 													<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required value="">
 												</div>
@@ -228,8 +228,8 @@ fbq('track', 'InitiateCheckout');
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20 {{#if validationErrors.email}}has-error{{/if}}">
-												{{#if validationErrors.email}}<p>Ingrese un email válido </p>{{/if}}
-												<label class="col-sm-3 col-md-2 control-label">Email:</label>
+												{{#if validationErrors.email}}<p>{{i18n "error_invalid_email"}} </p>{{/if}}
+												<label class="col-sm-3 col-md-2 control-label">{{i18n "email"}}:</label>
 												<div class="col-sm-5 col-md-4">
 													<input type="email" name="email" value="{{data.user.email}}" class="form-control" required=true value="">
 												</div>
@@ -237,7 +237,7 @@ fbq('track', 'InitiateCheckout');
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">Teléfono:</label>
+												<label class="col-sm-3 col-md-2 control-label">{{i18n "phone"}}:</label>
 												<div class="col-sm-5 col-md-4">
 													<input type="text" name="phone" class="form-control" value="">
 												</div>
@@ -245,10 +245,10 @@ fbq('track', 'InitiateCheckout');
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20 select2-input-hide">
-												<label class="col-sm-3 col-md-2 control-label">Personas:</label>
+												<label class="col-sm-3 col-md-2 control-label">{{i18n "people"}}:</label>
 												<div class="col-sm-3 col-md-4">
 													<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
-													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="Viajeros">
+													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="{{i18n "travelers"}}">
 													{{#for data.tour.minPerson data.tour.maxPerson 1}}
 													<option value="{{this}}">{{this}}</option>
 													{{/for}}
@@ -350,7 +350,7 @@ fbq('track', 'InitiateCheckout');
 										{{#if data.tour.hotelPickup}}
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">Dirección:</label>
+												<label class="col-sm-3 col-md-2 control-label">{{i18n "pickup_address"}}:</label>
 												<div class="col-sm-5 col-md-4">
 													<input type="text" name="hotel" id="hotel" placeholder="Hotel con # de habitación " required class="form-control" value="">
 												</div>
@@ -365,7 +365,7 @@ fbq('track', 'InitiateCheckout');
 									<div class="number">
 										3
 									</div>
-									<h5 class="heading mt-0">Total a Pagar: $<span id="totalPrice"></span> US</h5>
+									<h5 class="heading mt-0">{{i18n "total_to_pay"}}: $<span id="totalPrice"></span> US</h5>
 								</div>
 								<div class="payment-content">
 									<div id="paymentOption" class="payment-option-wrapper">
@@ -373,25 +373,25 @@ fbq('track', 'InitiateCheckout');
 											<div class="col-sm-12">
 												<div class="radio-block">
 													<input id="payments1" name="payments" type="radio" class="radio" checked="checked" value="paymentsCreditCard"/>
-													<label class="" for="payments1"><span>Tarjeta de Crédito</span> <img src="/images/payment-credit-cards.jpg" alt="Image"</label>
+													<label class="" for="payments1"><span>{{i18n "credit_card"}}</span> <img src="/images/payment-credit-cards.jpg" alt="Image"</label>
 												</div>
 											</div>
 										</div>
-                    <div class="alert alert-info" role="alert" style="margin-left: 15px; margin-right: 15px;"><i class="fa fa-lock"></i> Triptable no almacena los datos de su tarjeta de crédito.</div>
+                    <div class="alert alert-info" role="alert" style="margin-left: 15px; margin-right: 15px;"><i class="fa fa-lock"></i> {{i18n "credit_card_message"}}.</div>
 										<!--<div id="paymentsCreditCard" class="payment-option-form"> -->
 										<div id="paymentsCreditCard">
 											<div class="inner">
 												<div class="form">
 													<div class="form-group col-md-6">
-														<label class="control-label">Nombre del tarjetahabiente</label>
+														<label class="control-label">{{i18n "credit_card_holder"}}</label>
 														<input type="text" name="cardholder" required class="form-control mb-0 col-md-6" placeholder="Ejm: Juan Pérez">
 													</div>
                           <div class="form-group col-md-6">
-                            <label for="cc-number" class="control-label">Número de Tarjeta <small class="text-muted"></small></label>
+                            <label for="cc-number" class="control-label">{{i18n "credit_card_number"}}<small class="text-muted"></small></label>
                             <input type="tel" name="cardNumber" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="cc-exp" class="control-label">Fecha de Expiración</label>
+                            <label for="cc-exp" class="control-label">{{i18n "credit_card_expiration"}}</label>
                             <input id="cc-exp" type="tel" name="expiration" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required>
                           </div>
                           <div class="form-group col-md-6">
@@ -409,10 +409,10 @@ fbq('track', 'InitiateCheckout');
 
 
                 <input id="accept_booking" required name="accept_booking" type="checkbox" class="checkbox"/>
-                <label class="check-with-label"  id="terms" for="accept_booking">Al solicitar una reserva, estás de acuercon con nuestros <a target="_blank" href="/terminos">términos y condiciones</a> .</label>
+                <label class="check-with-label"  id="terms" for="accept_booking">{{i18n "booking_request_message"}} <a target="_blank" href="/terminos">{{i18n "terms_and_conditions"}}</a> .</label>
                   <div class="error" id="showError" style="display:none">
                      <div class="alert alert-danger center">
-                        <strong class="center">Por favor, acepta los términos y condiciones</strong>
+                        <strong class="center">{{i18n "booking_request_error_message"}}</strong>
                     </div>
                   </div>
               </div>
@@ -420,8 +420,8 @@ fbq('track', 'InitiateCheckout');
 
 						<div class="row">
 							<div class="col-sm-8 col-md-6">
-								<button class="btn btn-primary" id="book_now">Reservar Ahora</button>
-								<p class="line18 mt-10"><span class="font600">Gracias por preferir Triptable</span>.</p>
+								<button class="btn btn-primary" id="book_now">{{i18n "book_now"}}</button>
+								<p class="line18 mt-10"><span class="font600">{{i18n "thanks_message"}}</span>.</p>
 							</div>
 						</div>
 					</form>
@@ -437,35 +437,35 @@ fbq('track', 'InitiateCheckout');
 							</li>
 							<li class="divider"></li>
 							<li>
-								<h6 class="heading mt-20 mb-5 text-primary uppercase">Precio del Tour</h6>
+								<h6 class="heading mt-20 mb-5 text-primary uppercase">{{i18n "tour_price"}}</h6>
 
 
 							</li>
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Precio por Viajero</div>
+									<div class="col-xs-9 col-sm-9">{{i18n "price_per_traveler"}}</div>
 									<div class="col-xs-3 col-sm-3 text-right">$<span id="pricePerTraveler"></span></div>
 								</div>
 							</li>
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Cantidad de Viajeros</div>
+									<div class="col-xs-9 col-sm-9">{{i18n "number_of_travelers"}}</div>
 									<div class="col-xs-3 col-sm-3 text-right"><span id="nOfTravelers"></span></div>
 								</div>
 							</li>
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Precio Total</div>
+									<div class="col-xs-9 col-sm-9">{{i18n "total_price"}}</div>
 									<div class="col-xs-3 col-sm-3 text-right">$<span id="tourTravelersPrice"></span></div>
 								</div>
 							</li>
 							<li class="divider"></li>
 							<li>
 								<div class="row gap-10 font600 font14">
-									<div class="col-xs-9 col-sm-9">Tarifa de Servicio<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Una pequeña tarifa por el servicio de cobros por internet."> <i class="fa fa-question-circle"></i></small></div>
+									<div class="col-xs-9 col-sm-9">{{i18n "service_fee"}}<small class="hoover-help of-label" data-toggle="tooltip" data-placement="top" title="Una pequeña tarifa por el servicio de cobros por internet."> <i class="fa fa-question-circle"></i></small></div>
 									<div class="col-xs-3 col-sm-3 text-right">$<span id="costOfTransaction"></span></div>
 								</div>
 							</li>
@@ -473,11 +473,11 @@ fbq('track', 'InitiateCheckout');
 								<div class="row gap-10">
 									<div class="col-xs-6 col-sm-6">
 										<h5 class="heading mt-0 mb-0 text-white">Total</h5>
-										<p class="font12">Los precios se muestran en USD</p>
+										<p class="font12">{{i18n "showed_prices"}} USD</p>
 									</div>
 									<div class="col-xs-6 col-sm-6 text-right">
 										<span class="block font20 font600 mb-5">$<span id="totalPrice"></span></span>
-										<span class="font10 line10 block">**Mejor Precio Garantizado </span>
+										<span class="font10 line10 block">**{{i18n "best_price_guarantee"}} </span>
 									</div>
 								</div>
 							</li>

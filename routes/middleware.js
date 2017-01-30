@@ -3,6 +3,9 @@ var keystone = require('keystone');
 var passport = require('passport');
 var Keen = require('keen-js');
 var i18n = require("i18n");
+var locale = require("locale");
+var supported = new locale.Locales(["en", "en_US", "es", "es_ES", "pt"]);
+var url = require('url');
   
 /**
 	Initialises the standard view locals
@@ -153,15 +156,58 @@ i18n.configure({
   directory: './templates/locales',
   queryParameter: 'lang'
 });
-if (!process.env.LANG) {
+
+
+// detect browser lang.
+var browserLang = req.headers["accept-language"];
+browserLang = browserLang.substring(0, 2);
+
+//get subdomain
+var subdomain = req.subdomains[0];
+var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+
+
+/*else {
+  if (req.query.lang === 'es') {
+      process.env.LANG = 'es';
+      return res.redirect('http://www.localdomain.com:3000');
+    }
+    if (req.query.lang === 'en') {
+      process.env.LANG = 'en';
+      return res.redirect('http://en.localdomain.com:3000');
+    }
+} */
+
+if (subdomain == 'www') {
     process.env.LANG = 'es';
+    i18n.setLocale(process.env.LANG);
+  }
+if (subdomain == 'en') {
+    process.env.LANG = 'en';
+    i18n.setLocale(process.env.LANG);
+}
+
+
+
+/*if (subdomain != 'www') {
+  process.env.LANG = subdomain;
+  i18n.setLocale(process.env.LANG);
+  return next();
+} else {
+  process.env.LANG = browserLang;
+  i18n.setLocale(process.env.LANG);
+  return next();
+} */
+
+/* if (!process.env.LANG) {
+   process.env.LANG = browserLang;
     i18n.setLocale(process.env.LANG);
 }
   if (req.query.lang) {
     process.env.LANG = req.query.lang;
     i18n.setLocale(process.env.LANG);
-  } 
-  
+  } */
   next();
 };
 

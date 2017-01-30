@@ -32,9 +32,9 @@
                   <div class="meta">
                     <span class="block">${{data.tour.price}}</span>
                     {{#if data.tour.multiPrice}}
-                    Precio más bajo.
+                    {{i18n "lowest_price"}}
                     {{else}}
-                    Por Persona.
+                    {{i18n "per_person"}}
                     {{/if}}
                   </div>
                 </li>
@@ -44,10 +44,10 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
+                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">{{i18n "book_now"}}</a>
               {{else}}
 
-              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">Reservar Ahora</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">{{i18n "book_now"}}</a>
               {{/if}}
 
               </div>
@@ -65,7 +65,7 @@
         <div class="container">
 
           <ol class="breadcrumb-list">
-            <li><a href="/">Inicio</a></li>
+            <li><a href="/">{{i18n "home"}}</a></li>
             <li><a href="/{{data.tour.country.slug}}">{{data.tour.country.country}}</a></li>
             <li><a href="/{{data.tour.country.slug}}/{{data.tour.province.slug}}">{{data.tour.province.province}}</a></li>
             <li><span>{{data.tour.name}}</span></li>
@@ -86,14 +86,14 @@
 
             <div class="col-md-9" role="main">
              {{#if data.tour.multiPrice}}
-            <div class="alert alert-info" role="alert"><h6 class="center" style="margin:0px;">Este tour ofrece descuentos para reservas mayores a {{data.tour.multiPriceCatalog.[1].[0]}} personas.</h6></div>
+            <div class="alert alert-info" role="alert"><h6 class="center" style="margin:0px;">{{i18n "tour_discount"}} {{data.tour.multiPriceCatalog.[1].[0]}} {{i18n "people"}}.</h6></div>
               {{/if}}
               <div class="detail-content-wrapper">
                 {{#if data.tour.highlights}}
                   <div id="section-0" class="detail-content">
 
                     <div class="section-title text-left">
-                      <h4>Lo mejor</h4>
+                      <h4>{{i18n "highlights"}}</h4>
                     </div>
                     <ul class="list-with-icon col-3 clearfix">
                       {{#each data.tour.highlights}}
@@ -125,7 +125,7 @@
                   <div id="section-4" class="detail-content col-md-12 no-padding-r-l">
                         <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
                         <div class="section-title text-left ">
-                          <h4>Está Incluido</h4>
+                          <h4>{{i18n "includes"}}</h4>
                         </div>
 
                       <ul class="list-with-icon with-heading">
@@ -133,52 +133,52 @@
                         {{#if data.tour.hotelPickup}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Recogida en el Hotel</h6>
-                          <p>Este tour incluye pick-up en su hotel dentro del área.</p>
+                          <h6 class="heading mt-0">{{i18n "hotel_pickup"}}</h6>
+                          <p>{{i18n "hotel_pickup_description"}}.</p>
                         </li>
                         {{/if}}
 
                         {{#if data.tour.transportation}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Transporte durante el Tour</h6>
-                          <p>Transportante terrestre o marítimo.</p>
+                          <h6 class="heading mt-0">{{i18n "transportation"}}</h6>
+                          <p>{{i18n "transportation_description"}}</p>
                         </li>
 
                         {{/if}}
                         {{#if data.tour.food}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Comidas</h6>
-                          <p>Se incluyen las comidas.</p>
+                          <h6 class="heading mt-0">{{i18n "food"}}</h6>
+                          <p>{{i18n "food_description"}}.</p>
                         </li>
                         {{/if}}
                          {{#if data.tour.drinks}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Bebidas</h6>
-                          <p>Se incluyen las bebidas.</p>
+                          <h6 class="heading mt-0">{{i18n "drinks"}}</h6>
+                          <p>{{i18n "drinks_description"}}.</p>
                         </li>
                         {{/if}}
                         {{#if data.tour.insurance}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Seguro contra accidentes</h6>
-                          <p>Seguro personal contra accidentes.</p>
+                          <h6 class="heading mt-0">{{i18n "insurance"}}</h6>
+                          <p>{{i18n "insurance_description"}}.</p>
                         </li>
                         {{/if}}
                         {{#if data.tour.taxes}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Impuestos</h6>
-                          <p>Se incluyen todos los impuestos de visitantes</p>
+                          <h6 class="heading mt-0">{{i18n "taxes"}}</h6>
+                          <p>{{i18n "taxes_description"}}</p>
                         </li>
                         {{/if}}
                         {{#if data.tour.tickets}}
                         <li>
                           <i class="fa fa-check-circle text-primary"></i>
-                          <h6 class="heading mt-0">Boletos</h6>
-                          <p>Se incluyen los tickets de entrada</p>
+                          <h6 class="heading mt-0">{{i18n "entrance_tickets"}}</h6>
+                          <p>{{i18n "entrance_tickets_description"}}</p>
                         </li>
                         {{/if}}
 
@@ -187,7 +187,7 @@
                         </div> <!-- col md 6 -->
                         <div class="col-md-6 no-padding-r-l"><!-- col -md - 6 -->
                         <div class="section-title text-left ">
-                          <h4>No Está Incluido</h4>
+                          <h4>{{i18n "excludes"}}</h4>
                         </div>
 
                       <ul class="list-with-icon with-heading">
@@ -195,45 +195,45 @@
                         {{#unless data.tour.hotelPickup}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Recogida en el Hotel</h6>
-                          <p>Deberas llegar al punto de inicio del tour.</p>
+                          <h6 class="heading mt-0">{{i18n "hotel_pickup"}}</h6>
+                          <p>{{i18n "hotel_pickup_description"}} {{i18n "not_included"}}.</p>
                         </li>
                         {{/unless}}
 
                         {{#unless data.tour.transportation}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Transporte durante el Tour</h6>
-                          <p>Deberas costear los gastos de movilización durante el tour.</p>
+                          <h6 class="heading mt-0">{{i18n "transportation"}}</h6>
+                          <p>{{i18n "transportation_description"}} {{i18n "not_included"}}.</p>
                         </li>
                         {{/unless}}
                         {{#unless data.tour.food}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Comidas</h6>
-                          <p>Recomendamos llevar su propia merienda</p>
+                          <h6 class="heading mt-0">{{i18n "food"}}</h6>
+                          <p>{{i18n "food_description"}} {{i18n "not_included"}}</p>
                         </li>
                         {{/unless}}
                         {{#unless data.tour.drinks}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Bebidas</h6>
-                          <p>Bebidas no incluídas</p>
+                          <h6 class="heading mt-0">{{i18n "drinks"}}</h6>
+                          <p>{{i18n "drinks"}} {{i18n "not_included"}}</p>
                         </li>
                         {{/unless}}
                         {{#unless data.tour.insurance}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Seguro contra accidentes</h6>
-                          <p>No se incluye seguro alguno.</p>
+                          <h6 class="heading mt-0">{{i18n "insurance"}}</h6>
+                          <p>{{i18n "insurance"}} {{i18n "not_included"}}.</p>
                         </li>
                         {{/unless}}
                         {{#if data.tour.hasTaxes}}
                          {{#unless data.tour.taxes}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Impuestos</h6>
-                          <p>Los impuestos no se incluyen en el precio</p>
+                          <h6 class="heading mt-0">{{i18n "taxes"}}</h6>
+                          <p>{{i18n "taxes"}} {{i18n "not_included"}}</p>
                         </li>
                         {{/unless}}
                         {{/if}}
@@ -241,8 +241,8 @@
                         {{#unless data.tour.tickets}}
                         <li>
                           <i class="fa fa-times-circle text-danger"></i>
-                          <h6 class="heading mt-0">Boletos</h6>
-                          <p>No se incluyen los tickets de entrada</p>
+                          <h6 class="heading mt-0">{{i18n "entrance_tickets"}}</h6>
+                          <p>{{i18n "entrance_tickets"}} {{i18n "not_included"}}</p>
                         </li>
                         {{/unless}}
                        {{/if}}
@@ -253,15 +253,15 @@
                   <div id="section-0" class="detail-content">
 
                     <div class="section-title text-left">
-                      <h4>Información</h4>
+                      <h4>{{i18n "information"}}</h4>
                     </div>
 
                     <div>
 
                       <!-- Nav tabs -->
                       <ul id="#myTabs" class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="" id="list-description_es"><a href="#description_es" class="tour-description" aria-controls="home" role="tab" data-toggle="tab">Descripción <span class="flag-icon flag-icon-es"></span></a></li>
-                        <li role="presentation" class="" id="list-description_en"><a href="#description_en" aria-controls="profile" role="tab" data-toggle="tab">Description <span class="flag-icon flag-icon-gb"></span></a></li>
+                        <li role="presentation" class="" id="list-description_es"><a href="#description_es" class="tour-description" aria-controls="home" role="tab" data-toggle="tab">{{i18n "description"}} <span class="flag-icon flag-icon-es"></span></a></li>
+                        <li role="presentation" class="" id="list-description_en"><a href="#description_en" aria-controls="profile" role="tab" data-toggle="tab">{{i18n "description"}} <span class="flag-icon flag-icon-gb"></span></a></li>
                       </ul>
 
                       <!-- Tab panes -->
@@ -270,14 +270,14 @@
                           {{#if data.tour.description.extended}}
                             <article class="description-language">{{{data.tour.description.extended}}}</article>
                           {{else}}
-                            <article class="description-language">No hay descripción disponible en Español.</article>
+                            <article class="description-language">{{i18n "description_spanish_not_available"}}.</article>
                           {{/if}}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="description_en">
                           {{#if data.tour.description_eng.extended}}
                             <article class="description-language">{{{data.tour.description_eng.extended}}}</article>
                           {{else}}
-                            <article class="description-language">There's no English description available.</article>
+                            <article class="description-language">{{i18n "description_english_not_available"}}.</article>
                           {{/if}}
                         </div>
                       </div>
@@ -309,8 +309,8 @@
                       $('article').readmore({
                         heightMargin: 50,
                         collapsedHeight: 330,
-                        moreLink: '<a href="#" class="btn btn-primary center">Leer todo</a>',
-                        lessLink: '<a href="#" class="btn btn-primary">Cerrar</a>',
+                        moreLink: '<a href="#" class="btn btn-primary center">{{i18n "read_all"}}</a>',
+                        lessLink: '<a href="#" class="btn btn-primary">{{i18n "close"}}</a>',
                       });
                     });
 
@@ -319,7 +319,7 @@
                   <div id="section-1" class="detail-content">
 
                     <div class="section-title text-left">
-                      <h4>Galería</h4>
+                      <h4>{{i18n "photos"}}</h4>
                     </div>
 
                     <div class="slick-gallery-slideshow">
@@ -360,13 +360,10 @@
                 {{>tour/_bookingDates}}
                 {{/if}}
                   <div class="detail-content">
-
                     <div class="section-title text-left">
-                      <h4>Tours Similares</h4>
+                      <h4>{{i18n "similar_tours"}}</h4>
                     </div>
-
                     <div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
-
                       <div class="GridLex-grid-noGutter-equalHeight">
                       {{#each_upto data.tours 3}}
                         <div class="GridLex-col-4_sm-4_xs-12 mb-20">
@@ -380,7 +377,7 @@
                                 {{/if}}
                                 {{#if featured}}
                                 <div class="absolute-in-image">
-                                  <div class="duration"><span>Destacado</span></div>
+                                  <div class="duration"><span>{{i18n "featured"}}</span></div>
                                 </div>
                                 {{/if}}
                               </div>
@@ -403,8 +400,7 @@
                       </div>
 
                     </div>
-
-                </div>
+                  </div>
                 <!-- end secction 5 -->
 
                 <!-- secction 6 FAQ -->
@@ -432,7 +428,7 @@
                 {{else}}
                   <div class="blog-extra">
                     <div class=" text-center">
-                          <a href="/signin?from=/tour/{{data.tour.slug}}" class="btn btn-primary">Escribe un Review</a>
+                          <a href="/signin?from=/tour/{{data.tour.slug}}" class="btn btn-primary">{{i18n "write_review"}}</a>
                     </div>
 
                 </div>
@@ -458,12 +454,12 @@
 
                     <li>
                       <ul class="nav">
-                        <li><a href="#section-0" class="anchor">Lo Mejor</a></li>
-                        <li><a href="#section-1" class="anchor">Galería</a></li>
-                        <li><a href="#section-2" class="anchor">Itinerario</a></li>
-                        <li><a href="#section-4" class="anchor">Está Incluído</a></li>
-                        <li><a href="#section-5" class="anchor">Disponibilidad</a></li>
-                        <li><a href="#section-6" class="anchor">Ayuda</a></li>
+                        <li><a href="#section-0" class="anchor">{{i18n "highlights"}}</a></li>
+                        <li><a href="#section-1" class="anchor">{{i18n "photos"}}</a></li>
+                        <li><a href="#section-2" class="anchor">{{i18n "itinerary"}}</a></li>
+                        <li><a href="#section-4" class="anchor">{{i18n "is_included"}}</a></li>
+                        <li><a href="#section-5" class="anchor">{{i18n "availability"}}</a></li>
+                        <li><a href="#section-6" class="anchor">{{i18n "help"}}</a></li>
                         <li><a href="#section-7" class="anchor">Reviews</a></li>
                       </ul>
                     </li>
@@ -472,9 +468,9 @@
 
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
                  {{#if userInfo}}
-                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-danger">Reservar Ahora</a>
+                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-danger">{{i18n "book_now"}}</a>
                   {{else}}
-                  <a href="/signup?from=/contact/{{data.tour.tourId}}" class="btn btn-danger">Reservar Ahora</a>
+                  <a href="/signup?from=/contact/{{data.tour.tourId}}" class="btn btn-danger">{{i18n "book_now"}}</a>
                   {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
 

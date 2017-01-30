@@ -10,8 +10,8 @@ exports.init = function(req, res) {
 	// Set locals
 	locals.section = 'tours';
 	locals.filters = {
-		//tour: req.params.slug
-		tour: "3-dias-y-2-noches-en-las-islas-de-san-blas-guna-yala"
+		tour: req.params.slug
+		
 	};
   var url = req.url;
 
