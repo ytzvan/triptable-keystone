@@ -98,5 +98,7 @@
 	"pickup_address": "Dirección de recogida",
 	"taxes_description": "taxes_description",
 	"description_spanish_not_available": "description_spanish_not_available",
-	"write_review": "write_review"
+	"write_review": "write_review",
+	"entrance_tickets": "entrance_tickets",
+	"entrance_tickets_description": "entrance_tickets_description"
 }
