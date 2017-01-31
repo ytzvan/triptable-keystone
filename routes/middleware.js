@@ -3,7 +3,7 @@ var keystone = require('keystone');
 var passport = require('passport');
 var Keen = require('keen-js');
 var i18n = require("i18n");
-var url = require('url');
+var Url = require('url');
   
 /**
 	Initialises the standard view locals
@@ -163,7 +163,7 @@ browserLang = browserLang.substring(0, 2);
 //get subdomain
 var subdomain = req.subdomains[0];
 var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-
+var url2  = Url.parse(fullUrl);
 
 
 /*else {
@@ -176,20 +176,42 @@ var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
       return res.redirect('http://en.localdomain.com:3000');
     }
 } */
+
 if (!process.env.LANG) {
+    if (req.query.lang == 'es') {
+      return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
+    if (req.query.lang == 'en') {
+        return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
+    if (subdomain == 'www' && browserLang == 'es') {
+      process.env.LANG = browserLang;
+      i18n.setLocale(process.env.LANG);
+      return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
+     if (subdomain == 'www' && browserLang == 'en') {
+      process.env.LANG = browserLang;
+      i18n.setLocale(process.env.LANG);
+      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
+    if (subdomain == 'es' && browserLang == 'en') {
+      process.env.LANG = browserLang;
+      i18n.setLocale(process.env.LANG);
+      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
     if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
-      return res.redirect('http://'+subdomain+'.localdomain.com:3000'+req.baseUrl);
+      return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     process.env.LANG = browserLang;
-    return res.redirect('http://'+browserLang+'.localdomain.com:3000'+req.baseUrl);
+    return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 
 if (req.query.lang == 'es') {
-    return res.redirect('http://es.localdomain.com:3000'+req.baseUrl);
+    return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 if (req.query.lang == 'en') {
-    return res.redirect('http://en.localdomain.com:3000'+req.baseUrl);
+    return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 
 if (subdomain == 'es') {
@@ -211,10 +233,6 @@ if (subdomain == 'www') {
     i18n.setLocale(process.env.LANG);
     //return res.redirect('http://'+browserLang+'.localdomain.com:3000'/+req.url);
 }
-console.log(req.query);
-
-
-
 
 /*if (subdomain != 'www') {
   process.env.LANG = subdomain;
