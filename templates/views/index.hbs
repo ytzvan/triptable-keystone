@@ -27,10 +27,10 @@
 
                 <div class="form-group">
 
-                  <select name="destination" class="select2-multi form-control" data-placeholder="Escoge un País">
-                    <option value="panama">Panamá</option>
-                    <option value="colombia" disabled>Colombia (Próx)</option>
-                    <option value="costa-rica" disabled>Costa Rica (Próx)</option>
+                  <select name="destination" class="select2-multi form-control" data-placeholder="{{i18n 'select_country'}}">
+                    <option value="panama">{{i18n 'panama'}}</option>
+                    <option value="colombia" disabled>Colombia ({{i18n 'soon'}})</option>
+                    <option value="costa-rica" disabled>Costa Rica ({{i18n 'soon'}})</option>
                   </select>
 
                 </div>
@@ -41,9 +41,9 @@
 
                 <div class="form-group">
 
-                  <select name="month" class="select2-multi form-control province" id="destino" data-placeholder="Escoge un Destino">
-                    <option value="">Escoge un Destino</option>
-                    <option value="0">Todos</option>
+                  <select name="month" class="select2-multi form-control province" id="destino" data-placeholder="{{i18n 'select_destination'}}">
+                    <option value="">{{i18n 'select_destination'}}</option>
+                    <option value="0">{{i18n 'all'}}</option>
                     {{#each data.provinces}}
                     <option value="{{slug}}">{{province}}</option>
                     {{/each}}
@@ -57,9 +57,9 @@
 
                 <div class="form-group">
 
-                  <select name="year" class="select2-multi form-control" data-placeholder="Tipo de Trip" id="categoria">
-                    <option value="">Escoge un tipo</option>
-                    <option value="0">Todos</option>
+                  <select name="year" class="select2-multi form-control" data-placeholder="{{i18n 'type_of_trip'}}" id="categoria">
+                    <option value="">{{i18n 'type_of_trip'}}</option>
+                    <option value="0">{{i18n 'all'}}</option>
                     {{#each data.categories}}
                     <option value="{{slug}}">{{name}}</option>
                     {{/each}}
@@ -72,7 +72,7 @@
               <div class="column-item for-btn">
 
                 <div class="form-group">
-                  <a href="#" id="searchBtn" class="btn btn-primary btn-block">Buscar</a>
+                  <a href="#" id="searchBtn" class="btn btn-primary btn-block">{{i18n 'search'}}</a>
 
                 </div>
 

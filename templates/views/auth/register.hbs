@@ -12,20 +12,20 @@
 
 		{{#if data.validationErrors.password}}
 		<div class="alert center alert-danger">
-  			<strong>Error:</strong> Las contraseñas no coinciden
+  			<strong>Error:</strong> {{i18n 'password_not_match_message'}}
 		</div>
 		{{/if}}
 
 		{{#if data.validationErrors.isEmpty}}
 		<div class="alert alert-danger">
-  			<strong>Error:</strong> La contraseña no puede estar vacía
+  			<strong>Error:</strong> {{i18n 'password_not_empty_message'}}
 		</div>
 		{{/if}}
 
 
 		{{#if data.validationErrors.csrfError}}
 		<div class="alert alert-danger">
-  			<strong>Error:</strong> Por favor, actualize la página
+  			<strong>Error:</strong> {{i18n 'refresh_page_message'}}
 		</div>
 		{{/if}}
 		<div class="container">
@@ -44,7 +44,7 @@
 
 						<div class="modal-body pb-5">
 
-							<h3 class="text-center heading mt-10 mb-20">Regístrate</h3>
+							<h3 class="text-center heading mt-10 mb-20">{{i18n 'siginup'}}</h3>
 
 							<div class="modal-seperator">
 								<span></span>
@@ -52,7 +52,7 @@
 
 
 							<div class="form-group">
-								<input id="register_name" name="name" value="" class="form-control" type="text" placeholder="Nombre Completo">
+								<input id="register_name" name="name" value="" class="form-control" type="text" placeholder="{{i18n 'name'}}">
 							</div>
 
 							<div class="form-group">
@@ -63,10 +63,10 @@
 								<input id="register_password" name='password', value="" class="form-control" type="password" placeholder="Contraseña">
 							</div>
 							<div class="form-group">
-								<input id="register_password" name='password_confirm' value="" class="form-control" type="password" placeholder="Repetir Contraseña">
+								<input id="register_password" name='password_confirm' value="" class="form-control" type="password" placeholder="{{i18n 'repeat_password'}}">
 							</div>
               <div class="form-group">
-								<input id="referalCode" name='referalCode' value="" class="form-control" type="text" placeholder="Código Promocional (Opcional)">
+								<input id="referalCode" name='referalCode' value="" class="form-control" type="text" placeholder="{{i18n 'promocode'}} ({{i18n 'optional'}})">
 							</div>
 
 						</div>
@@ -75,15 +75,15 @@
 
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block">Regístrate</button>
+									<button type="submit" class="btn btn-primary btn-block">{{i18n 'signup'}}</button>
 								</div>
 								<div class="col-xs-6 col-sm-6 mb-10">
-									<a href="/" class="btn btn-primary btn-inverse btn-block">Cancelar</a>
+									<a href="/" class="btn btn-primary btn-inverse btn-block">{{i18n 'cancel'}}</a>
 								</div>
 							</div>
 
 							<div class="text-left">
-									¿Ya tienes una Cuenta? <a href="/signin" id="register_login_btn"  class="btn btn-link">Ingresa</a>
+									{{i18n 'already_have_an_account'}}? <a href="/signin" id="register_login_btn"  class="btn btn-link">{{i18n 'signin'}}</a>
 							</div>
 
 						</div>

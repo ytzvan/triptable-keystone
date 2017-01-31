@@ -48,7 +48,7 @@
 					<input type="hidden" name="{{token.key}}" value="{{token.value}}">
 						<div class="modal-body pb-5">
 
-							<h4 class="text-center heading mt-10 mb-20">Ingresa</h4>
+							<h4 class="text-center heading mt-10 mb-20">{{i18n 'signin'}}</h4>
 
 							<div class="modal-seperator">
 								<span></span>
@@ -58,7 +58,7 @@
 								<input type="email" class="form-control" placeholder="Email" name="email" value="">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
+								<input type="password" class="form-control" placeholder="{{i18n 'password'}}" name="password" id="password">
 							</div>
 
 							<div class="form-group">
@@ -81,15 +81,15 @@
 
 							<div class="row gap-10">
 								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block">Ingresa</button>
+									<button type="submit" class="btn btn-primary btn-block">{{i18n 'signin'}}</button>
 								</div>
 								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancelar</button>
+									<button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">{{i18n 'cancel'}}</button>
 								</div>
 							</div>
 							<div class="text-left">
-								No tienes cuenta?
-								<a href="/signup" id="login_register_btn" class="btn btn-link">Regístrate</a>
+								{{i18n 'not_have_an_account'}}
+								<a href="/signup" id="login_register_btn" class="btn btn-link">{{i18n 'signup'}}</a>
 							</div>
 
 						</div>

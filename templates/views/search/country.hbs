@@ -10,11 +10,11 @@
 
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 
-              <h1 class="hero-title">Tours en {{data.country.country}}</h1>
+              <h1 class="hero-title">Tours {{i18n 'in'}} {{data.country.country}}</h1>
 
               <ol class="breadcrumb-list">
-                <li><a href="/">Inicio</a></li>
-                <li><span>Tours en {{data.country.country}}</span></li>
+                <li><a href="/">{{i18n 'home'}}</a></li>
+                <li><span>Tours {{i18n 'in'}} {{data.country.country}}</span></li>
               </ol>
 
             </div>
@@ -38,16 +38,16 @@
                 <div class="sidebar-search-wrapper bg-light-2">
 
                   <div class="sidebar-search-header">
-                    <h4>Escoge un Destino</h4>
+                    <h4>{{i18n 'select_destination'}}</h4>
                   </div>
 
                   <div class="sidebar-search-content">
 
                     <div class="form-group">
 
-                      <select name="country" id="province" class="select2-multi form-control" data-placeholder="Escoge una Ciudad">
-                        <option value="">Destino</option>
-                        <option value="0" selected>Todos</option>
+                      <select name="country" id="province" class="select2-multi form-control" data-placeholder="{{i18n 'choose_city'}}">
+                        <option value="">{{i18n 'destination'}}</option>
+                        <option value="0" selected>{{i18n 'all'}}</option>
                         {{#each data.provinces}}
                         <option value="{{slug}}">{{province}}</option>
                         {{/each}}
@@ -55,8 +55,8 @@
                     </div>
                     <div class="form-group">
                       <select name="category" class="select2-multi form-control" id="category" data-placeholder="Escoge un tipo de Tour">
-                        <option value="">Tipo de Tour</option>
-                        <option value="0">Todos</option>
+                        <option value="">{{i18n 'type_of_tour'}}</option>
+                        <option value="0">{{i18n 'all'}}</option>
                         {{#each data.categories}}
                         <option value="{{slug}}">{{name}}</option>
                         {{/each}}
@@ -64,7 +64,7 @@
 
                     </div>
 
-                    <a href="#" id="search" class="btn btn-primary btn-block">Búsqueda</a>
+                    <a href="#" id="search" class="btn btn-primary btn-block">{{i18n 'search'}}</a>
 
                   </div>
 
@@ -292,11 +292,11 @@
               <div class="sorting-wrappper">
 
                 <div class="sorting-header">
-                  <h2 class="sorting-title uppercase">Tours en {{data.country.country}}</h3>
-                    <p class="sorting-lead">Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades</p>
+                  <h2 class="sorting-title uppercase">Tours {{i18n 'in'}} {{data.country.country}}</h3>
+                    <p class="sorting-lead">{{i18n 'founded'}} <strong>{{data.tours.total}}</strong> {{i18n 'tours_and_activities'}}</p>
                     {{#if data.filters}}
-                    <h5>El filtro {{data.filters.name}} está activado</h5>
-                    <a href="/{{data.country.slug}}"> Quitar filtro </a>
+                    <h5>El filtro {{data.filters.name}} {{i18n 'is_active'}}</h5>
+                    <a href="/{{data.country.slug}}"> {{i18n 'remove_filter'}} </a>
                     {{/if}}
                 </div>
 
@@ -356,9 +356,9 @@
                         <div class="elipsis">{{{description.short}}}</div>
                         <p></p>
                         <ul class="list-info">
-                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Ciudad:</span> {{city.city}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Categoría:</span> {{#each categories}}{{name}} {{/each}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Duración:</span> {{duration}} horas</li>
+                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">{{i18n 'city'}}:</span> {{city.city}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'category'}}:</span> {{#each categories}}{{name}} {{/each}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'tour_lenght'}}:</span> {{duration}} {{i18n 'hours'}}</li>
                         </ul>
 
                       </div>
@@ -373,7 +373,7 @@
 
                         <div class="price">${{price}} USD</div>
 
-                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">Ver Tour</a>
+                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">{{i18n 'see_tour'}}</a>
 
                       </div>
                     </div>

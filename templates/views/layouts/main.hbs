@@ -325,28 +325,28 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 												</a>
 												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
                           {{#unless isGuide}}
-													<li><a href="/user" class="">Mis Reservas</a></li>
-													<li><a href="/user" class="">Créditos: {{userInfo.credit}}$</a></li>
+													<li><a href="/user" class="">{{i18n 'my_bookings'}}</a></li>
+													<li><a href="/user" class="">{{i18n 'credits'}}: {{userInfo.credit}}$</a></li>
                           {{/unless}}
                           {{#if isAdmin}}
-													<li><a href="/keystone" class="">Panel de Administracion</a></li>
+													<li><a href="/keystone" class="">{{i18n 'admin_panel'}}</a></li>
                           {{/if}}
                           {{#if isGuide}}
-													<li><a href="/admin" class="">Mis Tours</a></li>
+													<li><a href="/admin" class="">{{i18n 'my_tours'}}</a></li>
                           {{/if}}
-													<li><a href="/keystone/signout"><i class="ion-social-yen"></i> Cerrar Sesión</a></li>
+													<li><a href="/keystone/signout"><i class="ion-social-yen"></i> {{i18n 'signout'}}</a></li>
 												</ul>
 											</li>
                       {{else}}
 											 <li class="user-action no-margin hidden-xs hidden-sm">
-												<a href="/partners" class="btn no-border">Listar un tour</a>
+												<a href="/partners" class="btn no-border">{{i18n 'list_tour'}}</a>
 											</li>
 
                        <li class="user-action no-margin hidden-xs hidden-sm">
-												<a href="/signup" class="btn no-border">Registrarse</a>
+												<a href="/signup" class="btn no-border">{{i18n 'signup'}}</a>
 											</li>
                       <li class="user-action">
-												<a href="/signin" class="btn">Entrar</a>
+												<a href="/signin" class="btn">{{i18n 'signin'}}</a>
 											</li>
                       {{/if}}
 
@@ -376,22 +376,22 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 										<!--<li><a href="#">Acerca de Nosotros</a>
 										</li> -->
                      {{#unless isGuide}}
-											<li><a href="/user" class="">Mis Reservas</a></li>
+											<li><a href="/user" class="">{{i18n 'my_bookings'}}</a></li>
                      {{/unless}}
 										 {{#if isAdmin}}
-										  <li><a href="/keystone" class="">Panel de Administracion</a></li>
+										  <li><a href="/keystone" class="">{{i18n 'admin_panel'}}</a></li>
                      {{/if}}
                      {{#if isGuide}}
-										  <li><a href="/admin" class="">Mis Tours</a></li>
+										  <li><a href="/admin" class="">{{i18n 'my_tours'}}</a></li>
                      {{/if}}
-                      <li><a href="mailto:hello@triptable.com">Contáctanos</a></li>
-										<li class="visible-sm visible-xs"><a href="/keystone/signout">Cerrar Sesión</a></li>
+                      <li><a href="mailto:hello@triptable.com">{{i18n 'contact_us'}}</a></li>
+										<li class="visible-sm visible-xs"><a href="/keystone/signout">{{i18n 'signout'}}</a></li>
 									</ul>
 								</div><!--/.nav-collapse -->
                 {{else}}
                 <div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
-                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/">{{i18n 'home'}}</a></li>
 										<li><a href="/como-funciona">{{i18n "how_it_works"}}</a></li>
 										<li><a href="/partners">{{i18n "tour_operators"}}</a>
                     <li class="visible-sm visible-xs"><a href="/partners">{{i18n "list_a_tour"}}</a></li>

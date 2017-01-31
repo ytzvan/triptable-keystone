@@ -10,10 +10,10 @@
 
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 
-              <h1 class="hero-title">Tours en {{data.province.province}}</h1>
+              <h1 class="hero-title">Tours {{i18n 'in'}} {{data.province.province}}</h1>
 
               <ol class="breadcrumb-list">
-                <li><a href="/">Inicio</a></li>
+                <li><a href="/">{{i18n 'home'}}</a></li>
                 <li><a href="/panama">Panama</a></li>
                 <li><span>{{data.province.province}}</span></li>
               </ol>
@@ -39,15 +39,15 @@
                 <div class="sidebar-search-wrapper bg-light-2">
 
                   <div class="sidebar-search-header">
-                    <h4>Escoge un Destino</h4>
+                    <h4>{{i18n 'select_destination'}}</h4>
                   </div>
 
                   <div class="sidebar-search-content">
 
                     <div class="form-group">
 
-                      <select name="province" id="province" class="select2-multi form-control" data-placeholder="Escoge una Ciudad">
-                        <option value="0" selected>Todos los Destinos</option>
+                      <select name="province" id="province" class="select2-multi form-control" data-placeholder="{{i18n 'choose_city'}}">
+                        <option value="0" selected>{{i18n 'destination'}}</option>
                         {{#each data.provinces}}
                         <option value="{{slug}}">{{province}}</option>
                         {{/each}}
@@ -65,7 +65,7 @@
 
                     </div>
 
-                    <a href="#" id="search" class="btn btn-primary btn-block">Búsqueda</a>
+                    <a href="#" id="search" class="btn btn-primary btn-block">{{i18n 'search'}}</a>
 
                   </div>
 
@@ -293,11 +293,11 @@
               <div class="sorting-wrappper">
 
                 <div class="sorting-header">
-                  <h2 class="sorting-title uppercase">Tours en {{data.province.province}}</h3>
-                    <p class="sorting-lead">Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades</p>
+                  <h2 class="sorting-title uppercase">Tours {{i18n 'in'}} {{data.province.province}}</h3>
+                    <p class="sorting-lead">{{i18n 'founded'}}  <strong>{{data.tours.total}}</strong> {{i18n 'tours_and_activities'}}</p>
                     {{#if data.filters}}
-                    <h5>El filtro {{data.filters.name}} está activado</h5>
-                    <a href="/{{data.country}}/{{data.province.slug}}"> Quitar filtro </a>
+                    <h5>El filtro {{data.filters.name}} {{i18n 'is_active'}}</h5>
+                    <a href="/{{data.country}}/{{data.province.slug}}"> {{i18n 'remove_filter'}} </a>
                     {{/if}}
                 </div>
 
@@ -357,9 +357,9 @@
                         <div class="elipsis">{{{description.short}}}</div>
                         <p></p>
                         <ul class="list-info">
-                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Ciudad:</span> {{city.city}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Categoría:</span> {{#each categories}}{{name}} {{/each}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">Duración:</span> {{duration}} horas</li>
+                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">{{i18n 'city'}}:</span> {{city.city}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'category'}}:</span> {{#each categories}}{{name}} {{/each}}</li>
+                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'tour_lenght'}}:</span> {{duration}} {{i18n 'hours'}}</li>
                         </ul>
 
                       </div>
@@ -373,7 +373,7 @@
 
                         <div class="price">${{price}} USD</div>
 
-                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">Reservar</a>
+                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">{{i18n 'see_tour'}}</a>
 
                       </div>
                     </div>
