@@ -27,7 +27,7 @@ keystone.init({
 	}).engine,
 
 	'emails': 'templates/emails',
-
+	'mongo': process.env.MONGO_URI,
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -36,6 +36,7 @@ keystone.init({
 	'signin redirect' : '/',
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
+	'session store': 'mongo'
 
 
 });

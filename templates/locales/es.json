@@ -124,9 +124,18 @@
 	"password": "Contraseña",
 	"cancel": "Cancelar",
 	"not_have_an_account": "No tienes una cuenta",
-	"siginup": "siginup",
-	"repeat_password": "repeat_password",
-	"promocode": "promocode",
-	"optional": "optional",
-	"already_have_an_account": "already_have_an_account"
+	"siginup": "Registrarse",
+	"repeat_password": "Repetir Contraseña",
+	"promocode": "Código Promocional",
+	"optional": "Opcional",
+	"already_have_an_account": "Tienes una cuenta?",
+	"my_bookings": "my_bookings",
+	"credits": "credits",
+	"admin_panel": "admin_panel",
+	"my_tours": "my_tours",
+	"signout": "signout",
+	"language": "Idioma",
+	"english": "English",
+	"spanish": "Español",
+	"featured": "featured"
 }

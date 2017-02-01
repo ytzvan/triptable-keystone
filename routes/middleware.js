@@ -148,6 +148,7 @@ exports.userInfo = function(req, res, next) {
 };
 
 exports.intl = function (req, res, next) {
+  var locals = res.locals;
 i18n.configure({
   locales: ['es', 'en'],
   cookie: 'lang',
@@ -252,6 +253,7 @@ if (subdomain == 'www') {
     process.env.LANG = req.query.lang;
     i18n.setLocale(process.env.LANG);
   } */
+  locals.lang = process.env.LANG;
   next();
 };
 

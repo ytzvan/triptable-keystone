@@ -127,7 +127,13 @@
 	"promocode": "Promocode",
 	"optional": "Optional",
 	"already_have_an_account": "Already have an account",
-	"admin_panel": "admin_panel",
-	"my_tours": "my_tours",
-	"signout": "signout"
+	"admin_panel": "Admin Panel",
+	"my_tours": "My Tours",
+	"signout": "Sign Out",
+	"language": "Language",
+	"my_bookings": "my_bookings",
+	"credits": "credits",
+	"english": "English",
+	"spanish": "Español",
+	"featured": "featured"
 }
