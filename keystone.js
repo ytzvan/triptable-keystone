@@ -36,9 +36,7 @@ keystone.init({
 	'signin redirect' : '/',
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
-	'session store': 'mongo'
-
-
+	'session store': 'mongo',
 });
 keystone.set('s3 config', { bucket: 'triptable', key: 'AKIAJGHX437Z664RXBXA', secret: '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' });
 
@@ -79,6 +77,7 @@ keystone.set('email rules', [{
 
 keystone.set('email tests', require('./routes/emails'));
 
+//keystone.set('session options', { cookie: { domain:'.localdomain.com:3000', path: '/', secure: true,  maxAge   : 1000*60*60*24*30*12 }});
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
 	'enquiries': 'enquiries',

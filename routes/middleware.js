@@ -28,11 +28,13 @@ exports.initLocals = function(req, res, next) {
 exports.crsfAuth = function (req, res, next) {
 	var locals = res.locals;
 	var csrf = keystone.security.csrf;
-	locals.token = {
-		key : csrf.TOKEN_KEY,
-		value : csrf.getToken(req, res)
-	};
+  process.env.CSRF_TOKEN_KEY = csrf.TOKEN_KEY;
+  process.env.CSRF_TOKEN_VALUE = csrf.getToken(req, res);
 
+	locals.token = {
+		key : process.env.CSRF_TOKEN_KEY,
+		value : process.env.CSRF_TOKEN_VALUE
+	};
 	next();
 }
 

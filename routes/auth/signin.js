@@ -5,8 +5,8 @@ exports = module.exports = function(req, res) {
 	var csrf = keystone.security.csrf;
   var locals = res.locals;
 	locals.token = {
-		key : csrf.TOKEN_KEY,
-		value : csrf.getToken(req, res)
+		key : process.env.CSRF_TOKEN_KEY,
+		value : process.env.CSRF_TOKEN_VALUE
 	};
 	function renderView() {
 		view.render('auth/signin');
