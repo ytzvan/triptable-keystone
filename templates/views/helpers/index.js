@@ -395,7 +395,7 @@ module.exports = function() {
   	return lang;
   };
 
-  _helpers.tourName = function(name, name_eng) {
+  _helpers.getTourLocName = function(name, name_eng) {
   	var name = name;
   	var name_eng = name_eng;
   	var defaultLang;

@@ -29,7 +29,7 @@
           {{#each data.bookings}}
             <tr>
                 <td class="id"><a href="/admin/booking/{{friendlyId}}"><i class="fa fa-arrow-right"></i> {{friendlyId}}</a></td>
-                <td><a href="/tour/{{tourUrl}}">{{tourName}}</a></td>
+                <td><a href="/admin/booking/{{friendlyId}}">{{tourName}}</a></td>
                 <td>{{datePretty}}</td>
                 <td class="center">{{people}}</td>
                 <td class="center">{{bookingFlatPrice}}$</td>
