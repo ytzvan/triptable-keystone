@@ -142,5 +142,7 @@
 	"tour_guides": "Tour Guides",
 	"travel_agencies": "Travel Agencies",
 	"transport_services": "Transportation Services",
-	"book_safe": "Book in a secure way using"
+	"book_safe": "Book in a secure way using",
+	"lowest_price": "Lowest price",
+	"tour_discount": "This tour offer discounts in booking for more than "
 }

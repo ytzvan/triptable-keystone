@@ -370,7 +370,10 @@ module.exports = function() {
 	};
 
   _helpers.if_eq = function (a, b, opts) {
+  	console.log("getLang valor: ", a);
+  	console.log("idiotma requerido: ", b);
     if(a == b) // Or === depending on your needs
+ 
         return opts.fn(this);
     else
         return opts.inverse(this);
@@ -385,6 +388,46 @@ module.exports = function() {
   	var text = i18n.__(str);
   	return text;
   };
+
+  _helpers.getLang = function() {
+  
+  	var lang = process.env.LANG;
+  	return lang;
+  };
+
+  _helpers.tourName = function(name, name_eng) {
+  	var name = name;
+  	var name_eng = name_eng;
+  	var defaultLang;
+  	if (process.env.LANG == 'en'){
+  		if (name_eng) {
+  			defaultLang = name_eng;
+  			return defaultLang;
+  		} else {
+  			defaultLang = name;
+  			return defaultLang;
+  		}
+  	} else {
+  		defaultLang = name;
+  		return name;
+  	}
+  };
+
+  _helpers.returnLang = function () {
+  	var lang = process.env.LANG;
+  	console.log(lang);
+  	var currentLang;
+  	if (lang == 'es') {
+  		currentLang = 'es';
+  		return currentLang;
+  	}
+  	if (lang == 'en') {
+  		currentLang = 'gb';
+  		return currentLang;
+  	}
+  	currentLang = 'gb';
+  	return currentLang;
+  }
 
 	return _helpers;
 };

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="{{lang}}">
 
 <head>
 
@@ -320,10 +320,8 @@ mixpanel.init("e61a9c6f2bbe99a8395b4e5fc417e275");</script><!-- end Mixpanel -->
 											</li> -->
 						<li class="dropdown bt-dropdown-click">
 						<a id="language-dropdown" class="dropdown-toggle btn no-border" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:white;">
-							<i></i>{{i18n 'language'}} {{#if_eq lang 'es'}}
-								<span class="flag-icon flag-icon-es"></span>{{/if_eq}}
-								{{#if_eq lang 'en'}}
-								<span class="flag-icon flag-icon-gb"></span>{{/if_eq}}
+							<i></i>{{i18n 'language'}} 
+								<span class="flag-icon flag-icon-{{returnLang}}"></span>
 								<span class="caret hidden-xs"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="language-dropdown">
                          			<li><a href="?lang=en" class=""><span class="flag-icon flag-icon-gb"></span> {{i18n 'english'}}</a></li>

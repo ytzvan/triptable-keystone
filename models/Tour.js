@@ -23,6 +23,7 @@ var Tour = new keystone.List('Tour', {
 Tour.add({
 	tourId: { type: String, index: true, noedit: true},
 	name: { type: String, required: true },
+	name_eng: { type: String},
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	owner: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },

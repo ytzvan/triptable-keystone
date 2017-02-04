@@ -45,6 +45,7 @@ exports.init = function(req, res) {
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);
+			
 			locals.meta.description = cleanStr;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + ". Con Triptable descubres y reservas Tours y actividades baratas en " + result.city.city + ", "+result.country.country +".";

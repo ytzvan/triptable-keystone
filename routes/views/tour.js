@@ -42,13 +42,28 @@ exports = module.exports = function(req, res) {
 
 			/*Load Reviews */
 			loadReviews(next);
-			locals.meta.title = result.name +". Reserva Tours y Actividades en Triptable."
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);
-			locals.meta.description = cleanStr;
-			locals.meta.ogTitle = locals.meta.title;
-			locals.meta.ogDescription = locals.meta.description + ". Con Triptable descubres y reservas Tours y actividades baratas en " + result.city.city + ", "+result.country.country +".";
+			console.log(process.env.LANG);
+			if (process.env.LANG === 'en'){
+				console.log(result.description_eng);
+				if (result.name_eng) {
+					locals.meta.title = result.name_eng + " - Triptable tours and activities";
+				} else {
+					locals.meta.title = result.name +" - Triptable tours y actividades";
+				}
+				if (result.description_eng.short) {
+					locals.meta.description = result.description_eng.short;
+				} else {
+					locals.meta.description = cleanStr;
+				}
+			} else {
+				locals.meta.title = result.name +" - Triptable tours y actividades";
+				locals.meta.description = cleanStr;
+			}
+			locals.meta.ogTitle = locals.meta.title
+			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", "+result.country.country +".";
 			var img = result.images[0];
 			if (img) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_75/v"+img.version+"/"+img.public_id+"."+img.format;

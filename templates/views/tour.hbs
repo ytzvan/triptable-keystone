@@ -1,8 +1,6 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
 <div class="main-wrapper scrollspy-container">
 
       <!-- start end Page title -->
-
       {{#if data.tour.heroImage.secure_url}}
       <div class="page-title detail-page-title" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}');">
       {{else}}
@@ -15,7 +13,15 @@
 
             <div class="flex-column flex-md-8 flex-sm-12">
 
-              <h1 class="hero-title">{{data.tour.name}}</h1>
+              <h1 class="hero-title">{{#if_eq lang 'en'}} 
+                                        {{#if data.tour.name_eng}}
+                                          {{data.tour.name_eng}} 
+                                        {{else}} 
+                                          {{data.tour.name}}
+                                         {{/if}}   
+                                      {{else}} 
+                                        {{data.tour.name}} 
+                                     {{/if_eq}}</h1>
               <p class="line18">{{{data.tour.description.short}}}</p>
 
               <ul class="list-col clearfix">

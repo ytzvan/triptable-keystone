@@ -182,48 +182,59 @@ var url2  = Url.parse(fullUrl);
 
 if (!process.env.LANG) {
     if (req.query.lang == 'es') {
+      locals.lang = 'es';
       return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     if (req.query.lang == 'en') {
+      locals.lang = 'en';
         return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     if (subdomain == 'www' && browserLang == 'es') {
       process.env.LANG = browserLang;
       i18n.setLocale(process.env.LANG);
+      locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
      if (subdomain == 'www' && browserLang == 'en') {
       process.env.LANG = browserLang;
       i18n.setLocale(process.env.LANG);
+      locals.lang = process.env.LANG;
       return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     if (subdomain == 'es' && browserLang == 'en') {
       process.env.LANG = browserLang;
       i18n.setLocale(process.env.LANG);
+      locals.lang = process.env.LANG;
       return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
+      locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
     process.env.LANG = browserLang;
+    locals.lang = process.env.LANG;
     return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 
 if (req.query.lang == 'es') {
+    locals.lang = 'es';
     return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 if (req.query.lang == 'en') {
+    locals.lang = 'en';
     return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
 }
 
 if (subdomain == 'es') {
     process.env.LANG = 'es';
     i18n.setLocale(process.env.LANG);
+    locals.lang =  'es';
   }
 if (subdomain == 'en') {
     process.env.LANG = 'en';
     i18n.setLocale(process.env.LANG);
+    locals.lang =  'en';
 }
 if (subdomain == 'www') {
   /*  if (browserLang = 'en') {
@@ -234,6 +245,7 @@ if (subdomain == 'www') {
 
     process.env.LANG = browserLang;
     i18n.setLocale(process.env.LANG);
+    locals.lang =  process.env.LANG;
     //return res.redirect('http://'+browserLang+'.localdomain.com:3000'/+req.url);
 }
 
@@ -256,6 +268,7 @@ if (subdomain == 'www') {
     i18n.setLocale(process.env.LANG);
   } */
   locals.lang = process.env.LANG;
+
   next();
 };
 
