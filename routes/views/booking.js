@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 
 		q.exec(function(err, result) {
 			if (err) {
-				console.log(err)
+				
 			} else {
 				locals.data.tour = result;
 				next(err);

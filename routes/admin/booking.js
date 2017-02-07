@@ -12,7 +12,6 @@ exports.index = function(req, res) {
 	  };
     var operator = req.user._id;
     var bookingId = req.params.id;
-    console.log(bookingId);
 
     view.on('init', function(next) {
 				keystone.list('Enquiry').model.findOne({friendlyId: bookingId}).sort('-createdAt').exec(function(err, result) {

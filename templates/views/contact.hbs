@@ -16,7 +16,7 @@ fbq('track', 'InitiateCheckout');
           current[index] = parseInt(current[index]);
         }
         priceCatalog.push(current);
-        console.log(priceCatalog);
+        
         {{/each}}
         console.log(priceCatalog.length)
         for (var i = 0; i< priceCatalog.length; i++){
@@ -267,7 +267,7 @@ fbq('track', 'InitiateCheckout');
                         } else {
 												  var price = {{data.tour.price}};
                         }
-                        console.log(price);
+                       
 												var initPrice = min*price;
 
 												var taxPrice = initPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee

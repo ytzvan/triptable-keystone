@@ -370,8 +370,6 @@ module.exports = function() {
 	};
 
   _helpers.if_eq = function (a, b, opts) {
-  	console.log("getLang valor: ", a);
-  	console.log("idiotma requerido: ", b);
     if(a == b) // Or === depending on your needs
  
         return opts.fn(this);
@@ -415,7 +413,6 @@ module.exports = function() {
 
   _helpers.returnLang = function () {
   	var lang = process.env.LANG;
-  	console.log(lang);
   	var currentLang;
   	if (lang == 'es') {
   		currentLang = 'es';

@@ -61,9 +61,8 @@ exports.init = function(req, res) {
         
     ], function (err, result) {
         if (err) {
-            console.log(err);
+            
         }
-        console.log(result);
         locals.data.results = result;
         view.render('dashboard/index'); 
         

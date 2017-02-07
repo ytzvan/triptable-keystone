@@ -14,7 +14,6 @@ exports.index = function(req, res) {
     view.on('init', function(next) {
 				keystone.list('Enquiry').model.find({ operator: operator}).sort('-createdAt').exec(function(err, result) {
           if(result == null){ //si hay resultado
-             console.log("sin bookings")
             }
           else {
             locals.data.bookings = result;

@@ -98,8 +98,6 @@ exports = module.exports = function(req, res) {
 
 
     view.on('init', function(next) {
-         console.log(req.url);
-          console.log(req.query.from);
         redirectUrl = req.query.from;
         next();
     });
