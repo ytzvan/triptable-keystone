@@ -13,16 +13,8 @@
 
             <div class="flex-column flex-md-8 flex-sm-12">
 
-              <h1 class="hero-title">{{#if_eq lang 'en'}} 
-                                        {{#if data.tour.name_eng}}
-                                          {{data.tour.name_eng}} 
-                                        {{else}} 
-                                          {{data.tour.name}}
-                                         {{/if}}   
-                                      {{else}} 
-                                        {{data.tour.name}} 
-                                     {{/if_eq}}</h1>
-              <p class="line18">{{{data.tour.description.short}}}</p>
+              <h1 class="hero-title">{{getTourLocName data.tour.name data.tour.name_eng}}</h1>
+              <p class="line18">{{getTourLocName data.tour.description.short data.tour.description_eng.short}}</p>
 
               <ul class="list-col clearfix">
                 <li class="rating-box">
