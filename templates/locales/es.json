@@ -54,6 +54,7 @@
 	"excludes": "No incluye",
 	"drinks": "Bebidas",
 	"insurance": "Seguros",
+	"insurance_description": "Seguros no incluidos",
 	"not_included": "no incluido",
 	"taxes": "Impuestos",
 	"information": "Información",

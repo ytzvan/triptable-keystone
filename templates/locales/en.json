@@ -52,6 +52,7 @@
 	"excludes": "Excludes",
 	"drinks": "Drinks",
 	"insurance": "Insurance",
+	"insurance_description": "Insurance not included",
 	"drinks_description": "drinks_description",
 	"not_included": "Not included",
 	"taxes": "Taxes",
