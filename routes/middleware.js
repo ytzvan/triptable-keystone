@@ -161,7 +161,11 @@ i18n.configure({
 
 // detect browser lang.
 var browserLang = req.headers["accept-language"];
+if (browserLang) {
 browserLang = browserLang.substring(0, 2);
+} else {
+  browserLang = 'en';
+}
 
 //get subdomain
 var subdomain = req.subdomains[0];
