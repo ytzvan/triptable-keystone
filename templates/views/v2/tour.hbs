@@ -40,52 +40,46 @@
                   </div>
                   <div id="listing_content-2" class="widget  widget_listing_content">
                       <div class="job_description" itemprop="description">
-                          <h2>Información del Tour</h2>
+                          <h2 style="margin-top:0px;">Información del Tour</h2>
                           <p>{{{data.tour.description.extended}}}</p>
                       </div>
                   </div>
+                  <div id="listing_content-2" class="widget  widget_listing_content">
+                      <div class="job_description" itemprop="description">
+                          <h2 style="margin-top:0px;">Notas importantes</h2>
+                          <p style="margin-top:15px;">Notas importantes aquí</p>
+                      </div>
+                  </div>
                   {{>v2/tour/_icons}}
+                 
+                  
                   <div id="listing_comments-2" class="widget  widget_listing_comments">
                       <div id="comments" class="comments-area">
-                          <h2 class="comments-title">2 reviews</h2>
+                          <h2 class="comments-title">{{data.reviewsLength}} reviews</h2>
                           <ol class="comment-list">
-                              <li class="comment byuser comment-author-georgeolaru bypostauthor even thread-even depth-1" id="li-comment-29" itemprop="review" itemscope itemtype="http://schema.org/Review">
-                                  <div class="comment-wrapper">
-                                      <header class="comment-header">
-                                          <div class="comment-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img alt='' src='https://graph.facebook.com/1420998771262239/picture?width=400&#038;height=400' srcset='https://graph.facebook.com/1420998771262239/picture?width=400&#038;height=400 2x' class='avatar avatar-75 photo' height='75' width='75' /><span class="fn"><a href='http://pixelgrade.com' rel='external nofollow' class='url'>George</a></span></div>
-                                      </header>
-                                      <div class="comment-content" itemprop="reviewBody">
-                                          <h3 class="pixrating_title">First class customer service in a great hotel</h3>
-                                          <div class="review_rate" data-pixrating="5"></div>
-                                          <div class="comment-meta commentmetadata" itemprop="datePublished" content="2015-11-06T13:27:37+0000">
-                                              <a href="https://pixelgrade.com/demos/listable/listings/russell-hotel/#comment-29">
-                                                  <time pubdate datetime="2015-11-06T13:27:37+00:00">on November 6, 2015</time>
-                                                  <br /> </a>
-                                          </div>
-                                          <p>Stayed here for a few days in half term. With a trip to the theatre to see Lion King. The hotel was perfectly situated for all the London things we wanted to do. All the hotel staff were so friendly and helpful. We were on the sixth floor this blocked out a lot of traffic noise, as London never sleeps.</p>
-                                      </div>
-                                      <div class="reply"> <a rel='nofollow' class='comment-reply-link' href='https://pixelgrade.com/demos/listable/listings/russell-hotel/?replytocom=29#respond' onclick='return addComment.moveForm( "comment-29", "29", "respond", "569" )' aria-label='Reply to George'>Reply</a></div>
-                                  </div>
-                              </li>
+                            {{#each data.reviews}}
                               <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-48" itemprop="review" itemscope itemtype="http://schema.org/Review">
                                   <div class="comment-wrapper">
                                       <header class="comment-header">
-                                          <div class="comment-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img alt='' src='https://secure.gravatar.com/avatar/99cc5fb5d5a5031d3231142baad07248?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/99cc5fb5d5a5031d3231142baad07248?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /><span class="fn">Barki</span></div>
+                                          <div class="comment-author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img alt='' src='https://secure.gravatar.com/avatar/99cc5fb5d5a5031d3231142baad07248?s=75&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/99cc5fb5d5a5031d3231142baad07248?s=150&amp;d=mm&amp;r=g 2x' class='avatar avatar-75 photo' height='75' width='75' /><span class="fn">{{author.name.full }}</span></div>
                                       </header>
                                       <div class="comment-content" itemprop="reviewBody">
-                                          <h3 class="pixrating_title">Great Service</h3>
+                                          <h3 class="pixrating_title">{{score}} Estrellas</h3>
                                           <div class="review_rate" data-pixrating="4"></div>
-                                          <div class="comment-meta commentmetadata" itemprop="datePublished" content="2015-11-16T15:56:22+0000">
+                                          <div class="comment-meta commentmetadata" itemprop="datePublished" content="{{createdAt}}">
                                               <a href="https://pixelgrade.com/demos/listable/listings/russell-hotel/#comment-48">
-                                                  <time pubdate datetime="2015-11-16T15:56:22+00:00">on November 16, 2015</time>
+                                                  <time pubdate datetime="{{createdAt}}">on {{createdAt}}</time>
                                                   <br /> </a>
                                           </div>
-                                          <p>Haven&#8217;t had any such a great service ever!</p>
+                                          <p>{{message}}</p>
                                       </div>
                                       <div class="reply"> <a rel='nofollow' class='comment-reply-link' href='https://pixelgrade.com/demos/listable/listings/russell-hotel/?replytocom=48#respond' onclick='return addComment.moveForm( "comment-48", "48", "respond", "569" )' aria-label='Reply to Barki'>Reply</a></div>
                                   </div>
                               </li>
+                              {{/each}}
+
                           </ol>
+
                           <div id="respond" class="comment-respond">
                               <h3 id="reply-title" class="comment-reply-title">Rate and write a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demos/listable/listings/russell-hotel/#respond" style="display:none;">Cancel reply</a></small></h3>
                               <form action="https://pixelgrade.com/demos/listable/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
@@ -139,73 +133,7 @@
               <div class="listing-sidebar  listing-sidebar--top  listing-sidebar--secondary">
                   <!-- booking Form -->
                   {{>v2/tour/_bookingForm}}
-                  <div id="listing_sidebar_products-2" class="widget  widget_listing_sidebar_products">
-                      <h3 class="widget_sidebar_title"> Make an Online Reservation</h3>
-                      <div class="listing-products__items">
-                          <div itemscope itemtype="http://schema.org/Product" class="product woocommerce add_to_cart_inline product-type_booking" id="product-1846">
-                              <div class="summary entry-summary">
-                                  <h1 itemprop="name" class="product_title entry-title">Room Reservation at Russel Hotel Spa Resort</h1>
-                                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                      <p class="price">From: <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>69.00</span>
-                                      </p>
-                                      <meta itemprop="price" content="69" />
-                                      <meta itemprop="priceCurrency" content="USD" />
-                                      <link itemprop="availability" href="http://schema.org/InStock" />
-                                  </div>
-                                  <div itemprop="description">
-                                      <p class="p1">Two medium pizzas baked from housemade dough</p>
-                                  </div>
-                                  <noscript>Your browser must support JavaScript in order to make a booking.</noscript>
-                                  <form class="cart" method="post" enctype='multipart/form-data'>
-                                      <div id="wc-bookings-booking-form" class="wc-bookings-booking-form" style="display:none">
-                                          <!--<p class="form-field form-field-wide wc_bookings_field_duration">
-                                              <label for="wc_bookings_field_duration">Duration:</label>
-                                              <input type="number" value="1" step="1" min="1" max="14" name="wc_bookings_field_duration" id="wc_bookings_field_duration" /> Day(s)</p> -->
-                                          <p class="form-field form-field-wide wc_bookings_field_persons">
-                                              <label for="wc_bookings_field_persons">Persons:</label>
-                                              <input type="number" value="1" step="1" min="1" max="" name="wc_bookings_field_persons" id="wc_bookings_field_persons" />
-                                          </p>
-                                          <p class="form-field form-field-wide wc_booking_field_ wc_bookings_field_resource">
-                                              <label for="wc_bookings_field_resource">Type:</label>
-                                              <select name="wc_bookings_field_resource" id="wc_bookings_field_resource">
-                                                  <option value="1847">Standard Room (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>69.00</span> per day)</option>
-                                                  <option value="1848">Two-Double Room (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>144.00</span> per day)</option>
-                                                  <option value="1849">King Suite (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>188.00</span> per day)</option>
-                                                  <option value="1851">Two-Double Suite (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>238.00</span> per day)</option>
-                                              </select>
-                                          </p>
-                                          <fieldset class="wc-bookings-date-picker wc-bookings-date-picker-booking wc_bookings_field_start_date">
-                                              <legend> <span class="label">Start Date</span>: <small class="wc-bookings-date-picker-choose-date">Choose...</small></legend>
-                              
-                                              <div class="picker" data-display="always_visible" data-duration-unit="day" data-availability="" data-default-availability="true" data-fully-booked-days="[]" data-partially-booked-days="[]" data-buffer-days="[]" data-min_date="+1d" data-max_date="+12m" data-availability="{"0":[["days",[true,true,true,true,true,true,true,true],10,"global"],["time",{"from":"00:00","to":"00:00","rule":true,"day":0},10,"global"]],"1847":[["days",[true,true,true,true,true,true,true,true],10,"global"],["time",{"from":"00:00","to":"00:00","rule":true,"day":0},10,"global"]],"1848":[["days",[true,true,true,true,true,true,true,true],10,"global"],["time",{"from":"00:00","to":"00:00","rule":true,"day":0},10,"global"]],"1849":[["days",[true,true,true,true,true,true,true,true],10,"global"],["time",{"from":"00:00","to":"00:00","rule":true,"day":0},10,"global"]],"1851":[["days",[true,true,true,true,true,true,true,true],10,"global"],["time",{"from":"00:00","to":"00:00","rule":true,"day":0},10,"global"]]}" data-default_date="2017-01-19" data-is_range_picker_enabled="0"></div>
-                                              <div class="wc-bookings-date-picker-date-fields"> <span>Start:</span>
-                                                  <br />
-                                                  <label>
-                                                      <input type="text" name="wc_bookings_field_start_date_month" placeholder="mm" size="2" class="booking_date_month" /> <span>Month</span> </label> /
-                                                  <label>
-                                                      <input type="text" name="wc_bookings_field_start_date_day" placeholder="dd" size="2" class="booking_date_day" /> <span>Day</span> </label> /
-                                                  <label>
-                                                      <input type="text" value="2017" name="wc_bookings_field_start_date_year" placeholder="YYYY" size="4" class="booking_date_year" /> <span>Year</span> </label>
-                                              </div>
-                                              <div class="wc-bookings-date-picker-date-fields"> <span>End:</span>
-                                                  <br />
-                                                  <label>
-                                                      <input type="text" name="wc_bookings_field_start_date_to_month" placeholder="mm" size="2" class="booking_to_date_month" /> <span>Month</span> </label> /
-                                                  <label>
-                                                      <input type="text" name="wc_bookings_field_start_date_to_day" placeholder="dd" size="2" class="booking_to_date_day" /> <span>Day</span> </label> /
-                                                  <label>
-                                                      <input type="text" value="2017" name="wc_bookings_field_start_date_to_year" placeholder="YYYY" size="4" class="booking_to_date_year" /> <span>Year</span> </label>
-                                              </div>
-                                          </fieldset>
-                                          <div class="wc-bookings-booking-cost" style="display:none"></div>
-                                      </div>
-                                      <input type="hidden" name="add-to-cart" value="1846" />
-                                      <button type="submit" class="wc-bookings-booking-form-button single_add_to_cart_button button alt disabled" style="display:none">Book now</button>
-                                  </form>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                
                   <div id="listing_sidebar_map-2" class="widget  widget_listing_sidebar_map">
                       <div class="listing-map-container" itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
                           <div id="map" class="listing-map"></div>
@@ -232,14 +160,14 @@
                       <div class="schedule" itemprop="openingHours">Mon - Sun: 00:00 - 24:00</div>
                   </div>
                   <div id="listing_sidebar_gallery-2" class="widget  widget_listing_sidebar_gallery">
-                      <header class="listing-gallery__header"> <span class="listing-gallery__title">Photo gallery</span> <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg" class="listing-gallery__all">All photos (6)</a> </header>
+                      <header class="listing-gallery__header"> <span class="listing-gallery__title">Photo gallery</span> <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg" class="listing-gallery__all">All photos </a> </header>
                       <div class="listing-gallery__items  js-widget-gallery">
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="67955404_y" itemprop="image" caption="" description="" srcset="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="67955388_y" itemprop="image" caption="" description="" srcset="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955388_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="67955398_y" itemprop="image" caption="" description="" srcset="https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955398_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="67955406_y" itemprop="image" caption="" description="" srcset="https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955406_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="67955408_y" itemprop="image" caption="" description="" srcset="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955408_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                          <a href="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg" class="listing-gallery__item"> <img width="300" height="300" src="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg?resize=300%2C300&amp;ssl=1" class="attachment-thumbnail size-thumbnail" alt="110778340_y" itemprop="image" caption="" description="" srcset="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg?resize=300%2C300&amp;ssl=1 300w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg?resize=150%2C150&amp;ssl=1 150w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg?zoom=2&amp;resize=300%2C300&amp;ssl=1 600w, https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/110778340_y.jpeg?zoom=3&amp;resize=300%2C300&amp;ssl=1 900w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
+                          {{#each data.tour.images}}
+                          <a href="{{cloudinaryUrl secure=true crop='fill' }}" class="listing-gallery__item">
+                            <img width="300" height="300" src="{{cloudinaryUrl width=300 height=300 secure=true crop='fill' }}" class="attachment-thumbnail size-thumbnail" alt="67955404_y" itemprop="image" caption="" description="" srcset="{{cloudinaryUrl width=300 height=300 secure=true crop='fill' }} 300w, {{cloudinaryUrl width=150 height=150 secure=true crop='fill' }}  150w, {{cloudinaryUrl width=600 height=600 secure=true crop='fill' }}  600w, {{cloudinaryUrl width=900 height=900 secure=true crop='fill' }} 900w" sizes="(max-width: 300px) 100vw, 300px" /> 
+                          </a>
+                          {{/each}}
+                        
                       </div>
                   </div>
                   <div id="listing_sidebar_claim_listing-2" class="widget  widget_listing_sidebar_claim_listing">
@@ -318,61 +246,8 @@
                               </div>
                           </form>
                       </div>
-                      <iframe style='display:none;width:0px;height:0px;' src='about:blank' name='gform_ajax_frame_1' id='gform_ajax_frame_1'>This iframe contains the logic required to handle AJAX powered Gravity Forms.</iframe>
-                      <script type='text/javascript'>
-                          jQuery(document).ready(function($) {
-                              gformInitSpinner(1, 'https://pixelgrade.com/demos/listable/wp-content/plugins/gravityforms/images/spinner.gif');
-                              jQuery('#gform_ajax_frame_1').load(function() {
-                                  var contents = jQuery(this).contents().find('*').html();
-                                  var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;
-                                  if (!is_postback) {
-                                      return;
-                                  }
-                                  var form_content = jQuery(this).contents().find('#gform_wrapper_1');
-                                  var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_1').length > 0;
-                                  var is_redirect = contents.indexOf('gformRedirect(){') >= 0;
-                                  var is_form = form_content.length > 0 && !is_redirect && !is_confirmation;
-                                  if (is_form) {
-                                      jQuery('#gform_wrapper_1').html(form_content.html());
-                                      if (form_content.hasClass('gform_validation_error')) {
-                                          jQuery('#gform_wrapper_1').addClass('gform_validation_error');
-                                      } else {
-                                          jQuery('#gform_wrapper_1').removeClass('gform_validation_error');
-                                      }
-                                      setTimeout(function() {
-                                          jQuery(document).scrollTop(jQuery('#gform_wrapper_1').offset().top);
-                                      }, 50);
-                                      if (window['gformInitDatepicker']) {
-                                          gformInitDatepicker();
-                                      }
-                                      if (window['gformInitPriceFields']) {
-                                          gformInitPriceFields();
-                                      }
-                                      var current_page = jQuery('#gform_source_page_number_1').val();
-                                      gformInitSpinner(1, 'https://pixelgrade.com/demos/listable/wp-content/plugins/gravityforms/images/spinner.gif');
-                                      jQuery(document).trigger('gform_page_loaded', [1, current_page]);
-                                      window['gf_submitting_1'] = false;
-                                  } else if (!is_redirect) {
-                                      var confirmation_content = jQuery(this).contents().find('#gforms_confirmation_message_1').html();
-                                      if (!confirmation_content) {
-                                          confirmation_content = contents;
-                                      }
-                                      setTimeout(function() {
-                                          jQuery('#gform_wrapper_1').replaceWith('<' + 'div id=\'gforms_confirmation_message_1\' class=\'gform_confirmation_message_1 gforms_confirmation_message\'' + '>' + confirmation_content + '<' + '/div' + '>');
-                                          jQuery(document).scrollTop(jQuery('#gforms_confirmation_message_1').offset().top);
-                                          jQuery(document).trigger('gform_confirmation_loaded', [1]);
-                                          window['gf_submitting_1'] = false;
-                                      }, 50);
-                                  } else {
-                                      jQuery('#gform_1').append(contents);
-                                      if (window['gformRedirect']) {
-                                          gformRedirect();
-                                      }
-                                  }
-                                  jQuery(document).trigger('gform_post_render', [1, current_page]);
-                              });
-                          });
-                      </script>
+                                                     
+                      
                       <script type='text/javascript'>
                           if (typeof gf_global == 'undefined') var gf_global = {
                               "gf_currency_config": {

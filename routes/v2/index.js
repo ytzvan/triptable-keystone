@@ -21,7 +21,7 @@ exports.init = function(req, res) {
 		var q = keystone.list('Tour')
 			.paginate({
 				page: req.query.page || 1,
-				perPage: 3,
+				perPage: 6,
 				maxPages: 10
 			})
 			.where('state', 'published')

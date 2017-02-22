@@ -82,6 +82,7 @@ exports.init = function(req, res) {
 		.populate('author');
 			r.exec(function(err, results) {
 				locals.data.reviews = results;
+				locals.data.reviewsLength = results.length;
 				next(err);
 			});
 

@@ -5,12 +5,12 @@
                     <div class="wc-bookings-booking-form">
                       <p class="form-field form-field-wide wc_bookings_field_persons">
                         <label for="wc_bookings_field_persons">Persons:</label>
-                        <input type="number" value="1" step="1" min="1" max="" name="wc_bookings_field_persons" id="wc_bookings_field_persons" /></p>
+                        <input type="number" value="{{data.tour.minPerson}}" step="1" min="{{data.tour.minPerson}}" max="{{data.tour.maxPerson}}" name="wc_bookings_field_persons" id="wc_bookings_field_persons" /></p>
                       <p class="form-field form-field-wide wc_booking_field_ wc_bookings_field_resource">
                         <label for="wc_bookings_field_resource">Type:</label>
                         <select name="wc_bookings_field_resource" id="wc_bookings_field_resource">
-                          <option value="1847">Standard Room (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>69.00</span> per day)</option>
-                          <option value="1848">Two-Double Room (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>144.00</span> per day)</option>
+                          <option value="1847">Standar Package (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span> per person)</option>
+                          <option value="1848">Add Tour (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</span> per person)</option>
                           <option value="1851">Two-Double Suite (+<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>238.00</span> per day)</option>
                         </select>
                       </p>
@@ -24,7 +24,7 @@
                     </fieldset>
                       
                       <div class="wc-bookings-booking-cost" style="position: relative; zoom: 1;">
-                        Booking cost: <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>621.00</span></strong></div>
+                        Price per Person: <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>{{data.tour.price}}</span></strong></div>
                         <button type="submit" class="wc-bookings-booking-form-button single_add_to_cart_button button alt">Book now</button>
                     </div>
 
