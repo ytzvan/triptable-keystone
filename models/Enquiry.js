@@ -78,16 +78,20 @@ Enquiry.schema.pre('save', function(next) {
 	var str2 = currentId.toString().substring(largo);
 	str1 += str2;
 	this.friendlyId = str1;
-
+	if (this.preStatus == 0 && this.bookingStatus == 1) {
+		console.log("Enviar email de reserva confirmada");
+	}
 	next();
 });
 
-
+Enquiry.schema.post('init', function(next){
+		var status = this.bookingStatus;
+		this.preStatus = this.bookingStatus;
+});
 Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
     this.prettyDate(this);
 		var email = this.operatorEmail
-    console.log("env", process.env.NODE_ENV);
     if (process.env.NODE_ENV == 'production') {
       this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
@@ -102,12 +106,10 @@ Enquiry.schema.post('save', function() {
 	var string = tourToSave.toString();
 	keystone.list('User').model.findByIdAndUpdate({"_id": user},{ $push: { 'toursPurchased': tourToSave} }, { 'new': true})
 		.exec(function(err,result){
-			console.log(err);
-			console.log(result);
 			return true;
 	});
 	} catch (err) {
-		console.log("err adding tour to user purchase");
+		
 	}
 	
 });
@@ -130,7 +132,7 @@ Enquiry.schema.methods.sendReviewEmail = function (enquiry) {
 				Email.askForFeedbackEmail(enquiry);
 			});  
 		} catch (err) {
-				console.log("Error en schedule");
+			
 		}
 
 		/*End cron test */
@@ -173,9 +175,7 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	var email = email;
 	var name = obj.operatorName;
 	var bookerName = obj.name.first;
-	console.log("obj date:", obj.date);
 	var fecha = moment(obj.date).format("dddd, Do MMMM YYYY");
-	console.log(fecha);
 
 	keystone.list('Tour').model.findOne({'tourId': tourId}).exec(function(err, tour) {
 		if (err) return callback(err);
@@ -192,11 +192,9 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 		}).exec({
 		// An unexpected error occurred.
 		error: function (err){
-		 	console.log("err", err);
 		},
 		// OK.
 		success: function (){
-		 console.log("Enviado email de Operador");
 		},
 	});
 	});
