@@ -1,16 +1,21 @@
 <div class="front-page-section">
     <div class="section-wrap">
-        <h3 class="widget_title  widget_title--frontpage"> What are you interested in? <span class="widget_subtitle  widget_subtitle--frontpage"> Explore some of the best tips from around the city from our partners and friends. </span></h3>
+        <h3 class="widget_title  widget_title--frontpage"> Explora Nuestros Destinos <span class="widget_subtitle  widget_subtitle--frontpage"> Explore some of the best tips from around the city from our partners and friends. </span></h3>
         <div class="categories-wrap  categories-wrap--widget">
-            <ul class="categories  categories--widget">
+            <ul class="categories categories--widget">
+                {{#each data.provinces}}
                 <li>
-                    <div class="category-cover" style="background-image: url(https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/11/home-cards-stay.jpg?fit=450%2C539&ssl=1)">
-                        <a href="https://pixelgrade.com/demos/listable/listing-category/hotels/">
-                            <div class="category-icon">
-                                <i class="fa fa-bus" style="font-size:55px;"></i> <span class="category-count"> 11 </span></div> <span class="category-text">{{data.provinces.[0].province}}</span> </a>
-                    </div>
+                    <div class="category-cover" style="background-image: url({{image.secure_url}})">
+                        <a href="/panama/{{slug}}">
+                            <!--<div class="category-icon">
+                                <i class="fa fa-bus" style="font-size:55px;"></i> <span class="category-count"> 11 </span>
+                            </div>  -->
+                                <span class="category-text">{{province}}</span> </a>
+                             </div>
                 </li>
-                <li>
+                {{/each}}
+                
+                <!--<li>
                     <div class="category-cover" style="background-image: url(https://i0.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/11/home-cards-eat.jpg?fit=450%2C436&ssl=1)">
                         <a href="https://pixelgrade.com/demos/listable/listing-category/food/">
                             <div class="category-icon">
@@ -43,8 +48,14 @@
                                     </g>
                                 </svg> <span class="category-count"> 13 </span></div> <span class="category-text">{{data.provinces.[3].province}}</span> </a>
                     </div>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
+    <div class="nav-links" style="margin-bottom: 0px;">
+                    <div class="nav-next">
+                    <p><a class="btn btn-danger" href="https://pixelgrade.com/demos/listable/add-listing/" style="background-color: #3492db;border: 0;border-radius: 4px;color: white;cursor: pointer;display: inline-block;font-size: 14.95px;padding: 12px 24px;text-align: center;transition: 0.1s background-color ease-out;-webkit-appearance: none;">Ver Todos los Destinos	&nbsp;</a></p>
+                   </div>
+                </div>
+                
 </div>

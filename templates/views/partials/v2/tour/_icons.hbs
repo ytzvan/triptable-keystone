@@ -1,31 +1,137 @@
 <div id="listing_tags-4" class="widget  widget_listing_tags">
-  <ul class="listing-tag-list">
+  <ul class="listing-tag-list perks">
+    {{#if data.tour.transportation}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/accepts-credit-cards/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-card.svg" alt=""/></span> <span class="tag__text">Accepts Credit Cards</span> </a>
+        <span class="tag__icon fa fa-bus"></span> <span class="tag__text">{{i18n "transportation"}}</span>
+        <span class="fa fa-check-circle blue"></span>
       </li>
+      {{else}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/bike-parking/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-bike.svg" alt=""/></span> <span class="tag__text">Bike Parking</span> </a>
+          <span class="tag__icon fa fa-bus"></span> <span class="tag__text not-included">{{i18n "transportation"}}</span>
+          <span class="fa fa-times-circle red"></span>
       </li>
+      {{/if}}
+      {{#if data.tour.maritimeTransportation}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/familykids-friendly/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-family.svg" alt=""/></span> <span class="tag__text">Family/Kids Friendly</span> </a>
+          <span class="tag__icon fa fa-ship"></span> <span class="tag__text">Maritime Transportation</span>
+          <span class="fa fa-check-circle blue"></span>
       </li>
+      {{else}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/parking-street/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-car-park.svg" alt=""/></span> <span class="tag__text">Parking Street</span> </a>
+         <span class="tag__icon fa fa-ship not-included"></span> <span class="tag__text not-included">Maritime Transportation </span>
+         <span class="fa fa-times-circle red"></span>
       </li>
+      {{/if}}
+      {{#if data.tour.tourGuide}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/reservations/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-reservation.svg" alt=""/></span> <span class="tag__text">Reservations</span> </a>
+          <span class="tag__icon fa fa-blind"></span> <span class="tag__text">Tour Guide</span>
+          <span class="fa fa-check-circle blue"></span>
       </li>
+      {{else}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/smoking-allowed/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-smoking.svg" alt=""/></span> <span class="tag__text">Smoking Allowed</span> </a>
+          <span class="tag__icon fa fa-blind not-included"></span> <span class="tag__text not-included">Tour Guide</span> <span class="fa fa-times-circle red"></span>
       </li>
+      {{/if}}
+      {{#if data.tour.hotelPickup}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/special/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/icon-design-studio.svg" alt=""/></span> <span class="tag__text">Special</span> </a>
+          <span class="tag__icon fa fa-building"></span> <span class="tag__text">{{i18n "hotel_pickup"}} </span> <span class="fa fa-check-circle blue"></span>
       </li>
+      {{else}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/wheelchair-accessible/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-wheel-chair.svg" alt=""/></span> <span class="tag__text">Wheelchair Accessible</span> </a>
+          <span class="tag__icon fa fa-building"></span> <span class="tag__text not-included">{{i18n "hotel_pickup"}}</span> <span class="fa fa-times-circle red"></span>
       </li>
+      {{/if}}
+      {{#if data.tour.food}}
       <li>
-          <a href="https://pixelgrade.com/demos/listable/listing-tag/wireless-internet/" class="listing-tag"> <span class="tag__icon"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/tag-wifi.svg" alt=""/></span> <span class="tag__text">Wireless Internet</span> </a>
+         <span class="tag__icon fa fa-cutlery"></span> <span class="tag__text">{{i18n "food"}}</span>
+         <span class="fa fa-check-circle blue"></span>
       </li>
+      {{else}}
+      <li>
+          <span class="tag__icon fa fa-cutlery"></span> <span class="tag__text not-included">{{i18n "food"}}</span> <span class="fa fa-times-circle red"></span>
+      </li>
+      {{/if}}
+      {{#if data.tour.snacks}}
+      <li>
+          <span class="tag__icon fa fa-shopping-basket"></span> <span class="tag__text">Snacks</span>
+          <span class="fa fa-check-circle blue"></span>
+      </li>
+      {{else}}
+      <li>
+          <span class="tag__icon fa fa-shopping-basket"></span> <span class="tag__text not-included">Snacks</span>
+          <span class="fa fa-times-circle red"></span>
+          
+      </li>
+      {{/if}}
+      {{#if data.tour.drinks}}
+      <li>
+         <span class="tag__icon fa fa-coffee"></span> <span class="tag__text">{{i18n "drinks"}}</span>
+         <span class="fa fa-check-circle blue"></span>
+      </li>
+      {{else}}
+      <li>
+          <span class="tag__icon fa fa-coffee"></span> <span class="tag__text not-included">{{i18n "drinks"}}</span>
+          <span class="fa fa-times-circle red"></span>
+      </li>
+      {{/if}}
+      {{#if data.tour.alcoholicDrinks}}
+      <li>
+          <span class="tag__icon fa fa-beer"></span> <span class="tag__text">Bebidas Alcoholicas</span>
+          <span class="fa fa-check-circle blue"></span>
+      </li>
+      {{else}}
+      <li>
+          <span class="tag__icon fa fa-beer"></span> <span class="tag__text not-included">Bebidas Alcoholicas</span>
+          <span class="fa fa-times-circle red"></span>
+      </li>
+      {{/if}}
+      {{#if data.tour.lodging}}
+      <li>
+          <span class="tag__icon fa fa-hotel"></span> <span class="tag__text">Hospedaje </span> 
+          <span class="fa fa-check-circle blue"></span>
+      </li>
+      {{else}}
+      <li>
+         <span class="tag__icon fa fa-hotel"></span> <span class="tag__text not-included">Hospedaje</span>
+          <span class="fa fa-times-circle red"></span>
+      </li>
+      {{/if}}
+      {{#if data.tour.insurance}}
+      <li>
+          <span class="tag__icon fa fa-shield"></span> <span class="tag__text">{{i18n "insurance"}}</span>
+          <span class="fa fa-check-circle blue"></span>
+      </li>
+      {{else}}
+      <li>
+          <span class="tag__icon fa fa-shield"></span> <span class="tag__text not-included">{{i18n "insurance"}}</span> <span class="fa fa-times-circle red"></span>
+      </li>
+      {{/if}}
+       {{#if data.tour.hasTaxes}}
+            {{#if data.tour.taxes}}
+            <li>
+                <span class="tag__icon fa fa-usd"></span> <span class="tag__text">{{i18n "taxes"}}</span>
+                <span class="fa fa-check-circle blue"></span>
+            </li>
+            {{else}}
+            <li>
+                <span class="tag__icon fa fa-usd"></span> <span class="tag__text not-included">{{i18n "taxes"}}</span>
+                <span class="fa fa-times-circle red"></span>
+            </li>
+            {{/if}}
+      {{/if}}
+      {{#if data.tour.hasTickets}}
+       {{#if data.tour.tickets}}
+        <li>
+            <span class="tag__icon fa fa-ticket"></span> <span class="tag__text">{{i18n "entrance_tickets"}}</span>
+            <span class="fa fa-check-circle blue"></span>
+        </li>
+        
+        {{else}}
+        <li>
+           <span class="tag__icon fa fa-ticket"></span> <span class="tag__text not-included">{{i18n "entrance_tickets"}}</span> 
+        </li>
+        {{/if}}
+        
+      {{/if}}
   </ul>
 </div>

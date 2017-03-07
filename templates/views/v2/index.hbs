@@ -11,6 +11,7 @@
   border-radius: 5px;
   padding: .5em;
   box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
+  margin: 5px 0;
 }
 .ad-example-dropdown-menu .ad-example-suggestion {
   cursor: pointer;
@@ -231,6 +232,7 @@
             (function() {
   var client = algoliasearch('CLO2E2RKP1', 'bf4587ef5d150368765803e8c74440d0');
   var index = client.initIndex('tours');
+  var destinationIndex = client.initIndex('destinations');
 
   // create the first autocomplete.js dataset: vacation rentals
   var rentalsDataset = {
@@ -251,12 +253,31 @@
     }
   };
 
+  var destinationsDataset = {
+    source: autocomplete.sources.hits(destinationIndex, {hitsPerPage: 2}),
+    displayKey: 'city',
+    name: 'destinations',
+    templates: {
+      header: '<div class="ad-example-header">Destinations</div>',
+      suggestion: function(destinations) {
+            console.log(destinations.city);
+        return '<a href=""><div class="ad-example-suggestion">' +
+          '<img src="' + destinations.image.url + '" />' +
+          '<div>' +
+            destinations._highlightResult.city.value + '<br />' +
+            '<small>' + destinations._highlightResult.city.value + '</small>' +
+          '</div>' +
+          '</div></a>';
+      }
+    }
+  };
+
   // create the second dataset: places
   // we automatically inject the default CSS
   // all the places.js options are available
   var placesDataset = placesAutocompleteDataset({
     algoliasearch: algoliasearch,
-    type: 'townhall',
+    type: 'city',
     countries: ['pa'],
     aroundLatLngViaIP: false,
     templates: {
@@ -272,10 +293,12 @@
     cssClasses: {prefix: 'ad-example'}
   }, [
     rentalsDataset,
-    placesDataset
+    destinationsDataset
   ]);
 
+
   var autocompleteChangeEvents = ['selected', 'autocompleted'];
+  
 
   autocompleteChangeEvents.forEach(function(eventName) {
     autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
@@ -285,5 +308,8 @@
 })();
 
         });
+
+       
    
         </script>
+     

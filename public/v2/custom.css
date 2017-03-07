@@ -9,3 +9,13 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
  }
+ ul.perks span.not-included{
+   text-decoration: line-through;
+   color: #a5a5a5;
+ }
+ span.blue{
+   color: #3498db;
+ }
+ span.red{
+   color: #ff4d58;
+ }
