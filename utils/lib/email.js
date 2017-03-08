@@ -113,7 +113,7 @@ module.exports = {
     var subject = 'Tu reserva de Triptable ';
     var toArray = [
       to,
-      { name: model.name.first + " " + model.name.last, email: model.email }
+      { name: model.name, email: model.email }
     ];
     sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
     return true;
@@ -150,22 +150,25 @@ module.exports = {
       }); */
 },
 
-testScheduledEmail : function () { //
-    var model = {};
+cartAbandonEmail : function (req, model) { //
+    var model = model
     var template = template; //template name
     var to = process.env.TO;
     var mailgunApiKey = process.env.MAILGUN_APIKEY;
     var mailgunDomain = process.env.MAILGUN_DOMAIN;
     var locals = model;
     var templateOptions = {pretty: true, locals: locals};
-    var templatePath = 'utils/email_templates/testScheduledEmail.ejs';
-    var subject = 'Scheduled Email';
+    var templatePath = 'utils/email_templates/cartAbandon.ejs';
+    var subject = 'Completa tu Reserva del tour ' + model.tour;
     var toArray = [
       to,
-      { name: "Ytzvan Mastino", email: "mastino14@gmail.com" }
+      { name: model.name, email: model.email }
     ];
-    
-    scheduledEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);
+    var daysToAdd = 1;
+    if (!req.session.emailSend) { //verifica que el email no se haya enviado mas de 1 vez por sessión. 
+      scheduledEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain, daysToAdd);
+      req.session.emailSend = 1;  
+    }
     return true;
     /* var emaill = new Email(templatePath).render(locals, function(err, result) {
 
@@ -205,15 +208,13 @@ testScheduledEmail : function () { //
 
   }
 
-  var scheduledEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain) {
+  var scheduledEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain, daysToAdd) {
     var date = new Date().toUTCString();
     var date2 = moment(new Date());
-    date2 = date2.add(3, 'days'); // No mas de 3 dias
+    date2 = date2.add(daysToAdd, 'days'); // No mas de 3 dias
     date2 = date2.toDate();
     date2 = date2.toUTCString();
 
-    console.log("date", date);
-    console.log("date2", date2);
     Email.send(
      templatePath,
      {transport: 'mailgun'},

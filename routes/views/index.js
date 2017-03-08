@@ -42,7 +42,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('init', function(next) {
-		Email.testScheduledEmail();
+		
 
 		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {

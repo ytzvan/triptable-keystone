@@ -1,4 +1,11 @@
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TimeMe.js/2.0.0/timeme.min.js"></script>
+<script type="text/javascript">
+    TimeMe.initialize({
+        currentPageName: "checkout", // current page
+        idleTimeoutInSeconds: 60 // seconds
+    });     
+</script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
   //do work
@@ -10,7 +17,6 @@
 <script type="text/javascript">
 window.onbeforeunload = function (e) {
   var e = e || window.event;
-
   // For IE and Firefox
   if (e) {
     e.returnValue = 'Any string';
@@ -29,11 +35,22 @@ window.onbeforeunload = function (e) {
 		date: new Date()
 		//tour: ''
 	});
-
-	
+	var data = {};
+	data.tour = "{{data.tour.name}}";
+	data.tourUrl = "{{data.tour.slug}}"
+	var host = window.location.href;
+	var arr = host.split("/");
+	var result = arr[0] + "//";
+	var url = result+window.location.host+"/utils/actions/cartAbandon?tour="+data.tour+"&tourUrl="+data.tourUrl;
+	console.log(url);
+	console.log("time on page",TimeMe.getTimeOnCurrentPageInSeconds());
+	var timeOnCurrentPage = TimeMe.getTimeOnCurrentPageInSeconds(); // obtenemos el tiempo del usuario viendo la pagina
+	if (timeOnCurrentPage > 8) { //si el usuario pasa mas de 15 segundos se envia el email, sino se descarta
+		console.log("se envio email");
+		$.get( url );
+	}
 };
 </script>
-{{data.userInfo}}
 <script type="text/javascript">
 fbq('track', 'InitiateCheckout');
   getPrice = function(travelers){
