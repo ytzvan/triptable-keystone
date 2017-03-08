@@ -31,6 +31,7 @@ exports = module.exports = function(req, res) {
 				
 			} else {
 				locals.data.tour = result;
+				locals.data.userInfo = req.user;
 				next(err);
 			}
 		});

@@ -3,8 +3,37 @@
   document.addEventListener("DOMContentLoaded", function(event) {
   //do work
     mixpanel.track("Inició el Checkout");
-});
+		});
+
 </script>
+
+<script type="text/javascript">
+window.onbeforeunload = function (e) {
+  var e = e || window.event;
+
+  // For IE and Firefox
+  if (e) {
+    e.returnValue = 'Any string';
+  }
+
+  // For Safari
+	analytics.identify('{{data.userInfo._id}}', {
+  	email: '{{data.userInfo.email}}',
+  	name: '{{data.userInfo.name.full}}',
+  	createdAt: new Date()
+	});
+
+	analytics.track('Cart Abandon', {
+  	name: '{{data.userInfo.name.full}}',
+  	email: '{{data.userInfo.email}}',
+		date: new Date()
+		//tour: ''
+	});
+
+	
+};
+</script>
+{{data.userInfo}}
 <script type="text/javascript">
 fbq('track', 'InitiateCheckout');
   getPrice = function(travelers){
