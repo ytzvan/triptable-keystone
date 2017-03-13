@@ -46,6 +46,7 @@ exports = module.exports = function(app) {
   app.all('/v2', middleware.requireGuide, routes.v2.index.init);
   app.all('/v2/tour/:slug', middleware.requireGuide, routes.v2.tour.init);
   app.all('/v2/destination/:city', middleware.requireGuide, routes.v2.destination.init);
+	app.all('/v2/tour/:slug/estimate', middleware.requireGuide, routes.v2.estimate.init)
 
   //Attractions
   app.get('/attractions', routes.views.attractions.index);
