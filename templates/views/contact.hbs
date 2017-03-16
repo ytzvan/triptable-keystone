@@ -15,12 +15,7 @@
 </script>
 
 <script type="text/javascript">
-window.onbeforeunload = function (e) {
-  var e = e || window.event;
-  // For IE and Firefox
-  if (e) {
-    e.returnValue = 'Any string';
-  }
+/*window.onbeforeunload = function (e) {
 
   // For Safari
 	analytics.identify('{{data.userInfo._id}}', {
@@ -35,6 +30,7 @@ window.onbeforeunload = function (e) {
 		date: new Date()
 		//tour: ''
 	});
+	
 	var data = {};
 	data.tour = "{{data.tour.name}}";
 	data.tourUrl = "{{data.tour.slug}}"
@@ -43,13 +39,16 @@ window.onbeforeunload = function (e) {
 	var result = arr[0] + "//";
 	var url = result+window.location.host+"/utils/actions/cartAbandon?tour="+data.tour+"&tourUrl="+data.tourUrl;
 	console.log(url);
+
+	console.log("status", status);
 	console.log("time on page",TimeMe.getTimeOnCurrentPageInSeconds());
 	var timeOnCurrentPage = TimeMe.getTimeOnCurrentPageInSeconds(); // obtenemos el tiempo del usuario viendo la pagina
 	if (timeOnCurrentPage > 8) { //si el usuario pasa mas de 15 segundos se envia el email, sino se descarta
 		console.log("se envio email");
-		$.get( url );
+	//	$.get( url );
 	}
-};
+	return false;
+}; */
 </script>
 <script type="text/javascript">
 fbq('track', 'InitiateCheckout');
@@ -535,6 +534,31 @@ fbq('track', 'InitiateCheckout');
 	</div> <!-- content wrapper -->
 </div> <!-- end main wrapper -->
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Por favor espera</h4>
+      </div>
+      <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+        		<h2 style="text-align: center;">Estamos Procesando tu Transacción</h1>
+						<h4 style="text-align: center;">Por favor no cierres esta ventana </h3>
+					</div>
+					<div class="col-md-3 col-md-offset-4">
+						<img width="200" src="https://www.createwebsite.net/wp-content/uploads/2015/09/Display-Loading.gif" />
+					</div>
+      </div>
+      <div class="modal-footer">
+       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.4.2/jquery.payment.min.js"></script>
   <style type="text/css" media="screen">
     .has-error input {
@@ -559,6 +583,7 @@ fbq('track', 'InitiateCheckout');
         };
 
       $(document).ready(function() {
+				var status = 0;
         $('form').validator().on('submit', function (e) {
           var dateVal = $('#date').val();
           if (!dateVal){
@@ -585,6 +610,11 @@ fbq('track', 'InitiateCheckout');
       });
 
       $('form').submit(function(e) {
+				
+				/*	$('#myModal').on('shown.bs.modal', function () {
+						$('#myInput').focus()
+					}) */
+//					$(window).unbind('beforeunload');
           var valid = $.payment.validateCardNumber($('.cc-number').val());
 					var cvc = $(".cc-cvc").val();
 					var exp = $(".cc-exp").val();
@@ -606,11 +636,12 @@ fbq('track', 'InitiateCheckout');
             $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
             return false;
             } else {
-							console.log("valid: " + valid);
+							
               $('.validation').removeClass('text-danger text-success');
               $('.validation').removeClass($('.has-error').length ? 'text-danger' : 'text-success');
+							
               // show gif here, eg:
-              $("#anchor").introLoader({
+             /* $("#anchor").introLoader({
                 animation: {
                   name: 'gifLoader',
                   options: {
@@ -622,7 +653,8 @@ fbq('track', 'InitiateCheckout');
                      stop: false
                   }
                 }
-              });
+              }); */
+							$('#myModal').modal('show');
               return true;
             }
       });
