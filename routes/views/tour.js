@@ -64,8 +64,12 @@ exports = module.exports = function(req, res) {
 			}
 			locals.meta.ogTitle = locals.meta.title
 			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", "+result.country.country +".";
+
+			if (result.heroImage) {
+				console.log("hero image", result.heroImage)
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_75/v"+result.heroImage.version+"/"+result.heroImage.public_id+"."+result.heroImage.format;
+			} else {
 			var img = result.images[0];
-			if (img) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_75/v"+img.version+"/"+img.public_id+"."+img.format;
 			}
 		});
