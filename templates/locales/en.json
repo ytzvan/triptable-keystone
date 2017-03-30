@@ -137,7 +137,7 @@
 	"english": "English",
 	"spanish": "Español",
 	"featured": "Featured",
-	"frequently_questions": "Preguntas Frecuentes",
+	"frequently_questions": "Frequentrly Questions",
 	"terms_and_cond": "Terms and Conditions",
 	"work_with_us": "Work With Us",
 	"tour_guides": "Tour Guides",
@@ -146,5 +146,5 @@
 	"book_safe": "Book in a secure way using",
 	"lowest_price": "Lowest price",
 	"tour_discount": "This tour offer discounts in booking for more than ",
-	"frequently_questions": "Frequentrly Questions"
+	"hotel_pickup_not_included": "You must go to the tour depart point"
 }
