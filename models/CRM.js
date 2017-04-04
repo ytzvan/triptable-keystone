@@ -10,6 +10,8 @@ CRM.add({
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
   company: { type: String, },
+	country: { type: String },
+	website: { type: String },
 	enquiryType: { type: Types.Select, options: [
 		{ value: 'Tour Operador', label: "Tour Operador" },
 		{ value: 'Guia', label: "Guía Independiente" },
