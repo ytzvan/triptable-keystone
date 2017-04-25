@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
 			})
 			.where('state', 'published')
 	//		.where('featured', false)
-			.sort('-updatedAt')
+			.sort('-createdAt')
 			.populate('owner categories country province city');
 
 		if (locals.data.category) {
@@ -44,7 +44,7 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 		
 
-		keystone.list('Province').model.find().where('featured', true).limit(8).exec(function(err, results) { //Query Pais
+		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
 			if (err || !results) {
 
 				return res.status(404);

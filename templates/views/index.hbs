@@ -27,10 +27,9 @@
 
                 <div class="form-group">
 
-                  <select name="destination" class="select2-multi form-control" data-placeholder="{{i18n 'select_country'}}">
+                  <select name="destination" id="countries" class="select2-multi form-control" data-placeholder="{{i18n 'select_country'}}">
                     <option value="panama">{{i18n 'panama'}}</option>
-                    <option value="colombia" disabled>Colombia ({{i18n 'soon'}})</option>
-                    <option value="costa-rica" disabled>Costa Rica ({{i18n 'soon'}})</option>
+                    <option value="mexico">{{i18n 'mexico'}}</option>
                   </select>
 
                 </div>
@@ -137,13 +136,23 @@
 
 </div>
 <script type="text/javascript" defer="defer">
+var country;
+                  var changeCountry = $( document ).ready(function() {
+                     $('#countries').on('change', function(){
+                        country = $('#countries').val();
+                        if (country == 0){
+                          var country = "";
+                        }
+                        $("#searchBtn").attr("href", "/"+country);
+                     });
+                  });
                   var changeSearch = $( document ).ready(function() {
                      $('#destino').on('change', function(){
                         var city = $('#destino').val();
                         if (city == 0){
                           var city = "";
                         }
-                        $("#searchBtn").attr("href", "/panama/"+city);
+                        $("#searchBtn").attr("href", "/destination/"+city);
                      });
                   });
 
