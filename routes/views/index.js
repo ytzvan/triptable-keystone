@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
 			})
 			.where('state', 'published')
 	//		.where('featured', false)
-			.sort('-createdAt')
+			.sort('-publishedDate')
 			.populate('owner categories country province city');
 
 		if (locals.data.category) {
