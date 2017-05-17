@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+
 var Email = require('../utils').Email;
 var moment = require('moment');
 moment.locale('es', {
@@ -21,12 +22,12 @@ var bookingEmailName = "Reservas Triptable";
 
 
 var Enquiry = new keystone.List('Enquiry', {
-	nocreate: true
+	nocreate: false
 });
 
 Enquiry.add({
-	name: { type: Types.Name, required: true },
-	email: { type: Types.Email, required: true},
+	name: { type: Types.Name, required: true, default: "Customer 1"},
+	email: { type: Types.Email, required: true, default: "hello@triptable.com"},
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
@@ -43,7 +44,7 @@ Enquiry.add({
 	operatorEmail:{ type: String },
 	operatorName: {type: String},
 	operatorCellphone: {type: String},
-  operator: { type: Types.Relationship, ref: 'User', index: true },
+  	operator: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true } },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now },

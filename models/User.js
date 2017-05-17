@@ -1,12 +1,10 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var Mailgun = require('machinepack-mailgun');
-
 /**
  * User Model
  * ==========
  */
-
 var User = new keystone.List('User', {defaultSort: '-createdAt' });
 
 User.add({
@@ -31,7 +29,8 @@ User.add({
   operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
-	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true}
+	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true},
+	companyName: {type: String, dependsOn: { isGuide: true }},
 });
 
 // Provide access to Keystone
@@ -46,8 +45,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 User.relationship({ ref: 'Review', path: 'reviews', refPath: 'author' });
 User.relationship({ ref: 'Tour', path: 'tours', refPath: 'owner' });
-//User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' })
-User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'user' });
+User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' });
 
 /**
  * Registration
