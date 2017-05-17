@@ -18,9 +18,9 @@ Country.add({
 	featured: {type: Types.Boolean, default: false },
 });
 
-Country.relationship({ ref: 'Tour', path: 'country' });
-Country.relationship({ ref: 'Province', path: 'country' });
-Country.relationship({ ref: 'City', path: 'country' });
+Country.relationship({ ref: 'Tour', path: 'tours', refPath: 'country' });
+Country.relationship({ ref: 'Province', path: 'provinces', refPath: 'country' });
+Country.relationship({ ref: 'City', path: 'cities', refPath: 'country' });
 Country.relationship({ ref: 'Attraction', path: 'country' });
 Country.defaultColumns = 'country, description|20%, image|20%, publishedDate|20%';
 Country.schema.pre('save', function(next) {
