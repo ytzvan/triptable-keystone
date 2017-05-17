@@ -9,5 +9,5 @@ homeGallery.add({
   url : {type : String},
   verticalPosition: {type: Types.Number, default: 50}
 });
-
+homeGallery.defaultColumns = 'description, image';
 homeGallery.register();
