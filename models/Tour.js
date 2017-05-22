@@ -25,7 +25,7 @@ Tour.add({
 	name: { type: String, required: true },
 	name_eng: { type: String},
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	owner: { type: Types.Relationship, ref: 'User', index: true },
+	owner: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true }},
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
   heroImage: { type: Types.CloudinaryImage },
 	images: { type: Types.CloudinaryImages },
