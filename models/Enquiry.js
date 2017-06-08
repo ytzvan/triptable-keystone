@@ -71,9 +71,6 @@ Enquiry.add({
 });
 
 Enquiry.schema.pre('save', function(next) {
-	if (this.isModified() && this.bookingStatus == 1){
-		Email.sendConfirmationEmailToUser(this);
-	}
 	this.prettyDate(this);
 	this.wasNew = this.isNew;
 	var currentId = "" ;
@@ -87,7 +84,13 @@ Enquiry.schema.pre('save', function(next) {
 	/*if (this.preStatus == 0 && this.bookingStatus == 1) {
 		console.log("Enviar email de reserva confirmada");
 	} */
-	next();
+	if (this.isModified() && this.bookingStatus == 1){
+		Email.sendConfirmationEmailToUser(this);
+		next();
+	} else {
+		next();
+	}
+	
 });
 
 Enquiry.schema.post('init', function(next){
