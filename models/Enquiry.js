@@ -22,7 +22,7 @@ var bookingEmailName = "Reservas Triptable";
 
 
 var Enquiry = new keystone.List('Enquiry', {
-	nocreate: false
+	nocreate: true
 });
 
 Enquiry.add({
@@ -47,7 +47,8 @@ Enquiry.add({
   	operator: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true } },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
-	createdAt: { type: Date, default: Date.now },
+	createdAt: { type: Date, default: Date.now, noedit: true },
+	updatedAt: { type: Date, noedit: true },
 	friendlyId: {type: String, unique: true, noedit:true},
 	datePretty: {type: String},
 	bookingTotalPrice : {type: Types.Money, noedit: true}, //precio total
@@ -70,6 +71,10 @@ Enquiry.add({
 });
 
 Enquiry.schema.pre('save', function(next) {
+	if (this.isModified() && this.bookingStatus == 1){
+		Email.sendConfirmationEmailToUser(this);
+	}
+	this.prettyDate(this);
 	this.wasNew = this.isNew;
 	var currentId = "" ;
 	currentId = this._id;
@@ -79,9 +84,9 @@ Enquiry.schema.pre('save', function(next) {
 	var str2 = currentId.toString().substring(largo);
 	str1 += str2;
 	this.friendlyId = str1;
-	if (this.preStatus == 0 && this.bookingStatus == 1) {
+	/*if (this.preStatus == 0 && this.bookingStatus == 1) {
 		console.log("Enviar email de reserva confirmada");
-	}
+	} */
 	next();
 });
 
@@ -97,9 +102,10 @@ Enquiry.schema.post('save', function() {
       this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-			this.sendReviewEmail(this);	
+			this.sendReviewEmail(this);
     	}
 	}
+
 	try {
 	//Add tour to purchase from user: 
 	var tourToSave = this.tour;
@@ -115,6 +121,15 @@ Enquiry.schema.post('save', function() {
 	
 });
 
+
+
+Enquiry.schema.methods.sendConfirmationEmail = function (enquiry) {
+	var model = enquiry;
+	if (model.bookingStatus == 1) {
+		console.log("email sended");
+	}
+	return true;
+}
 Enquiry.schema.methods.sendReviewEmail = function (enquiry) {  
 		/* Cron test */
 		var schedule = require('node-schedule');
@@ -140,9 +155,9 @@ Enquiry.schema.methods.sendReviewEmail = function (enquiry) {
 }
 
 Enquiry.schema.methods.prettyDate = function (obj) {
-  var date = obj.date;
+  	var date = obj.date;
 	var datePretty = moment(date).format("dddd, Do MMMM YYYY");
-	obj.datePretty = datePretty;
+	this.datePretty = datePretty;
 }
 
 Enquiry.schema.methods.sendUserEmail = function (obj) {
