@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Utils = require('../utils').GeneralUtils;
 
 var Email = require('../utils').Email;
 var moment = require('moment');
@@ -86,6 +87,7 @@ Enquiry.schema.pre('save', function(next) {
 	} */
 	if (this.isModified() && this.bookingStatus == 1){
 		Email.sendConfirmationEmailToUser(this);
+		
 		next();
 	} else {
 		next();
@@ -98,14 +100,17 @@ Enquiry.schema.post('init', function(next){
 		this.preStatus = this.bookingStatus;
 });
 Enquiry.schema.post('save', function() {
+	
 	if (this.wasNew) {
     this.prettyDate(this);
 		var email = this.operatorEmail
     if (process.env.NODE_ENV == 'production') {
-      this.sendUserEmail(this); //Send User email
+      		this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operador
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-			this.sendReviewEmail(this);
+		  if(this.bookingStatus == 1){
+			  Utils.sendReviewEmail(this);
+		  } 
     	}
 	}
 

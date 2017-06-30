@@ -6,6 +6,8 @@
 var keystone = require('keystone');
 var extend = require('extend');
 var Mixpanel = require('mixpanel');
+var request = require('request');
+var moment = require('moment');
 
 module.exports = {
   addPromoCodeToUser : function(user, req){
@@ -33,6 +35,39 @@ module.exports = {
     });
     mixpanel.track(eventName);
     return true;
+  },
+
+  sendReviewEmail : function (model) {
+    var fullname = model.name.first + " " + model.name.last;
+
+    var date =  moment(model.date);
+		var new_date = moment(date, "DD-MM-YYYY").add(2, 'days');
+		var year = new_date.year();
+		var month = new_date.month();
+		var day = new_date.date();
+	
+	//	var dateToSend = new Date(year, month, day, hour, minute, 0);
+    var dateToSend = year+"-"+month+"-"+day+" 19:00:00";
+
+
+    request.post({url:'https://mail.feeldock.com/mail/send', 
+                form: {api_key:'53a68d85552d3a2158caeb8e7743a6ea',
+                       source_hash:'42e7aaa88b48137a16a1acd04ed91125',
+                       peoples : [{
+                         email: model.email,
+                         full_name: fullname,
+                         user_id: model.user
+                       }],
+                       schedule: {
+                         date: dateToSend,
+                         tzone: "America/Panama"
+                       }               
+            }}, 
+                function(err,httpResponse,body){
+                  console.log("err" + err);
+                  console.log("httpResponse" + httpResponse);
+                  console.log("body" + body);
+                }); 
   }
 
 };
