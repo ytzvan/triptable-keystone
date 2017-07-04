@@ -48,7 +48,7 @@ module.exports = {
 	
 	//	var dateToSend = new Date(year, month, day, hour, minute, 0);
     var dateToSend = year+"-"+month+"-"+day+" 19:00:00";
-
+    let tourId = model.tour; 
 
     request.post({url:'https://mail.feeldock.com/mail/send', 
                 form: {api_key:'53a68d85552d3a2158caeb8e7743a6ea',
@@ -61,13 +61,14 @@ module.exports = {
                        schedule: {
                          date: dateToSend,
                          tzone: "America/Panama"
-                       }               
+                       },
+                       feel_attributes: {tour_id:tourId,booking_id:model.friendlyId, people:model.people}               
             }}, 
                 function(err,httpResponse,body){
                   console.log("err" + err);
                   console.log("httpResponse" + httpResponse);
                   console.log("body" + body);
-                }); 
+                });
   }
 
 };

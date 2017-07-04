@@ -64,11 +64,10 @@ Enquiry.add({
 	transactionTime : {type: String, noedit: true},
 	transactionDate : {type: String, noedit: true},
 	transactionBallot : {type: String, noedit: true},
-  user: { type: Types.Relationship, ref: 'User', index: true },
-  isPay : {type : Types.Boolean},
-  dateOfPayment : {type:  Types.Date, dependsOn: {isPay: true}},
-  paymentConfirmationNumber : {type: String, dependsOn: {isPay: true}},
-
+  	user: { type: Types.Relationship, ref: 'User', index: true },
+  	isPay : {type : Types.Boolean},
+  	dateOfPayment : {type:  Types.Date, dependsOn: {isPay: true}},
+  	paymentConfirmationNumber : {type: String, dependsOn: {isPay: true}},
 });
 
 Enquiry.schema.pre('save', function(next) {
@@ -100,15 +99,14 @@ Enquiry.schema.post('init', function(next){
 		this.preStatus = this.bookingStatus;
 });
 Enquiry.schema.post('save', function() {
-	
 	if (this.wasNew) {
     this.prettyDate(this);
-		var email = this.operatorEmail
-    if (process.env.NODE_ENV == 'production') {
+	var email = this.operatorEmail
+    if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
       		this.sendUserEmail(this); //Send User email
-		  this.sendBookingNotificationEmail(this, email); //Email al operador
+		  this.sendBookingNotificationEmail(this, email); //Email al operadors
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-		  if(this.bookingStatus == 1){
+		  if (this.bookingStatus == 1){
 			  Utils.sendReviewEmail(this);
 		  } 
     	}
