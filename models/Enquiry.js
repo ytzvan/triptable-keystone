@@ -106,11 +106,12 @@ Enquiry.schema.post('save', function() {
       		this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operadors
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-		  if (this.bookingStatus == 1){
-			  Utils.sendReviewEmail(this);
-		  } 
     	}
 	}
+
+	if (this.bookingStatus == 1){
+		Utils.sendReviewEmail(this);
+	} 
 
 	try {
 	//Add tour to purchase from user: 
@@ -122,7 +123,7 @@ Enquiry.schema.post('save', function() {
 			return true;
 	});
 	} catch (err) {
-		
+		return true;
 	}
 	
 });

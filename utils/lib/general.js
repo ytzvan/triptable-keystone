@@ -38,6 +38,8 @@ module.exports = {
   },
 
   sendReviewEmail : function (model) {
+    if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
+
     var fullname = model.name.first + " " + model.name.last;
 
     var date =  moment(model.date);
@@ -69,6 +71,10 @@ module.exports = {
                   console.log("httpResponse" + httpResponse);
                   console.log("body" + body);
                 });
+  } else {
+    console.log("Email no enviado");
+    return true;
+    }
   }
 
 };
