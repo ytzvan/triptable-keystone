@@ -54,7 +54,7 @@ module.exports = {
 
     request.post({url:'https://mail.feeldock.com/mail/send', 
                 form: {api_key:'53a68d85552d3a2158caeb8e7743a6ea',
-                       source_hash:'42e7aaa88b48137a16a1acd04ed91125',
+                       source_hash:'faa9afea49ef2ff029a833cccc778fd0',
                        peoples : [{
                          email: model.email,
                          full_name: fullname,
