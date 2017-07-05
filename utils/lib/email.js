@@ -1,6 +1,7 @@
 var Mailgun = require('machinepack-mailgun');
 var Email = require('keystone-email');
 var moment = require('moment');
+var upperCase = require('upper-case')
 var mailgunApiKey = process.env.MAILGUN_APIKEY;
 var mailgunDomain = process.env.MAILGUN_DOMAIN;
 
@@ -130,17 +131,16 @@ module.exports = {
 },
 
  sendConfirmationEmailToUser: function(model) {
-    console.log(model);
-    var to = process.env.TO;
+    var bookingId = upperCase(model.friendlyId);
     var mailgunApiKey = process.env.MAILGUN_APIKEY;
     var mailgunDomain = process.env.MAILGUN_DOMAIN;
     var locals = model;
     var templateOptions = {pretty: true, locals: locals};
     var templatePath = 'utils/email_templates/bookings/sendConfirmationEmailToUser.ejs';
-    var subject = '[TEST] Confirmación de Reserva ID '+model.friendlyId;
+    var subject = 'Confirmación de Reserva ID '+ bookingId;
      var toArray = [
-      to,
-      { name: model.name.first + " " + model.name.last, email: "hello@triptable.com"}
+       { name: model.name.first + " " + model.name.last, email: model.operatorEmail},
+      { name: model.name.first + " " + model.name.last, email: "hello@triptable.com"},
     ];
 
     sendEmailTemplate(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain);

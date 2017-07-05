@@ -103,7 +103,7 @@ Enquiry.schema.post('save', function() {
     this.prettyDate(this);
 	var email = this.operatorEmail
     if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
-      		this.sendUserEmail(this); //Send User email
+      	  this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operadors
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
     	}
@@ -128,15 +128,6 @@ Enquiry.schema.post('save', function() {
 	
 });
 
-
-
-Enquiry.schema.methods.sendConfirmationEmail = function (enquiry) {
-	var model = enquiry;
-	if (model.bookingStatus == 1) {
-		console.log("email sended");
-	}
-	return true;
-}
 Enquiry.schema.methods.sendReviewEmail = function (enquiry) {  
 		/* Cron test */
 		var schedule = require('node-schedule');
