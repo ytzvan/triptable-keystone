@@ -503,16 +503,27 @@
     // Target your .container, .wrapper, .post, etc.
     $("article").fitVids();
     //Google Analytics Tracking 
-    ga('require', 'ecommerce');
+    
     let fullname = "{{data.tour.owner.name.first}} " + "{{data.tour.owner.name.last}}";
-    ga('ecommerce:addTransaction', {
-  'id': '1234',                     // Transaction ID. Required.
-  'affiliation': 'Acme Clothing',   // Affiliation or store name.
-  'revenue': '11.99',               // Grand Total.
-  'shipping': '5',                  // Shipping.
-  'tax': '1.29'                     // Tax.
-});
+    /*ga('ec:addProduct', {
+    'id': "{{data.tour.tourId}}",                   // Product ID (string)
+        'name': "{{data.tour.name}}", // Product name (string).
+        'category': "{{data.tour.categories.[0].name}}",   // Product category (string).
+        'brand': fullname,                // Product brand (string).
+    'price': "{{data.tour.price}}",
+    'quantity': 2
+    }); */
 
-ga('ecommerce:send');
+
+  ga('ec:addProduct', {
+    'id': "{{data.tour.tourId}}",
+    'name': "{{data.tour.name}}",
+    'category': "{{data.tour.city.city}}", 
+    'brand': fullname,
+  });
+
+  ga('ec:setAction', 'detail');
+  ga('send', 'pageview'); 
+    
   });
 </script>

@@ -1,24 +1,19 @@
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
-  //do work
     mixpanel.track("Compro el tour");
 		var metadata = {
 			price: '{{bookingInfo.bookingTotalPrice}}'
 		};
-Intercom('trackEvent', 'tour-purchased', metadata);
-console.log(metadata.price);
-var google_conversion_id = 994316575;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "l7Q2CLaEyXAQn6KQ2gM";
-var google_conversion_value = metadata.price;
-var google_conversion_currency = "USD";
-var google_remarketing_only = false;
+		Intercom('trackEvent', 'tour-purchased', metadata);
+		var google_conversion_id = 994316575;
+		var google_conversion_language = "en";
+		var google_conversion_format = "3";
+		var google_conversion_color = "ffffff";
+		var google_conversion_label = "l7Q2CLaEyXAQn6KQ2gM";
+		var google_conversion_value = metadata.price;
+		var google_conversion_currency = "USD";
+		var google_remarketing_only = false;
 });
-/* <![CDATA[ */
-
-/* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
@@ -184,3 +179,24 @@ var google_remarketing_only = false;
     <script type="text/javascript">
       fbq('track', 'Purchase', {value: '{{bookingInfo.bookingTotalPrice}}', currency: 'USD'});
     </script>
+	<script type="text/javascript">
+		$ (document).ready(function(){
+			 ga('ec:addProduct', {
+				'id': "{{bookingInfo.tour}}",                   // Product ID (string)
+				'name': "{{bookingInfo.tourName}}", // Product name (string).
+			//	'brand': "{{bookingInfo.operatorName}}",                // Product brand (string).
+				'price': "{{bookingInfo.tourPrice}}",
+				'quantity': "{{bookingInfo.people}}"
+			});
+
+			ga('ec:setAction', 'purchase', {
+				'id': "{{bookingInfo.friendlyId}}",
+			//	'affiliation': "{{data.tour.city.city}}",
+				'revenue': "{{bookingInfo.bookingRevenue}}",
+				'tax': "{{bookingInfo.bookingTransactionFee}}",
+				'shipping': "{{bookingInfo.bookingOperatorFee}}",
+				'coupon': 'NONE'    // User added a coupon at checkout.
+			});
+  			ga('send', 'pageview'); 
+		});
+	</script>
