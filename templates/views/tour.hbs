@@ -502,5 +502,18 @@
   $(document).ready(function(){
     // Target your .container, .wrapper, .post, etc.
     $("article").fitVids();
+
+    //Google Analytics Tracking 
+    ga('require', 'ec');
+    ga('ec:addImpression', {            // Provide product details in an impressionFieldObject.
+      'id': {{data.tour.tourId}},                   // Product ID (string).
+      'name': {{data.tour.name}}, // Product name (string).
+      'category': 'Apparel/T-Shirts',   // Product category (string).
+      'brand': 'Google',                // Product brand (string).
+      'variant': 'Black',               // Product variant (string).
+      'list': 'Search Results',         // Product list (string).
+      'position': 1,                    // Product position (number).
+      'dimension1': 'Member'            // Custom dimension (string).
+    });
   });
 </script>
