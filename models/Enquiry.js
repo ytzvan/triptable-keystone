@@ -85,8 +85,9 @@ Enquiry.schema.pre('save', function(next) {
 		console.log("Enviar email de reserva confirmada");
 	} */
 	if (this.isModified() && this.bookingStatus == 1){
-		Email.sendConfirmationEmailToUser(this);
-		
+		if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
+			Email.sendConfirmationEmailToUser(this);
+		}
 		next();
 	} else {
 		next();
