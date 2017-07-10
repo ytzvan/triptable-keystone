@@ -40,6 +40,7 @@ Tour.add({
 	videoId : {type: String}, //Created if added a Video URL
 	keywords: {type: String},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	collections: { type: Types.Relationship, ref: 'Collection', many: true },
 	minPerson: {type: Types.Number, default: 1 },
 	maxPerson: {type: Types.Number, default: 10 },
 	departureTime: { type: String},
@@ -91,6 +92,7 @@ Tour.schema.virtual('content.full').get(function() {
 });
 Tour.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'tour' });
 Tour.relationship({ ref: 'Review', path: 'reviews'});
+Tour.relationship({ ref: 'Collection', path: 'collections'});
 Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdAt';
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;

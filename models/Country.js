@@ -19,6 +19,7 @@ Country.add({
 });
 
 Country.relationship({ ref: 'Tour', path: 'tours', refPath: 'country' });
+Country.relationship({ ref: 'Collection', path: 'collections', refPath: 'country' });
 Country.relationship({ ref: 'Province', path: 'provinces', refPath: 'country' });
 Country.relationship({ ref: 'City', path: 'cities', refPath: 'country' });
 Country.relationship({ ref: 'Attraction', path: 'country' });
