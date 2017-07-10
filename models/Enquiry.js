@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var Utils = require('../utils').GeneralUtils;
-
+var SlackUtils = require('../utils').SlackUtils;
 var Email = require('../utils').Email;
 var moment = require('moment');
 moment.locale('es', {
@@ -103,10 +103,11 @@ Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
     this.prettyDate(this);
 	var email = this.operatorEmail
-    if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
+    if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' || process.env.NODE_ENV == 'test' ) {
       	  this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operadors
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+		  SlackUtils.sendEnquiryToSlack(this);
     	}
 	}
 
