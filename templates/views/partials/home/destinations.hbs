@@ -1,37 +1,16 @@
-			<section>
-			
-				<div class="container">
-				
-					<div class="row">
-						
-						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-							
-							<div class="section-title">
-							
-								<h3>Top Destinos</h3>
-								
-							</div>
-							
-						</div>
-					
-					</div>
-					
-					<div class="grid destination-grid-wrapper">
-					{{#each data.provinces}}
-						<div class="grid-item" id="grid-item" data-colspan="10" data-rowspan="4">
-							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url({{{cloudinaryUrl image width=550 height=202 crop='fill' secure=true}}});">
-								<div class="relative">
-									<h4>{{province}}</h4>
-									<!--<span>Starting from $322</span> -->
-								</div>
-							</a>
-						</div>
-							
-					{{/each}}
 
-						
-					</div>
-					
-				</div>
-
-			</section>
+		<div class="container-fluid featured-tours">
+          <div class="row" style="padding:25px 0px;">
+            <div class="col-md-12" style="padding-bottom:15px">
+              <h1 class="text-center">Destinos Populares</h1>
+            </div>
+			{{#each data.cities}}
+                  <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <a  href="/province/{{slug}}">
+                        	<div class="destination_container" style="background: linear-gradient( rgba(20,20,20, .5), rgba(20,20,20, .5)),url('{{{cloudinaryUrl image height=400 crop='fill' secure=true}}}'); background-position: 50%; background-size: cover;">
+                                <h2 class="destination no-margin">{{city}}</h2>
+                            </div>	</a>
+                        </div> 
+        	{{/each}}  
+        </div>
+        </div>

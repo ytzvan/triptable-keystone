@@ -1,0 +1,43 @@
+<div class="GridLex-col-3_sm-6_xs-12 mb-30">
+                <div class="package-grid-item">
+                  <a href="/tour/{{slug}}">
+                    <div class="image">
+                      {{#if heroImage.secure_url}}
+                      <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}" />
+                      {{else}}
+                      <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+                      {{/if}}
+                      {{#if featured}}
+                      <div class="absolute-in-image">
+                        <div class="duration"><span>{{categories.[0].name}}</span></div>
+                        {{#if multiPrice}}
+                        <div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>
+                        {{/if}}
+                      </div>
+                      {{/if}}
+                    </div>
+                    <div class="" style="padding:15px;">
+                      <h5>{{getTourLocName name name_eng }}</h5>
+
+                      <!--<div class="rating-wrapper">
+                        <div class="raty-wrapper">
+                          <div class="star-rating-read-only" data-rating-score="{{nOfStars}}"></div> <span> /
+                            {{nOfReviews}} reviews</span>
+                        </div>
+                      </div> -->
+                      <div class="row">
+                        <div class="col-xs-9">
+                          <i class="fa fa-map-marker"></i> <span>{{city.city}}</span> - <span>{{province.province}}</span> <br>
+                        </div>
+                        <div class="col-xs-3">
+                            <span>${{price}}</span>
+                        </div>
+                      </div>
+                      <div class="absolute-in-content">
+                       
+                       <!-- <div class="booking"><a href="/tour/{{slug}}" class="btn-xs btn-danger booking-cta">{{i18n "book_now"}}</a></div> -->
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
