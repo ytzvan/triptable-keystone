@@ -431,12 +431,12 @@ $(function() {
 
 		$(document).ready(function() {
 
-			$('#instagram').on('didLoadInstagram', didLoadInstagram);
+		/*	$('#instagram').on('didLoadInstagram', didLoadInstagram);
 			$('#instagram').instagram({
 			count: 20,
 			userId: 3133475546,
 			accessToken: '3133475546.b80cccd.6384f36385d64d299abdffd9739d49b4'
-			});
+			});*/
 
 		});
 
