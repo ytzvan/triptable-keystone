@@ -1,3 +1,16 @@
+html{
+  font-family: 'Raleway','Lato',Arial,Helvetica,sans-serif;
+}
+body {
+  font-family: inherit;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: inherit;
+  font-weight: 600;
+}
+.h1, h1 {
+    font-size: 28px;
+}
 p.highlights {
 	font-weight: 700;
 }
@@ -21,7 +34,7 @@ span.blog-category{
     text-transform: uppercase;
 }
 h4.blog-title{
-	font-family: 'Montserrat', 'Lato', sans-serif;
+	font-family: 'Raleway','Lato',Arial,Helvetica,sans-serif;
 	font-weight: bold;
     font-size: 30px;
     line-height: 1.2;
@@ -61,7 +74,7 @@ h4.blog-title{
 h1.post-title{
  font-size: 3.157em;
  text-transform: capitalize;
-  font-family: 'Raleway', 'Lato', Sans-serif;
+  font-family: inherit;
 }
 div.post-title{
   top:280px;
@@ -435,4 +448,28 @@ article.description-language{
 
 .bootstrap-datetimepicker-widget.dropdown-menu{
 	z-index: 99999;
+}
+ section, .section { padding: 35px 0; background: #FFF; }
+.container-fluid.featured-tours {
+  padding: 0px 6%;
+ }
+ .destination_container {
+    text-align: center;
+    height: 250px;
+    border-radius: 5%;
+    margin: 4% 0;
+}
+h2.destination{
+  font-size: 23px;
+    font-weight: 800;
+    color:white; 
+    text-transform: uppercase; 
+}
+.destination_container > h3, h2 {
+    position: relative;
+    top: calc(49% - 10px);
+    color: white; 
+}
+.package-grid-item a h5, .package-grid-item a h6{
+  font-weight: 600;
 }

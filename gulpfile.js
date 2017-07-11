@@ -47,7 +47,7 @@ gulp.task('css', function () {
 });
 
 
-gulp.task('runKeystone', shell.task('node keystone.js'));
+gulp.task('runKeystone', shell.task('nodemon keystone.js'));
 gulp.task('watch', [
 
   'watch:lint'
