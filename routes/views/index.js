@@ -1,7 +1,8 @@
 var keystone = require('keystone');
 var async = require('async');
 var Email = require('../../utils').Email;
-exports = module.exports = function(req, res) {
+var q = require('q');
+module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
@@ -19,40 +20,60 @@ exports = module.exports = function(req, res) {
 	};
 	// Load the places
 	view.on('init', function(next) {
-		var q = keystone.list('Tour')
+
+
+   function asyncFunc(countryId) {
+    return new Promise(
+        function (resolve, reject) {
+            var query = keystone.list('Tour')
 			.paginate({
 				page: req.query.page || 1,
-				perPage: 9,
-				maxPages: 10
+				perPage: 4,
+				maxPages: 1
 			})
-			.where('state', 'published')
-	//		.where('featured', false)
+			.where('country', countryId)
 			.sort('-publishedDate')
-			.populate('owner categories country province city');
+			.populate('province city');
 
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
-		}
+			query.exec(function(err, results) {
+				if (!err){
+				resolve(results);
+				} else {
+					reject(err);
+				}
+			});
+            
+        });
+}
 
-		q.exec(function(err, results) {
-			locals.data.tours = results;
-			next(err);
+		
+		asyncFunc("5704494210326b0300cb6a2f")
+		.then(function (results) {
+			 locals.toursPanama = results;
+			 return asyncFunc("58dec56592896d0400161fd3")
+		})
+		.then(function (toursMexico) {
+			 locals.toursMexico = toursMexico;
+			next();
+			// do something with `data`
 		});
-
+		
 	});
 
+
 	view.on('init', function(next) {
-		
+		keystone.list('City')
+			.model.find()
+			.where('featured', true)
+			.exec(function(err, results) { //Query Pais
+				if (err || !results) {
 
-		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
-			if (err || !results) {
+					return res.status(404);
+				}
+				locals.data.cities = results;
+				return next();
 
-				return res.status(404);
-			}
-			locals.data.provinces = results;
-			return next();
-
-		});
+			});
 
 	});
 
