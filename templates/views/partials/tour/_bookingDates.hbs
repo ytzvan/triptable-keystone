@@ -1,42 +1,4 @@
-<script type="text/javascript">
-  $( document ).ready(function() {
-    var priceCatalog = [];
-      {{#each data.tour.multiPriceCatalog}}
-      var current = "{{this}}".split(',');
-        for (var index=0;index < current.length;index++){
-          current[index] = parseInt(current[index]);
-        }
-        priceCatalog.push(current);
-      {{/each}}
 
-       var today = new Date();
-       var numberOfDaysToAdd = {{data.tour.skipDays}};
-        if (numberOfDaysToAdd == 0) {
-             numberOfDaysToAdd = 1;
-         }
-       var date = today.setDate(today.getDate() + numberOfDaysToAdd);
-       $('#datetimepicker11').datetimepicker({
-          daysOfWeekDisabled: [{{data.tour.daysDisabled}}],
-         format : 'YYYY-MM-DD',
-         minDate : date,
-         disabledDates :  [{{#each data.tour.disabledDates}}"{{this}}", {{/each}}]
-         });
-        date = $('#datetimepicker11').data("DateTimePicker").date();
-        date = moment(date).format('dddd, DD MMMM YYYY');
-      for (var i=0; i < priceCatalog.length; i++){
-        console.log(priceCatalog[i][0]);
-        $('#minPerson'+i).html(priceCatalog[i][0]);
-        $('#maxPerson'+i).html(priceCatalog[i][1]);
-        $('#availability'+i).html(date);
-        $('#price'+i).html('$'+priceCatalog[i][2]);
-        {{#if userInfo}}
-        $('#bookingBtn'+i).attr('href', "/contact/{{data.tour.tourId}}");
-        {{else}}
-        $('#bookingBtn'+i).attr('href', "/signup?from=/contact/{{data.tour.tourId}}");
-        {{/if}}
-      }
-  });
-</script>
  <div class='input-group date col-sm-5 col-md-4' id='datetimepicker11' style="display:none;">
    <input type='text' required name="date" id="date" class="form-control" />
    <span class="input-group-addon">
@@ -46,7 +8,7 @@
 </div>
 <div id="section-5" class="detail-content">
   <div class="section-title text-left" style="margin:0;">
-    <h4>Reservar</h4>
+    <h4>Escoge un Tour</h4>
   </div>
   <div class="row">
     <div class="col-sm-6">
@@ -63,27 +25,37 @@
       <div class="price"></div>
       <div class="action">&nbsp;</div>
     </li>
-    {{#each data.tour.multiPriceCatalog}}
-    <li class="availabily-content clearfix">
-      <div class="date-from" style="width: 19%;">
-        <span class="availabily-heading-label">Mínimo de Personas:</span>Mínimo de Personas:
-        <span id="minPerson{{@index}}"></span>
+      <li class="availabily-content clearfix">
+      <div class="date-from" style="width: 50%;">
+        <span class="availabily-heading-label">Tour:</span>Tour:<span> {{data.tour.name}}</span>
       </div>
-      <div class="date-to"  style="width: 19%;">
-        <span class="availabily-heading-label">Máximo de Personas:</span>Máximo de Personas:
-        <span id="maxPerson{{@index}}"></span>
+      <div class="price" style="width: 15%;">
+        <span class="availabily-heading-label">Duración:</span>Duración:
+        <span id="price">{{data.tour.duration}} {{#if data.tour.isMulti}} Dias {{else}} Horas {{/if}}</span>
       </div>
-      <div class="status" style="width: 25%;">
-        <span class="availabily-heading-label">Próxima Salida:</span>
-          Próxima Salida:
-        <span id="availability{{@index}}" style="text-transform: capitalize;"></span>
-       </div>
-       <div class="price" style="width: 20%;">
+       <div class="price" style="width: 15%;">
         <span class="availabily-heading-label">Precio por Persona:</span>Precio por Persona:
-        <span id="price{{@index}}">$</span>
+        <span id="price">{{data.tour.price}}$</span>
       </div>
       <div class="action" style="width: 15%;">
-        <a href="#" id="bookingBtn{{@index}}" class="btn btn-primary btn-sm btn-inverse">Reservar</a>
+        <a href="/contact/{{data.tour.tourId}}" id="bookingBtn{{@index}}" class="btn btn-primary btn-sm btn-inverse">Reservar</a>
+      </div>
+    </li>
+    {{#each data.tour.childs}}
+    <li class="availabily-content clearfix">
+      <div class="date-from" style="width: 50%;">
+        <span class="availabily-heading-label">Tour:</span>Tour:<span> {{name}}</span>
+      </div>
+      <div class="price" style="width: 15%;">
+        <span class="availabily-heading-label">Duración:</span>Duración:
+        <span id="price">{{data.tour.duration}} {{#if data.tour.isMulti}} Dias {{else}} Horas {{/if}}</span>
+      </div>
+       <div class="price" style="width: 15%;">
+        <span class="availabily-heading-label">Precio por Persona:</span>Precio por Persona:
+        <span id="price{{@index}}">{{price}}$</span>
+      </div>
+      <div class="action" style="width: 15%;">
+        <a href="/contact/{{tourId}}" id="bookingBtn{{@index}}" class="btn btn-primary btn-sm btn-inverse">Reservar</a>
       </div>
     </li>
     {{/each}}
@@ -91,7 +63,8 @@
 
   </ul>
 </div>
+<!--
 <div class="text-center mt-30">
 <button class="btn btn-large btn-primary">Mostrar más Fechas</button>
-</div>
+</div>-->
 </div>

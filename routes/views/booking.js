@@ -22,9 +22,9 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 
 		var q = keystone.list('Tour').model.findOne({
-			state: 'published',
+			//state: 'published',
 			tourId: tourId
-		}).populate('owner location');
+		}).populate('owner city country location');
 
 		q.exec(function(err, result) {
 			if (err) {

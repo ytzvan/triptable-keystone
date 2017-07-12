@@ -474,3 +474,6 @@ h2.destination{
 .package-grid-item a h5, .package-grid-item a h6{
   font-weight: 600;
 }
+ul.availabily-list li.availabily-content>div.date-from:after{
+  display: none;
+}

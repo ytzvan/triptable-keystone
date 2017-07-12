@@ -105,6 +105,7 @@
 
                   </div>
                   {{/if}}
+                    {{>tour/_bookingDates}}
                   {{#if data.tour.videoId}}
                  <div id="section-7" class="detail-content">
 
@@ -354,7 +355,7 @@
                 <!-- secction 5 Booking dates-->
 
                 <!-- here goes booking dates partial -->
-                  {{#if data.tour.multiPrice}}
+                {{#if data.tour.multiPrice}}
                 {{>tour/_bookingDates}}
                 {{/if}}
                   <div class="detail-content">
