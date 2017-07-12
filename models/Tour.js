@@ -24,11 +24,15 @@ Tour.add({
 	tourId: { type: String, index: true, noedit: true},
 	name: { type: String, required: true },
 	name_eng: { type: String},
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+	state: { type: Types.Select, options: 'draft, published, archived, child', default: 'draft', index: true },
 	owner: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true }},
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	publishedDate: { type: Types.Date, index: true },
+	isParent: {type: Types.Boolean, default: false},
+	childs:  { type: Types.Relationship, ref: 'Tour', many: true, filters: { owner: ':owner' }, dependsOn:  {isParent: true} },
   heroImage: { type: Types.CloudinaryImage },
 	images: { type: Types.CloudinaryImages },
+	duration: {type: Types.Number, required: true, default: 2},
+	isMultiDay: {label: '¿Es un tour con Hospedaje?', type: Types.Boolean, default: false, note : 'Esto le indica a la plataforma si muestra la duración en Horas o Minutos '},
 	description: {
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
@@ -48,7 +52,6 @@ Tour.add({
 	price: {type: Types.Money},
 	cost: {type:Types.Money},
   comission: {type: Types.Number, default: 15},
-	duration: {type: Types.Number },
 	transportation: {type: Types.Boolean, default: true },
 	hotelPickup: {type: Types.Boolean, default: true },
 	maritimeTransportation: {type: Types.Boolean, default: false },
@@ -101,6 +104,10 @@ Tour.schema.pre('save', function(next) {
   	if ( !this.createdAt ) {
     	this.createdAt = now;
   	}	
-    next();
+		if (!this.city) {
+			var err = new Error('Por favor elige una ciudad');
+			return next(err);
+		} 
+  	next()
 });
 Tour.register();
