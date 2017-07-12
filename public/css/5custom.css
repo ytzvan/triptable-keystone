@@ -109,9 +109,10 @@ h4.description{
   color: #333;
 }
 h4.featured-province{
-  font-size: 18px;
-  color: white;
-  text-align:center;
+  font-size: 21px;
+    color: #fff;
+    text-align: center;
+    font-weight: 800;
 }
 .featured-count .icon {
     padding-top: 25px;
