@@ -477,3 +477,32 @@ h2.destination{
 ul.availabily-list li.availabily-content>div.date-from:after{
   display: none;
 }
+.duration{
+      padding: 5px 15px 0px;
+}
+.duration span{
+    background: transparent; 
+    color: #484848;
+    padding: 0;
+    line-height: 1.6;
+    display: inline-block;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.padding-bottom-5{
+  padding-bottom: 5px;
+}
+span.price{
+      font-size: 1.5em !important;
+    color: #484848;
+    font-weight: 500;
+    font-family: 'Montserrat', 'Raleway', sans-serif}
+.package-grid-item a h5, .package-grid-item a h6{
+  margin-bottom: 5px;
+}
+.tour-details span{
+  font-size: 15px;
+}
+.tour-details i.fa{
+  color:#3498db;
+}

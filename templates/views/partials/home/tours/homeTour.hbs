@@ -7,16 +7,16 @@
                       {{else}}
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{/if}}
-                      {{#if featured}}
                       <div class="absolute-in-image">
-                        <div class="duration"><span>{{categories.[0].name}}</span></div>
-                        {{#if multiPrice}}
-                        <div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>
-                        {{/if}}
+                        <!--<div class="duration"><span>{{categories.[0].name}}</span></div>-->
+      
+                        <!--<div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>-->
                       </div>
-                      {{/if}}
                     </div>
-                    <div class="" style="padding:15px;">
+                    <div class="duration">
+                      <span>{{categories.[0].name}}</span>
+                    </div>
+                    <div class="" style="padding:0px 15px;">
                       <h5>{{getTourLocName name name_eng }}</h5>
 
                       <!--<div class="rating-wrapper">
@@ -25,18 +25,24 @@
                             {{nOfReviews}} reviews</span>
                         </div>
                       </div> -->
+                      <div class="tour-details">
                       <div class="row">
                         <div class="col-xs-9">
-                          <i class="fa fa-map-marker"></i> <span>{{city.city}}</span> - <span>{{province.province}}</span> <br>
+                            <i class="fa fa-map-marker"></i> <span>{{city.city}}</span> - <span>{{province.province}}</span> 
                         </div>
                         <div class="col-xs-3">
-                            <span>${{price}}</span>
+                            <span>Desde</span>
                         </div>
                       </div>
-                      <div class="absolute-in-content">
-                       
-                       <!-- <div class="booking"><a href="/tour/{{slug}}" class="btn-xs btn-danger booking-cta">{{i18n "book_now"}}</a></div> -->
+                      <div class="row padding-bottom-5">
+                        <div class="col-xs-9">
+                          <i class="fa fa-clock-o"></i> <span>{{duration}} {{#if isMultiDay}} Días {{else}} Horas {{/if}}</span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="price">${{price}}</span>
+                        </div>
                       </div>
+                      </div><!--end tour details div -->
                     </div>
                   </a>
                 </div>

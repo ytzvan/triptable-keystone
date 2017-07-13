@@ -33,7 +33,7 @@ module.exports = function(req, res) {
 			})
 			.where('country', countryId)
 			.sort('-publishedDate')
-			.populate('province city');
+			.populate('province categories city');
 
 			query.exec(function(err, results) {
 				if (!err){
@@ -60,7 +60,21 @@ module.exports = function(req, res) {
 		
 	});
 
+	view.on('init', function(next) {
+		keystone.list('Province')
+			.model.find()
+			.where('featured', true)
+			.exec(function(err, results) { //Query Pais
+				if (err || !results) {
 
+					return res.status(404);
+				}
+				locals.data.provinces = results;
+				return next();
+
+			});
+
+	});
 	view.on('init', function(next) {
 		keystone.list('City')
 			.model.find()
