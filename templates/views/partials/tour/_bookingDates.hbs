@@ -31,7 +31,7 @@
       </div>
       <div class="price" style="width: 15%;">
         <span class="availabily-heading-label">Duración:</span>Duración:
-        <span id="price">{{data.tour.duration}} {{#if data.tour.isMulti}} Dias {{else}} Horas {{/if}}</span>
+        <span id="price">{{data.tour.duration}} {{#if data.tour.isMultiDay}} Dias {{else}} Horas {{/if}}</span>
       </div>
        <div class="price" style="width: 15%;">
         <span class="availabily-heading-label">Precio por Persona:</span>Precio por Persona:
@@ -48,7 +48,7 @@
       </div>
       <div class="price" style="width: 15%;">
         <span class="availabily-heading-label">Duración:</span>Duración:
-        <span id="price">{{data.tour.duration}} {{#if data.tour.isMulti}} Dias {{else}} Horas {{/if}}</span>
+        <span id="price">{{duration}} {{#if isMultiDay}} Dias {{else}} Horas {{/if}}</span>
       </div>
        <div class="price" style="width: 15%;">
         <span class="availabily-heading-label">Precio por Persona:</span>Precio por Persona:

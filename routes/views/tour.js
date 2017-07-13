@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			slug: locals.filters.tour
-		}).populate('owner categories country province city');
+		}).populate('owner categories childs country province city');
 
 		q.exec(function(err, result) {
       if (err || !result) {
