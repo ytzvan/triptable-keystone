@@ -1,7 +1,8 @@
-				<div class="container-fluid ">
+				<div class="container-fluid featured-tours">
 					<div class="row">
 						 <div class="col-md-12" style="padding-bottom:15px">
               <h1 class="text-center">Destinos Populares</h1>
+              <h5 class="subtitle text-center" style="margin-top:0px;"> Estos destinos marcan tendencias en nuestros usuarios</h3>
             </div>
 					</div>
              <script type="text/javascript">
@@ -9,42 +10,14 @@
             </script>
 					<div class="grid destination-grid-wrapper">
 					{{#each data.cities}}
-						<div id="post{{@index}}" class="grid-item" id="grid-item" data-colspan="20" data-rowspan="8">
+						<div id="post" class="grid-item" id="grid-item" data-colspan="5" data-rowspan="5">
 							<a href="/panama/{{slug}}" class="top-destination-image-bg" style="background-image:url(https://res.cloudinary.com/triptable/image/upload/c_fill,h_300,w_300,q_auto/v{{image.version}}/{{image.public_id}}.{{image.format}});">
 								<div class="relative">
-									<h4 class="featured-province">{{city}}</h4>
+									<h4 class="featured-province">Tours en {{city}}</h4>
 									<!--<span>Starting from $322</span> -->
 								</div>
 							</a>
 						</div>
-            <script type="text/javascript">
-
-            console.log("status", status)
-            if (status == 0){
-              var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 4);
-              $(postId).attr('data-rowspan', 4);
-            }
-            if (status == 1){
-              var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 4);
-              $(postId).attr('data-rowspan', 4);
-            }
-            if (status == 2){
-              var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 4);
-              $(postId).attr('data-rowspan', 4);
-            }
-            if (status == 3){
-              var postId = $.find('#post{{@index}}');
-              $(postId).attr('data-colspan', 4);
-              $(postId).attr('data-rowspan', 4);
-            }
-            status++;
-            if (status >= 4){
-              status = 0;
-            }
-            </script>
 
 					{{/each}}
 					</div>

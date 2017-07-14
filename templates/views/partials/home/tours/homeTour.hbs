@@ -1,4 +1,4 @@
-<div class="GridLex-col-3_sm-6_xs-12 mb-30">
+<div class="GridLex-col-3_sm-6_xs-12 mb-20">
                 <div class="package-grid-item">
                   <a href="/tour/{{slug}}">
                     <div class="image">
@@ -8,41 +8,29 @@
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{/if}}
                       <div class="absolute-in-image">
-                        <!--<div class="duration"><span>{{categories.[0].name}}</span></div>-->
+                        <div class="price"><span>US ${{price}}</span></div>
       
                         <!--<div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>-->
                       </div>
                     </div>
-                    <div class="duration">
-                      <span>{{categories.[0].name}}</span>
-                    </div>
-                    <div class="" style="padding:0px 15px;">
-                      <h5>{{getTourLocName name name_eng }}</h5>
-
-                      <!--<div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="{{nOfStars}}"></div> <span> /
-                            {{nOfReviews}} reviews</span>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="duration">
+                          <span>{{categories.[0].name}}</span>
                         </div>
-                      </div> -->
-                      <div class="tour-details">
-                      <div class="row">
-                        <div class="col-xs-9">
-                            <i class="fa fa-map-marker"></i> <span>{{city.city}}</span> - <span>{{province.province}}</span> 
-                        </div>
-                        <div class="col-xs-3">
-                            <span>Desde</span>
-                        </div>
+                        <div class="col-xs-12" style="padding:0px 15px;">
+                          <h5>{{getTourLocName name name_eng }}</h5>
+                            <div class="tour-details">
+                                <div class="col-xs-12" style="margin-bottom: 5px;">
+                                  <i class="fa fa-map-marker"></i> <span>{{city.city}}</span>
+                                </div>
+                                 <!--<div class="col-xs-12" ">
+                                  <i class="fa fa-clock-o"></i> <span>{{duration}} {{#if isMultiDay}} Días {{else}} Horas {{/if}}</span>
+                                  </div>-->
+                            </div>
+                        </div><!--end tour details div -->
                       </div>
-                      <div class="row padding-bottom-5">
-                        <div class="col-xs-9">
-                          <i class="fa fa-clock-o"></i> <span>{{duration}} {{#if isMultiDay}} Días {{else}} Horas {{/if}}</span>
-                        </div>
-                        <div class="col-xs-3">
-                            <span class="price">${{price}}</span>
-                        </div>
-                      </div>
-                      </div><!--end tour details div -->
+                    
                     </div>
                   </a>
                 </div>
