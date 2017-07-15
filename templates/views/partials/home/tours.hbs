@@ -4,7 +4,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h1>Tours Populares en Panama <a href="" style="font-size: 17px;font-weight:100; color:black;"> ({{toursPanama.total}} Tours y Actividades)</a></h1><br>
+              <h1>Tours en Panama <a href="" style="font-size: 17px;font-weight:100; color:black;"> ({{toursPanama.total}} Tours y Actividades)</a></h1><br>
             </div>
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
@@ -21,7 +21,24 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h1>Tours Populares en Mexico <a href="" style="font-size: 17px;font-weight:100; color:black;">({{toursMexico.total}} Tours y Actividades)</a></h1><br>
+              <h1>Excursiones en Colombia <a href="" style="font-size: 17px;font-weight:100; color:black;"> ({{toursColombia.total}} Tours y Actividades)</a></h1><br>
+            </div>
+          </div>
+          <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
+            <div class="GridLex-grid-noGutter-equalHeight">
+             {{#each_upto toursColombia.results 8}}
+              {{>home/tours/homeTour}}
+              {{/each_upto}}
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid featured-tours">
+
+          <div class="row">
+            <div class="col-md-12">
+              <h1>Qué hacer en Mexico <a href="" style="font-size: 17px;font-weight:100; color:black;">({{toursMexico.total}} Tours y Actividades)</a></h1><br>
             </div>
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">

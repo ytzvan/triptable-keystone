@@ -18,47 +18,69 @@ module.exports = function(req, res) {
 		provinces: [],
     homeImage: [],
 	};
+
+
+
+	function asyncFunc(countryId) { //Async func 
+			return new Promise(
+				function (resolve, reject) {
+					var query = keystone.list('Tour')
+					.paginate({
+						page: req.query.page || 1,
+						perPage: 4,
+						maxPages: 1
+					})
+					.where('country', countryId)
+					.sort('-publishedDate')
+					.populate('province categories city');
+
+					query.exec(function(err, results) {
+						if (!err){
+						resolve(results);
+						} else {
+							reject(err);
+						}
+					});
+				});
+			};
 	// Load the places
-	view.on('init', function(next) {
-
-
-   function asyncFunc(countryId) {
-    return new Promise(
-        function (resolve, reject) {
-            var query = keystone.list('Tour')
-			.paginate({
-				page: req.query.page || 1,
-				perPage: 4,
-				maxPages: 1
-			})
+		function getToursByCountryId(countryId) {
+			var query = keystone.list('Tour')
+      	.paginate({
+						page: req.query.page || 1,
+						perPage: 4,
+						maxPages: 1
+					})
 			.where('country', countryId)
 			.sort('-publishedDate')
 			.populate('province categories city');
 
 			query.exec(function(err, results) {
-				if (!err){
-				resolve(results);
-				} else {
-					reject(err);
-				}
+				return results;
 			});
-            
-        });
-}
 
-		
-		asyncFunc("5704494210326b0300cb6a2f")
+		}
+      
+		view.on('init', function(next){
+
+		asyncFunc ("5704494210326b0300cb6a2f")
 		.then(function (results) {
 			 locals.toursPanama = results;
 			 return asyncFunc("58dec56592896d0400161fd3")
 		})
-		.then(function (toursMexico) {
+		 .then(function (toursMexico) {
 			 locals.toursMexico = toursMexico;
+			 return asyncFunc("593ab9bd397cff0400419584")
+		})
+		.then(function (toursColombia){
+			locals.toursColombia = toursColombia;
 			next();
-			// do something with `data`
 		});
+
+    });
 		
-	});
+		
+
 
 	view.on('init', function(next) {
 		keystone.list('Province')

@@ -514,14 +514,19 @@ h5.subtitle{
   padding: 0;
 }
 .package-grid-item .absolute-in-image .price {
-    background:rgba(255,255,255,1)    /* 70% opaque red */  ;
+    background:#FF696A;  /* 70% opaque red */  ;
     font-family: 'Montserrat', sans-serif;
-    color: #3498db;
+    color: white;
     padding: 10px;
     border-radius: 3px;
     line-height: 1;
     display: inline-block;
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     margin: 5px;
+}
+.package-grid-item{
+  -webkit-box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
+  -moz-box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
+  box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
 }
