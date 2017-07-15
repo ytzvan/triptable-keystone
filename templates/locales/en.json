@@ -1,6 +1,6 @@
 {
-	"header_title": "Unique Local Experiences",
-	"header_subtitle": "Book tours with local tour guides in more than 20 destinations and enjoy your trip without stress",
+	"header_title": "Find the Best tours & Activities",
+	"header_subtitle": "Book the best travel experiences in Latin America",
 	"country_select": "Select a Country",
 	"post_hero_title": "Discover Things To Do",
 	"post_hero_subtitle": "Discover the best tours and things to do in the City you're traveling.",
@@ -147,5 +147,11 @@
 	"lowest_price": "Lowest price",
 	"tour_discount": "This tour offer discounts in booking for more than ",
 	"hotel_pickup_not_included": "You must go to the tour depart point",
-	"mexico": "Mexico"
+	"mexico": "Mexico",
+	"Panama": "Panama",
+	"Mexico": "Mexico",
+	"Colombia": "Colombia",
+	"Republica Dominicana": "Republica Dominicana",
+	"is_active": "is_active",
+	"remove_filter": "remove_filter"
 }

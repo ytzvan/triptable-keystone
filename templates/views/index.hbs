@@ -12,8 +12,8 @@
 
             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
-              <h1 class="hero-title">{{{i18n "header_title"}}}</h1>
-              <p class="lead">{{{i18n "header_subtitle"}}}</i></p>
+              <h1 class="hero-title hidden-xs">{{i18n "header_title"}}</h1>
+              <p class="lead ">{{i18n "header_subtitle"}}</i></p>
 
             </div>
 
@@ -28,8 +28,9 @@
                 <div class="form-group">
 
                   <select name="destination" id="countries" class="select2-multi form-control" data-placeholder="{{i18n 'select_country'}}">
-                    <option value="panama">{{i18n 'panama'}}</option>
-                    <option value="mexico">{{i18n 'mexico'}}</option>
+                    {{#each data.countries}}
+                    <option value="{{country}}">{{i18n country}}</option>
+                    {{/each}}
                   </select>
 
                 </div>
@@ -88,7 +89,7 @@
          </div>
       {{/if}}
       </div>
-      <!-- end hero-header with windows height -->
+      <!-- end hero-header with windows height 
       <div class="post-hero bg-light pt15 hidden-xs">
 
         <div class="container">
@@ -128,7 +129,7 @@
           </div>
 
         </div>
-      </div>
+      </div>-->
  {{>home/tours}}
  {{>home/bookingWithUs}}
  {{>home/newsletter}}

@@ -10,6 +10,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .h1, h1 {
     font-size: 28px;
+  
 }
 p.highlights {
 	font-weight: 700;
@@ -529,4 +530,21 @@ h5.subtitle{
   -webkit-box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
   -moz-box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
   box-shadow: 0 7px 10px -1px rgba(0,0,0,.16);
+}
+.duration span.pax{
+  float: right;
+  font-family: 'Montserrat', 'Ralewaty', sans-serif;
+  text-transform: none;}
+.duration span.pax i{
+  color: #3498db;
+}
+h1.tourTitle{
+      margin-bottom: 0;
+    margin-top: 35px;
+}
+a.tourlink{
+  text-decoration: underline;
+  font-size: 17px;
+  font-weight:100; 
+  color:black;
 }

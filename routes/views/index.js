@@ -129,12 +129,12 @@ module.exports = function(req, res) {
 
   view.on('init', function(next) {
 
-		keystone.list('Attraction').model.find().where({'featured': true}).exec(function(err, results) { //Query attractions
+		keystone.list('Country').model.find().exec(function(err, results) { //Query attractions
 			if (err || !results) {
 
 				return res.status(404);
 			}
-			locals.data.attractions = results;
+			locals.data.countries = results;
 			return next();
 
 		});
