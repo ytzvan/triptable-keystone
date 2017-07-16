@@ -202,6 +202,8 @@ cartAbandonEmail : function (req, model) { //
 
  var sendEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain) {
 
+   if (process.ENV.SEND_EMAILS) {
+
     Email.send(
      templatePath,
      {transport: 'mailgun'},
@@ -225,6 +227,7 @@ cartAbandonEmail : function (req, model) { //
 			}
 		}
 	);
+  } 
 
   }
 

@@ -85,7 +85,7 @@ Enquiry.schema.pre('save', function(next) {
 		console.log("Enviar email de reserva confirmada");
 	} */
 	if (this.isModified() && this.bookingStatus == 1){
-		if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' ) {
+		if (process.env.SEND_EMAILS) {
 			Email.sendConfirmationEmailToUser(this);
 		}
 		next();
@@ -103,7 +103,7 @@ Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
     this.prettyDate(this);
 	var email = this.operatorEmail
-    if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging' || process.env.NODE_ENV == 'test' ) {
+    if (process.env.SEND_EMAILS ) {
       	  this.sendUserEmail(this); //Send User email
 		  this.sendBookingNotificationEmail(this, email); //Email al operadors
 		  this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
