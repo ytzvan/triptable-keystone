@@ -589,11 +589,15 @@ fbq('track', 'InitiateCheckout');
           if (!dateVal){
             $( '#date' ).focus();
             $('#dateEmpty').attr('style', 'display:block;margin: 15px 0px;');
+						e.preventDefault();
           }
           var hotelVal = $('#hotel').val();
 
           if (!hotelVal) {
               $( '#hotel' ).focus();
+							var loader = $('#anchor').data('introLoader');
+							loader.stop();
+							e.preventDefault();
           }
           var isChecked = $('#accept_booking').is(':checked');
           if  (!isChecked){
@@ -615,9 +619,22 @@ fbq('track', 'InitiateCheckout');
 						$('#myInput').focus()
 					}) */
 //					$(window).unbind('beforeunload');
+
           var valid = $.payment.validateCardNumber($('.cc-number').val());
 					var cvc = $(".cc-cvc").val();
 					var exp = $(".cc-exp").val();
+					var dateVal = $('#date').val();
+					var hotel = $('#hotel')[0];
+					if (hotel) {
+						var hotelVal = $('#hotel').val();
+						if (!hotelVal) {
+								valid = false;
+						}
+					}
+          if (!dateVal){
+						valid = false;
+          }          
+         
 					if (!cvc) {
 						valid = false;
 					}
@@ -625,7 +642,7 @@ fbq('track', 'InitiateCheckout');
 						valid = false;
 					}
           if (!valid) {
-            alert('Your card is not valid!');
+            alert('Complete the missing fields');
              e.preventDefault();
             var cardType = $.payment.cardType($('.cc-number').val());
             $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
