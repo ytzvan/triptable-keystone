@@ -264,7 +264,7 @@ blockquote{
   width: 100%;
 }
 .pt15{
- padding-top 5px;
+ padding-top: 5px;
   font-size: 14px;
     line-height: 1.6;
 }
@@ -519,7 +519,7 @@ h5.subtitle{
     background:#FF696A;  /* 70% opaque red */  ;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    padding: 10px;
+    padding: 7px;
     border-radius: 3px;
     line-height: 1;
     display: inline-block;
