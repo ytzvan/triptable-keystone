@@ -10,6 +10,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .h1, h1 {
     font-size: 28px;
+    color: #2c73b3;
   
 }
 p.highlights {
@@ -42,7 +43,7 @@ h4.blog-title{
     text-transform: capitalize;
 }
 .page-title {
-    padding: 125px 0;
+    padding: 70px 0;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -547,4 +548,19 @@ a.tourlink{
   font-size: 17px;
   font-weight:100; 
   color:black;
+}
+.pagination>li>a, .pagination>li>span{
+    padding: 0;
+    margin: 0 6px;
+    border: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Montserrat', 'Raleway', sans-serif;
 }

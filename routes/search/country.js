@@ -40,20 +40,21 @@ exports = module.exports = function(req, res) {
 
 	view.on('init', function(next) {
 
-		keystone.list('Country').model.findOne(query).exec(function(err, results) { //Query Pais
-			if (err || !results) {
+		keystone.list('Country').model.findOne(query).exec(function(err, place) { //Query Pais
+			if (err || !place) {
 				return res.status(404).render('errors/404');
 			}
-			locals.data.country = results;
-			var id = results._id;
-			var country = results.country;
-			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + results.country;
+			locals.data.place = place;
+			locals.data.placeName = place.country;
+			var id = place._id;
+			var country = place.country;
+			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + place.country;
 			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
 			locals.meta.description =  "Reserva tours en " + country  + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " +country;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + country;
-			if (results.image) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+results.image.version+"/"+results.image.public_id+"."+results.image.format;
+			if (place.image) {
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
 			var q = keystone.list('Tour')
 				.paginate({

@@ -30,7 +30,8 @@ module.exports = function(req, res) {
 						perPage: 4,
 						maxPages: 1
 					})
-					.where('country', countryId)
+					.where('country',countryId)
+					.where('state','published')
 					.sort('-publishedDate')
 					.populate('province categories city');
 
@@ -44,22 +45,6 @@ module.exports = function(req, res) {
 				});
 			};
 	// Load the places
-		function getToursByCountryId(countryId) {
-			var query = keystone.list('Tour')
-      	.paginate({
-						page: req.query.page || 1,
-						perPage: 4,
-						maxPages: 1
-					})
-			.where('country', countryId)
-			.sort('-publishedDate')
-			.populate('province categories city');
-
-			query.exec(function(err, results) {
-				return results;
-			});
-
-		}
       
 		view.on('init', function(next){
 
@@ -85,7 +70,6 @@ module.exports = function(req, res) {
 	view.on('init', function(next) {
 		keystone.list('Province')
 			.model.find()
-			.where('featured', true)
 			.exec(function(err, results) { //Query Pais
 				if (err || !results) {
 

@@ -19,6 +19,7 @@ exports = module.exports = function(req, res) {
 	};
 	var category = req.query.categoria;
 	locals.data.province;
+	locals.data.place;
 	locals.meta = {};
 	var url = req.url;
 	locals.meta.url = "https://www.triptable.com"+url;
@@ -40,21 +41,24 @@ exports = module.exports = function(req, res) {
 	});
 	view.on('init', function(next) {
 
-		keystone.list('Province').model.findOne(query).exec(function(err, province) { //Query states
+		keystone.list('Province').model.findOne(query).exec(function(err, place) { //Query states
 
-			if (err || !province) {
+			if (err || !place) {
 				return res.status(404).render('errors/404');
 			}
-			locals.data.province = province;
-			var id = province._id;
-			var provinceName = province.province;
+			locals.data.place = place;
+			locals.data.placeName = place.province;
+			console.log("place", place.province);
+			var id = place._id;
+			var provinceName = place.slug;
+			
 			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + provinceName + ".";
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
 			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + provinceName;
-			if (province.image) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+province.image.version+"/"+province.image.public_id+"."+province.image.format;
+			if (place.image) {
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
 			var q = keystone.list('Tour')
   			.paginate({
@@ -109,6 +113,6 @@ exports = module.exports = function(req, res) {
 
 
 	// Render the view
-	view.render('search/state');
+	view.render('search/country');
 
 };

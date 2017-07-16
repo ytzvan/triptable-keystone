@@ -1,398 +1,36 @@
 <!-- start Main Wrapper -->
     <div class="main-wrapper">
-
       <!-- start end Page title -->
-      <div class="page-title" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.country.image.public_id}}.{{data.country.image.format}}');">
-
+      <div class="page-title hidden-xs" style="background-image:url('https://res.cloudinary.com/triptable/image/upload/c_fill,q_auto,f_auto,g_auto/dpr_auto,w_auto/c_limit,w_1920/{{data.place.image.public_id}}.{{data.place.image.format}}');">
         <div class="container">
-
           <div class="row">
-
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-
-              <h1 class="hero-title">Tours {{i18n 'in'}} {{data.country.country}}</h1>
-
-              <ol class="breadcrumb-list">
-                <li><a href="/">{{i18n 'home'}}</a></li>
-                <li><span>Tours {{i18n 'in'}} {{data.country.country}}</span></li>
-              </ol>
-
+              <h1 class="hero-title">{{data.tours.total}} {{i18n 'tours_and_activities'}} {{i18n 'in' }} {{data.placeName}} </h1>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
-      <div class="content-wrapper">
-
-        <div class="container">
-
+      </div>    <!-- container -->
+       <div class="container-fluid featured-tours">
           <div class="row">
-
-            <div class="col-sm-4 col-md-3">
-
-              <aside class="sidebar with-filter">
-
-                <div class="sidebar-search-wrapper bg-light-2">
-
-                  <div class="sidebar-search-header">
-                    <h4>{{i18n 'select_destination'}}</h4>
-                  </div>
-
-                  <div class="sidebar-search-content">
-
-                    <div class="form-group">
-
-                      <select name="country" id="province" class="select2-multi form-control" data-placeholder="{{i18n 'choose_city'}}">
-                        <option value="">{{i18n 'destination'}}</option>
-                        <option value="0" selected>{{i18n 'all'}}</option>
-                        {{#each data.provinces}}
-                        <option value="{{slug}}">{{province}}</option>
-                        {{/each}}
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <select name="category" class="select2-multi form-control" id="category" data-placeholder="{{i18n 'type_of_tour'}}">
-                        <option value="">{{i18n 'type_of_tour'}}</option>
-                        <option value="0">{{i18n 'all'}}</option>
-                        {{#each data.categories}}
-                        <option value="{{slug}}">{{name}}</option>
-                        {{/each}}
-                      </select>
-
-                    </div>
-
-                    <a href="#" id="search" class="btn btn-primary btn-block">{{i18n 'search'}}</a>
-
-                  </div>
-
-                </div>
-                  <script type="text/javascript">
-                    var province = $("#province").val();
-                    var category = $("#category").val();
-                    var url = "/{{data.country.slug}}/?categoria="+category;
-                    var parsedUrl = url.replace(/[0-9]/g, '');
-                    $('#search').attr('href', parsedUrl);
-
-                  $("#province").on('change', function(){
-                    var province = $("#province").val();
-                    var category = $("#category").val();
-                    var url = "/{{data.country.slug}}/"+province+"?categoria="+category;
-                    var parsedUrl = url.replace(/[0-9]/g, '');
-                    return $('#search').attr('href', parsedUrl);
-
-
-                  });
-
-                  $("#category").on('change', function(){
-                    var province = $("#province").val();
-                    var category = $("#category").val();
-                    //url = url+province;
-                    var url = "/{{data.country.slug}}/"+province+"?categoria="+category;
-                    var parsedUrl = url.replace(/[0-9]/g, '');
-                    return $('#search').attr('href', parsedUrl);;
-
-                  });
-                </script>
-                <!--
-                <div class="sidebar-header clearfix">
-                  <h4>Filter Results</h4>
-                  <a href="#" class="sidebar-reset-filter"><i class="fa fa-times"></i> reset filter</a>
-                </div>
-
-                <div class="sidebar-inner">
-
-                  <div class="sidebar-module">
-                    <h6 class="sidebar-title">Name Contain</h6>
-                    <div class="sidebar-module-inner">
-                      <div class="sidebar-mini-search">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search for...">
-                          <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="sidebar-module">
-                    <h6 class="sidebar-title">Price Range</h6>
-                    <div class="sidebar-module-inner">
-                      <input id="price_range" />
-                    </div>
-                  </div>
-
-                  <div class="clear"></div>
-
-                  <div class="sidebar-module">
-                    <h6 class="sidebar-title">Star Range</h6>
-                    <div class="sidebar-module-inner">
-                      <input id="star_range" />
-                    </div>
-                  </div>
-
-                  <div class="clear"></div>
-
-                  <div class="sidebar-module">
-
-                    <h6 class="sidebar-title">Starting Point</h6>
-                    <div class="sidebar-module-inner">
-                      <div class="checkbox-block">
-                        <input id="starting_point-1" name="starting_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="starting_point-1">Berlin <span class="checkbox-count">(854)</span></label>
-                      </div>
-                      <div class="checkbox-block">
-                        <input id="starting_point-2" name="starting_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="starting_point-2">Paris <span class="checkbox-count">(25)</span></label>
-                      </div>
-                      <div class="checkbox-block">
-                        <input id="starting_point-3" name="starting_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="starting_point-3">Munich <span class="checkbox-count">(254)</span></label>
-                      </div>
-                      <div class="starting_point-block">
-                        <input id="property_type-4" name="starting_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="property_type-4">Lyon<span class="checkbox-count">(22)</span></label>
-                      </div>
-                      <div class="starting_point-block">
-                        <input id="property_type-5" name="starting_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="property_type-5">Vienna  <span class="checkbox-count">(9)</span></label>
-                      </div>
-
-                      <div class="more-less-wrapper">
-
-                        <div id="property_type_more_less" class="collapse">
-                          <div class="more-less-inner">
-
-                            <div class="checkbox-block">
-                              <input id="starting_point-6" name="starting_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="starting_point-6">Toulouse <span class="checkbox-count">(3)</span></label>
-                            </div>
-                            <div class="checkbox-block">
-                              <input id="starting_point-7" name="starting_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="starting_point-7">Graz  <span class="checkbox-count">(25)</span></label>
-                            </div>
-                            <div class="checkbox-block">
-                              <input id="starting_point-8" name="starting_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="starting_point-8">Linz  <span class="checkbox-count">(2)</span></label>
-                            </div>
-
-                          </div>
-                        </div>
-                        <button class="btn btn-more-less collapsed" data-toggle="collapse" data-target="#property_type_more_less">Show more</button>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <div class="clear"></div>
-
-                  <div class="sidebar-module">
-
-                    <h6 class="sidebar-title">Ending Point</h6>
-                    <div class="sidebar-module-inner">
-                      <div class="checkbox-block">
-                        <input id="ending_point-1" name="ending_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="ending_point-1">Berlin <span class="checkbox-count">(854)</span></label>
-                      </div>
-                      <div class="checkbox-block">
-                        <input id="ending_point-2" name="ending_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="ending_point-2">Paris <span class="checkbox-count">(25)</span></label>
-                      </div>
-                      <div class="checkbox-block">
-                        <input id="ending_point-3" name="ending_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="ending_point-3">Munich <span class="checkbox-count">(254)</span></label>
-                      </div>
-                      <div class="starting_point-block">
-                        <input id="ending_point-4" name="ending_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="ending_point-4">Lyon<span class="checkbox-count">(22)</span></label>
-                      </div>
-                      <div class="starting_point-block">
-                        <input id="ending_point-5" name="ending_point" type="checkbox" class="checkbox"/>
-                        <label class="" for="ending_point-5">Vienna  <span class="checkbox-count">(9)</span></label>
-                      </div>
-
-                      <div class="more-less-wrapper">
-
-                        <div id="hotel_facilities_more_less" class="collapse">
-                          <div class="more-less-inner">
-
-                            <div class="checkbox-block">
-                              <input id="ending_point-6" name="ending_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="ending_point-6">Toulouse <span class="checkbox-count">(3)</span></label>
-                            </div>
-                            <div class="checkbox-block">
-                              <input id="ending_point-7" name="ending_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="ending_point-7">Graz  <span class="checkbox-count">(25)</span></label>
-                            </div>
-                            <div class="checkbox-block">
-                              <input id="ending_point-8" name="ending_point" type="checkbox" class="checkbox"/>
-                              <label class="" for="ending_point-8">Linz  <span class="checkbox-count">(2)</span></label>
-                            </div>
-
-                          </div>
-                        </div>
-                        <button class="btn btn-more-less collapsed" data-toggle="collapse" data-target="#hotel_facilities_more_less">Show more</button>
-
-                      </div>
-
-                    </div>
-
-
-                  </div>
-
-                  <div class="clear"></div>
-
-                  <div class="sidebar-module">
-
-                    <h6 class="sidebar-title">Filter Select</h6>
-                    <div class="sidebar-module-inner">
-                      <select class="select2-single form-control" data-placeholder="Select Placeholder">
-                        <option value="">Select Placeholder</option>
-                        <option value="0">Select One</option>
-                        <option value="1">Select Two</option>
-                        <option value="2">Select Three</option>
-                        <option value="3">Select Four</option>
-                        <option value="4">Select Five</option>
-                      </select>
-                    </div>
-
-                  </div>
-
-                  <div class="clear"></div>
-
-                  <div class="sidebar-module">
-
-                    <h6 class="sidebar-title">Filter Text Inside Sidebar Inner</h6>
-                    <div class="sidebar-module-inner">
-                      <p>Park fat she nor does play deal our. Procured sex material his offering humanity laughing moderate can.</p>
-                    </div>
-
-                  </div>
-
-                  <div class="clear"></div>
-
-                </div>-->
-
-                <!--<div class="sidebar-box">
-                  <h4 class="sidebar-title">Sidebar Text</h4>
-                  <p>Park fat she nor does play deal our. Procured sex material his offering humanity laughing moderate can. Unreserved had she nay dissimilar admiration interested.</p>
-                </div> -->
-
-              </aside>
+            <div class="col-md-12" >
+              <h4 style="margin-top:10px;color:black; font-weight:400;"> Tours en  {{data.placeName}}: {{data.tours.first}} al {{data.tours.last}} de {{data.tours.total}}</h4>
             </div>
-            <!-- end col-sm-4 -->
-
-            <div class="col-sm-8 col-md-9">
-
-              <div class="sorting-wrappper">
-
-                <div class="sorting-header">
-                  <h2 class="sorting-title uppercase">Tours {{i18n 'in'}} {{data.country.country}}</h3>
-                    <p class="sorting-lead">{{i18n 'founded'}} <strong>{{data.tours.total}}</strong> {{i18n 'tours_and_activities'}}</p>
-                    {{#if data.filters}}
-                    <h5>El filtro {{data.filters.name}} {{i18n 'is_active'}}</h5>
-                    <a href="/{{data.country.slug}}"> {{i18n 'remove_filter'}} </a>
-                    {{/if}}
-                </div>
-
-               <!-- <div class="sorting-content">
-
-                  <div class="row">
-
-                    <div class="col-sm-12 col-md-8">
-                      <div class="sort-by-wrapper">
-                        <label class="sorting-label">Sort by: </label>
-                        <div class="sorting-middle-holder">
-                          <ul class="sort-by">
-                            <li class="active up"><a href="#">Name <i class="fa fa-long-arrow-down"></i></a></li>
-                            <li><a href="#">Price</a></li>
-                            <li><a href="#">Location</a></li>
-                            <li><a href="#">Start Rating</a></li>
-                            <li><a href="#">User Rating</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4">
-                      <div class="sort-by-wrapper mt pull-right pull-left-sm mt-10-sm">
-                        <label class="sorting-label">View as: </label>
-                        <div class="sorting-middle-holder">
-                          <a href="result-list.html" class="btn btn-sorting active"><i class="fa fa-th-list"></i></a>
-                          <a href="result-grid.html" class="btn btn-sorting"><i class="fa fa-th-large"></i></a>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div> -->
-
-              </div>
-              <div class="package-list-item-wrapper on-page-result-page">
-              {{#each data.tours.results}}
-                <div class="package-list-item clearfix">
-                  <div class="image">
-                    {{#if heroImage.secure_url}}
-                    <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}" />
-                    {{else}}
-                    <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_198,w_297/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
-                    {{/if}}
-                   <!-- <div class="absolute-in-image">
-                      <div class="duration"><span>4 days 3 nights</span></div>
-                    </div> -->
-                  </div>
-
-                  <div class="content">
-                    <h5><a href="/tour/{{slug}}">{{name}}</a><button class="btn"><i class="fa fa-heart-o"></i></button></h5>
-                    <div class="row gap-10">
-                      <div class="col-sm-12 col-md-9">
-
-                        <div class="elipsis">{{{description.short}}}</div>
-                        <p></p>
-                        <ul class="list-info">
-                          <li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">{{i18n 'city'}}:</span> {{city.city}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'category'}}:</span> {{#each categories}}{{name}} {{/each}}</li>
-                          <li><span class="icon"><i class="fa fa-flag"></i></span> <span class="font600">{{i18n 'tour_lenght'}}:</span> {{duration}} {{i18n 'hours'}}</li>
-                        </ul>
-
-                      </div>
-                      <div class="col-sm-12 col-md-3 text-right text-left-sm">
-
-                        <div class="rating-wrapper">
-                          <div class="raty-wrapper">
-                            <div class="star-rating-read-only" data-rating-score="{{nOfStars}}"></div> <span> / {{nOfReviews}}
-                          reviews</span>
-                          </div>
-                        </div>
-
-                        <div class="price">${{price}} USD</div>
-
-                        <a href="/tour/{{slug}}" class="btn btn-danger btn-sm">{{i18n 'see_tour'}}</a>
-
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                {{/each}}
-              </div>
-              <div class="pager-wrappper clearfix">
-
+          </div>
+          <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
+            <div class="GridLex-grid-noGutter-equalHeight">
+             {{#each_upto data.tours.results 20}}
+              {{>home/tours/homeTour}}
+              {{/each_upto}}
+            </div>
+          </div>
+          <div class="pager-wrappper clearfix">
                 <div class="pager-innner">
-
                   <div class="flex-row flex-align-middle">
-
                     <div class="flex-column flex-sm-12">
-                      Mostrando resultados {{data.tours.first}} al {{data.tours.last}} de {{data.tours.total}}
-
+                     
                     <div class="flex-column flex-sm-12">
-                      <nav class="pager-right">
+                      <nav class="" style="text-align:center; margin:10px;">
                         <ul class="pagination">
                          <li>
                             <a href="?page={{data.tours.previous}}" aria-label="Anterior">
@@ -431,20 +69,15 @@
                         </ul>
                       </nav>
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
+        </div>
+      <!-- content-wrapper -->
 
 
 
-          </div> <!-- row -->
-        </div>  <!-- content-wrapper -->
-      </div>    <!-- container -->
 
 
     </div>  <!-- end Main wrapper -->
