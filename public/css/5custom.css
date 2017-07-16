@@ -542,6 +542,7 @@ h5.subtitle{
 h1.tourTitle{
       margin-bottom: 0;
     margin-top: 35px;
+    text-transform: capitalize;
 }
 a.tourlink{
   text-decoration: underline;

@@ -151,8 +151,11 @@
 	"Panama": "Panama",
 	"Mexico": "Mexico",
 	"Colombia": "Colombia",
-	"Republica Dominicana": "Republica Dominicana",
-	"is_active": "is_active",
+	"Republica Dominicana": "Dominican Republic",
+	"is_active": "is active",
 	"remove_filter": "remove_filter",
-	"activities": "activities"
+	"activities": "activities",
+	"excursions": "excursions",
+	"things_to_do": "things to do",
+	"days": "days"
 }

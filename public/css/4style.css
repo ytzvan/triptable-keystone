@@ -55,7 +55,7 @@
 .navbar-logo  img { height: 30px; width: auto; }
 
 /* Phone at Header */
-.navbar-phone { font-weight:600; font-size: 14px; color: #636363; line-height:50px; text-align: right; }
+.navbar-phone { font-weight:500; font-size: 14px; color: #636363; line-height:50px; text-align: right; font-family: 'Montserrat', 'Raleway', sans-serif; }
 
 /* Main Menu Dropdown */
 .navbar-nav { margin:0; }

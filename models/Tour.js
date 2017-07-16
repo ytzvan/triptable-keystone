@@ -32,7 +32,7 @@ Tour.add({
   heroImage: { type: Types.CloudinaryImage },
 	images: { type: Types.CloudinaryImages },
 	duration: {type: Types.Number, required: true, default: 2},
-	isMultiDay: {label: '¿Es un tour con Hospedaje?', type: Types.Boolean, default: false, note : 'Esto le indica a la plataforma si muestra la duración en Horas o Minutos '},
+	isMultiDay: {label: '¿Es un tour de varios dias?', type: Types.Boolean, default: false, note : 'Esto le indica a la plataforma si muestra la duración en Horas o Minutos '},
 	description: {
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }

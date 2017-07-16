@@ -148,10 +148,15 @@
 	"book_safe": "Reserva de manera segura con ",
 	"hotel_pickup_not_included": "Usted deberá llegar al punto de partida del tour",
 	"mexico": "México",
-	"activities": "activities",
+	"activities": "actividades",
 	"and": "and",
-	"Panama": "Panama",
-	"Mexico": "Mexico",
+	"Panama": "Panamá",
+	"Mexico": "México",
 	"Colombia": "Colombia",
-	"Republica Dominicana": "Republica Dominicana"
+	"Republica Dominicana": "República Dominicana",
+	"is_active": "está activo",
+	"remove_filter": "remover filtro",
+	"excursions": "excursiones",
+	"things_to_do": "cosas que hacer",
+	"days": "días"
 }

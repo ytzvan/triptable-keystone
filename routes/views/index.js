@@ -32,6 +32,7 @@ module.exports = function(req, res) {
 					})
 					.where('country',countryId)
 					.where('state','published')
+					.where('featured', true)
 					.sort('-publishedDate')
 					.populate('province categories city');
 
