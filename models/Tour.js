@@ -104,10 +104,6 @@ Tour.schema.pre('save', function(next) {
   	if ( !this.createdAt ) {
     	this.createdAt = now;
   	}	
-		if (!this.city) {
-			var err = new Error('Por favor elige una ciudad');
-			return next(err);
-		} 
   	next()
 });
 Tour.register();
