@@ -105,7 +105,9 @@
 
                   </div>
                   {{/if}}
+                  {{#if data.tour.isParent }}
                     {{>tour/_bookingDates}}
+                  {{/if}}          
                   {{#if data.tour.videoId}}
                  <div id="section-7" class="detail-content">
 

@@ -94,8 +94,8 @@ fbq('track', 'InitiateCheckout');
 	<div class="breadcrumb-wrapper bg-light-2">
 		<div class="container">
 		<ol class="breadcrumb-list booking-step">
-			<li><a href="">Búsqueda</a></li>
-			<li><a href="/destination/{{data.tour.country.slug}}">Tours en {{data.tour.city.city}}</a></li>
+			<li><a href="/">{{i18n "home"}} </a></li>
+			<li><a target="_blank" href="/destino/{{data.tour.city.slug}}">Tours {{i18n "in"}} {{data.tour.city.city}}</a></li>
 			<li><span>{{i18n "book_now"}}</span></li>
 		</ol>
 		</div>
@@ -195,7 +195,7 @@ fbq('track', 'InitiateCheckout');
 										<p><input type="date" required=true name="date"></p>
 									</div> -->
                       <div class="form-group">
-                            <div class='input-group date col-sm-5 col-md-4' id='datetimepicker11'>
+                            <div class='input-group date col-md-6' id='datetimepicker11'>
                                 <input type='text' required name="date" id="date" class="form-control" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar">
@@ -265,8 +265,8 @@ fbq('track', 'InitiateCheckout');
 										<div class="form-horizontal">
 											<div class="form-group gap-20 {{#if validationErrors.name}}has-error{{/if}}">
 												{{#if validationErrors.name}}<p>{{i18n "error_invalid_name"}}</p>{{/if}}
-												<label class="col-sm-3 col-md-2 control-label">{{i18n "name"}}:</label>
-												<div class="col-sm-5 col-md-4">
+												<label class="col-md-3 control-label">{{i18n "name"}}:</label>
+												<div class="col-md-6">
 													<input type="text" name="name.full" value="{{data.user.name.full}}" class="form-control" required value="">
 												</div>
 											</div>
@@ -274,24 +274,24 @@ fbq('track', 'InitiateCheckout');
 										<div class="form-horizontal">
 											<div class="form-group gap-20 {{#if validationErrors.email}}has-error{{/if}}">
 												{{#if validationErrors.email}}<p>{{i18n "error_invalid_email"}} </p>{{/if}}
-												<label class="col-sm-3 col-md-2 control-label">{{i18n "email"}}:</label>
-												<div class="col-sm-5 col-md-4">
+												<label class="col-md-3 control-label">{{i18n "email"}}:</label>
+												<div class="col-md-6">
 													<input type="email" name="email" value="{{data.user.email}}" class="form-control" required=true value="">
 												</div>
 											</div>
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">{{i18n "phone"}}:</label>
-												<div class="col-sm-5 col-md-4">
+												<label class="col-md-3 control-label">{{i18n "phone"}}:</label>
+												<div class="col-md-6">
 													<input type="text" name="phone" class="form-control" value="">
 												</div>
 											</div>
 										</div>
 										<div class="form-horizontal">
 											<div class="form-group gap-20 select2-input-hide">
-												<label class="col-sm-3 col-md-2 control-label">{{i18n "people"}}:</label>
-												<div class="col-sm-3 col-md-4">
+												<label class="col-md-3 control-label">{{i18n "people"}}:</label>
+												<div class="col-md-6">
 													<input type="hidden" id="people_field" value="{{data.tour.minPerson}}">
 													<select name="people" required id="people" class="select2-no-search form-control" data-placeholder="{{i18n "travelers"}}">
 													{{#for data.tour.minPerson data.tour.maxPerson 1}}
@@ -395,9 +395,9 @@ fbq('track', 'InitiateCheckout');
 										{{#if data.tour.hotelPickup}}
 										<div class="form-horizontal">
 											<div class="form-group gap-20">
-												<label class="col-sm-3 col-md-2 control-label">{{i18n "pickup_address"}}:</label>
-												<div class="col-sm-5 col-md-4">
-													<input type="text" name="hotel" id="hotel" placeholder="Hotel con # de habitación " required class="form-control" value="">
+												<label class="col-md-3 control-label">{{i18n "pickup_address"}}:</label>
+												<div class="col-md-6">
+													<input type="text" name="hotel" id="hotel" placeholder="{{i18n "pickup_address"}}" required class="form-control" value="">
 												</div>
 											</div>
 										</div>
