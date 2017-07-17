@@ -38,7 +38,7 @@ module.exports = {
   },
 
   sendReviewEmail : function (model) {
-    if (process.env.SEND_EMAILS) {
+    if (process.env.SEND_EMAILS == true) {
 
     var fullname = model.name.first + " " + model.name.last;
 

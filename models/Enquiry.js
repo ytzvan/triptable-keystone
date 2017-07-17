@@ -112,7 +112,7 @@ Enquiry.schema.post('save', function() {
 	}
 
 	if (this.bookingStatus == 1){
-		Utils.sendReviewEmail(this);
+		//Utils.sendReviewEmail(this);
 	} 
 
 	try {
