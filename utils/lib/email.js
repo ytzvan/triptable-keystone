@@ -201,9 +201,6 @@ cartAbandonEmail : function (req, model) { //
 }
 
  var sendEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain) {
-
-   if (process.env.SEND_EMAILS == true) {
-
     Email.send(
      templatePath,
      {transport: 'mailgun'},
@@ -227,10 +224,7 @@ cartAbandonEmail : function (req, model) { //
 			}
 		}
 	);
-  } else {
-    return false;
-  }
-
+  
   }
 
   var scheduledEmailTemplate = function(templatePath, subject, templateOptions, toArray, mailgunApiKey, mailgunDomain, daysToAdd) {
