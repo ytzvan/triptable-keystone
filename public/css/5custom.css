@@ -579,14 +579,21 @@ h1 span.price{
 }
 a.booking-btn{
   font-weight: 800;
+  font-family: "Montserrat", "Raleway", sans-serif;
 }
 .booking-btn p.price{
-  font-family: "Montserrat", "Raleway", sans-serif;
-  font-weight: 600;
-   font-size: 25px;
+
+  font-weight: 800;
+   font-size: 18px;
    padding-bottom: 5px;
    color:white;
+   margin-bottom:5px;
 }
 p.price-detail{
   text-align: center;
+}
+.btn-secondary { background: #8e44ad; border-color: #8e44ad; color: #FFF !important; }
+.booking-action a{
+  margin: 15px 0px;
+  width: 100%;
 }

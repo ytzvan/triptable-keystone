@@ -26,28 +26,14 @@
                     </div>
                   </div>
                 </li>
-
-                <li class="price-box">
-                  <div class="meta">
-                    <span class="block price">US ${{data.tour.price}}</span>
-                    <span>
-                    {{#if data.tour.multiPrice}}
-                    {{i18n "lowest_price"}}
-                    {{else}}
-                    {{i18n "per_person"}}
-                    {{/if}}
-                    </span>
-                  </div>
-                </li>
-
               </ul>
             </div>
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-               <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
+               <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>$58 USD Por Persona</a>
               {{else}}
-              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "book_now"}}</a>
               {{/if}}
 
               </div>
@@ -80,7 +66,7 @@
 
     <div class="content-wrapper">
 
-        <div class="container">
+        <div class="container-fluid featured-tours">
 
           <div class="row">
 
@@ -457,9 +443,17 @@
                 <!-- end call 2 action -->
                   </div>
                 </div>
-                <div class="col-sm-3 hidden-sm hidden-xs">
-
-                <div class="scrollspy-sidebar sidebar-detail" role="complementary">
+                <div class="col-md-3">
+                  <div class="booking-action">
+                   {{#if userInfo}}
+                   <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
+                  {{else}}
+                   <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p><p>{{i18n "choose_booking_date"}}</p></a>
+                  {{/if}}
+                  </div>
+                  <div style="width: 100%; height: 20px;"></div>
+                  
+                <div class="hidden-sm hidden-xs" >
 
                   <ul class="scrollspy-sidenav">
 
@@ -478,12 +472,8 @@
                   </ul>
 
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
-                 {{#if userInfo}}
-                   <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
-                  {{else}}
-                   <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
-                  {{/if}}
-                  <div style="width: 100%; height: 20px;"></div>
+                
+                  
 
                 </div>
 
