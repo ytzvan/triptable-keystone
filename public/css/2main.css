@@ -873,20 +873,20 @@ a.link-alt:hover { color: #F04F38; }
 .btn-info:hover, .btn-info:focus, .btn-info.focus { background: #4477B2; border-color: #4477B2; }
 .btn-success { background: #358D44; border-color: #358D44; color: #FFF !important; }
 .btn-success:hover, .btn-success:focus, .btn-success.focus { background: #52B545; border-color: #52B545; }
-.btn-warning { background: #D60D45; border-color: #D60D45 ; color: #FFF !important; }
+.btn-warning { background: #FF696A; border-color: #FF696A ; color: #FFF !important; }
 .btn-warning:hover, .btn-warning:focus, .btn-warning.focus { background: #EDC868; border-color: #EDC868; }
-.btn-danger { background: #D60D45; border-color: #D60D45; color: #FFF !important; }
+.btn-danger { background: #FF696A; border-color: #FF696A; color: #FFF !important; }
 .btn-danger:hover, .btn-danger:focus, .btn-danger.focus { background: #F50C27; border-color: #F50C27; }
 .btn-primary.btn-inverse, .btn-info.btn-inverse, .btn-success.btn-inverse, .btn-warning.btn-inverse,.btn-danger.btn-inverse { background: #FFF; }
 .btn-primary.btn-inverse { color: #3498db !important; border-color: #3498db !important; }
 .btn-info.btn-inverse { color: #2E8ED7 !important; }
 .btn-success.btn-inverse { color: #68E030 !important; }
-.btn-warning.btn-inverse { color: #D60D45 !important; }
-.btn-danger.btn-inverse { color: #D60D45 !important; }
+.btn-warning.btn-inverse { color: #FF696A !important; }
+.btn-danger.btn-inverse { color: #FF696A !important; }
 .btn-primary.btn-inverse:hover { color: #FFF !important; background: #3498db;  }
 .btn-info.btn-inverse:hover { color: #FFF !important; background: #287CBD; }
 .btn-success.btn-inverse:hover { color: #FFF !important; background: #5CC72A; }
-.btn-warning.btn-inverse:hover { color: #FFF !important; background: #D60D45; }
+.btn-warning.btn-inverse:hover { color: #FFF !important; background: #FF696A; }
 .btn-danger.btn-inverse:hover { color: #FFF !important; background: #E6324D; }
 .btn-lg { padding-top: 15px; padding-bottom: 12px; }
 .btn-lg.btn-icon { padding-right: 66px; }

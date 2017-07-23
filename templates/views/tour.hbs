@@ -13,7 +13,8 @@
 
             <div class="flex-column flex-md-8 flex-sm-12">
 
-              <h1 class="hero-title">{{getTourLocName data.tour.name data.tour.name_eng}} </h1>
+              <h1 class="hero-title">{{getTourLocName data.tour.name data.tour.name_eng}} - <span class="price">${{data.tour.price}} USD</span>
+                    </h1>
               <p class="line18">{{getTourLocName data.tour.description.short data.tour.description_eng.short}}</p>
 
               <ul class="list-col clearfix">
@@ -28,12 +29,14 @@
 
                 <li class="price-box">
                   <div class="meta">
-                    <span class="block">${{data.tour.price}}</span>
+                    <span class="block price">US ${{data.tour.price}}</span>
+                    <span>
                     {{#if data.tour.multiPrice}}
                     {{i18n "lowest_price"}}
                     {{else}}
                     {{i18n "per_person"}}
                     {{/if}}
+                    </span>
                   </div>
                 </li>
 
@@ -42,10 +45,9 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-                <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">{{i18n "book_now"}}</a>
+               <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
               {{else}}
-
-              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger">{{i18n "book_now"}}</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
               {{/if}}
 
               </div>
@@ -477,9 +479,9 @@
 
                  <!-- <form method="get" action="/contact/{{data.tour.tourId}}"> -->
                  {{#if userInfo}}
-                  <a href="/contact/{{data.tour.tourId}}" class="btn btn-danger">{{i18n "book_now"}}</a>
+                   <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
                   {{else}}
-                  <a href="/signup?from=/contact/{{data.tour.tourId}}" class="btn btn-danger">{{i18n "book_now"}}</a>
+                   <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
                   {{/if}}
                   <div style="width: 100%; height: 20px;"></div>
 

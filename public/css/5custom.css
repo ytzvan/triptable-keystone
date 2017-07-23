@@ -495,7 +495,7 @@ ul.availabily-list li.availabily-content>div.date-from:after{
   padding-bottom: 5px;
 }
 span.price{
-      font-size: 2em !important;
+      font-size: 2em;
     color: #484848;
     font-weight: 500;
     font-family: 'Montserrat', 'Raleway', sans-serif}
@@ -564,4 +564,29 @@ a.tourlink{
     font-size: 16px;
     font-weight: 500;
     font-family: 'Montserrat', 'Raleway', sans-serif;
+}
+span.block.price{
+  font-family: "Montserrat", "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color:#3498db;
+}
+h1 span.price{
+ font-family: "Montserrat", "Raleway", sans-serif;
+  font-weight: 500;
+   font-size: 27px;
+   color:white;
+}
+a.booking-btn{
+  font-weight: 800;
+}
+.booking-btn p.price{
+  font-family: "Montserrat", "Raleway", sans-serif;
+  font-weight: 600;
+   font-size: 25px;
+   padding-bottom: 5px;
+   color:white;
+}
+p.price-detail{
+  text-align: center;
 }

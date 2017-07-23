@@ -252,7 +252,7 @@ ol.breadcrumb-list li a:hover { color: rgba(255,255,255,0.8); }
 ol.breadcrumb-list li a:after { content:"/"; margin: 0 7px; }
 ol.breadcrumb-list li span { font-weight: 600; }
 ol.breadcrumb-list.booking-step li a:after, ol.breadcrumb-list.booking-step li:not(:last-child) span:after { font-family: 'FontAwesome'; content:"\f105 "; margin: 0 7px; }
-.page-title.detail-page-title { padding: 220px 0 30px; text-align: left; }
+.page-title.detail-page-title { padding: 100px 0 30px; text-align: left; }
 .breadcrumb-wrapper { padding: 10px 0; }
 .breadcrumb-wrapper ol.breadcrumb-list li a { color: #3498db; }
 .breadcrumb-wrapper ol.breadcrumb-list li a:hover { color: #2980b9; }
