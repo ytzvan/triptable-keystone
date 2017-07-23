@@ -31,9 +31,9 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-               <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>$58 USD Por Persona</a>
+               <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>${{data.tour.price}} USD {{i18n "per_person"}}</a>
               {{else}}
-              <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "book_now"}}</a>
+              <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=book_now&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>${{data.tour.price}} USD {{i18n "per_person"}}</a>
               {{/if}}
 
               </div>
@@ -446,9 +446,9 @@
                 <div class="col-md-3">
                   <div class="booking-action">
                    {{#if userInfo}}
-                   <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p>{{i18n "choose_booking_date"}}</a>
+                   <a href="/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">${{data.tour.price}} USD</p>{{i18n "choose_booking_date"}}</a>
                   {{else}}
-                   <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">$24 USD</p><p>{{i18n "choose_booking_date"}}</p></a>
+                   <a href="/signup?from=/contact/{{data.tour.tourId}}?utm_source=website&utm_medium=check-availability&utm_campaign=buttons-ab" class="anchor btn btn-danger booking-btn"><p class="price">${{data.tour.price}} USD</p><p>{{i18n "choose_booking_date"}}</p></a>
                   {{/if}}
                   </div>
                   <div style="width: 100%; height: 20px;"></div>
