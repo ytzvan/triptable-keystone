@@ -104,7 +104,10 @@ Enquiry.schema.post('save', function() {
 		this.sendUserEmail(this); //Send User email
 		this.sendBookingNotificationEmail(this, email); //Email al operadors
 		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-		SlackUtils.sendEnquiryToSlack(this);
+		console.log("send emails", process.env.SEND_EMAILS );
+		if (process.env.SEND_EMAILS == true){
+			SlackUtils.sendEnquiryToSlack(this);
+		}
 	}
 
 	if (this.bookingStatus == 1){
