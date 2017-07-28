@@ -5,16 +5,49 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-              <h1 class="hero-title">{{data.tours.total}} {{i18n 'tours_and_activities'}} {{i18n 'in' }} {{data.placeName}} </h1>
+              <h1 class="hero-title">{{data.tours.total}} {{i18n 'tours_and_activities'}} {{i18n 'in' }} {{data.placeName}}</h1>
             </div>
           </div>
         </div>
       </div>
       </div>    <!-- container -->
-       <div class="container-fluid featured-tours">
+       <div class="container search">
+         {{#if cities}}
+       <div class="row">
+           <div class="col-md-12">
+             <h1 class="search-subtitle">Destinos {{i18n "in"}} {{data.placeName}}</h1>
+              <div class="row">
+                  {{#each_upto cities.top 4}}
+                  {{>search/searchCities}}
+                  {{/each_upto}}
+            </div>
+            <div class="row">
+              {{#each cities.all}}
+              <div class="col-md-3 cities">
+                <a href="/destino/{{slug}}"><h2 class="city-title">Tours {{i18n "in"}} {{city}}</h2></a>
+              </div>
+              {{/each}}
+            </div>
+         </div>
+          </div>
+          {{/if}}
+         {{#if data.top.results}}
+         <div class="row">
+           <div class="col-md-12">
+             <h1 class="search-subtitle">Top Tours en {{data.placeName}}</h1>
+              <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
+                <div class="GridLex-grid-noGutter-equalHeight">
+                  {{#each_upto data.top.results 4}}
+                    {{>search/searchTours}}
+                    {{/each_upto}}
+                </div>
+          </div>
+           </div>
+         </div>
+         {{/if}}
           <div class="row">
-            <div class="col-md-12" >
-              <h4 style="margin-top:10px;color:black; font-weight:400;"> Tours en  {{data.placeName}}: {{data.tours.first}} al {{data.tours.last}} de {{data.tours.total}}</h4>
+            <div class="col-md-12 results">
+              <h1 class="search-subtitle">Todos los Resultados ({{data.tours.total}} Tours en {{data.placeName}})</h1><p> Monstrando del {{data.tours.first}} al {{data.tours.last}}</p>
             </div>
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">

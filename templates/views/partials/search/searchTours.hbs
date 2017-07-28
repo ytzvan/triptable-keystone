@@ -8,7 +8,7 @@
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{/if}}
                       <div class="absolute-in-image">
-                        <div class="price"><span>US ${{price}}</span></div>
+                        <div class="price"><span>${{price}} USD</span></div>
       
                         <!--<div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>-->
                       </div>
@@ -26,6 +26,9 @@
                             <div class="tour-details">
                                 <div class="col-xs-12" style="margin-bottom: 5px;">
                                   <i class="fa fa-clock-o"></i> <span>{{duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}{{/if}}</span>
+                                </div>
+                                <div class="col-xs-12" style="margin-bottom: 5px;">
+                                  <i class="fa fa-map-marker"></i> <span>{{city.city}}</span>
                                 </div>
                                  <!--<div class="col-xs-12" ">
                                   <i class="fa fa-clock-o"></i> <span>{{duration}} {{#if isMultiDay}} Días {{else}} Horas {{/if}}</span>

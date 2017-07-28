@@ -43,7 +43,7 @@ h4.blog-title{
     text-transform: capitalize;
 }
 .page-title {
-    padding: 70px 0;
+    padding: 100px 0;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -279,6 +279,10 @@ p.hero-title.static{
 h1.hero-title.static{
   text-transform: uppercase;
   font-size: 38px;
+}
+h1.hero-title{
+  font-family: 'Montserrat', 'Raleway', sans-serif;
+  font-weight: 500;
 }
 .partner-image-item
 img {
@@ -596,4 +600,30 @@ p.price-detail{
 .booking-action a{
   margin: 15px 0px;
   width: 100%;
+}
+.search h1.search-subtitle{
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+.search .results{
+  margin: 15px 0px;
+}
+.city-container{
+    height: 150px;
+    width: auto;
+  /*  border-radius: 15% !important;*/
+    margin: 10px;
+}
+h2.destination-name {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+}
+.cities h2.city-title{
+  font-size: 1.2em;
+  color: #484848;
+  margin: 0px;
+  padding:0px;
+  text-decoration: underline;
 }

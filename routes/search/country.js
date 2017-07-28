@@ -16,6 +16,10 @@ exports = module.exports = function(req, res) {
 		filters: [],
 		categories : []
 	};
+	locals.cities = {
+		all:[],
+		top : []
+	};
 	locals.data.country;
 	locals.meta = {};
 	var url = req.url;
@@ -47,6 +51,7 @@ exports = module.exports = function(req, res) {
 			locals.data.place = place;
 			locals.data.placeName = place.country;
 			var id = place._id;
+			locals.data.placeId = place._id;
 			var country = place.country;
 			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + place.country;
 			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
@@ -79,7 +84,25 @@ exports = module.exports = function(req, res) {
 		});
 
 	// Load the tour categories
-
+ view.on('init', function(next) {
+			var id = locals.data.placeId;
+			keystone.list('Tour').paginate({
+					page: req.query.page || 1,
+					perPage: 4,
+				})
+        .find({"state": "published"})
+				.where("country", id)
+				.where("featured", true)
+        .sort('-publishedDate')
+				.populate('city province categories')
+				.exec(function (err, results){
+				if (err || !results) {
+					return res.status(404);
+				}
+					locals.data.top = results;
+					return next();
+				});
+ });
 	view.on('init', function(next) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
@@ -94,17 +117,29 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('init', function(next) {
-
-		keystone.list('Province').model.find().exec(function(err, results) { //Query Pais
+		var countryId = locals.data.placeId; //
+		keystone.list('City')
+		.model.aggregate([
+		{'$match': {"country":countryId} },
+		{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
+		])
+	 	.sort("-featured")
+		.exec(function(err, results) { //Query Pais
+			console.log(results);
 			if (err || !results) {
 				return res.status(404);
 			}
-			locals.data.provinces = results;
+			for (let i=0; i<results.length; i++) {
+					if (results[i]._id == true){
+					locals.cities.top = results[i].tours;
+					}
+			} 
+			locals.cities.all = locals.cities.top.concat(results[0].tours);
 			return next();
 
 		});
 
-	});
+	}); 
 
 	// Render the view
 	view.render('search/country');
