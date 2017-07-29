@@ -8,7 +8,7 @@ module.exports = {
     var model = bookingModel;
     var fullName = model.name.first + ' ' + model.name.last;
     slack.send({
-        channel: '#bookings',
+        channel: process.env.SLACK_CHANNEL,
         icon_url: 'http://example.com/my-icon.png',
         text: 'Nueva Reserva 🔥🙌: '+ fullName+ '. Personas: '+ model.people + '. Email: '+model.email+ '. Telefono: ' + model.phone +  '. Tour: '+model.tourName+ '. Fecha: '+model.datePretty+'. Hotel: '+model.hotel+'. Precio: $'+model.bookingTotalPrice+'. ID: '+model.friendlyId,
         username: 'triptable-bot'
