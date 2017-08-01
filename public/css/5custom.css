@@ -4,6 +4,12 @@ html{
 body {
   font-family: inherit;
 }
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+  font-weight: normal;
+  font-style: normal;
+}
 h1,h2,h3,h4,h5,h6{
   font-family: inherit;
   font-weight: 600;
@@ -528,7 +534,7 @@ h5.subtitle{
     line-height: 1;
     display: inline-block;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     margin: 5px;
 }
 .package-grid-item{
@@ -626,4 +632,40 @@ h2.destination-name {
   margin: 0px;
   padding:0px;
   text-decoration: underline;
+}
+.slick-next{
+  right:0;
+  width: 40px;
+    height: 40px;
+}
+.slick-prev{
+  left: 0;
+  width: 40px;
+    height: 40px;
+}
+.slick-next, .slick-prev {
+    color: white;
+    display: block;
+    padding: 5px;
+    top: 45%;
+}
+.slick-prev:before {
+    content: "\f060" !important; 
+ }
+  .slick-next:before {
+    content: "\f061" !important; 
+    
+ }
+ .slick-next:before, .slick-prev:before {
+    font-family: "FontAwesome";
+    font-size: 30px;
+    content: "\f060";
+    color: #ff696a;
+    background-color: white;
+    padding: 10% 5px;
+    border-radius: 60%;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased!important;
+    -font-smoothing:antialiased!important;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.35) !important;
 }
