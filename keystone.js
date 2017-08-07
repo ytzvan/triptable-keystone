@@ -30,7 +30,7 @@ keystone.init({
 	'mongo': process.env.MONGO_URI,
 	'auto update': true,
 	'session': true,
-	//'session store': 'mongo',
+	'session store': 'mongo', // Using same db for session store
 	'auth': true,
 	'user model': 'User',
 	'signin url': '/signin',
