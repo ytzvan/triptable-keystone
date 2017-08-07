@@ -70,7 +70,7 @@ exports = module.exports = function(req, res) {
         });
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {
-            fields: 'email, password, referalCode',
+            fields: 'email, password',
             flashErrors: false,
             logErrors: true
         }, function(err,result) {
@@ -85,7 +85,7 @@ exports = module.exports = function(req, res) {
                   Mailchimp.addToMainList(result);
 									Utils.addEventToMixPanel('Cuenta Creada');
                 };
-                Utils.addPromoCodeToUser(result, req);
+               // Utils.addPromoCodeToUser(result, req);
                 //return res.redirect('/signin');
                 return session.signin(req.body, req, res, onSuccess, onFail);
             }
