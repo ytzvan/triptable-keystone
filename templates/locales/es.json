@@ -1,6 +1,6 @@
 {
 	"header_title": "Encuentra los Mejores Tours y Actividades",
-	"header_subtitle": "Reserva tours con guías locales en más de 20 destinos y disfruta de tu viaje sin estrés.",
+	"header_subtitle": "Reserva tours con guías locales en Panamá, Colombia y México y disfruta de tu viaje sin estrés.",
 	"country_select": "Escoge un Pais",
 	"post_hero_title": "Descubre Cosas que Hacer",
 	"post_hero_subtitle": "en Triptable encontrarás los mejores tours y cosas que hacer en donde te encuentres.",
@@ -160,5 +160,7 @@
 	"things_to_do": "cosas que hacer",
 	"days": "días",
 	"Country prueba": "Country prueba",
-	"choose_booking_date": "Verificar Disponibilidad"
+	"choose_booking_date": "Verificar Disponibilidad",
+	"faq_title": "Preguntas Frecuentes",
+	"faq_subtitle": "Algunas preguntas realizadas por nuestros usuarios",
 }
