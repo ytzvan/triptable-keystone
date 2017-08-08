@@ -669,3 +669,14 @@ h2.destination-name {
     -font-smoothing:antialiased!important;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.35) !important;
 }
+.result-img{
+  height: auto;
+}
+#autocomplete-dataset{
+  font-family: "FontAwesome", "Raleway", sans-serif;
+}
+#autocomplete-dataset::placeholder  {
+    font-size: 18px;
+    font-weight: 500;
+    
+ }

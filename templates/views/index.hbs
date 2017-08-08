@@ -1,3 +1,35 @@
+<style>
+.algolia-autocomplete {
+  width: 100%;
+}
+.search-result-dropdown-menu {
+  width: 100%;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+  padding: .5em;
+  box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
+}
+.search-result-dropdown-menu .search-result-suggestion small {
+  font-size: .8em;
+  color: #bbb;
+}
+.search-result-dropdown-menu .search-result-suggestion.search-result-cursor {
+  background-color: #B2D7FF;
+}
+.search-result-dropdown-menu .search-result-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.search-result-header {
+  font-weight: bold;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+</style>
  <!-- start Main Wrapper -->
     <div class="main-wrapper">
       <!-- start hero-header with windows height -->
@@ -20,63 +52,18 @@
           </div>
 
           <div class="main-search-wrapper full-width">
+             
 
             <div class="inner">
 
-              <div class="column-item">
-
-                <div class="form-group">
-
-                  <select name="destination" id="countries" class="select2-multi form-control" data-placeholder="{{i18n 'select_country'}}">
-                    {{#each data.countries}}
-                    <option value="{{slug}}">{{i18n country}}</option>
-                    {{/each}}
-                  </select>
-
+            <div class="form-horizontal">
+              <div class="form-group"> 
+                <div class="col-md-offset-2 col-lg-8">
+                  <input type="text"  id="autocomplete-dataset" class="form-control" value="" placeholder="&#xf041; ¿A dónde viajas? Ej: Panama City o Colombia">
                 </div>
-
-              </div>
-
-              <div class="column-item">
-
-                <div class="form-group">
-
-                  <select name="month" class="select2-multi form-control province" id="destino" data-placeholder="{{i18n 'select_destination'}}">
-                    <option value="">{{i18n 'select_destination'}}</option>
-                    <option value="0">{{i18n 'all'}}</option>
-                    {{#each data.provinces}}
-                    <option value="{{slug}}">{{province}}</option>
-                    {{/each}}
-                  </select>
-
                 </div>
-
               </div>
-
-              <div class="column-item">
-
-                <div class="form-group">
-
-                  <select name="year" class="select2-multi form-control" data-placeholder="{{i18n 'type_of_trip'}}" id="categoria">
-                    <option value="">{{i18n 'type_of_trip'}}</option>
-                    <option value="0">{{i18n 'all'}}</option>
-                    {{#each data.categories}}
-                    <option value="{{slug}}">{{name}}</option>
-                    {{/each}}
-                  </select>
-
-                </div>
-
-              </div>
-
-              <div class="column-item for-btn">
-
-                <div class="form-group">
-                  <a href="#" id="searchBtn" class="btn btn-primary btn-block">{{i18n 'search'}}</a>
-
-                </div>
-
-              </div>
+            </div>
 
             </div>
 
@@ -85,51 +72,10 @@
         </div>
         {{#if data.homeImage}}
          <div class="text-hero-home">
-           <a href="{{data.homeImage.url}}" target="_blank">{{data.homeImage.description}}</a>
+         <!--  <a href="{{data.homeImage.url}}" target="_blank">{{data.homeImage.description}}</a> -->
          </div>
       {{/if}}
       </div>
-      <!-- end hero-header with windows height 
-      <div class="post-hero bg-light pt15 hidden-xs">
-
-        <div class="container">
-
-          <div class="row">
-
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"><i class="pe-7s-map-2"></i></div>
-                <div class="content">
-                  <h4 class="description">{{i18n "post_hero_title"}}</h4>
-                  <span>{{i18n "post_hero_subtitle"}}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"> <i class="pe-7s-id"></i></div>
-                <div class="content">
-                  <h4 class="description">{{i18n "post_hero_title_2"}}</h4>
-                  <span>{{i18n "post_hero_subtitle_2"}}.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="featured-count clearfix">
-                <div class="icon"> <i class="pe-7s-lock"></i></div>
-                <div class="content">
-                  <h4 class="description">{{i18n "post_hero_title_3"}}</h4>
-                  <span>{{i18n "post_hero_subtitle_3"}}</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>-->
  {{>home/tours}}
  {{>home/bookingWithUs}}
  {{>home/newsletter}}
@@ -177,3 +123,96 @@ var country;
 		 ga('send', 'pageview'); 
 	});
 </script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            (function() {
+  var client = algoliasearch('YRA8Y5OT4G', 'a42cf17e8e8502300d0591021b2037d0');
+  var destinations = client.initIndex('cities');
+  var regions = client.initIndex('provinces');
+  function getSmallImageFromUrl(img) {
+        var image = img;
+        var image = image.split("upload");
+        var thumb = image[0] + "upload/c_fill,g_center,h_175,w_325" + image[1];
+        return thumb;
+  };
+
+  // create the first autocomplete.js dataset: vacation rentals
+  var rentalsDataset = {
+    source: autocomplete.sources.hits(destinations, {hitsPerPage: 6}),
+    displayKey: 'city',
+    templates: {
+      header: '<div class="row search-result-header">Destinos</div>',
+      suggestion: function(suggestion) {
+        console.log(suggestion);
+        var thumb = getSmallImageFromUrl(suggestion.image);
+        return '<div class="col-md-4"><a href="/destino/'+suggestion.slug+'">' +
+          '<img class="result-img" src="' + thumb + '" />' +
+          '<div>' +
+            suggestion._highlightResult.city.value + ", "+ suggestion._highlightResult.country.value +'<br />' +
+            '<small>' + suggestion._highlightResult.city.value + '</small>, ' +  '<small>' + suggestion._highlightResult.country.value + '</small>' +
+          '</div>' +
+          '</a></div>';
+      }
+    }
+  };
+  var regionsDataset = {
+    source: autocomplete.sources.hits(regions, {hitsPerPage: 3}),
+    displayKey: 'province',
+    templates: {
+      header: '<div class="row search-result-header">Regiones</div>',
+      suggestion: function(suggestion) {
+        console.log(suggestion);
+        var thumb = getSmallImageFromUrl(suggestion.image);
+        return '<div class="col-md-4"><a href="/destination/'+suggestion.slug+'">' +
+          '<img class="result-img" src="' + thumb + '" />' +
+          '<div>' +
+            suggestion._highlightResult.province.value + ", "+ suggestion._highlightResult.country.value +'<br />' +
+            '<small>' + suggestion._highlightResult.province.value + '</small>, ' +  '<small>' + suggestion._highlightResult.country.value + '</small>' +
+          '</div>' +
+          '</a></div>';
+      }
+    }
+  };
+
+  // create the second dataset: places
+  // we automatically inject the default CSS
+  // all the places.js options are available
+  /*var placesDataset = placesAutocompleteDataset({
+    algoliasearch: algoliasearch,
+    type: 'city',
+    countries: ['pa','co', 'mx'],
+    language: 'en',
+    aroundLatLngViaIP: false,
+    templates: {
+      header: '<div class="row search-result-header">Cities</div>'
+    },
+    hitsPerPage: 5
+  }); */
+
+  // init
+  var autocompleteInstance = autocomplete(document.querySelector('#autocomplete-dataset'), {
+    hint: false,
+    debug: true,
+    cssClasses: {prefix: 'search-result'}
+  }, [
+    rentalsDataset,
+    regionsDataset
+
+ //   placesDataset
+  ]);
+
+  var autocompleteChangeEvents = ['selected', 'autocompleted'];
+
+  autocompleteChangeEvents.forEach(function(eventName) {
+    autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
+      console.log(datasetName, suggestion);
+      let city = suggestion.hit.administrative[0];
+      let result = city.toLowerCase();
+      $('#searchBtn').attr('href', '/destino/'+result);
+    });
+  });
+})();
+
+        });
+   
+        </script>
