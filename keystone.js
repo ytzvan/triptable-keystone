@@ -79,14 +79,10 @@ keystone.set('email tests', require('./routes/emails'));
 
 //keystone.set('session options', { cookie: { domain:'.localdomain.com:3000', path: '/', secure: true,  maxAge   : 1000*60*60*24*30*12 }});
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
 	'enquiries': 'enquiries',
 	'users': 'users',
 	'tours' : 'tours',
-  'attractions' : 'attractions',
-  'reviews' : 'reviews',
-	'locations' : ['countries', 'provinces', 'cities'],
-  'crms' : 'crms',
-  'PromoCode' : 'PromoCode'
+	'locations' : ['cities', 'provinces', 'countries'],
+  'crms' : 'crms'
 });
 keystone.start();
