@@ -4,7 +4,8 @@ var passport = require('passport');
 var Keen = require('keen-js');
 var i18n = require("i18n");
 var Url = require('url');
-  
+var oxr = require('open-exchange-rates'),
+	fx = require('money');
 /**
 	Initialises the standard view locals
 */
@@ -272,7 +273,25 @@ if (subdomain == 'www') {
     i18n.setLocale(process.env.LANG);
   } */
   locals.lang = process.env.LANG;
-
   next();
 };
 
+exports.setCurrency = function(req, res, next) {
+ process.env.CURRENCY = "EUR";
+/*  if (!process.env.CURRENCY) {
+    process.env.CURRENCY = "USD";
+  } else {
+    process.env.CURRENCY =  process.env.CURRENCY;
+  }*/
+
+  oxr.set({ app_id: process.env.OXR_API_KEY })
+
+  oxr.latest(function() {
+	// Apply exchange rates and base rate to `fx` library object:
+	fx.rates = oxr.rates;
+	fx.base = oxr.base;
+	
+	// money.js is ready to use:
+  next();
+});
+}

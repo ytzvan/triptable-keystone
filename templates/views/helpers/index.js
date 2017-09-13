@@ -4,6 +4,7 @@ var hbs = require('handlebars');
 var keystone = require('keystone');
 var cloudinary = require('cloudinary');
 var i18n = require("i18n");
+var fx = require('money');
 
 
 // Declare Constants
@@ -424,7 +425,16 @@ module.exports = function() {
   	}
   	currentLang = 'gb';
   	return currentLang;
-  }
+  };
 
+	_helpers.getPriceInCurrency = function(price){
+		var currency = process.env.CURRENCY;
+		var convert = fx(price).from('USD').to(currency); // ~8.0424
+		var priceInLocalCurrency = accounting.formatMoney(convert);
+		return priceInLocalCurrency;
+	};
+	_helpers.getCurrency = function(){
+		return process.env.CURRENCY;
+	}
 	return _helpers;
 };

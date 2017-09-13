@@ -8,7 +8,7 @@
                       <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
                       {{/if}}
                       <div class="absolute-in-image">
-                        <div class="price"><span>${{price}} USD</span></div>
+                        <div class="price"><span>{{getPriceInCurrency price}} {{getCurrency}} </span></div>
       
                         <!--<div class="ribbon-wrapper-green"><div class="ribbon-green">{{i18n "sale"}}</div></div>-->
                       </div>
