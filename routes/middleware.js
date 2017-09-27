@@ -277,12 +277,11 @@ if (subdomain == 'www') {
 };
 
 exports.setCurrency = function(req, res, next) {
- process.env.CURRENCY = "EUR";
-/*  if (!process.env.CURRENCY) {
+ if (!process.env.CURRENCY) {
     process.env.CURRENCY = "USD";
   } else {
     process.env.CURRENCY =  process.env.CURRENCY;
-  }*/
+  };
 
   oxr.set({ app_id: process.env.OXR_API_KEY })
 
