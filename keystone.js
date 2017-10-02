@@ -13,15 +13,15 @@ keystone.init({
 	'brand': 'Triptable',
 
 	'less': 'public',
-	'static': 'public',
+	'static': 'public/v2',
 	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
+	'views': 'templates/v2',
 	'view engine': 'hbs',
 
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
-		partialsDir: 'templates/views/partials',
-		defaultLayout: 'main',
+		partialsDir: 'templates/v2/partials',
+		defaultLayout: 'v2',
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
