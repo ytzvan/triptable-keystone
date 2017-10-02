@@ -1,0 +1,47 @@
+<!-- Fullwidth Section -->
+<section class="fullwidth margin-top-0 padding-top-30 padding-bottom-70" data-background-color="#f8f8f8">
+
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<h3 class="headline centered margin-bottom-15">
+					Tours Más Reservados
+					<span>Descubre los top-rated tours y actividades</span>
+				</h3>
+			</div>
+		</div>
+	</div>
+
+	<!-- Carousel / Start -->
+	<div class="simple-fw-slick-carousel dots-nav">
+		{{#each_upto toursPanama.results 12}}
+		<!-- Listing Item -->
+		<div class="fw-carousel-item">
+			<a href="/tour/{{slug}}" class="listing-item-container compact">
+				<div class="listing-item">
+					{{#if heroImage.secure_url}} <!-- fall back -->
+					<img src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
+					{{else}}
+					<img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+          {{/if}}
+					<div class="listing-badge now-open"><strong>{{getPriceInCurrency price}} {{getCurrency}}</strong></div>
+					<div class="listing-item-content">
+						<!--<div class="numerical-rating" data-rating="">-10%</div>  -->
+						<div class="star-rating" data-rating="4.5"><div class="rating-counter">(12 reviews)</div></div>
+						<h3>{{name}}</h3>
+						<span>Medellin, Colombia</span>
+					</div>
+					<span class="like-icon"></span>
+				</div>
+
+			</a>
+		</div>
+		<!-- Listing Item / End -->
+		{{/each_upto}}
+	</div>
+	<!-- Carousel / End -->
+
+
+</section>
+<!-- Fullwidth Section / End -->

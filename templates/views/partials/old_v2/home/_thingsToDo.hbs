@@ -1,0 +1,109 @@
+<div class="front-page-section">
+    <div class="section-wrap">
+        <div class="widget_front_page_listing_cards" itemscope itemtype="http://schema.org/LocalBusiness">
+            <h3 class="widget_title  widget_title--frontpage"> {{i18n "featured_tours"}}<span class="widget_subtitle--frontpage">{{i18n "featured_tours_subtitle"}}. </span></h3>
+            <div class="grid  grid--widget  list">
+               <!-- <a href="https://pixelgrade.com/demos/listable/listings/russell-hotel/" class="grid__item  grid__item--widget">
+                    <article class="card  card--listing  card--widget  not-claimed product first instock virtual sold-individually shipping-taxable purchasable product-type-booking" data-latitude="51.5226217" data-longitude="-0.1251602" data-img="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/67955404_y.jpeg?fit=986%2C649&ssl=1" data-permalink="https://pixelgrade.com/demos/listable/listings/russell-hotel/">
+                        <div class="card__image  card__image--product" style="background-image: url(https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/11/shop-salon-1.jpg?resize=450%2C300&amp;ssl=1)"><span class="product__price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>110.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>45.00</span></ins></span><span class="product__tag">75% OFF</span></div>
+                        <div class="card__content">
+                            <h2 class="card__title" itemprop="name">Russell Hotel</h2>
+                            <div class="card__tagline">Luxury hotel in the heart of Bloomsbury.</div>
+                            <footer class="card__footer">
+                                <div class="rating  card__rating"> <span class="js-average-rating">4.5</span></div>
+                                <ul class="card__tags">
+                                    <li>
+                                        <div class="card__tag">
+                                            <div class="pin__icon">
+                                                <i class="fa fa-bus" style="font-size: 25px;left: 0;position: absolute;top: 0;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"></i>
+                                            </div>
+                                    </li>
+                                    <li>
+                                        <div class="card__tag">
+                                            <div class="pin__icon">
+                                                <div class="pin__icon">
+                                                <i class="fa fa-bus" style="font-size: 25px;left: 0;position: absolute;top: 0;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"></i>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="address  card__address">
+                                    <div itemprop="streetAddress"> <span class="address__street">Russell Square</span> <span class="address__street-no">8</span></div> <span class="address__city" itemprop="addressLocality">London</span> <span class="address__postcode" itemprop="postalCode">WC1B 5BE</span> <span class="address__state-short" itemprop="addressRegion">Gt Lon</span> <span class="address__country-short" itemprop="addressCountry">GB</span></div>
+                            </footer>
+                        </div>
+                    </article>
+                </a> -->
+                {{#each data.tours.results}}
+                <a href="/v2/tour/{{slug}}" class="grid__item  grid__item--widget">
+                    <article class="card  card--listing  card--widget claimed product first instock sale downloadable virtual shipping-taxable purchasable product-type-simple" 
+                        data-latitude="51.5022081" data-longitude="-0.1599428" data-img="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/9k.jpg?fit=1200%2C868&amp;ssl=1"
+                        data-permalink="https://pixelgrade.com/demos/listable/listings/bar-boloud/">
+                        <aside class="card__image" style="background-image: url({{images.0.url}});">
+                            <div class="heart "> </div>
+                            <span class="product__price">
+                                <!--<del><span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>32.00</span>
+                                </del> -->
+                                <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>{{price}} USD</span>
+                                </ins>
+                            </span>
+                        </aside>
+                        <div class="card__content">
+                            <h2 class="card__title" itemprop="name" style="font-size:19px;">{{name}}<span class="listing-claimed-icon"><!--<i class="fa fa-bus"></i>--><span></span></span></h2>
+                            <div class="card__tagline">{{description.short}}</div> 
+                            <footer class="card__footer">
+                                <div class="rating  card__rating">
+                                    <span class="js-average-rating">{{nOfStars}}</span>
+                                </div>
+                                <ul class="card__tags">
+                                    <li>
+                                        <div class="card__tag">
+                                            <div class="pin__icon"> 
+                                                <i class="fa fa-bus" style="font-size: 25px;left: 0;position: absolute;top: 0;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card__tag">
+                                            <div class="pin__icon">
+                                                <i class="fa fa-bed" style="font-size: 25px;left: 0;position: absolute;top: 0;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="address  card__address">
+                                    <div itemprop="streetAddress">
+                                        <span class="address__street">{{province.province}}</span>,
+                                        <span class="address__street-no">{{country.country}}</span>
+                                    </div>
+                                    <span class="address__city" itemprop="addressLocality">London</span>
+                                    <span class="address__postcode" itemprop="postalCode">SW1X 7LA</span>
+                                    <span class="address__state-short" itemprop="addressRegion">Gt Lon</span><span class="address__country-short" itemprop="addressCountry">GB</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+                </a>
+                {{/each}}
+<!--    
+                <a href="https://pixelgrade.com/demos/listable/listings/bar-boloud/" class="grid__item  grid__item--widget"> <article class="card  card--listing  card--widget  claimed product first instock sale downloadable virtual shipping-taxable purchasable product-type-simple" data-latitude="51.5022081" data-longitude="-0.1599428" data-img="https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/9k.jpg?fit=1200%2C868&amp;ssl=1" data-permalink="https://pixelgrade.com/demos/listable/listings/bar-boloud/"><aside class="card__image" style="background-image: url(https://i1.wp.com/pixelgrade.com/demos/listable/wp-content/uploads/2015/10/Knomo-Second-Home-Office-Space-Envy-Jago.jpg?fit=450%2C450&amp;ssl=1);">
+                                    <span class="card__featured-tag">Featured</span>
+                
+                        <div class="heart ">
+            <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="heartshape" transform="translate(2.000000, 3.000000)" fill="none">
+        <path d="M23.5384282,13.3611318 C26.8170364,10.0518857 26.7470962,5.22853673 23.7661888,2.23628126 C20.7852813,-0.756761451 15.9651293,-0.743640976 12.9998219,2.2651463 C10.0347745,-0.743640976 5.21462242,-0.756761451 2.23371498,2.23628126 C-0.747192472,5.22853673 -0.816872646,10.0518857 2.46147555,13.3611318 C6.12072469,17.0540207 11.9751593,22.9653194 12.9998219,24 C14.0252644,22.9653194 19.8789191,17.0540207 23.5384282,13.3611318 L23.5384282,13.3611318 Z" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
+        </div>
+                
+            </aside><div class="card__content"><h2 class="card__title" itemprop="name">Bar Boloud<span class="listing-claimed-icon"><svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs><g id="Page---Claim-Listing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Claimed-Listing---Archive" sketch:type="MSArtboardGroup" transform="translate(-184.000000, -498.000000)"><g id="Checked-Copy" sketch:type="MSLayerGroup" transform="translate(184.000000, 498.000000)"><circle id="Oval-56" fill="currentColor" sketch:type="MSShapeGroup" cx="8" cy="8" r="8"></circle><path d="M9.80856,5.32724 L7.13356,8.00272 L5.911,6.78028 C5.70856,6.57772 5.42872,6.45208 5.11936,6.45208 C4.501,6.45208 4,6.9532 4,7.57156 C4,7.88092 4.12564,8.16124 4.32856,8.36368 L6.34048,10.3756 C6.7792,10.80916 7.48648,10.80916 7.92292,10.37272 L11.38872,6.90692 C11.82516,6.47156 11.82516,5.76368 11.38872,5.32724 C10.95228,4.89092 10.245,4.89092 9.80856,5.32724 Z" id="Page-1" fill="#FFFFFF" sketch:type="MSShapeGroup"></path></g></g></g></svg><span></span></span></h2><div class="card__tagline">French-inspired bistro and wine bar.</div> <footer class="card__footer"><div class="rating  card__rating"> <span class="js-average-rating">4.0</span></div><ul class="card__tags"><li><div class="card__tag"><div class="pin__icon"> <svg width="24" height="26" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-12 -11)" fill="none" fill-rule="evenodd"><circle stroke="currentColor" stroke-width="2" cx="24" cy="24" r="24"></circle><g fill="currentColor"><path d="M18.372 36.737h-.036c-1.278 0-2.32-1.04-2.32-2.32V24.244c0-.836-.37-1.644-1.04-2.278-1.237-1.163-1.946-2.882-1.946-4.715 0-3.367 2.39-6.106 5.325-6.106 2.938 0 5.325 2.74 5.325 6.106 0 1.833-.71 3.552-1.946 4.715-.672.634-1.043 1.442-1.043 2.278v10.17c0 1.282-1.04 2.322-2.318 2.322zm-.02-24.55c-2.363 0-4.285 2.273-4.285 5.065 0 1.547.59 2.99 1.617 3.96.884.83 1.37 1.907 1.37 3.033v10.17c0 .707.575 1.282 1.28 1.282h.036c.706 0 1.28-.575 1.28-1.28V24.244c0-1.126.487-2.202 1.37-3.034 1.03-.968 1.62-2.41 1.62-3.958.002-2.794-1.922-5.066-4.287-5.066zM29.983 36.737h-.036c-1.28 0-2.32-1.04-2.32-2.32V24.244c0-.836-.37-1.644-1.04-2.278-1.237-1.163-1.946-2.882-1.946-4.715 0-1.406 0-3.155 1.094-4.374.21-.23.49-.357.797-.357.582 0 1.056.46 1.077 1.033l.448 3.343c.01.072.127.053.133-.002l.46-4.1c.015-.487.364-.91.843-1.017.04-.007.075-.013.113-.013h.728c.04 0 .077.004.113.013.478.106.828.53.843 1.016l.46 4.1c.01.075.125.056.132.003l.45-3.343c.02-.572.495-1.032 1.075-1.032.307 0 .588.127.796.358 1.093 1.22 1.093 2.968 1.093 4.374 0 1.833-.71 3.552-1.945 4.715-.67.634-1.042 1.444-1.042 2.278v10.17c-.002 1.282-1.042 2.322-2.323 2.322zm-3.865-23.512l.386.347c-.766.854-.826 2.118-.826 3.68 0 1.547.59 2.99 1.617 3.96.883.83 1.37 1.907 1.37 3.033v10.17c0 .707.575 1.282 1.28 1.282h.036c.706 0 1.282-.575 1.282-1.28V24.244c0-1.126.486-2.202 1.37-3.034 1.028-.968 1.617-2.41 1.617-3.958 0-1.562-.062-2.826-.828-3.68 0 .023-.062.067-.066.09l-.452 3.372c-.072.545-.542.956-1.092.956-.57 0-1.042-.42-1.105-.978l-.46-4.126c-.003-.02-.005-.038-.005-.06l.004-.02h-.533c-.008.023-.03.063-.03.08l-.462 4.126c-.062.557-.533.978-1.095.978-.56 0-1.03-.41-1.1-.956l-.453-3.373c-.003-.02-.003-.044-.003-.067l-.452-.368z"></path><path d="M18.397 21.105c-1.72 0-3.118-1.67-3.118-3.723 0-2.054 1.397-3.724 3.117-3.724.216 0 .39.174.39.39 0 .215-.174.39-.39.39-1.29 0-2.338 1.32-2.338 2.944 0 1.623 1.046 2.944 2.337 2.944.216 0 .39.174.39.39 0 .215-.174.39-.39.39z"></path></g></g></svg></div></div></li><li><div class="card__tag"><div class="pin__icon"> <svg width="24" height="26" viewBox="0 0 24 26" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-12 -9)" fill="none" fill-rule="evenodd"><circle stroke="currentColor" stroke-width="2" cx="24" cy="24" r="24"></circle><g fill="currentColor"><path d="M23.7 34.833h-7c-.367 0-.667-.3-.667-.666V18.8c0-1.2.834-2.2 1.934-2.5V9.833c0-.366.3-.666.666-.666h.934c.366 0 .666.3.666.666 0 .367-.3.667-.666.667H19.3v6.4c0 .367-.3.667-.667.667-.7 0-1.266.566-1.266 1.233v14.7h5.666V18.8c0-.7-.566-1.233-1.233-1.233-.367 0-.7-.3-.7-.667V9.833c0-.366.3-.666.667-.666.366 0 .666.3.666.666v6.5c1.1.3 1.934 1.3 1.934 2.5V34.2c0 .333-.3.633-.667.633z"></path><path d="M21.633 21.267H16.7c-.367 0-.667-.3-.667-.667 0-.367.3-.667.667-.667h4.933c.367 0 .667.3.667.667 0 .367-.3.667-.667.667zM30.1 30.267c-2.2 0-3.733-.7-4.567-2.067-1.466-2.467-.033-6.467 1.067-8.433.167-.334.567-.434.9-.267.333.167.433.567.267.9-.867 1.6-2.234 5.167-1.067 7.133.567.934 1.7 1.434 3.433 1.434 1.7 0 2.867-.467 3.434-1.434 1.166-1.966-.2-5.5-1.067-7.133-.167-.333-.067-.733.267-.9.333-.167.733-.067.9.267 1.066 1.966 2.533 5.966 1.066 8.433-.866 1.367-2.4 2.067-4.633 2.067z"></path><path d="M30.1 34.833c-.367 0-.667-.3-.667-.666V29.6c0-.367.3-.667.667-.667.367 0 .667.3.667.667v4.567c0 .366-.3.666-.667.666z"></path><path d="M32.4 34.833h-4.6c-.367 0-.667-.3-.667-.666 0-.367.3-.667.667-.667h4.6c.367 0 .667.3.667.667 0 .366-.3.666-.667.666zM31.9 23.9h-5.967c-.366 0-.666-.3-.666-.667 0-.366.3-.666.666-.666H31.9c.367 0 .667.3.667.666 0 .367-.3.667-.667.667zM21.633 30.267H16.7c-.367 0-.667-.3-.667-.667 0-.367.3-.667.667-.667h4.933c.367 0 .667.3.667.667 0 .367-.3.667-.667.667z"></path></g></g></svg></div></div></li></ul><div class="address  card__address"><div itemprop="streetAddress"> <span class="address__street">Knightsbridge</span> <span class="address__street-no">66</span></div> <span class="address__city" itemprop="addressLocality">London</span> <span class="address__postcode" itemprop="postalCode">SW1X 7LA</span> <span class="address__state-short" itemprop="addressRegion">Gt Lon</span> <span class="address__country-short" itemprop="addressCountry">GB</span></div> </footer></div> </article> </a>
+-->
+
+            </div>
+        </div>
+    </div>
+</div>

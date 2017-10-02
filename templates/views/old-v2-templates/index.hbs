@@ -1,0 +1,289 @@
+<style>
+.algolia-autocomplete {
+  width: 100%;
+}
+.ad-example-dropdown-menu {
+  width: 100%;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+  padding: .5em;
+  box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
+}
+.ad-example-dropdown-menu .ad-example-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.ad-example-dropdown-menu .ad-example-suggestion img {
+  height: 2em;
+  margin-top: .5em;
+  margin-right: 10px;
+  float: left;
+}
+.ad-example-dropdown-menu .ad-example-suggestion small {
+  font-size: .8em;
+  color: #bbb;
+}
+.ad-example-dropdown-menu .ad-example-suggestion.ad-example-cursor {
+  background-color: #B2D7FF;
+}
+.ad-example-dropdown-menu .ad-example-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.ad-example-header {
+  font-weight: bold;
+  padding: .5em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+</style>
+<header id="masthead" class="site-header  header--transparent" role="banner">
+            <div class="site-branding  site-branding--image">
+                <a href="/" class="custom-logo-link" rel="home" itemprop="url"><img src="/v2/assets/img/triptable.png" class="custom-logo" alt="triptable-logo" itemprop="logo" /></a>
+            </div>
+            <button class="menu-trigger  menu--open  js-menu-trigger">
+                <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs></defs>
+                    <g id="Responsiveness" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                        <g id="noun_70916" transform="translate(0.000000, 5.000000)">
+                            <path d="M0.909090909,2.22222222 L29.0909091,2.22222222 C29.5927273,2.22222222 30,1.72444444 30,1.11111111 C30,0.497777778 29.5927273,0 29.0909091,0 L0.909090909,0 C0.407272727,0 0,0.497777778 0,1.11111111 C0,1.72444444 0.407272727,2.22222222 0.909090909,2.22222222 L0.909090909,2.22222222 Z" id="Shape"></path>
+                            <path d="M0.909090909,11.1111111 L29.0909091,11.1111111 C29.5927273,11.1111111 30,10.6133333 30,10 C30,9.38666667 29.5927273,8.88888889 29.0909091,8.88888889 L0.909090909,8.88888889 C0.407272727,8.88888889 0,9.38666667 0,10 C0,10.6133333 0.407272727,11.1111111 0.909090909,11.1111111 L0.909090909,11.1111111 Z" id="Shape"></path>
+                            <path d="M0.909090909,20 L29.0909091,20 C29.5927273,20 30,19.5022222 30,18.8888889 C30,18.2755556 29.5927273,17.7777778 29.0909091,17.7777778 L0.909090909,17.7777778 C0.407272727,17.7777778 0,18.2755556 0,18.8888889 C0,19.5022222 0.407272727,20 0.909090909,20 L0.909090909,20 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <nav id="site-navigation" class="menu-wrapper" role="navigation">
+                <button class="menu-trigger  menu--close  js-menu-trigger">
+                    <svg class="close-icon" width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.326 15l13.4-13.4c.366-.366.366-.96 0-1.325-.366-.367-.96-.367-1.326 0L15 13.675 1.6.275C1.235-.093.64-.093.275.275c-.367.365-.367.96 0 1.324l13.4 13.4-13.4 13.4c-.367.364-.367.96 0 1.323.182.184.422.275.662.275.24 0 .48-.09.663-.276l13.4-13.4 13.4 13.4c.183.184.423.275.663.275.24 0 .48-.09.662-.276.367-.365.367-.96 0-1.324L16.325 15z" fill-rule="evenodd" />
+                </button>
+                <ul id="menu-main-menu" class="primary-menu">
+                    <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-50"><a href="https://pixelgrade.com/demos/listable/listings/" class=" ">Explore</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-927" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-927"><a href="https://pixelgrade.com/demos/listable/listings/" class=" ">All Listings</a></li>
+                            <li id="menu-item-88" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-88"><a href="https://pixelgrade.com/demos/listable/listing-category/food/" class=" ">Food</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-89" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-89"><a href="https://pixelgrade.com/demos/listable/listing-category/cafe/" class=" ">Café</a></li>
+                                    <li id="menu-item-904" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-904"><a href="https://pixelgrade.com/demos/listable/listing-category/pizza-place/" class=" ">Pizza Place</a></li>
+                                    <li id="menu-item-903" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-903"><a href="https://pixelgrade.com/demos/listable/listing-category/restaurant/" class=" ">Restaurant</a></li>
+                                    <li id="menu-item-909" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-909"><a href="https://pixelgrade.com/demos/listable/listing-category/winery/" class=" ">Winery</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-84" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-84"><a href="https://pixelgrade.com/demos/listable/listing-category/arts-entertainment/" class=" ">Entertainment</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-907" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-907"><a href="https://pixelgrade.com/demos/listable/listing-category/art-gallery/" class=" ">Art Gallery</a></li>
+                                    <li id="menu-item-908" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-908"><a href="https://pixelgrade.com/demos/listable/listing-category/movie-theater/" class=" ">Movie Theater</a></li>
+                                    <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-85"><a href="https://pixelgrade.com/demos/listable/listing-category/museum/" class=" ">Museum</a></li>
+                                    <li id="menu-item-905" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-905"><a href="https://pixelgrade.com/demos/listable/listing-category/stadium/" class=" ">Stadium</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-910" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-910"><a href="https://pixelgrade.com/demos/listable/listing-category/lodging/" class=" ">Lodging</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-912" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-912"><a href="https://pixelgrade.com/demos/listable/listing-category/hotels/" class=" ">Hotels</a></li>
+                                    <li id="menu-item-911" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-911"><a href="https://pixelgrade.com/demos/listable/listing-category/apartment/" class=" ">Apartment</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-913" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-913"><a href="https://pixelgrade.com/demos/listable/listing-category/nightlife/" class=" ">Nightlife</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-914" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-914"><a href="https://pixelgrade.com/demos/listable/listing-category/bar/" class=" ">Bar</a></li>
+                                    <li id="menu-item-915" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-915"><a href="https://pixelgrade.com/demos/listable/listing-category/brewery/" class=" ">Brewery</a></li>
+                                    <li id="menu-item-916" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-916"><a href="https://pixelgrade.com/demos/listable/listing-category/lounge/" class=" ">Lounge</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-917" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-917"><a href="https://pixelgrade.com/demos/listable/listing-category/outdoors-recreation/" class=" ">Outdoors</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-918" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-918"><a href="https://pixelgrade.com/demos/listable/listing-category/bridge/" class=" ">Bridge</a></li>
+                                    <li id="menu-item-919" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-919"><a href="https://pixelgrade.com/demos/listable/listing-category/park/" class=" ">Park</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-82" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-has-children menu-item-82"><a href="https://pixelgrade.com/demos/listable/listing-category/shops/" class=" ">Shops</a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-920" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-920"><a href="https://pixelgrade.com/demos/listable/listing-category/bank/" class=" ">Bank</a></li>
+                                    <li id="menu-item-921" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_category menu-item-921"><a href="https://pixelgrade.com/demos/listable/listing-category/furniture-home/" class=" ">Furniture / Home</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-93"><a href="https://pixelgrade.com/demos/listable/how-it-works/" class=" ">Help</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="https://pixelgrade.com/demos/listable/how-it-works/" class=" ">How it Works</a></li>
+                            <li id="menu-item-980" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-980"><a href="https://pixelgrade.com/demos/listable/shop/" class=" ">Special Offers</a></li>
+                            <li id="menu-item-2946" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2946"><a href="https://pixelgrade.com/demos/listable/listings-no-map/" class=" ">Listings &#8211; No Map</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-861"><a href="https://pixelgrade.com/demos/listable/tips-articles/" class=" ">Blog</a></li>
+                    <li id="menu-item-4478" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4478 lwa"><a href="https://pixelgrade.com/demos/listable/wp-login.php" class="  lwa-links-modal lwa-login-link">Log In</a></li>
+                    <li id="menu-item-52" class="cta menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="https://pixelgrade.com/demos/listable/add-listing/" class=" ">Add Listing</a></li>
+                </ul>
+            </nav>
+        </header>
+<div id="content" class="site-content js-header-height-padding-top">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-206" class="post-206 page type-page status-publish has-post-thumbnail hentry not-claimed">
+                        <header class="entry-header has-image">
+                            <div class="entry-featured">
+                                <div class="jetpack-video-wrapper">
+                                    <div style="width: 640px; " class="wp-video">
+                                        <!--[if lt IE 9]><script>document.createElement('video');</script><![endif]-->
+                                        <video class="wp-video-shortcode" id="video-206-1" width="640" height="360" poster="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/10/featured-frontpage-1.jpg" loop="1" autoplay="1" preload="metadata" controls="controls">
+                                            <source type="video/mp4" src="/v2/assets/videos/home2.mp4">/v2/assets/videos/home2.mp4</a></video>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-content">
+                                <h1 class="page-title">{{i18n "header_title"}}</h1>
+                                <div class="entry-subtitle">
+                                    <p>{{i18n "header_subtitle"}}.</p>
+                                </div>
+                                
+
+                                <form class="search-form" action="#" method="get" role="search">
+                                    <div class="search_jobs  search_jobs--frontpage  has--one-field">
+                                        <div class="search-field-wrapper  search-filter-wrapper">
+                                        <input type="search" id="autocomplete-dataset" class="search-field" placeholder="Ingresa un Destino" />
+
+                                           <!-- <label for="search_keywords">Keywords</label>
+                                            <input class="search-field  js-search-suggestions-field" type="text" name="search_keywords" id="search_keywords" placeholder="Selecciona un Destino" autocomplete="off" value="" />
+                                            <ul id="menu-search" class="search-suggestions-menu">
+                                        {{#each data.provinces}}
+                                                <li id="menu-item-1438" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-1438">
+                                                    <a href="https://pixelgrade.com/demos/listable/listing-region/city-of-london/"><img src="https://pixelgrade.com/demos/listable/wp-content/uploads/2015/11/menu-map.svg" class="_mi _before _svg" aria-hidden="true" /><span>{{province}}</span><span class="menu-item-description">Region</span></a>
+                                                </li>
+                                        {{/each}}               
+                                            </ul> -->
+                                        </div>
+                                        <select name='search_region' id='search_region' class='search_region'>
+                                            <option value='0'>All Regions</option>
+                                            <option class="level-0" value="168">City of London</option>
+                                            <option class="level-0" value="169">Westminster</option>
+                                            <option class="level-0" value="171">Chelsea</option>
+                                            <option class="level-0" value="170">Soho District</option>
+                                            <option class="level-0" value="172">Kensignton</option>
+                                            <option class="level-0" value="173">King&#8217;s Cross</option>
+                                        </select>
+                                        <button class="search-submit" name="submit" id="searchsubmit">
+                                            <svg class="search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <defs></defs>
+                                                <g id="Layout---Header" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Header-4" transform="translate(-486.000000, -76.000000)" fill="currentColor">
+                                                        <g id="Header" transform="translate(0.000000, 55.000000)">
+                                                            <g id="Search" transform="translate(226.000000, 17.000000)">
+                                                                <path d="M276.815533,20.8726 C276.2478,21.4392667 275.3406,21.4392667 274.801133,20.8726 L270.318733,16.3611333 C267.7374,18.0352667 264.2478,17.7518 261.9782,15.4539333 C259.3406,12.8155333 259.3406,8.61633333 261.9782,5.979 C264.6166,3.34033333 268.815533,3.34033333 271.4542,5.979 C273.694733,8.21953333 274.035533,11.7374 272.3614,14.3184667 L276.8718,18.8299333 C277.3542,19.3686 277.3542,20.3051333 276.815533,20.8726 L276.815533,20.8726 Z M269.694733,7.6518 C268.020867,5.979 265.297933,5.979 263.624067,7.6518 C261.949933,9.32593333 261.949933,12.0499333 263.624067,13.7227333 C265.297933,15.3966 268.020867,15.3966 269.694733,13.7227333 C271.368867,12.0499333 271.368867,9.32593333 269.694733,7.6518 L269.694733,7.6518 Z" id="Search-Icon"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg> <span>Buscar Tours</span> </button>
+                                    </div>
+                                    <ul class="job_types">
+                                        <li>
+                                            <label for="job_type_eat" class="eat">
+                                                <input type="checkbox" name="filter_job_type[]" value="eat" id="job_type_eat" /> Eat</label>
+                                        </li>
+                                        <li>
+                                            <label for="job_type_shop" class="shop">
+                                                <input type="checkbox" name="filter_job_type[]" value="shop" id="job_type_shop" /> Shop</label>
+                                        </li>
+                                        <li>
+                                            <label for="job_type_stay" class="stay">
+                                                <input type="checkbox" name="filter_job_type[]" value="stay" id="job_type_stay" /> Stay</label>
+                                        </li>
+                                        <li>
+                                            <label for="job_type_visit" class="visit">
+                                                <input type="checkbox" name="filter_job_type[]" value="visit" id="job_type_visit" /> Visit</label>
+                                        </li>
+                                    </ul>
+                                    <input type="hidden" name="filter_job_type[]" value="" />
+                                    <div class="showing_jobs"></div>
+                                </form>
+                                <noscript>Your browser does not support JavaScript, or it is disabled. JavaScript must be enabled in order to view listings.</noscript>
+                            </div>
+                            <div class="top-categories">
+                            {{#each data.categories}}
+                                <a href="/"> <span class="fa {{icon}} home-icon-cat"></span> <span class="cat__text">{{name}}</span></a>
+                            {{/each}}     
+                                <div style="position: relative;"><span class="cta-text">O explora nuestras ciudades</span></div>
+                            </div>
+                        </header>
+                        <div class="widgets_area">
+                            <!-- categories partial -->
+                            {{>v2/home/_categories}}
+                            <!-- things to do partial -->
+                            {{>v2/home/_thingsToDo}}
+                            <!-- How it works partial -->
+                            {{>v2/home/_howItWorks}}
+                            <!-- Articles partial -->
+                            {{>v2/home/_articles}}
+                            
+                        </div>
+                    </article>
+                </main>
+            </div>
+        </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            (function() {
+  var client = algoliasearch('CLO2E2RKP1', 'bf4587ef5d150368765803e8c74440d0');
+  var index = client.initIndex('tours');
+
+  // create the first autocomplete.js dataset: vacation rentals
+  var rentalsDataset = {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 2}),
+    displayKey: 'name',
+    name: 'tours',
+    templates: {
+      header: '<div class="ad-example-header">Tours</div>',
+      suggestion: function(suggestion) {
+        return '<a href="#"><div class="ad-example-suggestion">' +
+          '<img src="' + suggestion.fields.images[0].url + '" />' +
+          '<div>' +
+            suggestion._highlightResult.name.value + '<br />' +
+            '<small>' + suggestion._highlightResult.name.value + '</small>' +
+          '</div>' +
+          '</div></a>';
+      }
+    }
+  };
+
+  // create the second dataset: places
+  // we automatically inject the default CSS
+  // all the places.js options are available
+  var placesDataset = placesAutocompleteDataset({
+    algoliasearch: algoliasearch,
+    type: 'townhall',
+    countries: ['pa'],
+    aroundLatLngViaIP: false,
+    templates: {
+      header: '<div class="ad-example-header">Cities</div>'
+    },
+    hitsPerPage: 3
+  });
+
+  // init
+  var autocompleteInstance = autocomplete(document.querySelector('#autocomplete-dataset'), {
+    hint: false,
+    debug: true,
+    cssClasses: {prefix: 'ad-example'}
+  }, [
+    rentalsDataset,
+    placesDataset
+  ]);
+
+  var autocompleteChangeEvents = ['selected', 'autocompleted'];
+
+  autocompleteChangeEvents.forEach(function(eventName) {
+    autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
+      console.log(datasetName, suggestion);
+    });
+  });
+})();
+
+        });
+   
+        </script>
