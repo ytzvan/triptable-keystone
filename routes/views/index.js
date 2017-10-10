@@ -27,12 +27,11 @@ module.exports = function(req, res) {
 					var query = keystone.list('Tour')
 					.paginate({
 						page: req.query.page || 1,
-						perPage: 12,
+						perPage: 8,
 						maxPages: 1
 					})
 					.where('country',countryId)
 					.where('state','published')
-					.where('featured', true)
 					.sort('-publishedDate')
 					.populate('province categories city');
 

@@ -4,43 +4,96 @@
 
 			<!-- Book Now -->
 			<div class="boxed-widget">
-				<h3><i class="fa fa-calendar-check-o "></i> Book a Tour</h3>
+				<h3><i class="im im-icon-Air-Balloon"></i>Realiza una Reserva</h3>
 				<div class="row with-forms  margin-top-0">
+					<form>
 
 					<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
 					<div class="col-lg-6 col-md-12">
-						<input type="text" id="booking-date" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-large-default="true" data-lock="from" data-default-date="10-02-2017">
+						<i class="im im-icon-Calendar-4"></i> 
+						<span>Fecha: </span>
+						<div class="wc-bookings-date-picker">
+						<input  type="text" id="datepicker" >
+
+						<input type="hidden" id="hiddenDate" name="date" value="">
+					</div>
 					</div>
 
 					<!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
 					<div class="col-lg-6 col-md-12">
+						<i class="im im-icon-Clock-Forward "></i>
+						<span>Horario: </span>
+						
 						<input type="text" id="booking-time" value="9:00 am">
 					</div>
 
+
+					<div class="col-lg-12 col-md-12">
+						<i class="im im-icon-MaleFemale "></i> 
+						<span># de Adultos (+12): </span>
+						<select data-placeholder="# de Adultos" class="chosen-select" >
+								<option>2</option>	
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+						</select>
+					</div>
+
+					<div class="col-lg-12 col-md-12">
+						<i class="im im-icon-Boy "></i> 
+						<span># de Niños (6-11): </span>
+						<select data-placeholder="Adultos" class="chosen-select" >
+								<option>0</option>	
+								<option>1</option>	
+								<option>2</option>	
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+						</select>
+					</div>
+					<div class="col-lg-12 col-md-12">
+						<i class="im im-icon-Baby "></i> 
+						<span> # de Infantes (0-5): </span>
+							<select data-placeholder="All Categories" class="chosen-select" >
+								<option>0</option>	
+								<option>1</option>	
+								<option>2</option>	
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+							</select>
+					</div>
 				</div>
 				
 				<!-- progress button animation handled via custom.js -->
-				<button class="progress-button button fullwidth margin-top-5"><span>Book Now</span></button>
+				<button class="progress-button button fullwidth margin-top-5"><span>Ver Precio</span></button>
+			</form>
 			</div>
 			<!-- Book Now / End -->
 
-
+			<!-- Contact / End-->
 			<!-- Contact -->
 			<div class="boxed-widget margin-top-35">
-				<h3><i class="sl sl-icon-pin"></i> Contact</h3>
+				<h3><i class="im im-icon-Headset"></i> Contáctanos</h3>
 				<ul class="listing-details-sidebar">
-					<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
-					<li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li>
-					<li><i class="fa fa-envelope-o"></i> <a href="#">info@example.com</a></li>
+					<li><i class="sl sl-icon-phone"></i> +507 833-6195</li>
+					<li><i class="fa fa-whatsapp"></i> +507 659 620 34 </li>
+					<li><i class="fa fa-envelope-o"></i> <a href="mailto:hello@triptable.com">hello@triptable.com</a></li>
 				</ul>
 
 				<ul class="listing-details-sidebar social-profiles">
-					<li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
-					<li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
+					<li><a target="_blank" href="http://fb.me/triptable" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+					<li><a target="_blank" href="http://instagram.com/triptable" class="instagram-profile"><i class="fa fa-instagram"></i> Instagram</a></li>
 					<!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
 				</ul>
 
-				<!-- Reply to review popup -->
+				<!-- Reply to review popup 
 				<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
 					<div class="small-dialog-header">
 						<h3>Send Message</h3>
@@ -51,7 +104,7 @@
 					</div>
 				</div>
 
-				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>
+				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>-->
 			</div>
 			<!-- Contact / End-->
 			
@@ -90,3 +143,38 @@
 
 		</div>
 		<!-- Sidebar / End -->
+		<script type="text/javascript">
+
+			
+
+			document.addEventListener("DOMContentLoaded", function() {
+			//	var date = new Date();
+				var date = moment();
+				var minDaysForBooking = {{data.tour.skipDays}};
+	
+				var minDate = date.add(minDaysForBooking, 'days');
+				$( "#datepicker" ).datepicker({
+					
+					beforeShowDay: function(date) {
+        		var day = date.getDay();
+        		return [(day != 4 && day != 5)];
+    			},
+					minDate: date._d
+	//			minDate: date
+				});
+			});
+	
+
+/*	$( "#bookBtn" ).click(function( e ) {
+		var current = $("#datepicker").datepicker("getDate");
+		$('#hiddenDate').val(current);
+		var people = $("#people").val();
+		//var time = $("#time").val();
+		if(!people) {
+		  e.preventDefault();
+		  alert("Elige el número de pasajeros");
+		} else {
+			return true;
+		}
+	});*/
+</script>

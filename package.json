@@ -20,6 +20,7 @@
     "gulp-rename": "^1.2.2",
     "handlebars": "^2.0.0",
     "i18n": "^0.8.3",
+    "jsonfile": "^4.0.0",
     "keen-js": "^3.4.1",
     "keystone": "0.3.19",
     "keystone-email": "^1.0.4",

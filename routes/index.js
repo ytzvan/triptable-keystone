@@ -46,6 +46,8 @@ exports = module.exports = function(app) {
   app.all('/v2', middleware.requireGuide, routes.v2.index.init);
   app.all('/v2/tour/:slug', middleware.requireGuide, routes.v2.tour.init);
   app.get('/destino/:city', routes.search.city);
+  app.all('/search', routes.search.search);
+
 	
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
@@ -62,7 +64,6 @@ exports = module.exports = function(app) {
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);
-
 
 
 	//Fallback

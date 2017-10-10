@@ -515,20 +515,14 @@ $(document).ready(function(){
 
 	$('.img-fw-slick-carousel').slick({
 		infinite: true,
-		slidesToShow: 5,
+		slidesToShow: 4,
 		slidesToScroll: 2,
 		dots: true,
 		arrows: false,
 
 		responsive: [
 		{
-		  breakpoint: 1610,
-		  settings: {
-			slidesToShow: 5,
-		  }
-		},
-		{
-		  breakpoint: 1365,
+		  breakpoint: 1440,
 		  settings: {
 			slidesToShow: 4,
 		  }
@@ -551,19 +545,13 @@ $(document).ready(function(){
 
 	$('.simple-fw-slick-carousel').slick({
 		infinite: true,
-		slidesToShow: 5,
+		slidesToShow: 4,
 		slidesToScroll: 2,
 		autoplay: true,
 		dots: true,
 		arrows: false,
 
 		responsive: [
-		{
-		  breakpoint: 1610,
-		  settings: {
-			slidesToShow: 4,
-		  }
-		},
 		{
 		  breakpoint: 1365,
 		  settings: {

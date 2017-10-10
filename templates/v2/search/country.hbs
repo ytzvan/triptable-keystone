@@ -5,8 +5,7 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Buscar</h2><span>Encontramos <strong>234</strong> Tours y Actividades</span>
-
+				<h2>Búsqueda </h2><span>Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades.</span><p> Mostrando del {{data.tours.first}} al {{data.tours.last}}</p>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
@@ -20,37 +19,31 @@
 	</div>
 </div>
 
-
 <!-- Content
 ================================================== -->
 <div class="container">
 	<div class="row">
-		
 		<!-- Search -->
 		<div class="col-md-12">
 			<div class="main-search-input gray-style margin-top-0 margin-bottom-10">
 
-				<div class="main-search-input-item">
+				<!--<div class="main-search-input-item">
 					<input type="text" placeholder="What are you looking for?" value=""/>
-				</div>
+				</div> -->
 
 				<div class="main-search-input-item">
-					<select data-placeholder="All Countries" class="chosen-select" >
-						<option>All Countries</option>	
-						<option>Panama 🇵🇦</option>
-						<option>Mexico 🇲🇽</option>
-						<option>Colombia 🇨🇴</option>
+					<select data-placeholder="Todos los Paises" id="countries-select" class="chosen-select" >
+						<option value="panama">Panama 🇵🇦</option>
+						<option value="mexico">Mexico 🇲🇽</option>
+						<option value="colombia">Colombia 🇨🇴</option>
 					</select>
 				</div>
 
 				<div class="main-search-input-item">
-					<select data-placeholder="All Categories" disabled class="chosen-select" >
-						<option>All Cities</option>	
-						<option>Shops</option>
-						<option>Hotels</option>
-						<option>Restaurants</option>
-						<option>Fitness</option>
-						<option>Events</option>
+					<select data-placeholder="Todas las Ciudades"  id="cities-select"  class="chosen-select" >
+						{{#each data.cities}}
+						<option value="{{slug}}">{{city}}</option>	
+						{{/each}}
 					</select>
 				</div>
 
@@ -58,8 +51,6 @@
 			</div>
 		</div>
 		<!-- Search Section / End -->
-
-
 		<div class="col-md-12">
 
 			<!-- Sorting - Filtering Section -->
@@ -126,7 +117,7 @@
 						<div class="panel-dropdown float-right">
 							<a href="#">Distance Radius</a>
 							<div class="panel-dropdown-content">
-								<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
+								<input class="distance-radius" type="range" min="1" max="6" step="1" value="1" data-title="Radius around selected destination">
 								<div class="panel-buttons">
 									<button class="panel-cancel">Disable</button>
 									<button class="panel-apply">Apply</button>
@@ -158,9 +149,9 @@
 
 			<!-- Results-->
 			<div class="row">
-			{{#each_upto data.tours.results 9}}
+			{{#each data.tours.results}}
       	{{>search/_results}}
-			{{/each_upto}}	
+			{{/each}}	
 			</div>
 
 			<!-- Pagination -->
@@ -186,4 +177,20 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function() {
+
+	$('#cities-select').val("{{data.city}}"); //value of your default option
+	$('#countries-select').val("{{data.country}}"); //value of your default option
+
+	$("#countries-select").change(function() {
+		var country = $( this ).val();
+  		window.location.href="/"+country;
+	});
+	$("#cities-select").change(function() {
+		var city = $( this ).val();
+  		window.location.href="/destino/"+city;
+	});
+});
+</script>
 

@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
+var QueryUtils = require('../../utils').QueryUtils;
 
 exports = module.exports = function(req, res) {
 
@@ -14,21 +15,19 @@ exports = module.exports = function(req, res) {
 		provinces: [],
 		tours: [],
 		filters: [],
-		categories : []
+		categories : [],
+		cities: []
 	};
-	locals.cities = {
-		all:[],
-		top : []
-	};
-	locals.data.country;
+	locals.cities = [];
 	locals.meta = {};
 	var url = req.url;
 	locals.meta.url = "https://www.triptable.com"+url;
 	query = {
 		'slug' : req.params.country,
 	};
-
-
+	locals.data.country =req.params.country;
+	locals.data.city = "";
+	
 	view.on('init', function(next) {
 
 			if (req.query.categoria) {
@@ -48,10 +47,27 @@ exports = module.exports = function(req, res) {
 			if (err || !place) {
 				return res.status(404).render('errors/404');
 			}
-			locals.data.place = place;
-			locals.data.placeName = place.country;
 			var id = place._id;
 			locals.data.placeId = place._id;
+			
+
+			keystone.list('City') //Get other cities from country
+				.model.aggregate([
+				{'$match': {"country":place._id} },
+			//	{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
+				])
+			 	.sort("-featured")
+				.exec(function(err, results) { //Query Pais
+					console.log("cities", results);
+					if (err || !results) {
+						return res.status(404);
+					}
+					console.log("results in city model", results);
+					locals.data.cities = results;
+				});
+
+			locals.data.place = place;
+			locals.data.placeName = place.country;
 			var country = place.country;
 			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + place.country;
 			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
@@ -64,7 +80,7 @@ exports = module.exports = function(req, res) {
 			var q = keystone.list('Tour')
 				.paginate({
 					page: req.query.page || 1,
-					perPage: 20,
+					perPage: 18,
 				})
         .find({"state": "published"})
 				.where("country", id)
@@ -116,32 +132,9 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	view.on('init', function(next) {
-		var countryId = locals.data.placeId; //
-		keystone.list('City')
-		.model.aggregate([
-		{'$match': {"country":countryId} },
-		{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
-		])
-	 	.sort("-featured")
-		.exec(function(err, results) { //Query Pais
-			console.log(results);
-			if (err || !results) {
-				return res.status(404);
-			}
-			for (let i=0; i<results.length; i++) {
-					if (results[i]._id == true){
-					locals.cities.top = results[i].tours;
-					}
-			} 
-			locals.cities.all = locals.cities.top.concat(results[0].tours);
-			return next();
-
-		});
-
-	}); 
 
 	// Render the view
+	console.log(locals.data.cities);
 	view.render('search/country');
 
 };

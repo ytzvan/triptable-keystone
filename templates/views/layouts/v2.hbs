@@ -11,6 +11,9 @@
 ================================================== -->
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/colors/blue.css" id="colors">
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 </head>
 
@@ -92,20 +95,10 @@
 							</ul>
 						</li>
 
-						<li><a href="#">Idioma</a>
+						<li><a href="#">{{i18n "language"}}</a>
 							<ul>
-								<li><a href="pages-blog.html">Blog</a>
-									<ul>
-										<li><a href="pages-blog.html">Blog</a></li>
-										<li><a href="pages-blog-post.html">Blog Post</a></li>
-									</ul>
-								</li>
-								<li><a href="pages-contact.html">Contact</a></li>
-								<li><a href="pages-elements.html">Elements</a></li>
-								<li><a href="pages-pricing-tables.html">Pricing Tables</a></li>
-								<li><a href="pages-typography.html">Typography</a></li>
-								<li><a href="pages-404.html">404 Page</a></li>
-								<li><a href="pages-icons.html">Icons</a></li>
+								<li><a href="?lang=es"><i class="em em-es"></i> Español</a></li>
+								<li><a href="?lang=en"><i class="em em-uk"></i> Inglés</a></li>
 							</ul>
 						</li>
 						
@@ -311,16 +304,17 @@
 <script type="text/javascript" src="/scripts/magnific-popup.min.js"></script>
 <script type="text/javascript" src="/scripts/waypoints.min.js"></script>
 <script type="text/javascript" src="/scripts/counterup.min.js"></script>
-<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="/scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/scripts/custom.js"></script>
 
 <!-- Single scripts -->
 
-<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
+<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker 
 <link href="/css/plugins/datedropper.css" rel="stylesheet" type="text/css">
 <script src="/scripts/datedropper.js"></script>
-<script>$('#booking-date').dateDropper();</script> 
+<script>$('#booking-date').dateDropper();</script>  -->
 
 <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
 <script src="/scripts/timedropper.js"></script>
@@ -340,5 +334,9 @@ var $clocks = $('.td-input');
 });
 </script> 
 <!-- End Single scripts -->
+
+<!--Algolia scripts -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.js"></script>
 </body>
 </html>
