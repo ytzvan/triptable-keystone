@@ -5,47 +5,49 @@
 $(document).ready(function(){
 
 	/*--------------------------------------------------*/
-	/*  Navigation
+	/*  Mobile Menu - mmenu.js
 	/*--------------------------------------------------*/
-	var jPanelMenu = $.jPanelMenu({
-	  menu: '#responsive',
-	  animated: false,
-	  duration: 200,
-	  keyboardShortcuts: false,
-	  closeOnContentClick: true
-	});
+	$(function() {
+		function mmenuInit() {
+			var wi = $(window).width();
+			if(wi <= '1024') {
 
-	// Menu Trigger
-	$('.menu-trigger').on('click', function(){
+				$(".mmenu-init" ).remove();
+				$("#navigation").clone().addClass("mmenu-init").insertBefore("#navigation").removeAttr('id').removeClass('style-1 style-2').find('ul').removeAttr('id');
 
-	  var jpm = $(this);
+				$(".mmenu-init").mmenu({
+				 	"counters": true
+				}, {
+				 // configuration
+				 offCanvas: {
+				    pageNodetype: "#wrapper"
+				 }
+				});
 
-	  if( jpm.hasClass('active') )
-	  {
-	    jPanelMenu.off();
-	    jpm.removeClass('active');
-	  }
-	  else
-	  {
-	    jPanelMenu.on();
-	    jPanelMenu.open();
-	    jpm.addClass('active');
+				var mmenuAPI = $(".mmenu-init").data( "mmenu" );
+				var $icon = $(".hamburger");
 
-		// Removes SuperFish Styles
-		$('#jPanelMenu-menu').removeClass('menu');
-		$('ul#jPanelMenu-menu li').removeClass('dropdown');
-		$('ul#jPanelMenu-menu li ul').removeAttr('style');
-		$('ul#jPanelMenu-menu li div').removeClass('mega').removeAttr('style');
-		$('ul#jPanelMenu-menu li div div').removeClass('mega-container');
-	  }
-	  return false;
-	});
+				$(".mmenu-trigger").click(function() {
+					mmenuAPI.open();
+				});
 
-	$(window).resize(function (){
-		var winWidth = $(window).width();
-		if(winWidth>992) {
-			jPanelMenu.close();
+				mmenuAPI.bind( "open:finish", function() {
+				   setTimeout(function() {
+				      $icon.addClass( "is-active" );
+				   });
+				});
+				mmenuAPI.bind( "close:finish", function() {
+				   setTimeout(function() {
+				      $icon.removeClass( "is-active" );
+				   });
+				});
+
+
+			}
+			$(".mm-next").addClass("mm-fullsubopen");
 		}
+		mmenuInit();
+		$(window).resize(function() { mmenuInit(); });
 	});
 
     /*  User Menu */
@@ -322,6 +324,7 @@ $(document).ready(function(){
 	      $(selector).chosen(config[selector]);
 	  	}
     }
+    
 
   	/*----------------------------------------------------*/
     /*  Magnific Popup
@@ -476,32 +479,18 @@ $(document).ready(function(){
 
 	$('.simple-slick-carousel').slick({
 		infinite: true,
-		slidesToShow: 4,
-		slidesToScroll: 2,
+		slidesToShow: 3,
+		slidesToScroll: 3,
 		dots: true,
 		arrows: true,
-		autoplay: true,
 		responsive: [
-		{
-		  breakpoint: 1610,
-		  settings: {
-			slidesToShow: 4,
-		  }
-		},
 		    {
-			  breakpoint: 1365,
-			  settings: {
-				slidesToShow: 3,
-				slidesToScroll: 2,
-			  }
-			},
-			{
-			  breakpoint: 1024,
-			  settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2,
-			  }
-			},
+		      breakpoint: 992,
+		      settings: {
+		        slidesToShow: 2,
+		        slidesToScroll: 2
+		      }
+		    },
 		    {
 		      breakpoint: 769,
 		      settings: {
@@ -513,64 +502,36 @@ $(document).ready(function(){
 	});
 
 
-	$('.img-fw-slick-carousel').slick({
+	$('.simple-fw-slick-carousel').slick({
 		infinite: true,
-		slidesToShow: 4,
-		slidesToScroll: 2,
+		slidesToShow: 5,
+		slidesToScroll: 1,
 		dots: true,
 		arrows: false,
 
 		responsive: [
 		{
-		  breakpoint: 1440,
+		  breakpoint: 1610,
 		  settings: {
 			slidesToShow: 4,
 		  }
 		},
 		{
-		  breakpoint: 1024,
-		  settings: {
-			slidesToShow: 3,
-		  }
-		},
-		{
-		  breakpoint: 767,
-		  settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1,
-		  }
-		}
-		]
-	});
-
-	$('.simple-fw-slick-carousel').slick({
-		infinite: true,
-		slidesToShow: 4,
-		slidesToScroll: 2,
-		autoplay: true,
-		dots: true,
-		arrows: false,
-
-		responsive: [
-		{
 		  breakpoint: 1365,
 		  settings: {
 			slidesToShow: 3,
-			slidesToScroll: 2,
 		  }
 		},
 		{
 		  breakpoint: 1024,
 		  settings: {
 			slidesToShow: 2,
-			slidesToScroll: 2,
 		  }
 		},
 		{
 		  breakpoint: 767,
 		  settings: {
 			slidesToShow: 1,
-			slidesToScroll: 1,
 		  }
 		}
 		]
@@ -795,6 +756,19 @@ $(document).ready(function(){
 	$(".tip").each(function() {
 		var tipContent = $(this).attr('data-tip-content');
 		$(this).append('<div class="tip-content">'+ tipContent + '</div>');
+	});
+
+	$(".verified-badge.with-tip").each(function() {
+		var tipContent = $(this).attr('data-tip-content');
+		$(this).append('<div class="tip-content">'+ tipContent + '</div>');
+	});
+
+	$(window).on('load resize', function() {
+		var verifiedBadge = $('.verified-badge.with-tip');
+		verifiedBadge.find('.tip-content').css({
+		   'width' : verifiedBadge.outerWidth(),
+		   'max-width' : verifiedBadge.outerWidth(),
+		});
 	});
 
 
@@ -1040,7 +1014,7 @@ $(document).ready(function(){
     });
 
 
-    // Highlighting functionality.
+    /* Highlighting functionality.
 	$(window).on('load resize', function() {
 		var aChildren = $(".listing-nav li").children();
 		var aArray = [];
@@ -1063,41 +1037,25 @@ $(document).ready(function(){
 		        }
 		    }
 		});
-	});
+	});*/
 
 
 	/*----------------------------------------------------*/
-	/*  Progress Button
+	/*  Payment Accordion
 	/*----------------------------------------------------*/
-    $('.progress-button').each(function(){
-    	$(this).append('<div class="progress-bar"></div>');
+	var radios = document.querySelectorAll('.payment-tab-trigger > input');
 
-		$(this).on('click', function() {
-	  		var progressButton = $(this);
+	for (var i = 0; i < radios.length; i++) {
+		radios[i].addEventListener('change', expandAccordion);
+	}
 
-			progressButton.children('.progress-bar').addClass('active');
-
-			// progress bar
-			setTimeout(function(){
-			progressButton.children('.progress-bar').removeClass('active');
-			}, 1500);
-
-			setTimeout(function(){
-			progressButton.children('.progress-bar').removeClass('active');
-			}, 1500);
-
-
-			// icon
-			setTimeout(function(){
-			progressButton.addClass('done');
-			}, 1800);
-
-			setTimeout(function(){
-			progressButton.removeClass('done');
-			}, 3500);
-
-		});
-    });
+	function expandAccordion (event) {
+	  var allTabs = document.querySelectorAll('.payment-tab');
+	  for (var i = 0; i < allTabs.length; i++) {
+	    allTabs[i].classList.remove('payment-tab-active');
+	  }
+	  event.target.parentNode.parentNode.classList.add('payment-tab-active');
+	}
 
 
 	/*----------------------------------------------------*/
