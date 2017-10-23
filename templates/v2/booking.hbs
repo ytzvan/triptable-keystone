@@ -34,23 +34,42 @@
 		<div class="col-lg-8 col-md-8 padding-right-30">
 
 			<h3 class="margin-top-0 margin-bottom-30">Personal Details</h3>
+			<form method="POST" action="/contact/{{data.tour.tourId}}">
+			<input type="hidden" name="action" value="booking">
+			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+			<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
+			<input type="hidden" name="tourPrice" placeholder="TourPrice" class="form-control" value="{{data.tour.price}}">
+  			<!--<input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{data.user._id}}">-->
+  			<input type="hidden" name="user" placeholder="UserId" class="form-control" value="57349555510ff303009739f3">
+			<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
+			<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
+			<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
+			<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">
+			<input type="hidden" name="operatorCellphone" placeholder="OpCel" class="form-control" value="{{data.tour.owner.cellphone}}">
+			<!-- People -->
+			<input type="hidden" name="nOfAdults"value="{{data.nOfAdults}}">
+			<input type="hidden" name="nOfChildren"value="{{data.nOfChildren}}">
+			<input type="hidden" name="nOfInfants"value="{{data.nOfInfants}}">
 
+			<!-- New fields -->
+			<input type="hidden" name="date" value="{{formData.date}}">
 			<div class="row">
+				
 
 				<div class="col-md-6">
 					<label>First Name</label>
-					<input type="text" value="">
+					<input type="text" name="name.first" value="">
 				</div>
 
 				<div class="col-md-6">
 					<label>Last Name</label>
-					<input type="text" value="">
+					<input type="text" name="name.last" value="">
 				</div>
 
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label>E-Mail Address</label>
-						<input type="email" value="">
+						<input type="email" name="email" value="">
 						<i class="im im-icon-Mail"></i>
 					</div>
 				</div>
@@ -58,13 +77,13 @@
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label>Phone / Whatsapp</label>
-						<input type="tel" id="phone">
+						<input type="tel" name="phone" id="phone">
 					</div>
 				</div>
 				<div class="col-md-12">
 					<div class="input-with-icon medium-icons">
 						<label>Hotel Name or Address</label>
-						<input type="text" value="">
+						<input type="text" name="hotel"  value="">
 						<i class="im im-icon-Phone-2"></i>
 					</div>
 				</div>
@@ -103,35 +122,35 @@
 							<div class="col-md-6">
 								<div class="card-label">
 									<label for="nameOnCard">Name on Card</label>
-									<input id="nameOnCard" name="nameOnCard" required type="text">
+									<input id="nameOnCard" name="cardholder" required type="text">
 								</div>
 							</div>
 
 							<div class="col-md-6">
 								<div class="card-label">
 									<label for="cardNumber">Card Number</label>
-									<input id="cardNumber" name="cardNumber" placeholder="1234  5678  9876  5432" required type="text">
+									<input id="cardNumber" name="cardNumber" placeholder="1234  5678  9876  5432" required type="tel">
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="expirynDate">Expiry Month</label>
-									<input id="expiryDate" placeholder="MM" required type="text">
+									<input id="expiryDate" placeholder="MM" type="tel" required>
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="expiryDate">Expiry Year</label>
-									<input id="expirynDate" placeholder="YY" required type="text">
+									<input id="expirynDate" placeholder="YY" required type="tel">
 								</div>
 							</div>
-
+							<input type="hidden" id="expirationField" name="expiration" value="09/20">
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="cvv">CVV</label>
-									<input id="cvv" required type="text">
+									<input id="cvv" required name="cvv2" type="tel">
 								</div>
 							</div>
 
@@ -142,7 +161,8 @@
 			</div>
 			<!-- Payment Methods Accordion / End -->
 		
-			<a href="listings-booking-confirmation.html" class="button booking-confirmation-btn margin-top-40 margin-bottom-65">Confirm and Pay</a>
+			<button type="submit" class="button booking-confirmation-btn margin-top-40 margin-bottom-65">Confirm and Pay</button>
+			</form>
 		</div>
 
 
@@ -167,10 +187,10 @@
 				<ul>
 					<li>Date <span>{{formData.formatDate}}</span></li>
 					<li>Hour <span>{{formData.bookingTime}}</span></li>
-					<li>Adults x {{formData.nOfAdults}}<span>${{data.tour.price}} USD</span></li>
-					<li>Children x {{formData.nOfChildren}}<span>$0 USD</span></li>
-					<li>Infants x {{formData.nOfInfants}} <span>$0 USD</span></li>
-					<li class="total-costs">Total Cost <span>$250.00</span></li>
+					<li>Adults <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency data.tour.price}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					<li>Children <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
+					<li>Infants <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
+					<li class="total-costs">Total Cost <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span></li>
 				</ul>
 
 			</div>
@@ -184,7 +204,7 @@
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		$("#phone").intlTelInput({
-			preferredCountries : ["pa", "co"],
+			preferredCountries : ["pa", "co", "us", "es"],
 			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/utils.js",
 			autoPlaceholder: "aggressive"
 		});

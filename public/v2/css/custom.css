@@ -441,3 +441,12 @@ span.like-icon{
 	//font-family: "Open-sans";
 	font-family: 'Source Sans Pro', sans-serif;
 }
+.chosen-container-active.chosen-with-drop .chosen-drop{
+	z-index: 10000;
+}
+.boxed-widget 
+i.price{
+    color: black;
+    font-weight: 400;
+    font-style: normal;
+}    

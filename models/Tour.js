@@ -50,6 +50,8 @@ Tour.add({
 	departureTime: { type: String},
 	arrivalTime: {type: String},
 	price: {type: Types.Money},
+	childPrice: {type: Types.Money, default: 0},
+	infantPrice: {type: Types.Money, default: 0},
 	cost: {type:Types.Money},
   comission: {type: Types.Number, default: 15},
 	transportation: {type: Types.Boolean, default: true },

@@ -6,8 +6,6 @@ var cloudinary = require('cloudinary');
 var i18n = require("i18n");
 var fx = require('money');
 var accounting = require('accounting');
-
-
 // Declare Constants
 var CLOUDINARY_HOST = 'https://res.cloudinary.com';
 
@@ -424,14 +422,14 @@ module.exports = function() {
   		currentLang = 'gb';
   		return currentLang;
   	}
-  	currentLang = 'gb';
+  	currentLang = 'es';
   	return currentLang;
   };
 
 	_helpers.getPriceInCurrency = function(price){
 		var currency = process.env.CURRENCY;
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
-		var priceInLocalCurrency = accounting.formatMoney(convert);
+		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
 		return priceInLocalCurrency;
 	};
 	_helpers.getCurrency = function(){

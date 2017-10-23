@@ -7,6 +7,7 @@ var Keen = require('keen-js');
 var moment = require('moment');
 var Sms = require('../../utils').Sms;
 var Email = require('../../utils').Email;
+var TourModel;
 var client = new Keen({
     projectId: "577145c107271968d3a2107d", // String (required always)
     writeKey: "5f180e718b659d108d1517d2be385b5e5c2f9740dc0758649d78935f971c27fb77f1d7462a33c1e2dca28ba69d63e61fd357a5b348ad5c325a66bab2ecbb58f8011cc0d765bfa6a48d483a7b582a247e13786047447585db3db1144d65d6fb9b",   // String (required for sending data)
@@ -37,19 +38,33 @@ exports = module.exports = function(req, res) {
 	var transactionInfo = {};
 
 	view.on('post', {action: 'booking'}, function(next) {
+		debugger
 	    var body = req.body;
 		  var result;
 		  var response;
 
-        var invalidTravelers = isNaN(req.body.people);
+        var invalidTravelers = isNaN(req.body.nOfAdults);
          if (invalidTravelers){
 		  	 var errorMessage = "Número de Viajeros inválido";
 		  	req.flash('error', errorMessage);
-		   // return res.status(500).render('errors/404');
-		    return res.redirect(req.get('referer'));
+		  	console.log('error', errorMessage);
+		    return res.status(500).render('errors/404');
+		   // return next();
 		  }
 		//Here goes the payment logic
-      var travelers = req.body.people;
+      var travelers = req.body.nOfAdults;
+      travelers = parseInt(travelers);
+      var nOfChildren = req.body.nOfChildren;
+      nOfChildren = parseInt(nOfChildren);
+     
+      var nOfInfants = req.body.nOfInfants;
+      nOfInfants = parseInt(nOfInfants);
+
+      var childrenPrice = nOfChildren * locals.data.tour.childPrice;
+      var infantsPrice = nOfInfants * locals.data.tour.infantPrice;
+
+			var totalPeople = travelers + nOfChildren + nOfInfants;
+
       if (locals.data.tour.multiPrice){
          var tourPrice = getPrice(travelers, locals);
 				 var cost = getCost(travelers, locals);
@@ -64,6 +79,7 @@ exports = module.exports = function(req, res) {
       body.tourPrice = tourPrice;
       req.body.tourPrice = tourPrice;
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
+	    flatPrice = flatPrice + childrenPrice + infantsPrice;
 	    var processorTax = 4; // % del procesador
 	    var processorFee = 0.30; // fee individual por transaccion
       if (locals.data.tour.comission){
@@ -74,14 +90,10 @@ exports = module.exports = function(req, res) {
 			
 			cost = cost * travelers;
 			var tourOperatorCost = cost;
-			if (tourOperatorCost > 0) {
-				var revenue = flatPrice - tourOperatorCost;
-			} else {    
+	
 				var commision = flatPrice * commisionPercentaje / 100; //Deprecated
 				var revenue = commision;
-			}
-	    
-			var commision = flatPrice * commisionPercentaje / 100; //Deprecated
+		
 	    var taxPrice = flatPrice * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
 	    var transactionCost = taxPrice + processorFee; // cantidad a pagarle al gateway por la transaccion
 	    var totalPrice =  flatPrice + taxPrice + processorFee; // costo total de la transacción
@@ -92,7 +104,6 @@ exports = module.exports = function(req, res) {
 	    tourOperatorCost = tourOperatorCost.toFixed(2);
 	    taxPrice = taxPrice.toFixed(2);
 	    transactionCost = transactionCost.toFixed(2);
-
 		 updateBody = {
 	    	bookingTotalPrice : totalPrice,
 	    	bookingFlatPrice : flatPrice,
@@ -100,12 +111,12 @@ exports = module.exports = function(req, res) {
 	    	bookingOperatorFee : tourOperatorCost,
 	    	bookingRevenue : revenue,
         bookingComission : commisionPercentaje,
+				people : totalPeople
 	    };
 //		var finalObj = {};
 		extend(updateBody, req.body);
       var cardNumber = body.cardNumber;
       cardNumber = cardNumber.replace(/ /g,'');
-
       var cardDate = body.expiration;
       cardDate = moment("01/"+body.expiration,"DD-MM-YYYY");
       var formatDate = cardDate.format("MMYY");
@@ -129,7 +140,10 @@ exports = module.exports = function(req, res) {
 		     cvv2: body.cvv2 }
 		};
 		request(options, function (error, response, body) {
-		  if (error) throw new Error(error);
+		  if (error) {
+				debugger;
+				throw new Error(error);
+			}
 
 		  result = body;
 		  response = result.split('~');
@@ -187,7 +201,7 @@ exports = module.exports = function(req, res) {
 		   // return res.status(500).render('errors/404');
 		    return res.redirect(req.get('referer'));
 		  } else {
-
+	    	console.log("update body", updateBody);				
 		  	createBooking(next, updateBody);
 		  }
 
@@ -196,7 +210,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('init', function(next) {
-
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			tourId: tourId
@@ -207,6 +220,7 @@ exports = module.exports = function(req, res) {
 				console.log(err)
 			} else {
 				locals.data.tour = result;
+				TourModel = result;
 				next(err);
 			}
 		});
@@ -214,16 +228,16 @@ exports = module.exports = function(req, res) {
 
 	// On POST requests, add the Enquiry item to the database
 	function createBooking(next, updateBody){
-
 		var newEnquiry = new Enquiry.model(),
 			updater = newEnquiry.getUpdateHandler(req);
-
+			debugger
 		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
+			fields: 'name, email, phone, people, nOfAdults, nOfChildren, nOfInfants, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {
+				debugger
 				locals.validationErrors = err.errors;
 			} else {
 				if (process.env.NODE_ENV == 'production') {
@@ -272,7 +286,7 @@ function recordEvent(data){
 
 function getPrice(travelers, locals){
       var priceCatalog = [];
-      console.log(locals.data.tour.multiPriceCatalog)
+//      console.log(locals.data.tour.multiPriceCatalog)
       for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
       var current = locals.data.tour.multiPriceCatalog[i].split(',');
         for (var index=0;index < current.length;index++){

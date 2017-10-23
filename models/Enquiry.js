@@ -32,6 +32,9 @@ Enquiry.add({
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
+	nOfAdults : {type: Types.Number},
+	nOfChildren : {type: Types.Number},
+	nOfInfants : {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	tourName: { type: String },
 	tourUrl: { type: String },
@@ -48,6 +51,8 @@ Enquiry.add({
   	operator: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true } },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
+	childPrice: {type: Types.Money},
+	infantPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now, noedit: true },
 	updatedAt: { type: Date, noedit: true },
 	friendlyId: {type: String, unique: true, noedit:true},
@@ -104,7 +109,7 @@ Enquiry.schema.post('save', function() {
 		this.sendUserEmail(this); //Send User email
 		this.sendBookingNotificationEmail(this, email); //Email al operadors
 		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-		SlackUtils.sendEnquiryToSlack(this);
+	//	SlackUtils.sendEnquiryToSlack(this);
 	}
 
 	if (this.bookingStatus == 1){

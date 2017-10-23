@@ -17,11 +17,16 @@
 						<input type="hidden" name="tourId" value="{{data.tour.tourId}}">
 						</div>
 					</div>
+
 					<div class="col-lg-12 col-md-12">
 						<i class="im im-icon-Clock-Forward "></i>
 						<span>Horario: </span>
-						
-						<input type="text" id="booking-time" name="bookingTime" value="9:00 am">
+						<!---<input type="text" id="booking-time" name="bookingTime" value="9:00 am"> -->
+						<select data-placeholder="Horario" id="bookingTime" name="bookingTime" class="chosen-select" >
+								<option> 5:30 AM</option>	
+								<option>11:00 AM</option>	
+								<option>Customizado</option>	
+						</select>
 					</div>
 					<!-- Panel Dropdown -->
 					<div class="col-lg-12">
@@ -96,7 +101,7 @@
 				</div>
 				
 				<!-- progress button animation handled via custom.js -->
-				<button id="bookingBtn" class="progress-button button fullwidth margin-top-5"><span>Ver Precio</span></button>
+				<button id="bookingBtn" type="submit" class="progress-button button fullwidth margin-top-5"><span>Ver Precio</span></button>
 			</form>
 			</div>
 			<!-- Book Now / End -->
@@ -235,5 +240,25 @@
 			return true;
 		} */
 	});
+	this.$('#booking-time').timeDropper({
+		setCurrentTime: false,
+		meridians: true,
+		primaryColor: "#3498db",
+		borderColor: "#3498db",
+		minutesInterval: '60'
+	});
+
+	var $clocks = $('.td-input');
+		_.each($clocks, function(clock){
+		clock.value = null;
+	});
+
 	});
 </script>
+
+<link rel="stylesheet" type="text/css" href="/css/plugins/timedropper.css"> 
+<script>
+
+
+</script> 
+<!-- End Single scripts -->

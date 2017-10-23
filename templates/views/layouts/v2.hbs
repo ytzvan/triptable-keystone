@@ -225,7 +225,7 @@
 {{{body}}}
 <!-- Footer
 ================================================== -->
-<div id="footer" class="sticky-footer dark">
+<div id="footer" class="sticky-footer">
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
@@ -326,22 +326,7 @@
 
 <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
 <script src="/scripts/timedropper.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/plugins/timedropper.css"> 
-<script>
-this.$('#booking-time').timeDropper({
-	setCurrentTime: false,
-	meridians: true,
-	primaryColor: "#3498db",
-	borderColor: "#3498db",
-	minutesInterval: '60'
-});
 
-var $clocks = $('.td-input');
-	_.each($clocks, function(clock){
-	clock.value = null;
-});
-</script> 
-<!-- End Single scripts -->
 
 <!--Algolia scripts -->
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>

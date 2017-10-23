@@ -33,8 +33,8 @@ keystone.init({
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
-	'signin url': '/signin',
-	'signin redirect' : '/',
+	//'signin url': '/signin',
+//	'signin redirect' : '/',
 	//'signout url' : '/signout',
 	//'signout redirect' : '/'
 });
