@@ -6,7 +6,7 @@
 				<h3><i class="im im-icon-Air-Balloon"></i>Reserva {{data.tour.name}}</h3>
 
 				<div class="row with-forms  margin-top-0">
-					<form action="/booking/{{data.tour.tourId}}" method="POST">
+					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">
 
 					<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
 					<div class="col-lg-12 col-md-12">
@@ -37,17 +37,17 @@
 								<!-- Quantity Buttons -->
 								<div class="qtyButtons">
 									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> Adults</div>
-									<input type="text" name="qtyInput" value="{{data.tour.minPerson}}">
+									<input type="text"  name="nOfAdults" id="nOfAdults" class="qtyInput" value="{{data.tour.minPerson}}">
 								</div>
 
 								<div class="qtyButtons">
 									<div class="qtyTitle"><i class="im im-icon-Boy "></i> Childrens </div>
-									<input type="text" name="qtyInput" value="0">
+									<input type="text" name="nOfChildren" id="nOfChildren" class="qtyInput" value="0">
 								</div>
 
 								<div class="qtyButtons">
 									<div class="qtyTitle"><i class="im im-icon-Baby "></i> Infants</div>
-									<input type="text" name="qtyInput" value="0">
+									<input type="text" name="nOfInfants" id="nOfInfants" class="qtyInput" value="0">
 								</div>
 
 							</div>
@@ -222,6 +222,28 @@
 			});
 	document.addEventListener("DOMContentLoaded", function() {
 
+		 $('#preBookForm').submit(function(e) {
+			 var minPerson = {{data.tour.minPerson}};
+			 var maxPerson = {{data.tour.maxPerson}};
+			 var people = $("#nOfAdults").val();
+			 people = parseInt(people);
+
+			 console.log("bookingPerson", people);
+			 debugger
+			 if (minPerson > people ||  maxPerson < people) {
+				 	if (minPerson > people ) {
+						 alert ("Minimo de personas inválido, este tour requiere un mínimo de: " + minPerson + " adultos" );
+						  return false
+					 }
+					 if (maxPerson < people ) {
+						 alert ("Máximo de personas inválido, el máximo de personas por reserva es de: " + maxPerson + " adultos" );
+						  return false
+					 }
+			 } else {
+			 		return true;
+			 }
+		 });
+
 	$( "#bookingBtn" ).click(function( e ) {
 		var current = $("#datepicker").datepicker("getDate");
 		$('#hiddenDate').val(current);
@@ -240,18 +262,7 @@
 			return true;
 		} */
 	});
-	this.$('#booking-time').timeDropper({
-		setCurrentTime: false,
-		meridians: true,
-		primaryColor: "#3498db",
-		borderColor: "#3498db",
-		minutesInterval: '60'
-	});
 
-	var $clocks = $('.td-input');
-		_.each($clocks, function(clock){
-		clock.value = null;
-	});
 
 	});
 </script>

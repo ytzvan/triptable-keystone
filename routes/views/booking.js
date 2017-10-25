@@ -11,8 +11,8 @@ exports = module.exports = function(req, res) {
 	// Set locals
 	locals.section = 'contact';
 	locals.bookingStatus = Enquiry.fields.bookingStatus.ops;
-	//locals.formData = req.query || {};
-	locals.formData = req.body || {};
+	locals.formData = req.query || {};
+	//locals.formData = req.body || {};
 	locals.price = {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
@@ -23,16 +23,17 @@ exports = module.exports = function(req, res) {
 	var tourId =  req.params.tourId;
 
 	view.on('init', function(next) {
-		if (req.body.date) {
-			var date = req.body.date;
-			locals.formData.date = Moment(req.body.date).format("YYYY-MM-DD");
-	    locals.formData.formatDate = Moment(req.body.date).format("dddd, MMMM Do YYYY");
+		if (req.query.date) {
+			var date = req.query.date;
+			locals.formData.date = Moment(req.query.date).format("YYYY-MM-DD");
+	    locals.formData.formatDate = Moment(req.query.date).format("dddd, MMMM Do YYYY");
 		}
-		console.log(req.body.qtyInput);
-		if (req.body.qtyInput) {
-			var nOfAdults = req.body.qtyInput[0]; //adult data from form.
-			var nOfChildren = req.body.qtyInput[1];
-			var nOfInfants = req.body.qtyInput[2];
+		console.log("PARAMS", req.params);
+		console.log("nofadults", req.query.nOfAdults);
+		if (req.query.nOfAdults) {
+			var nOfAdults = req.query.nOfAdults; //adult data from form.
+			var nOfChildren = req.query.nOfChildren;
+			var nOfInfants = req.query.nOfInfants;
 
 			nOfAdults = parseInt(nOfAdults);
 			nOfChildren = parseInt(nOfChildren);
@@ -55,7 +56,13 @@ exports = module.exports = function(req, res) {
 				locals.data.tour = result;
 				locals.data.userInfo = req.user;
 
-				var adultTotalPrice = nOfAdults * result.price;
+				if (locals.data.tour.multiPrice){
+         var tourPrice = getPrice(nOfAdults, locals);
+      	} else {
+        	var tourPrice = result.price;	
+				}
+				locals.price.adultsPrice = tourPrice;
+				var adultTotalPrice = nOfAdults * tourPrice;
 				var childrenTotalPrice = nOfChildren * result.childPrice;
 				var infantTotalPrice = nOfInfants * result.infantPrice;
 		
@@ -68,6 +75,34 @@ exports = module.exports = function(req, res) {
 			}
 		});
 	});
+
+	function getPrice(travelers, locals){
+      var priceCatalog = [];
+//      console.log(locals.data.tour.multiPriceCatalog)
+      for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
+      var current = locals.data.tour.multiPriceCatalog[i].split(',');
+        for (var index=0;index < current.length;index++){
+          current[index] = parseInt(current[index]);
+        }
+        priceCatalog.push(current);
+        }
+        for (var i = 0; i< priceCatalog.length; i++){
+          if (isNaN(priceCatalog[i][0])) {
+            priceCatalog[i][0] = locals.data.tour.minPerson;
+        }
+          if (isNaN(priceCatalog[i][1])) {
+            priceCatalog[i][1] = locals.data.tour.maxPerson;
+         }
+         //if logic
+				 console.log("priceCatalog",priceCatalog);
+         if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
+           var pricePerTraveler = priceCatalog[i][2];
+           return pricePerTraveler;
+         } else {
+          	console.log("error");
+         }
+        } // end for
+      } //end func
 
 	view.render('booking');
 

@@ -58,8 +58,10 @@ exports = module.exports = function(app) {
   app.get('/attractions/:slug', routes.views.attractions.single);
 
 	//Dinamic Views
-	app.post('/booking/:tourId', routes.views.booking); //Donde se llena la data
+	app.all('/booking/:tourId', routes.views.booking); //Donde se llena la data
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
+	app.get('/invoice/:enquiryId', routes.views.invoice);
+	
 	app.all('/tour/:slug', routes.views.tour);
 	//Search Views
 	app.get('/:country', routes.search.country);

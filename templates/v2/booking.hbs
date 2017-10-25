@@ -28,13 +28,20 @@
 <!-- Container -->
 <div class="container">
 	<div class="row">
+		{{#if messages.error}}
+		<div class="notification error ">
+				<p><span>Error!</span> {{messages.error}}</p>
+				<a class="close"></a>
+			</div>
+		{{/if}}
+		
 
 		<!-- Content
 		================================================== -->
 		<div class="col-lg-8 col-md-8 padding-right-30">
 
 			<h3 class="margin-top-0 margin-bottom-30">Personal Details</h3>
-			<form method="POST" action="/contact/{{data.tour.tourId}}">
+			<form method="POST" id="bookingForm" action="/contact/{{data.tour.tourId}}">
 			<input type="hidden" name="action" value="booking">
 			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
 			<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
@@ -47,9 +54,9 @@
 			<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">
 			<input type="hidden" name="operatorCellphone" placeholder="OpCel" class="form-control" value="{{data.tour.owner.cellphone}}">
 			<!-- People -->
-			<input type="hidden" name="nOfAdults"value="{{data.nOfAdults}}">
-			<input type="hidden" name="nOfChildren"value="{{data.nOfChildren}}">
-			<input type="hidden" name="nOfInfants"value="{{data.nOfInfants}}">
+			<input type="hidden" id="nOfAdults" name="nOfAdults"value="{{data.nOfAdults}}">
+			<input type="hidden" id="nOfChildren" name="nOfChildren"value="{{data.nOfChildren}}">
+			<input type="hidden" id="nOfInfants" name="nOfInfants"value="{{data.nOfInfants}}">
 
 			<!-- New fields -->
 			<input type="hidden" name="date" value="{{formData.date}}">
@@ -58,18 +65,18 @@
 
 				<div class="col-md-6">
 					<label>First Name</label>
-					<input type="text" name="name.first" value="">
+					<input type="text" id="firstName" name="name.first" value="">
 				</div>
 
 				<div class="col-md-6">
 					<label>Last Name</label>
-					<input type="text" name="name.last" value="">
+					<input type="text"  id="lastName" name="name.last" value="">
 				</div>
 
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label>E-Mail Address</label>
-						<input type="email" name="email" value="">
+						<input type="email"  id="email" name="email" value="">
 						<i class="im im-icon-Mail"></i>
 					</div>
 				</div>
@@ -77,13 +84,13 @@
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label>Phone / Whatsapp</label>
-						<input type="tel" name="phone" id="phone">
+						<input type="tel"  id="phone" name="phone" id="phone">
 					</div>
 				</div>
 				<div class="col-md-12">
 					<div class="input-with-icon medium-icons">
 						<label>Hotel Name or Address</label>
-						<input type="text" name="hotel"  value="">
+						<input type="text"  id="address" name="hotel"  value="">
 						<i class="im im-icon-Phone-2"></i>
 					</div>
 				</div>
@@ -136,21 +143,21 @@
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="expirynDate">Expiry Month</label>
-									<input id="expiryDate" placeholder="MM" type="tel" required>
+									<input id="expiryDateMonth" placeholder="MM" type="tel" required>
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="expiryDate">Expiry Year</label>
-									<input id="expirynDate" placeholder="YY" required type="tel">
+									<input id="expirynDateYear" placeholder="YY" required type="tel">
 								</div>
 							</div>
 							<input type="hidden" id="expirationField" name="expiration" value="09/20">
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="cvv">CVV</label>
-									<input id="cvv" required name="cvv2" type="tel">
+									<input id="cvv" required name="cvv2" placeholder="· · ·" type="tel">
 								</div>
 							</div>
 
@@ -187,7 +194,7 @@
 				<ul>
 					<li>Date <span>{{formData.formatDate}}</span></li>
 					<li>Hour <span>{{formData.bookingTime}}</span></li>
-					<li>Adults <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency data.tour.price}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					<li>Adults <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
 					<li>Children <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
 					<li>Infants <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
 					<li class="total-costs">Total Cost <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span></li>
@@ -203,10 +210,54 @@
 <!-- Container / End -->
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
+		if (localStorage) {
+			$('#firstName').val(localStorage.firstName);
+			$('#lastName').val(localStorage.lastName);
+			$('#email').val(localStorage.email);
+			$('#phone').val(localStorage.phone);
+			$('#address').val(localStorage.address);
+			//CC
+			$('#nameOnCard').val(localStorage.nameOnCard);
+			$('#cardNumber').val(localStorage.cardNumber);
+		}
 		$("#phone").intlTelInput({
+			nationalMode: false,
 			preferredCountries : ["pa", "co", "us", "es"],
 			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/utils.js",
-			autoPlaceholder: "aggressive"
+			autoPlaceholder: "polite"
 		});
+
+		$("#bookingForm").submit( function() {
+			
+			// GET
+
+			var firstName = $('#firstName').val();
+			localStorage.setItem("firstName", firstName);
+
+			var lastName = $('#lastName').val();
+			localStorage.setItem("lastName", lastName);
+
+			var email = $('#email').val();
+			localStorage.setItem("email", email);
+
+			var phone = $('#phone').val();
+			localStorage.setItem("phone", phone);
+
+			var address = $('#address').val();
+			localStorage.setItem("address", address);
+			// CC Data
+			var nameOnCard = $('#nameOnCard').val();
+			localStorage.setItem("nameOnCard", nameOnCard);
+
+			var cardNumber = $('#cardNumber').val();
+			localStorage.setItem("cardNumber", cardNumber);
+
+
+      return true;
+ 	 	});
+
+
+
 	});
+
 </script>
