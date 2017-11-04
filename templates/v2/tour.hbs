@@ -7,7 +7,7 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>{{getTourLocName data.tour.name data.tour.name_eng}} - ${{data.tour.price}} USD<span class="listing-tag">Outdoors</span></h2>
+					<h2>{{getTourLocName data.tour.name data.tour.name_eng}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} <span class="listing-tag">{{data.tour.categories.[0].name}}</span></h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>

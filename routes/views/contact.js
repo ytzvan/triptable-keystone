@@ -239,7 +239,7 @@ exports = module.exports = function(req, res) {
 			updater = newEnquiry.getUpdateHandler(req);
 		updater.process(updateBody, {
 			flashErrors: true,
-			fields: 'name, email, phone, people, nOfAdults, nOfChildren, nOfInfants, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
+			fields: 'name, email, phone, people, nOfAdults, nOfChildren, nOfInfants, childPrice, infantPrice, date, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot',
 			errorMessage: 'There was a problem submitting your booking:'
 		}, function(err, data) {
 			if (err) {

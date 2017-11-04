@@ -56,7 +56,8 @@ p.subtitle i{
     background-color: #3498db;
 }
 .listing-item-content{
-  padding: 0px 80px 0px 15px;;
+ padding: 0px 15px;
+ bottom: 15px;
 }
 span.like-icon{
   right: 15px;
@@ -450,3 +451,47 @@ i.price{
     font-weight: 400;
     font-style: normal;
 }    
+.price span.tour-price{
+	font-size: 16px;
+		font-weight: 400;
+}
+.listing-item-container .star-rating{
+	background-color: #2980b9;
+	color: white;
+	padding: 5px 15px;
+	border-radius: 0px 0px 4px 4px;
+}
+.star-rating .price{
+	background-color: #2980b9;
+	color: white;
+}
+h3.tour-price{
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	margin-top: 10px;
+}
+.listing-item-details{
+	padding: 0px 15px;
+	top: 15px;
+}
+.listing-badge.now-open{
+	background-color: #e74c3c;
+}
+.listing-item-details ul li{
+	padding: 4px;
+  border-radius: 5px;
+  background-color: rgba(149, 165, 166, 0.5);
+}
+header .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 8.5%;
+    padding-right: 8.5%;
+}
+@media (max-width: 1024px){
+header .container-fluid {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+}
