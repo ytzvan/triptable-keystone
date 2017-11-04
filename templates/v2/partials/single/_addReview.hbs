@@ -28,39 +28,42 @@
 
 					<div class="col-md-6">
 						<!-- Uplaod Photos -->
-						<div class="add-review-photos margin-bottom-30">
+						<!--<div class="add-review-photos margin-bottom-30">
 							<div class="photoUpload">
 							    <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
 							    <input type="file" class="upload" />
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 	
 				<!-- Review Comment -->
-				<form id="add-comment" class="add-comment">
+				<form id="add-comment" method="POST" class="add-comment">
+					  <input type="hidden" name="action" value="review">
+            <input type="hidden" name="author" value="57349555510ff303009739f3">
+            <input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
 					<fieldset>
 
 						<div class="row">
 							<div class="col-md-6">
 								<label>Name:</label>
-								<input type="text" value=""/>
+								<input type="text" name="name" value=""/>
 							</div>
 								
 							<div class="col-md-6">
 								<label>Email:</label>
-								<input type="text" value=""/>
+								<input type="text" name="email" value=""/>
 							</div>
 						</div>
 
 						<div>
 							<label>Review:</label>
-							<textarea cols="40" rows="3"></textarea>
+							<textarea name="message" cols="40" rows="3"></textarea>
 						</div>
 
 					</fieldset>
 
-					<button class="button">Submit Review</button>
+					<input type="submit" class="button"></input>
 					<div class="clearfix"></div>
 				</form>
 

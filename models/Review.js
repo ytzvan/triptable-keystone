@@ -19,13 +19,15 @@ var Review = new keystone.List('Review', {
 Review.add({
 	message: { type: Types.Textarea },
 	author: { type: Types.Relationship, ref: 'User', index: true },
+	name: {type: String},
+	email: {type: String},
 	score: {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	createdAt: { type: Date, default: Date.now, noedit: true },
 });
 
-Review.schema.post('save', function() {
-    var score = this.score;
+/*Review.schema.post('save', function() {
+  var score = this.score;
 	var tourId = this.tour;
 	var count = Number(0);
 	var finalScore;
@@ -46,7 +48,7 @@ Review.schema.post('save', function() {
 				return true;
 			});
 	}); // end query	
-});
+}); */
 
 Review.schema.post('remove', function(){
 	var score = this.score;

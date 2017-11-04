@@ -3,7 +3,7 @@
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3><i class="im im-icon-Air-Balloon"></i>Reserva {{data.tour.name}}</h3>
+				<h3><i class="im im-icon-Air-Balloon"></i>Reserva {{data.tour.name}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} Por Persona</h3>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">
@@ -21,15 +21,15 @@
 					<div class="col-lg-12 col-md-12">
 						<i class="im im-icon-Clock-Forward "></i>
 						<span>Horario: </span>
-						<!---<input type="text" id="booking-time" name="bookingTime" value="9:00 am"> -->
+						
 						<select data-placeholder="Horario" id="bookingTime" name="bookingTime" class="chosen-select" >
 								<option> 5:30 AM</option>	
 								<option>11:00 AM</option>	
 								<option>Customizado</option>	
 						</select>
-					</div>
+					</div> 
 					<!-- Panel Dropdown -->
-					<div class="col-lg-12">
+					<div class="col-md-12">
 						<div class="panel-dropdown">
 							<a href="#">Personas <span class="qtyTotal" name="qtyTotal">1</span></a>
 							<div class="panel-dropdown-content">

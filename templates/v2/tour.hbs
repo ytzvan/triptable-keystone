@@ -7,7 +7,7 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>{{getTourLocName data.tour.name data.tour.name_eng}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} <span class="listing-tag">{{data.tour.categories.[0].name}}</span></h2>
+					<h2>{{getTourLocName data.tour.name data.tour.name_eng}} <span class="listing-tag">{{data.tour.categories.[0].name}}</span></h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
@@ -52,14 +52,13 @@
 			</div>
 
 
-			<!-- Food Menu -->
+			<!-- Food Menu 
 			<div id="listing-pricing-list" class="listing-section">
 				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
 
 				<div class="show-more">
 					<div class="pricing-list-container">
 						
-						<!-- Food List -->
 						<h4>Burgers</h4>
 						<ul>
 							<li>
@@ -84,7 +83,7 @@
 							</li>
 						</ul>
 
-						<!-- Food List -->
+						<!-- Food List
 						<h4>Drinks</h4>
 						<ul>
 							<li>
@@ -112,7 +111,7 @@
 			<!-- Food Menu / End -->
 
 		
-			<!-- Location -->
+			<!-- Location 
 			<div id="listing-location" class="listing-section">
 				<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
 
@@ -120,12 +119,12 @@
 					<div id="singleListingMap" data-latitude="40.70437865245596" data-longitude="-73.98674011230469" data-map-icon="im im-icon-Hamburger"></div>
 					<a href="#" id="streetView">Street View</a>
 				</div>
-			</div>
+			</div> -->
 				
-			<!-- Reviews Partial %- partial("partials/single/_reviews") %> -->
+			{{>single/_reviews}}
 
 			<!-- AddReview Partial %- partial("partials/single/_addReview") %> -->
-
+			{{>single/_addReview}}
 
 		</div>
 

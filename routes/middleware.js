@@ -279,7 +279,7 @@ if (subdomain == 'www') {
 
 exports.setCurrency = function(req, res, next) {
  if (!process.env.CURRENCY) {
-    process.env.CURRENCY = "USD";
+    process.env.CURRENCY = "EUR";
   } else {
     process.env.CURRENCY =  process.env.CURRENCY;
   };

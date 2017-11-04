@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var striptags = require('striptags');
 var Review = keystone.list('Review');
 var TourModel = keystone.list('Tour');
+var Moment = require('moment');
 
 
 exports = module.exports = function(req, res) {
@@ -81,7 +82,7 @@ exports = module.exports = function(req, res) {
 			updater = newReview.getUpdateHandler(req);
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'author, message, score, tour',
+			fields: 'author, message, score, tour, name, email',
 			errorMessage: 'There was a problem submitting your review:'
 		}, function(err, data) {
 			if (err) {
