@@ -277,9 +277,9 @@ if (subdomain == 'www') {
   next();
 };
 
-exports.setCurrency = function(req, res, next) {
+exports.getCurrency = function(req, res, next) {
  if (!process.env.CURRENCY) {
-    process.env.CURRENCY = "EUR";
+    process.env.CURRENCY = "USD";
   } else {
     process.env.CURRENCY =  process.env.CURRENCY;
   };
@@ -301,4 +301,4 @@ exports.setCurrency = function(req, res, next) {
 	// money.js is ready to use:
   next();
 }); */
-} 
+}; 

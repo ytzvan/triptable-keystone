@@ -85,6 +85,7 @@ Tour.add({
   attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
   createdAt: { type: Date, noedit: true },
 	updatedAt: { type: Date, noedit: true },
+	schedule : {type: Types.TextArray, label: 'Horas', note: 'Estos son los multiples horarios que tiene un tour, si hay horarios establecidos, de otro modo se mostrará un mensaje que diga coodinar al momento de la reserva.'},
   daysDisabled: { type: Types.TextArray, label: 'Dias Desactivados', note : '0 - Domingo, 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sábado'},
   skipDays : {type: Types.Number, default: 0, label: 'Dias con los que se necesita reservar con anticipación', note: 'Esto define el mínimo de días necesarios para hacer una reserva'},
   disabledDates : {type: Types.TextArray, label: 'Fechas no disponibles', note: 'Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28'},

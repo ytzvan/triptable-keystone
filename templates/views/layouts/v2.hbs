@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/colors/blue.css" id="colors">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/css/custom.css">
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
@@ -24,7 +25,7 @@
 
 <!-- Header Container
 ================================================== -->
-<header id="header-container">
+<header id="header-containe">
 
 	<!-- Header -->
 	<div id="header">
@@ -59,29 +60,24 @@
 							</ul>
 						</li>-->
 
-						<li><a href="#">Acerca de Nosotros</a> <!--One page with info about us, how it works, general faq, all connected -->
+						<li><a href="/search">Tours</a> <!--One page with info about us, how it works, general faq, all connected -->
 							<ul>
-								<li><a href="#">Cómo Funciona</a>
+								<li><a href="/panama">Tours en Panamá <span class="flag-icon flag-icon-pa"></span></a>
 									<ul>
-										<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-										<li><a href="listings-list-full-width.html">Full Width</a></li>
+										<li><a href="/destino/san-blas-guna-yala">Tours a San Blas</a></li>
+										<li><a href="/tour/tour-por-el-canal-de-panama-transito-parcial-tour-de-medio-dia">Tours por el Canal de Panamá</a></li>
+										<li><a href="/destino/bocas-del-toro">Tours en Bocas del Toro</a></li>
+										<li><a href="/destination/chiriqui">Tours en Chiriqui</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Quienes somos</a>
+								<li><a href="/colombia">Tours en Colombia <span class="flag-icon flag-icon-co"></span></a>
 									<ul>
-										<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-										<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-										<li><a href="listings-grid-full-width.html">Full Width</a></li>
+										<li><a href="/destino/medellin">{{i18n "tours_in"}} Medellín</a></li>
+										<li><a href="/destino/bogota">{{i18n "tours_in"}} Bogotá</a></li>
+										<li><a href="/destino/cartagena">{{i18n "tours_in"}} Cartagena</a></li>
+										<li><a href="/destino/santa-marta">Tours al Parque Tayrona </a></li>
 									</ul>
 								</li>
-								<li><a href="#">Preguntas Frecuentes</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="listings-single-page.html">Contáctanos</a></li>
 							</ul>
 						</li>
 
@@ -97,11 +93,11 @@
 								<li><a href="dashboard-invoice.html">Invoice</a></li>
 							</ul>
 						</li>
-
-						<li><a href="#">{{i18n "language"}}</a>
+						
+						<li><a href="#" id="lang-select"></a>
 							<ul>
-								<li><a href="?lang=es"><i class="em em-es"></i> Español</a></li>
-								<li><a href="?lang=en"><i class="em em-uk"></i> Inglés</a></li>
+								<li><a href="?lang=es"><i class="flag-icon flag-icon-es"></i> Español</a></li>
+								<li><a href="?lang=en"><i class="flag-icon flag-icon-gb"></i> English </a></li>
 							</ul>
 						</li>
 						
@@ -112,7 +108,13 @@
 				
 			</div>
 			<!-- Left Side Content / End -->
-
+			<script>
+				$(document).ready(function(){
+					var langSelected = '<i class="flag-icon flag-icon-{{lang}}">';
+					$('#lang-select').html(langSelected);
+					
+				});
+			</script>
 
 			<!-- Right Side Content / End -->
 			<div class="right-side">

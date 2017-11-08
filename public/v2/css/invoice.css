@@ -281,3 +281,6 @@ th span::after {
 span.detail{
   text-transform: uppercase;
 }
+.capitalize{
+  text-transform: capitalize;
+}

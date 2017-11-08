@@ -72,7 +72,7 @@ exports = module.exports = function(req, res) {
       .find({"state": "published"})
 			 .where("city", id)
         .sort('-publishedDate')
-			 .populate('province country categories');
+			 .populate('province country categories city');
   			if (category) {
   				q.where('categories').in([locals.data.filters]);
   			}

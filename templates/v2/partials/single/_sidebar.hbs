@@ -3,7 +3,7 @@
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3><i class="im im-icon-Air-Balloon"></i>Reserva {{data.tour.name}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} Por Persona</h3>
+				<h3><i class="im im-icon-Air-Balloon"></i>{{data.tour.name}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} Por Persona</h3>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">
@@ -21,32 +21,35 @@
 					<div class="col-lg-12 col-md-12">
 						<i class="im im-icon-Clock-Forward "></i>
 						<span>Horario: </span>
-						
 						<select data-placeholder="Horario" id="bookingTime" name="bookingTime" class="chosen-select" >
-								<option> 5:30 AM</option>	
-								<option>11:00 AM</option>	
-								<option>Customizado</option>	
+							{{#if data.tour.schedule}}
+							{{#each data.tour.schedule}}
+								<option> {{this}}</option>	
+							{{/each}}
+							{{else}}
+								<option>{{i18n "custom"}}</option>	
+							{{/if}}	
 						</select>
 					</div> 
 					<!-- Panel Dropdown -->
 					<div class="col-md-12">
 						<div class="panel-dropdown">
-							<a href="#">Personas <span class="qtyTotal" name="qtyTotal">1</span></a>
+							<a href="#" class="booking people">{{i18n "people"}} <span class="qtyTotal" name="qtyTotal">1</span></a>
 							<div class="panel-dropdown-content">
 
 								<!-- Quantity Buttons -->
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> Adults</div>
+									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> {{i18n "adults"}} (12+)</div>
 									<input type="text"  name="nOfAdults" id="nOfAdults" class="qtyInput" value="{{data.tour.minPerson}}">
 								</div>
 
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-Boy "></i> Childrens </div>
+									<div class="qtyTitle"><i class="im im-icon-Boy "></i> {{i18n "children"}} (6-11) </div>
 									<input type="text" name="nOfChildren" id="nOfChildren" class="qtyInput" value="0">
 								</div>
 
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-Baby "></i> Infants</div>
+									<div class="qtyTitle"><i class="im im-icon-Baby "></i> {{i18n "infants"}} (0-5)</div>
 									<input type="text" name="nOfInfants" id="nOfInfants" class="qtyInput" value="0">
 								</div>
 
@@ -110,11 +113,11 @@
 				<!-- Contact -->
 			<div class="boxed-widget margin-top-35 guide">
 				<div class="hosted-by-title row">
-					<h4><span>Ofrecido por</span> <a href="pages-user-profile.html">{{data.tour.owner.name.first}}</a></h4>
-					<div class="col-md-12 text-center"><a href="pages-user-profile.html" class="hosted-by-avatar"><img src="/images/guide.jpg" alt=""></a></div>
+					<h4><span>Ofrecido por</span> <a>{{data.tour.owner.name.first}}</a></h4>
+					<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt=""></a></div>
 					<div class="col-md-12 text-center">
-						<div class="star-rating" data-rating="5.0"></div><p class="mb-bottom-10">Ver Tours</p>
-						<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open white"></i> Send Message</a>
+						<!--<div class="star-rating" data-rating="5.0"></div><p class="mb-bottom-10">Ver Tours</p>-->
+						<a href="mailto:hello@triptable.com?subject=Pregunta del tour: {{data.tour.name}} - ID: {{data.tour._id}}" class="send-message-to-owner button"><i class="sl sl-icon-envelope-open white"></i> {{i18n "send_message"}}</a>
 							
 					</div>
 				</div>
@@ -189,19 +192,20 @@
 		</div>
 		<!-- Sidebar / End -->
 		<script type="text/javascript">
+		
 			function getDayOfTheWeek(day){
-				var disabledDays = [3,5]; 
+				var disabledDays = "{{data.tour.daysDisabled}}"; 
 				return disabledDays.includes(day);     // true
 			}
 
 			document.addEventListener("DOMContentLoaded", function() {
 			//	var date = new Date();
 				var date = moment();
-				var minDaysForBooking = {{data.tour.skipDays}};
+				var minDaysForBooking = {{data.tour.skipDays}}; //min days for booking
 				var isInvalid = true;
 				var minDate = date.add(minDaysForBooking, 'days');
 				while(isInvalid) {
-				var dow = minDate.day();
+				var dow = minDate.day(); 
 				isInvalid = getDayOfTheWeek(dow);
 					if (isInvalid) {
 						minDate = date.add(1, 'days');
@@ -209,13 +213,13 @@
 						isInvalid = false;
 					}
 				}
-				
-				
+				var daysDisabled = "{{data.tour.daysDisabled}}";
 				$( "#datepicker" ).datepicker({
 					
 				beforeShowDay: function(date) {
 	        		var day = date.getDay();
-	        		return [(day != 3 && day != 5)];
+							var includes = daysDisabled.includes(day);
+	        		return [!includes, ""];
     			},
 				minDate: date._d,
 				});

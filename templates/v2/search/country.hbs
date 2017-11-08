@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Búsqueda </h2><span>Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades.</span><p> Mostrando del {{data.tours.first}} al {{data.tours.last}}</p>
+				<h2>Búsqueda </h2><span>Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades.</span><p> Mostrando del <strong>{{data.tours.first}}</strong> al <strong>{{data.tours.last}}</strong></p>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
@@ -78,10 +78,15 @@
 					<div class="pagination-container margin-top-20 margin-bottom-40">
 						<nav class="pagination">
 							<ul>
+								{{#if data.tours.previous}}
+								<li><a href="?page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
+								{{/if}}
 								<li><a href="#" class="current-page">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
-								<li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
+								{{#if data.tours.next}}
+								<li><a href="?page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
+								{{/if}}
 							</ul>
 						</nav>
 					</div>
@@ -94,10 +99,12 @@
 	</div>
 </div>
 <script type="text/javascript">
+  $(document).ready(function(){
+		$('#countries-select').val("{{data.country}}"); //value of your default option
+			$('#cities-select').val("{{data.city}}"); //value of your default option
+	});
 	document.addEventListener("DOMContentLoaded", function() {
-
-	$('#cities-select').val("{{data.city}}"); //value of your default option
-	$('#countries-select').val("{{data.country}}"); //value of your default option
+		
 
 	$("#countries-select").change(function() {
 		var country = $( this ).val();

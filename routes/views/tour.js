@@ -46,9 +46,7 @@ exports = module.exports = function(req, res) {
 			locals.meta.keywords = result.keywords;
 			var desc = result.description.short;
 			var cleanStr = striptags(desc);
-			console.log(process.env.LANG);
 			if (process.env.LANG === 'en'){
-				console.log(result.description_eng);
 				if (result.name_eng) {
 					locals.meta.title = result.name_eng + " - Triptable tours and activities";
 				} else {
@@ -67,7 +65,6 @@ exports = module.exports = function(req, res) {
 			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", "+result.country.country +".";
 
 			if (result.heroImage) {
-				console.log("hero image", result.heroImage)
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_75/v"+result.heroImage.version+"/"+result.heroImage.public_id+"."+result.heroImage.format;
 			} else {
 			var img = result.images[0];

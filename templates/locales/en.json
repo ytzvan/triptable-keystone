@@ -162,5 +162,14 @@
 	"choose_booking_date": "Check Availability",
 	"faq_title": "faq_title",
 	"faq_subtitle": "faq_subtitle",
-	"weather_message": "We currently are facing problems with our payment processor due to inclement weather at the Florida Peninsula"
+	"weather_message": "We currently are facing problems with our payment processor due to inclement weather at the Florida Peninsula",
+	"custom": "Custom",
+	"send_message": "send message",
+	"adults": "adults",
+	"children": "children",
+	"infants": "infants",
+	"tours_in": "tours_in",
+	"print_invoice": "Print this Invoice",
+	"invoice": "invoice",
+	"bookingId": "Booking ID"
 }

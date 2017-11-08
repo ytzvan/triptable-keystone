@@ -7,13 +7,13 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 keystone.pre('render', middleware.crsfAuth);
 keystone.pre('routes', middleware.userInfo);
-keystone.pre('render', middleware.userInfo);
+//keystone.pre('render', middleware.userInfo);
 keystone.pre('routes', middleware.isAdmin);
-keystone.pre('render', middleware.isAdmin);
+//keystone.pre('render', middleware.isAdmin);
 keystone.pre('routes', middleware.isGuide);
-keystone.pre('render', middleware.isGuide);
+//keystone.pre('render', middleware.isGuide);
 keystone.pre('routes', middleware.intl);
-keystone.pre('routes', middleware.setCurrency);
+keystone.pre('routes', middleware.getCurrency);
 
 // Import Route Controller
 var routes = {

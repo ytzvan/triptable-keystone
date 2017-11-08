@@ -11,8 +11,7 @@
 <body>
 
 <!-- Print Button -->
-<a href="/" class="print-button">Ir al Inicio</a>
-<a href="javascript:window.print()" class="print-button">Print this invoice</a>
+<a href="javascript:window.print()" class="print-button"> {{i18n "print_invoice"}}</a>
 
 
 <!-- Invoice -->
@@ -27,7 +26,7 @@
 		<div class="col-md-6">	
 
 			<p id="details">
-				<strong>Reserva ID:</strong> <span class="detail">#{{data.enquiry.friendlyId}}</span> <br>
+				<strong>{{i18n "bookingId"}}:</strong> <span class="detail">#{{data.enquiry.friendlyId}}</span> <br>
 				<strong>Creación:</strong> {{data.enquiry.friendlyDate}} <br>
 			</p>
 		</div>
@@ -37,7 +36,7 @@
 	<!-- Client & Supplier -->
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Factura</h2>
+			<h2 class="capitalize">{{i18n "invoice"}}</h2>
 		</div>
 
 		<div class="col-md-6">	

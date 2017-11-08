@@ -58,11 +58,9 @@ exports = module.exports = function(req, res) {
 				])
 			 	.sort("-featured")
 				.exec(function(err, results) { //Query Pais
-					console.log("cities", results);
 					if (err || !results) {
 						return res.status(404);
 					}
-					console.log("results in city model", results);
 					locals.data.cities = results;
 				});
 
@@ -134,7 +132,6 @@ exports = module.exports = function(req, res) {
 
 
 	// Render the view
-	console.log(locals.data.cities);
 	view.render('search/country');
 
 };
