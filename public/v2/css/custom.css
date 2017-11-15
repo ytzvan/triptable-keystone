@@ -511,3 +511,35 @@ a.send-message-to-owner.button{
  .listing-item:before {
     background: linear-gradient(to top, rgba(35,35,37,0.6) 20%, rgba(35,35,37,0.3) 35%, rgba(22,22,23,0.1) 49%, rgba(27, 9, 9, 0) 100%)
 }
+@media (min-width: 1025px){
+li.header-left{
+	float: right !important;
+}
+}
+	#navigation.style-1 ul li{
+		margin: 0px;
+	}	
+	.left-side{
+		width: 100%;
+	}
+#navigation{
+	width: 82%;
+}
+ul#responsive{
+	width: 100%;
+}
+#navigation.style-1:before {
+	width: 100%;
+}
+#navigation ul ul li{
+	width: 225px;
+}
+#responsive i.im{
+	font-weight: 600;
+}
+#header {
+	padding: 15px 0 10px 0;
+}
+#footer ul.footer-links {
+	width: 100%;
+	float: left;}

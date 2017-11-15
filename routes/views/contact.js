@@ -120,7 +120,8 @@ exports = module.exports = function(req, res) {
       cardNumber = cardNumber.replace(/ /g,'');
       var cardDate = body.expiration;
       cardDate = moment("01/"+body.expiration,"DD-MM-YYYY");
-      var formatDate = cardDate.format("MMYY");
+			var formatDate = cardDate.format("MMYY");
+			debugger
       cardDate = formatDate;
 		  var options = { method: 'POST',
       proxy: process.env.QUOTAGUARDSTATIC_URL,

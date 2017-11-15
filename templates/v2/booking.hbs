@@ -112,7 +112,7 @@
 
 				<div class="payment-tab">
 					<div class="payment-tab-trigger">
-						<input id="paypal" name="cardType" type="radio" value="paypal">
+						<input id="paypal" name="cardType" type="radio" value="paypal" disabled>
 						<label for="paypal">Cash</label>
 						<!--<img class="payment-logo paypal" src="https://i.imgur.com/ApBxkXU.png" alt=""> -->
 					</div>
@@ -149,18 +149,20 @@
 
 							<div class="col-md-4">
 								<div class="card-label">
-									<label for="expirynDate">Expiry Month</label>
-									<input id="expiryDateMonth" placeholder="MM" type="tel" required>
+									<label for="expirynDate">Mes</label>
+									<input id="expiryDateMonth" placeholder="MM" type="tel" required >
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
-									<label for="expiryDate">Expiry Year</label>
+									<label for="expiryDate">Año</label>
 									<input id="expirynDateYear" placeholder="YY" required type="tel">
 								</div>
 							</div>
+
 							<input type="hidden" id="expirationField" name="expiration" value="09/20">
+
 							<div class="col-md-4">
 								<div class="card-label">
 									<label for="cvv">CVV</label>
@@ -235,7 +237,10 @@
 		});
 
 		$("#bookingForm").submit( function() {
-			
+			var mm = $('#expiryDateMonth').val();
+			var yy = $('#expirynDateYear').val();
+
+			$('#expirationField').val(mm+"/"+yy);
 			// GET
 
 			var firstName = $('#firstName').val();

@@ -172,5 +172,6 @@
 	"tours_in": "Tours en",
 	"print_invoice": "Imprimir",
 	"invoice": "Factura",
-	"bookingId": "ID de Reserva"
+	"bookingId": "ID de Reserva",
+	"company": "company"
 }
