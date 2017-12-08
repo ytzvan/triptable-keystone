@@ -543,3 +543,12 @@ ul#responsive{
 #footer ul.footer-links {
 	width: 100%;
 	float: left;}
+
+li.active{
+	border-radius: 50%;
+}
+li.active
+a{
+	background-color: #2c73b3 !important;
+	color: white !important;
+}

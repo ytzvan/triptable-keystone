@@ -41,6 +41,7 @@
 
 				<div class="main-search-input-item">
 					<select data-placeholder="Todas las Ciudades"  id="cities-select"  class="chosen-select" >
+						<option value="{{data.country.country}}">Todos</option>	
 						{{#each data.cities}}
 						<option value="{{slug}}">{{city}}</option>	
 						{{/each}}
@@ -69,7 +70,6 @@
       	{{>search/_results}}
 			{{/each}}	
 			</div>
-
 			<!-- Pagination -->
 			<div class="clearfix"></div>
 			<div class="row">
@@ -81,10 +81,10 @@
 								{{#if data.tours.previous}}
 								<li><a href="?page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
 								{{/if}}
-								<li><a href="#" class="current-page">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								{{#if data.tours.next}}
+								{{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}}
+
+								
+							 {{#if data.tours.next}}
 								<li><a href="?page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
 								{{/if}}
 							</ul>
@@ -112,7 +112,11 @@
 	});
 	$("#cities-select").change(function() {
 		var city = $( this ).val();
+		if(city) { 
   		window.location.href="/destino/"+city;
+			} else {
+				window.location.href="/{{data.country}}";
+			}
 	});
 });
 </script>
