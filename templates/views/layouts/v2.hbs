@@ -112,9 +112,14 @@
 			<!-- Left Side Content / End -->
 			<script>
 				$(document).ready(function(){
-					var langSelected = '<i class="flag-icon flag-icon-{{lang}}">';
-					$('#lang-select').html(langSelected);
-					
+					var lang= "{{lang}}";
+					if (lang == "en"){
+						var str = '<i class="flag-icon flag-icon-gb">';
+						$('#lang-select').html(str);
+					} else {
+						var str = '<i class="flag-icon flag-icon-{{lang}}">';
+						$('#lang-select').html(str);
+					}
 				});
 			</script>
 
