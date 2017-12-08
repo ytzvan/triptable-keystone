@@ -9,7 +9,7 @@ moment.locale('es', {
     weekdaysMin : "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"),
 	});
 moment.locale('es');
-
+var algoliasearch = require('algoliasearch');
 /**
  * Post Model
  * ==========
@@ -108,5 +108,27 @@ Tour.schema.pre('save', function(next) {
     	this.createdAt = now;
   	}	
   	next()
+});
+
+Tour.schema.post('save', function(next){
+	var client = algoliasearch("PATK6GCBGK", "9cf27aede99e95d39b600cab81c3f350");
+	var index = client.initIndex('tours');
+	console.log(this);
+	try {
+	index.addObject({
+		objectID: this.tourId,
+		name: this.name,
+		name_eng: this.name_eng,
+		heroImage: this.heroImage.secure_url,
+		slug: this.slug,
+	}, function(err, content) {
+		console.log('objectID=' + content.objectID);
+		if(err) {
+			console.log("err: ", err);
+		}
+	});
+	} catch (e) {
+		console.log("hubo un errir al añadir el tour a la db", e);
+	}
 });
 Tour.register();
