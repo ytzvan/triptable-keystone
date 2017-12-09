@@ -265,6 +265,7 @@ module.exports = function() {
 			isActivePage = ((page === currentPage)? true:false),
 			// need an active class indicator
 			liClass = ((isActivePage)? ' class="active"':'');
+			liId = ' id="pagination"'
 
 			// if '...' is sent from keystone then we need to override the url
 			if(page === '...'){
@@ -275,7 +276,7 @@ module.exports = function() {
 			// get the pageUrl using the integer value
 			var pageUrl = _helpers.pageUrl(page);
 			// wrapup the html
-			html += '<li'+liClass+'>'+ linkTemplate({url:pageUrl,text:pageText})+'</li>\n';
+			html += '<li'+liClass + ''+liId+'>'+ linkTemplate({url:pageUrl,text:pageText})+'</li>\n';
 		});
 		return html;
 	};

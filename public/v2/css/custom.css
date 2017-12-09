@@ -547,7 +547,7 @@ ul#responsive{
 li.active{
 	border-radius: 50%;
 }
-li.active
+li#pagination.active	
 a{
 	background-color: #2c73b3 !important;
 	color: white !important;
