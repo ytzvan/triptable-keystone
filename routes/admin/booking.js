@@ -36,7 +36,7 @@ exports.index = function(req, res) {
 			    }
 		    });
     };
-    view.render('admin/booking');
+    view.render('admin/booking', {layout:"v2-admin"});
 };
 
 exports.update = function(req, res) {
@@ -94,6 +94,6 @@ exports.update = function(req, res) {
             }
 		     });
      });
-  view.render('admin/booking');
+  view.render('admin/booking', {layout:"v2-admin"});
 };
 

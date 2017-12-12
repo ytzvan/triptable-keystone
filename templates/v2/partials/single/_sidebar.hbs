@@ -114,7 +114,10 @@
 			<div class="boxed-widget margin-top-35 guide">
 				<div class="hosted-by-title row">
 					<h4><span>Ofrecido por</span> <a>{{data.tour.owner.name.first}}</a></h4>
-					<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt=""></a></div>
+
+				<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt=""></a></div> -->
+				<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="	http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=256" alt=""></a></div>
+					
 					<div class="col-md-12 text-center">
 						<!--<div class="star-rating" data-rating="5.0"></div><p class="mb-bottom-10">Ver Tours</p>-->
 						<a href="mailto:hello@triptable.com?subject=Pregunta del tour: {{data.tour.name}} - ID: {{data.tour._id}}" class="send-message-to-owner button"><i class="sl sl-icon-envelope-open white"></i> {{i18n "send_message"}}</a>

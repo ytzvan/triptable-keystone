@@ -16,8 +16,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/css/custom.css">
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
-</head>
+<!--Tour CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
 
+</head>
 <body>
 
 <!-- Wrapper -->
@@ -91,7 +93,7 @@
 							</ul>
 						</li>
 						{{#if userInfo}}
-						<li class="header-left"><a href="#"> Bienvenido {{userInfo.name.first}}</a>
+						<li class="header-left"><a href="#"> {{i18n "welcome"}} {{userInfo.name.first}}</a>
 							<ul>
 								<li><a href="/user">Mis Reservas</a></li>
 								<li><a href="/keystone">Keystone</a></li>
@@ -266,7 +268,8 @@
 <link href="/css/plugins/datedropper.css" rel="stylesheet" type="text/css">
 <script src="/scripts/datedropper.js"></script>
 <script>$('#booking-date').dateDropper();</script>  -->
-
+<!-- Tour Page -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.js"></script>
 <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
 <script src="/scripts/timedropper.js"></script>
 

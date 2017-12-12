@@ -8,23 +8,7 @@
 				
 				<!-- Rating / Upload Button -->
 				<div class="row">
-					<div class="col-md-6">
-						<!-- Leave Rating -->
-						<div class="clearfix"></div>
-						<div class="leave-rating margin-bottom-30">
-							<input type="radio" name="rating" id="rating-1" value="1"/>
-							<label for="rating-1" class="fa fa-star"></label>
-							<input type="radio" name="rating" id="rating-2" value="2"/>
-							<label for="rating-2" class="fa fa-star"></label>
-							<input type="radio" name="rating" id="rating-3" value="3"/>
-							<label for="rating-3" class="fa fa-star"></label>
-							<input type="radio" name="rating" id="rating-4" value="4"/>
-							<label for="rating-4" class="fa fa-star"></label>
-							<input type="radio" name="rating" id="rating-5" value="5"/>
-							<label for="rating-5" class="fa fa-star"></label>
-						</div>
-						<div class="clearfix"></div>
-					</div>
+					
 
 					<div class="col-md-6">
 						<!-- Uplaod Photos -->
@@ -38,10 +22,12 @@
 				</div>
 	
 				<!-- Review Comment -->
+				<div id="raty"></div>
 				<form id="add-comment" method="POST" class="add-comment">
 					  <input type="hidden" name="action" value="review">
-            <input type="hidden" name="author" value="57349555510ff303009739f3">
+						<input type="hidden" name="author" value="{{userInfo.id}}">
             <input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+						<input type="hidden" id="score" name="score" value="">
 					<fieldset>
 
 						<div class="row">
@@ -69,3 +55,16 @@
 
 			</div>
 			<!-- Add Review Box / End -->
+
+			<script>
+  $(document).ready(function(){
+      $('#raty').raty({ starType: 'i' });
+			$('form').submit(function(e)	{
+				var score = $('#raty').raty('score'); //get the score
+				$('#score').val(score); //set the score
+				debugger
+
+			})
+  });
+</script>
+              

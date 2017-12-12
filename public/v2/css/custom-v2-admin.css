@@ -1,0 +1,7 @@
+.header-widget{
+  border: none;
+}
+span.booking-id{
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}

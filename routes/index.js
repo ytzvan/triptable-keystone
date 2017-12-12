@@ -34,7 +34,7 @@ exports = module.exports = function(app) {
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
   app.all('/nosotros', routes.static.about_us);
-   app.all('/como-funciona', routes.static.how_it_works);
+  app.all('/como-funciona', routes.static.how_it_works);
   app.all('/terminos', routes.static.terms);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);

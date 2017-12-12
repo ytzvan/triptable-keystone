@@ -12,7 +12,7 @@ exports.home = function(req, res) {
     var username = req.user._id;
 
     view.on('init', function(next) {
-				keystone.list('Enquiry').model.find({ user: username}).sort('-createdAt').exec(function(err, result) {
+				keystone.list('Enquiry').model.find({ user: username}).populate('tour').sort('-createdAt').exec(function(err, result) {
           if(result == null){ //si hay resultado
              console.log("sin bookings")
             }
@@ -23,5 +23,5 @@ exports.home = function(req, res) {
 		    });
 		});
 
-    view.render('user/home');
+    view.render('user/home', {layout:"v2-admin"});
 };
