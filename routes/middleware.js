@@ -13,7 +13,8 @@ var jsonfile = require('jsonfile')
 
 exports.initLocals = function(req, res, next) {
 
-	var locals = res.locals;
+  var locals = res.locals;
+  locals.data = {};
 
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
@@ -278,11 +279,13 @@ if (subdomain == 'www') {
 };
 
 exports.getCurrency = function(req, res, next) {
+  var locals = res.locals;
  if (!process.env.CURRENCY) {
     process.env.CURRENCY = "USD";
   } else {
     process.env.CURRENCY =  process.env.CURRENCY;
   };
+  locals.data.currency = process.env.CURRENCY;
   var rates =  __dirname + '/rates.json';
   jsonfile.readFile(rates, function(err, result) {
     fx.rates =  result;

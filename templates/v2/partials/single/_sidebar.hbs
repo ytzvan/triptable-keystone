@@ -3,7 +3,7 @@
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3><i class="im im-icon-Air-Balloon"></i>{{data.tour.name}} - {{getPriceInCurrency data.tour.price}} {{getCurrency}} Por Persona</h3>
+				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i>Reservar desde: <strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong></h3><span>{{#if_eq data.tour.multiPrice true}} **Price May Vary depend of the number of people{{/if_eq}}</span>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">

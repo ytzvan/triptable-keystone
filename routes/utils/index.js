@@ -18,3 +18,11 @@ exports.cartAbandon = function(req, res, next) {
 
 }
 
+exports.setCurrency = function(req, res, next) {
+	var params = req.params;
+	var currency = req.params.currency;
+
+	process.env.CURRENCY = currency;
+	res.redirect(req.get('referer'));
+}
+

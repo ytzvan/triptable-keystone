@@ -555,3 +555,6 @@ a{
 .cancel-off-png, .cancel-on-png, .star-half-png, .star-off-png, .star-on-png{
 	color: #f1c40f;
 }
+h3.sidebar.book-now strong{
+	font-weight: 600;
+}

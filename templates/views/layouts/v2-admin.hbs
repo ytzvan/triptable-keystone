@@ -3,9 +3,56 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Listeo</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+{{#if meta.title}}
+	<title>{{meta.title}}</title>
+	{{else}}
+	<title>{{i18n "title"}}</title>
+	{{/if}}
+	<meta name="author" content="Triptable">
+	{{#if meta.keywords}}
+	<meta name="keywords" content="tours, experiencias, excursiones, reserva, cosas que hacer, trips, {{meta.keywords}}" />
+	{{else}}
+	<meta name="keywords" content="tours en latinoamerica, tours, excursiones, que hacer, booking, trips, travel, turismo, latinoamerica" />
+	{{/if}}
+	{{#if meta.description}}
+	<meta name="description" content="{{meta.description}}">
+	{{else}}
+	<meta name="description" content="{{i18n "meta_description"}}">
+	{{/if}}
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	{{#if meta.ogTitle}}
+	<meta property="og:title" content="{{meta.ogTitle}}"/>
+	{{else}}
+	<meta property="og:title" content="Triptable: Reserva Tours y Actividades en Panamá."/>
+	{{/if}}
+	{{#if meta.ogDescription}}
+	<meta property="og:description" content="{{meta.ogDescription}}" />
+	{{else}}
+	<meta property="og:description" content="Descubre y reserva tours, actividades, viajes y turismo en Panama. Con Triptable reservas experiencias locales unicas." />
+	{{/if}}
+	{{#if meta.url}}
+	<meta property="og:url" content="{{meta.url}}"/>
+  <link rel="canonical" href="{{meta.url}}" />
+	{{else}}
+	<meta property="og:url" content="https://www.triptable.com"/>
+  <link rel="canonical" href="https://www.triptable.com" />
+	{{/if}}
+	<meta property="og:site_name" content="Triptable: Reserva Tours y Actividades"/>
+  {{#if meta.ogType}}
+  <meta property="og:type" content="{{meta.ogType}}"/>
+  {{else}}
+	<meta property="og:type" content="website"/>
+  {{/if}}
+	{{#if meta.image}}
+	<meta property="og:image" content="{{meta.image}}" />
+	<meta property="og:image:secure_url"  content="{{meta.image}}" />
+	{{else}}
+	<meta property="og:image" content="https://res.cloudinary.com/triptable/image/upload/c_fill,q_60,w_1440/v1460674515/01_tqumqz.jpg" />
+	<meta property="og:image:secure_url" content="https://res.cloudinary.com/triptable/image/upload/c_fill,q_60,w_1440/v1460674515/01_tqumqz.jpg" />
+	{{/if}}
+	<meta name="google-site-verification" content="jctPUXViGb3yIsxIi2lOeA4QrTx2CNcKZNh0ItPdXhw" />
 
 <!-- CSS
 ================================================== -->
@@ -141,10 +188,11 @@
 					
 					<!-- User Menu -->
 					<div class="user-menu">
-						<div class="user-name"><span><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=120 alt=""></span>{{i18n "my_account"}}</div>
+						<div class="user-name"><span><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=120 alt="></span>{{i18n "my_account"}}</div>
 						<ul>
-							<li><a href="/"><i class="sl sl-icon-settings"></i> {{i18n "home"}}</a></li>
+							<li><a href="/"><i class="sl sl-icon-home"></i> {{i18n "home"}}</a></li>
 							<li><a href="/user"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}}</a></li>
+							<li><a href="/admin"><i class="sl sl-icon-settings"></i>{{i18n "my_bookings_admin"}}</a></li>
 							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> {{i18n "signout"}}</a></li>
 						</ul>
 					</div>
@@ -201,9 +249,14 @@
 		</div>
 	</div>
 	<!-- Navigation / End -->
-
-{{{body}}}
-
+	<div class="dashboard-content">
+	{{{body}}}
+	<!-- Copyrights -->
+			<div class="col-md-12">
+				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+			</div>
+		</div>
+	</div>	
 </div>
 </div>
 <!-- Wrapper / End -->

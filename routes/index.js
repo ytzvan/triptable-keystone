@@ -50,6 +50,7 @@ exports = module.exports = function(app) {
 	
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
+	app.get('/currency/:currency', routes.utils.index.setCurrency);
 
   //Attractions
   app.get('/attractions', routes.views.attractions.index);

@@ -3,11 +3,20 @@
 
 	<!-- Navigation
 	================================================== -->
-
+ {{#if messages.error}}
+ 		<div class="notification error closeable">
+				<p><span class="center">{{messages.error}}</span></p>
+				<a class="close"></a>
+		</div>
+		{{/if}}
+ {{#if messages.success}}
+ <div class="notification success closeable">
+				<p><strong class="center">{{messages.success}}</strong></p>
+				<a class="close"></a>
+		</div>
+		{{/if}}
 	<!-- Content
 	================================================== -->
-	<div class="dashboard-content">
-
     <!-- Titlebar -->
 		<div id="titlebar">
 			<div class="row">
@@ -89,15 +98,27 @@
 												<li class="highlighted">{{people}} {{i18n "booking_people"}}</li>
 											</ul>
 										</div>		
-
 										<div class="inner-booking-list">
 											<h5>{{i18n "contact"}}:</h5>
 											<ul class="booking-list">
+												{{#if_eq bookingStatus 0}}
+												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><strong>{{i18n "booking_need_confirm_message"}}</strong></li>
+												{{else}}
+												{{#if_eq bookingStatus 1}}
 												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
 												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
 												<li><i class="sl sl-icon-phone"></i>  {{phone}}</li>
 												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
 												<li><i class="sl sl-icon-clock"></i> {{bookingTime}}</li>
+												{{else}}
+												{{#if_eq bookingStatus 2}}
+												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><strong>{{i18n "booking_declined_message"}}</strong></li>
+												{{/if_eq}}
+												{{/if_eq}}
+												{{/if_eq}}
+											
 											</ul>
 										</div>
 
@@ -106,14 +127,15 @@
 									</div>
 								</div>
 							</div>
-            
+            	{{#if_eq bookingStatus 0}}
 							<div class="buttons-to-right">
-								<a href="#" class="button gray reject"><i class="sl sl-icon-close"></i> Cancel</a>
-                 <form id="accept-form" method="POST" action="/admin/booking/{{data.booking.friendlyId}}/update">
+                 <form id="accept-form" method="POST" action="/admin/booking/{{friendlyId}}/update">
                   <input type="hidden" name="action" value="accept">
+									<button type="submit" class="button gray approve"><i class="sl sl-icon-check"></i> Aceptar</button>
+									<button type="reset" class="button gray reject"><i class="sl sl-icon-close"></i> Declinar</button>
                  </form>
-								<a href="#" class="button gray approve"><i class="sl sl-icon-check"></i> Approve</a>
 							</div> 
+							{{/if_eq}}
 						</li>
             <script type="text/javascript">
               var status = {{bookingStatus}};
@@ -145,14 +167,8 @@
       {{else}}
           no booking
       {{/if}}
+</div>
 
-			<!-- Copyrights -->
-			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
-			</div>
-		</div>
-
-	</div>
 	<!-- Content / End -->
 
 <!-- Dashboard / End -->

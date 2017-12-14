@@ -184,5 +184,9 @@
 	"booking_details": "Booking Details",
 	"booking_people": "People",
 	"contact": "Contact",
-	"booking_id": "Booking ID"
+	"booking_id": "Booking ID",
+	"booking_need_confirm_message":"Confirm the booking to see customer details",
+	"booking_declined_message": "This booking has been declined",
+	"my_bookings_admin":"My Bookings - Administrator",
+	"starting_from": "Starting from"
 }

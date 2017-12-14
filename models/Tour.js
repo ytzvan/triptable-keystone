@@ -50,7 +50,7 @@ Tour.add({
 	departureTime: { type: String},
 	arrivalTime: {type: String},
 	price: {type: Types.Money},
-	childPrice: {type: Types.Money, default: 0},
+	childPrice: {type: Types.Money},
 	infantPrice: {type: Types.Money, default: 0},
 	cost: {type:Types.Money},
   comission: {type: Types.Number, default: 15},
@@ -103,15 +103,17 @@ Tour.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%, -createdA
 Tour.schema.pre('save', function(next) {
     this.tourId = this.id;
 		now = new Date();
-  	this.updatedAt = now;
+		this.updatedAt = now;
   	if ( !this.createdAt ) {
     	this.createdAt = now;
-  	}	
+		}
+		if (this.childPrice == null || this.childPrice == undefined){
+			this.childPrice = this.price;
+		};	
   	next()
 });
 
-Tour.schema.post('save', function(next){
-	var client = algoliasearch("PATK6GCBGK", "9cf27aede99e95d39b600cab81c3f350");
+/*	var client = algoliasearch("PATK6GCBGK", "9cf27aede99e95d39b600cab81c3f350");
 	var index = client.initIndex('tours');
 	console.log(this);
 	try {
@@ -130,5 +132,5 @@ Tour.schema.post('save', function(next){
 	} catch (e) {
 		console.log("hubo un errir al añadir el tour a la db", e);
 	}
-});
+});*/
 Tour.register();

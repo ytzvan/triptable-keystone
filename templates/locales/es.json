@@ -185,5 +185,9 @@
 	"booking_details": "Detalles de Reserva",
 	"booking_people": "Personas",
 	"contact": "Contacto",
-	"booking_id": "ID de Reserva"
+	"booking_id": "ID de Reserva",
+	"booking_need_confirm_message":"Confirma la reserva para ver los detalles del cliente",
+	"booking_declined_message": "Esta reserva ha sido declinada",
+	"my_bookings_admin":"Mis Reservas - Administrator",
+	"starting_from": "Desde"
 }
