@@ -5,12 +5,12 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Búsqueda </h2><span>Encontramos <strong>{{data.tours.total}}</strong> Tours y Actividades.</span><p> Mostrando del <strong>{{data.tours.first}}</strong> al <strong>{{data.tours.last}}</strong></p>
+				<h2>{{i18n "search"}} </h2><span>{{i18n "we_found"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span><p> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li>Búsqueda</li>
+						<li><a href="#">{{i18n "home"}}</a></li>
+						<li>{{i18n "search"}}</li>
 					</ul>
 				</nav>
 
@@ -33,22 +33,22 @@
 
 				<div class="main-search-input-item">
 					<select data-placeholder="Todos los Paises" id="countries-select" class="chosen-select" >
-						<option value="panama">Panama 🇵🇦</option>
-						<option value="mexico">Mexico 🇲🇽</option>
-						<option value="colombia">Colombia 🇨🇴</option>
+						<option value="panama">{{i18n "panama"}}</option>
+						<option value="mexico">{{i18n "mexico"}}</option>
+						<option value="colombia">Colombia</option>
 					</select>
 				</div>
 
 				<div class="main-search-input-item">
 					<select data-placeholder="Todas las Ciudades"  id="cities-select"  class="chosen-select" >
-						<option value="{{data.country.country}}">Todos</option>	
+						<option value="{{data.country.country}}">{{i18n "show_all"}}</option>	
 						{{#each data.cities}}
 						<option value="{{slug}}">{{city}}</option>	
 						{{/each}}
 					</select>
 				</div>
 
-				<button class="button">Búsqueda</button>
+				<button class="button">{{i18n "search"}}</button>
 			</div>
 		</div>
 		<!-- Search Section / End -->

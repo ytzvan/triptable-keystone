@@ -63,9 +63,19 @@ exports = module.exports = function(req, res) {
 				}
 				locals.price.adultsPrice = tourPrice;
 				var adultTotalPrice = nOfAdults * tourPrice;
-				var childrenTotalPrice = nOfChildren * result.childPrice;
-				var infantTotalPrice = nOfInfants * result.infantPrice;
-		
+
+				if (result.childPrice) {
+					var childrenTotalPrice = nOfChildren * result.childPrice;
+				} else {
+					var childPrice = 0;
+					var childrenTotalPrice = nOfChildren * childPrice;
+				}
+				if (result.infantPrice) {
+					var infantTotalPrice = nOfInfants * result.infantPrice;
+				} else {
+					var infantPrice = 0;
+					var infantTotalPrice = nOfInfants * infantPrice;
+				}
 				locals.price.adults = adultTotalPrice;
 				locals.price.children = childrenTotalPrice;
 				locals.price.infant = infantTotalPrice;

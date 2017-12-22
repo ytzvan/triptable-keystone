@@ -225,7 +225,10 @@
 			<ul data-submenu-title="Menu">
 				<!--<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
 				<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>-->
-				<li class="active"><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}}</a></li>
+				{{#if_eq isGuide true}}
+				<li class="active"><a href="/admin"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}} - Admin</a></li>
+				{{/if_eq}}
+				<li class="active"><a href="/user"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}} - User</a></li>
 			</ul>
 			
 			<!--<ul data-submenu-title="Listings">
@@ -253,7 +256,7 @@
 	{{{body}}}
 	<!-- Copyrights -->
 			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+				<div class="copyrights">© 2017 Triptable. {{i18n "all_rights_reserved"}}.</div>
 			</div>
 		</div>
 	</div>	

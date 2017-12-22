@@ -433,6 +433,7 @@ module.exports = function() {
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
 		return priceInLocalCurrency;
 	};
+
 	_helpers.getCurrency = function(){
 		return process.env.CURRENCY;
 	}

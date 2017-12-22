@@ -84,6 +84,14 @@
 												<li><i class="sl sl-icon-clock"></i> {{bookingTime}}</li>
 											</ul>
 										</div>
+										{{#if_eq bookingStatus 1}}
+										<div class="inner-booking-list">
+											<h5>{{i18n "invoice"}}:</h5>
+											<ul class="booking-list">
+												<li><a href="/invoice/{{_id}}" target="_blank">{{i18n "see_invoice"}}</a></li>
+											</ul>
+										</div>
+										{{/if_eq}}
 
 										<!--<a href="#small-dialog" class="rate-review popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>-->
 

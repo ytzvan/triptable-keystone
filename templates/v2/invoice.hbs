@@ -50,11 +50,11 @@
 		</div>
 
 		<div class="col-md-6">	
-			<strong class="margin-bottom-5">Customer</strong>
+			<strong class="margin-bottom-5">{{i18n "customer"}}</strong>
 			<p>
 				{{data.enquiry.name.full}}<br>
 				{{data.enquiry.tour.name}}<br> 
-        {{data.enquiry.people}} PAX<br>
+        {{data.enquiry.nOfAdults}} {{i18n "adults"}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} | {{data.enquiry.nOfInfants}} {{i18n "infants"}}<br>
 				{{data.enquiry.datePretty}} <br>
 			</p>
 		</div>
@@ -66,29 +66,29 @@
 		<div class="col-md-12">
 			<table class="margin-top-20">
 				<tr>
-					<th>Description</th>
-					<th>Quantity</th>
-					<th>Unitary</th>
-					<th>Total</th>
+					<th>{{i18n "description"}}</th>
+					<th>{{i18n "quantity"}}</th>
+					<th>{{i18n "unitary"}}</th>
+					<th>{{i18n "total"}}</th>
 				</tr>
 
 				<tr>
-					<td>{{data.enquiry.tour.name}} -  Adultos</td> 
+					<td>{{data.enquiry.tour.name}} -  {{i18n "adults"}}</td> 
 					<td>{{data.enquiry.nOfAdults}}</td>
-					<td>${{data.enquiry.tourPrice}}</td>
-					<td>${{data.enquiry.adultTotalPrice}}</td>
+					<td>${{data.enquiry.tourPrice}} USD</td>
+					<td>${{data.enquiry.adultTotalPrice}} USD</td>
 				</tr>
         <tr>
-					<td>{{data.enquiry.tour.name}} -  Children</td> 
+					<td>{{data.enquiry.tour.name}} -  {{i18n "children"}}</td> 
 					<td>{{data.enquiry.nOfChildren}}</td>
-					<td>${{data.enquiry.childPrice}}</td>
-					<td>${{data.enquiry.childrensTotalPrice}}</td>
+					<td>${{data.enquiry.childPrice}} USD</td>
+					<td>${{data.enquiry.childrensTotalPrice}} USD</td>
 				</tr>
         <tr>
-					<td>{{data.enquiry.tour.name}} -  Infants</td> 
+					<td>{{data.enquiry.tour.name}} -  {{i18n "infants"}}</td> 
 					<td>{{data.enquiry.nOfInfants}}</td>
-					<td>${{data.enquiry.infantPrice}}</td>
-					<td>${{data.enquiry.infantsTotalPrice}}</td>
+					<td>${{data.enquiry.infantPrice}} USD</td>
+					<td>${{data.enquiry.infantsTotalPrice}} USD</td>
 				</tr>
 			</table>
 		</div>
@@ -96,8 +96,16 @@
 		<div class="col-md-4 col-md-offset-8">	
 			<table id="totals">
 				<tr>
-					<th>Total Due</th> 
-					<th><span>$ {{data.enquiry.bookingFlatPrice}}</span></th>
+					<th>Sub-Total:</th> 
+					<th><span>$ {{data.enquiry.bookingFlatPrice}} USD</span></th>
+				</tr>
+				<tr>
+					<th>Booking Fee:</th> 
+					<th><span>$ {{data.enquiry.bookingTransactionFee}} USD</span></th>
+				</tr>
+				<tr>	
+					<th>Total:</th> 
+					<th><span>$ {{data.enquiry.bookingTotalPrice}} USD</span></th>
 				</tr>
 			</table>
 		</div>

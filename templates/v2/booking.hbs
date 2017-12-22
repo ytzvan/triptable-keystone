@@ -46,13 +46,17 @@
 			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
 			<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
 			<input type="hidden" name="tourPrice" placeholder="TourPrice" class="form-control" value="{{data.tour.price}}">
-  			<!--<input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{data.user._id}}">-->
-  			<input type="hidden" name="user" placeholder="UserId" class="form-control" value="57349555510ff303009739f3">
+			{{#if userInfo}}
+			<input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{userInfo._id}}">
+			{{else}}
+  		<input type="hidden" name="user" placeholder="UserId" class="form-control" value="57349555510ff303009739f3">
+			{{/if}}
 			<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
-			<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
+			<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">	
+		<!--	<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
 			<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
 			<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">
-			<input type="hidden" name="operatorCellphone" placeholder="OpCel" class="form-control" value="{{data.tour.owner.cellphone}}">
+			<input type="hidden" name="operatorCellphone" placeholder="OpCel" class="form-control" value="{{data.tour.owner.cellphone}}"> -->
 			<!-- People -->
 			<input type="hidden" id="nOfAdults" name="nOfAdults"value="{{data.nOfAdults}}">
 			<input type="hidden" id="nOfChildren" name="nOfChildren"value="{{data.nOfChildren}}">

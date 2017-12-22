@@ -7,17 +7,17 @@
     {{/if}}
 		<div class="listing-item-details">
 			<ul>
-				<li><i class="fa fa-users"></i> {{minPerson}} - {{maxPerson}} Personas </li>
+				<li><i class="fa fa-users"></i> {{minPerson}} - {{maxPerson}} {{i18n "people"}} </li>
 			</ul>
 		</div>
 		<!--<div class="listing-badge now-open"><strong>-15% OFF</strong></div>-->
 		<div class="listing-item-content">
 			<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
-			<h3>{{name}}</h3>
+			<h3>{{getTourLocName name name_eng}} </h3>
 		</div>
 	</div>
 	<div class="star-rating price">
-		<h3 class="tour-price">{{getCurrency}} {{getPriceInCurrency price}} <span class="tour-price"> Por Persona</span></h3>
+		<h3 class="tour-price">{{getCurrency}} {{getPriceInCurrency price}} <span class="tour-price"> {{i18n "per_person"}}</span></h3>
 	</div>
 
 </a>

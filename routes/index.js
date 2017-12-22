@@ -14,6 +14,7 @@ keystone.pre('routes', middleware.isGuide);
 //keystone.pre('render', middleware.isGuide);
 keystone.pre('routes', middleware.intl);
 keystone.pre('routes', middleware.getCurrency);
+keystone.pre('render', middleware.getCurrency);
 
 // Import Route Controller
 var routes = {

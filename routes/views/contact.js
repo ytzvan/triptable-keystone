@@ -60,8 +60,19 @@ exports = module.exports = function(req, res) {
       var nOfInfants = req.body.nOfInfants;
       nOfInfants = parseInt(nOfInfants);
 
-      var childrenPrice = nOfChildren * locals.data.tour.childPrice;
-      var infantsPrice = nOfInfants * locals.data.tour.infantPrice;
+			if (locals.data.tour.childPrice) {
+				var childrenPrice = nOfChildren * locals.data.tour.childPrice;
+			} else {
+				var childPrice = 0;
+				var childrenPrice = nOfChildren * childPrice;
+			}
+
+			if (locals.data.tour.infantPrice) {
+				var infantsPrice = nOfInfants * locals.data.tour.infantPrice;
+			} else {
+				var infantPrice = 0;
+				var infantsPrice = nOfInfants * infantPrice;
+			}
 
 			var totalPeople = travelers + nOfChildren + nOfInfants;
 
@@ -105,7 +116,7 @@ exports = module.exports = function(req, res) {
 	    tourOperatorCost = tourOperatorCost.toFixed(2);
 	    taxPrice = taxPrice.toFixed(2);
 	    transactionCost = transactionCost.toFixed(2);
-		 updateBody = {
+		 	updateBody = {
 	    	bookingTotalPrice : totalPrice,
 	    	bookingFlatPrice : flatPrice,
 	    	bookingTransactionFee : transactionCost,
@@ -121,7 +132,6 @@ exports = module.exports = function(req, res) {
       var cardDate = body.expiration;
       cardDate = moment("01/"+body.expiration,"DD-MM-YYYY");
 			var formatDate = cardDate.format("MMYY");
-			debugger
       cardDate = formatDate;
 		  var options = { method: 'POST',
       proxy: process.env.QUOTAGUARDSTATIC_URL,
