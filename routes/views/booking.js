@@ -79,7 +79,15 @@ exports = module.exports = function(req, res) {
 				locals.price.adults = adultTotalPrice;
 				locals.price.children = childrenTotalPrice;
 				locals.price.infant = infantTotalPrice;
-				locals.price.total = adultTotalPrice+childrenTotalPrice+infantTotalPrice;
+				locals.price.subtotal = adultTotalPrice+childrenTotalPrice+infantTotalPrice;
+				//Processor fees
+				var processorTax = 3.9; // % del procesador
+				var processorFee = 0.30; // fee individual por transaccion
+
+				var taxPrice = locals.price.subtotal * processorTax / 100; // cantidad en $$ que se lleva el gateway sin el fee
+				locals.price.transacctionFee = taxPrice + processorFee;
+				locals.price.total = locals.price.subtotal + locals.price.transacctionFee;
+				locals.price.priceInUSD = locals.price.total.toFixed(2);
 				
 				next(err);
 			}

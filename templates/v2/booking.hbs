@@ -210,7 +210,9 @@
 					<li>Adults <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
 					<li>Children <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
 					<li>Infants <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
-					<li class="total-costs">Total Cost <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span></li>
+					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
+					<li class="total-costs">Service Fee<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
+					<li class="total-costs">Total Cost <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**You'll be charged <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
 				</ul>
 
 			</div>

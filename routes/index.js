@@ -35,16 +35,15 @@ exports = module.exports = function(app) {
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
   app.all('/about', routes.static.index.index);
-  app.all('/como-funciona', routes.static.how_it_works);
-  app.all('/terminos', routes.static.terms);
+  app.all('/faq', routes.static.index.faq);
+  app.all('/terms', routes.static.index.terms);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
   app.all('/admin', middleware.requireGuide, routes.admin.home.index);
   app.all('/admin/booking/:id', middleware.requireGuide, routes.admin.booking.index);
   app.post('/admin/booking/:id/update', middleware.requireGuide, routes.admin.booking.update);
   app.all('/dashboard',middleware.requireGuide, routes.dashboard.index.init);
-  app.all('/v2', middleware.requireGuide, routes.v2.index.init);
-  app.all('/v2/tour/:slug', middleware.requireGuide, routes.v2.tour.init);
+	app.get('/mybooking', routes.v2.myBookings.index);
   app.get('/destino/:city', routes.search.city);
   app.all('/search', routes.search.search);
 

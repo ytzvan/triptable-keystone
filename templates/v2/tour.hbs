@@ -11,44 +11,93 @@
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
-							<a target="_blank" href="/destino/{{data.tour.city.slug}}">{{data.tour.city.city}}, {{data.tour.country.country}} </a>
+							<a target="_blank" href="/destino/{{data.tour.city.slug}}">{{i18n "tours_in"}} {{data.tour.city.city}}, {{data.tour.country.country}} </h2></a>
 						</a>
 					</span>
 					<!--<div class="star-rating" data-rating="5">
 						<div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>
 					</div>-->
+					
 				</div>
+			<!--	<div class="row padding-top-5">
+					<div class="col-md-3">
+						<i class="tour-info-icon im im-icon-Clock-Forward"></i><br>{{data.tour.duration}} {{#if data.tour.isMultiDay}}{{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}
+					</div>
+					<div class="col-md-3">
+						<i class="tour-info-icon sl sl-icon-people"></i><br>Shared Tour
+					</div>
+					<div class="col-md-3">
+						<i class="tour-info-icon im im-icon-Clock-Forward"></i>
+					</div>
+					<div class="col-md-3">
+						<i class="tour-info-icon im im-icon-Clock-Forward"></i>
+					</div>
+				</div>-->
 			</div>
 
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
-				<ul class="listing-nav">
-					<li><a href="#listing-overview" class="active">Overview</a></li>
-					<li><a href="#listing-pricing-list">Pricing</a></li>
-					<li><a href="#listing-location">Location</a></li>
-					<li><a href="#listing-reviews">Reviews</a></li>
-					<li><a href="#add-review">Add Review</a></li>
+				<ul class="listing-nav" id="tour-section-nav">
+					<li><a href="#listing-overview" class="active">{{i18n "about_the_tour"}}</a></li>
+					<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li>
+					<li><a href="#listing-location">{{i18n "location"}}</a></li>
+					<li><a href="#listing-reviews">{{i18n "reviews"}}</a></li>
+					<!--<li><a href="#add-review">Add Review</a></li>-->
 				</ul>
 			</div>
 			
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
-
-				<!-- Description -->
-				TODO: Add English support 
-
-				{{{data.tour.description.extended}}}
-
 				<!-- Amenities -->
-				<h3 class="listing-desc-headline">Amenities</h3>
-				<ul class="listing-features checkboxes margin-top-0">
-					<li>Elevator in building</li>
-					<li>Friendly workspace</li>
-					<li>Instant Book</li>
-					<li>Wireless Internet</li>
-					<li>Free parking on premises</li>
-					<li>Free parking on street</li>
+				<h3 class="listing-desc-headline">{{i18n "includes"}}</h3>
+				<ul class="listing-features checkboxes margin-top-15 margin-bottom-30">
+					 {{#if data.tour.hotelPickup}}
+					 <li>{{i18n "hotel_pickup"}}</li>
+					 {{/if}}
+					 {{#if data.tour.transportation}}
+					 <li>{{i18n "ground_transportation"}}</li>
+					 {{/if}}
+					 {{#if data.tour.food}}
+					 <li>{{i18n "food"}}</li>
+					 {{/if}}
+					 {{#if data.tour.drinks}}
+					 <li>{{i18n "drinks"}}</li>
+					 {{/if}}
+					 {{#if data.tour.insurance}}
+					 <li>{{i18n "insurance"}}</li>
+					 {{/if}}
+					 {{#if data.tour.taxes}}
+					 <li>{{i18n "taxes"}}</li>
+					 {{/if}}
+					 {{#if data.tour.tickets}}
+					 <li>{{i18n "tickets"}}</li>
+					 {{/if}}
+					 {{#if data.tour.maritimeTransportation}}
+					 <li>{{i18n "maritime_transportation"}}</li>
+					 {{/if}}
+					 {{#if data.tour.snacks}}
+					 <li>{{i18n "snacks"}}</li>
+					 {{/if}}
+					 {{#if data.tour.tourGuide}}
+					 <li>{{i18n "tour_guide"}}</li>
+					 {{/if}}
+					 {{#if data.tour.privateCabin}}
+					 <li>{{i18n "private_lodging"}}</li>
+					 {{/if}}
+					 {{#if data.tour.sharedCabin}}
+					 <li>{{i18n "shared_lodging"}}</li>
+					 {{/if}}
 				</ul>
+				<!-- Description -->
+				{{#if_eq lang "en" }}
+					{{#if data.tour.description_eng}}
+						{{{data.tour.description_eng.extended}}}
+					{{else}}	
+						{{{data.tour.description.extended}}}
+					{{/if}}	
+				{{else}}
+					{{{data.tour.description.extended}}}
+				{{/if_eq}}
 			</div>
 
 
@@ -112,10 +161,15 @@
 
 		
 			<div id="listing-location" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Ubicacion </h3>
+				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "location"}} </h3>
 
 				<div id="singleListingMap-container">
+					{{#if data.tour.latitude}}
+					<div id="singleListingMap" data-latitude="{{data.tour.latitude}}" data-longitude="{{data.tour.longitude}}" data-map-icon="im im-icon-Geo2"></div>
+					{{else}}
 					<div id="singleListingMap" data-latitude="{{data.tour.city.latitude}}" data-longitude="{{data.tour.city.longitude}}" data-map-icon="im im-icon-Geo2"></div>
+					{{/if}}
+					
 				</div>
 			</div> 
 				

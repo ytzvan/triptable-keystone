@@ -73,7 +73,8 @@
 
 <!-- Header Container
 ================================================== -->
-<header id="header-containe">
+
+<header id="header-container">
 
 	<!-- Header -->
 	<div id="header">
@@ -129,7 +130,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="#"><i class="im im-icon-Information"></i> {{i18n "help"}}</a>
+							<a href="/faq"><i class="im im-icon-Information"></i> {{i18n "help"}}</a>
 						</li>
 						
 						<li><a href="#" id="lang-select"></a>
@@ -139,7 +140,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="#" id="currency-select"></a>
+							<a href="#" id="currency-select"><i class="im im-icon-Dollar-Sign"></i> </a>
 							<ul>
 								<li><a href="/currency/USD">$ USD</a></li>
 								<li><a href="/currency/EUR">€ EUR</a></li>
@@ -148,6 +149,7 @@
 								<li><a href="/currency/BRL">R$ BRL</a></li>
 							</ul>
 						</li>
+						<li><a href="/mybooking" id="myBookingBtn" class="button border with-icon"><i class="fa fa-calendar-check-o"></i> {{i18n "verify_booking"}}</a></li>
 						{{#if userInfo}}
 						<li class="header-left"><a href="#"> {{i18n "welcome"}} {{userInfo.name.first}}</a>
 							<ul>
@@ -158,8 +160,10 @@
 							</ul>
 						</li>
 						{{else}}
+						
 						<li class="header-left">
-							<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Inicia Sesión</a></li>
+							
+							<a href="#sign-in-dialog" id="signInBtn" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> {{i18n "signin"}}</a></li>
 						{{/if}}	
 					</ul>
 				</nav>
@@ -178,28 +182,12 @@
 						$('#lang-select').html(str);
 					};
 					var currency =  "{{data.currency}}";
-					
-					var simbol = getSymbol(currency);
-					var finalStr = simbol + " " +  currency;
-					$('#currency-select').html(finalStr);
+				
+					$('#currency-select').append(currency);
 
 					
 				//	$('#currency-select').HTML(currency);
-					
-
-					function getSymbol(currency) {
-						var symbol;
-						if (currency == "EUR"){
-							var symbol = "€";
-						} else if (currency == "CNY"){
-							var symbol = "¥";
-						} else if (currency =="BRL"){
-							var symbol = "R$";
-						} else {
-							var symbol = "$";
-						}
-						return symbol;
-					}
+	
 				});
 
 			
@@ -223,7 +211,7 @@
 			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 
 				<div class="small-dialog-header">
-					<h3>Sign In</h3>
+					<h3>{{i18n "signin"}}</h3>
 				</div>
 
 				<!--Tabs -->
@@ -249,46 +237,63 @@
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
+			<div class="col-md-3">
 				<img class="footer-logo" src="/images/logo3.png" alt="">
 				<br><br>
 				<div class="text-widget">
 					<span>Ave 22D. Norte Edif. Mahindra, Cd. de Panamá</span> <br>
 					<i class="fa fa-whatsapp"></i> Whatsapp: <span>+507 6596-2034  </span><br>
-					<i class="fa fa-phone"></i> Panamá: <span>+507 833-6195 </span><br>
+					<i class="fa fa-phone"></i> {{i18n "panama"}}: <span>+507 833-6195 </span><br>
 					<i class="fa fa-phone"></i> US: <span>+1-415-574-0992 </span><br>
-					E-Mail:<span> <a href="#">hello@triptable.com</a> </span><br>
+					<span> <a href="mailto:hello@triptable.com">hello@triptable.com</a> </span><br>
+					<a class="social-icon footer" target="_blank" href="http://facebook.com/triptable"><i class="fa fa-facebook"></i></a>
+					<a class="social-icon footer" target="_blank" href="http://twitter.com/triptable_es"><i class="fa fa-twitter"></i></a>
+					<a class="social-icon footer" target="_blank" href="http://instagram.com/triptable"><i class="fa fa-instagram"></i></a>
+					<a class="social-icon footer" target="_blank" href="https://www.youtube.com/channel/UCZfAsdVrqcTAZk2PoHbiZTw"><i class="fa fa-youtube"></i></a>
 				</div>
-					<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
-				</ul>
+					
 				</div>
 
-
-			<div class="col-md-3 col-sm-6">
-				<h4>{{i18n "company"}}</h4>
+				<div class="col-md-3">
+				<h4 class="footer-title">{{i18n "tours"}}</h4>
 				<ul class="footer-links">
-					<li><a href="#">{{i18n "how_are_we"}}</a></li>
-					<li><a href="#">{{i18n "faq_title"}}</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">{{i18n "terms_and_conditions"}}</a></li>
+					<li><a href="/destino/panama-city">{{i18n "tours_in"}} Panama City</a></li>
+					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} San Blas Guna Yala</a></li>
+					<li><a href="/destino/bocas-del-toro">{{i18n "tours_in"}} Bocas del Toro</a></li>
+					<li><a href="/destino/cartagena">{{i18n "tours_in"}} Cartagena</a></li>
+					<li><a href="/destino/santa-marta">{{i18n "tours_in"}} Santa Marta</a></li>
+					<li><a href="/destino/bogota">{{i18n "tours_in"}} Bogota</a></li>
+					<li><a href="/destino/boquete">{{i18n "tours_in"}} Boquete</a></li>
+					<li><a href="/destino/pedasi">{{i18n "tours_in"}} Pedasi</a></li>
+					
+				</ul>
+
+				
+				<div class="clearfix"></div>
+			</div>
+
+
+			<div class="col-md-3">
+				<h4 class="footer-title">{{i18n "company"}}</h4>
+				<ul class="footer-links">
+					<li><a href="/about">{{i18n "how_are_we"}}</a></li>
+					<li><a href="/faq">{{i18n "faq_title"}}</a></li>
+					<li><a href="http://blog.triptable.com">Blog</a></li>
+					<li><a href="/terms">{{i18n "terms_and_conditions"}}</a></li>
 				</ul>
 
 				
 				<div class="clearfix"></div>
 			</div>		
 
-			<div class="col-md-4 col-sm-12">
+			<div class="col-md-3">
 				<h4>{{i18n "work_with_us"}}</h4>
 				<ul class="footer-links">
-					<li><a href="#">Tour Operadores</a></li>
-					<li><a href="#">Guías Locales</a></li>
-					<li><a href="#">Programa de Concierges</a></li>
-					<li><a href="#">{{i18n "travel_agencies"}}</a></li>
-						<li><a href="#">Hoteles</a></li>
+					<li><a href="/business">{{i18n "tour_operators"}}</a></li>
+					<li><a href="/business">{{i18n "local_guides"}}</a></li>
+					<li><a href="/business">{{i18n "concierge_program"}}</a></li>
+					<li><a href="/business">{{i18n "travel_agencies"}}</a></li>
+						<li><a href="/business">{{i18n "hotels"}}</a></li>
 				</ul>
 				
 
@@ -301,7 +306,7 @@
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="copyrights">© 2014-2017 Triptable, Inc. All Rights Reserved.</div>
+				<div class="copyrights">© 2014-2017 Triptable, Inc. {{i18n "all_rights_reserved"}}.</div>
 			</div>
 		</div>
 

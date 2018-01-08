@@ -58,7 +58,20 @@
 									<div class="inner">
                     
 										<h3>{{getTourLocName tour.name tour.name_eng }} <span class="booking-status booking-status{{friendlyId}}"></span></h3>
-                    <h5>{{i18n "booking_id"}}: <span class="booking-id">{{friendlyId}}</span></h5>
+										
+										<div class="inner-booking-list">
+											<h5>{{i18n "name"}}:</h5>
+											<ul class="booking-list">
+												<li class="highlighted">{{name.full}}</li>
+											</ul>
+										</div>
+
+										<div class="inner-booking-list">
+											<h5>{{i18n "bookingId"}}:</h5>
+											<ul class="booking-list">
+												<li class="highlighted">{{friendlyId}}</li>
+											</ul>
+										</div>
 
 										<div class="inner-booking-list">
 											<h5>{{i18n "booking_date"}}:</h5>
@@ -66,21 +79,16 @@
 												<li class="highlighted">{{datePretty}}</li>
 											</ul>
 										</div>
-													
-										<div class="inner-booking-list">
-											<h5>{{i18n "booking_details"}}:</h5>
-											<ul class="booking-list">
-												<li class="highlighted">{{people}} {{i18n "booking_people"}}</li>
-											</ul>
-										</div>		
 
 										<div class="inner-booking-list">
-											<h5>{{i18n "contact"}}:</h5>
+											<h5>{{i18n "contact_details"}}:</h5>
 											<ul class="booking-list">
-												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><i class="sl sl-icon-user"></i> {{people}} {{i18n "booking_people"}}</li>
 												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
 												<li><i class="sl sl-icon-phone"></i>  {{phone}}</li>
+												{{#if hotel}}
 												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
+												{{/if}}
 												<li><i class="sl sl-icon-clock"></i> {{bookingTime}}</li>
 											</ul>
 										</div>

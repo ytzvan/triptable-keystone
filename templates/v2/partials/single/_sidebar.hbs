@@ -3,7 +3,7 @@
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i>Reservar desde: <strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong></h3><span>{{#if_eq data.tour.multiPrice true}} **Price May Vary depend of the number of people{{/if_eq}}</span>
+				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i><strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong> {{i18n "per_person"}}</h3><span>{{#if_eq data.tour.multiPrice true}} **{{i18n "price_may_vary"}}{{/if_eq}}</span>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">
@@ -19,8 +19,8 @@
 					</div>
 
 					<div class="col-lg-12 col-md-12">
-						<i class="im im-icon-Clock-Forward "></i>
-						<span>Horario: </span>
+
+						<h4> <i class="im im-icon-Clock-Forward "></i> Horario: </h4>
 						<select data-placeholder="Horario" id="bookingTime" name="bookingTime" class="chosen-select" >
 							{{#if data.tour.schedule}}
 							{{#each data.tour.schedule}}
@@ -104,7 +104,7 @@
 				</div>
 				
 				<!-- progress button animation handled via custom.js -->
-				<button id="bookingBtn" type="submit" class="progress-button button fullwidth margin-top-5"><span>Ver Precio</span></button>
+				<button id="bookingBtn" type="submit" class="progress-button button fullwidth margin-top-5"><span class="book-now-btn">{{i18n "book_now"}}</span></button>
 			</form>
 			</div>
 			<!-- Book Now / End -->
@@ -113,7 +113,7 @@
 				<!-- Contact -->
 			<div class="boxed-widget margin-top-35 guide">
 				<div class="hosted-by-title row">
-					<h4><span>Ofrecido por</span> <a>{{data.tour.owner.name.first}}</a></h4>
+					<h4><span>{{i18n "operator"}}</span> <a>{{data.tour.owner.name.first}}</a></h4>
 
 				<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt=""></a></div> -->
 				<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="	http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=256" alt=""></a></div>
@@ -217,12 +217,22 @@
 					}
 				}
 				var daysDisabled = "{{data.tour.daysDisabled}}";
+				var disabledDates = "{{data.tour.disabledDates}}";
 				$( "#datepicker" ).datepicker({
 					
 				beforeShowDay: function(date) {
+							var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 	        		var day = date.getDay();
-							var includes = daysDisabled.includes(day);
-	        		return [!includes, ""];
+							var isDayDisabled= daysDisabled.includes(day);
+							var isDateDisabled = disabledDates.includes(string);
+							var isValid = false;
+							if (isDayDisabled) {
+								 isValid = isDayDisabled;
+							}
+							if (isDateDisabled) {
+								isValid = isDateDisabled;
+							}
+							return [!isValid, ""];
     			},
 				minDate: date._d,
 				});

@@ -1,13 +1,18 @@
 <!-- Banner
 ================================================== -->
-<div class="main-search-container" data-background-image="/images/bg2.png">
+{{#if data.homeImage.image}}
+       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_auto:eco,w_1440/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
+      {{else}}
+      <div class="main-search-container" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_scale,q_auto:eco,w_1440/v1514154822/svczfp91381xubchzvxn.jpg">
+      {{/if}}
 	<div class="main-search-inner">
 
-		<div class="container">
+		<div class="container-fluid search-container">
 			<div class="row">
 				<div class="col-md-12">
 					<h2 class="title">{{i18n "home_main_1"}}</h2>
-					<h4>{{i18n "home_main_2"}}</h4>
+					<h4 class="subtitle">{{i18n "home_main_2"}}</h4>
+          <h6>{{data.homeImage.description}}</h6>
 					<div class="main-search-input">
 
 						<!--<div class="main-search-input-item">
@@ -30,7 +35,7 @@
 							</select>
 						</div>-->
 
-						<a class="button" id="searchBtn">{{i18n "search"}} <i class="fa fa-search" ></i></a>
+						<a class="button" href="/search" id="searchBtn">{{i18n "search"}} <i class="fa fa-search" ></i></a>
 
 					</div>
 				</div>

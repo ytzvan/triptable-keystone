@@ -21,7 +21,13 @@ a#searchBtn{
 }
 .main-search-inner
 h2.title{
-  font-weight: 400;
+	font-weight: 600;
+	font-size: 50px;
+	color: #ecf0f1;
+}
+h4.subtitle{
+	font-weight: 500;
+	color: #ecf0f1;
 }
 h3.bold.title{
   font-weight: 600;
@@ -63,7 +69,7 @@ span.like-icon{
   right: 15px;
 }
 #titlebar{
-      padding: 35px 0px 30px 0px;
+      padding: 35px 0px 15px 0px;
 }
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 .ui-datepicker {
@@ -377,7 +383,12 @@ span.like-icon{
 	height: 480px;			
 }
 .main-search-container:before {
-	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 95%);
+/*	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0) 85%);*/
+background: linear-gradient(
+	rgba(20,20,20, .35), 
+	rgba(20,20,20, .35));
+	background-size: cover;
+	background-position: center;
 }
 .main-search-input-item.location a {		
 	position: relative;			
@@ -398,8 +409,8 @@ span.like-icon{
 .text-center{
 	text-align: center;	
 }
-.hosted-by-title{
-//	margin-bottom: 15px;
+.hosted-by-title {
+/*	margin-bottom: 15px;*/
 	padding-bottom: 10px;
 	border: none;
 }
@@ -561,4 +572,60 @@ h3.sidebar.book-now strong{
 img.team-avatar{
 	border-radius: 50%;
 	margin-bottom:15px;
+}
+.container-fluid.search-container{
+	padding-right: 10%;
+	padding-left: 10%;
+}
+ul.footer-links li{
+	text-transform: capitalize;
+}
+h4.footer-title{
+	text-transform: capitalize;
+}
+span.book-now-btn{
+	font-size: 18px;
+	font-weight: 700;
+}
+span.price-in-usd{
+	float: none !important;
+	font-weight: 400 !important;
+	font-size: 14px !important;
+}
+#navigation.style-1 ul li a{
+	font-weight: 400;
+	padding: 5px 10px;
+}
+#signInBtn:hover {
+	color: gray;
+	border-color: gray;
+}
+.social-icon.footer{
+	padding: 5px;
+	font-size: 20px;
+}
+#myBookingBtn{
+	color: #3498db !important;
+	border-color: #3498db;
+}
+#myBookingBtn:hover{
+	color: white !important;
+}
+h1.single-tour{
+	font-size: 16px;
+}
+.listing-desc-headline{
+	margin-top: 0px;
+	margin-bottom: 15px;
+	padding: 5px 0px;
+}
+#tour-section-nav{
+	margin-bottom: 15px;
+}
+.tour-info-icon{
+	font-size: 40px;
+	font-weight: 600;
+}
+.chosen-container-single .chosen-single span{
+	font-weight: 600;
 }

@@ -3,13 +3,13 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Booking Processed</h2>
+				<h2>{{i18n "booking_completed"}}</h2>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li>Booking Processed</li>
+						<li><a href="#">{{i18n "home"}}</a></li>
+						<li>{{i18n "booking"}}</li>
 					</ul>
 				</nav>
 
@@ -23,20 +23,20 @@
 
 			<div class="booking-confirmation-page">
 				<i class="fa fa-check-circle"></i>
-				<h2 class="margin-top-30">Thanks for your booking!</h2>
-				<p>You'll receive a confirmation email at {{bookingInfo.email}}</p>
-				<a target="_blank" href="/invoice/{{bookingInfo._id}}" class="button margin-top-30">View Invoice</a>
+				<h2 class="margin-top-30">{{i18n "confirmation_message_title"}}</h2>
+				<p>{{i18n "confirmation_message_subtitletitle"}} {{bookingInfo.email}}</p>
+				<a target="_blank" id="viewBooking" href="/invoice/{{bookingInfo._id}}" class="button margin-top-30">{{i18n "view_booking"}}</a>
 			</div>
 
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-
+	
 	$(document).ready(function(){
-		window.setTimeout( function(){
-    	window.location = "/";
-    }, 5000 );
+		$('#viewBooking').click(function(e){
+			window.location = "/";
+		});
 	});
 	
 </script>
