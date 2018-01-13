@@ -7,7 +7,7 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>{{getTourLocName data.tour.name data.tour.name_eng}} <span class="listing-tag">{{data.tour.categories.[0].name}}</span></h2>
+					<h2>{{getTourLocName data.tour.name data.tour.name_eng}}</h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
@@ -38,7 +38,7 @@
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav" id="tour-section-nav">
-					<li><a href="#listing-overview" class="active">{{i18n "about_the_tour"}}</a></li>
+					<li><a href="#listing-overview" class="active">{{i18n "tour_description_title"}}</a></li>
 					<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li>
 					<li><a href="#listing-location">{{i18n "location"}}</a></li>
 					<li><a href="#listing-reviews">{{i18n "reviews"}}</a></li>
@@ -49,8 +49,7 @@
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
 				<!-- Amenities -->
-				<h3 class="listing-desc-headline">{{i18n "includes"}}</h3>
-				<ul class="listing-features checkboxes margin-top-15 margin-bottom-30">
+				<ul class="listing-features checkboxes margin-top-5 margin-bottom-30">
 					 {{#if data.tour.hotelPickup}}
 					 <li>{{i18n "hotel_pickup"}}</li>
 					 {{/if}}
@@ -91,77 +90,81 @@
 				<!-- Description -->
 				{{#if_eq lang "en" }}
 					{{#if data.tour.description_eng}}
+				<div class="show-more">
 						{{{data.tour.description_eng.extended}}}
+					
+						</div>
+							<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 					{{else}}	
+					<div class="show-more">
 						{{{data.tour.description.extended}}}
+						
+						</div>
+						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 					{{/if}}	
 				{{else}}
+				<div class="show-more">
 					{{{data.tour.description.extended}}}
+					
+					</div>
+						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 				{{/if_eq}}
 			</div>
 
 
-			<!-- Food Menu 
-			<div id="listing-pricing-list" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
 
-				<div class="show-more">
+				<!-- Food Menu  
+			<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "price"}}</h3>
 					<div class="pricing-list-container">
 						
-						<h4>Burgers</h4>
+						<h4>{{i18n "details"}}</h4>
 						<ul>
 							<li>
-								<h5>Classic Burger</h5>
-								<p>Beef, salad, mayonnaise, spicey relish, cheese</p>
-								<span>$6</span>
+								<h5>{{data.tour.minPerson}} - {{data.tour.maxPerson}} {{i18n "people"}}</h5>
+								<span>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </span> 
 							</li>
+							{{data.tour.multiPriceCatalog}}
+							{{#if data.tour.multiPrice}} 
+							{{#each data.tour.multiPriceCatalog}}
 							<li>
-								<h5>Cheddar Burger</h5>
-								<p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
-								<span>$6</span>
+								<h5>{{data.tour.multiPriceCatalog}}</h5>
+								<span>{{@index}} </span> 
 							</li>
-							<li>
-								<h5>Veggie Burger</h5>
-								<p>Panko crumbed and fried, grilled peppers and mushroom</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Chicken Burger</h5>
-								<p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
-								<span>$6</span>
-							</li>
+							{{/each}}
+							{{/if}}							
 						</ul>
-
-						<!-- Food List
-						<h4>Drinks</h4>
-						<ul>
-							<li>
-								<h5>Frozen Shake</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Orange Juice</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Beer</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Water</h5>
-								<span>Free</span>
-							</li>
-						</ul>
-
-					</div>
 				</div>
-				<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
-			</div>
-			<!-- Food Menu / End -->
+			<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a> 
+			</div> -->
+
+		<!--	<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+
+					<div class="pricing-list-container">
+						
+						<h4>Paquetes</h4>
+						<ul>
+							<li>
+								<h5>Cabaña con Baño Compartido</h5>
+								<p>Transporte, comidas, estadía en cabaña privada con baño compartido y piso de arena</p>
+								<span>$180</span>
+							</li>
+							<li>
+								<h5>Cabaña con Baño Privado</h5>
+								<p>Transporte, comidas, estadía en cabaña privada con baño privado piso de madera</p>
+								<span>$220 USD<br><a href="" class="button">{{i18n "see_details"}}</a></span>
+							</li>
+							
+						</ul>
+
+				</div> -->
+			<!--	<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a> -->
+	  <!-- Food Menu / End -->
 
 		
 			<div id="listing-location" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "location"}} </h3>
+				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "departure_point"}}: {{data.tour.startingPoint}}</h3>
 
 				<div id="singleListingMap-container">
 					{{#if data.tour.latitude}}

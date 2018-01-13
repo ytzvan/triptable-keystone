@@ -505,33 +505,37 @@ $(document).ready(function(){
 	$('.simple-fw-slick-carousel').slick({
 		infinite: true,
 		slidesToShow: 5,
-		slidesToScroll: 1,
+		slidesToScroll: 5,
 		dots: true,
 		arrows: false,
 
 		responsive: [
 		{
-		  breakpoint: 1610,
+		  breakpoint: 1366,
 		  settings: {
 			slidesToShow: 4,
+			slidesToScroll: 4,
 		  }
 		},
 		{
-		  breakpoint: 1365,
+		  breakpoint: 1280,
 		  settings: {
 			slidesToShow: 3,
+			slidesToScroll: 3,
 		  }
 		},
 		{
-		  breakpoint: 1024,
+		  breakpoint: 735,
 		  settings: {
 			slidesToShow: 2,
+			slidesToScroll: 2,
 		  }
 		},
 		{
-		  breakpoint: 767,
+		  breakpoint: 359,
 		  settings: {
 			slidesToShow: 1,
+			slidesToScroll: 1
 		  }
 		}
 		]
@@ -973,7 +977,7 @@ $(document).ready(function(){
 				el.height(curHeight).animate({height: autoHeight}, 400);
 
 
-		} else { $('.show-more').animate({height: '450px'}, 400); }
+		} else { $('.show-more').animate({height: '200px'}, 400); }
 
 	});
 

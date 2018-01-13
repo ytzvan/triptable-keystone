@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
 
 <head>
 	<meta charset="utf-8">
@@ -20,14 +20,15 @@
 	<!-- Header -->
 	<div class="row">
 		<div class="col-md-6">
-			<div id="logo"><img src="http://localdomain.com:3000/images/logo3.png" alt=""></div>
+			<div id="logo"><img src="http://res.cloudinary.com/triptable/image/upload/v1487628547/logo2_o93cxh.png" alt=""></div>
 		</div>
 
 		<div class="col-md-6">	
 
 			<p id="details">
 				<strong>{{i18n "bookingId"}}:</strong> <span class="detail">#{{data.enquiry.friendlyId}}</span> <br>
-				<strong>Creación:</strong> {{data.enquiry.friendlyDate}} <br>
+				<strong>{{i18n "created_at"}}:</strong> {{data.enquiry.friendlyDate}} <br>
+				<strong>{{i18n "booking_status"}}:</strong> <span id="bookingStatus"> </span>
 			</p>
 		</div>
 	</div>
@@ -44,8 +45,9 @@
 			<p>
 			  Triptable, Inc<br>
 				R.U.C. 155633539-2-2016 DV 22 <br>
-				Ave. 22D Norte, Edificio Mahindra <br>
-        Ciudad de Panamá, Panamá
+				Sortis Business Tower, Floor 20 <br>
+				Workspace Office 2030 <br>
+				Panama City, Panama
 			</p>
 		</div>
 
@@ -124,5 +126,23 @@
 	</div>
 		
 </div>
+<script type="text/javascript">
+              var status = "{{data.enquiry.bookingStatus}}";
+							var elem = document.getElementById("bookingStatus");
+
+              console.log(elem);
+              console.log(status);
+              if (status == 0) {
+            //    spanElem.append("{{i18n 'booking_pending'}}");
+								elem.append("{{i18n 'booking_pending'}}");
+              }
+              if (status == 1) {
+                elem.append("{{i18n 'booking_confirm'}}");
+              }
+              if (status == 2) {
+                elem.append("{{i18n 'booking_declined'}}");
+
+              }
+            </script>
 </body>
 </html>

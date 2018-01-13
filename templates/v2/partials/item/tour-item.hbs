@@ -1,4 +1,4 @@
-<a href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
+<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
 	<div class="listing-item">
 		{{#if heroImage.secure_url}} <!-- fall back -->
 		<img src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
@@ -7,17 +7,22 @@
     {{/if}}
 		<div class="listing-item-details">
 			<ul>
-				<li><i class="fa fa-users"></i> {{minPerson}} - {{maxPerson}} {{i18n "people"}} </li>
+				<li><i class="fa fa-clock-o"></i> {{duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}} </li>
 			</ul>
 		</div>
 		<!--<div class="listing-badge now-open"><strong>-15% OFF</strong></div>-->
 		<div class="listing-item-content">
-			<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
-			<h3>{{getTourLocName name name_eng}} </h3>
+			<!--<span><i class="fa fa-map-marker"></i> {{city.city}}</span>-->
+			<!--<h3>{{getTourLocName name name_eng}} </h3>-->
 		</div>
 	</div>
-	<div class="star-rating price">
+	<!--<div class="star-rating price">
 		<h3 class="tour-price">{{getCurrency}} {{getPriceInCurrency price}} <span class="tour-price"> {{i18n "per_person"}}</span></h3>
+	</div>-->
+	<div class="tour-item-desc">
+		<p class=""><i class="fa fa-map-marker"></i> {{city.city}}<!-- ● <i class="fa fa-clock-o"></i> {{duration}}h--></p>
+		<span class="tour-item-desc">{{getTourLocName name name_eng}} </span>
+		<span class="currency"><strong>{{getCurrency}} {{getPriceInCurrency price}}</strong> {{i18n "per_person"}}</span> 
 	</div>
 
 </a>

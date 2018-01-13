@@ -149,20 +149,20 @@
 								<li><a href="/currency/BRL">R$ BRL</a></li>
 							</ul>
 						</li>
-						<li><a href="/mybooking" id="myBookingBtn" class="button border with-icon"><i class="fa fa-calendar-check-o"></i> {{i18n "verify_booking"}}</a></li>
+						<li><a href="/mybooking" id="" class=""><i class="fa fa-calendar-check-o"></i> {{i18n "verify_booking"}}</a></li>
 						{{#if userInfo}}
-						<li class="header-left"><a href="#"> {{i18n "welcome"}} {{userInfo.name.first}}</a>
+						<li id="loginLink" class="header-left"><a href="#">{{userInfo.name.first}}</a>
 							<ul>
 								<li><a href="/user">{{i18n "my_bookings"}}</a></li>
 								<li><a href="/admin">{{i18n "my_bookings_admin"}}</a></li>
+								{{#if isAdmin}}
 								<li><a href="/keystone">Keystone</a></li>
+								{{/if}}
 								<li><a href="/keystone/signout">{{i18n "signout"}}</a></li>
 							</ul>
 						</li>
 						{{else}}
-						
-						<li class="header-left">
-							
+						<li  id="loginLink" class="header-left">
 							<a href="#sign-in-dialog" id="signInBtn" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> {{i18n "signin"}}</a></li>
 						{{/if}}	
 					</ul>
@@ -233,7 +233,7 @@
 {{{body}}}
 <!-- Footer
 ================================================== -->
-<div id="footer" class="sticky-footer dark">
+<div id="footer" class="sticky-footer">
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
@@ -241,11 +241,11 @@
 				<img class="footer-logo" src="/images/logo3.png" alt="">
 				<br><br>
 				<div class="text-widget">
-					<span>Ave 22D. Norte Edif. Mahindra, Cd. de Panamá</span> <br>
-					<i class="fa fa-whatsapp"></i> Whatsapp: <span>+507 6596-2034  </span><br>
+					<span>Sortis Business Tower, Floor 20, Office 2030, Panama City</span> <br>
+					<i class="fa fa-whatsapp"></i> Book from Whatsapp: <span>+507 6596-2034 </span><br>
 					<i class="fa fa-phone"></i> {{i18n "panama"}}: <span>+507 833-6195 </span><br>
 					<i class="fa fa-phone"></i> US: <span>+1-415-574-0992 </span><br>
-					<span> <a href="mailto:hello@triptable.com">hello@triptable.com</a> </span><br>
+					<span> <a href="mailto:hello@triptable.com">Email hello@triptable.com</a> </span><br>
 					<a class="social-icon footer" target="_blank" href="http://facebook.com/triptable"><i class="fa fa-facebook"></i></a>
 					<a class="social-icon footer" target="_blank" href="http://twitter.com/triptable_es"><i class="fa fa-twitter"></i></a>
 					<a class="social-icon footer" target="_blank" href="http://instagram.com/triptable"><i class="fa fa-instagram"></i></a>

@@ -6,13 +6,13 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Booking</h2>
+				<h2>{{i18n "booking"}}</h2>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li>Booking</li>
+						<li><a href="#">{{i18n "home"}}</a></li>
+						<li>{{i18n "booking"}}</li>
 					</ul>
 				</nav>
 
@@ -40,7 +40,7 @@
 		================================================== -->
 		<div class="col-lg-8 col-md-8 padding-right-30">
 
-			<h3 class="margin-top-0 margin-bottom-30">Personal Details</h3>
+			<h3 class="margin-top-0 margin-bottom-30">{{i18n "personal_details"}}</h3>
 			<form method="POST" id="bookingForm" action="/contact/{{data.tour.tourId}}">
 			<input type="hidden" name="action" value="booking">
 			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
@@ -75,18 +75,18 @@
 				
 
 				<div class="col-md-6">
-					<label>First Name</label>
+					<label>{{i18n "first_name"}}</label>
 					<input type="text" id="firstName" name="name.first" value="">
 				</div>
 
 				<div class="col-md-6">
-					<label>Last Name</label>
+					<label>{{i18n "last_name"}}</label>
 					<input type="text"  id="lastName" name="name.last" value="">
 				</div>
 
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
-						<label>E-Mail Address</label>
+						<label>{{i18n "email"}}</label>
 						<input type="email"  id="email" name="email" value="">
 						<i class="im im-icon-Mail"></i>
 					</div>
@@ -94,13 +94,13 @@
 
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
-						<label>Phone / Whatsapp</label>
+						<label>{{i18n "phone_booking_message"}}</label>
 						<input type="tel"  id="phone" name="phone" id="phone">
 					</div>
 				</div>
 				<div class="col-md-12">
 					<div class="input-with-icon medium-icons">
-						<label>Hotel Name or Address</label>
+						<label>{{i18n "hotel_booking_message"}}</label>
 						<input type="text"  id="address" name="hotel"  value="">
 						<i class="im im-icon-Phone-2"></i>
 					</div>
@@ -109,7 +109,7 @@
 			</div>
 
 
-			<h3 class="margin-top-55 margin-bottom-30">Payment Method</h3>
+			<h3 class="margin-top-55 margin-bottom-30">{{i18n "payment_method"}}</h3>
 
 			<!-- Payment Methods Accordion -->
 			<div class="payment">
@@ -117,7 +117,7 @@
 				<div class="payment-tab">
 					<div class="payment-tab-trigger">
 						<input id="paypal" name="cardType" type="radio" value="paypal" disabled>
-						<label for="paypal">Cash</label>
+						<label for="paypal">{{i18n "cash"}} ({{i18n "cash_payments_disabled_message"}})</label>
 						<!--<img class="payment-logo paypal" src="https://i.imgur.com/ApBxkXU.png" alt=""> -->
 					</div>
 
@@ -130,8 +130,8 @@
 				<div class="payment-tab payment-tab-active">
 					<div class="payment-tab-trigger">
 						<input checked type="radio" name="cardType" id="creditCart" value="creditCard">
-						<label for="creditCart">Credit / Debit Card</label>
-						<img class="payment-logo" src="https://i.imgur.com/IHEKLgm.png" alt="">
+						<label for="creditCart">{{i18n "credit_card"}}</label>
+						<img class="payment-logo" src="/images/cc-img.png" alt="">
 					</div>
 
 					<div class="payment-tab-content">
@@ -139,28 +139,28 @@
 
 							<div class="col-md-6">
 								<div class="card-label">
-									<label for="nameOnCard">Name on Card</label>
+									<label for="nameOnCard">{{i18n "name_on_card"}}</label>
 									<input id="nameOnCard" name="cardholder" required type="text">
 								</div>
 							</div>
 
 							<div class="col-md-6">
 								<div class="card-label">
-									<label for="cardNumber">Card Number</label>
+									<label for="cardNumber">{{i18n "card_number"}}</label>
 									<input id="cardNumber" name="cardNumber" placeholder="1234  5678  9876  5432" required type="tel">
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
-									<label for="expirynDate">Mes</label>
+									<label for="expirynDate">{{i18n "month"}}</label>
 									<input id="expiryDateMonth" placeholder="MM" type="tel" required >
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<div class="card-label">
-									<label for="expiryDate">Año</label>
+									<label for="expiryDate">{{i18n "year"}}</label>
 									<input id="expirynDateYear" placeholder="YY" required type="tel">
 								</div>
 							</div>
@@ -181,7 +181,7 @@
 			</div>
 			<!-- Payment Methods Accordion / End -->
 		
-			<button type="submit" class="button booking-confirmation-btn margin-top-40 margin-bottom-65">Confirm and Pay</button>
+			<button type="submit" class="button booking-confirmation-btn margin-top-40 margin-bottom-65">{{i18n "confirm_and_pay"}}</button>
 			</form>
 		</div>
 
@@ -203,16 +203,16 @@
 				</div>
 			</div>
 			<div class="boxed-widget opening-hours summary margin-top-0">
-				<h3><i class="fa fa-calendar-check-o"></i> Booking Summary</h3>
+				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}</h3>
 				<ul>
-					<li>Date <span>{{formData.formatDate}}</span></li>
-					<li>Hour <span>{{formData.bookingTime}}</span></li>
-					<li>Adults <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
-					<li>Children <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
-					<li>Infants <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
+					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
+					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
+					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
+					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
 					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
-					<li class="total-costs">Service Fee<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
-					<li class="total-costs">Total Cost <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**You'll be charged <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
+					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
+					<li class="total-costs">{{i18n "total_cost"}} <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**{{i18n "usd_currency_message"}} <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
 				</ul>
 
 			</div>
@@ -223,6 +223,7 @@
 	</div>
 </div>
 <!-- Container / End -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		if (localStorage) {
@@ -277,5 +278,7 @@
 
 
 	});
-
+	$(document).ready(function(){
+		$('#cardNumber').payment('formatCardNumber');
+	})
 </script>

@@ -81,9 +81,8 @@
 ---------------------------------------------------------------------- */
 @import url("bootstrap-grid.css");						/* Default Reset, Typography, Forms, Responsive Grid etc. */
 @import url("icons.css");							/* Webfont Icons: FontAwesome, Line, Simple Line */
-@import url("plugins/revolutionslider.css");		/* Revolution Slider Style Sheets */
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
 
 
 

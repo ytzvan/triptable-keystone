@@ -41,6 +41,8 @@ exports = module.exports = function(req, res) {
 			var id = place._id;
 			var provinceName = locals.data.placeName;
 			locals.data.country = place.country.slug;
+			var countryName = place.country.country;
+	
 
 			keystone.list('City') //Get other cities from country
 			.model.aggregate([
@@ -55,7 +57,7 @@ exports = module.exports = function(req, res) {
 				locals.data.cities = results;
 			});
 
-			locals.meta.title = "Reserva Tours, Actividades y Qué hacer en " + provinceName + " - Triptable";
+			locals.meta.title = "Cosas que Hacer en " + provinceName + ". Reserva tours y actividades en " + countryName;
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours a " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
 			locals.meta.description =  "Reserva tours y actividades en " + provinceName  + ". Con Triptable reservas tours baratos en " +provinceName;
 			locals.meta.ogTitle = locals.meta.title;

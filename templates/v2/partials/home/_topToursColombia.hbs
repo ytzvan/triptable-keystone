@@ -1,14 +1,20 @@
 <!-- Fullwidth Section -->
-<section class="fullwidth margin-top-0 padding-top-30 padding-bottom-70">
+<section class="fullwidth margin-top-0 padding-top-15 padding-bottom-15">
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 
-			<div class="col-md-12">
-				<h3 class="headline centered margin-bottom-15">
-					{{i18n "tours_in"}} Colombia
-					<span>{{i18n "top_tours_subtitle"}}</span>
-				</h3>
+			<div class="col-md-6">
+				<h4 class="headline margin-bottom-15">
+					{{i18n "most_popular_tours_in"}} {{i18n "Colombia"}}
+				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
+				</h4>
+			</div>
+			<div class="col-md-6 text-right">
+				<span class="view-more margin-bottom-15">
+					<a href="/colombia" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
+				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
+				</span>
 			</div>
 		</div>
 	</div>
@@ -20,9 +26,6 @@
 		{{/each}}
 	</div>
 	<!-- Carousel / End -->
-	<div class="col-md-12 centered-content">
-				<a href="/colombia" class="button border margin-top-10">{{i18n "see_all"}}</a>
-	</div>
 
 </section>
 <!-- Fullwidth Section / End -->

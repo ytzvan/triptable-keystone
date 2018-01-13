@@ -1,11 +1,11 @@
 <!-- Titlebar
 ================================================== -->
+<section>
 <div id="titlebar" class="gradient">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-
-				<h2>{{i18n "search"}} </h2><span>{{i18n "we_found"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span><p> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+			<div class="col-md-12 padding-top-30">
+				<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2><span>{{i18n "available"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span><p> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
@@ -65,7 +65,7 @@
 
 
 			<!-- Results-->
-			<div class="row">
+			<div class="row tour-search-list">
 			{{#each data.tours.results}}
       	{{>search/_results}}
 			{{/each}}	
@@ -98,6 +98,7 @@
 
 	</div>
 </div>
+</section>
 <script type="text/javascript">
   $(document).ready(function(){
 		$('#countries-select').val("{{data.country}}"); //value of your default option
