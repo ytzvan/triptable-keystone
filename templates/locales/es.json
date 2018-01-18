@@ -191,7 +191,7 @@
 	"my_bookings_admin": "Mis Reservas - Administrator",
 	"starting_from": "Desde",
 	"most_reserved_tours_message": "Descubre los tours más populares",
-	"search_message": "Prueba 'city tours' o 'Estadías en San Blas'",
+	"search_message": "Prueba 'San Blas' ",
 	"tours_to": "Tours a",
 	"panama_canal": "Canal de Panamá",
 	"home_message_title_1": "Escoge un Tour",
@@ -244,7 +244,7 @@
 	"booking_completed": "Reserva Completada",
 	"booking": "booking",
 	"confirmation_message_title": "Gracias por reservar con nosotros",
-	"confirmation_message_subtitletitle": "Recibirá en breve un e-mail con los detalles de su reservación",
+	"confirmation_message_subtitletitle": "Hemos enviado un email con los detalles de su reserva a: ",
 	"view_booking": "Ver Reserva",
 	"email_registered_at_the_booking": "Email utilizado al Reservar",
 	"verify_my_booking": "Verificar mi Reserva",
@@ -285,5 +285,9 @@
 	"details": "Detalles",
 	"show_more": "Ver Más",
 	"show_less": "Ver Menos",
-	"see_price": "Ver Precio"
+	"see_price": "Ver Precio",
+	"from_the_blog": "Desde nuestro blog",
+	"filter_results": "Filter results",
+	"footer_message": "Hecho con ❤️ en Ciudad de Panamá",
+	"confirmation_message_bookingId": "ID de Reserva"
 }

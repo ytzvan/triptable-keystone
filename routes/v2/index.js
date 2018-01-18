@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
+var request = require('request');
 
 exports.init = function(req, res) {
     var view = new keystone.View(req, res);
@@ -64,7 +65,6 @@ exports.init = function(req, res) {
 
 		return next();
 	});
-
 	/*view.on('init', function(next) {
 
 		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais

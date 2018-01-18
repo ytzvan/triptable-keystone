@@ -27,7 +27,7 @@ a#searchBtn{
 .main-search-inner
 h2.title{
 	font-weight: 400;
-	font-size: 50px;
+	font-size: 36px;
 	color: #ecf0f1;
 }
 h4.subtitle{
@@ -400,7 +400,7 @@ background: linear-gradient(
 	position: relative;			
 	right: 0;			
 	top: 50%;						
-	color: #999;
+	color: #000;
 	padding: 0;			
 	background: #fff;			
 }	
@@ -496,7 +496,7 @@ h3.tour-price{
 	background-color: #e74c3c;
 }
 .listing-item-details ul li{
-	padding: 4px;
+padding: 4px;
   border-radius: 5px;
   background-color: rgba(130, 137, 138, 0.8);
 	
@@ -650,7 +650,7 @@ h2.search-title{
 	text-transform: capitalize;
 }
 .listing-item{
-	height: 320px;
+	height: 280px;
 }
 .pricing-list-container p{
 	width: 75%;
@@ -751,7 +751,7 @@ div.tour-item-desc{
 }
 @media (min-width: 1240px) { 
 	div.main-search-inner {
-		width: 60%;
+		width: 70%;
 	}
 }
 .button i{
@@ -780,3 +780,34 @@ div.tour-item-desc{
 			padding-right: 0px;
 		}
 	}
+
+.blog-compact-item:before{
+	background:linear-gradient(to top, rgba(35,35,37,0.5) 0%, rgba(35,35,37,0.65) 5%, rgba(22,22,23,0) 50%, rgba(0,0,0,0) 100%);
+}	
+@media (max-width: 480px) {
+		.main-search-container { height: 340px; }
+}
+
+
+.main-search-container { height: 420px; }	
+.main-search-input-item{
+	border-color: #3498db;
+	}
+
+.booking-item:before{
+	background: linear-gradient(to top, rgba(35,35,37,0.6) 20%, rgba(35,35,37,0.3) 35%, rgba(22,22,23,0.1) 49%, rgba(27, 9, 9, 0) 100%);
+}	
+.booking-section p, span, h1, h2, h3, h4, h5, label {
+	text-transform: capitalize;
+}	
+label.payment-cash {
+	color: #c1c1c1;
+	text-decoration: line-through;
+}
+.booking-confirmation-page .booking-id span{
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.listing-slider .item.slick-slide:before{
+	background:transparent;
+}

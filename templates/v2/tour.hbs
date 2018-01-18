@@ -19,20 +19,6 @@
 					</div>-->
 					
 				</div>
-			<!--	<div class="row padding-top-5">
-					<div class="col-md-3">
-						<i class="tour-info-icon im im-icon-Clock-Forward"></i><br>{{data.tour.duration}} {{#if data.tour.isMultiDay}}{{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}
-					</div>
-					<div class="col-md-3">
-						<i class="tour-info-icon sl sl-icon-people"></i><br>Shared Tour
-					</div>
-					<div class="col-md-3">
-						<i class="tour-info-icon im im-icon-Clock-Forward"></i>
-					</div>
-					<div class="col-md-3">
-						<i class="tour-info-icon im im-icon-Clock-Forward"></i>
-					</div>
-				</div>-->
 			</div>
 
 			<!-- Listing Nav -->
@@ -48,6 +34,7 @@
 			
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
+				<h3 class="margin-bottom-15 margin-top-5">{{i18n "tour_description_title"}}</h3>
 				<!-- Amenities -->
 				<ul class="listing-features checkboxes margin-top-5 margin-bottom-30">
 					 {{#if data.tour.hotelPickup}}
@@ -92,7 +79,6 @@
 					{{#if data.tour.description_eng}}
 				<div class="show-more">
 						{{{data.tour.description_eng.extended}}}
-					
 						</div>
 							<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 					{{else}}	

@@ -40,15 +40,25 @@ exports = module.exports = function(req, res) {
 	view.on('post', {action: 'booking'}, function(next) {
 		console.log("body", req.body);
 	    var body = req.body;
-		  var result;
-		  var response;
-
+		var result;
+		var response;
         var invalidTravelers = isNaN(req.body.nOfAdults);
-         if (invalidTravelers){
+
+
+        //Validations
+
+        if (invalidTravelers){
 		  	 var errorMessage = "Número de Viajeros inválido";
 		  	req.flash('error', errorMessage);
 		  	console.log('error', errorMessage);
 		    return res.status(500).render('errors/404');
+		   // return next();
+		}
+		if (!body.email || body.email == undefined){
+		  	 var errorMessage = "Enter your email";
+		  	req.flash('error', errorMessage);
+		  	console.log('error', errorMessage);
+		    return res.redirect(req.get('referer'));
 		   // return next();
 		  }
 		//Here goes the payment logic

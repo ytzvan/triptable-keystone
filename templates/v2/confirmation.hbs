@@ -24,6 +24,7 @@
 				<i class="fa fa-check-circle"></i>
 				<h2 class="margin-top-30">{{i18n "confirmation_message_title"}}</h2>
 				<p>{{i18n "confirmation_message_subtitletitle"}} {{bookingInfo.email}}</p>
+				<p class="booking-id" >{{i18n "confirmation_message_bookingId"}} <span> {{bookingInfo.friendlyId}}<span></p>
 				<a target="_blank" id="viewBooking" href="/invoice/{{bookingInfo._id}}" class="button button-primary margin-top-30">{{i18n "view_booking"}}</a>
 			</div>
 

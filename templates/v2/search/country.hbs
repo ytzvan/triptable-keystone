@@ -25,7 +25,7 @@
 	<div class="row">
 		<!-- Search -->
 		<div class="col-md-12">
-			<div class="main-search-input gray-style margin-top-0 margin-bottom-10">
+			<div class="main-search-input margin-top-0 margin-bottom-10">
 
 				<!--<div class="main-search-input-item">
 					<input type="text" placeholder="What are you looking for?" value=""/>
@@ -40,8 +40,8 @@
 				</div>
 
 				<div class="main-search-input-item">
-					<select data-placeholder="Todas las Ciudades"  id="cities-select"  class="chosen-select" >
-						<option value="{{data.country.country}}">{{i18n "show_all"}}</option>	
+					<select data-placeholder="{{i18n "filter_results"}}"  id="cities-select"  class="chosen-select" >
+						<option value="{{data.country.country}}">{{i18n "filter_results"}}</option>	
 						{{#each data.cities}}
 						<option value="{{slug}}">{{city}}</option>	
 						{{/each}}
