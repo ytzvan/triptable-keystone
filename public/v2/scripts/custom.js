@@ -508,6 +508,7 @@ $(document).ready(function(){
 		slidesToScroll: 5,
 		dots: true,
 		arrows: false,
+		autoplay: true,
 
 		responsive: [
 		{
