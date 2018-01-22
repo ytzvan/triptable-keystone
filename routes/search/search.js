@@ -5,21 +5,20 @@ exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-  var query = req.query;
+  	var query = req.query;
 
   locals.data = {
 		tours: []
 	};
 
   view.on('init', function(next) {
-      console.log("on search");
 			keystone.list('Tour')
 				.paginate({
 					page: req.query.page || 1,
 					perPage: 20,
 				})
-        .find({"state": "published"})
-	  //		.where("country", id)
+		.find(query)
+        .where("state","published")
         .sort('-publishedDate')
 				.populate('city ')
 				.exec(function(err, results) {

@@ -221,5 +221,5 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	});
 }
 Enquiry.defaultSort = '-date';
-Enquiry.defaultColumns = 'name, bookingStatus, people, date, bookingTotalPrice, bookingRevenue, createdAt';
+Enquiry.defaultColumns = 'name, bookingStatus, people, date, bookingTotalPrice, bookingRevenue, createdAt, isPay';
 Enquiry.register();

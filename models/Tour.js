@@ -44,7 +44,6 @@ Tour.add({
 	videoId : {type: String}, //Created if added a Video URL
 	keywords: {type: String},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
-	collections: { type: Types.Relationship, ref: 'Collection', many: true },
 	minPerson: {type: Types.Number, default: 1 },
 	maxPerson: {type: Types.Number, default: 10 },
 	departureTime: { type: String},
@@ -76,6 +75,7 @@ Tour.add({
 	country: { type: Types.Relationship, ref: 'Country' },
 	province : { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
 	city : { type: Types.Relationship, ref: 'City', filters: { province: ':province' } },
+	collections: { type: Types.Relationship, ref: 'Collection', many: true, filters: { city: ':city' }},
 	highlights: { type: Types.TextArray},
 	startingPoint : {type: String},
 	finishPoint: {type: String},

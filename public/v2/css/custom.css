@@ -811,3 +811,17 @@ label.payment-cash {
 .listing-slider .item.slick-slide:before{
 	background:transparent;
 }
+.img-box-content h4{
+	font-weight:600;
+	font-size: 24px;
+}
+.search-title p{
+	padding:0;
+	margin:0;
+}
+.img-box{
+	height: 200px;
+}
+.city-item{
+	height: 320px;
+}

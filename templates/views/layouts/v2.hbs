@@ -109,7 +109,7 @@
 							</ul>
 						</li>-->
 
-						<li><a href="/search"><i class="im im-icon-Location-2"></i> Tours</a> <!--One page with info about us, how it works, general faq, all connected -->
+						<!--<li><a href="/search"><i class="im im-icon-Location-2"></i> Tours</a> 
 							<ul>
 								<li><a href="/panama">{{i18n "tours_in"}} Panamá <span class="flag-icon flag-icon-pa"></span></a>
 									<ul>
@@ -128,9 +128,14 @@
 									</ul>
 								</li>
 							</ul>
-						</li>
+						</li> -->
 						<li>
-							<a href="/faq"><i class="im im-icon-Information"></i> {{i18n "help"}}</a>
+							<a href="#"><i class="im im-icon-Information"></i> {{i18n "help"}}</a>
+							<ul>
+								<li><a href="/mybooking" id="" class="">{{i18n "verify_booking"}}</a></li>
+								<li><a href="/about">{{i18n "how_are_we"}}</a></li>
+								<li><a href="/faq">{{i18n "faq_title"}}</a></li>
+							</ul>
 						</li>
 						
 						<li><a href="#" id="lang-select"></a>
@@ -149,12 +154,16 @@
 								<li><a href="/currency/BRL">R$ BRL</a></li>
 							</ul>
 						</li>
-						<li><a href="/mybooking" id="" class=""><i class="fa fa-calendar-check-o"></i> {{i18n "verify_booking"}}</a></li>
+						
 						{{#if userInfo}}
-						<li id="loginLink" class="header-left"><a href="#">{{userInfo.name.first}}</a>
+						<li id="loginLink" class="header-left"><a href="#">{{i18n "welcome"}} {{userInfo.name.first}}</a>
 							<ul>
+								{{#unless isGuide}}
 								<li><a href="/user">{{i18n "my_bookings"}}</a></li>
+								{{/unless}}
+								{{#if isGuide}}
 								<li><a href="/admin">{{i18n "my_bookings_admin"}}</a></li>
+								{{/if}}
 								{{#if isAdmin}}
 								<li><a href="/keystone">Keystone</a></li>
 								{{/if}}
@@ -255,17 +264,13 @@
 				</div>
 
 				<div class="col-md-3">
-				<h4 class="footer-title">{{i18n "tours"}}</h4>
+				<h4 class="footer-title">Top {{i18n "destinations"}}</h4>
 				<ul class="footer-links">
-					<li><a href="/destino/panama-city">{{i18n "tours_in"}} Panama City</a></li>
-					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} San Blas Guna Yala</a></li>
+					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} Guna Yala</a></li>
 					<li><a href="/destino/bocas-del-toro">{{i18n "tours_in"}} Bocas del Toro</a></li>
 					<li><a href="/destino/cartagena">{{i18n "tours_in"}} Cartagena</a></li>
 					<li><a href="/destino/santa-marta">{{i18n "tours_in"}} Santa Marta</a></li>
-					<li><a href="/destino/bogota">{{i18n "tours_in"}} Bogota</a></li>
-					<li><a href="/destino/boquete">{{i18n "tours_in"}} Boquete</a></li>
-					<li><a href="/destino/pedasi">{{i18n "tours_in"}} Pedasi</a></li>
-					
+					<li><a href="/destino/bogota">{{i18n "tours_in"}} Medellin</a></li>			
 				</ul>
 
 				

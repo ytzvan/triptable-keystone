@@ -10,7 +10,10 @@ var Collection = new keystone.List('Collection', {
 
 Collection.add({
 	name: { type: String, required: true, initial: true },
-	description:  { type: String },
+	title: {
+		en: { type: String, label: 'Inglés'},
+		es: { type: String, label: 'Español' }
+	},
 	image: { type: Types.CloudinaryImage },
 	featured: {type: Types.Boolean, default: false },
     country: { type: Types.Relationship, ref: 'Country' },
@@ -19,4 +22,5 @@ Collection.add({
     
 });
 Collection.relationship({ ref: 'Tour', path: 'tours', refPath: 'collections' });
+Collection.defaultColumns = 'name, title.es, title.en, city';
 Collection.register();

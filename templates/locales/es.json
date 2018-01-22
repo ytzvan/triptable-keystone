@@ -276,7 +276,7 @@
 	"booking_tours_and_activities_in": "Reserve tours y actividades en",
 	"things_to_do_in": "things_to_do_in",
 	"available": "Disponibles",
-	"search_title": "Cosas que hacer en ",
+	"search_title": "Tours en ",
 	"tour_description_title": "Acerca del Tour",
 	"see_details": "Ver Detalles",
 	"most_viewed_right_now": "Más vistos en este momento",
@@ -289,5 +289,15 @@
 	"from_the_blog": "Desde nuestro blog",
 	"filter_results": "Filter results",
 	"footer_message": "Hecho con ❤️ en Ciudad de Panamá",
-	"confirmation_message_bookingId": "ID de Reserva"
+	"confirmation_message_bookingId": "ID de Reserva",
+	"all_cities": "all_cities",
+	"data.placeName": "data.placeName",
+	"all_destinations": "Todos los destinos",
+	"all_destinations_in": "Todos los destinos en",
+	"listings": "listados",
+	"handpicked_collections": "handpicked_collections",
+	"categories": "categories",
+	"all_categories": "Todas las categorias",
+	"choose_country": "Elige un País",
+	"destinations": "destinos"
 }

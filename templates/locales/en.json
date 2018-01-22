@@ -275,7 +275,7 @@
 	"total_cost": "Total Cost",
 	"usd_currency_message": "You'll be charged",
 	"available": "Available",
-	"search_title": "Things to do in",
+	"search_title": "Tours in",
 	"tour_description_title": "About the Tour",
 	"see_details": "See Details",
 	"most_popular_tours_in": "Most Popular Tours in",
@@ -288,5 +288,12 @@
 	"filter_results": "Filter results",
 	"from_the_blog": "From our blog",
 	"footer_message": "Crafted with ❤️ in Panama City",
-	"confirmation_message_bookingId":"Booking ID"
+	"confirmation_message_bookingId": "Booking ID",
+	"all_destinations_in": "All destinations in",
+	"all_cities": "All cities",
+	"all_destinations": "All destinations",
+	"listings": "listings",
+	"all_categories": "All Categories",
+	"choose_country": "Choose your country",
+	"destinations": "destinations"
 }

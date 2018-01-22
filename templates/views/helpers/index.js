@@ -275,6 +275,7 @@ module.exports = function() {
 
 			// get the pageUrl using the integer value
 			var pageUrl = _helpers.pageUrl(page);
+
 			// wrapup the html
 			html += '<li'+liClass + ''+liId+'>'+ linkTemplate({url:pageUrl,text:pageText})+'</li>\n';
 		});

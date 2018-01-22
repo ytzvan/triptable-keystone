@@ -83,6 +83,7 @@ keystone.set('nav', {
 	'users': 'users',
 	'tours' : 'tours',
 	'locations' : ['cities', 'provinces', 'countries'],
-  'crms' : 'crms'
+	'collections' : ['collections'],
+  	'crms' : 'crms'
 });
 keystone.start();
