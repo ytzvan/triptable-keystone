@@ -113,6 +113,7 @@ Enquiry.schema.post('save', function() {
 		this.sendUserEmail(this); //Send User email
 		this.sendBookingNotificationEmail(this, email); //Email al operadors
 		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+		/*
 		var messagebird = require('messagebird')('d0CiSToNU18haOdnsJCLy3uoe');
 
 		var params = {
@@ -128,7 +129,8 @@ Enquiry.schema.post('save', function() {
 		    return console.log(err);
 		  }
 		  console.log(data); 
-		});
+		});*/
+		
 	//	SlackUtils.sendEnquiryToSlack(this);
 	}
 

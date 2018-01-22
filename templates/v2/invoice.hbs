@@ -20,7 +20,7 @@
 	<!-- Header -->
 	<div class="row">
 		<div class="col-md-6">
-			<div id="logo"><a href="/"> <img src="http://res.cloudinary.com/triptable/image/upload/v1487628547/logo2_o93cxh.png" alt=""></a></div>
+			<div id="logo"><a href="/"><img src="http://res.cloudinary.com/triptable/image/upload/v1487628547/logo2_o93cxh.png" alt=""></a></div>
 		</div>
 
 		<div class="col-md-6">	
@@ -36,13 +36,9 @@
 
 	<!-- Client & Supplier -->
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<h2 class="capitalize">{{i18n "invoice"}}</h2>
 		</div>
-		<div class="col-md-6">
-			<a rel='nofollow' href='#' border='0' style='cursor:default'><img src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Flocaldomain.com%3A3000%2Ftour%2Fboletos-biomuseo-con-audioguia-panamenos-y-residentes&chs=180x180&choe=UTF-8&chld=L|2' alt=''></a>
-		</div>
-
 
 		<div class="col-md-6">	
 			<strong class="margin-bottom-5">Supplier</strong>
@@ -60,7 +56,7 @@
 			<p>
 				{{data.enquiry.name.full}}<br>
 				{{data.enquiry.tour.name}}<br> 
-        {{data.enquiry.nOfAdults}} {{i18n "adults"}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} | {{data.enquiry.nOfInfants}} {{i18n "infants"}}<br>
+        {{data.enquiry.nOfAdults}} {{i18n "adults"}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} | {{data.enquiry.nOfInfants}} {{i18n "infants"}}<br>
 				{{data.enquiry.datePretty}} <br>
 			</p>
 		</div>
