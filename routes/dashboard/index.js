@@ -63,8 +63,9 @@ exports.init = function(req, res) {
         if (err) {
             
         }
+        console.log(result);
         locals.data.results = result;
-        view.render('dashboard/index'); 
+        view.render('dashboard/index', {layout:"v2-admin"}); 
         
     });
 }

@@ -3,7 +3,7 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Howdy, Tom!</h2>
+					<h2>Bienvenido, {{userInfo.name.first}}!</h2>
 					<!-- Breadcrumbs -->
 					<nav id="breadcrumbs">
 						<ul>
@@ -15,15 +15,15 @@
 			</div>
 		</div>
 
-		<!-- Notice -->
+		<!-- Notice
 		<div class="row">
 			<div class="col-md-12">
 				<div class="notification success closeable margin-bottom-30">
-					<p>Your listing <strong>Hotel Govendor</strong> has been approved!</p>
+					<p>Felicidades <strong>Hotel Govendor</strong> has been approved!</p>
 					<a class="close" href="#"></a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Content -->
 		<div class="row">
@@ -31,7 +31,7 @@
 			<!-- Item -->
 			<div class="col-lg-3 col-md-6">
 				<div class="dashboard-stat color-1">
-					<div class="dashboard-stat-content"><h4>6</h4> <span>Active Listings</span></div>
+					<div class="dashboard-stat-content"><h4>2</h4> <span>Actividades listadas</span></div>
 					<div class="dashboard-stat-icon"><i class="im im-icon-Map2"></i></div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 			<!-- Item -->
 			<div class="col-lg-3 col-md-6">
 				<div class="dashboard-stat color-2">
-					<div class="dashboard-stat-content"><h4>726</h4> <span>Total Views</span></div>
+					<div class="dashboard-stat-content"><h4>145</h4> <span>Compras Totales</span></div>
 					<div class="dashboard-stat-icon"><i class="im im-icon-Line-Chart"></i></div>
 				</div>
 			</div>
@@ -48,15 +48,15 @@
 			<!-- Item -->
 			<div class="col-lg-3 col-md-6">
 				<div class="dashboard-stat color-3">
-					<div class="dashboard-stat-content"><h4>95</h4> <span>Total Reviews</span></div>
-					<div class="dashboard-stat-icon"><i class="im im-icon-Add-UserStar"></i></div>
+					<div class="dashboard-stat-content">$<h4>2320</h4> <span>Ingresos</span></div>
+					<div class="dashboard-stat-icon"><i class="im im-icon-Money-2"></i></div>
 				</div>
 			</div>
 
 			<!-- Item -->
 			<div class="col-lg-3 col-md-6">
 				<div class="dashboard-stat color-4">
-					<div class="dashboard-stat-content"><h4>126</h4> <span>Times Bookmarked</span></div>
+					<div class="dashboard-stat-content"><h4>126</h4> <span>Guardado</span></div>
 					<div class="dashboard-stat-icon"><i class="im im-icon-Heart"></i></div>
 				</div>
 			</div>
@@ -83,18 +83,18 @@
 			<!-- Invoices -->
 			<div class="col-lg-6 col-md-12">
 				<div class="dashboard-list-box invoices with-icons margin-top-20">
-					<h4>Invoices</h4>
+					<h4>Compras</h4>
 					<ul>
 						
 						<li><i class="list-box-icon sl sl-icon-doc"></i>
-							<strong>Professional Plan</strong>
+							<strong>Admission Ticket - Adult</strong>
 							<ul>
-								<li class="unpaid">Unpaid</li>
+								<li class="paid">Paid</li>
 								<li>Order: #00124</li>
 								<li>Date: 20/07/2017</li>
 							</ul>
 							<div class="buttons-to-right">
-								<a href="dashboard-invoice.html" class="button gray">View Invoice</a>
+								<a href="dashboard-invoice.html" class="button gray">Ver Compra</a>
 							</div>
 						</li>
 

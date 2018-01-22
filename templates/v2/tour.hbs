@@ -21,11 +21,13 @@
 				</div>
 			</div>
 
+
+
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav" id="tour-section-nav">
 					<li><a href="#listing-overview" class="active">{{i18n "tour_description_title"}}</a></li>
-					<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li>
+					<!--<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li> -->
 					<li><a href="#listing-location">{{i18n "location"}}</a></li>
 					<li><a href="#listing-reviews">{{i18n "reviews"}}</a></li>
 					<!--<li><a href="#add-review">Add Review</a></li>-->
@@ -33,8 +35,19 @@
 			</div>
 			
 			<!-- Overview -->
+			<div class="row margin-top-30 margin-bottom-10">
+					<div class="col-md-4 text-center">
+					<i class="im im-icon-Hand-TouchSmartphone" style="font-size: 35px;text-align: center;"></i>
+					<p style="font-size: 14px;line-height: 22px;">{{i18n "mobile_voucher_av"}}</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<i class="im im-icon-Ticket" style="font-size: 35px;text-align: center;"></i>
+					<p style="font-size: 14px;line-height: 22px;">{{i18n "entrance_tickets"}}</p>
+				</div>
+			</div>
 			<div id="listing-overview" class="listing-section">
 				<h3 class="margin-bottom-15 margin-top-5">{{i18n "tour_description_title"}}</h3>
+			
 				<!-- Amenities -->
 				<ul class="listing-features checkboxes margin-top-5 margin-bottom-30">
 					 {{#if data.tour.hotelPickup}}

@@ -39,17 +39,25 @@
 
 								<!-- Quantity Buttons -->
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> {{i18n "adults"}} (12+)</div>
+									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> {{i18n "adults"}}</div>
 									<input type="text"  name="nOfAdults" id="nOfAdults" class="qtyInput" value="{{data.tour.minPerson}}">
 								</div>
 
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-Boy "></i> {{i18n "children"}} (6-11) </div>
+									<div class="qtyTitle"><i class="im im-icon-Boy "></i> {{i18n "children"}}</div>
 									<input type="text" name="nOfChildren" id="nOfChildren" class="qtyInput" value="0">
 								</div>
 
 								<div class="qtyButtons">
-									<div class="qtyTitle"><i class="im im-icon-Baby "></i> {{i18n "infants"}} (0-5)</div>
+									<div class="qtyTitle"><i class="im im-icon-Baby "></i> {{i18n "infants"}}</div>
+									<input type="text" name="nOfInfants" id="nOfInfants" class="qtyInput" value="0">
+								</div>
+								<div class="qtyButtons">
+									<div class="qtyTitle"><i class="im im-icon-Boy "></i> {{i18n "students"}}</div>
+									<input type="text" name="nOfInfants" id="nOfInfants" class="qtyInput" value="0">
+								</div>
+								<div class="qtyButtons">
+									<div class="qtyTitle"><i class="im im-icon-MaleFemale "></i> {{i18n "seniors"}}</div>
 									<input type="text" name="nOfInfants" id="nOfInfants" class="qtyInput" value="0">
 								</div>
 
@@ -104,7 +112,7 @@
 				</div>
 				
 				<!-- progress button animation handled via custom.js -->
-				<button id="bookingBtn" type="submit" class="progress-button button fullwidth margin-top-5"><span class="book-now-btn">{{i18n "see_price"}}</span></button>
+				<button id="bookingBtn" type="submit" class="progress-button button fullwidth margin-top-5"><span class="book-now-btn">{{i18n "book_now"}}</span></button>
 			</form>
 			</div>
 			<!-- Book Now / End -->
