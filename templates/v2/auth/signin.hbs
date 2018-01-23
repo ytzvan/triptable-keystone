@@ -48,19 +48,19 @@
 						<!-- Login -->
 						<div class="tab-content" id="tab1" style="display: inline-block;">
 							<form method="POST" class="login">
-                <input type="hidden" name="{{token.key}}" value="{{token.value}}">
+                			<input type="hidden" name="{{token.key}}" value="{{token.value}}">
 
 								<p class="form-row form-row-wide">
 									<label for="username">Email:
 										<i class="im im-icon-Male"></i>
-										<input type="text" class="input-text" name="email" id="email" value="">
+										<input required type="text" class="input-text" name="email" id="email" value="">
 									</label>
 								</p>
 
 								<p class="form-row form-row-wide">
 									<label for="password">Password:
 										<i class="im im-icon-Lock-2"></i>
-										<input class="input-text" type="password" placeholder="{{i18n 'password'}}" name="password" id="password">
+										<input  required∫class="input-text" type="password" placeholder="{{i18n 'password'}}" name="password" id="password">
 									</label>
 									<span class="lost_password">
 										<a href="#">Lost Your Password?</a>
@@ -83,31 +83,32 @@
 
 							<form method="post" action="/signup" class="register">
 							<input type="hidden" name="action" value="login">
+							<input type="hidden" name="{{token.key}}" value="{{token.value}}">
 							<p class="form-row form-row-wide">
 								<label for="username2">Name:
 									<i class="im im-icon-Male"></i>
-									<input type="text" class="input-text" name="name" id="register_name" value="">
+									<input required type="text" class="input-text" name="name" id="register_name" value="">
 								</label>
 							</p>
 								
 							<p class="form-row form-row-wide">
 								<label for="email2">Email Address:
 									<i class="im im-icon-Mail"></i>
-									<input type="text" class="input-text" name="email" id="register_email" value="">
+									<input  required type="text" class="input-text" name="email" id="register_email" value="">
 								</label>
 							</p>
 
 							<p class="form-row form-row-wide">
 								<label for="password1">Password:
 									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password" id="password1">
+									<input required class="input-text" type="password" name="password" id="password1">
 								</label>
 							</p>
 
 							<p class="form-row form-row-wide">
 								<label for="password2">Repeat Password:
 									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password_confirm" id="password2">
+									<input required class="input-text" type="password" name="password_confirm" id="password2">
 								</label>
 							</p>
 
