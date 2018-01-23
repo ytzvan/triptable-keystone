@@ -4,6 +4,7 @@
 ================================================== -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 {{#if meta.title}}
 	<title>{{meta.title}}</title>
 	{{else}}
@@ -20,6 +21,10 @@
 	{{else}}
 	<meta name="description" content="{{i18n "meta_description"}}">
 	{{/if}}
+	<link rel="canonical" href="https://www.triptable.com" />
+            <link rel="alternate" hreflang="es" href="https://es.triptable.com">
+            <link rel="alternate" hreflang="en" href="https://en.triptable.com">
+            <link rel="alternate" hreflang="es-pa" href="https://www.triptable.com">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	{{#if meta.ogTitle}}
 	<meta property="og:title" content="{{meta.ogTitle}}"/>

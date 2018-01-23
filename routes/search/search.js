@@ -17,7 +17,7 @@ exports = module.exports = function(req, res) {
 					page: req.query.page || 1,
 					perPage: 20,
 				})
-		.find(query)
+		//.find(query)
         .where("state","published")
         .sort('-publishedDate')
 				.populate('city ')

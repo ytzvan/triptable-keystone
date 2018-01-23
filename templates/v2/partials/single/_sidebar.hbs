@@ -1,9 +1,15 @@
 <!-- Sidebar
 		================================================== -->
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
+			{{#if_eq data.tour.multiPrice true}}
+				<div class="notification warning closeable">
+					<p>{{i18n "price_may_vary"}}.</p>
+					<a class="close"></a>
+				</div>
+				{{/if_eq}}
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i><strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong> {{i18n "per_person"}}</h3><span>{{#if_eq data.tour.multiPrice true}} **{{i18n "price_may_vary"}}{{/if_eq}}</span>
+				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i><strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong> {{i18n "per_person"}}</h3><span></span>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">

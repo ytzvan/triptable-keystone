@@ -36,11 +36,15 @@
 
 	<!-- Client & Supplier -->
 	<div class="row">
-		<div class="col-md-12">
-			<h2 class="capitalize">{{i18n "invoice"}}</h2>
+		<div class="col-md-6">
+			<h2 class="capitalize">{{i18n "invoice"}}</h2>,
 		</div>
-
-		<div class="col-md-6">	
+		<div class="col-md-6 text-center">
+			<img id="img" src="{{data.qrcode}}" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 ">	
 			<strong class="margin-bottom-5">Supplier</strong>
 			<p>
 			  Triptable, Inc<br>
@@ -55,6 +59,7 @@
 			<strong class="margin-bottom-5">{{i18n "customer"}}</strong>
 			<p>
 				{{data.enquiry.name.full}}<br>
+				{{data.enquiry.email}}<br>
 				{{data.enquiry.tour.name}}<br> 
         {{data.enquiry.nOfAdults}} {{i18n "adults"}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} | {{data.enquiry.nOfInfants}} {{i18n "infants"}}<br>
 				{{data.enquiry.datePretty}} <br>

@@ -103,6 +103,8 @@
 											<ul class="booking-list">
 												{{#if_eq bookingStatus 0}}
 												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
+												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
 												<li><strong>{{i18n "booking_need_confirm_message"}}</strong></li>
 												{{else}}
 												{{#if_eq bookingStatus 1}}

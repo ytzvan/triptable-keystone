@@ -37,6 +37,7 @@
     "open-exchange-rates": "^0.3.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "qrcode": "^1.2.0",
     "request": "^2.72.0",
     "slack-notify": "^0.1.6",
     "striptags": "^2.1.1",

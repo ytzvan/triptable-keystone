@@ -3,7 +3,6 @@ var async = require('async');
 var Email = require('../../utils').Email;
 var q = require('q');
 var request = require('request');
-var FeedParser = require('feedparser');
 
 module.exports = function(req, res) {
 
