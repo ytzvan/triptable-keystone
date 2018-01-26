@@ -25,7 +25,7 @@ a#searchBtn{
 	color: white;
 }
 .main-search-inner
-h2.title{
+h2.title{.listing-features.checkboxes li:before
 	font-weight: 400;
 	font-size: 36px;
 	color: #ecf0f1;
@@ -748,9 +748,7 @@ div.tour-item-desc{
 #titlebar.listing-titlebar h1, #titlebar.listing-titlebar h2{
 	font-size: 24px;
 }
-.listing-features.checkboxes li:before{
-	background-color: #7f8c8d;
-}
+
 .icon-box-2 i{
 	border-radius: 0;
 }
