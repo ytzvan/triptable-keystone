@@ -626,7 +626,7 @@ h1.single-tour{
 }
 .listing-desc-headline{
 	margin-top: 0px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	padding: 5px 0px;
 }
 #tour-section-nav{
@@ -831,4 +831,11 @@ label.payment-cash {
 .listing-slider, .listing-slider .item{
 	height: 35vh;
     min-height: 350px;
+}
+.information-icons i{
+	font-size: 36px;text-align: center;
+	font-weight: 300;
+}
+.information-icons p{
+	font-size: 14px;line-height: 22px;
 }

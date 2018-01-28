@@ -21,8 +21,46 @@
 				</div>
 			</div>
 
-
-
+		<div class="row margin-top-15 margin-bottom-15 information-icons">
+			{{#if data.tour.tourType}}
+				<div class="col-md-3 col-xs-6  text-center">
+					{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> <p>{{i18n "group_tour"}}</p>{{/if_eq}}
+					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i> <p>{{i18n "private_tour"}}{{/if_eq}} </p>
+				</div>
+				{{/if}}
+					<div class="col-md-3 col-xs-6 text-center ">
+					<i class="im im-icon-Ticket"></i>
+					<p style="">{{i18n "entrance_tickets"}}</p>
+				</div>
+				{{#if data.tour.mobileVoucherAccepted}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Hand-TouchSmartphone"></i>
+					<p>{{i18n "mobile_voucher_av"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.instantConfirmation}}
+				<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Flash"></i>
+					<p>{{i18n "instant_confirmation"}}</p>
+				</div>
+				{{/if}}
+				<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Clock-Forward"></i>
+					<p>{{data.tour.duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
+				</div>
+				{{#if data.tour.sharedCabin}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="fa fa-bed"></i>
+					<p>{{i18n "shared_accomodation_included"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.privateCabin}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="fa fa-bed"></i>
+					<p>{{i18n "private_accomodation_included"}}</p>
+				</div>
+				{{/if}}
+			</div>
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav" id="tour-section-nav">
@@ -33,21 +71,10 @@
 					<!--<li><a href="#add-review">Add Review</a></li>-->
 				</ul>
 			</div>
+
 			
 			<!-- Overview -->
-			<div class="row margin-top-30 margin-bottom-10">
-					<div class="col-md-4 text-center">
-					<i class="im im-icon-Hand-TouchSmartphone" style="font-size: 35px;text-align: center;"></i>
-					<p style="font-size: 14px;line-height: 22px;">{{i18n "mobile_voucher_av"}}</p>
-				</div>
-				<div class="col-md-4 text-center">
-					<i class="im im-icon-Ticket" style="font-size: 35px;text-align: center;"></i>
-					<p style="font-size: 14px;line-height: 22px;">{{i18n "entrance_tickets"}}</p>
-				</div>
-			</div>
 			<div id="listing-overview" class="listing-section">
-				<h3 class="margin-bottom-15 margin-top-5">{{i18n "tour_description_title"}}</h3>
-			
 				<!-- Amenities -->
 				<ul class="listing-features checkboxes margin-top-5 margin-bottom-30">
 					 {{#if data.tour.hotelPickup}}
@@ -110,6 +137,128 @@
 				{{/if_eq}}
 			</div>
 
+			{{#if data.tour.hasFixedSchedule}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<h3>{{i18n "activity_schedule"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.scheduleDescription.en}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.scheduleDescription.es}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+
+			{{#if data.tour.includesDescription.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<h3>{{i18n "includes"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.includesDescription.en}}
+						<li><i class="fa fa-check"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.includesDescription.es}}
+						<li><i class="fa fa-check"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.excludesDescription.es}}
+			<div class="listing-overview tour-excludes-section margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<h3>{{i18n "excludes"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.excludesDescription.en}}
+						<li><i class="fa fa-ban"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.excludesDescription.es}}
+						<li><i class="fa fa-ban"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.food}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "food"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.foodDescription.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.foodDescription.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+
+			{{#if data.tour.instructions.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "usage_instruction"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.instructions.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.instructions.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+			
+			{{#if data.tour.cancelationPolicy.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "cancelation_policy"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.cancelationPolicy.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.cancelationPolicy.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.importantInfo.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "important_information"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.importantInfo.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.importantInfo.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
 
 
 				<!-- Food Menu  
@@ -163,8 +312,8 @@
 
 		
 			<div id="listing-location" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "departure_point"}}: {{data.tour.startingPoint}}</h3>
-
+				<h3 class="listing-desc-headline margin-top-30 margin-top-3>0 margin-bottom-10">{{i18n "departure_point"}}</h3>
+				<p>{{data.tour.startingPoint}}</p>
 				<div id="singleListingMap-container">
 					{{#if data.tour.latitude}}
 					<div id="singleListingMap" data-latitude="{{data.tour.latitude}}" data-longitude="{{data.tour.longitude}}" data-map-icon="im im-icon-Geo2"></div>

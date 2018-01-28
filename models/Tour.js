@@ -32,6 +32,7 @@ Tour.add({
   heroImage: { type: Types.CloudinaryImage },
 	images: { type: Types.CloudinaryImages },
 	duration: {type: Types.Number, required: true, default: 2},
+	tourType: { type: Types.Select, options: 'group tour, private tour' },
 	isMultiDay: {label: '¿Es un tour de varios dias?', type: Types.Boolean, default: false, note : 'Esto le indica a la plataforma si muestra la duración en Horas o Minutos '},
 	description: {
 		short: { type: String},
@@ -40,6 +41,31 @@ Tour.add({
   description_eng: {
 		short: { type: String},
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+	},
+	hasFixedSchedule: {type: Types.Boolean, note: "Fixed Schedule aplica si la actividad tiene un horario fijo de operación todo el año."}, 
+	scheduleDescription: {
+		es: { type: Types.TextArray, note: "Descripción del Horario del tour / actividad en Español", dependsOn: {hasFixedSchedule: true}},
+		en: { type: Types.TextArray, note: "Descripción del Horario del tour / actividad en Inglés", dependsOn: {hasFixedSchedule: true}},
+	},
+	includesDescription: {
+		es: { type: Types.TextArray, note: "Descripción de lo que incluye en Español"},
+		en: { type: Types.TextArray, note: "Descripción de lo que incluye  en Inglés"},
+	},
+	excludesDescription: {
+		es: { type: Types.TextArray, note: "Descripción de lo que no se incluye en Español"},
+		en: { type: Types.TextArray, note: "Descripción de lo que no se incluye  en Inglés"},
+	},
+	instructions: {
+		es: {type: Types.Html, wysiwyg: true, height: 100},
+		en: {type: Types.Html, wysiwyg: true, height: 100},
+	},
+	cancelationPolicy: {
+		es: {type: Types.Html, wysiwyg: true, height: 100},
+		en: {type: Types.Html, wysiwyg: true, height: 100},
+	},
+	importantInfo: {
+		es: {type: Types.Html, wysiwyg: true, height: 100},
+		en: {type: Types.Html, wysiwyg: true, height: 100},
 	},
 	videoId : {type: String}, //Created if added a Video URL
 	keywords: {type: String},
@@ -54,11 +80,31 @@ Tour.add({
 	cost: {type:Types.Money},
   comission: {type: Types.Number, default: 15},
 	transportation: {type: Types.Boolean, default: true },
+	transportationDescription: {
+		es: { type: String,  dependsOn: { transportation: true } },
+		en: { type: String, dependsOn: { transportation: true }},
+	},
 	hotelPickup: {type: Types.Boolean, default: true },
+	hotelPickupDescription: {
+		es: { type: String,  dependsOn: { hotelPickup: true } },
+		en: { type: String, dependsOn: { hotelPickup: true }},
+	},
 	maritimeTransportation: {type: Types.Boolean, default: false },
+	maritimeTransportationDescription: {
+		es: { type: String,  dependsOn: { maritimeTransportation: true } },
+		en: { type: String, dependsOn: { maritimeTransportation: true }},
+	},
 	food: {type: Types.Boolean, default: false },
+	foodDescription: {
+		es: { type: String,  dependsOn: { food: true } },
+		en: { type: String, dependsOn: { food: true }},
+	},
 	snacks: {type: Types.Boolean, default: false },
 	drinks: {type: Types.Boolean, default: false },
+	drinksDescription: {
+		es: { type: String,  dependsOn: { drinks: true } },
+		en: { type: String, dependsOn: { drinks: true }},
+	},
 	featured: {type: Types.Boolean, default: false },
 	insurance: {type: Types.Boolean, default: false },
 	tourGuide: {type: Types.Boolean, default: true },
@@ -66,6 +112,7 @@ Tour.add({
 	sharedCabin: {type: Types.Boolean, default: false },
 	triptableCertified: {type: Types.Boolean, default: false },
 	instantConfirmation: {type: Types.Boolean, default: false },
+	mobileVoucherAccepted: {type: Types.Boolean, default: false },
   hasTaxes : {type : Types.Boolean, default: false},
 	taxes: {type: Types.Boolean, default: false,  dependsOn: { hasTaxes: true } },
   hasTickets : {type : Types.Boolean, default: false},
