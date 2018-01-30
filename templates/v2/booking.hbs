@@ -72,7 +72,7 @@
 		================================================== -->
 		<div class="col-md-8 col-md-pull-4 padding-right-30">
 
-			<h3 class="margin-top-10 margin-bottom-30">{{getTourLocName data.tour.name data.tour.name_eng}}</h3>
+			<h3 class="margin-top-10 margin-bottom-30">{{i18n "personal_details"}}</h3>
 			<form method="POST" id="bookingForm" action="/contact/{{data.tour.tourId}}">
 			<input type="hidden" name="action" value="booking">
 			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">

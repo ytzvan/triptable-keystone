@@ -153,9 +153,10 @@ exports.userInfo = function(req, res, next) {
 };
 
 exports.intl = function (req, res, next) {
+  var langs = ['es', 'en'];
   var locals = res.locals;
 i18n.configure({
-  locales: ['es', 'en'],
+  locales: langs,
   cookie: 'lang',
   directory: './templates/locales',
   queryParameter: 'lang'
@@ -219,9 +220,15 @@ if (!process.env.LANG) {
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
-    process.env.LANG = browserLang;
-    locals.lang = process.env.LANG;
-    return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    if (langs.includes(browserLang)) {
+      process.env.LANG = browserLang;
+      locals.lang = process.env.LANG;
+      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    } else {
+      process.env.LANG = "en";
+      locals.lang = process.env.LANG;
+      return res.redirect('//'+process.env.LANG+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
 }
 
 if (req.query.lang == 'es') {
@@ -243,6 +250,20 @@ if (subdomain == 'en') {
     i18n.setLocale(process.env.LANG);
     locals.lang =  'en';
 }
+if (subdomain == 'beta') {
+  if (req.query.lang) {
+    locals.lang = req.query.lang;
+    process.env.LANG = locals.lang;
+    i18n.setLocale(process.env.LANG);
+    return res.redirect('back');
+  } else {
+    locals.lang = "es";
+    process.env.LANG = locals.lang;
+    i18n.setLocale(process.env.LANG);
+    return res.redirect('back');
+  }
+}
+
 if (subdomain == 'www') {
   /*  if (browserLang = 'en') {
       process.env.LANG = browserLang;

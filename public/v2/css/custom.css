@@ -844,3 +844,6 @@ label.payment-cash {
 .information-icons p{
 	font-size: 14px;line-height: 22px;
 }
+.slick-dots {
+    bottom: -35px;
+ }
