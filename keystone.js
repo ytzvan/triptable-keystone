@@ -86,4 +86,32 @@ keystone.set('nav', {
 	'collections' : ['collections'],
   	'crms' : 'crms'
 });
-keystone.start();
+
+keystone.start({
+    onStart: function() {
+    	updateCurrencyFile();
+    }
+});
+
+function updateCurrencyFile() {
+	var oxr = require('open-exchange-rates'),
+	fx = require('money');
+	var jsonfile = require('jsonfile');
+	 oxr.set({ app_id: process.env.OXR_API_KEY })
+	 oxr.latest(function(err, result) {
+	 	if (err) {
+	 		console.log("err: ", err);
+	 		var rates =  __dirname + '/routes/rates.json';
+		  	jsonfile.readFile(rates, function(err, result) {
+			    fx.rates =  result;
+			    fx.base = "USD";
+			    return true;
+		  	});
+	 	} else {
+		fx.rates =  oxr.rates;
+		fx.base = "USD";
+		//console.log(result);
+		return result;
+		} 
+	});
+}

@@ -6,7 +6,6 @@ var i18n = require("i18n");
 var Url = require('url');
 var oxr = require('open-exchange-rates'),
 	fx = require('money');
-var jsonfile = require('jsonfile')
 /**
 	Initialises the standard view locals
 */
@@ -288,18 +287,13 @@ if (subdomain == 'www') {
 
 exports.getCurrency = function(req, res, next) {
   var locals = res.locals;
- if (!process.env.CURRENCY) {
+  if (!process.env.CURRENCY) {
     process.env.CURRENCY = "USD";
   } else {
     process.env.CURRENCY =  process.env.CURRENCY;
   };
   locals.data.currency = process.env.CURRENCY;
-  var rates =  __dirname + '/rates.json';
-  jsonfile.readFile(rates, function(err, result) {
-    fx.rates =  result;
-    fx.base = "USD";
-    next();
-  })
+
 
   //oxr.set({ app_id: process.env.OXR_API_KEY })
 
@@ -312,4 +306,5 @@ exports.getCurrency = function(req, res, next) {
 	// money.js is ready to use:
   next();
 }); */
+next();
 }; 
