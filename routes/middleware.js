@@ -231,22 +231,6 @@ if (!process.env.LANG) {
     }
 }
 
-/*Remove or let this line for testing purposes only */
-if (subdomain == 'beta') {
-  if (req.query.lang) {
-    locals.lang = req.query.lang;
-    process.env.LANG = locals.lang;
-    i18n.setLocale(process.env.LANG);
-    return res.redirect('/');
-  } else {
-    locals.lang = "es";
-    process.env.LANG = locals.lang;
-    i18n.setLocale(process.env.LANG);
-    return res.redirect('/');
-  }
-}
-/*end of line removal */
-
 if (req.query.lang == 'es') {
     locals.lang = 'es';
     return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
