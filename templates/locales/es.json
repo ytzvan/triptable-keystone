@@ -314,5 +314,7 @@
 	"private_accomodation_included": "Hospedaje privado",
 	"shared_accomodation_included": "Hospedaje compartido",
 	"activity": "activity",
-	"data.tour.name": "data.tour.name"
+	"data.tour.name": "data.tour.name",
+	"h": "h",
+	"d": "d"
 }

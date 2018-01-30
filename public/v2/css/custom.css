@@ -687,7 +687,7 @@ span.tour-item-desc{
 	max-height: 1.5*2;      
 }
 }
-@media (max-width: 400px) { 
+@media (max-width: 480px) { 
 	.simple-fw-slick-carousel{
 		margin: 0 1%;
 	}
@@ -701,7 +701,7 @@ span.tour-item-desc{
 		padding: 30px 10px;
 	}
 	span.tour-item-desc{
-		overflow: hidden;
+	overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -709,6 +709,18 @@ span.tour-item-desc{
     line-height: 1.5;
     max-height: 1.5*3;
 	}
+
+	.tour-item-desc p{
+		overflow: hidden;
+    	text-overflow: ellipsis;
+    	display: -webkit-box;
+   	 	-webkit-box-orient: vertical;
+    	-webkit-line-clamp: 1;
+	}
+	.slick-dots {
+    	bottom: -25px;
+ 	}
+
 	}
 .text-right{
 	text-align: right !important;
@@ -847,3 +859,32 @@ label.payment-cash {
 .slick-dots {
     bottom: -35px;
  }
+@media (max-width: 1239px){
+#navigation.style-1 {
+    margin: 5px 0 5px -5px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 0;
+    position: relative;
+}
+}
+@media (max-width: 1024px){
+#navigation.style-1 {
+    margin: 0;
+    padding-top: 0;
+}
+.simple-fw-slick-carousel{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#header {
+    padding: 10px 0 5px 0;
+}
+}
+.mmenu-trigger {
+    margin: 0 0 5px 0;
+}
+h4.headline{
+	margin:0;
+}

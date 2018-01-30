@@ -305,5 +305,7 @@
 	"important_information": "Important information",
 	"private_tour": "Private tour",
 	"group_tour": "Group tour",
-	"private_accomodation_included": "private_accomodation_included"
+	"private_accomodation_included": "private_accomodation_included",
+	"h": "h",
+	"d": "d"
 }

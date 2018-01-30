@@ -7,7 +7,7 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>{{getTourLocName data.tour.name data.tour.name_eng}}</h2>
+					<h2>{{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}}</h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>

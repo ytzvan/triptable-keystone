@@ -59,6 +59,12 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+
+
+  $('.tour-item-desc p').css( {"-webkit-line-clamp":"1","-webkit-box-orient":"verticals", "overflow" :"hidden","text-overflow":"ellipsis","display": "-webkit-box"});
+ 
+
+
 		(function() {
   var client = algoliasearch('PATK6GCBGK', '007d8b849960c7b94b5e8321a128580b');
   var cities = client.initIndex('cities');
@@ -75,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function() {
     source: autocomplete.sources.hits(cities, {hitsPerPage: 2}),
     displayKey: 'city',
     templates: {
-      header: '<div class="search-result-header col-md-12">Destinos</div>',
+      header: '<div class="search-result-header col-md-12 ">Destinos</div>',
       suggestion: function(suggestion) {
         var thumb = getSmallImageFromUrl(suggestion.image);
-        return '<div class="col-md-12"><a href="/destino/'+suggestion.slug+'">' +
+          return '<div class="col-md-12"><a href="/destino/'+suggestion.slug+'">' +
         '<div class="algolia-result-row">' +
           '<div class="col-sm-2 col-xs-4"><img class="result-img" src="' + thumb + '" /></div>' +
           '<div class="algolia result description col-sm-10 col-xs-8">' +
@@ -93,10 +99,10 @@ document.addEventListener("DOMContentLoaded", function() {
     source: autocomplete.sources.hits(tours, {hitsPerPage: 5}),
     displayKey: 'name',
     templates: {
-      header: '<div class="search-result-header col-md-12">Tours</div>',
+      header: '<div class="search-result-header col-xs-hidden">Tours</div>',
       suggestion: function(suggestion) {
         var thumb = getSmallImageFromUrl(suggestion.heroImage);
-        return '<div class="col-md-12"><a href="/tour/'+suggestion.slug+'">' +
+        return '<div class="col-md-12 col-xs-hidden"><a href="/tour/'+suggestion.slug+'">' +
         '<div class="algolia-result-row">' +
           '<div class="col-sm-2 col-xs-4"><img class="result-img" src="' + thumb + '" /></div>' +
           '<div class="algolia result description col-sm-10 col-xs-8">' +
