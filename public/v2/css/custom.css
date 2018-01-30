@@ -790,7 +790,12 @@ div.tour-item-desc{
 @media (max-width: 480px) {
 		.main-search-container { height: 320px; }
 }
-
+.tour-section-includes i {
+	color: #3498db;
+}
+.tour-section-excludes i{
+	color: #e74c3c;
+}
 
 .main-search-container { height: 420px; }	
 .main-search-input-item{

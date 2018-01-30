@@ -2,7 +2,7 @@
 {{>single/_slider}}
 <div class="container">
 	<div class="row sticky-wrapper">
-		<div class="col-lg-8 col-md-8 padding-right-30">
+		<div class="col-md-8 padding-right-30">
 
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
@@ -46,7 +46,7 @@
 				{{/if}}
 				<div class="col-md-3 col-xs-6  text-center">
 					<i class="im im-icon-Clock-Forward"></i>
-					<p>{{data.tour.duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
+					<p>{{i18n "duration"}}: {{data.tour.duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
 				</div>
 				{{#if data.tour.sharedCabin}}
 					<div class="col-md-3 col-xs-6  text-center">
@@ -160,7 +160,7 @@
 
 
 			{{#if data.tour.includesDescription.es}}
-			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<div class="listing-overview margin-top-30 margin-bottom-30 tour-section-includes"> <!-- Schedule description --> 
 			<h3>{{i18n "includes"}}</h3>
 			<div>
 				{{#if_eq lang "en" }}
@@ -181,7 +181,7 @@
 			{{/if}}
 
 			{{#if data.tour.excludesDescription.es}}
-			<div class="listing-overview tour-excludes-section margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<div class="listing-overview tour-excludes-section margin-top-30 margin-bottom-30 tour-section-excludes"> <!-- Schedule description --> 
 			<h3>{{i18n "excludes"}}</h3>
 			<div>
 				{{#if_eq lang "en" }}
@@ -201,7 +201,7 @@
 			</div>
 			{{/if}}
 
-			{{#if data.tour.food}}
+			{{#if data.tour.foodDescription.es}}
 			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
 				<h3>{{i18n "food"}}</h3>
 				<div>
@@ -332,6 +332,5 @@
 		<!-- Sidebar Partial %- partial("partials/single/_sidebar") %> -->
 		{{>single/_sidebar}}
 		
-
 	</div>
 </div>

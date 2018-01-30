@@ -312,5 +312,7 @@
 	"private_tour": "Tour privado",
 	"group_tour": "Tour compartido",
 	"private_accomodation_included": "Hospedaje privado",
-	"shared_accomodation_included": "Hospedaje compartido"
+	"shared_accomodation_included": "Hospedaje compartido",
+	"activity": "activity",
+	"data.tour.name": "data.tour.name"
 }

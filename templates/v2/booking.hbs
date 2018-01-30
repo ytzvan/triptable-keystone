@@ -34,13 +34,45 @@
 				<a class="close"></a>
 			</div>
 		{{/if}}
-		
+		<!-- Sidebar
+		================================================== -->
+		<div class="col-md-4 col-md-push-8 margin-top-0 margin-bottom-60">
+
+			<!-- Booking Summary -->
+			<div class="listing-item-container compact order-summary-widget">
+				<div class="listing-item booking-item">
+					<img src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{data.tour.heroImage.version}}/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}" alt="">
+
+					<div class="listing-item-content">
+						<!--<div class="numerical-rating" data-rating="5.0"></div>-->
+						<h3>{{data.tour.name}}</h3>
+						<span><i class="fa fa-map-marker"></i> {{data.tour.city.city}}, {{data.tour.country.country}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="boxed-widget opening-hours summary margin-top-0">
+				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}</h3>
+				<ul>
+					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
+					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
+					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
+					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
+					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
+					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
+					<li class="total-costs">{{i18n "total_cost"}} <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**{{i18n "usd_currency_message"}} <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
+				</ul>
+
+			</div>
+			<!-- Booking Summary / End -->
+
+		</div>
 
 		<!-- Content
 		================================================== -->
-		<div class="col-lg-8 col-md-8 padding-right-30">
+		<div class="col-md-8 col-md-pull-4 padding-right-30">
 
-			<h3 class="margin-top-0 margin-bottom-30">{{i18n "personal_details"}}</h3>
+			<h3 class="margin-top-10 margin-bottom-30">{{getTourLocName data.tour.name data.tour.name_eng}}</h3>
 			<form method="POST" id="bookingForm" action="/contact/{{data.tour.tourId}}">
 			<input type="hidden" name="action" value="booking">
 			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
@@ -71,42 +103,42 @@
 			<!-- New fields -->
 			<input type="hidden" name="date" value="{{formData.date}}">
 			<input type="hidden" name="bookingTime" value="{{formData.bookingTime}}">
-			<div class="row">
-				
+				<div class="row">
+					
 
-				<div class="col-md-6">
-					<label>{{i18n "first_name"}}</label>
-					<input type="text" id="firstName" name="name.first" value="">
-				</div>
-
-				<div class="col-md-6">
-					<label>{{i18n "last_name"}}</label>
-					<input type="text"  id="lastName" name="name.last" value="">
-				</div>
-
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "email"}}</label>
-						<input type="email"  id="email" name="email" value="">
-						<i class="im im-icon-Mail"></i>
+					<div class="col-md-6">
+						<label>{{i18n "first_name"}}</label>
+						<input type="text" id="firstName" name="name.first" value="">
 					</div>
-				</div>
 
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "phone_booking_message"}}</label>
-						<input type="tel"  id="phone" name="phone" id="phone">
+					<div class="col-md-6">
+						<label>{{i18n "last_name"}}</label>
+						<input type="text"  id="lastName" name="name.last" value="">
 					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "hotel_booking_message"}}</label>
-						<input type="text"  id="address" name="hotel"  value="">
-						<i class="im im-icon-Phone-2"></i>
-					</div>
-				</div>
 
-			</div>
+					<div class="col-md-6">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "email"}}</label>
+							<input type="email"  id="email" name="email" value="">
+							<i class="im im-icon-Mail"></i>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "phone_booking_message"}}</label>
+							<input type="tel"  id="phone" name="phone" id="phone">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "hotel_booking_message"}}</label>
+							<input type="text"  id="address" name="hotel"  value="">
+							<i class="im im-icon-Phone-2"></i>
+						</div>
+					</div>
+
+				</div>
 
 
 			<h3 class="margin-top-55 margin-bottom-30">{{i18n "payment_method"}}</h3>
@@ -185,40 +217,6 @@
 			</form>
 		</div>
 
-
-		<!-- Sidebar
-		================================================== -->
-		<div class="col-lg-4 col-md-4 margin-top-0 margin-bottom-60">
-
-			<!-- Booking Summary -->
-			<div class="listing-item-container compact order-summary-widget">
-				<div class="listing-item booking-item">
-					<img src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{data.tour.heroImage.version}}/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}" alt="">
-
-					<div class="listing-item-content">
-						<!--<div class="numerical-rating" data-rating="5.0"></div>-->
-						<h3>{{data.tour.name}}</h3>
-						<span><i class="fa fa-map-marker"></i> {{data.tour.city.city}}, {{data.tour.country.country}}</span>
-					</div>
-				</div>
-			</div>
-			<div class="boxed-widget opening-hours summary margin-top-0">
-				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}</h3>
-				<ul>
-					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
-					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
-					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
-					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
-					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
-					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
-					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
-					<li class="total-costs">{{i18n "total_cost"}} <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**{{i18n "usd_currency_message"}} <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
-				</ul>
-
-			</div>
-			<!-- Booking Summary / End -->
-
-		</div>
 
 	</div>
 </div>
