@@ -231,6 +231,21 @@ if (!process.env.LANG) {
     }
 }
 
+
+if (subdomain == 'beta') {
+  if (req.query.lang) {
+    locals.lang = req.query.lang;
+    process.env.LANG = locals.lang;
+    i18n.setLocale(process.env.LANG);
+    return res.redirect('back');
+  } else {
+    locals.lang = "es";
+    process.env.LANG = locals.lang;
+    i18n.setLocale(process.env.LANG);
+    return res.redirect('back');
+  }
+}
+
 if (req.query.lang == 'es') {
     locals.lang = 'es';
     return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
@@ -249,19 +264,6 @@ if (subdomain == 'en') {
     process.env.LANG = 'en';
     i18n.setLocale(process.env.LANG);
     locals.lang =  'en';
-}
-if (subdomain == 'beta') {
-  if (req.query.lang) {
-    locals.lang = req.query.lang;
-    process.env.LANG = locals.lang;
-    i18n.setLocale(process.env.LANG);
-    return res.redirect('back');
-  } else {
-    locals.lang = "es";
-    process.env.LANG = locals.lang;
-    i18n.setLocale(process.env.LANG);
-    return res.redirect('back');
-  }
 }
 
 if (subdomain == 'www') {
