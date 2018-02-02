@@ -1,7 +1,7 @@
 <a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
 	<div class="listing-item">
 		{{#if heroImage.secure_url}} <!-- fall back -->
-		<img async src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
+		<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_480,w_390/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
 		{{else}}
 		<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
     {{/if}}
