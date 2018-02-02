@@ -23,10 +23,6 @@
 
 		<div class="row margin-top-15 margin-bottom-15 information-icons">
 			{{#if data.tour.tourType}}
-				<div class="col-md-3 col-xs-6  text-center">
-					{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> <p>{{i18n "group_tour"}}</p>{{/if_eq}}
-					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i> <p>{{i18n "private_tour"}}{{/if_eq}} </p>
-				</div>
 				{{/if}}
 					<div class="col-md-3 col-xs-6 text-center ">
 					<i class="im im-icon-Ticket"></i>
@@ -42,6 +38,12 @@
 				<div class="col-md-3 col-xs-6  text-center">
 					<i class="im im-icon-Flash"></i>
 					<p>{{i18n "instant_confirmation"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.tourType}}
+				<div class="col-md-3 col-xs-6  text-center">
+					{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> <p>{{i18n "group_tour"}}</p>{{/if_eq}}
+					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i> <p>{{i18n "private_tour"}}{{/if_eq}} </p>
 				</div>
 				{{/if}}
 				<div class="col-md-3 col-xs-6  text-center">
@@ -71,10 +73,12 @@
 					<!--<li><a href="#add-review">Add Review</a></li>-->
 				</ul>
 			</div>
+
+			{{#if data.tour.videoId}}
 			<div class="listing-overview video margin-top-30 margin-bottom-30">
 				<iframe src="https://www.youtube.com/embed/{{data.tour.videoId}}" frameborder="0" allowfullscreen></iframe> 
 			</div>
-			
+			{{/if}}
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
 				<!-- Amenities -->
