@@ -71,7 +71,9 @@
 					<!--<li><a href="#add-review">Add Review</a></li>-->
 				</ul>
 			</div>
-
+			<div class="listing-overview video margin-top-30 margin-bottom-30">
+				<iframe src="https://www.youtube.com/embed/{{data.tour.videoId}}" frameborder="0" allowfullscreen></iframe> 
+			</div>
 			
 			<!-- Overview -->
 			<div id="listing-overview" class="listing-section">
@@ -136,7 +138,7 @@
 						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 				{{/if_eq}}
 			</div>
-
+			
 			{{#if data.tour.hasFixedSchedule}}
 			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
 			<h3>{{i18n "activity_schedule"}}</h3>
@@ -310,7 +312,6 @@
 			<!--	<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a> -->
 	  <!-- Food Menu / End -->
 
-		
 			<div id="listing-location" class="listing-section">
 				<h3 class="listing-desc-headline margin-top-30 margin-top-3>0 margin-bottom-10">{{i18n "departure_point"}}</h3>
 				<p>{{data.tour.startingPoint}}</p>
@@ -334,3 +335,17 @@
 		
 	</div>
 </div>
+<script src=""></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+  	$.ajax({
+	  url: "https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js",
+	  dataType: "script"
+	}).done(function() {
+		debugger
+  		$(".video").fitVids();
+	});
+
+  //do work    
+});
+  </script>
