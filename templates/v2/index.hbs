@@ -1,9 +1,9 @@
 <!-- Banner
 ================================================== -->
 {{#if data.homeImage.image}}
-       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
+       <div class="main-search-container hidden-xs" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
       {{else}}
-      <div class="main-search-container" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_scale,q_80,h_1080/v1515960774/photo-1464839820797-cdd7219729e4.jpg"  style="background-position: center 95%";>
+      <div class="main-search-container hidden-xs" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_scale,q_80,h_1080/v1515960774/photo-1464839820797-cdd7219729e4.jpg"  style="background-position: center 95%";>
       {{/if}}
 	<div class="main-search-inner">
 
