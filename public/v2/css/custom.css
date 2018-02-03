@@ -915,3 +915,12 @@ label.payment-cash {
 h4.headline{
 	margin:0;
 }
+i.flag-icon {
+	z-index: 1;
+}
+.headline.centered{
+	margin:0;
+}
+.icon-box-2{
+	margin-top:5px;
+}
