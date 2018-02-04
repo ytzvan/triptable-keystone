@@ -56,8 +56,12 @@
 					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
 					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
 					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					{{#if data.nOfChildren}}
 					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
+					{{/if}}
+					{{#if data.nOfInfants}}
 					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
+					{{/if}}
 					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
 					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
 					<li class="total-costs">{{i18n "total_cost"}} <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**{{i18n "usd_currency_message"}} <strong>{{getPriceInUSD price.total}} USD</strong></span></li>

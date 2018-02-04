@@ -61,7 +61,7 @@
 				{{data.enquiry.name.full}}<br>
 				{{data.enquiry.email}}<br>
 				{{data.enquiry.tour.name}}<br> 
-        {{data.enquiry.nOfAdults}} {{i18n "adults"}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} | {{data.enquiry.nOfInfants}} {{i18n "infants"}}<br>
+        {{data.enquiry.nOfAdults}} {{i18n "adults"}} {{#if data.enquiry.nOfChildren}} | {{data.enquiry.nOfChildren}} {{i18n "children"}} {{/if}} {{#if data.enquiry.nOfInfants}}{{data.enquiry.nOfInfants}} | {{i18n "infants"}}{{/if}}<br>
 				{{data.enquiry.datePretty}} <br>
 			</p>
 		</div>
@@ -85,18 +85,22 @@
 					<td>${{data.enquiry.tourPrice}} USD</td>
 					<td>${{data.enquiry.adultTotalPrice}} USD</td>
 				</tr>
+				{{#if data.enquiry.nOfChildren}}
         <tr>
 					<td>{{data.enquiry.tour.name}} -  {{i18n "children"}}</td> 
 					<td>{{data.enquiry.nOfChildren}}</td>
 					<td>${{data.enquiry.childPrice}} USD</td>
 					<td>${{data.enquiry.childrensTotalPrice}} USD</td>
 				</tr>
+				{{/if}}
+				{{#if data.enquiry.nOfInfants}}
         <tr>
 					<td>{{data.enquiry.tour.name}} -  {{i18n "infants"}}</td> 
 					<td>{{data.enquiry.nOfInfants}}</td>
 					<td>${{data.enquiry.infantPrice}} USD</td>
 					<td>${{data.enquiry.infantsTotalPrice}} USD</td>
 				</tr>
+				{{/if}}
 			</table>
 		</div>
 		
