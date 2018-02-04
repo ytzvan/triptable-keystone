@@ -912,6 +912,9 @@ label.payment-cash {
 .mmenu-trigger {
     margin: 0 0 5px 0;
 }
+h3.headline{
+	font-size: 26px;
+}
 h4.headline{
 	margin:0;
 }
@@ -923,4 +926,7 @@ i.flag-icon {
 }
 .icon-box-2{
 	margin-top:5px;
+}
+.icon-box-2 i{
+	width: 100%;
 }
