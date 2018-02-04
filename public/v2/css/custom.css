@@ -914,6 +914,7 @@ label.payment-cash {
 }
 h3.headline{
 	font-size: 26px;
+	margin-bottom: 5px;
 }
 h4.headline{
 	margin:0;
@@ -934,26 +935,27 @@ i.flag-icon {
 	font-size: 20px;
 	font-weight: 500;
 	color: white;
-	letter-spacing: 2.3px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 	margin-top:2%;
 }
 .img-box.card-city{
 	height: 150px;
+	margin-bottom: 0;
 }
 .img-box.card-city:before{
-	opacity: 0.2;
-}
-@media (max-width: 480px) {
-	.card-city h3{
-		font-size: 18px;
-		font-weight: 500;
-		color: white;
-		letter-spacing: 2.0px;
-		text-transform: uppercase;
-		margin-top:2%;
-	}
+	opacity: 0;
 }
 .card-city .img-box-content{
 	top:52%;
+}
+.featured-city h3 {
+	letter-spacing: 1px;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+    padding-top: 0px;
+    font-size: 18px;
+}
 }

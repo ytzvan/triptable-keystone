@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
-				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}<span>{{i18n "available"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span><p class="margin-bottom-5 hidden-xs"> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}<span>{{i18n "available"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="hidden-xs">
 					<ul>
@@ -22,18 +22,18 @@
  <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h4 class="headline margin-bottom-5 margin-top-0">{{i18n "popular_destinations"}}</h4>
+			<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "popular_destinations"}}</h3>
 		</div>
 		{{#each data.cities}}
  		{{#if featured}}
-		<div class="col-md-3 col-sm-4 col-xs-6">
+		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
 			<!-- Image Box -->
-			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
+			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
 				<div class="img-box-content visible card-city">
 					<!-- <span>{{i18n "tours_in"}}</span> -->
-					<h3>{{city}} </h3>
 				</div>
-			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
+			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
+			<h3>{{city}} </h3>
 		</div>	
 		{{/if}}
  		{{/each}}
@@ -45,7 +45,9 @@
 
 <div class="container">
 	<div class="row">
-		
+		<div class="col-md-12 margin-top-30">
+			<h3 class="headline">{{i18n "we_found"}} {{data.tours.total}} {{i18n "tours_and_activities"}} </h3><p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+		</div>
 
 <!-- Search
 
@@ -77,7 +79,7 @@
 
 			<!-- Results-->
 			<div class="col-md-12">
-			<div class="main-search-input margin-top-0 margin-bottom-15">
+			<div class="main-search-input margin-top-5 margin-bottom-30">
 
 				<!--<div class="main-search-input-item">
 					<input type="text" placeholder="What are you looking for?" value=""/>
