@@ -75,7 +75,7 @@ span.like-icon{
 }
 #titlebar{
 			padding: 15px 0px 15px 0px;
-			margin-bottom: 15px;
+			margin-bottom: 0px;
 }
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 .ui-datepicker {
@@ -637,7 +637,7 @@ h1.single-tour{
 	font-weight: 600;
 }
 .chosen-container-single .chosen-single span{
-	font-weight: 600;
+	font-weight: 400;
 }
 .booking-confirmation-page a.button{
 	background-color: #3498db;
@@ -756,7 +756,7 @@ div.tour-item-desc{
 }
 #titlebar.gradient {
 	background: #fff;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 .listing-item:before{
 	background: transparent;
@@ -929,4 +929,31 @@ i.flag-icon {
 }
 .icon-box-2 i{
 	width: 100%;
+}
+.card-city h3{
+	font-size: 20px;
+	font-weight: 500;
+	color: white;
+	letter-spacing: 2.3px;
+	text-transform: uppercase;
+	margin-top:2%;
+}
+.img-box.card-city{
+	height: 150px;
+}
+.img-box.card-city:before{
+	opacity: 0.2;
+}
+@media (max-width: 480px) {
+	.card-city h3{
+		font-size: 18px;
+		font-weight: 500;
+		color: white;
+		letter-spacing: 2.0px;
+		text-transform: uppercase;
+		margin-top:2%;
+	}
+}
+.card-city .img-box-content{
+	top:52%;
 }
