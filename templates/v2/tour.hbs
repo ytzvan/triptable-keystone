@@ -48,7 +48,7 @@
 				{{/if}}
 				<div class="col-md-3 col-xs-6  text-center">
 					<i class="im im-icon-Clock-Forward"></i>
-					<p>{{i18n "duration"}}: {{data.tour.duration}} {{#if isMulti}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
+					<p>{{i18n "duration"}}: {{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
 				</div>
 				{{#if data.tour.sharedCabin}}
 					<div class="col-md-3 col-xs-6  text-center">
