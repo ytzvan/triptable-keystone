@@ -55,7 +55,7 @@ exports = module.exports = function(req, res) {
 			{'$match': {"country":place.country._id} },
 		//	{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
 			])
-		 	.sort("-featured")
+		 	.sort("city")
 			.exec(function(err, results) { //Query Pais
 				if (err || !results) {
 					return res.status(404);

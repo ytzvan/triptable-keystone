@@ -18,6 +18,7 @@
 		</div>
 	</div>
 </div>
+{{#unless data.city}}
 {{#if data.cities}}
  <div class="container">
 	<div class="row">
@@ -40,6 +41,7 @@
 	</div>
 </div>
 {{/if}}
+{{/unless}}
 <!-- Content
 ================================================== -->
 
@@ -142,6 +144,25 @@
 			</div>
 			<!-- Pagination / End -->
 
+			{{#if data.city}}
+			{{#if data.cities}}
+			 <div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "other_cities_in"}} {{data.country}}</h3>
+					</div>
+					{{#each data.cities}}
+			 	
+					<div class="col-md-3 col-sm-3 col-xs-6 featured-city">
+					<ul>
+						<li><a href="/destino/{{slug}}">{{city}}</a></li>
+					</ul>
+					</div>	
+			 		{{/each}}
+				</div>
+			</div>
+			{{/if}}
+			{{/if}}
 		</div>
 
 	</div>
