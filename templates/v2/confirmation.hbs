@@ -23,8 +23,8 @@
 			<div class="booking-confirmation-page">
 				<i class="fa fa-check-circle"></i>
 				<h2 class="margin-top-30">{{i18n "confirmation_message_title"}}</h2>
-				<p>{{i18n "confirmation_message_subtitletitle"}} {{bookingInfo.email}}</p>
-				<p class="booking-id" >{{i18n "confirmation_message_bookingId"}} <span> {{bookingInfo.friendlyId}}<span></p>
+				<p id="customerEmail">{{i18n "confirmation_message_subtitletitle"}} {{bookingInfo.email}}</p>
+				<p id="customerBookingId" class="booking-id" >{{i18n "confirmation_message_bookingId"}} <span> {{bookingInfo.friendlyId}}<span></p>
 				<a target="_blank" id="viewBooking" href="/invoice/{{bookingInfo._id}}" class="button button-primary margin-top-30">{{i18n "view_booking"}}</a>
 			</div>
 
@@ -38,5 +38,46 @@
 			window.location = "/";
 		});
 	});
+		dataLayer.push({
+		  'ecommerce': {
+		    'purchase': {
+		      'actionField': {
+		        'id': '{{bookingInfo.friendlyId}}',                         // Transaction ID. Required for purchases and refunds.
+		        'affiliation': 'Website',
+		        'revenue': {{bookingInfo.bookingFlatPrice}},                    // Total transaction value (incl. tax and shipping)
+		        'tax':{{bookingInfo.bookingTransactionFee}},
+		      },
+		      'products': [{                            // List of productFieldObjects.
+		        'name': '{{bookingInfo.tourName}}',     // Name or ID is required.
+		        'id': '{{bookingInfo.friendlyId}}',
+		        'price': {{bookingInfo.tourPrice}},
+		        'quantity': {{bookingInfo.people}},
+		        'coupon': ''                            // Optional fields may be omitted or set to empty string.
+		       }]
+		    }
+		  }
+		});
+// Send transaction data with a pageview if available
+// when the page loads. Otherwise, use an event when the transaction
+// data becomes available.
+
+</script>
+
+<script type="text/javascript">
+
+	window.dataLayer = window.dataLayer || [];
+	var name = "{{bookingInfo.name.full}}";
+	var email = "{{bookingInfo.email}}";
+	var amount = parseFloat("{{bookingInfo.bookingTotalPrice}}");
+	var quantity = parseFloat("{{bookingInfo.people}}");
+
 	
+ 	window.dataLayer.push({
+    'bookingName': name,
+    'bookingEmail': email,
+    'bookingAmount': amount,
+    'bookingPeople' : quantity
+ 	});
+
+
 </script>

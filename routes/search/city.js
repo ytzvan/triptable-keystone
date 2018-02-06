@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var async = require('async');
 var QueryUtils = require('../../utils').QueryUtils;
 var cityId;
+const Url = require('url');
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -68,7 +69,7 @@ exports = module.exports = function(req, res) {
 			locals.meta.description =  "Reserva tours y actividades en " + provinceName  + ". Con Triptable reservas tours baratos en " +provinceName;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + ". Los mejores tours y actividades en " + provinceName;
-			
+			locals.meta.canonical = req.url;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/w_900/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
@@ -85,6 +86,15 @@ exports = module.exports = function(req, res) {
 
   				}
 	  			q.exec(function(err, results) {
+
+	  				var origin = req.get('origin');
+	  				let base = req.path;
+	  				if (results.next) {
+	  					locals.meta.nextUrl = req.protocol+'://'+req.hostname+base+"?page="+results.next;
+	  				}
+	  				if (results.previous) {
+	  					locals.meta.prevUrl = base+"?page="+results.previous;
+	  				}
 	  				locals.data.tours = results;
 	  				next(err);
 	  			});

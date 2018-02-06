@@ -21,10 +21,23 @@
 	{{else}}
 	<meta name="description" content="{{i18n "meta_description"}}">
 	{{/if}}
-	<link rel="canonical" href="https://www.triptable.com" />
-            <link rel="alternate" hreflang="es" href="https://es.triptable.com">
-            <link rel="alternate" hreflang="en" href="https://en.triptable.com">
-            <link rel="alternate" hreflang="es-pa" href="https://www.triptable.com">
+	{{#if meta.canonical}}
+	<link rel="canonical" href="https://www.triptable.com{{meta.canonical}}" />
+    <link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}">
+    <link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}">
+    <link rel="alternate" hreflang="es-419" href="https://www.triptable.com{{meta.canonical}}">
+	{{else}}
+	<link rel="canonical" href="https://www.triptable.com/" />
+    <link rel="alternate" hreflang="es" href="https://es.triptable.com/">
+    <link rel="alternate" hreflang="en" href="https://en.triptable.com/">
+    <link rel="alternate" hreflang="es-419" href="https://www.triptable.com/">
+	{{/if}}
+	{{#if meta.nextUrl}}
+	<link rel="next" href="{{meta.nextUrl}}" />
+	{{/if}}
+	{{#if meta.prevUrl}}
+	<link rel="prev" href="{{meta.prevUrl}}" />
+	{{/if}}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	{{#if meta.ogTitle}}
 	<meta property="og:title" content="{{meta.ogTitle}}"/>
@@ -62,10 +75,19 @@
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
 <!--Tour CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
-
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TXZ459T');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXZ459T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -264,7 +286,7 @@
 				<div class="col-md-3">
 				<h4 class="footer-title">Top {{i18n "destinations"}}</h4>
 				<ul class="footer-links">
-					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} Guna Yala</a></li>
+					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} Panama</a></li>
 					<li><a href="/destino/bocas-del-toro">{{i18n "tours_in"}} Bocas del Toro</a></li>
 					<li><a href="/destino/cartagena">{{i18n "tours_in"}} Cartagena</a></li>
 					<li><a href="/destino/santa-marta">{{i18n "tours_in"}} Santa Marta</a></li>
@@ -375,5 +397,39 @@
   }}();
 </script>
 <!-- end segment -->
+<script type="text/javascript">
+
+function setProductClick(productObj, listName) {
+  dataLayer.push({
+    'event': 'EEtourClick',
+    'ecommerce': {
+      'click': {
+        'actionField': {'list': listName},      // Optional list property.
+        'products': [{
+          'name': productObj.name,                      // Name or ID is required.
+          'id': productObj.id,
+          'price': productObj.price,
+          'brand': productObj.brand,
+          'category': productObj.category,
+      //    'variant': productObj.variant,
+          'position': productObj.position
+         }]
+       }
+     }
+  });
+}
+var setImpressions = function (arr, name, tourId, price, brand, category, list, pos){
+	pos = parseInt(pos);
+	arr.push({
+			'name': name,
+			'id':  tourId,
+			'price': price,
+			'brand': brand,
+			'category': category,
+			'list': list,
+       		'position': pos
+	});
+};
+</script>
 </body>
 </html>

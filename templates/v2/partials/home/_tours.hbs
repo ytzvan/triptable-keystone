@@ -20,10 +20,40 @@
 	<!-- Carousel / Start -->
 	<div class="simple-fw-slick-carousel dots-nav">
 		{{#each toursPanama.results }}
-		{{>home/_single-tour-item}}
+		<div class="panama-tour-item" id="panama-tour-item-{{@index}}">
+			{{>home/_single-tour-item}}
+		</div>
 		{{/each}}
 	</div>
 	<!-- Carousel / End -->
 
 </section>
 <!-- Fullwidth Section / End -->
+<script>
+$(document).ready(function() {
+	var panamaHomeTours = [];
+	var pos = 0;
+	var listName = "Home - Panama Tours Featured";
+	{{#each toursPanama.results }}
+		setImpressions(panamaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#panama-tour-item-"+pos).data( "tourObj", panamaHomeTours[pos]); // Seed id with obj data
+		console.log($( "#panama-tour-item-"+pos).data());
+		pos = pos + 1;
+	{{/each}}
+
+	dataLayer.push({
+	  	'ecommerce': {
+	    	'currencyCode': "USD",                       // Local currency is optional.
+	    	'impressions': panamaHomeTours
+	  	}
+	});
+
+ 	//On click event
+	$('.panama-tour-item').click(function(e){
+		var target = e.currentTarget.id;
+		var productObj = $('#'+target).data().tourObj;
+		setProductClick(productObj, listName);
+	});
+
+});
+</script>

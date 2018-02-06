@@ -504,6 +504,8 @@ $(document).ready(function(){
 
 	$('.simple-fw-slick-carousel').slick({
 		infinite: true,
+		speed: 1300,
+		autoplaySpeed: 5000,
 		slidesToShow: 5,
 		slidesToScroll: 5,
 		dots: true,

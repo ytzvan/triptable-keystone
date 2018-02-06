@@ -18,14 +18,50 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Carousel / Start -->
 	<div class="simple-fw-slick-carousel dots-nav">
+		
 		{{#each toursColombia.results }}
+		<div class="colombia-tour-item" id="colombia-tour-item-{{@index}}">
 		{{>home/_single-tour-item}}
+		</div>
 		{{/each}}
+
 	</div>
 	<!-- Carousel / End -->
 
 </section>
 <!-- Fullwidth Section / End -->
+
+<script>
+
+// Measures product impressions and also tracks a standard
+// pageview for the tag configuration.
+// Product impressions are sent by pushing an impressions object
+// containing one or more impressionFieldObject
+$(document).ready(function() {
+	var colombiaHomeTours = [];
+	var pos = 0;
+	var listName = "Home - Colombia Tours Featured";
+	{{#each toursColombia.results }}
+		setImpressions(colombiaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#colombia-tour-item-"+pos).data( "tourObj", colombiaHomeTours[pos]); // Seed id with obj data
+		pos = pos + 1;
+	{{/each}}
+
+	dataLayer.push({
+	  	'ecommerce': {
+	    	'currencyCode': "USD",                       // Local currency is optional.
+	    	'impressions': colombiaHomeTours
+	  	}
+	});
+
+ 	//On click event
+	$('.colombia-tour-item').click(function(e){
+		var target = e.currentTarget.id;
+		var productObj = $('#'+target).data().tourObj;
+		setProductClick(productObj, listName);
+	});
+
+});
+</script>

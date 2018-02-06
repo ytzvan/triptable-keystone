@@ -75,6 +75,7 @@ exports = module.exports = function(req, res) {
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
+			locals.meta.canonical = req.url;
 			var q = keystone.list('Tour')
 				.paginate({
 					page: req.query.page || 1,
@@ -89,6 +90,14 @@ exports = module.exports = function(req, res) {
 				}
 
 				q.exec(function(err, results) {
+					var origin = req.get('origin');
+					let base = req.path;
+					if (results.next) {
+						locals.meta.nextUrl = req.protocol+'://'+req.hostname+base+"?page="+results.next;
+					}
+					if (results.previous) {
+						locals.meta.prevUrl = base+"?page="+results.previous;
+					}
 						locals.data.tours = results;
 						next(err);
 				});
