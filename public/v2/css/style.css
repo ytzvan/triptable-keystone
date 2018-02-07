@@ -1,80 +1,10 @@
 @charset "UTF-8";
 
 /*
-* Author: Vasterad
-* URL: http://purethemes.net
+* Author: Ytzvan Mastino
+* URL: http://triptable.com
+* Contact: y@triptable.com;
 */
-
-/* ------------------------------------------------------------------- */
-/* Table of Contents
-----------------------------------------------------------------------
-
-	01. Import Section ...................... Imported variables.
-
-	02. Layout Components ................... Generic layout elements.
-		# Forms Reset & Styles
-		# Header
-		# Sticky Header
-		# Back to top
-		# Navigation
-		# User Menu
-		# jPanel mobile menu
-		# Main Search Container
-		# Range Slider
-		# Chosen Plugin
-		# Sort by custom select
-		# Custom Chosen Dropdown
-		# Input with dropdown
-		# Panel Dropdown
-		# Single Listing Page
-		# Contact Page
-		# Blog Styles
-		# Listing Item Layout Style
-		# Small Category Boxes
-		# Titlebar
-
-	03. Shortcodes .......................... Template elements.
-		# Buttons
-		# Tables
-		# Accordion / Toggles
-		# Share Buttons
-		# Post Navigation
-		# Pricing Tables
-		# List Styles
-		# Tooltips
-		# Info Box
-		# Notification Boxes
-		# Testimonials
-		# Tabs
-		# Login Register
-		# Social Icons
-		# Custom Checkboxes
-
-	04. Dashboard ........................... User panel styles
-		# Dashboard Navigation
-		# Dashboard Titlebar
-		# Dashboard Stats Boxes
-		# Dashboard Pagination
-		# Dashboard List Box
-		# Add Listing
-		# Opening Hours
-		# Pricing
-
-	05. Script Styles ....................... jQuery add-ons CSS.
-		# Google Maps
-		# Dropzone
-		# Magnific Popup
-		# Parallax Background
-		# Slick Carousel
-
-	05. Others .............................. CSS helper classes etc.
-		# Common Styles
-		# Offsets
-
-	06. Media Queries ....................... Mobile style sheets.
-
-*/
-
 
 /* ------------------------------------------------------------------- */
 /* 01. Import Section
