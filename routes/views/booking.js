@@ -20,7 +20,6 @@ exports = module.exports = function(req, res) {
 		tour: [],
     	user : req.user
 	};
-	locals.meta.canonical = req.url;
 	var tourId =  req.params.tourId;
 
 	view.on('init', function(next) {
