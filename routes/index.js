@@ -35,8 +35,11 @@ exports = module.exports = function(app) {
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);
   app.all('/about', routes.static.index.index);
+  app.all('/nosotros', routes.static.index.index);
   app.all('/faq', routes.static.index.faq);
+  app.all('/como-funciona', routes.static.index.faq);
   app.all('/terms', routes.static.index.terms);
+  app.all('/terminos', routes.static.index.terms);
   app.all('/partners', routes.views.crm);
   app.all('/user', middleware.requireUser, routes.views.user.home);
   app.all('/admin', middleware.requireGuide, routes.admin.home.index);
