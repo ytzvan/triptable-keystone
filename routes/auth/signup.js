@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
   });
 
 	function renderView() {
-		view.render('auth/signin');
+		view.render('auth/register');
 	}
   var onSuccess = function (user) {
         var origin = url.parse(req.headers.referer);
@@ -71,7 +71,7 @@ exports = module.exports = function(req, res) {
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {
             fields: 'email, password',
-            flashErrors: false,
+            flashErrors: true,
             logErrors: true
         }, function(err,result) {
             if (err) {

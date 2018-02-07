@@ -2,7 +2,7 @@
 <div class="container full-width margin-top-50 margin-bottom-50">
 
 	<div class="row">
-
+	
 		<article id="post-246" class="col-md-12 post-246 page type-page status-publish hentry">
       {{#if messages.success}}
 		<div class="alert alert-success center">
@@ -38,14 +38,14 @@
 	
 <div class="sign-in-form style-1">
 					<ul class="tabs-nav">
-						<li class="active"><a href="#tab1">Log In</a></li>
+						<li class=""><a href="#tab1">Log In</a></li>
 						<li class=""><a href="#tab2">Register</a></li>
 					</ul>
 
 					<div class="tabs-container alt">
 
 						<!-- Login -->
-						<div class="tab-content" id="tab1" style="display: inline-block;">
+						<div class="tab-content" id="tab1" style="display: none;">
 							<form method="POST" class="login">
                 			<input type="hidden" name="{{token.key}}" value="{{token.value}}">
 
@@ -59,7 +59,7 @@
 								<p class="form-row form-row-wide">
 									<label for="password">Password:
 										<i class="im im-icon-Lock-2"></i>
-										<input  required∫class="input-text" type="password" placeholder="{{i18n 'password'}}" name="password" id="password">
+										<input  required class="input-text" type="password" placeholder="{{i18n 'password'}}" name="password" id="password">
 									</label>
 									<span class="lost_password">
 										<a href="#">Lost Your Password?</a>
@@ -78,7 +78,7 @@
 						</div>
 
 						<!-- Register -->
-						<div class="tab-content" id="tab2" style="display: none;">
+						<div class="tab-content" id="tab2" style="display: inline-block;">
 
 							<form method="post" action="/signup" class="register">
 							<input type="hidden" name="action" value="login">

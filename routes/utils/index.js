@@ -19,10 +19,21 @@ exports.cartAbandon = function(req, res, next) {
 }
 
 exports.setCurrency = function(req, res, next) {
-	var params = req.params;
-	var currency = req.params.currency;
-
-	process.env.CURRENCY = currency;
-	res.redirect(req.get('referer'));
+	let params = req.params;
+  	let curr = params.currency;
+  	if (!process.env.CURRENCY){
+     process.env.CURRENCY = "USD";
+     next();
+  } else {
+    console.log(params);
+    if (params.currency == undefined || params.currency == 'undefined') {
+      params.currency = "USD";
+      process.env.CURRENCY = "USD";
+      res.redirect('back');
+    } else {
+      process.env.CURRENCY = params.currency;
+      res.redirect('back');
+    }
+  }
 }
 
