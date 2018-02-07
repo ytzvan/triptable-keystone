@@ -96,12 +96,14 @@ keystone.start({
 function updateCurrencyFile() {
 	var oxr = require('open-exchange-rates'),
 	fx = require('money');
+	fx.settings = { from: "USD"};
 	var jsonfile = require('jsonfile');
 	 oxr.set({ app_id: process.env.OXR_API_KEY })
 	 oxr.latest(function(err, result) {
 	 	if (err) {
 	 		console.log("err: ", err);
-	 		var rates =  __dirname + '/routes/rates.json';
+	 		var rates =  __dirname + 'routes/rates.json';
+	 		console.log("rates");
 		  	jsonfile.readFile(rates, function(err, result) {
 			    fx.rates =  result;
 			    fx.base = "USD";

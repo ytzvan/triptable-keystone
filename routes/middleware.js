@@ -285,6 +285,15 @@ if (subdomain == 'www') {
   next();
 };
 
+exports.setCurrency = function(req, res, next) {
+if (!process.env.CURRENCY) {
+     process.env.CURRENCY = "USD";
+     next();
+   } else {
+    next();
+   }
+}
+
 exports.getCurrency = function(req, res, next) {
   var locals = res.locals;
   if (!process.env.CURRENCY) {
