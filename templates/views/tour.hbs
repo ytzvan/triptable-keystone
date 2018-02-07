@@ -31,7 +31,7 @@
             <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
               <div class="text-right text-left-sm">
               {{#if userInfo}}
-               <a href="/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>${{data.tour.price}} USD {{i18n "per_person"}}</a>
+               <a href="/contact/{{data.tour.tourId}}"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>${{data.tour.price}} USD {{i18n "per_person"}}</a>
               {{else}}
               <a href="/signup?from=/contact/{{data.tour.tourId}}" class="anchor btn btn-danger booking-btn"><p class="price"><i class="fa fa-calendar"></i> {{i18n "book_now"}}</p>${{data.tour.price}} USD {{i18n "per_person"}}</a>
               {{/if}}
