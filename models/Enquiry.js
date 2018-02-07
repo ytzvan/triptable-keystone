@@ -131,7 +131,7 @@ Enquiry.schema.post('save', function() {
 		  console.log(data); 
 		});*/
 		
-	//	SlackUtils.sendEnquiryToSlack(this);
+		SlackUtils.sendEnquiryToSlack(this);
 	}
 
 	if (this.bookingStatus == 1){
