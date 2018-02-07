@@ -1,0 +1,26 @@
+<div class="tour-search-list">
+	<div class="col-md-3 col-sm-4 col-xs-6 tour-result-item">
+		<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
+			<div class="listing-item city-item">
+				{{#if heroImage.secure_url}} <!-- fall back -->
+				<img async src="https://res.cloudinary.com/triptable/image/upload/w_600/v1516037420/vqlhdt7caefmozazy8bx.jpg" alt="">
+				{{else}}
+				<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+		    {{/if}}
+				<div class="listing-item-details">
+					<ul>
+						{{!-- <li>Guna Yala</li> --}}
+					</ul>
+				</div>
+			<!--	<div class="listing-badge now-open"><strong>-15% OFF</strong></div>-->
+				<div class="listing-item-content">
+					<h3>Nightlife</h3>
+					{{!-- <span>22 listings</span> --}}
+				</div>
+			</div>
+			<div class="tour-item-desc">
+				{{!-- <span class="currency"><strong>Guna Yala</strong> </span>  --}}
+			</div>
+		</a>
+	</div>
+</div>

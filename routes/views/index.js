@@ -2,6 +2,8 @@ var keystone = require('keystone');
 var async = require('async');
 var Email = require('../../utils').Email;
 var q = require('q');
+var request = require('request');
+
 module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -32,7 +34,7 @@ module.exports = function(req, res) {
 					})
 					.where('country',countryId)
 					.where('state','published')
-					.where('featured', true)
+					.where('featured',true)
 					.sort('-publishedDate')
 					.populate('province categories city');
 
@@ -52,14 +54,12 @@ module.exports = function(req, res) {
 		asyncFunc ("5704494210326b0300cb6a2f")
 		.then(function (results) {
 			 locals.toursPanama = results;
-			 return asyncFunc("58dec56592896d0400161fd3")
-		})
-		 .then(function (toursMexico) {
-			 locals.toursMexico = toursMexico;
 			 return asyncFunc("593ab9bd397cff0400419584")
 		})
-		.then(function (toursColombia){
-			locals.toursColombia = toursColombia;
+		 .then(function (toursColombia) {
+		 	if (toursColombia) {
+				locals.toursColombia = toursColombia;
+			}
 			next();
 		});
 
@@ -135,7 +135,17 @@ module.exports = function(req, res) {
       }
       next();
     })
-  });
+	});
+	
+	
+	view.on('init', function(next){
+		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";
+		request(url, function(err, result){
+			var json = result.body;
+			var obj = (JSON.parse(json));
+		})
+		next();
+	});
 	// Render the view
 	view.render('index');
 };

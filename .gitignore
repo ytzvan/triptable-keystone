@@ -31,3 +31,5 @@ node_modules
 .DS_Store
 
 node_modules/
+nodemon-config.json
+triptable.sublime-project

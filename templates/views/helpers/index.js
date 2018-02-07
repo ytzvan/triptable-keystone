@@ -4,8 +4,8 @@ var hbs = require('handlebars');
 var keystone = require('keystone');
 var cloudinary = require('cloudinary');
 var i18n = require("i18n");
-
-
+var fx = require('money');
+var accounting = require('accounting');
 // Declare Constants
 var CLOUDINARY_HOST = 'https://res.cloudinary.com';
 
@@ -225,7 +225,7 @@ module.exports = function() {
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function(pageNumber, options) {
-		return '/blog?page=' + pageNumber;
+		return '?page=' + pageNumber;
 	};
 
 	// create the category url for a blog-category page
@@ -265,6 +265,7 @@ module.exports = function() {
 			isActivePage = ((page === currentPage)? true:false),
 			// need an active class indicator
 			liClass = ((isActivePage)? ' class="active"':'');
+			liId = ' id="pagination"'
 
 			// if '...' is sent from keystone then we need to override the url
 			if(page === '...'){
@@ -274,8 +275,9 @@ module.exports = function() {
 
 			// get the pageUrl using the integer value
 			var pageUrl = _helpers.pageUrl(page);
+
 			// wrapup the html
-			html += '<li'+liClass+'>'+ linkTemplate({url:pageUrl,text:pageText})+'</li>\n';
+			html += '<li'+liClass + ''+liId+'>'+ linkTemplate({url:pageUrl,text:pageText})+'</li>\n';
 		});
 		return html;
 	};
@@ -422,9 +424,26 @@ module.exports = function() {
   		currentLang = 'gb';
   		return currentLang;
   	}
-  	currentLang = 'gb';
+  	currentLang = 'es';
   	return currentLang;
-  }
+  };
 
+	_helpers.getPriceInCurrency = function(price){
+		var currency = process.env.CURRENCY;
+		var convert = fx(price).from('USD').to(currency); // ~8.0424
+		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
+		return priceInLocalCurrency;
+	};
+
+	_helpers.getPriceInUSD = function(price){
+	//	var currency = process.env.CURRENCY;
+		var convert = fx(price).from('USD').to('USD'); // ~8.0424
+		var priceInUSD = accounting.formatMoney(convert, {"precision": 0});
+		return priceInUSD;
+	};
+
+	_helpers.getCurrency = function(){
+		return process.env.CURRENCY;
+	}
 	return _helpers;
 };

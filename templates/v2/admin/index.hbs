@@ -1,0 +1,177 @@
+
+<!-- Dashboard -->
+
+	<!-- Navigation
+	================================================== -->
+ {{#if messages.error}}
+ 		<div class="notification error closeable">
+				<p><span class="center">{{messages.error}}</span></p>
+				<a class="close"></a>
+		</div>
+		{{/if}}
+ {{#if messages.success}}
+ <div class="notification success closeable">
+				<p><strong class="center">{{messages.success}}</strong></p>
+				<a class="close"></a>
+		</div>
+		{{/if}}
+	<!-- Content
+	================================================== -->
+    <!-- Titlebar -->
+		<div id="titlebar">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>{{i18n "my_bookings"}}</h2>
+					<!-- Breadcrumbs -->
+					<nav id="breadcrumbs">
+						<ul>
+							<li><a href="#">{{i18n "home"}}</a></li>
+							<li>{{i18n "my_bookings"}}</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			
+			<!-- Listings -->
+			<div class="col-lg-12 col-md-12">
+				<div class="dashboard-list-box margin-top-0">
+
+					<!-- Sort by 
+					<div class="sort-by">
+						<div class="sort-by-select">
+							<select data-placeholder="Default order" class="chosen-select-no-single">
+								<option>Any Status</option>	
+								<option>Approved</option>
+								<option>Pending</option>
+								<option>Canceled</option>
+							</select>
+						</div>
+					</div>-->
+					<!-- Reply to review popup 
+					<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+						<div class="small-dialog-header">
+							<h3>Send Message</h3>
+						</div>
+						<div class="message-reply margin-top-0">
+							<textarea cols="40" rows="3" placeholder="Your Message to Kathy"></textarea>
+							<button class="button">Send</button>
+						</div>
+					</div> -->
+					{{#if data.bookings}}
+
+					<!-- Reply to review popup -->
+					<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+						<div class="small-dialog-header">
+							<h3>Send Message</h3>
+						</div>
+						<div class="message-reply margin-top-0">
+							<textarea cols="40" rows="3" placeholder="Your Message to Kathy"></textarea>
+							<button class="button">Send</button>
+						</div>
+					</div>
+
+					<h4>{{i18n "my_bookings"}}</h4>
+					<ul>
+             {{#each data.bookings}}
+						<li id="status{{friendlyId}}" class="">
+							<div class="list-box-listing bookings">
+								<div class="list-box-listing-img"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=120" alt=""></div>
+								<div class="list-box-listing-content">
+									<div class="inner">
+                    
+										<h3>{{getTourLocName tour.name tour.name_eng }}<span class="booking-status booking-status{{friendlyId}}"></span></h3>
+                    <h5>{{i18n "booking_id"}}: <span class="booking-id">{{friendlyId}}</span></h5>
+
+										<div class="inner-booking-list">
+											<h5>{{i18n "booking_date"}}:</h5>
+											<ul class="booking-list">
+												<li class="highlighted">{{datePretty}}</li>
+											</ul>
+										</div>
+													
+										<div class="inner-booking-list">
+											<h5>{{i18n "booking_details"}}:</h5>
+											<ul class="booking-list">
+												<li class="highlighted">{{people}} {{i18n "booking_people"}}</li>
+											</ul>
+										</div>		
+										<div class="inner-booking-list">
+											<h5>{{i18n "contact"}}:</h5>
+											<ul class="booking-list">
+												{{#if_eq bookingStatus 0}}
+												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
+												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
+												<li><strong>{{i18n "booking_need_confirm_message"}}</strong></li>
+												{{else}}
+												{{#if_eq bookingStatus 1}}
+												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
+												<li><i class="sl sl-icon-phone"></i>  {{phone}}</li>
+												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
+												<li><i class="sl sl-icon-clock"></i> {{bookingTime}}</li>
+												{{else}}
+												{{#if_eq bookingStatus 2}}
+												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
+												<li><strong>{{i18n "booking_declined_message"}}</strong></li>
+												{{/if_eq}}
+												{{/if_eq}}
+												{{/if_eq}}
+											
+											</ul>
+										</div>
+
+										<!--<a href="#small-dialog" class="rate-review popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>-->
+
+									</div>
+								</div>
+							</div>
+            	{{#if_eq bookingStatus 0}}
+							<div class="buttons-to-right">
+                 <form id="accept-form" method="POST" action="/admin/booking/{{friendlyId}}/update">
+                  <input type="hidden" name="action" value="accept">
+									<button type="submit" class="button gray approve"><i class="sl sl-icon-check"></i> Aceptar</button>
+									<button type="reset" class="button gray reject"><i class="sl sl-icon-close"></i> Declinar</button>
+                 </form>
+							</div> 
+							{{/if_eq}}
+						</li>
+            <script type="text/javascript">
+              var status = {{bookingStatus}};
+              var elem = $('#status{{friendlyId}}');
+              var spanElem =$('.booking-status{{friendlyId}}');
+              console.log(status);
+              if (status == 0) {
+                elem.addClass("pending-booking");
+                spanElem.append("{{i18n 'booking_pending'}}");
+              }
+              if (status == 1) {
+                elem.addClass("approved-booking");
+                spanElem.append("{{i18n 'booking_confirm'}}");
+
+              }
+              if (status == 2) {
+                elem.addClass("canceled-booking");
+                spanElem.append("{{i18n 'booking_declined'}}");
+
+              }
+            </script>
+            {{/each}}
+
+					
+					</ul>
+
+				</div>
+			</div>
+      {{else}}
+          no booking
+      {{/if}}
+</div>
+
+	<!-- Content / End -->
+
+<!-- Dashboard / End -->
+

@@ -1,0 +1,59 @@
+<!-- Fullwidth Section -->
+<section class="fullwidth margin-top-0">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-9">
+				<h4 class="headline margin-bottom-5">
+					{{i18n "most_popular_tours_in"}} {{i18n "panama"}}
+				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
+				</h4>
+			</div>
+			<div class="col-xs-3 text-right">
+				<span class="view-more margin-bottom-15">
+					<a href="/panama" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
+				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Carousel / Start -->
+	<div class="simple-fw-slick-carousel dots-nav">
+		{{#each toursPanama.results }}
+		<div class="panama-tour-item" id="panama-tour-item-{{@index}}">
+			{{>home/_single-tour-item}}
+		</div>
+		{{/each}}
+	</div>
+	<!-- Carousel / End -->
+
+</section>
+<!-- Fullwidth Section / End -->
+<script>
+$(document).ready(function() {
+	var panamaHomeTours = [];
+	var pos = 0;
+	var listName = "Home - Panama Tours Featured";
+	{{#each toursPanama.results }}
+		setImpressions(panamaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#panama-tour-item-"+pos).data( "tourObj", panamaHomeTours[pos]); // Seed id with obj data
+		console.log($( "#panama-tour-item-"+pos).data());
+		pos = pos + 1;
+	{{/each}}
+
+	dataLayer.push({
+	  	'ecommerce': {
+	    	'currencyCode': "USD",                       // Local currency is optional.
+	    	'impressions': panamaHomeTours
+	  	}
+	});
+
+ 	//On click event
+	$('.panama-tour-item').click(function(e){
+		var target = e.currentTarget.id;
+		var productObj = $('#'+target).data().tourObj;
+		setProductClick(productObj, listName);
+	});
+
+});
+</script>

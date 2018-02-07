@@ -1,6 +1,8 @@
 var keystone = require('keystone');
 var async = require('async');
-
+var QueryUtils = require('../../utils').QueryUtils;
+var cityId;
+const Url = require('url');
 exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
@@ -8,7 +10,6 @@ exports = module.exports = function(req, res) {
 
 	// Init locals
 	locals.section = 'city';
-
 	locals.data = {
 		cities: [],
 		tours: [],
@@ -17,7 +18,8 @@ exports = module.exports = function(req, res) {
     filters: [],
     country : req.params.country
 	};
-	var category = req.query.categoria;
+	locals.data.filter = req.query.filter;
+
 	locals.data.province;
 	locals.data.place;
 	locals.meta = {};
@@ -26,71 +28,77 @@ exports = module.exports = function(req, res) {
 	query = {
 		'slug' : req.params.city,
 	};
+	locals.data.city = req.params.city;
+
+	locals.data.url = url;
 
 	view.on('init', function(next) {
 
-		if (req.query.categoria) {
-			keystone.list('PostCategory').model.findOne({ slug: category }).exec(function(err, result) {
-				locals.data.filters = result;
-				next(err);
-			});
-		} else {
-			next();
-		}
-
-	});
-	view.on('init', function(next) {
-
-		keystone.list('City').model.findOne(query).exec(function(err, place) { //Query states
+		keystone.list('City').model.findOne(query)
+		.populate('country collections')
+		.exec(function(err, place) { //Query tours from city
 
 			if (err || !place) {
 				return res.status(404).render('errors/404');
 			}
 			locals.data.place = place;
 			locals.data.placeName = place.city;
-			var id = place._id;
-			var provinceName = locals.data.placeName;
 			
-			locals.meta.title = "Reserva Tours, Actividades y Qué hacer en " + provinceName + " - Triptable";
+			var id = place._id;
+			cityId = place._id;
+			var provinceName = locals.data.placeName;
+			locals.data.country = place.country.slug;
+			var countryName = place.country.country;
+			locals.data.collections = place.collections;
+
+			keystone.list('City') //Get other cities from country
+			.model.aggregate([
+			{'$match': {"country":place.country._id} },
+		//	{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
+			])
+		 	.sort("city")
+			.exec(function(err, results) { //Query Pais
+				if (err || !results) {
+					return res.status(404);
+				}
+				locals.data.cities = results;
+			});
+
+			locals.meta.title = "Cosas que Hacer en " + provinceName + ". Reserva tours y actividades en " + countryName;
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours a " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
 			locals.meta.description =  "Reserva tours y actividades en " + provinceName  + ". Con Triptable reservas tours baratos en " +provinceName;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + ". Los mejores tours y actividades en " + provinceName;
+			locals.meta.canonical = req.url;
 			if (place.image) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/w_900/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
+
 			var q = keystone.list('Tour')
-  			.paginate({
-  				page: req.query.page || 1,
-  				perPage: 20,
-			})
-      .find({"state": "published"})
-			 .where("city", id)
-        .sort('-publishedDate')
-			 .populate('province categories');
-  			if (category) {
-  				q.where('categories').in([locals.data.filters]);
-  			}
+  				.paginate({page: req.query.page || 1, perPage: 20})
+		        .find({"state": "published"})
+				.where("city", id)
+		        .sort('-publishedDate')
+				.populate('province country categories city')
+				if (locals.data.filter) {
+  					q.where('collections', locals.data.filter)
+  					locals.data.activeCollection = locals.data.filter;
 
-  			q.exec(function(err, results) {
-  					locals.data.tours = results;
-  					next(err);
-  			});
-		});
+  				}
+	  			q.exec(function(err, results) {
 
-	});
-
-
-	view.on('init', function(next) {
-
-		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
-			if (err || !results) {
-				return res.status(404);
-			}
-			locals.data.categories = results;
-			return next();
-
-		});
+	  				var origin = req.get('origin');
+	  				let base = req.path;
+	  				if (results.next) {
+	  					locals.meta.nextUrl = req.protocol+'://'+req.hostname+base+"?page="+results.next;
+	  				}
+	  				if (results.previous) {
+	  					locals.meta.prevUrl = base+"?page="+results.previous;
+	  				}
+	  				locals.data.tours = results;
+	  				next(err);
+	  			});
+			});
 
 	});
 

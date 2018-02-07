@@ -1,0 +1,199 @@
+<!-- Banner
+================================================== -->
+{{#if data.homeImage.image}}
+       <div class="main-search-container hidden-xs" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
+      {{else}}
+      <div class="main-search-container hidden-xs" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_scale,q_80,h_1080/v1515960774/photo-1464839820797-cdd7219729e4.jpg"  style="background-position: center 95%";>
+      {{/if}}
+	<div class="main-search-inner">
+
+		<div class="container-fluid search-container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="title">{{i18n "home_main_1"}}</h2>
+					<h4 class="subtitle">{{i18n "home_main_2"}}</h4>
+					<div class="main-search-input">
+
+						<!--<div class="main-search-input-item">
+							<input type="text" placeholder="What are you looking for?" value=""/>
+						</div>-->
+
+						<div class="main-search-input-item location">
+							<input type="text"  id="autocomplete-dataset" placeholder="{{i18n "search_message"}}" value=""/>
+							<!-- <a href="#"><i class="fa fa-dot-circle-o"></i></a>-->
+						</div>
+
+						<!--<div class="main-search-input-item">
+							<select data-placeholder="All Categories" class="chosen-select" >
+								<option>All Categories</option>	
+								<option>Shops</option>
+								<option>Hotels</option>
+								<option>Restaurants</option>
+								<option>Fitness</option>
+								<option>Events</option>
+							</select>
+						</div>-->
+
+						<a class="button" href="/search" id="searchBtn">{{i18n "search"}} <i class="fa fa-search" ></i></a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Categories Partial %- partial("partials/home/_cities") %> -->
+<!-- Info Partial %- partial("partials/home/_info") %> -->
+ {{>home/_cities}}
+ {{>home/_tours}}
+ {{>home/_topToursColombia}}
+<!-- Categories Partial %- partial("partials/home/_listings") %> -->
+<!-- Categories Partial %- partial("partials/home/_categories") %> -->
+<!-- Tours Partial %- partial("partials/home/_tours") %> -->
+<!-- Parallax Partial %- partial("partials/home/_parallax") %> -->
+<!-- Blog Partial %- partial("partials/home/_blog") %> -->
+{{>home/_media}}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+
+  $('.tour-item-desc p').css( {"-webkit-line-clamp":"1","-webkit-box-orient":"verticals", "overflow" :"hidden","text-overflow":"ellipsis","display": "-webkit-box"});
+ 
+
+
+		(function() {
+  var client = algoliasearch('PATK6GCBGK', '007d8b849960c7b94b5e8321a128580b');
+  var cities = client.initIndex('cities');
+  var tours = client.initIndex('tours');
+  function getSmallImageFromUrl(img) {
+        var image = img;
+        var image = image.split("upload");
+        var thumb = image[0] + "upload/c_fill,g_center,h_75,w_75" + image[1];
+        return thumb;
+  };
+
+  // create the first autocomplete.js dataset: vacation rentals
+  var citiesDataset = {
+    source: autocomplete.sources.hits(cities, {hitsPerPage: 2}),
+    displayKey: 'city',
+    templates: {
+      header: '<div class="search-result-header col-md-12 ">Destinos</div>',
+      suggestion: function(suggestion) {
+        var thumb = getSmallImageFromUrl(suggestion.image);
+          return '<div class="col-md-12"><a href="/destino/'+suggestion.slug+'">' +
+        '<div class="algolia-result-row">' +
+          '<div class="col-sm-2 col-xs-4"><img class="result-img" src="' + thumb + '" /></div>' +
+          '<div class="algolia result description col-sm-10 col-xs-8">' +
+            suggestion._highlightResult.city.value +'<br />' +
+            '<small> <i class="im im-icon-Location-2"></i> ' + suggestion._highlightResult.province.value +", " + suggestion._highlightResult.country.value +  '</small> '
+          '</div></div>' +
+          '</a></div>';
+      }
+    }
+  }; 
+  var toursDataset = {
+    source: autocomplete.sources.hits(tours, {hitsPerPage: 5}),
+    displayKey: 'name',
+    templates: {
+      header: '<div class="search-result-header col-xs-hidden">Tours</div>',
+      suggestion: function(suggestion) {
+        var thumb = getSmallImageFromUrl(suggestion.heroImage);
+        return '<div class="col-md-12 col-xs-hidden"><a href="/tour/'+suggestion.slug+'">' +
+        '<div class="algolia-result-row">' +
+          '<div class="col-sm-2 col-xs-4"><img class="result-img" src="' + thumb + '" /></div>' +
+          '<div class="algolia result description col-sm-10 col-xs-8">' +
+            suggestion._highlightResult.name.value +'<br />' +
+            '<small> <i class="im im-icon-Location-2"></i> ' + suggestion._highlightResult.city.value +", " + suggestion._highlightResult.province.value +  '</small> '
+          '</div></div>' +
+          '</a></div>';
+      }
+    }
+  };
+
+  // create the second dataset: places
+  // we automatically inject the default CSS
+  // all the places.js options are available
+  /*
+var placesDataset = placesAutocompleteDataset({
+    algoliasearch: algoliasearch,
+    type: 'city',
+    countries: ['pa','co', 'mx'],
+    language: 'en',
+    aroundLatLngViaIP: false,
+    templates: {
+      header: '<div class="row search-result-header">Cities</div>'
+    },
+    hitsPerPage: 5
+  }); */
+
+  // init
+  var autocompleteInstance = autocomplete(document.querySelector('#autocomplete-dataset'), {
+    hint: false,
+    debug: true,
+    cssClasses: {prefix: 'search-result'}
+  }, [
+   // rentalsDataset,,
+    citiesDataset,
+    toursDataset
+
+ //   placesDataset
+  ]);
+  var autocompleteChangeEvents = ['selected'];
+
+  autocompleteChangeEvents.forEach(function(eventName) {
+    autocompleteInstance.on('autocomplete:'+ eventName, function(event, suggestion, datasetName) {
+      console.log(datasetName, suggestion);
+      debugger;
+      let keyword = suggestion.slug;
+      if (datasetName == 1) {
+        $('#searchBtn').attr('href', '/tour/'+keyword);
+
+      } 
+
+      if (datasetName == 2) {
+        $('#searchBtn').attr('href', '/destino/'+keyword);
+      }
+      
+    });
+  });
+})();
+
+        });
+
+</script>
+<style>
+.algolia-autocomplete {
+  width: 100%;
+	z-index: 100;
+}
+.search-result-dropdown-menu {
+  width: 100%;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+  padding: .5em;
+  box-shadow: 1px 1px 32px -10px rgba(0,0,0,0.62);
+}
+.search-result-dropdown-menu .search-result-suggestion small {
+  font-size: .8em;
+  color: #000;
+}
+.search-result-dropdown-menu .search-result-suggestion.search-result-cursor {
+  background-color: #B2D7FF;
+}
+.search-result-dropdown-menu .search-result-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.search-result-header {
+  font-weight: bold;
+  text-align: center;
+  padding: .5em 0;
+  margin-bottom: 0em;
+  border-bottom: 1px solid #ccc;
+}
+</style>

@@ -1,0 +1,234 @@
+<!-- Titlebar
+================================================== -->
+<section>
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 padding-top-15">
+				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}<span>{{i18n "available"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span>
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="hidden-xs">
+					<ul>
+						<li><a href="#">{{i18n "home"}}</a></li>
+						<li>{{i18n "search"}}</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+{{#unless data.city}}
+{{#if data.cities}}
+ <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "popular_destinations"}}</h3>
+		</div>
+		{{#each data.cities}}
+ 		{{#if featured}}
+		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
+			<!-- Image Box -->
+			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
+				<div class="img-box-content visible card-city">
+					<!-- <span>{{i18n "tours_in"}}</span> -->
+				</div>
+			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
+			<h3>{{city}} </h3>
+		</div>	
+		{{/if}}
+ 		{{/each}}
+	</div>
+</div>
+{{/if}}
+{{/unless}}
+<!-- Content
+================================================== -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 margin-top-30">
+			<h3 class="headline">{{i18n "we_found"}} {{data.tours.total}} {{i18n "tours_and_activities"}} </h3><p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+		</div>
+
+<!-- Search
+
+	<div class="col-md-12 margin-bottom-30">
+		{{#each data.collections}}
+		{{#if featured}}
+		<div class="col-md-3">
+		<a href="?filter={{_id}}" class="img-box" data-background-image="{{image.secure_url}}">
+			<div class="img-box-content visible">
+				<h4>{{#if_eq lang "en"}} {{title.en}} {{else}} {{title.es}}{{/if_eq}}</h4>
+				<span>3 {{i18n "listings"}}</span>
+			</div>
+			<div class="img-box-background" style="background-image: url('{{image.secure_url}}');"></div></a>
+		</div>
+		{{/if}}
+		{{/each}}
+	</div>  -->
+
+		<!-- Search Section / End -->
+		<!--
+		<div class="col-md-12">
+
+			<!-- Sorting - Filtering Section -->
+			<div class="margin-top-15 margin-bottom-15">
+						
+			</div>
+			<!-- Sorting - Filtering Section / End -->
+
+
+			<!-- Results-->
+			<div class="col-md-12">
+			<div class="main-search-input margin-top-5 margin-bottom-30">
+
+				<!--<div class="main-search-input-item">
+					<input type="text" placeholder="What are you looking for?" value=""/>
+				</div> -->
+
+				<div class="main-search-input-item">
+					<select data-placeholder="{{i18n "choose_country"}}" id="countries-select" class="chosen-select" >
+						<option value="panama">{{i18n "panama"}}</option>
+						<option value="mexico">{{i18n "mexico"}}</option>
+						<option value="colombia">Colombia</option>
+					</select>
+				</div>
+	
+				<div class="main-search-input-item">
+					<select data-placeholder="{{i18n "all_cities"}}"  id="cities-select"  class="chosen-select">
+						<option value="{{data.country.country}}">{{i18n "all_destinations"}} </option>	
+						{{#each data.cities}}
+						<option value="{{slug}}">{{city}}</option>	
+						{{/each}}
+					</select>
+				</div>
+				<div class="main-search-input-item">
+					<select data-placeholder="{{i18n "all_categories"}}"  id="collections-select"  class="chosen-select">
+						<option value="">{{i18n "all_categories"}} </option>	
+						{{#each data.collections}}
+						<option value="{{_id}}">{{#if_eq lang "en"}} {{title.en}}  {{else}} {{title.es}}{{/if_eq}}</option>	
+						{{/each}}
+					</select>
+				</div>
+
+				<button class="button">{{i18n "search"}}</button>
+			</div>
+		</div>
+			<div class="tour-search-list">
+			{{#each data.tours.results}}
+      		{{>search/_results}}
+			{{/each}}	
+			</div>
+			<!-- Pagination -->
+			<div class="clearfix"></div>
+			<div class="">
+				<div class="col-md-12">
+					<!-- Pagination -->
+					<div class="pagination-container margin-top-20 margin-bottom-40">
+						<nav class="pagination">
+							<ul>
+								{{#if data.tours.previous}}
+								<li><a href="{{data.url}}&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
+								{{/if}}
+								{{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}}
+
+								
+							 	{{#if data.tours.next}}
+								<li><a href="{{data.url}}&page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
+								{{/if}}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<!-- Pagination / End -->
+
+			{{#if data.city}}
+			{{#if data.cities}}
+			 <div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "other_cities_in"}} {{data.country}}</h3>
+					</div>
+					{{#each data.cities}}
+			 	
+					<div class="col-md-3 col-sm-3 col-xs-6 featured-city">
+					<ul>
+						<li><a href="/destino/{{slug}}">{{city}}</a></li>
+					</ul>
+					</div>	
+			 		{{/each}}
+				</div>
+			</div>
+			{{/if}}
+			{{/if}}
+		</div>
+
+	</div>
+</div>
+</section>
+<script type="text/javascript">
+  $(document).ready(function(){
+		$('#countries-select').val("{{data.country}}"); //value of your default option
+		$('#cities-select').val("{{data.city}}"); //value of your default option
+		$('#collections-select').val("{{data.activeCollection}}"); //value of your default option
+		
+	});
+	document.addEventListener("DOMContentLoaded", function() {
+	var url = window.location.href;  
+
+	$("#countries-select").change(function() {
+		var country = $( this ).val();
+  		window.location.href="/"+country;
+	});
+	$("#cities-select").change(function() {
+		var city = $( this ).val();
+		if(city) { 
+  		window.location.href="/destino/"+city;
+			} else {
+				window.location.href="/{{data.country}}";
+			}
+	});
+	$("#collections-select").change(function() {
+		var collection = $( this ).val();
+		if(collection) { 
+  		window.location.href="?filter="+collection;
+			} else {
+				window.location.href="/destino/{{data.city}}";
+			}
+	});
+});
+</script>
+{{getHost}}
+<script>
+$(document).ready(function() {
+	var tourList = [];
+	var pos = 0;
+	var listName = "Search List - " + "{{data.placeName}}";
+	{{#each data.tours.results }}
+		setImpressions(tourList,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#search-tour-item-"+pos).data( "tourObj", tourList[pos]); // Seed id with obj data
+		console.log($( "#search-tour-item-"+pos).data());
+		pos = pos + 1;
+	{{/each}}
+
+	dataLayer.push({
+	  	'ecommerce': {
+	    	'currencyCode': "USD",                       // Local currency is optional.
+	    	'impressions': tourList
+	  	}
+	});
+
+ 	//On click event
+	$('.search-tour-item').click(function(e){
+		var target = e.currentTarget.id;
+		debugger
+		var productObj = $('#'+target).data().tourObj;
+		setProductClick(productObj, listName);
+	});
+
+	 dataLayer.push({'event': 'EEsearch'});
+
+});
+</script>

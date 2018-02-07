@@ -32,10 +32,14 @@ Enquiry.add({
 	phone: { type: String },
 	hotel: { type: String },
 	people : {type: Types.Number},
+	nOfAdults : {type: Types.Number},
+	nOfChildren : {type: Types.Number},
+	nOfInfants : {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	tourName: { type: String },
 	tourUrl: { type: String },
 	date: { type: Types.Date },
+	bookingTime: {type: String},
   promocode: { type: Types.Relationship, ref: 'PromoCode', many: true },
 	bookingStatus: { type: Types.Select, options: [
 		{ value: '0', label: 'Pendiente' },
@@ -48,6 +52,11 @@ Enquiry.add({
   	operator: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true } },
 	message: { type: Types.Textarea},
 	tourPrice: {type: Types.Money},
+	adultTotalPrice: {type: Types.Money},
+	childPrice: {type: Types.Money},
+	childTotalPrice: {type: Types.Money},
+	infantPrice: {type: Types.Money},
+	infantTotalPrice: {type: Types.Money},
 	createdAt: { type: Date, default: Date.now, noedit: true },
 	updatedAt: { type: Date, noedit: true },
 	friendlyId: {type: String, unique: true, noedit:true},
@@ -104,12 +113,32 @@ Enquiry.schema.post('save', function() {
 		this.sendUserEmail(this); //Send User email
 		this.sendBookingNotificationEmail(this, email); //Email al operadors
 		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
-		SlackUtils.sendEnquiryToSlack(this);
+		/*
+		var messagebird = require('messagebird')('d0CiSToNU18haOdnsJCLy3uoe');
+
+		var params = {
+		  'originator': 'Triptable',
+		  'recipients': [
+		    '+50768080024'
+		  ],
+		  'body': 'Reseva completada. Descarga aquí tu e-ticket y preséntalo en la entrada.'
+		};
+
+	messagebird.messages.create(params, function (err, data) {
+		  if (err) {
+		    return console.log(err);
+		  }
+		  console.log(data); 
+		});*/
+		
+	//	SlackUtils.sendEnquiryToSlack(this);
 	}
 
 	if (this.bookingStatus == 1){
 		//Utils.sendReviewEmail(this);
-	} 
+	}
+
+
 
 	try {
 	//Add tour to purchase from user: 
@@ -212,5 +241,5 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 	});
 }
 Enquiry.defaultSort = '-date';
-Enquiry.defaultColumns = 'name, bookingStatus, people, date, bookingTotalPrice, bookingRevenue, createdAt';
+Enquiry.defaultColumns = 'name, bookingStatus, people, date, bookingTotalPrice, bookingRevenue, createdAt, isPay';
 Enquiry.register();

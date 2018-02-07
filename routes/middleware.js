@@ -4,14 +4,16 @@ var passport = require('passport');
 var Keen = require('keen-js');
 var i18n = require("i18n");
 var Url = require('url');
-  
+var oxr = require('open-exchange-rates'),
+	fx = require('money');
 /**
 	Initialises the standard view locals
 */
 
 exports.initLocals = function(req, res, next) {
 
-	var locals = res.locals;
+  var locals = res.locals;
+  locals.data = {};
 
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
@@ -150,9 +152,10 @@ exports.userInfo = function(req, res, next) {
 };
 
 exports.intl = function (req, res, next) {
+  var langs = ['es', 'en'];
   var locals = res.locals;
 i18n.configure({
-  locales: ['es', 'en'],
+  locales: langs,
   cookie: 'lang',
   directory: './templates/locales',
   queryParameter: 'lang'
@@ -164,7 +167,7 @@ var browserLang = req.headers["accept-language"];
 if (browserLang) {
 browserLang = browserLang.substring(0, 2);
 } else {
-  browserLang = 'en';
+  browserLang = 'es';
 }
 
 //get subdomain
@@ -216,9 +219,15 @@ if (!process.env.LANG) {
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
-    process.env.LANG = browserLang;
-    locals.lang = process.env.LANG;
-    return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    if (langs.includes(browserLang)) {
+      process.env.LANG = browserLang;
+      locals.lang = process.env.LANG;
+      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    } else {
+      process.env.LANG = "en";
+      locals.lang = process.env.LANG;
+      return res.redirect('//'+process.env.LANG+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    }
 }
 
 if (req.query.lang == 'es') {
@@ -240,6 +249,7 @@ if (subdomain == 'en') {
     i18n.setLocale(process.env.LANG);
     locals.lang =  'en';
 }
+
 if (subdomain == 'www') {
   /*  if (browserLang = 'en') {
       process.env.LANG = browserLang;
@@ -272,7 +282,29 @@ if (subdomain == 'www') {
     i18n.setLocale(process.env.LANG);
   } */
   locals.lang = process.env.LANG;
-
   next();
 };
 
+exports.getCurrency = function(req, res, next) {
+  var locals = res.locals;
+  if (!process.env.CURRENCY) {
+    process.env.CURRENCY = "USD";
+  } else {
+    process.env.CURRENCY =  process.env.CURRENCY;
+  };
+  locals.data.currency = process.env.CURRENCY;
+
+
+  //oxr.set({ app_id: process.env.OXR_API_KEY })
+
+
+/*  oxr.latest(function() {
+	// Apply exchange rates and base rate to `fx` library object:
+	fx.rates =  oxr.rates;
+	fx.base = "USD";
+	
+	// money.js is ready to use:
+  next();
+}); */
+next();
+}; 

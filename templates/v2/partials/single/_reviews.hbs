@@ -1,0 +1,62 @@
+<!-- Reviews -->
+			<div id="listing-reviews" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">{{#if data.reviews}} {{i18n "reviews"}} <span>( {{data.reviews.length}} ){{else}} {{i18n "not_reviews_yet"}}
+				{{/if}}</span></h3>
+
+				<div class="clearfix"></div>
+
+				<!-- Reviews -->
+				<section class="comments listing-reviews">
+
+					<ul>
+
+						{{#each data.reviews}}
+
+						<li>
+							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+							<div class="comment-content"><div class="arrow-comment"></div>
+								<div class="comment-by">{{author.name.full}}<span class=""></span>
+									<div class="star-rating" data-rating="{{score}}"></div>
+								</div>
+								<p>{{message}}</p>
+								
+								<div class="review-images mfp-gallery-container">
+									<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
+								</div>
+							<!--	<a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a> -->
+							</div>
+						</li>
+
+						{{/each}}
+
+						
+					 </ul>
+				</section>
+
+				<!-- Pagination 
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="pagination-container margin-top-30">
+							<nav class="pagination">
+								<ul>
+									<li><a href="#" class="current-page">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<! Pagination / End -->
+			</div>
+			<script>
+				$(document).ready( function(){
+					var elem = $('.date').html();
+					date = moment(elem).format("MMMM YYYY");;
+					$('.date').html(date);
+				});
+				
+			</script>

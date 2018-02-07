@@ -13,15 +13,15 @@ keystone.init({
 	'brand': 'Triptable',
 
 	'less': 'public',
-	'static': 'public',
+	'static': 'public/v2',
 	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
+	'views': 'templates/v2',
 	'view engine': 'hbs',
 
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
-		partialsDir: 'templates/views/partials',
-		defaultLayout: 'main',
+		partialsDir: 'templates/v2/partials',
+		defaultLayout: 'v2',
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
@@ -35,8 +35,8 @@ keystone.init({
 	'user model': 'User',
 	'signin url': '/signin',
 	'signin redirect' : '/',
-	//'signout url' : '/signout',
-	//'signout redirect' : '/'
+	'signout url' : '/signout',
+	'signout redirect' : '/'
 });
 keystone.set('s3 config', { bucket: 'triptable', key: 'AKIAJGHX437Z664RXBXA', secret: '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' });
 
@@ -83,6 +83,35 @@ keystone.set('nav', {
 	'users': 'users',
 	'tours' : 'tours',
 	'locations' : ['cities', 'provinces', 'countries'],
-  'crms' : 'crms'
+	'collections' : ['collections'],
+  	'crms' : 'crms'
 });
-keystone.start();
+
+keystone.start({
+    onStart: function() {
+    	updateCurrencyFile();
+    }
+});
+
+function updateCurrencyFile() {
+	var oxr = require('open-exchange-rates'),
+	fx = require('money');
+	var jsonfile = require('jsonfile');
+	 oxr.set({ app_id: process.env.OXR_API_KEY })
+	 oxr.latest(function(err, result) {
+	 	if (err) {
+	 		console.log("err: ", err);
+	 		var rates =  __dirname + '/routes/rates.json';
+		  	jsonfile.readFile(rates, function(err, result) {
+			    fx.rates =  result;
+			    fx.base = "USD";
+			    return true;
+		  	});
+	 	} else {
+		fx.rates =  oxr.rates;
+		fx.base = "USD";
+		//console.log(result);
+		return result;
+		} 
+	});
+}

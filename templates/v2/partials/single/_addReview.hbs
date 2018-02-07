@@ -1,0 +1,70 @@
+<!-- Add Review Box -->
+			<div id="add-review" class="add-review-box">
+
+				<!-- Add Review -->
+				<h3 class="listing-desc-headline margin-bottom-20">Add Review</h3>
+				
+				<span class="leave-rating-title">Your rating for this listing</span>
+				
+				<!-- Rating / Upload Button -->
+				<div class="row">
+					
+
+					<div class="col-md-6">
+						<!-- Uplaod Photos -->
+						<!--<div class="add-review-photos margin-bottom-30">
+							<div class="photoUpload">
+							    <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
+							    <input type="file" class="upload" />
+							</div>
+						</div>-->
+					</div>
+				</div>
+	
+				<!-- Review Comment -->
+				<div id="raty"></div>
+				<form id="add-comment" method="POST" class="add-comment">
+					  <input type="hidden" name="action" value="review">
+						<input type="hidden" name="author" value="{{userInfo.id}}">
+            <input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+						<input type="hidden" id="score" name="score" value="">
+					<fieldset>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label>Name:</label>
+								<input type="text" required name="name" value=""/>
+							</div>
+								
+							<div class="col-md-6">
+								<label>Email:</label>
+								<input type="email" required name="email" value=""/>
+							</div>
+						</div>
+
+						<div>
+							<label>Review:</label>
+							<textarea name="message" required cols="40" rows="3"></textarea>
+						</div>
+
+					</fieldset>
+
+					<input type="submit" class="button"></input>
+					<div class="clearfix"></div>
+				</form>
+
+			</div>
+			<!-- Add Review Box / End -->
+
+			<script>
+  $(document).ready(function(){
+      $('#raty').raty({ starType: 'i' });
+			$('form').submit(function(e)	{
+				var score = $('#raty').raty('score'); //get the score
+				$('#score').val(score); //set the score
+				debugger
+
+			})
+  });
+</script>
+              

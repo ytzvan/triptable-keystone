@@ -1,0 +1,318 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/css/intlTelInput.css">
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="booking-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2 class="booking-page-title">{{i18n "booking"}}</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<li><a href="#">{{i18n "home"}}</a></li>
+						<li>{{i18n "booking"}}</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+	<div class="row">
+		{{#if messages.error}}
+		<div class="notification error ">
+				<p><span>Error!</span> {{messages.error}}</p>
+				<a class="close"></a>
+			</div>
+		{{/if}}
+		<!-- Sidebar
+		================================================== -->
+		<div class="col-md-4 col-md-push-8 margin-top-0 margin-bottom-60">
+
+			<!-- Booking Summary -->
+			<div class="listing-item-container compact order-summary-widget">
+				<div class="listing-item booking-item">
+					<img src="https://res.cloudinary.com/triptable/image/upload/w_600/v{{data.tour.heroImage.version}}/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}" alt="">
+
+					<div class="listing-item-content">
+						<!--<div class="numerical-rating" data-rating="5.0"></div>-->
+						<h3>{{data.tour.name}}</h3>
+						<span><i class="fa fa-map-marker"></i> {{data.tour.city.city}}, {{data.tour.country.country}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="boxed-widget opening-hours summary margin-top-0">
+				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}</h3>
+				<ul>
+					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
+					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
+					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.adults}} {{getCurrency}}</span></li>
+					{{#if data.nOfChildren}}
+					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.children}} {{getCurrency}}</span></li>
+					{{/if}}
+					{{#if data.nOfInfants}}
+					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice}} {{getCurrency}}</i><span>{{getPriceInCurrency price.infant}} {{getCurrency}}</span></li>
+					{{/if}}
+					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal}} {{getCurrency}}</span></li>
+					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee}} {{getCurrency}}</span></li>
+					<li class="total-costs">{{i18n "total_cost"}} <span>{{getPriceInCurrency price.total}} {{getCurrency}}</span><br><span class="price-in-usd">**{{i18n "usd_currency_message"}} <strong>{{getPriceInUSD price.total}} USD</strong></span></li>
+				</ul>
+
+			</div>
+			<!-- Booking Summary / End -->
+
+		</div>
+
+		<!-- Content
+		================================================== -->
+		<div class="col-md-8 col-md-pull-4 padding-right-30">
+
+			<h3 class="margin-top-10 margin-bottom-30">{{i18n "personal_details"}}</h3>
+			<form method="POST" id="bookingForm" action="/contact/{{data.tour.tourId}}">
+			<input type="hidden" name="action" value="booking">
+			<input type="hidden" name="tour" placeholder="TourID" class="form-control" value="{{data.tour.tourId}}">
+			<input type="hidden" name="tourName" placeholder="tourName" class="form-control" value="{{data.tour.name}}">
+			<input type="hidden" name="tourPrice" placeholder="TourPrice" class="form-control" value="{{data.tour.price}}">
+			{{#if userInfo}}
+			<input type="hidden" name="user" placeholder="UserId" class="form-control" value="{{userInfo._id}}">
+			{{else}}
+  		<input type="hidden" name="user" placeholder="UserId" class="form-control" value="57349555510ff303009739f3">
+			{{/if}}
+			<input type="hidden" name="tourUrl" placeholder="tourUrl" class="form-control" value="{{data.tour.slug}}">
+			<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">	
+			<input type="hidden" name="operatorEmail" placeholder="OpEmail" class="form-control" value="{{data.tour.owner.email}}">
+			<input type="hidden" name="operatorName" placeholder="OpName" class="form-control" value="{{data.tour.owner.name.full}}">
+		<!--	<input type="hidden" name="operator" placeholder="OpId" class="form-control" value="{{data.tour.owner._id}}">-->
+			<input type="hidden" name="operatorCellphone" placeholder="OpCel" class="form-control" value="{{data.tour.owner.cellphone}}">
+			<!-- People -->
+			<input type="hidden" id="nOfAdults" name="nOfAdults"value="{{data.nOfAdults}}">
+			<input type="hidden" id="nOfChildren" name="nOfChildren"value="{{data.nOfChildren}}">
+			<input type="hidden" id="nOfInfants" name="nOfInfants"value="{{data.nOfInfants}}">
+
+			<!--prices -->
+				<input type="hidden" id="adultTotalPrice" name="adultTotalPrice"value="{{data.tour.adultTotalPrice}}">
+				<input type="hidden" id="childPrice" name="childPrice"value="{{data.tour.childPrice}}">
+				<input type="hidden" id="childTotalPrice" name="childTotalPrice"value="{{price.children}}">
+				<input type="hidden" id="infantPrice" name="infantPrice"value="{{data.tour.infantPrice}}">
+				<input type="hidden" id="infantTotalPrice" name="infantTotalPrice"value="{{price.infant}}">
+			<!-- New fields -->
+			<input type="hidden" name="date" value="{{formData.date}}">
+			<input type="hidden" name="bookingTime" value="{{formData.bookingTime}}">
+				<div class="row">
+					
+
+					<div class="col-md-6">
+						<label>{{i18n "first_name"}}</label>
+						<input type="text" id="firstName" name="name.first" value="">
+					</div>
+
+					<div class="col-md-6">
+						<label>{{i18n "last_name"}}</label>
+						<input type="text"  id="lastName" name="name.last" value="">
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "email"}}</label>
+							<input type="email"  id="email" name="email" value="">
+							<i class="im im-icon-Mail"></i>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "phone_booking_message"}}</label>
+							<input type="tel"  id="phone" name="phone" id="phone">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "hotel_booking_message"}}</label>
+							<input type="text"  id="address" name="hotel"  value="">
+							<i class="im im-icon-Phone-2"></i>
+						</div>
+					</div>
+
+				</div>
+
+
+			<h3 class="margin-top-55 margin-bottom-30">{{i18n "payment_method"}}</h3>
+
+			<!-- Payment Methods Accordion -->
+			<div class="payment">
+
+				<div class="payment-tab">
+					<div class="payment-tab-trigger">
+						<input id="paypal" name="cardType" type="radio" value="paypal" disabled>
+						<label class="payment-cash" for="paypal">{{i18n "cash"}} ({{i18n "cash_payments_disabled_message"}})</label>
+						<!--<img class="payment-logo paypal" src="https://i.imgur.com/ApBxkXU.png" alt=""> -->
+					</div>
+
+					<div class="payment-tab-content">
+						<p>You will be redirected to PayPal to complete payment.</p>
+					</div>
+				</div>
+
+
+				<div class="payment-tab payment-tab-active">
+					<div class="payment-tab-trigger">
+						<input checked type="radio" name="cardType" id="creditCart" value="creditCard">
+						<label for="creditCart">{{i18n "credit_card"}}</label>
+						<img class="payment-logo" src="/images/cc-img.png" alt="">
+					</div>
+
+					<div class="payment-tab-content">
+						<div class="row">
+
+							<div class="col-md-6">
+								<div class="card-label">
+									<label for="nameOnCard">{{i18n "name_on_card"}}</label>
+									<input id="nameOnCard" name="cardholder" required type="text">
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="card-label">
+									<label for="cardNumber">{{i18n "card_number"}}</label>
+									<input id="cardNumber" name="cardNumber" placeholder="1234  5678  9876  5432" required type="tel">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="card-label">
+									<label for="expirynDate">{{i18n "month"}}</label>
+									<input id="expiryDateMonth" placeholder="MM" type="tel" required >
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="card-label">
+									<label for="expiryDate">{{i18n "year"}}</label>
+									<input id="expirynDateYear" placeholder="YY" required type="tel">
+								</div>
+							</div>
+
+							<input type="hidden" id="expirationField" name="expiration" value="09/20">
+
+							<div class="col-md-4">
+								<div class="card-label">
+									<label for="cvv">CVV</label>
+									<input id="cvv" required name="cvv2" placeholder="· · ·" type="tel">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Payment Methods Accordion / End -->
+		
+			<button type="submit" class="button booking-confirmation-btn margin-top-40 margin-bottom-65">{{i18n "confirm_and_pay"}}</button>
+			</form>
+		</div>
+
+
+	</div>
+</div>
+<!-- Container / End -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		if (localStorage) {
+			$('#firstName').val(localStorage.firstName);
+			$('#lastName').val(localStorage.lastName);
+			$('#email').val(localStorage.email);
+			$('#phone').val(localStorage.phone);
+			$('#address').val(localStorage.address);
+			//CC
+			$('#nameOnCard').val(localStorage.nameOnCard);
+			$('#cardNumber').val(localStorage.cardNumber);
+		}
+		$("#phone").intlTelInput({
+			nationalMode: false,
+			preferredCountries : ["pa", "co", "us", "es"],
+			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/utils.js",
+			autoPlaceholder: "polite"
+		});
+
+		$("#bookingForm").submit( function() {
+			var mm = $('#expiryDateMonth').val();
+			var yy = $('#expirynDateYear').val();
+
+			$('#expirationField').val(mm+"/"+yy);
+			// GET
+
+			var firstName = $('#firstName').val();
+			localStorage.setItem("firstName", firstName);
+
+			var lastName = $('#lastName').val();
+			localStorage.setItem("lastName", lastName);
+
+			var email = $('#email').val();
+			localStorage.setItem("email", email);
+
+			var phone = $('#phone').val();
+			localStorage.setItem("phone", phone);
+
+			var address = $('#address').val();
+			localStorage.setItem("address", address);
+			// CC Data
+			var nameOnCard = $('#nameOnCard').val();
+			localStorage.setItem("nameOnCard", nameOnCard);
+
+			var cardNumber = $('#cardNumber').val();
+			localStorage.setItem("cardNumber", cardNumber);
+
+
+      return true;
+ 	 	});
+
+
+
+	});
+	$(document).ready(function(){
+		$('#cardNumber').payment('formatCardNumber');
+		onCheckout();
+	})
+</script>
+
+<script>
+/**
+ * A function to handle a click on a checkout button. This function uses the eventCallback
+ * data layer variable to handle navigation after the ecommerce data has been sent to Google Analytics.
+ */
+
+ function onCheckout() {
+ 	console.log("checkout GA")
+  dataLayer.push({
+    'event': 'checkout',
+    'ecommerce': {
+      'checkout': {
+        'actionField': {'step': 1},
+        'products': [{
+          'name': "{{data.tour.name}}",
+          'id': "{{data.tour.tourId}}",
+          'price': "{{data.tour.price}}",
+          'brand': '{{data.tour.city.city}}',
+          'quantity': "{{data.nOfAdults}}"
+       }]
+     }
+   }
+  });
+  return true;
+}
+window.dataLayer.push({
+    'checkoutPrice': "{{data.tour.price}}",
+    'quantity': "{{data.nOfAdults}}"
+ 	});
+</script>

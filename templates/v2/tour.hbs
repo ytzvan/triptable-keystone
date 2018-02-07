@@ -1,0 +1,388 @@
+<!-- Slider Partial %- partial("partials/single/_slider") %> -->
+{{>single/_slider}}
+<div class="container">
+	<div class="row sticky-wrapper">
+		<div class="col-md-8 padding-right-30">
+
+			<!-- Titlebar -->
+			<div id="titlebar" class="listing-titlebar">
+				<div class="listing-titlebar-title">
+					<h2>{{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}}</h2>
+					<span>
+						<a href="#listing-location" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+							<a target="_blank" href="/destino/{{data.tour.city.slug}}">{{i18n "tours_in"}} {{data.tour.city.city}}, {{data.tour.country.country}} </h2></a>
+						</a>
+					</span>
+					<!--<div class="star-rating" data-rating="5">
+						<div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>
+					</div>-->
+					
+				</div>
+			</div>
+
+		<div class="row margin-top-15 margin-bottom-15 information-icons">
+			{{#if data.tour.tourType}}
+				{{/if}}
+					<div class="col-md-3 col-xs-6 text-center ">
+					<i class="im im-icon-Ticket"></i>
+					<p style="">{{i18n "entrance_tickets"}}</p>
+				</div>
+				{{#if data.tour.mobileVoucherAccepted}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Hand-TouchSmartphone"></i>
+					<p>{{i18n "mobile_voucher_av"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.instantConfirmation}}
+				<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Flash"></i>
+					<p>{{i18n "instant_confirmation"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.tourType}}
+				<div class="col-md-3 col-xs-6  text-center">
+					{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> <p>{{i18n "group_tour"}}</p>{{/if_eq}}
+					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i> <p>{{i18n "private_tour"}}{{/if_eq}} </p>
+				</div>
+				{{/if}}
+				<div class="col-md-3 col-xs-6  text-center">
+					<i class="im im-icon-Clock-Forward"></i>
+					<p>{{i18n "duration"}}: {{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
+				</div>
+				{{#if data.tour.sharedCabin}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="fa fa-bed"></i>
+					<p>{{i18n "shared_accomodation_included"}}</p>
+				</div>
+				{{/if}}
+				{{#if data.tour.privateCabin}}
+					<div class="col-md-3 col-xs-6  text-center">
+					<i class="fa fa-bed"></i>
+					<p>{{i18n "private_accomodation_included"}}</p>
+				</div>
+				{{/if}}
+			</div>
+			<!-- Listing Nav -->
+			<div id="listing-nav" class="listing-nav-container">
+				<ul class="listing-nav" id="tour-section-nav">
+					<li><a href="#listing-overview" class="active">{{i18n "tour_description_title"}}</a></li>
+					<!--<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li> -->
+					<li><a href="#listing-location">{{i18n "location"}}</a></li>
+					<li><a href="#listing-reviews">{{i18n "reviews"}}</a></li>
+					<!--<li><a href="#add-review">Add Review</a></li>-->
+				</ul>
+			</div>
+
+			{{#if data.tour.videoId}}
+			<div class="listing-overview video margin-top-30 margin-bottom-30">
+				<iframe src="https://www.youtube.com/embed/{{data.tour.videoId}}" frameborder="0" allowfullscreen></iframe> 
+			</div>
+			{{/if}}
+			<!-- Overview -->
+			<div id="listing-overview" class="listing-section">
+				<!-- Amenities -->
+				<ul class="listing-features checkboxes margin-top-5 margin-bottom-30">
+					 {{#if data.tour.hotelPickup}}
+					 <li>{{i18n "hotel_pickup"}}</li>
+					 {{/if}}
+					 {{#if data.tour.transportation}}
+					 <li>{{i18n "ground_transportation"}}</li>
+					 {{/if}}
+					 {{#if data.tour.food}}
+					 <li>{{i18n "food"}}</li>
+					 {{/if}}
+					 {{#if data.tour.drinks}}
+					 <li>{{i18n "drinks"}}</li>
+					 {{/if}}
+					 {{#if data.tour.insurance}}
+					 <li>{{i18n "insurance"}}</li>
+					 {{/if}}
+					 {{#if data.tour.taxes}}
+					 <li>{{i18n "taxes"}}</li>
+					 {{/if}}
+					 {{#if data.tour.tickets}}
+					 <li>{{i18n "tickets"}}</li>
+					 {{/if}}
+					 {{#if data.tour.maritimeTransportation}}
+					 <li>{{i18n "maritime_transportation"}}</li>
+					 {{/if}}
+					 {{#if data.tour.snacks}}
+					 <li>{{i18n "snacks"}}</li>
+					 {{/if}}
+					 {{#if data.tour.tourGuide}}
+					 <li>{{i18n "tour_guide"}}</li>
+					 {{/if}}
+					 {{#if data.tour.privateCabin}}
+					 <li>{{i18n "private_lodging"}}</li>
+					 {{/if}}
+					 {{#if data.tour.sharedCabin}}
+					 <li>{{i18n "shared_lodging"}}</li>
+					 {{/if}}
+				</ul>
+				<!-- Description -->
+				{{#if_eq lang "en" }}
+					{{#if data.tour.description_eng}}
+				<div class="show-more">
+						{{{data.tour.description_eng.extended}}}
+						</div>
+							<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
+					{{else}}	
+					<div class="show-more">
+						{{{data.tour.description.extended}}}
+						
+						</div>
+						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
+					{{/if}}	
+				{{else}}
+				<div class="show-more">
+					{{{data.tour.description.extended}}}
+					
+					</div>
+						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
+				{{/if_eq}}
+			</div>
+			
+			{{#if data.tour.hasFixedSchedule}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+			<h3>{{i18n "activity_schedule"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.scheduleDescription.en}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.scheduleDescription.es}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+
+			{{#if data.tour.includesDescription.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30 tour-section-includes"> <!-- Schedule description --> 
+			<h3>{{i18n "includes"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.includesDescription.en}}
+						<li><i class="fa fa-check"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.includesDescription.es}}
+						<li><i class="fa fa-check"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.excludesDescription.es}}
+			<div class="listing-overview tour-excludes-section margin-top-30 margin-bottom-30 tour-section-excludes"> <!-- Schedule description --> 
+			<h3>{{i18n "excludes"}}</h3>
+			<div>
+				{{#if_eq lang "en" }}
+					<ul>
+					{{#each data.tour.excludesDescription.en}}
+						<li><i class="fa fa-ban"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<ul>
+					{{#each data.tour.excludesDescription.es}}
+						<li><i class="fa fa-ban"></i> {{this}}</li>
+						{{/each}}
+					</ul>
+				{{/if_eq}}	
+			</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.foodDescription.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "food"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.foodDescription.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.foodDescription.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+
+			{{#if data.tour.instructions.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "usage_instruction"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.instructions.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.instructions.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+			
+			{{#if data.tour.cancelationPolicy.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "cancelation_policy"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.cancelationPolicy.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.cancelationPolicy.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+			{{#if data.tour.importantInfo.es}}
+			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
+				<h3>{{i18n "important_information"}}</h3>
+				<div>
+					{{#if_eq lang "en" }}
+							<div>{{{data.tour.importantInfo.en}}}</div>
+						</ul>
+					{{else}}
+						<div>{{{data.tour.importantInfo.es}}}</div>
+					{{/if_eq}}	
+				</div>
+			</div>
+			{{/if}}
+
+
+
+				<!-- Food Menu  
+			<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-30 margin-bottom-30">{{i18n "price"}}</h3>
+					<div class="pricing-list-container">
+						
+						<h4>{{i18n "details"}}</h4>
+						<ul>
+							<li>
+								<h5>{{data.tour.minPerson}} - {{data.tour.maxPerson}} {{i18n "people"}}</h5>
+								<span>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </span> 
+							</li>
+							{{data.tour.multiPriceCatalog}}
+							{{#if data.tour.multiPrice}} 
+							{{#each data.tour.multiPriceCatalog}}
+							<li>
+								<h5>{{data.tour.multiPriceCatalog}}</h5>
+								<span>{{@index}} </span> 
+							</li>
+							{{/each}}
+							{{/if}}							
+						</ul>
+				</div>
+			<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a> 
+			</div> -->
+
+		<!--	<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+
+					<div class="pricing-list-container">
+						
+						<h4>Paquetes</h4>
+						<ul>
+							<li>
+								<h5>Cabaña con Baño Compartido</h5>
+								<p>Transporte, comidas, estadía en cabaña privada con baño compartido y piso de arena</p>
+								<span>$180</span>
+							</li>
+							<li>
+								<h5>Cabaña con Baño Privado</h5>
+								<p>Transporte, comidas, estadía en cabaña privada con baño privado piso de madera</p>
+								<span>$220 USD<br><a href="" class="button">{{i18n "see_details"}}</a></span>
+							</li>
+							
+						</ul>
+
+				</div> -->
+			<!--	<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a> -->
+	  <!-- Food Menu / End -->
+
+			<div id="listing-location" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-30 margin-top-3>0 margin-bottom-10">{{i18n "departure_point"}}</h3>
+				<p>{{data.tour.startingPoint}}</p>
+				<div id="singleListingMap-container">
+					{{#if data.tour.latitude}}
+					<div id="singleListingMap" data-latitude="{{data.tour.latitude}}" data-longitude="{{data.tour.longitude}}" data-map-icon="im im-icon-Geo2"></div>
+					{{else}}
+					<div id="singleListingMap" data-latitude="{{data.tour.city.latitude}}" data-longitude="{{data.tour.city.longitude}}" data-map-icon="im im-icon-Geo2"></div>
+					{{/if}}
+					
+				</div>
+			</div> 
+				
+			{{>single/_reviews}}
+
+			<!-- AddReview Partial %- partial("partials/single/_addReview") %> -->
+		</div>
+
+		<!-- Sidebar Partial %- partial("partials/single/_sidebar") %> -->
+		{{>single/_sidebar}}
+		
+	</div>
+
+</div>
+<script src=""></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+  	$.ajax({
+	  url: "https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js",
+	  dataType: "script"
+	}).done(function() {
+		debugger
+  		$(".video").fitVids();
+	});
+
+	// Measure a view of product details. This example assumes the detail view occurs on pageload,
+	// and also tracks a standard pageview of the details page.
+
+	dataLayer.push({
+	  'ecommerce': {
+	    'detail': {
+	  //    'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
+	      'products': [{
+	        'name': "{{data.tour.name}}",         // Name or ID is required.
+	        'id': "{{data.tour.tourId}}",
+	        'price': {{data.tour.price}},
+	        'brand': "{{data.tour.city.city}}",
+	        'category': "{{data.tour.categories.[0].name}}"
+	       }]
+	     }
+	   }
+	});
+
+  //do work    
+});
+  </script>
+
+<script type="text/javascript">
+
+	window.dataLayer = window.dataLayer || [];
+	var name = "{{data.tour.name}}";
+	var id = "{{data.tour.tourId}}";
+
+ 	window.dataLayer.push({
+    'tourName': name,
+    'tourId': id
+ 	});
+
+
+</script>
