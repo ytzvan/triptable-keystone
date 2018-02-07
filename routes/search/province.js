@@ -57,6 +57,7 @@ exports = module.exports = function(req, res) {
 			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName;
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + provinceName;
+			locals.meta.canonical = req.url;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
