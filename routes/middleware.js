@@ -283,37 +283,13 @@ if (subdomain == 'www') {
   } */
   locals.lang = process.env.LANG;
   next();
+
 };
 
 exports.setCurrency = function(req, res, next) {
-if (!process.env.CURRENCY) {
-     process.env.CURRENCY = "USD";
-     next();
-   } else {
-    next();
-   }
-}
-
-exports.getCurrency = function(req, res, next) {
-  var locals = res.locals;
-  if (!process.env.CURRENCY) {
-    process.env.CURRENCY = "USD";
-  } else {
-    process.env.CURRENCY =  process.env.CURRENCY;
-  };
-  locals.data.currency = process.env.CURRENCY;
-
-
-  //oxr.set({ app_id: process.env.OXR_API_KEY })
-
-
-/*  oxr.latest(function() {
-	// Apply exchange rates and base rate to `fx` library object:
-	fx.rates =  oxr.rates;
-	fx.base = "USD";
-	
-	// money.js is ready to use:
+  var appData = keystone.app.locals;
+  if (!appData.currency) {
+    appData.currency = "USD";
+  } 
   next();
-}); */
-next();
-}; 
+};

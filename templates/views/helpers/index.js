@@ -15,7 +15,6 @@ var scriptTemplate = _.template('<script src="<%= src %>"></script>');
 var cssLinkTemplate = _.template('<link href="<%= href %>" rel="stylesheet">');
 var cloudinaryUrlLimit = _.template(CLOUDINARY_HOST + '/<%= cloudinaryUser %>/image/upload/c_limit,f_auto,h_<%= height %>,w_<%= width %>/<%= publicId %>.jpg');
 
-
 module.exports = function() {
 
 	var _helpers = {};
@@ -429,21 +428,26 @@ module.exports = function() {
   };
 
 	_helpers.getPriceInCurrency = function(price){
-		var currency = process.env.CURRENCY;
+		var appData = keystone.app.locals;
+
+		console.log("appdata in helpers", appData.currency);
+
+		var currency = appData.currency;
+
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
 		return priceInLocalCurrency;
 	};
 
 	_helpers.getPriceInUSD = function(price){
-	//	var currency = process.env.CURRENCY;
 		var convert = fx(price).from('USD').to('USD'); // ~8.0424
 		var priceInUSD = accounting.formatMoney(convert, {"precision": 0});
 		return priceInUSD;
 	};
 
 	_helpers.getCurrency = function(){
-		return process.env.CURRENCY;
+		var appData = keystone.app.locals;
+		return appData.currency;
 	}
 	return _helpers;
 };

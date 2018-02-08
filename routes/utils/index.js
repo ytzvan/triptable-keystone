@@ -1,7 +1,8 @@
 var keystone = require('keystone');
 var async = require('async');
 var Email = require('../../utils').Email;
-
+var currencies = [];
+currencies = ["USD", "EUR", "COP", "CNY", "BRL"];
 exports.cartAbandon = function(req, res, next) {
 		if (req.user) {
 			var obj = {};
@@ -20,20 +21,18 @@ exports.cartAbandon = function(req, res, next) {
 
 exports.setCurrency = function(req, res, next) {
 	let params = req.params;
-  	let curr = params.currency;
-  	if (!process.env.CURRENCY){
-     process.env.CURRENCY = "USD";
-     next();
-  } else {
-    console.log(params);
-    if (params.currency == undefined || params.currency == 'undefined') {
-      params.currency = "USD";
-      process.env.CURRENCY = "USD";
-      res.redirect('back');
+  	let locals = res.locals;
+  	let appData = keystone.app.locals;
+
+    if (currencies.includes(params.currency)) {	
+    	appData.currency = params.currency; 
+      	res.redirect('back');
     } else {
-      process.env.CURRENCY = params.currency;
-      res.redirect('back');
+ 		params.currency = "USD";
+      	appData.currency = "USD";
+      	res.redirect('back');
+     
     }
-  }
-}
+  };
+
 

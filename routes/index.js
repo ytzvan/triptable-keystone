@@ -13,11 +13,7 @@ keystone.pre('routes', middleware.isAdmin);
 keystone.pre('routes', middleware.isGuide);
 //keystone.pre('render', middleware.isGuide);
 keystone.pre('routes', middleware.intl);
-keystone.pre('routes', middleware.getCurrency);
-keystone.pre('render', middleware.getCurrency);
 keystone.pre('routes', middleware.setCurrency);
-keystone.pre('render', middleware.setCurrency);
-
 // Import Route Controller
 var routes = {
 	views: importRoutes('./views'),
