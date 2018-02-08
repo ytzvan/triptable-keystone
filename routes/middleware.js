@@ -290,6 +290,8 @@ exports.setCurrency = function(req, res, next) {
   var appData = keystone.app.locals;
   if (!appData.currency) {
     appData.currency = "USD";
-  } 
+  } else { // Forcing USD
+    appData.currency = "USD";
+  }
   next();
 };
