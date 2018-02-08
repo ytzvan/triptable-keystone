@@ -2,7 +2,7 @@ var keystone = require('keystone');
 var async = require('async');
 var Email = require('../../utils').Email;
 var currencies = [];
-currencies = ["USD", "EUR", "COP", "CNY", "BRL"];
+currencies = ["USD", "EUR", "COP", "CNY", "BRL", "MXN"];
 exports.cartAbandon = function(req, res, next) {
 		if (req.user) {
 			var obj = {};
