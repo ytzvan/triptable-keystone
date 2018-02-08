@@ -429,9 +429,6 @@ module.exports = function() {
 
 	_helpers.getPriceInCurrency = function(price){
 		var appData = keystone.app.locals;
-
-		console.log("appdata in helpers", appData.currency);
-
 		var currency = appData.currency;
 
 		var convert = fx(price).from('USD').to(currency); // ~8.0424

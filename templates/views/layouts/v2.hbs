@@ -21,11 +21,13 @@
 	{{else}}
 	<meta name="description" content="{{i18n "meta_description"}}">
 	{{/if}}
+
+
 	{{#if meta.canonical}}
 	<link rel="canonical" href="https://www.triptable.com{{meta.canonical}}" />
     <link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}">
     <link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}">
-    <link rel="alternate" hreflang="es-419" href="https://www.triptable.com{{meta.canonical}}">
+    <link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}">
 	{{else}}
 	<link rel="canonical" href="https://www.triptable.com/" />
     <link rel="alternate" hreflang="es" href="https://es.triptable.com/">
@@ -172,15 +174,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</ul>
 						</li>
 						<li>
-							<a href="#" id="currency-select"><i class="im im-icon-Dollar-Sign"></i> </a>
-							<ul>
+							<a id="currency-select"><i class="im im-icon-Dollar-Sign"></i> </a>
+							<!--<ul>
 								<li><a href="/currency/USD">$ USD</a></li>
 								<li><a href="/currency/EUR">€ EUR</a></li>
 								<li><a href="/currency/COP">$ COP</a></li>
 								<li><a href="/currency/COP">$ MXN</a></li>
-								<!--<li><a href="/currency/CNY">¥ CNY</a></li> -->
-								<!--<li><a href="/currency/BRL">R$ BRL</a></li>-->
-							</ul>
+								<li><a href="/currency/CNY">¥ CNY</a></li>
+								<li><a href="/currency/BRL">R$ BRL</a></li>
+							</ul>-->
 						</li>
 						
 						{{#if userInfo}}

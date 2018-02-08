@@ -37,7 +37,6 @@ $(document).ready(function() {
 	{{#each toursPanama.results }}
 		setImpressions(panamaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
 		$( "#panama-tour-item-"+pos).data( "tourObj", panamaHomeTours[pos]); // Seed id with obj data
-		console.log($( "#panama-tour-item-"+pos).data());
 		pos = pos + 1;
 	{{/each}}
 
