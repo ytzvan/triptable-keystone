@@ -65,10 +65,10 @@ exports = module.exports = function(req, res) {
 			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", "+result.country.country +".";
 
 			if (result.heroImage) {
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,w_800,q_90/v"+result.heroImage.version+"/"+result.heroImage.public_id+"."+result.heroImage.format;
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_900,w_1200,q_100/v"+result.heroImage.version+"/"+result.heroImage.public_id+"."+result.heroImage.format;
 			} else {
 			var img = result.images[0];
-				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,w_800,q_90/v"+img.version+"/"+img.public_id+"."+img.format;
+				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_900,w_1200,q_100/v"+img.version+"/"+img.public_id+"."+img.format;
 			}
 			locals.meta.canonical = req.url;
 		});

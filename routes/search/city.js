@@ -90,7 +90,7 @@ exports = module.exports = function(req, res) {
 	  				var origin = req.get('origin');
 	  				let base = req.path;
 	  				if (results.next) {
-	  					locals.meta.nextUrl = req.protocol+'://'+req.hostname+base+"?page="+results.next;
+	  					locals.meta.nextUrl = base+"?page="+results.next;
 	  				}
 	  				if (results.previous) {
 	  					locals.meta.prevUrl = base+"?page="+results.previous;

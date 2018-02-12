@@ -201,8 +201,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</ul>
 						</li>
 						{{else}}
-						<li  id="loginLink" class="header-left">
+						<li  id="loginLink" class="header-left hidden-xs hidden-sm">
 							<a href="#sign-in-dialog" id="signInBtn" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> {{i18n "signin"}}</a></li>
+							<li  id="loginLink" class="header-left hidden-md hidden-xl hidden-lg ">
+							<a href="/signin" id="" class=""><i class="sl sl-icon-login"></i> {{i18n "signin"}}</a></li>
 						{{/if}}
 					</ul>
 				</nav>
