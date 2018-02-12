@@ -14,9 +14,9 @@
 							<a target="_blank" href="/destino/{{data.tour.city.slug}}">{{i18n "tours_in"}} {{data.tour.city.city}}, {{data.tour.country.country}} </a>
 						</a>
 					</span>
-					{{#if 'data.tour.nOfReviews < 2' }} 
+					{{#if data.tour.nOfReviews }} 
 					<div class="star-rating" data-rating="{{data.tour.nOfStars}}"> 
-						<div class="rating-counter"><a href="#listing-reviews">{{data.tour.nOfReviews}} {{i18n "reviews"}})</a></div>
+						<div class="rating-counter"><a href="#listing-reviews">{{data.tour.nOfReviews}} {{i18n "reviews"}}</a></div>
 					</div>
 					{{/if}}
 				</div>
