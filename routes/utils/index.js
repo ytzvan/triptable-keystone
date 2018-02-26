@@ -23,13 +23,17 @@ exports.setCurrency = function(req, res, next) {
 	let params = req.params;
   	let locals = res.locals;
   	let appData = keystone.app.locals;
-
+    locals.session = {};
     if (currencies.includes(params.currency)) {	
-    	appData.currency = params.currency; 
+    	var sessionObj = {currency : params.currency};  //set new value
+    	req.session.currency = sessionObj;
+      locals.session.userCurrency = req.session.currency.currency;
+ 		console.log("current currency new set", req.session.currency)
       	res.redirect('back');
     } else {
- 		params.currency = "USD";
-      	appData.currency = "USD";
+    	var sessionObj = {currency : "USD"};  //setting fallback
+    	req.session.currency = sessionObj;
+    	console.log("current currency set", req.session.currency)
       	res.redirect('back');
      
     }

@@ -427,24 +427,23 @@ module.exports = function() {
   	return currentLang;
   };
 
-	_helpers.getPriceInCurrency = function(price){
-		var appData = keystone.app.locals;
-		var currency = appData.currency;
-
+	_helpers.getPriceInCurrency = function(price, currency){
+		var currency = "USD"; //Make dynamic
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
 		return priceInLocalCurrency;
 	};
 
 	_helpers.getPriceInUSD = function(price){
+
 		var convert = fx(price).from('USD').to('USD'); // ~8.0424
 		var priceInUSD = accounting.formatMoney(convert, {"precision": 0});
 		return priceInUSD;
 	};
 
 	_helpers.getCurrency = function(){
-		var appData = keystone.app.locals;
-		return appData.currency;
+		var appData = "USD";
+		return appData;
 	}
 	return _helpers;
 };

@@ -77,8 +77,7 @@ keystone.set('email rules', [{
 
 keystone.set('email tests', require('./routes/emails'));
 
-//keystone.set('session options', { cookie: { domain:'.localdomain.com:3000', path: '/', secure: true,  maxAge   : 1000*60*60*24*30*12 }});
-keystone.set('config', { currency: 'USD' });
+//keystone.set('session options', { cookie: { domain:'localdomain.com:3000', path: '/', secure: true,  maxAge   : 1000*60*60*24*30*12 }});
 keystone.set('nav', {
 	'enquiries': 'enquiries',
 	'users': 'users',
@@ -115,9 +114,6 @@ function updateCurrencyFile() {
 	 	} else {
 		fx.rates =  oxr.rates;
 		fx.base = "USD";
-		var appData = keystone.app.locals;
-		appData.currency = "USD";
-		//console.log(result);
 		return result;
 		} 
 	});

@@ -287,11 +287,13 @@ if (subdomain == 'www') {
 };
 
 exports.setCurrency = function(req, res, next) {
-  var appData = keystone.app.locals;
-  if (!appData.currency) {
-    appData.currency = "USD";
-  } else { // Forcing USD
-    appData.currency = "USD";
+  var locals = res.locals;
+  var session = req.session;
+  locals.session = {};
+  if (!session.currency) {
+    var sessionObj = {currency : "USD" };  //setting fallback
+    req.session.currency = sessionObj; 
   }
+  locals.session.userCurrency = {value : req.session.currency.currency};
   next();
 };
