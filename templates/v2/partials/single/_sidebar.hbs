@@ -9,7 +9,7 @@
 				{{/if_eq}}
 			<!-- Book Now -->
 			<div class="boxed-widget padding-15 booking-widget ">
-				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i><strong>{{getPriceInCurrency data.tour.price}} {{getCurrency}} </strong> {{i18n "per_person"}}</h3><span></span>
+				<h3 class="sidebar book-now"><i class="fa fa-calendar-check-o"></i><strong>{{getPriceInCurrency data.tour.price data.tour.currency}} {{data.tour.currency}} </strong> {{i18n "per_person"}}</h3><span></span>
 
 				<div class="row with-forms  margin-top-0">
 					<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">

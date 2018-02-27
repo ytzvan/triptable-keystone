@@ -21,7 +21,28 @@
 	<div class="simple-fw-slick-carousel dots-nav">
 		{{#each toursPanama.results }}
 		<div class="panama-tour-item" id="panama-tour-item-{{@index}}">
-			{{>home/_single-tour-item}}
+			<div class="fw-carousel-item"> 
+				<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
+					<div class="listing-item">
+						{{#if heroImage.secure_url}} <!-- fall back -->
+						<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_480,w_390/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
+						{{else}}
+						<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+						{{/if}}
+						<div class="listing-item-details">
+							<ul>
+							</ul>
+						</div>
+						<div class="listing-item-content">
+						</div>
+					</div>
+					<div class="tour-item-desc">
+						<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
+						<span class="tour-item-desc">{{getTourLocName name name_eng}} </span> 
+						<span class="currency"><strong>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}}</strong> {{i18n "per_person"}}</span>
+					</div>
+				</a>
+			</div>
 		</div>
 		{{/each}}
 	</div>

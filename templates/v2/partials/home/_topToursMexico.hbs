@@ -6,13 +6,13 @@
 
 			<div class="col-xs-9">
 				<h4 class="headline margin-bottom-15">
-					{{i18n "most_popular_tours_in"}} {{i18n "Colombia"}}
+					{{i18n "most_popular_tours_in"}} {{i18n "mexico"}}
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
 				</h4>
 			</div>
 			<div class="col-xs-3 text-right">
 				<span class="view-more margin-bottom-15">
-					<a href="/colombia" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
+					<a href="/mexico" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
 				</span>
 			</div>
@@ -21,8 +21,8 @@
 	<!-- Carousel / Start -->
 	<div class="simple-fw-slick-carousel dots-nav">
 		
-		{{#each toursColombia.results }}
-		<div class="colombia-tour-item" id="colombia-tour-item-{{@index}}">
+		{{#each toursMexico.results }}
+		<div class="mexico-tour-item" id="mexico-tour-item-{{@index}}">
 			<div class="fw-carousel-item"> 
 				<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
 				<div class="listing-item">
@@ -45,7 +45,7 @@
 				<div class="tour-item-desc">
 					<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
 					<span class="tour-item-desc">{{getTourLocName name name_eng}} </span>
-					<span class="currency"><strong>{{../toursColombia.currency}} {{getPriceInCurrency price ../toursColombia.currency}}</strong> {{i18n "per_person"}}</span> 
+					<span class="currency"><strong>{{../toursMexico.currency}} {{getPriceInCurrency price ../toursMexico.currency}}</strong> {{i18n "per_person"}}</span> 
 				</div>
 				</a>
 			</div>
@@ -65,24 +65,24 @@
 // Product impressions are sent by pushing an impressions object
 // containing one or more impressionFieldObject
 $(document).ready(function() {
-	var colombiaHomeTours = [];
+	var mexicoHomeTours = [];
 	var pos = 0;
 	var listName = "Home - Colombia Tours Featured";
-	{{#each toursColombia.results }}
-		setImpressions(colombiaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
-		$( "#colombia-tour-item-"+pos).data( "tourObj", colombiaHomeTours[pos]); // Seed id with obj data
+	{{#each toursMexico.results }}
+		setImpressions(mexicoHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#mexico-tour-item-"+pos).data( "tourObj", mexicoHomeTours[pos]); // Seed id with obj data
 		pos = pos + 1;
 	{{/each}}
 
 	dataLayer.push({
 	  	'ecommerce': {
 	    	'currencyCode': "USD",                       // Local currency is optional.
-	    	'impressions': colombiaHomeTours
+	    	'impressions': mexicoHomeTours
 	  	}
 	});
 
  	//On click event
-	$('.colombia-tour-item').click(function(e){
+	$('.mexico-tour-item').click(function(e){
 		var target = e.currentTarget.id;
 		var productObj = $('#'+target).data().tourObj;
 		setProductClick(productObj, listName);

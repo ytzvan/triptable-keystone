@@ -16,14 +16,9 @@
 			<!--<h3>{{getTourLocName name name_eng}} </h3>-->
 		</div>
 	</div>
-	<!--<div class="star-rating price">
-		<h3 class="tour-price">{{getCurrency}} {{getPriceInCurrency price}} <span class="tour-price"> {{i18n "per_person"}}</span></h3>
-	</div>-->
 	<div class="tour-item-desc">
 		<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
 		<span class="tour-item-desc">{{getTourLocName name name_eng}} </span>
-		<span class="currency"><strong>{{getCurrency}} {{getPriceInCurrency price}}</strong> {{i18n "per_person"}}</span> 
+		<span class="currency"><strong>{{getCurrency}} {{getPriceInCurrency price "USD"}}</strong> {{i18n "per_person"}}</span> 
 	</div>
-
 </a>
-

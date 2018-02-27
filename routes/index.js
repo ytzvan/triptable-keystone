@@ -14,7 +14,6 @@ keystone.pre('routes', middleware.isGuide);
 //keystone.pre('render', middleware.isGuide);
 keystone.pre('routes', middleware.intl);
 keystone.pre('routes', middleware.setCurrency);
-keystone.pre('render', middleware.setCurrency);
 // Import Route Controller
 var routes = {
 	views: importRoutes('./views'),
@@ -29,7 +28,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	// Views
-	app.get('/', middleware.setCurrency, routes.views.index);
+	app.get('/', routes.views.index);
 	//Static views
 	app.all('/signup', routes.auth.signup);
 	app.all('/signin', routes.auth.signin);

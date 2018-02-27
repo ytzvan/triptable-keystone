@@ -38,6 +38,7 @@ exports = module.exports = function(req, res) {
       if (err || !result) {
 				return res.status(404).render('errors/404');
 			}
+			result.currency = req.session.currency.currency;
 			locals.data.tour = result;
 			tourId = result._id;
 

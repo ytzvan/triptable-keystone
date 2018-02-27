@@ -101,9 +101,7 @@ function updateCurrencyFile() {
 	 oxr.set({ app_id: process.env.OXR_API_KEY })
 	 oxr.latest(function(err, result) {
 	 	if (err) {
-	 		console.log("err: ", err);
 	 		var rates =  __dirname + 'routes/rates.json';
-	 		console.log("rates");
 		  	jsonfile.readFile(rates, function(err, result) {
 			    fx.rates =  result;
 			    fx.base = "USD";

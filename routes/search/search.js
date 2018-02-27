@@ -22,6 +22,7 @@ exports = module.exports = function(req, res) {
         .sort('-publishedDate')
 				.populate('city ')
 				.exec(function(err, results) {
+						results.currency = req.session.currency.currency;	
 						locals.data.tours = results;
 						next(err);
 				});

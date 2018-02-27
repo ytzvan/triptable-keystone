@@ -84,8 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TXZ459T');</script>
 <!-- End Google Tag Manager -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"
-    async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
 </head>
 <script>  
 		window.intercomSettings = {
@@ -175,14 +174,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</li>
 						<li>
 							<a id="currency-select"><i class="im im-icon-Dollar-Sign"></i> </a>
-							<!--<ul>
+							<ul>
 								<li><a href="/currency/USD">$ USD</a></li>
 								<li><a href="/currency/EUR">€ EUR</a></li>
 								<li><a href="/currency/COP">$ COP</a></li>
-								<li><a href="/currency/COP">$ MXN</a></li>
+								<li><a href="/currency/MXN">$ MXN</a></li>
 								<li><a href="/currency/CNY">¥ CNY</a></li>
 								<li><a href="/currency/BRL">R$ BRL</a></li>
-							</ul>-->
+							</ul>
 						</li>
 						
 						{{#if userInfo}}
@@ -222,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						var str = '<i class="flag-icon flag-icon-es">';
 						$('#lang-select').html(str);
 					};
-					var currency =  "{{getCurrency}}";
+					var currency =  "{{session.userCurrency.value}}";
 				
 					$('#currency-select').append(currency);
 

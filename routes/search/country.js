@@ -98,6 +98,7 @@ exports = module.exports = function(req, res) {
 					if (results.previous) {
 						locals.meta.prevUrl = base+"?page="+results.previous;
 					}
+						results.currency = req.session.currency.currency;
 						locals.data.tours = results;
 						next(err);
 				});

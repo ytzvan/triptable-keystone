@@ -115,9 +115,33 @@
 				<button class="button">{{i18n "search"}}</button>
 			</div>
 		</div>
-			<div class="tour-search-list">
-			{{#each data.tours.results}}
-      		{{>search/_results}}
+		<div class="tour-search-list">
+		{{#each data.tours.results}}
+    	<div class="col-md-3 col-sm-4 col-xs-6 tour-result-item search-item search-tour-item" id="search-tour-item-{{@index}}">
+				<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
+				<div class="listing-item">
+					{{#if heroImage.secure_url}} <!-- fall back -->
+					<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_480,w_390/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
+					{{else}}
+					<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
+					{{/if}}
+					<div class="listing-item-details">
+						<ul>
+						</ul>
+					</div>
+				<!--	<div class="listing-badge now-open"><strong>-15% OFF</strong></div>-->
+					<div class="listing-item-content">
+				
+					</div> 
+				</div>
+				<div class="tour-item-desc">
+					<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
+					<span class="tour-item-desc">{{getTourLocName name name_eng}} </span>
+					<span class="currency"><strong>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}}</strong> {{i18n "per_person"}}</span> 
+				</div>
+
+			</a>
+			</div>
 			{{/each}}	
 			</div>
 			<!-- Pagination -->

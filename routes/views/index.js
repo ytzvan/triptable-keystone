@@ -40,6 +40,7 @@ module.exports = function(req, res) {
 
 					query.exec(function(err, results) {
 						if (!err){
+							results.currency = req.session.currency.currency;
 						resolve(results);
 						} else {
 							reject(err);
@@ -50,7 +51,6 @@ module.exports = function(req, res) {
 	// Load the places
       
 		view.on('init', function(next){
-
 		asyncFunc ("5704494210326b0300cb6a2f")
 		.then(function (results) {
 			 locals.toursPanama = results;
@@ -60,13 +60,16 @@ module.exports = function(req, res) {
 		 	if (toursColombia) {
 				locals.toursColombia = toursColombia;
 			}
+			return asyncFunc("58dec56592896d0400161fd3")
+		})
+		 .then(function(toursMexico){
+		 	if (toursMexico) {
+				locals.toursMexico = toursMexico;
+			}
 			next();
-		});
+		 });
 
     });
-		
-		
-
 
 	view.on('init', function(next) {
 		keystone.list('Province')

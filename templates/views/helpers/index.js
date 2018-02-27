@@ -428,7 +428,7 @@ module.exports = function() {
   };
 
 	_helpers.getPriceInCurrency = function(price, currency){
-		var currency = "USD"; //Make dynamic
+		var currency = currency; 
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
 		return priceInLocalCurrency;

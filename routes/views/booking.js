@@ -53,6 +53,7 @@ exports = module.exports = function(req, res) {
 			if (err) {
 				
 			} else {
+				result.currency = req.session.currency.currency;
 				locals.data.tour = result;
 				locals.data.userInfo = req.user;
 

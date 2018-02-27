@@ -77,14 +77,14 @@ exports = module.exports = function(req, res) {
 			var q = keystone.list('Tour')
   				.paginate({page: req.query.page || 1, perPage: 20})
 		        .find({"state": "published"})
-				.where("city", id)
+						.where("city", id)
 		        .sort('-publishedDate')
-				.populate('province country categories city')
-				if (locals.data.filter) {
-  					q.where('collections', locals.data.filter)
-  					locals.data.activeCollection = locals.data.filter;
+						.populate('province country categories city')
+					if (locals.data.filter) {
+							q.where('collections', locals.data.filter)
+							locals.data.activeCollection = locals.data.filter;
 
-  				}
+						}
 	  			q.exec(function(err, results) {
 
 	  				var origin = req.get('origin');
@@ -94,7 +94,8 @@ exports = module.exports = function(req, res) {
 	  				}
 	  				if (results.previous) {
 	  					locals.meta.prevUrl = base+"?page="+results.previous;
-	  				}
+						}
+						results.currency = req.session.currency.currency;
 	  				locals.data.tours = results;
 	  				next(err);
 	  			});
