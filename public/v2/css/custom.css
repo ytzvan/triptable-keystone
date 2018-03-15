@@ -958,4 +958,7 @@ i.flag-icon {
     padding-top: 0px;
     font-size: 18px;
 }
+.text-content {
+	background: transparent;
+	padding: 50px 0px;
 }
