@@ -321,5 +321,18 @@
 	"tourism_attractions": "Tourism attraction",
 	"my_main_activity_is": "The main activity of my business is",
 	"facebook": "facebook",
-	"enquiry_send": "We received sucesfully your information"
+	"enquiry_send": "We received sucesfully your information",
+	"list_your_tour_title": "Become a Partner of Triptable",
+	"list_your_tour_subtitle": "We are the fastest growing tour and activity booking platform in Latin America. We connect travelers with the best providers of experiences, attractions, tours and weekend getaways.",
+	"tour_operators_message": "Tour operators focused on city tours, adventures tours, food tours and more.",
+	"activities_message": "Paragliding, Stand-up paddle, bikes, kayaks and other business focused on rentals.",
+	"tour_guides_message": "Independent or specialized tour guides who provides authentic and unique experiences.",
+	"tourism_attractions_message": "Museums, amusement parks, aquariums and local tourism attractions.",
+	"lodging_and_cabins": "Lodging and Eco-lodges",
+	"lodging_message": "Cabins, villas and bed & breakfast.",
+	"ground_air_maritime_transfers": "Transportation Services",
+	"transportation_message": "Ground transfers, Ferris, Boats and other transportation services.",
+	"become_a_partner": "Become a partner",
+	"select": "select",
+	"list_your_tour": "List a Tour"
 }
