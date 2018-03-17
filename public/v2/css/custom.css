@@ -962,3 +962,6 @@ i.flag-icon {
 	background: transparent;
 	padding: 50px 0px;
 }
+.center-text{
+	text-align: center;
+}

@@ -2,11 +2,11 @@
 	<div class="row">
 	<!-- Parallax -->
 <div class="parallax"
-	data-background="images/slider-bg-02.jpg"
+	data-background="https://res.cloudinary.com/triptable/image/upload/c_scale,f_auto,q_90,w_900/v1502131153/2Q4A0121.jpg"
 	data-color="#36383e"
-	data-color-opacity="0.6"
-	data-img-width="800"
-	data-img-height="300">
+	data-color-opacity="0.67"
+	data-img-width="900"
+	data-img-height="600">
 
 	<!-- Infobox -->
 	<div class="text-content white-font margin-bottom-30">
@@ -14,9 +14,8 @@
 
 			<div class="row">
 				<div class="col-lg-6 col-sm-8">
-					<h1>Conviérte en Partner de Triptable </h1>
-					<p>Somos la plataforma de reservaciones de tours y actividades de mayor crecimiento en Latinoamérica. Conectamos viajeros con los mejores proveedores de experiencias, atracciones, tours y escapadas de fin de semana.</p>
-					<a href="#" class="button margin-top-25">Ver Video</a>
+					<h1>{{i18n "list_your_tour_title"}}</h1>
+					<p>{{i18n "list_your_tour_subtitle"}}</p>
 				</div>
 			</div>
 
@@ -30,11 +29,59 @@
 </div>
 </div>
 
+<div class="container margin-top-30 margin-bottom-60">
+	<div class="row">
+			{{#if enquirySubmitted}}
+			<h3 class="text-center">{{i18n "enquiry_send"}}</h3>
+			{{else}}
+		<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px; color:#3498db;font-weight:600" class="im im-icon-Talk-Man"></i>
+			<h2>{{i18n "tour_operators"}}</h2>
+			<p>{{i18n "tour_operators_message"}}</p>
+		</div>
+
+
+		<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px; color:#3498db;font-weight:600" class="im im-icon-Helicopter"></i>
+			<h2>{{i18n "activities_and_rentals"}}</h2>
+			<p>{{i18n "activities_message"}}</p>
+		</div>
+		
+		
+		<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Conference"></i>
+			<h2>{{i18n "tour_guides"}}</h2>
+			<p>{{i18n "tour_guides_message"}}</p>
+		</div>
+
+		
+		<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Museum"></i>
+			<h2>{{i18n "tourism_attractions"}}</h2>
+			<p>{{i18n "tourism_attractions_message"}}</p>
+		</div>
+
+
+			<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Phone-2"></i>
+			<h2>{{i18n "lodging_and_cabins"}}</h2>
+			<p>{{i18n "lodging_message"}}</p>
+		</div>
+
+
+	
+		<div class="col-md-4 margin-top-20 center-text">
+			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Phone-2"></i>
+			<h2>{{i18n "ground_air_maritime_transfers"}}</h2>
+			<p>{{i18n "transportation_message"}}</p>
+		</div>
+
+</div>
+</div>
+
 <div class="container">
 	<div class="row">
-		{{#if enquirySubmitted}}
-			<h3 class="text-center">Hemos enviado la informacion a tu correo</h3>
-		{{else}}
+		<h3 class="text-center">{{i18n "become_a_partner"}}</h3>
 		<form method="post">
 			<input type="hidden" name="action" value="contact">	
 				<div class="col-md-6" class="{{#if validationErrors.name}}has-error{{/if}}" >
@@ -94,8 +141,10 @@
 				<option value="tour-operator">{{i18n "tour_operator"}}</option>	<!-- all-included packages, provider -->
 				<option value="activities & rentals">{{i18n "activities_and_rentals"}}</option>	<!-- standup paddle, karting, car rental -->
 				<option value="tour-guide">{{i18n "tour_guide"}}</option>	<!-- individual tour guide, -->
-				<option value="travel-agency">{{i18n "travel_agency"}}</option>	<!-- DMC, Emisive, receptive, travel agents-->
 				<option value="tourism-attraction">{{i18n "tourism_attractions"}}</option>	<!-- museums, local attractions and amusement parks -->
+				<option value="tourism-attraction">{{i18n "tourism_attractions"}}</option>	<!-- museums, local attractions and amusement parks -->
+				<option value="lodging">{{i18n "lodging_and_cabins"}}</option>	<!-- museums, local attractions and amusement parks -->
+				<option value="yatch-and-boats">{{i18n "ground_air_maritime_transfers"}}</option>	<!-- museums, local attractions and amusement parks -->
 					</select>
 				</div>
 		
