@@ -12,23 +12,9 @@ CRM.add({
   company: { type: String, },
 	country: { type: String },
 	website: { type: String },
-	enquiryType: { type: Types.Select, options: [
-		{ value: 'Tour Operador', label: "Tour Operador" },
-		{ value: 'Guia', label: "Guía Independiente" },
-		{ value: 'Agencia de Viajes', label: "Agencia de Viajes" },
-		{ value: 'Hotel', label: "Hotel" },
-		{ value: 'Transporte', label: "Servicios de Transporte" },
-		{ value: 'Insider', label: "Quiero enseñarle mi ciudad a viajeros" },
-	], required: false },
-	message: { type: String, required: false },
-  status: { type: Types.Select, options: [
-		{ value: '0', label: "Lead" },
-		{ value: '1', label: "Se envió el formulario" },
-		{ value: '2', label: "Se envió el contrato" },
-		{ value: '3', label: "Se recibieron todos los documentos" },
-		{ value: '4', label: "Venta Cerrada" },
-    { value: '5', label: "No está interesado" },
-	], required: false, default: 0 },
+	facebook: { type: String, required: false },
+	mainActivity: { type: String, required: false },
+
   createdAt: { type: Date, default: Date.now, noedit: true },
 });
 
