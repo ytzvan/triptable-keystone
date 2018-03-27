@@ -51,7 +51,8 @@
 				</div>
 			</div>
 			<div class="boxed-widget opening-hours summary margin-top-0">
-				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}</h3>
+				<h3><i class="fa fa-calendar-check-o"></i> {{i18n "booking_summary"}}<br><span style="font-size:11px;"><i class="im im-icon-Arrow-Back"></i><a style="text-decoration:underline;cursor: pointer;" onClick="history.go(-1);">{{i18n "modify_booking"}}</a></span></h3>
+				
 				<ul>
 					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
 					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>

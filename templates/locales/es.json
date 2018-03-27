@@ -11,7 +11,7 @@
 	"featured_tours": "Tours Destacados",
 	"featured_tours_subtitle": "Estos tours han marcado tendencias en nuestros usuarios",
 	"sale": "Oferta",
-	"book_now": "Reservar",
+	"book_now": "Reservar Ahora",
 	"see_all": "Ver Todos",
 	"list_tour": "Listar un tour",
 	"list_tour_description": "Listar tus servicios turísticos en con nostros tiene muchas ventajas que potenciarán tu negocio.",
@@ -227,7 +227,7 @@
 	"location": "Ubicación",
 	"reviews": "Reseñas",
 	"booking_from": "Reserva desde",
-	"price_may_vary": "El precio por persona podrá variar dependiento de la cantidad de adultos",
+	"price_may_vary": "El precio por adulto depende de la cantidad de personas en su reserva",
 	"ground_transportation": "Transporte Terrestre",
 	"tour_guide": "Guía de Turismo",
 	"tickets": "Entradas a Atracciones",
@@ -343,5 +343,13 @@
 	"lodging_message": "Cabañas, villas y bed & breakfast.",
 	"transportation_message": "Transferencias terrestres, ferris, barcos y otros servicios de transporte.",
 	"enquiry_send": "Hemos recibido exitosamente tu información",
-	"list_your_tour": "Listar un Tour"
+	"list_your_tour": "Listar un Tour",
+	"price_per_person": "price_per_person",
+	"pricing_list": "Lista de precios",
+	"years": "años",
+	"per_child": "por niño",
+	"per_infant": "por infante",
+	"number_of": "# de",
+	"per_adult": "por adulto",
+	"modify_booking": "modify_booking"
 }

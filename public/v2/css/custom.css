@@ -231,7 +231,7 @@ span.like-icon{
 
 .wc-bookings-date-picker .ui-datepicker table .bookable-range a,
 .wc-bookings-date-picker .ui-datepicker table .ui-datepicker-current-day a {
-	background-color: #7f8c8d;
+	background-color: #3498db;
 	color: white; 
 	position: relative;
 }
@@ -964,4 +964,10 @@ i.flag-icon {
 }
 .center-text{
 	text-align: center;
+}
+.pricing-list-container ul {
+	 margin-bottom: 0px; 
+}
+.verified-badge {
+	background-color: #3498db;
 }

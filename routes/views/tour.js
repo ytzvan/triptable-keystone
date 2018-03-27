@@ -41,6 +41,27 @@ exports = module.exports = function(req, res) {
 			result.currency = req.session.currency.currency;
 			locals.data.tour = result;
 			tourId = result._id;
+			cart = [];
+	
+			if (result.multiPrice){
+				for (let i=0;i<result.multiPriceCatalog.length;1){
+					var element = {};
+					let obj = result.multiPriceCatalog[i];
+					obj = obj.split(',');
+					let from = obj[0];
+					from = parseInt(from);
+					let to = obj[1];
+					to = parseInt(to);
+					let price = obj[2];
+					price = parseInt(price);
+					element.from = from;
+					element.to = to;
+					element.price = price;
+					cart.push(element);
+					i=i+1;
+				}
+				locals.data.tour.multiPriceObj = cart;
+			}
 
 			/*Load Reviews */
 			loadReviews(next);

@@ -428,6 +428,8 @@ module.exports = function() {
   };
 
 	_helpers.getPriceInCurrency = function(price, currency){
+		console.log("price", price);
+		console.log("currency", currency);
 		var currency = currency; 
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});
@@ -445,5 +447,13 @@ module.exports = function() {
 		var appData = "USD";
 		return appData;
 	}
+
+	_helpers.for = function(from, to, incr, block) {
+    var accum = '';
+    for(var i = from; i <= to; i += incr)
+        accum += block.fn(i);
+    return accum;
+	};
+	
 	return _helpers;
 };

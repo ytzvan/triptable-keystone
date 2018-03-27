@@ -224,7 +224,7 @@
 	"media_section_title": "In Media",
 	"media_section_subtitle": "What the media says about us",
 	"booking_from": "Booking from",
-	"price_may_vary": "Price per person may vary depending on the number of adults",
+	"price_may_vary": "Price per adult based on the # of people of your booking ",
 	"ground_transportation": "Ground Transportation",
 	"tour_guide": "Tour Guide",
 	"tickets": "Tickets",
@@ -334,5 +334,11 @@
 	"transportation_message": "Ground transfers, Ferris, Boats and other transportation services.",
 	"become_a_partner": "Become a partner",
 	"select": "select",
-	"list_your_tour": "List a Tour"
+	"list_your_tour": "List a Tour",
+	"pricing_list": "Pricing list",
+	"years": "years",
+	"per_child": "per child",
+	"per_infant": "per infant",
+	"number_of":"# of",
+	"per_adult": "per adult"
 }

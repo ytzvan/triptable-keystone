@@ -67,10 +67,10 @@
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav" id="tour-section-nav">
-					<li><a href="#listing-overview" class="active">{{i18n "tour_description_title"}}</a></li>
-					<!--<li><a href="#listing-pricing-list">{{i18n "pricing"}}</a></li> -->
-					<li><a href="#listing-location">{{i18n "location"}}</a></li>
-					<li><a href="#listing-reviews">{{i18n "reviews"}}</a></li>
+					<li><a href="#listing-overview" class="active"><i class="im im-icon-Information"></i> {{i18n "tour_description_title"}}</a></li>
+					<li><a href="#listing-pricing-list"><i class="im im-icon-Money-2"></i> {{i18n "pricing"}}</a></li>
+					<li><a href="#listing-location"><i class="im im-icon-Location-2"></i> {{i18n "location"}}</a></li>
+					<li><a href="#listing-reviews"><i class="im im-icon-Pen-4"></i> {{i18n "reviews"}}</a></li>
 					<!--<li><a href="#add-review">Add Review</a></li>-->
 				</ul>
 			</div>
@@ -143,7 +143,106 @@
 						<a href="#" class="show-more-button" data-more-title="{{i18n "show_more"}}" data-less-title="{{i18n "show_less"}}"><i class="fa fa-angle-down"></i></a>
 				{{/if_eq}}
 			</div>
+			<form id="preBookForm" action="/booking/{{data.tour.tourId}}" method="get">
+			<!-- Food Menu -->
+			<div id="listing-pricing-list" class="listing-section margin-top-30">
+		<!--		<h3 class="listing-desc-headline margin-top-15 margin-bottom-30">Pricing</h3>-->
+
+					<div class="pricing-list-container">
+						
+						<!-- Food List -->
+						<h4>{{i18n "pricing_list"}}</h4>
+						<ul>
+
+							{{#if data.tour.multiPrice}}
+							<li>
+									{{#each data.tour.multiPriceObj}}
+								<h5>{{i18n "number_of"}} {{i18n "adults"}}: {{this.from}} - {{this.to}}</h5>
+				
+								<p><strong>{{getPriceInCurrency this.price ../data.tour.currency}} {{../data.tour.currency}}</strong> {{i18n "per_adult"}} </p>
+								{{/each}}
+								<span><select data-placeholder="#" name="nOfAdults" class="">	
+									{{#for data.tour.minPerson data.tour.maxPerson 1}}
+									<option>{{this}}</option>
+									{{/for}}		
+								</select
+							></span>
+							</li>
+
+							
 			
+						{{/if}}
+						{{#unless data.tour.multiPrice}}
+							<li>
+								<h5>{{i18n "adults"}}: (+12 {{i18n "years"}})</h5>
+								<p><strong>{{getPriceInCurrency data.tour.price data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_person"}} </p>
+								<span><select data-placeholder="#" name="nOfAdults" class="">
+									{{#for data.tour.minPerson data.tour.maxPerson 1}}
+									<option>{{this}}</option>
+									{{/for}}	
+								</select
+							></span>
+							</li>
+							{{/unless}}
+							<li>
+								<h5>{{i18n "children"}}: (6-11 {{i18n "years"}})</h5>
+								<p><strong>{{getPriceInCurrency data.tour.childPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_child"}}</p>
+								<span><select data-placeholder="#" name="nOfChildren" class="">
+								{{#for 0 data.tour.maxPerson 1}}
+									<option>{{this}}</option>
+									{{/for}}	
+								</select
+							></span>
+							</li>
+							<li>
+								<h5>{{i18n "infants"}}: (0-5 {{i18n "years"}}) </h5>
+								<p><strong>{{getPriceInCurrency data.tour.infantPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_infant"}}</p>
+								<span><select data-placeholder="#" name="nOfInfants" class="">
+									{{#for 0 data.tour.maxPerson 1}}
+									<option>{{this}}</option>
+									{{/for}}	
+								</select
+							>
+							</span>
+							</li>
+		
+						</ul>
+
+						<!-- Food List -->
+					<!--	<h4>Niños</h4>
+						<h4>Infantes</h4> -->
+					</div>
+			</div>
+			<!-- Food Menu / End -->
+			<div class="listing-overview">
+						<div class="col-lg-6 col-md-12">
+						<!--<i class="im im-icon-Calendar-4"></i> 
+						<span>Fecha: </span> -->
+						<div class="wc-bookings-date-picker" id="datepicker">
+						<input type="hidden" id="hiddenDate" name="date" value="">
+						<input type="hidden" name="tourId" value="{{data.tour.tourId}}">
+						</div>
+					</div>
+							<div class="col-lg-6 col-md-12">
+
+						<h4> <i class="im im-icon-Clock-Forward "></i> {{i18n "schedule"}}: </h4>
+						<select data-placeholder="{{i18n "schedule"}}" id="bookingTime" name="bookingTime" class="chosen-select" >
+							{{#if data.tour.schedule}}
+							{{#each data.tour.schedule}}
+								<option> {{this}}</option>	
+							{{/each}}
+							{{else}}
+								<option>{{i18n "custom"}}</option>	
+							{{/if}}	
+						</select>
+					</div> 
+					<div class="center-text">
+							<button type="submit" id="bookingBtn" style="width:100%;font-size:18px;" class="button margin-top-15">	<i class="sl sl-icon-check"></i> Book Now</button>
+						</div>
+		
+			</div>
+			
+			</form>
 			{{#if data.tour.hasFixedSchedule}}
 			<div class="listing-overview margin-top-30 margin-bottom-30"> <!-- Schedule description --> 
 			<h3>{{i18n "activity_schedule"}}</h3>
@@ -297,7 +396,6 @@
 	  url: "https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js",
 	  dataType: "script"
 	}).done(function() {
-		debugger
   		$(".video").fitVids();
 	});
 
