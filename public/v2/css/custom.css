@@ -939,6 +939,7 @@ i.flag-icon {
 }
 .headline.centered{
 	margin:0;
+	text-transform: uppercase;
 }
 .icon-box-2{
 	margin-top:5px;
