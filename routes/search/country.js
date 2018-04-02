@@ -53,7 +53,7 @@ exports = module.exports = function(req, res) {
 
 			keystone.list('City') //Get other cities from country
 				.model.aggregate([
-				{'$match': {"country":place._id} },
+				{'$match': {"country":place._id, "featured": true} },
 			//	{ '$group' : { _id : "$featured", tours: { $push: "$$ROOT" },}}
 				])
 			 	.sort("-featured")

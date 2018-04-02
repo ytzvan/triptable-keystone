@@ -23,7 +23,6 @@
  <div class="container">
 	<div class="row">
 		{{#each data.cities}}
-		{{#if featured}}
 		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
 			<!-- Image Box -->
 			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
@@ -33,7 +32,6 @@
 			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
 			<h3>{{city}} </h3>
 		</div>	
-		{{/if}}
  		{{/each}}
 	</div>
 </div>
@@ -146,7 +144,7 @@
 			<div class="">
 				<div class="col-md-12">
 					<!-- Pagination -->
-					<div class="pagination-container margin-top-20 margin-bottom-40">
+					<div class="pagination-container margin-top-50 margin-bottom-40">
 						<nav class="pagination">
 							<ul>
 								<!--

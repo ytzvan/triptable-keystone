@@ -3,6 +3,8 @@ var keystone = require('keystone');
 exports.index = function(req, res) {
   var locals = res.locals;
   var view = new keystone.View(req, res);
+  locals.meta = {};
+  locals.meta.canonical = req.url;
   locals.viewName = "My Booking";
   locals.data = {};
     view.on('init', function(next) {
