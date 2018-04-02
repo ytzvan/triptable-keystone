@@ -991,3 +991,10 @@ i.flag-icon {
 #titlebar h1, #titlebar h2{
 	font-size: 26px;
 }
+.featured-city{
+	padding-right:5px;
+	padding-left:5px;
+}
+.featured-city h3{
+	margin: 0px 0px 5px 0px;
+}
