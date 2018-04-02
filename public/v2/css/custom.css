@@ -916,10 +916,17 @@ label.payment-cash {
 }
 h3.headline{
 	font-size: 26px;
+	font-weight: 600;
 	margin-bottom: 5px;
 }
 h4.headline{
 	margin:0;
+	font-weight: 600;
+}
+h2.headline{
+	margin:0;
+	font-size: 24px;
+	font-weight: 600;
 }
 i.flag-icon {
 	z-index: 1;
@@ -952,7 +959,6 @@ i.flag-icon {
 	top:52%;
 }
 .featured-city h3 {
-	letter-spacing: 1px;
     text-transform: capitalize;
     font-weight: 400;
     margin: 0px 0px 30px 0px;
@@ -972,4 +978,7 @@ i.flag-icon {
 }
 .verified-badge {
 	background-color: #3498db;
+}
+.icon-box-2 i{
+	margin-bottom:0px;
 }

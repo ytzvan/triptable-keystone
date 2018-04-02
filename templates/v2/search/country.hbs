@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
-				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}<span>{{i18n "available"}} <strong>{{data.tours.total}}</strong> {{i18n "tours_and_activities"}}.</span>
+				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="hidden-xs">
 					<ul>
@@ -22,11 +22,7 @@
 {{#if data.cities}}
  <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "popular_destinations"}}</h3>
-		</div>
 		{{#each data.cities}}
- 		{{#if featured}}
 		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
 			<!-- Image Box -->
 			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
@@ -36,7 +32,6 @@
 			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
 			<h3>{{city}} </h3>
 		</div>	
-		{{/if}}
  		{{/each}}
 	</div>
 </div>

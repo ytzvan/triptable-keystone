@@ -36,7 +36,8 @@ keystone.init({
 	'signin url': '/signin',
 	'signin redirect' : '/',
 	'signout url' : '/signout',
-	'signout redirect' : '/'
+	'signout redirect' : '/',
+	'compress':true
 });
 keystone.set('s3 config', { bucket: 'triptable', key: 'AKIAJGHX437Z664RXBXA', secret: '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' });
 
