@@ -339,6 +339,7 @@
 	"years": "years",
 	"per_child": "per child",
 	"per_infant": "per infant",
-	"number_of":"# of",
-	"per_adult": "per adult"
+	"number_of": "# of",
+	"per_adult": "per adult",
+	"search_subtitle": "activities found"
 }

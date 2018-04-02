@@ -659,7 +659,7 @@ h2.search-title{
 	height: 320px;
 }
 .main-search-container{
-	height: 320px;
+	height: 340px;
 }
 
 }
@@ -836,7 +836,7 @@ a#searchBtn {
     font-size: 14px;
 }
 .main-search-input input{
-	height: 35px;
+	height: 65px;
 }
 #titlebar{
 	padding: 5px 0px 5px 0px;

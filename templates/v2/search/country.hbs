@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
-				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}</h2>{{/if}}
+				{{#if data.country}}<h2 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}:  <span><strong>{{data.tours.total}}</strong> {{i18n "search_subtitle"}}</span></h2>{{/if}}
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="hidden-xs">
 					<ul>
@@ -43,7 +43,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 margin-top-15">
-			<h4 class="headline search">{{i18n "we_found"}} {{data.tours.total}} {{i18n "tours_and_activities"}} </h3><p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+			<p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
 		</div>
 
 <!-- Search
