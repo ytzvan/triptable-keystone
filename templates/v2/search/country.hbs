@@ -23,6 +23,7 @@
  <div class="container">
 	<div class="row">
 		{{#each data.cities}}
+		{{#if featured}}
 		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
 			<!-- Image Box -->
 			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
@@ -32,6 +33,7 @@
 			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
 			<h3>{{city}} </h3>
 		</div>	
+		{{/if}}
  		{{/each}}
 	</div>
 </div>
@@ -42,8 +44,8 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 margin-top-30">
-			<h3 class="headline">{{i18n "we_found"}} {{data.tours.total}} {{i18n "tours_and_activities"}} </h3><p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+		<div class="col-md-12 margin-top-15">
+			<h4 class="headline search">{{i18n "we_found"}} {{data.tours.total}} {{i18n "tours_and_activities"}} </h3><p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
 		</div>
 
 <!-- Search

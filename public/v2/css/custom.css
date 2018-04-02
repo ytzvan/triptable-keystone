@@ -27,12 +27,12 @@ a#searchBtn{
 .main-search-inner
 	h1.title{
 	font-weight: 500;
-	font-size: 2em;
+	font-size: 3.3rem;
 	color: #ecf0f1;
 }
 h2.subtitle{
 	font-weight: 400;
-	font-size: 1.5em;
+	font-size: 2.3rem;
 	color: #ecf0f1;
 	text-transform: none;
 }
@@ -923,6 +923,12 @@ h4.headline{
 	margin:0;
 	font-weight: 600;
 }
+h4.headline.search{
+	margin:0;
+	font-weight: 400;
+	font-size: 20px;
+	text-transform: none;
+}
 h2.headline{
 	margin:0;
 	font-size: 24px;
@@ -981,4 +987,7 @@ i.flag-icon {
 }
 .icon-box-2 i{
 	margin-bottom:0px;
+}
+#titlebar h1, #titlebar h2{
+	font-size: 26px;
 }
