@@ -1,17 +1,17 @@
 <!-- Banner
 ================================================== -->
 {{#if data.homeImage.image}}
-       <div class="main-search-container hidden-xs" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
+       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
       {{else}}
-      <div class="main-search-container hidden-xs" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_scale,q_80,h_1080/v1515960774/photo-1464839820797-cdd7219729e4.jpg"  style="background-position: center 95%";>
+      <div class="main-search-container" data-background-image="http://res.cloudinary.com/triptable/image/upload/c_fit,h_1200,q_auto:eco/v1522689386/eeipmxfzwzggjtyuls2y.jpg"  style="background-position: center 50%";>
       {{/if}}
 	<div class="main-search-inner">
 
 		<div class="container-fluid search-container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="title">{{i18n "home_main_1"}}</h2>
-					<h4 class="subtitle">{{i18n "home_main_2"}}</h4>
+					<h1 class="title text-center">{{i18n "home_main_1"}}</h2>
+					<h2 class="subtitle text-center">{{i18n "home_main_2"}}</h4>
 					<div class="main-search-input">
 
 						<!--<div class="main-search-input-item">
@@ -19,7 +19,7 @@
 						</div>-->
 
 						<div class="main-search-input-item location">
-							<input type="text"  id="autocomplete-dataset" placeholder="{{i18n "search_message"}}" value=""/>
+							<input type="text"  id="autocomplete-dataset" placeholder="{{i18n "search_message"}}..." value=""/>
 							<!-- <a href="#"><i class="fa fa-dot-circle-o"></i></a>-->
 						</div>
 
@@ -34,7 +34,7 @@
 							</select>
 						</div>-->
 
-						<a class="button" href="/search" id="searchBtn">{{i18n "search"}} <i class="fa fa-search" ></i></a>
+						<a class="button hidden-sm hidden-xs" href="/search" id="searchBtn">{{i18n "search"}} <i class="fa fa-search" ></i></a>
 
 					</div>
 				</div>
@@ -98,10 +98,10 @@ document.addEventListener("DOMContentLoaded", function() {
     source: autocomplete.sources.hits(tours, {hitsPerPage: 5}),
     displayKey: 'name',
     templates: {
-      header: '<div class="search-result-header col-xs-hidden">Tours</div>',
+      header: '<div class="search-result-header">Tours</div>',
       suggestion: function(suggestion) {
         var thumb = getSmallImageFromUrl(suggestion.heroImage);
-        return '<div class="col-md-12 col-xs-hidden"><a href="/tour/'+suggestion.slug+'">' +
+        return '<div class="col-md-12"><a href="/tour/'+suggestion.slug+'">' +
         '<div class="algolia-result-row">' +
           '<div class="col-sm-2 col-xs-4"><img class="result-img" src="' + thumb + '" /></div>' +
           '<div class="algolia result description col-sm-10 col-xs-8">' +

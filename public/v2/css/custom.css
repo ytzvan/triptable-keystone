@@ -25,14 +25,16 @@ a#searchBtn{
 	color: white;
 }
 .main-search-inner
-h2.title{.listing-features.checkboxes li:before
-	font-weight: 400;
-	font-size: 36px;
+	h1.title{
+	font-weight: 500;
+	font-size: 2em;
 	color: #ecf0f1;
 }
-h4.subtitle{
-	font-weight: 300;
+h2.subtitle{
+	font-weight: 400;
+	font-size: 1.5em;
 	color: #ecf0f1;
+	text-transform: none;
 }
 h3.bold.title{
   font-weight: 600;
@@ -391,8 +393,8 @@ span.like-icon{
 .main-search-container:before {
 /*	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0) 85%);*/
 background: linear-gradient(
-	rgba(20,20,20, .35), 
-	rgba(20,20,20, .35));
+	rgba(20,20,20, .55), 
+	rgba(20,20,20, .25));
 	background-size: cover;
 	background-position: center;
 }
@@ -770,7 +772,7 @@ div.tour-item-desc{
 }
 @media (min-width: 1240px) { 
 	div.main-search-inner {
-		width: 70%;
+		width: 100%;
 	}
 }
 .button i{
