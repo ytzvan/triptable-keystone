@@ -278,7 +278,7 @@
 	"search_title": "Tours in",
 	"tour_description_title": "About the Activity",
 	"see_details": "See Details",
-	"most_popular_tours_in": "Most Popular Tours in",
+	"most_popular_tours_in": "Tours in",
 	"view_all": "View All",
 	"colombia": "colombia",
 	"details": "Details",
@@ -341,5 +341,6 @@
 	"per_infant": "per infant",
 	"number_of": "# of",
 	"per_adult": "per adult",
-	"search_subtitle": "activities found"
+	"search_subtitle": "activities found",
+	"modify_booking": "modify_booking"
 }

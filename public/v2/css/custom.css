@@ -916,12 +916,12 @@ label.payment-cash {
 }
 h3.headline{
 	font-size: 26px;
-	font-weight: 600;
+	font-weight: 500;
 	margin-bottom: 5px;
 }
 h4.headline{
 	margin:0;
-	font-weight: 600;
+	font-weight: 500;
 }
 h4.headline.search{
 	margin:0;
@@ -932,7 +932,7 @@ h4.headline.search{
 h2.headline{
 	margin:0;
 	font-size: 24px;
-	font-weight: 600;
+	font-weight: 500;
 }
 i.flag-icon {
 	z-index: 1;
@@ -998,4 +998,10 @@ i.flag-icon {
 }
 .featured-city h3{
 	margin: 0px 0px 5px 0px;
+}
+a.header-link{
+	text-transform: capitalize;
+}
+a.header-link.top i.flag-icon{
+	font-size: 22px;
 }

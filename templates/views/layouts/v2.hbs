@@ -167,10 +167,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</ul>
 						</li>
 						
-						<li><a href="#" id="lang-select"></a>
+						<li><a href="#" style="text-transform:uppercase;"><i class="im im-icon-Speach-Bubble13"></i> {{lang}}</a>
 							<ul>
-								<li><a href="?lang=es"><i class="flag-icon flag-icon-es"></i> Español</a></li>
-								<li><a href="?lang=en"><i class="flag-icon flag-icon-gb"></i> English </a></li>
+								<li><a href="?lang=es"></i> Español</a></li>
+								<li><a href="?lang=en"></i> English </a></li>
 							</ul>
 						</li>
 						<li>
@@ -185,8 +185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</ul>
 						</li>
 
-						<li><a href="/partners">{{i18n "list_your_tour"}}</a></li>
-						
+						<li><a href="/partners"><i class="im im-icon-Add"></i> {{i18n "list_your_tour"}}</a></li>
 						{{#if userInfo}}
 						<li id="loginLink" class="header-left"><a href="#">{{i18n "welcome"}} {{userInfo.name.first}}</a>
 							<ul>
@@ -216,13 +215,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<!-- Left Side Content / End -->
 			<script>
 				$(document).ready(function(){
-					var lang= "{{lang}}";
-					if (lang == "en"){
-						var str = '<i class="flag-icon flag-icon-gb">';
-						$('#lang-select').html(str);
-					} else {
-						var str = '<i class="flag-icon flag-icon-es">';
-						$('#lang-select').html(str);
+
+					var lang= "{{data.country}}";
+					if (lang === "panama"){
+						var str = '<i class="flag-icon flag-icon-pa">';
+						$('#country-select').prepend(str);
+					} 
+					if (lang === "colombia") {
+						var str = '<i class="flag-icon flag-icon-co">';
+						$('#country-select').prepend(str);
+					};
+					if (lang === "mexico") {
+						var str = '<i class="flag-icon flag-icon-mx">';
+						$('#country-select').prepend(str);
 					};
 					var currency =  "{{session.userCurrency.value}}";
 				
@@ -276,7 +281,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {{{body}}}
 <!-- Footer
 ================================================== -->
-<div id="footer" class="sticky-footer margin-top-30">
+<div id="footer" class="sticky-footer margin-top-30 dark">
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
@@ -284,10 +289,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<img class="footer-logo" src="/images/logo3.png" alt="">
 				<br><br>
 				<div class="text-widget">
-					<span>Sortis Business Tower, Floor 20, Office 2030, Panama City</span> <br>
-					<i class="fa fa-whatsapp"></i> Book from Whatsapp: <span>+507 6808-0024 </span><br>
-					<i class="fa fa-phone"></i> {{i18n "panama"}}: <span>+507 833-6195 </span><br>
-					<i class="fa fa-phone"></i> US: <span>+1-415-574-0992 </span><br>
+					<span>Casa AJOEM, Villa Cáceres, Av. La Paz con Calle 76A Oeste, #32A, Panama City</span> <br>
+					<i class="fa fa-whatsapp"></i> Book from Whatsapp: <span><a href="https://api.whatsapp.com/send?phone=50768532466">+507 6853-2466</a> </span><br>
+					<i class="flag-icon flag-icon-pa"></i> {{i18n "panama"}}: <span>+507 833-6195 </span><br>
+					<i class="flag-icon flag-icon-us"></i> US: <span>+1-415-574-0992 </span><br>
 					<span> <a href="mailto:hello@triptable.com">Email hello@triptable.com</a> </span><br>
 					<a class="social-icon footer" target="_blank" href="http://facebook.com/triptable"><i class="fa fa-facebook"></i></a>
 					<a class="social-icon footer" target="_blank" href="http://twitter.com/triptable_es"><i class="fa fa-twitter"></i></a>

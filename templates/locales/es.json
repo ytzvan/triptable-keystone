@@ -279,7 +279,7 @@
 	"tour_description_title": "Acerca de la Actividad",
 	"see_details": "Ver Detalles",
 	"most_viewed_right_now": "Más vistos en este momento",
-	"most_popular_tours_in": "Tours Más Populares en",
+	"most_popular_tours_in": "Tours en",
 	"view_all": "Ver Todos",
 	"details": "Detalles",
 	"show_more": "Ver Más",
@@ -352,5 +352,6 @@
 	"number_of": "# de",
 	"per_adult": "por adulto",
 	"modify_booking": "modificar reserva",
-	"search_subtitle": "actividades encontradas"
+	"search_subtitle": "actividades encontradas",
+	"colombia": "colombia"
 }
