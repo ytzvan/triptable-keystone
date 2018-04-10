@@ -99,7 +99,7 @@
 	"taxes_description": "Taxes included",
 	"description_spanish_not_available": "Description in Spanish not available",
 	"write_review": "Write a Review",
-	"entrance_tickets": "Receive your booking via e-mail",
+	"entrance_tickets": "Entrance tickets",
 	"entrance_tickets_description": "Entrance tickets included",
 	"select_country": "Select a Country",
 	"panama": "Panama",
@@ -276,7 +276,7 @@
 	"usd_currency_message": "You'll be charged",
 	"available": "Available",
 	"search_title": "Tours in",
-	"tour_description_title": "About the Activity",
+	"tour_description_title": "About the Tour",
 	"see_details": "See Details",
 	"most_popular_tours_in": "Tours in",
 	"view_all": "View All",
@@ -296,7 +296,7 @@
 	"all_categories": "All Categories",
 	"choose_country": "Choose your country",
 	"destinations": "destinations",
-	"mobile_voucher_av": "E-ticket available. No printing needed",
+	"mobile_voucher_av": "E-ticket without print",
 	"instant_confirmation": "Instant Confirmation",
 	"duration": "Duration",
 	"activity_schedule": "Activity Schedule",
@@ -342,5 +342,7 @@
 	"number_of": "# of",
 	"per_adult": "per adult",
 	"search_subtitle": "activities found",
-	"modify_booking": "modify_booking"
+	"modify_booking": "Modify booking",
+	"ask_via_whatsapp": "Questions? WhatsApp: ",
+	"Inclusive_of": "Inclusive of"
 }

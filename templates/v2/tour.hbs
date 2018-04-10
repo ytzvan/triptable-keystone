@@ -21,44 +21,47 @@
 					{{/if}}
 				</div>
 			</div>
-
+		<div class="notification success hidden-sm hidden-md hidden-lg">
+				<p> <i class="fa fa-whatsapp"></i> Whatsapp: <a href="https://api.whatsapp.com/send?phone=50768532466&text=Pregunta del tour: {{data.tour.name}} - Precio: {{getCurrency}} {{data.tour.price}} - Url: https://www.triptable.com/tour/{{data.tour.slug}}">+507 6853-2466 </a> </p>
+				<a class="close"></a>
+			</div>
 		<div class="row margin-top-15 margin-bottom-15 information-icons">
+			<div class="col-md-3 col-xs-4 text-center">
+					<i class="im im-icon-Ticket"></i>
+					<p style="">{{data.tour.minPerson}} - {{data.tour.maxPerson}} {{i18n "people"}}</p>
+				</div>
 			{{#if data.tour.tourType}}
 				{{/if}}
-					<div class="col-md-3 col-xs-6 text-center ">
-					<i class="im im-icon-Ticket"></i>
-					<p style="">{{i18n "entrance_tickets"}}</p>
-				</div>
 				{{#if data.tour.mobileVoucherAccepted}}
-					<div class="col-md-3 col-xs-6  text-center">
+					<div class="col-md-3 col-xs-4  text-center">
 					<i class="im im-icon-Hand-TouchSmartphone"></i>
 					<p>{{i18n "mobile_voucher_av"}}</p>
 				</div>
 				{{/if}}
 				{{#if data.tour.instantConfirmation}}
-				<div class="col-md-3 col-xs-6  text-center">
+				<div class="col-md-3 col-xs-4  text-center">
 					<i class="im im-icon-Flash"></i>
 					<p>{{i18n "instant_confirmation"}}</p>
 				</div>
 				{{/if}}
 				{{#if data.tour.tourType}}
-				<div class="col-md-3 col-xs-6  text-center">
+				<div class="col-md-3 col-xs-4  text-center">
 					{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> <p>{{i18n "group_tour"}}</p>{{/if_eq}}
 					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i> <p>{{i18n "private_tour"}}{{/if_eq}} </p>
 				</div>
 				{{/if}}
-				<div class="col-md-3 col-xs-6  text-center">
+				<div class="col-md-3 col-xs-4  text-center">
 					<i class="im im-icon-Clock-Forward"></i>
-					<p>{{i18n "duration"}}: {{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
+					<p>{{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</p>
 				</div>
 				{{#if data.tour.sharedCabin}}
-					<div class="col-md-3 col-xs-6  text-center">
+					<div class="col-md-3 col-xs-4  text-center">
 					<i class="fa fa-bed"></i>
 					<p>{{i18n "shared_accomodation_included"}}</p>
 				</div>
 				{{/if}}
 				{{#if data.tour.privateCabin}}
-					<div class="col-md-3 col-xs-6  text-center">
+					<div class="col-md-3 col-xs-4  text-center">
 					<i class="fa fa-bed"></i>
 					<p>{{i18n "private_accomodation_included"}}</p>
 				</div>
@@ -67,8 +70,9 @@
 			<!-- Listing Nav -->
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav" id="tour-section-nav">
-					<li><a href="#listing-overview" class="active"><i class="im im-icon-Information"></i> {{i18n "tour_description_title"}}</a></li>
+					<li><a href="#listing-overview"><i class="im im-icon-Information"></i> {{i18n "tour_description_title"}}</a></li>
 					<li><a href="#listing-pricing-list"><i class="im im-icon-Money-2"></i> {{i18n "pricing"}}</a></li>
+					<li><a href="#listing-includes"><i class="im im-icon-Add"></i> {{i18n "Inclusive_of"}}</a></li>
 					<li><a href="#listing-location"><i class="im im-icon-Location-2"></i> {{i18n "location"}}</a></li>
 					<li><a href="#listing-reviews"><i class="im im-icon-Pen-4"></i> {{i18n "reviews"}}</a></li>
 					<!--<li><a href="#add-review">Add Review</a></li>-->
@@ -237,7 +241,7 @@
 						</select>
 					</div> 
 					<div class="center-text">
-							<button type="submit" id="bookingBtn" style="width:100%;font-size:18px;" class="button margin-top-15">	<i class="sl sl-icon-check"></i> Book Now</button>
+							<button type="submit" id="bookingBtn" style="width:100%;font-size:18px;border-radius:0px;" class="button margin-top-15">	<i class="sl sl-icon-check"></i> Book Now</button>
 						</div>
 		
 			</div>
@@ -266,7 +270,7 @@
 
 
 			{{#if data.tour.includesDescription.es}}
-			<div class="listing-overview margin-top-30 margin-bottom-30 tour-section-includes"> <!-- Schedule description --> 
+			<div id="listing-includes" class="listing-overview margin-top-30 margin-bottom-30 tour-section-includes"> <!-- Schedule description --> 
 			<h3>{{i18n "includes"}}</h3>
 			<div>
 				{{#if_eq lang "en" }}

@@ -883,7 +883,9 @@ label.payment-cash {
 	font-weight: 300;
 }
 .information-icons p{
-	font-size: 14px;line-height: 22px;
+	font-size: 14px;
+	margin:0px;
+	line-height: 20px;
 }
 .slick-dots {
     bottom: -35px;
@@ -1004,4 +1006,23 @@ a.header-link{
 }
 a.header-link.top i.flag-icon{
 	font-size: 22px;
+}
+
+@media (max-width: 480px) {
+	.listing-slider, .listing-slider .item {
+		height: 22vh;
+		min-height: 220px;
+	}
+}
+.information-icons div{
+	margin-bottom:15px;
+}
+#result .success, .notification {
+	padding: 15px;
+}
+@media (max-width: 580px) {
+#titlebar.listing-titlebar h1, #titlebar.listing-titlebar h2 {
+	font-size: 20px;
+	line-height: 28px;
+}
 }

@@ -21,8 +21,13 @@
 					</div>
 					
 					<div class="col-md-12 text-center">
+						<div class="hidden-sm hidden-xl hidden-md hidden-lg">
+						<a href="https://api.whatsapp.com/send?phone=50768532466&text=Pregunta del tour: {{data.tour.name}} - Precio: {{getCurrency}} {{data.tour.price}} - Url: https://www.triptable.com/tour/{{data.tour.slug}}" class="send-message-to-owner button"><i class="fa fa-whatsapp white"></i> {{i18n "send_message"}}</a> 
+						</div>
 						<!--<div class="star-rating" data-rating="5.0"></div><p class="mb-bottom-10">Ver Tours</p>-->
-						<a href="mailto:hello@triptable.com?subject=Pregunta del tour: {{data.tour.name}} - ID: {{data.tour._id}}" class="send-message-to-owner button"><i class="sl sl-icon-envelope-open white"></i> {{i18n "send_message"}}</a>
+						<div class="hidden-xs">
+						<a href="mailto:hello@triptable.com?subject=Pregunta del tour: {{data.tour.name}} - Precio: {{getCurrency}} {{data.tour.price}} - Url: https://www.triptable.com/tour/{{data.tour.slug}}" class="send-message-to-owner button"><i class="sl sl-icon-envelope-open white"></i> {{i18n "send_message"}}</a>
+						</div>
 							
 					</div>
 				</div>
