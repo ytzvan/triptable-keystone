@@ -37,8 +37,8 @@
 		$('#viewBooking').click(function(e){
 			window.location = "/";
 		});
-	});
 		dataLayer.push({
+			'event': 'productPurchase',
 		  'ecommerce': {
 		    'purchase': {
 		      'actionField': {
@@ -52,32 +52,22 @@
 		        'id': '{{bookingInfo.friendlyId}}',
 		        'price': {{bookingInfo.tourPrice}},
 		        'quantity': {{bookingInfo.people}},
+						'brand': "{{data.tour.categories.[0].name}}",
+	        	'category': "{{data.tour.city.city}}",
 		        'coupon': ''                            // Optional fields may be omitted or set to empty string.
 		       }]
 		    }
-		  }
+		  },
+			'bookingName': "{{bookingInfo.name.full}}",
+			'bookingFn': "{{bookingInfo.name.first}}",
+			'bookingLn': "{{bookingInfo.name.last}}",
+    	'bookingEmail': "{{bookingInfo.email}}",
+    	'bookingAmount': {{bookingInfo.bookingTotalPrice}},
+    	'bookingPeople' : {{bookingInfo.people}},
+			'bookingPhone':"{{bookingInfo.phone}}"	
 		});
 // Send transaction data with a pageview if available
 // when the page loads. Otherwise, use an event when the transaction
 // data becomes available.
-
-</script>
-
-<script type="text/javascript">
-
-	window.dataLayer = window.dataLayer || [];
-	var name = "{{bookingInfo.name.full}}";
-	var email = "{{bookingInfo.email}}";
-	var amount = parseFloat("{{bookingInfo.bookingTotalPrice}}");
-	var quantity = parseFloat("{{bookingInfo.people}}");
-
-	
- 	window.dataLayer.push({
-    'bookingName': name,
-    'bookingEmail': email,
-    'bookingAmount': amount,
-    'bookingPeople' : quantity
- 	});
-
-
+});
 </script>

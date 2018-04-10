@@ -283,37 +283,21 @@
 	});
 	$(document).ready(function(){
 		$('#cardNumber').payment('formatCardNumber');
-		onCheckout();
-	})
-</script>
-
-<script>
-/**
- * A function to handle a click on a checkout button. This function uses the eventCallback
- * data layer variable to handle navigation after the ecommerce data has been sent to Google Analytics.
- */
-
- function onCheckout() {
- 	console.log("checkout GA")
-  dataLayer.push({
-    'event': 'checkout',
+		 dataLayer.push({
+    'event': 'productCheckout',
     'ecommerce': {
       'checkout': {
-        'actionField': {'step': 1},
+        'actionField': {'step': "Initiate Checkout"},
         'products': [{
           'name': "{{data.tour.name}}",
           'id': "{{data.tour.tourId}}",
           'price': "{{data.tour.price}}",
-          'brand': '{{data.tour.city.city}}',
+          'brand': "{{data.tour.categories.[0].name}}",
+	        'category': "{{data.tour.city.city}}",
           'quantity': "{{data.nOfAdults}}"
        }]
      }
    }
   });
-  return true;
-}
-window.dataLayer.push({
-    'checkoutPrice': "{{data.tour.price}}",
-    'quantity': "{{data.nOfAdults}}"
- 	});
+	})
 </script>

@@ -234,6 +234,7 @@ $(document).ready(function() {
 	{{/each}}
 
 	dataLayer.push({
+			'event': 'productImpressions',
 	  	'ecommerce': {
 	    	'currencyCode': "USD",                       // Local currency is optional.
 	    	'impressions': tourList
@@ -247,8 +248,6 @@ $(document).ready(function() {
 		var productObj = $('#'+target).data().tourObj;
 		setProductClick(productObj, listName);
 	});
-
-	 dataLayer.push({'event': 'EEsearch'});
 
 });
 </script>

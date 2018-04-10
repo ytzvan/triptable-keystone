@@ -403,6 +403,7 @@
 	// and also tracks a standard pageview of the details page.
 
 	dataLayer.push({
+		'event': 'productDetail',
 	  'ecommerce': {
 	    'detail': {
 	  //    'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
@@ -410,8 +411,8 @@
 	        'name': "{{data.tour.name}}",         // Name or ID is required.
 	        'id': "{{data.tour.tourId}}",
 	        'price': {{data.tour.price}},
-	        'brand': "{{data.tour.city.city}}",
-	        'category': "{{data.tour.categories.[0].name}}"
+	        'brand': "{{data.tour.categories.[0].name}}",
+	        'category': "{{data.tour.city.city}}"
 	       }]
 	     }
 	   }
@@ -421,16 +422,3 @@
 });
   </script>
 
-<script type="text/javascript">
-
-	window.dataLayer = window.dataLayer || [];
-	var name = "{{data.tour.name}}";
-	var id = "{{data.tour.tourId}}";
-
- 	window.dataLayer.push({
-    'tourName': name,
-    'tourId': id
- 	});
-
-
-</script>
