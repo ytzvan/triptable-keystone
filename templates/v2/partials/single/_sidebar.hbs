@@ -10,7 +10,8 @@
 			</div></a>
 			<div class="boxed-widget guide">
 				<div class="hosted-by-title row">
-					<h4><span>{{i18n "operator"}}</span> <a>{{data.tour.owner.name.first}}</a></h4>
+					<h4><span>{{i18n "operator"}}</span> <a>{{data.tour.owner.name.first}}</a><span><a href="/u/{{data.tour.owner._id}}">{{i18n "view_profile"}}</a></span></h4>
+					
 
 				<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt=""></a></div> -->
 				<div class="col-md-12 text-center"><a class="hosted-by-avatar">{{#if data.tour.owner.image.secure_url}}

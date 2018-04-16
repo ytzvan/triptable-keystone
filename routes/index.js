@@ -48,7 +48,8 @@ exports = module.exports = function(app) {
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
   app.get('/destino/:city', routes.search.city);
   app.all('/search', routes.search.search);
-
+	//User
+	app.all('/u/:userid', routes.views.operator.index);
 	
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);

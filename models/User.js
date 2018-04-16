@@ -21,7 +21,8 @@ User.add({
     twitter: {type: Types.Url},
     instagram: {type: Types.Url},
   },
-  toursPurchased: {type: Types.Relationship, ref: "Tour", many: true},
+	toursPurchased: {type: Types.Relationship, ref: "Tour", many: true},
+	listings: {type: Types.Relationship, ref: "Tour", refPath: 'owner', many: true},
   description: {type: Types.Textarea },
   createdAt: { type: Date, default: Date.now, noedit: true },
   contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato

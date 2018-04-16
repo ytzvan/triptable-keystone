@@ -987,6 +987,7 @@ i.flag-icon {
 }
 .verified-badge {
 	background-color: #3498db;
+  padding: 5px 10px;
 }
 .icon-box-2 i{
 	margin-bottom:0px;
@@ -1025,4 +1026,38 @@ a.header-link.top i.flag-icon{
 	font-size: 20px;
 	line-height: 28px;
 }
+}
+#titlebar.user-profile{
+	padding: 30px;
+}
+.button.operator-profile{
+	font-weight: 400;
+	border-radius: 0;
+	padding: 10px;
+}
+a.send-message-to-owner.button {
+	font-size: 13px;
+	font-weight: 500;
+	padding: 4px 20px;
+	margin-top: 5px;
+	margin-bottom: -5px;
+}
+.listing-item.user-profile:before {
+	background: linear-gradient(to top, rgba(35,35,37,0.6) 20%, rgba(35,35,37,0.3) 35%, rgba(22,22,23,0.1) 49%, rgba(27, 9, 9, 0) 100%);
+}
+.hosted-by-title h2.operator-title{
+	font-size: 20px;
+	text-align: center;
+	padding: 1px;
+}
+.hosted-by-title p{
+	text-align: center;
+	margin:0 0 5px;
+}
+.boxed-widget.operator-profile{
+	background-color: transparent;
+	padding-top: 0px;
+}
+h2.operator-title{
+	margin:5px;
 }

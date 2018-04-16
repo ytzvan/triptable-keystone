@@ -1,0 +1,105 @@
+
+
+
+<!-- Content
+================================================== -->
+<div class="container margin-top-30">
+
+	<div class="row">
+
+
+		<!-- Sidebar
+		================================================== -->
+		<div class="col-lg-4 col-md-4 ">
+      <div class="boxed-widget operator-profile guide">
+						<div class="hosted-by-title row">
+							<h2 class="operator-title">{{data.operator.name.first}} {{data.operator.name.last}} <img src="/images/verified-badge.png" style="max-height:40px; padding-bottom:10px;" /></h2>
+							<p>Miembro desde: Octubre 2017</p>
+		
+						<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/." alt=""></a></div> -->
+						  <div class="col-md-12 text-center margin-top-10"><a class="hosted-by-avatar">	
+            {{#if data.operator.image.version}}
+            <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_100,h_150/v{{data.operator.image.version}}/{{data.operator.image.public_id}}.{{data.operator.image.format}}" alt="{{data.operator.name.first}}">
+            {{else}}
+            <img src="&#9;https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=150" alt="">
+            {{/if}}
+              </a>
+							</div>
+							
+							<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+              <div class="small-dialog-header">
+                <h3>{{i18n "send_message"}}</h3>
+              </div>
+              <div class="message-reply margin-top-0">
+                <textarea cols="40" rows="3" placeholder="Your message to {{data.operator.name.first}}"></textarea>
+                <button class="button">{{i18n "send_message"}}</button>
+              </div>
+            </div>
+            <div class="text-center">
+            <a href="#small-dialog" style="background-color:#3498db;" class="send-message-to-owner button popup-with-zoom-anim text-center"><i class="sl sl-icon-envelope-open" style="color:white;"></i> {{i18n "send_message"}}</a>
+            </div>
+						</div>
+		
+					</div>
+
+			<!-- Contact -->
+			<div class="boxed-widget operator-profile margin-top-30 margin-bottom-50">
+				<h3>Contact</h3>
+				<ul class="listing-details-sidebar">
+					<li><i class="sl sl-icon-phone"></i> <a href="tel:+507833-6195">+507 833-6195 </a></li>
+					<li><i class="fa fa-whatsapp" style="color: green;"></i> <a href="https://api.whatsapp.com/send?phone=50768532466&text={{i18n 'whatsapp_message'}} - {{data.operator.name}}"> +507 6853-2466 </a></li>
+					<li><i class="fa fa-envelope-o"></i> <a href="mailto:hello@triptable.com">hello@triptable.com</a></li>
+				</ul>
+
+				<ul class="listing-details-sidebar social-profiles">
+					<li><a target="_blank" href="http://fb.me/triptable" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+					<li><a target="_blank" href="http://twitter.com/triptable_es" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
+					<!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
+				</ul>
+			</div>
+			<!-- Contact / End-->
+
+		</div>
+		<!-- Sidebar / End -->
+
+
+		<!-- Content
+		================================================== -->
+		<div class="col-lg-8 col-md-8 padding-left-30">
+
+			<h3 class="margin-top-0 margin-bottom-40">{{data.tours.length}} actividades listadas</h3>
+
+			<!-- Listings Container -->
+			<div class="row">
+        {{#each data.tours}}
+				<!-- Listing Item -->
+				<!-- Listing Item / End -->
+        <div class="col-lg-6 col-md-6">
+					<a href="/tour/{{slug}}" class="listing-item-container compact">
+						<div class="listing-item user-profile">
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_90,h_500/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{data.tour.name}}">
+
+							<div class="listing-badge now-open"><strong>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}}</strong></div>
+
+							<div class="listing-item-content">
+								<!--<div class="numerical-rating" data-rating="3.5"></div>-->
+								<h3>{{getTourLocName name name_eng}}  <i class="verified-icon"></i></h3>
+								<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
+							</div>
+						<!--	<span class="like-icon"></span>-->
+						</div>
+					</a>
+				</div>
+        {{/each}}
+
+			</div>
+			<!-- Listings Container / End -->
+
+			
+			</div>
+
+
+		</div>
+
+	</div>
+</div>
