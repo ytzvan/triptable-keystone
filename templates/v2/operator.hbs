@@ -19,7 +19,7 @@
 						<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/." alt=""></a></div> -->
 						  <div class="col-md-12 text-center margin-top-10"><a class="hosted-by-avatar">	
             {{#if data.operator.image.version}}
-            <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_100,h_150/v{{data.operator.image.version}}/{{data.operator.image.public_id}}.{{data.operator.image.format}}" alt="{{data.operator.name.first}}">
+            <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_auto,h_300,w_300/v{{data.operator.image.version}}/{{data.operator.image.public_id}}.{{data.operator.image.format}}" alt="{{data.operator.name.first}}">
             {{else}}
             <img src="&#9;https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=150" alt="">
             {{/if}}
@@ -47,7 +47,7 @@
 				<h3>Contact</h3>
 				<ul class="listing-details-sidebar">
 					<li><i class="sl sl-icon-phone"></i> <a href="tel:+507833-6195">+507 833-6195 </a></li>
-					<li><i class="fa fa-whatsapp" style="color: green;"></i> <a href="https://api.whatsapp.com/send?phone=50768532466&text={{i18n 'whatsapp_message'}} - {{data.operator.name}}"> +507 6853-2466 </a></li>
+					<li><i class="fa fa-whatsapp" style="color: green;"></i> <a href="https://api.whatsapp.com/send?phone=50768532466&text={{i18n 'whatsapp_message'}} - {{data.operator.name.first}}"> +507 6853-2466 </a></li>
 					<li><i class="fa fa-envelope-o"></i> <a href="mailto:hello@triptable.com">hello@triptable.com</a></li>
 				</ul>
 
