@@ -30,6 +30,7 @@ User.add({
   operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
+	isVerified: { type: Boolean, label: 'Verified User', index: true, defaults: false },
 	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true},
 	companyName: {type: String, dependsOn: { isGuide: true }},
 });

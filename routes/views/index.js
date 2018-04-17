@@ -29,7 +29,7 @@ module.exports = function(req, res) {
 					var query = keystone.list('Tour')
 					.paginate({
 						page: req.query.page || 1,
-						perPage: 12,
+						perPage: 9,
 						maxPages: 1
 					})
 					.where('country',countryId)

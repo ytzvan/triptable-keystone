@@ -1,14 +1,14 @@
 <!-- Fullwidth Section -->
 <section class="fullwidth margin-top-0">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class="col-xs-9">
+			<div class="col-xs-8">
 				<h2 class="headline margin-bottom-5">
 					{{i18n "most_popular_tours_in"}} {{i18n "panama"}}
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
 				</h2>
 			</div>
-			<div class="col-xs-3 text-right">
+			<div class="col-xs-4 text-right">
 				<span class="view-more margin-bottom-15">
 					<a href="/panama" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
@@ -18,33 +18,32 @@
 	</div>
 
 	<!-- Carousel / Start -->
-	<div class="simple-fw-slick-carousel dots-nav">
+<!--	<div class="simple-fw-slick-carousel dots-nav">-->
+	<div class="container">
+		<div class="row">
 		{{#each toursPanama.results }}
-		<div class="panama-tour-item" id="panama-tour-item-{{@index}}">
-			<div class="fw-carousel-item"> 
-				<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
-					<div class="listing-item">
-						{{#if heroImage.secure_url}} <!-- fall back -->
-						<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_480,w_390/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
-						{{else}}
-						<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
-						{{/if}}
-						<div class="listing-item-details">
-							<ul>
-							</ul>
+		<div class="col-md-4 col-sm-6 col-xs-12 panama-tour-item" id="panama-tour-item-{{@index}}">
+					<a href="/tour/{{slug}}" class="listing-item-container compact">
+						<div class="listing-item user-profile">
+							{{#if heroImage.secure_url}}
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
+							{{else}}
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
+							{{/if}}
+							<div class="listing-badge now-open"><strong>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}}</strong></div>
+
+							<div class="listing-item-content">
+								<div class="numerical-rating mid"><i class="fa fa-clock-o"></i> {{duration}} {{#if isMultiDay}}{{i18n "D"}} {{else}}{{i18n "H"}} {{/if}}</div>
+								<!--<div class="numerical-rating" data-rating="3.5"></div>-->
+								<h3>{{getTourLocName name name_eng}}  <i class="verified-icon"></i></h3>
+								<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
+							</div>
+						<!--	<span class="like-icon"></span>-->
 						</div>
-						<div class="listing-item-content">
-						</div>
-					</div>
-					<div class="tour-item-desc">
-						<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
-						<span class="tour-item-desc">{{getTourLocName name name_eng}} </span> 
-						<span class="currency"><strong>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}}</strong> {{i18n "per_person"}}</span>
-					</div>
-				</a>
-			</div>
-		</div>
+					</a>
+				</div>
 		{{/each}}
+		</div>
 	</div>
 	<!-- Carousel / End -->
 

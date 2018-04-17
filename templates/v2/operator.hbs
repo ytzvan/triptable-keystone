@@ -13,8 +13,8 @@
 		<div class="col-lg-4 col-md-4 ">
       <div class="boxed-widget operator-profile guide">
 						<div class="hosted-by-title row">
-							<h2 class="operator-title">{{data.operator.name.first}} {{data.operator.name.last}} <img src="/images/verified-badge.png" style="max-height:40px; padding-bottom:10px;" /></h2>
-							<p>Miembro desde: Octubre 2017</p>
+							<h2 class="operator-title">{{data.operator.name.first}} {{#if data.operator.isVerified}} <img src="/images/verified-badge.png" style="max-height:40px; padding-bottom:10px;" /> {{/if}}</h2>
+							 {{#if data.operator.isVerified}}<p>{{i18n "verified_operator"}}</p>{{/if}}
 		
 						<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/." alt=""></a></div> -->
 						  <div class="col-md-12 text-center margin-top-10"><a class="hosted-by-avatar">	

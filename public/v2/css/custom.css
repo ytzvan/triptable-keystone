@@ -70,8 +70,11 @@ p.subtitle i{
 }
 .listing-item-content{
  padding: 0px 15px;
- bottom: 15px;
+ bottom: 10px;
 }
+.listing-item-content h3{
+	line-height: 26px
+ }
 span.like-icon{
   right: 15px;
 }
@@ -495,7 +498,7 @@ h3.tour-price{
 	top: 15px;
 }
 .listing-badge.now-open{
-	background-color: #e74c3c;
+	background-color: #ff696a;
 }
 .listing-item-details ul li{
 padding: 4px;
@@ -931,11 +934,6 @@ h4.headline.search{
 	font-size: 20px;
 	text-transform: none;
 }
-h2.headline{
-	margin:0;
-	font-size: 24px;
-	font-weight: 500;
-}
 i.flag-icon {
 	z-index: 1;
 }
@@ -1043,7 +1041,7 @@ a.send-message-to-owner.button {
 	margin-bottom: -5px;
 }
 .listing-item.user-profile:before {
-	background: linear-gradient(to top, rgba(35,35,37,0.6) 20%, rgba(35,35,37,0.3) 35%, rgba(22,22,23,0.1) 49%, rgba(27, 9, 9, 0) 100%);
+	background: linear-gradient(to top, rgba(35,35,37,0.6) 25%, rgba(35,35,37,0.4) 35%, rgba(22,22,23,0.2) 45%, rgba(27, 9, 9, 0) 55%);
 }
 .hosted-by-title h2.operator-title{
 	font-size: 20px;
@@ -1060,4 +1058,24 @@ a.send-message-to-owner.button {
 }
 h2.operator-title{
 	margin:5px;
+}
+h2.headline{
+	margin:0;
+	font-size: 24px;
+	font-weight: 400;
+}
+h3.headline{
+	font-weight: 400;
+}
+.icon-box-2 h3{
+	font-weight: 400;
+}
+.numerical-rating{
+	width: 54px;
+}
+.numerical-rating.mid{
+	background-color: rgba(52,152,219,0.9)
+}
+.listing-item-content span{
+	color: rgba(255,255,255,0.85);
 }

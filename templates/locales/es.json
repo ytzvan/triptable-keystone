@@ -359,6 +359,11 @@
 	"ask_via_whatsapp": "¿Preguntas?",
 	"Inclusive_of": "Lo que está incluido",
 	"verified_account": "verified_account",
-	"view_profile": "Ver perifil",
-	"whatsapp_message": "Por favor, enviar información de los tours de"
+	"view_profile": "Ver perfil",
+	"whatsapp_message": "Por favor, enviar información de los tours de",
+	"H": "H",
+	"D": "D",
+	"activities_in": "Actividades en",
+	"more_tours_in": "Más tours en",
+	"verified_operator": "Operador Verificado"
 }

@@ -23,15 +23,23 @@
  <div class="container">
 	<div class="row">
 		{{#each data.cities}}
-		<div class="col-md-3 col-sm-4 col-xs-6 featured-city">
+
+		
+		<div class="col-md-4">
+
 			<!-- Image Box -->
-			<a href="/destino/{{slug}}" class="img-box card-city" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}}">
-				<div class="img-box-content visible card-city">
-					<!-- <span>{{i18n "tours_in"}}</span> -->
+			<a href="/destino/{{slug}}" class="img-box" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}">
+				<div class="img-box-content visible">
+					<h4>{{city}} </h4>
+					<span>{{../data.country}}</span>
 				</div>
-			<div class="img-box-background" style="background-image: url(https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,w_500,q_auto,g_center/dpr_auto/{{image.public_id}}.{{image.format}});"></div></a>
-			<h3>{{city}} </h3>
+			<div class="img-box-background" style="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}"></div></a>
+
 		</div>	
+			
+
+
+
  		{{/each}}
 	</div>
 </div>
@@ -112,31 +120,27 @@
 		</div>
 		<div class="tour-search-list">
 		{{#each data.tours.results}}
-    	<div class="col-md-3 col-sm-4 col-xs-6 tour-result-item search-item search-tour-item" id="search-tour-item-{{@index}}">
-				<a target="_blank" href="/tour/{{slug}}" class="listing-item-container" tabindex="0"> 
-				<div class="listing-item">
-					{{#if heroImage.secure_url}} <!-- fall back -->
-					<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_480,w_390/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="">
-					{{else}}
-					<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_auto/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}" />
-					{{/if}}
-					<div class="listing-item-details">
-						<ul>
-						</ul>
-					</div>
-				<!--	<div class="listing-badge now-open"><strong>-15% OFF</strong></div>-->
-					<div class="listing-item-content">
-				
-					</div> 
-				</div>
-				<div class="tour-item-desc">
-					<p class=""><i class="fa fa-map-marker"></i> {{city.city}} ● <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}}{{i18n "d"}} {{else}}{{i18n "h"}} {{/if}}</p>
-					<span class="tour-item-desc">{{getTourLocName name name_eng}} </span>
-					<span class="currency"><strong>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}}</strong> {{i18n "per_person"}}</span> 
-				</div>
 
-			</a>
-			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12" id="search-tour-item-{{@index}}">
+					<a href="/tour/{{slug}}" class="listing-item-container compact">
+						<div class="listing-item user-profile">
+							{{#if heroImage.secure_url}}
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
+							{{else}}
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
+							{{/if}}
+							<div class="listing-badge now-open"><strong>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}}</strong></div>
+
+							<div class="listing-item-content">
+								<div class="numerical-rating mid"><i class="fa fa-clock-o"></i> {{duration}} {{#if isMultiDay}}{{i18n "D"}} {{else}}{{i18n "H"}} {{/if}}</div>
+								<!--<div class="numerical-rating" data-rating="3.5"></div>-->
+								<h3>{{getTourLocName name name_eng}}  <i class="verified-icon"></i></h3>
+								<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
+							</div>
+						<!--	<span class="like-icon"></span>-->
+						</div>
+					</a>
+				</div>
 			{{/each}}	
 			</div>
 			<!-- Pagination -->
@@ -169,13 +173,13 @@
 			 <div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "other_cities_in"}} {{data.country}}</h3>
+						<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "more_tours_in"}} {{data.country}}</h3>
 					</div>
 					{{#each data.cities}}
 			 	
 					<div class="col-md-3 col-sm-3 col-xs-6 featured-city">
 					<ul>
-						<li><a href="/destino/{{slug}}">{{city}}</a></li>
+						<li><a href="/destino/{{slug}}">{{i18n "tours_in"}} {{city}}</a></li>
 					</ul>
 					</div>	
 			 		{{/each}}
