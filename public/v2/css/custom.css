@@ -72,9 +72,6 @@ p.subtitle i{
  padding: 0px 15px;
  bottom: 10px;
 }
-.listing-item-content h3{
-	line-height: 26px
- }
 span.like-icon{
   right: 15px;
 }
@@ -1078,4 +1075,8 @@ h3.headline{
 }
 .listing-item-content span{
 	color: rgba(255,255,255,0.85);
+}
+.listing-item-content h3 {
+	line-height: 28px;
+	font-weight: 300;
 }
