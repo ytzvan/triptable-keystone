@@ -13,7 +13,7 @@
 		<div class="col-lg-4 col-md-4 ">
       <div class="boxed-widget operator-profile guide">
 						<div class="hosted-by-title row">
-							<h2 class="operator-title">{{data.operator.name.first}} {{#if data.operator.isVerified}} <img src="/images/verified-badge.png" style="max-height:40px; padding-bottom:10px;" /> {{/if}}</h2>
+							<h2 class="operator-title">{{data.operator.name.first}} {{#if data.operator.isVerified}} <i class="verified-icon"></i> {{/if}}</h2>
 							 {{#if data.operator.isVerified}}<p>{{i18n "verified_operator"}}</p>{{/if}}
 		
 						<!--	<div class="col-md-12 text-center"><a class="hosted-by-avatar"><img src="https://res.cloudinary.com/triptable/image/upload/w_300,h_300,c_fill,g_face/." alt=""></a></div> -->
@@ -83,7 +83,7 @@
 
 							<div class="listing-item-content">
 								<!--<div class="numerical-rating" data-rating="3.5"></div>-->
-								<h3>{{getTourLocName name name_eng}}  <i class="verified-icon"></i></h3>
+								<h3>{{getTourLocName name name_eng}}</h3>
 								<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
 							</div>
 						<!--	<span class="like-icon"></span>-->
