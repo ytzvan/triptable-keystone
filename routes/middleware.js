@@ -249,6 +249,11 @@ if (subdomain == 'en') {
     i18n.setLocale(process.env.LANG);
     locals.lang =  'en';
 }
+if (subdomain == 'beta') {
+  process.env.LANG = 'es';
+  i18n.setLocale(process.env.LANG);
+  locals.lang =  'es';
+}
 
 if (subdomain == 'www') {
   /*  if (browserLang = 'en') {
