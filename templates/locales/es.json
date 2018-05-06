@@ -365,5 +365,13 @@
 	"D": "D",
 	"activities_in": "Actividades en",
 	"more_tours_in": "Más tours en",
-	"verified_operator": "Operador Verificado"
+	"verified_operator": "Operador Verificado",
+	"hello": "Hola",
+	"logout": "Cerrar sesión",
+	"administrator": "Administrador",
+	"user": "Usuario",
+	"my_purchases": "Mis Compras",
+	"tour_list": "Lista de Tours",
+	"add_new": "Añadir nuevo",
+	"add_new_tour": "Añadir un Tour"
 }

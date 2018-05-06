@@ -351,5 +351,15 @@
 	"activities_in": "Activities in",
 	"D": "D",
 	"more_tours_in": "More tours in",
-	"verified_operator": "Verified Operator"
+	"verified_operator": "Verified Operator",
+	"my_purchases": "My Purchases",
+	"hello": "Hello",
+	"logout": "Logout",
+	"tour_list": "Tour list",
+	"add_new": "Add new",
+	"add_new_tour": "Add new tour",
+	"dashboard": "dashboard",
+	"quick_access": "quick_access",
+	"navigation": "navigation",
+	"my_profile": "My Profile"
 }

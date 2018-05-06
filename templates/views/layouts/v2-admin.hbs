@@ -80,8 +80,8 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/"><img src="/images/logo3.png" alt=""></a>
-					<a href="/" class="dashboard-logo"><img src="/images/logo3.png" alt=""></a>
+					<a href="/dashboard"><img src="/images/logo3.png" alt=""></a>
+					<a href="/dashboard" class="dashboard-logo"><img src="/images/logo3.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -91,113 +91,60 @@
 							<span class="hamburger-inner"></span>
 						</span>
 					</button>
-				</div>
-
+				</div> 
 				<!-- Main Navigation -->
-			<!--	<nav id="navigation" class="style-1">
+				<nav id="navigation" class="style-1">
 					<ul id="responsive">
-
-						<li><a href="#">Home</a>
+						<li><a href="#"> <i class="sl sl-icon-list"> </i>{{i18n "my_tours"}}</a>
 							<ul>
-								<li><a href="index.html">Home 1</a></li>
-								<li><a href="index-2.html">Home 2</a></li>
-								<li><a href="index-3.html">Home 3</a></li>
-								<li><a href="index-4.html">Home 4</a></li>
+								<li><a href="/admin/tour/list"></i> {{i18n "tour_list"}}</a></li>
+								<li><a href="/admin/tour/create">{{i18n "add_new"}}</a></li>
 							</ul>
 						</li>
 
-						<li><a href="#">Listings</a>
+						<li><a href="#">{{i18n "my_bookings"}}</a>
 							<ul>
-								<li><a href="#">List Layout</a>
-									<ul>
-										<li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-										<li><a href="listings-list-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Grid Layout</a>
-									<ul>
-										<li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-										<li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-										<li><a href="listings-grid-full-width.html">Full Width</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Half Screen Map</a>
-									<ul>
-										<li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-										<li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-										<li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="listings-single-page.html">Single Listing</a></li>
+								<li><a href="/admin">{{i18n "my_bookings"}}</a></li>
+								<li><a href="/user">{{i18n "my_purchases"}}</a></li>
 							</ul>
 						</li>
 
-						<li><a class="current" href="#">User Panel</a>
+						<li><a href="#">{{i18n "language"}}</a>
 							<ul>
-								<li><a href="dashboard.html">Dashboard</a></li>
-								<li><a href="dashboard-messages.html">Messages</a></li>
-								<li><a href="dashboard-bookings.html">Bookings</a></li>
-								<li><a href="dashboard-my-listings.html">My Listings</a></li>
-								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
-							</ul>
-						</li>
-
-						<li><a href="#">Pages</a>
-							<ul>
-								<li><a href="pages-user-profile.html">User Profile</a></li>
-								<li><a href="pages-booking.html">Booking Page</a></li>
-								<li><a href="pages-blog.html">Blog</a>
-									<ul>
-										<li><a href="pages-blog.html">Blog</a></li>
-										<li><a href="pages-blog-post.html">Blog Post</a></li>
-									</ul>
+								<li><a href="?lang=en">{{i18n "english"}}</a>
 								</li>
-								<li><a href="pages-contact.html">Contact</a></li>
-								<li><a href="pages-elements.html">Elements</a></li>
-								<li><a href="pages-pricing-tables.html">Pricing Tables</a></li>
-								<li><a href="pages-typography.html">Typography</a></li>
-								<li><a href="pages-404.html">404 Page</a></li>
-								<li><a href="pages-icons.html">Icons</a></li>
+								<li><a href="?lang=es">{{i18n "spanish"}}</a>
+								</li>
 							</ul>
 						</li>
-						
 					</ul>
-				</nav> -->
+				</nav>
 				<div class="clearfix"></div>
 				<!-- Main Navigation / End -->
 				
 			</div>
 			<!-- Left Side Content / End -->
 
-      <div class="user-menu">
-					<div id="lang-select" class="user-name"><span></span>{{i18n "language"}}</div>
-						<ul>
-							<li><a href="?lang=es"><i class="flag-icon flag-icon-es"></i> Español</a></li>
-							<li><a href="?lang=en"><i class="flag-icon flag-icon-gb"></i> English </a></li>
-						</ul>
-					</div>
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<!-- Header Widget -->
 				<div class="header-widget">
-          
 					
 					<!-- User Menu -->
 					<div class="user-menu">
-						<div class="user-name"><span><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=120 alt="></span>{{i18n "my_account"}}</div>
+						<div class="user-name"><span>
+							{{#if userInfo.image.secure_url}} 
+							<img src="https://res.cloudinary.com/triptable/image/upload/q_auto,h_150,w_150/v{{userInfo.image.version}}/{{userInfo.image.public_id}}.{{userInfo.image.format}}" alt=""></span>
+							{{else}}
+							<img src="images/dashboard-avatar.jpg" alt=""></span>
+							{{/if}}
+							{{i18n "hello"}} {{userInfo.name.first}}!</div>
 						<ul>
-							<li><a href="/"><i class="sl sl-icon-home"></i> {{i18n "home"}}</a></li>
-							<li><a href="/user"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}}</a></li>
-							<li><a href="/admin"><i class="sl sl-icon-settings"></i>{{i18n "my_bookings_admin"}}</a></li>
-							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> {{i18n "signout"}}</a></li>
+							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> Logout</a></li>
 						</ul>
 					</div>
 
-					<!--<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>-->
+					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
 				</div>
 				<!-- Header Widget / End -->
 			</div>
@@ -210,6 +157,9 @@
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
 <!-- Dashboard -->
 <div id="dashboard">
 
@@ -217,22 +167,29 @@
 	================================================== -->
 
 	<!-- Responsive Navigation Trigger -->
-	<a href="#" class="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i> Dashboard Navigation</a>
+	<a href="#" class="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i>{{i18n "navigation"}}</a>
 	
 	<div class="dashboard-nav">
 		<div class="dashboard-nav-inner">
-
-
-			<ul data-submenu-title="Menu">
+			<ul data-submenu-title="{{i18n "quick_access"}}">
+				<li><a href="/dashboard"><i class="sl sl-icon-home"></i>Dashboard</a></li>
+				<li><a href="/admin/profile"><i class="sl sl-icon-user"></i>{{i18n "my_profile"}}</a></li>
+			</ul>
+			
+			<ul data-submenu-title="{{i18n "my_tours"}}">
+				<li class=""><a href="/admin/tour/list"><i class="sl sl-icon-list"></i> {{i18n "my_tours"}}</a></li>
+				<li class=""><a href="/admin/tour/create"><i class="sl sl-icon-plus"></i> {{i18n "add_new_tour"}}</a></li>
+			</ul>
+			<ul data-submenu-title="{{i18n "my_bookings"}}">
 				<!--<li><a href="/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>-->
 				{{#if_eq isGuide true}}
-				<li class=""><a href="/admin"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}} - Admin</a></li>
+				<li class=""><a href="/admin"><i class="sl sl-icon-bell"></i> {{i18n "my_bookings"}}</a></li>
 				{{/if_eq}}
-				<li class=""><a href="/user"><i class="fa fa-calendar-check-o"></i> {{i18n "my_bookings"}} - User</a></li>
+				<li class=""><a href="/user"><i class="sl sl-icon-basket-loaded"></i> {{i18n "my_purchases"}}</a></li>
 			</ul>
-			<ul data-submenu-title="Account">
+			<ul data-submenu-title="{{i18n "my_account"}}">
 				<!--<li class=""><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>-->
-				<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> Logout</a></li>
+				<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> {{i18n "logout"}}</a></li>
 			</ul>
 			
 			<!--<ul data-submenu-title="Listings">
@@ -260,7 +217,7 @@
 	{{{body}}}
 	<!-- Copyrights -->
 			<div class="col-md-12">
-				<div class="copyrights">© 2017 Triptable. {{i18n "all_rights_reserved"}}.</div>
+				<div class="copyrights">© 2018 Triptable. {{i18n "all_rights_reserved"}}.</div>
 			</div>
 		</div>
 	</div>	
