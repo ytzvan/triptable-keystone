@@ -5412,7 +5412,7 @@ input[type="button"],
 input[type="submit"],
 a.button.border,
 a.button {
-	background-color: #66676b;
+	background-color: #ff696a;
 	top: 0;
 	padding: 9px 20px;
 	color: #fff;
@@ -9924,7 +9924,7 @@ input:checked + .slider:before {
 	line-height: 0;
 	width: 18px;
 	height: 18px;
-	background: #66676b;
+	background: #ff696a;
 	display: inline-block;
 	border-radius: 50%;
 	color: #fff;

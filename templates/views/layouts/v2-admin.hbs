@@ -49,8 +49,8 @@
 	<meta property="og:image" content="{{meta.image}}" />
 	<meta property="og:image:secure_url"  content="{{meta.image}}" />
 	{{else}}
-	<meta property="og:image" content="https://res.cloudinary.com/triptable/image/upload/c_fill,q_60,w_1440/v1460674515/01_tqumqz.jpg" />
-	<meta property="og:image:secure_url" content="https://res.cloudinary.com/triptable/image/upload/c_fill,q_60,w_1440/v1460674515/01_tqumqz.jpg" />
+	<meta property="og:image" content="https://res.cloudinary.com/triptable/image/upload/w_900/v1522689386/eeipmxfzwzggjtyuls2y.jpg" />
+	<meta property="og:image:secure_url" content="https://res.cloudinary.com/triptable/image/upload/w_900/v1522689386/eeipmxfzwzggjtyuls2y.jpg" />
 	{{/if}}
 	<meta name="google-site-verification" content="jctPUXViGb3yIsxIi2lOeA4QrTx2CNcKZNh0ItPdXhw" />
 
@@ -98,7 +98,7 @@
 						<li><a href="#"> <i class="sl sl-icon-list"> </i>{{i18n "my_tours"}}</a>
 							<ul>
 								<li><a href="/admin/tour/list"></i> {{i18n "tour_list"}}</a></li>
-								<li><a href="/admin/tour/create">{{i18n "add_new"}}</a></li>
+								<li><a href="/admin/tour/add">{{i18n "add_new"}}</a></li>
 							</ul>
 						</li>
 
@@ -140,11 +140,11 @@
 							{{/if}}
 							{{i18n "hello"}} {{userInfo.name.first}}!</div>
 						<ul>
-							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i> Logout</a></li>
+							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i>Logout</a></li>
 						</ul>
 					</div>
 
-					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
+					<a href="/admin/tour/add" class="button border with-icon">Add Listing<i class="sl sl-icon-plus"></i></a>
 				</div>
 				<!-- Header Widget / End -->
 			</div>
@@ -178,7 +178,7 @@
 			
 			<ul data-submenu-title="{{i18n "my_tours"}}">
 				<li class=""><a href="/admin/tour/list"><i class="sl sl-icon-list"></i> {{i18n "my_tours"}}</a></li>
-				<li class=""><a href="/admin/tour/create"><i class="sl sl-icon-plus"></i> {{i18n "add_new_tour"}}</a></li>
+				<li class="active"><a href="/admin/tour/add"><i class="sl sl-icon-plus"></i> {{i18n "add_new_tour"}}</a></li>
 			</ul>
 			<ul data-submenu-title="{{i18n "my_bookings"}}">
 				<!--<li><a href="/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>-->
@@ -239,7 +239,8 @@
 <script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="/scripts/custom.js"></script>
-
+<!-- DropZone | Documentation: http://dropzonejs.com -->
+<script type="text/javascript" src="/scripts/dropzone.js"></script>
 <script>
 				$(document).ready(function(){
 					var lang= "{{lang}}";

@@ -373,5 +373,8 @@
 	"my_purchases": "Mis Compras",
 	"tour_list": "Lista de Tours",
 	"add_new": "Añadir nuevo",
-	"add_new_tour": "Añadir un Tour"
+	"add_new_tour": "Añadir un Tour",
+	"navigation": "navigation",
+	"quick_access": "quick_access",
+	"my_profile": "my_profile"
 }
