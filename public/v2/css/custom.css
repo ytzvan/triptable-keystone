@@ -874,8 +874,7 @@ label.payment-cash {
 	height: 320px;
 }
 .listing-slider, .listing-slider .item{
-	height: 35vh;
-    min-height: 350px;
+    height: 400px;
 }
 .information-icons i{
 	font-size: 36px;text-align: center;
@@ -1119,4 +1118,107 @@ h3.headline{
 	top: 1px;
 	left: 1px;
 	background-color: #fff;
+} 
+.user-profile-avatar {
+	 margin-top: 10px;
+	 max-width: 75px;
+ }
+h4.operator-name {
+	padding-top:0px;
+	margin-top:0px;
+	margin-bottom:5px;
+}
+h2.tour-summary-name {
+	margin: 0;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 35px;
+}
+.user-profile-name {
+	position: relative;
+	left: 90px;
+}
+
+.listing-slider{
+	padding-left:0px;
+	padding-right:0px;
+}
+.container.tour-header{
+	margin-top:0px;
+}
+
+@media (min-width: 992px) {
+	.container.tour-header{
+		margin-top:30px;
+	}
+	}
+
+	.user-profile-name h4{
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.tour-summary-operator{
+		margin-top:0;
+		margin-bottom:5px;
+	}
+	@media (min-width: 992px) {
+		.tour-summary-operator{
+			margin-top:30px;
+			margin-bottom:0px;
+		}
+	}
+
+	.buttons a.button.border{
+		text-transform: capitalize;
+	}
+
+.share-buttons li a {
+	background: #fff;
+	padding: 5px 5px 5px 12px;
+}
+
+.tour-summary .sharing-buttons{
+	margin-top:0%;
+}
+
+
+
+@media (min-width: 992px) {
+	.tour-summary .sharing-buttons{
+		margin-top:10%;
+	}
+}
+
+@media (min-width: 1240px) {
+	.tour-summary .sharing-buttons{
+		margin-top:15%;
+	}
+}
+
+.tour-summary .tour-summary-price{
+	margin-top:0;
+	margin-bottom:5px;
+}
+@media (min-width: 992px) {
+	.tour-summary .tour-summary-price{
+		margin-top:30px;
+		margin-bottom:0px;
+	}
+}
+.share-buttons li a.wa-share {
+	border-color: #1fbea5;
+	color: #1fbea5;
+}
+.share-buttons li a.wa-share:hover {
+	background: #1fbea5;
+	color: #fff;
+}
+.share-buttons li a.linkedin-share {
+	border-color: #0277b5;
+	color: #0277b5;
+}
+.share-buttons li a.linkedin-share:hover {
+	background: #0277b5;
+	color: #fff;
 }

@@ -376,5 +376,8 @@
 	"add_new_tour": "Añadir un Tour",
 	"navigation": "navigation",
 	"quick_access": "quick_access",
-	"my_profile": "my_profile"
+	"my_profile": "my_profile",
+	"change_currency": "Change currency",
+	"sharing_this_tour": "Share this tour",
+	"share": "Share"
 }
