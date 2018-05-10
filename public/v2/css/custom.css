@@ -1036,7 +1036,7 @@ a.send-message-to-owner.button {
 	margin-bottom: -5px;
 }
 .listing-item.user-profile:before {
-	background: linear-gradient(to top, rgba(35,35,37,0.6) 25%, rgba(35,35,37,0.4) 35%, rgba(22,22,23,0.2) 45%, rgba(27, 9, 9, 0) 55%);
+	background: linear-gradient(to top, rgba(35,35,37,0.7) 20%, rgba(35,35,37,0.4) 30%, rgba(22,22,23,0.2) 40%, rgba(27, 9, 9, 0) 50%);
 }
 .hosted-by-title h2.operator-title{
 	font-size: 20px;
@@ -1221,4 +1221,12 @@ h2.tour-summary-name {
 .share-buttons li a.linkedin-share:hover {
 	background: #0277b5;
 	color: #fff;
+}
+.listing-item-content h2 {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 500;
+	color:white;
+	margin:0px 5px;
+	text-rendering: optimizeLegibility;
 }
