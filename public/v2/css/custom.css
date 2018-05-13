@@ -1230,3 +1230,6 @@ h2.tour-summary-name {
 	margin:0px 5px;
 	text-rendering: optimizeLegibility;
 }
+.listing-nav-container.cloned{
+	display: none;
+}
