@@ -5,13 +5,13 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Add Listing</h2>
+					<h2>{{i18n "add_new_tour"}}</h2>
 					<!-- Breadcrumbs -->
 					<nav id="breadcrumbs">
 						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Dashboard</a></li>
-							<li>Add Listing</li>
+							<li><a href="#">{{i18n "home"}}</a></li>
+							<li><a href="#">{{i18n "dashboard"}}</a></li>
+							<li>{{i18n "add_new_tour"}}</li>
 						</ul>
 					</nav>
 				</div>
@@ -28,21 +28,21 @@
 
 						<!-- Headline -->
 						<div class="add-listing-headline">
-							<h3><i class="sl sl-icon-doc"></i> Basic Informations</h3>
+							<h3><i class="sl sl-icon-doc"></i> {{i18n "tour_information"}}</h3>
 						</div>
 
 						<!-- Title -->
        
 						<div class="row with-forms">
 							<div class="col-md-12">
-								<h5>Tour Title <i class="tip" data-tip-content="Name of your tour"></i></h5>
+								<h5>{{i18n "tour_title"}} <i class="tip" data-tip-content="{{i18n "tour_title_tip"}}"></i></h5>
 								<input class="search-field" name="name" type="text" value=""/>
 							</div>
 						</div>
             <div class="row">
 							<div class="col-md-12">
                 <div class="form">
-                  <h5>Description <i class="tip" data-tip-content="Descripción detallada del tour"></i></h5>
+                  <h5>{{i18n "description"}} <i class="tip" data-tip-content="{{i18n "description_tip"}}"></i></h5>
                   <textarea class="WYSIWYG" name="description_extended" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
                 </div>
 						  </div>
@@ -50,6 +50,16 @@
 
 						<!-- Row -->
 						<div class="row with-forms">
+							<div class="col-md-6">
+								<h5>Tour type</h5>
+								<div>
+								<input type="radio" id="1" name="tourType"  checked="checked" value="group tour">
+								<label for="1">Group Tour</label>
+								<input type="radio" id="2" name="tourType" value="private tour">
+								<label for="2">Private tour</label>
+							
+									</div>
+							</div>
 
 							<!-- Status -->
 							<div class="col-md-6">
@@ -80,7 +90,10 @@
 							<!-- Status -->
 							<div class="col-md-6">
 								<h5>Tour Duration</h5>
+							
                   <input name="duration" type="number">
+		
+			
 							</div>
 
 							<!-- Type -->

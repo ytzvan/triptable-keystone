@@ -29,7 +29,8 @@ exports.add = function(req, res) {
           maxPerson: body.maxPerson,
           owner: req.user.id,
           state: 'draft',
-          description: { short : 'Hola', extended: body.description_extended}
+          description: { short :  body.description_short, extended: body.description_extended},
+          tourType : body.tourType
       });
     
     

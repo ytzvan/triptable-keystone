@@ -379,5 +379,10 @@
 	"my_profile": "my_profile",
 	"change_currency": "Change currency",
 	"sharing_this_tour": "Share this tour",
-	"share": "Share"
+	"share": "Share",
+	"dashboard": "dashboard",
+	"tour_information": "tour_information",
+	"tour_title": "tour_title",
+	"tour_title_tip": "tour_title_tip",
+	"description_tip": "description_tip"
 }
