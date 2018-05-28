@@ -2,6 +2,12 @@ var keystone = require('keystone');
 var async = require('async');
 var Enquiry = keystone.list('Enquiry');
 var Tour = keystone.list('Tour');
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+  cloud_name: 'triptable', 
+  api_key: '769197977994854', 
+  api_secret: 'yDUEMqzo43Nbpual9yOaPiZnFso' 
+});
 
 exports.add = function(req, res) {   
   var view = new keystone.View(req, res);
@@ -21,28 +27,42 @@ exports.add = function(req, res) {
   
 
   view.on('post', function(next) {
+    let locals = res.locals;
+
     var body = req.body;
-      var newPost = new Tour.model({
-          name: body.name,
-          duration: body.duration,
-          minPerson: body.minPerson,
-          maxPerson: body.maxPerson,
-          owner: req.user.id,
-          state: 'draft',
-          description: { short :  body.description_short, extended: body.description_extended},
-          tourType : body.tourType
+    var files = req.files;
+
+    var newPost = new Tour.model({
+      name: body.name,
+      duration: body.duration,
+      minPerson: body.minPerson,
+      maxPerson: body.maxPerson,
+      owner: req.user.id,
+      state: 'draft',
+      description: { short :  body.description_short, extended: body.description_extended},
+      tourType : body.tourType,
+    });
+    if (files.heroImage) {
+        cloudinary.uploader.upload(files.heroImage.path, function(result) { 
+        newPost.heroImage = result;  
+        saveItem(newPost);
       });
+    } else {
+      saveItem(newPost);
+    }
     
-    
-    newPost.save(function(err, result) {
-        // post has been saved	
+    function saveItem(newPost){
+      newPost.save(function(err, result) {
         if(err){
-          console.log(err);
+          locals.data.validationErrors = err.errors;
+          console.log("Data",  err.errors);
+          next();
         } else{
           res.redirect('/admin/tour/list');
         }
-    });
-   // next();
+      });
+    }
+    
     
   });
   view.render('admin/tour/new', {layout:"v2-admin"});
@@ -60,13 +80,25 @@ exports.list = function(req, res) {
     Tour.model.find({owner: req.user.id, state:'published'})
     .exec(function(err, results) {
       locals.data.results_active = results;
-      console.log(results);
     });
     Tour.model.find({owner: req.user.id, state:'draft'})
     .exec(function(err, results) {
       locals.data.results_draft = results;
     });
   view.render('admin/tour/list', {layout:"v2-admin"});
+};
+
+exports.addImages = function(req, res) {
+  var view = new keystone.View(req, res);
+  view.on('post', (next) => {
+    console.log(req.files);
+    // cloudinary.uploader.upload(files.heroImage.path, function(result) { 
+    //   newPost.heroImage = result;  
+    //   saveItem(newPost);
+    // });
+    next();
+  });
+  view.render('admin/tour/new', {layout:"v2-admin"});
 };
 
 exports.edit = function(req, res) {

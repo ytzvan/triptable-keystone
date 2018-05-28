@@ -187,7 +187,7 @@
 	"booking_id": "ID de Reserva",
 	"booking_need_confirm_message": "Confirma la reserva para ver los detalles del cliente",
 	"booking_declined_message": "Esta reserva ha sido declinada",
-	"my_bookings_admin": "Mis Reservas - Administrator",
+	"my_bookings_admin": "Panel de Administración",
 	"starting_from": "Desde",
 	"most_reserved_tours_message": "Descubre los tours más populares",
 	"search_message": "Busca por destino o tour",

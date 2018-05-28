@@ -44,6 +44,7 @@ exports = module.exports = function(app) {
   app.all('/admin/booking/:id', middleware.requireGuide, routes.admin.booking.index);
 	app.post('/admin/booking/:id/update', middleware.requireGuide, routes.admin.booking.update);
 	app.all('/admin/tour/add', middleware.requireGuide, routes.admin.tour.add);
+	app.all('/admin/tour/addImages', middleware.requireGuide, routes.admin.tour.addImages);
 	app.all('/admin/tour/list', middleware.requireGuide, routes.admin.tour.list);
   app.all('/dashboard',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);

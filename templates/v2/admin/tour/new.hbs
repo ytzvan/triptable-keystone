@@ -17,10 +17,13 @@
 				</div>
 			</div>
 		</div>
-
+	{{#if data.validationErrors}}
+	<p>error: {{data.validationErrors.name.message}}</p>
+	<p>error: {{data.validationErrors.duration.message}}</p>
+	{{/if}}
 		<div class="row">
 			<div class="col-lg-12">
-        <form method="POST" action="/admin/tour/add">
+        <form method="POST" action="/admin/tour/add" enctype="multipart/form-data">
 				<div id="add-listing">
 
 					<!-- Section -->
@@ -98,28 +101,146 @@
 
 							<!-- Type -->
 							<div class="col-md-6">
-								
+								<h5>{{i18n "youtube_link"}} <i class="tip" data-tip-content="{{i18n "youtube_link_tip"}}"></i></h5>
+								<input class="search-field" name="youtube" type="url" value=""/>
 							</div>
 
 						</div>
 						<!-- Row / End -->
+					<div class="row with-forms">
+						<div class="col-md-12">
+							<h5 class=" margin-top-30 margin-bottom-10">{{i18n "includes"}} <span>(optional)</span></h5>
+					<div class="col-md-12">
+						<div class="checkboxes in-row margin-bottom-20">
+					
+							<input id="check-a" type="checkbox" name="check">
+							<label for="check-a">{{i18n "hotel_pickup"}}</label>
+
+							<input id="check-b" type="checkbox" name="check">
+							<label for="check-b">{{i18n "ground_transportation"}}</label>
+
+							<input id="check-c" type="checkbox" name="check">
+							<label for="check-c">>{{i18n "maritime_transportation"}}</label>
+
+							<input id="check-d" type="checkbox" name="check">
+							<label for="check-d">{{i18n "food"}}</label>
+
+							<input id="check-e" type="checkbox" name="check">
+							<label for="check-e">{{i18n "drinks"}}</label>
+
+							<input id="check-f" type="checkbox" name="check">
+							<label for="check-f">{{i18n "snacks"}}</label>
+
+							<input id="check-g" type="checkbox" name="check">
+							<label for="check-g">{{i18n "insurance"}}</label>	
+
+					
+						</div>
+					</div>	
+				</div>
+				</div>
+
+				
 
 					</div>
-					<!-- Section / End -->
 
+							<div class="add-listing-section margin-top-45">
+								<div class="add-listing-headline">
+									<h3><i class="sl sl-icon-picture"></i> {{i18n "calendar"}}</h3>
+								</div>
+								<div class="row with-forms">
+						<div class="col-md-12">
+							<h5 class=" margin-top-30 margin-bottom-10">{{i18n "days_available"}} <span></span></h5>
+								<div class="col-md-12">
+									<div class="checkboxes in-row margin-bottom-20">
+								
+										<input id="monday" type="checkbox" name="monday">
+										<label for="monday">{{i18n "monday"}}</label>
+
+										<input id="tuesday" type="checkbox" name="tuesday">
+										<label for="tuesday">{{i18n "tuesday"}}</label>
+
+										<input id="wednesday" type="checkbox" name="wednesday">
+										<label for="wednesday">>{{i18n "wednesday"}}</label>
+
+										<input id="thursday" type="checkbox" name="thursday">
+										<label for="thursday">{{i18n "thursday"}}</label>
+
+										<input id="friday" type="checkbox" name="friday">
+										<label for="friday">{{i18n "friday"}}</label>
+
+										<input id="saturday" type="checkbox" name="saturday">
+										<label for="saturday">{{i18n "saturday"}}</label>
+
+										<input id="sunday" type="checkbox" name="sunday">
+										<label for="sunday">{{i18n "sunday"}}</label>	
+
+								
+											</div>
+										</div>	
+									</div>
+								</div>
+								<div class="row with-forms">
+
+									<div class="col-md-4">
+										<h5>{{i18n "days_before_booking"}} <i class="tip" data-tip-content="{{i18n "days_before_booking_tip"}}"></i></h5>
+										<input class="search-field" name="skipDays" type="number" min="0" max="30" value=""/>
+									</div>
+
+									<div class="col-md-4">
+										<h5>{{i18n "tour_departure_time"}} <i class="tip" data-tip-content="{{i18n "tour_departure_time_tip"}}"></i></h5>
+										<input class="search-field" name="departureTime" type="time" value=""/>
+									</div>
+
+									<div class="col-md-4">
+										<h5>{{i18n "tour_arrival_time"}} <i class="tip" data-tip-content="{{i18n "tour_arrival_time_tip"}}"></i></h5>
+										<input class="search-field" name="arrivalTime" type="time" value=""/>
+									</div>
+
+								</div>
+							</div>
 					
 
+					<div class="add-listing-section margin-top-45">
 
-					
+						<!-- Headline -->
+						<div class="add-listing-headline">
+							<h3><i class="sl sl-icon-picture"></i> </h3>
+						</div>
+
+						<!-- Dropzone -->
+						<input type="file" name="heroImage" accept="image/*">
 
 
-					<button type="submit" class="button preview">Preview <i class="fa fa-arrow-circle-right"></i></button>
+					</div>
+		
+					<button type="submit" class="button preview">Guardar <i class="fa fa-arrow-circle-right"></i></button>
 
 				</div>
         </form> 
+				
+	
+				</div>
+				</div>
+				
+						<!-- Section 
+					<div class="add-listing-section margin-top-45">
+
+						<!-- Headline 
+						<div class="add-listing-headline">
+							<h3><i class="sl sl-icon-picture"></i> Gallery</h3>
+						</div>
+
+						<div class="submit-section" >
+							<form class="dropzone" action="/admin/tour/addImages" enctype="multipart/form-data"></form>
+						</div>
+
+					</div>
+				
 
 			</div>
 			</div>
+		
 <!-- Opening hours added via JS (this is only for demo purpose) -->
 <script>
 
