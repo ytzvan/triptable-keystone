@@ -32,7 +32,7 @@
 	<link rel="canonical" href="https://www.triptable.com/" />
     <link rel="alternate" hreflang="es" href="https://es.triptable.com/">
     <link rel="alternate" hreflang="en" href="https://en.triptable.com/">
-    <link rel="alternate" hreflang="es-419" href="https://www.triptable.com/">
+    <link rel="alternate" hreflang="es-419" href="https://es.triptable.com/">
 	{{/if}}
 	{{#if meta.nextUrl}}
 	<link rel="next" href="{{meta.nextUrl}}" />
@@ -76,7 +76,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/colors/blue.css" id="colors">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 <link rel="stylesheet" href="/css/custom.css">
+
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
 <!--Tour CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
@@ -127,6 +129,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</button>
 				</div>
 
+				<div id="change-currency">
+					<span id="change-currency-elem">$</span>
+				</div>
+
 				<!-- Main Navigation -->
 				<nav id="navigation" class="style-1">
 					<ul id="responsive">
@@ -175,7 +181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<li><a href="?lang=en"> English </a></li>
 							</ul>
 						</li>
-						<li>
+						<li id="currency-changer">
 							<a id="currency-select"><i class="im im-icon-Dollar-Sign"></i> </a>
 							<ul>
 								<li><a href="/currency/USD">$ USD</a></li>
@@ -234,10 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					var currency =  "{{session.userCurrency.value}}";
 				
 					$('#currency-select').append(currency);
-
-					
-				//	$('#currency-select').HTML(currency);
-	
+					$('#change-currency-elem').append(currency);
 				});
 
 			
@@ -368,7 +371,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 <!-- Wrapper / End -->
-
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="/images/avatar/large/chris.jpg">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
 
 
 <!-- Scripts
@@ -380,6 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 <script type="text/javascript" src="/scripts/custom.js"></script>
 
 

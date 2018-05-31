@@ -6,6 +6,7 @@
 }
 i.im{
   z-index: 1;
+  font-weight: 600;
 }
 .result-img{
   width: 65px;
@@ -26,15 +27,12 @@ a#searchBtn{
 }
 .main-search-inner
 	h1.title{
-	font-weight: 500;
-	font-size: 3.3rem;
+	font-size: 2.3rem;
 	color: #ecf0f1;
 }
 h2.subtitle{
-	font-weight: 400;
-	font-size: 2.3rem;
+	font-size: 1.7rem;
 	color: #ecf0f1;
-	text-transform: none;
 }
 h3.bold.title{
   font-weight: 600;
@@ -55,7 +53,6 @@ p.subtitle i{
   color: #3498db;
 }
 .listing-item-container .star-rating{
-  padding: 15px;
   margin:0;
 }
 .float-right{
@@ -474,9 +471,8 @@ i.price{
 		font-weight: 400;
 }
 .listing-item-container .star-rating{
-	background-color: #2980b9;
 	color: white;
-	padding: 5px 15px;
+	padding:0px;
 	border-radius: 0px 0px 4px 4px;
 }
 .star-rating .price{
@@ -492,14 +488,21 @@ h3.tour-price{
 .listing-item-details{
 	padding: 0px 15px;
 	top: 15px;
+	
 }
+.listing-item-details i{
+	color: red;
+}
+
 .listing-badge.now-open{
 	background-color: #ff696a;
 }
 .listing-item-details ul li{
-padding: 4px;
+	padding: 4px;
   border-radius: 5px;
+  
   background-color: rgba(130, 137, 138, 0.8);
+
 	
 }
 header .container-fluid {
@@ -606,6 +609,7 @@ span.price-in-usd{
 #navigation.style-1 ul li a{
 	font-weight: 400;
 	padding: 5px 10px;
+	text-transform: uppercase;
 }
 #signInBtn:hover {
 	color: gray;
@@ -651,7 +655,7 @@ h2.search-title{
 	text-transform: capitalize;
 }
 .listing-item{
-	height: 280px;
+	height: 200px;
 }
 @media (max-width: 480px) {
   .listing-item{
@@ -700,7 +704,7 @@ span.tour-item-desc{
 		margin:0 1%;
 	}
 	.listing-item{
-		height: 220px;
+		height: 200px;
 	}
 	.simple-fw-slick-carousel .fw-carousel-item{
 		padding: 30px 10px;
@@ -1233,3 +1237,73 @@ h2.tour-summary-name {
 .listing-nav-container.cloned{
 	display: none;
 }
+
+.headline a.currency{
+font-size: 14px;
+    font-weight: 300;
+    color: #333;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 1024px) {
+	div#change-currency span{
+	position: absolute;
+    right: 0;
+    top: 12%;
+    padding: 15px;
+    font-size: 22px;
+	}
+}
+@media (min-width: 1025px) {
+	div#change-currency span{
+	display: none;
+	}
+}
+.listing-item-content span.price{
+	padding-left :5px;
+	font-size: 16px;
+	font-weight: 500;
+	color:white;
+}
+
+.tour-info{
+	min-height: 185px;
+	height: 100%;
+	padding:15px;
+}
+.tour-info .price h3{
+	margin-top: 0px;
+}
+.tour-info h3.title{
+	margin-bottom: 5px;
+}
+.tour-info p.discount-price{
+	margin-bottom: 0px;
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #8e8e8e;
+    line-height: 15px;
+}
+.tour-info .price-box{
+	position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+	
+}
+.giveMeEllipsis {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   line-height: 23px;        /* fallback */
+   max-height: 46px;       /* fallback */
+}
+.tour-info span.description{
+	color: #2c73b3;
+}
+.tour-info span.from-price{
+	color: #525252;
+}
+.listing-item-container:hover {    transform: translate3d(0,-6px,0)}

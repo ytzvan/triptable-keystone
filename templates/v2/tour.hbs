@@ -14,9 +14,15 @@
 				<h2 class="headline margin-bottom-0 tour-summary-name">{{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}}</h2>
 				<p class="margin-bottom-10"> <i class="fa fa-map-marker"></i><a target="_blank" href="/destino/{{data.tour.city.slug}}"> {{data.tour.city.city}}, {{data.tour.country.country}} </a> · <i class="fa fa-users"></i> {{data.tour.minPerson}} - {{data.tour.maxPerson}} {{i18n "people"}} · <i class="fa fa-clock-o"></i> {{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}} · 	{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> {{i18n "group_tour"}}{{/if_eq}}
 					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i>{{i18n "private_tour"}}{{/if_eq}} 
-				<h4 class="headline tour-summary-price">{{i18n "price"}}: {{getPriceInCurrency data.tour.price data.tour.currency}} {{data.tour.currency}}</h4> 
+
+				<div class="tour-summary-price">
+				{{#if data.tour.multiPrice}}<span>{{i18n "from"}}:</span>{{/if}}
+				<h4 class="headline">{{getPriceInCurrency data.tour.price data.tour.currency}} {{data.tour.currency}} {{i18n "per_person"}}</h4>
+				</div>
+
 				<div class="buttons"><a href="#listing-pricing-list" class="button primary"> <i class="sl sl-icon-fire"></i> {{i18n "book_now"}} </a>	
 				<a href="mailto:hello@triptable.com?subject=Pregunta del tour: {{data.tour.name}} - Precio: {{getCurrency}} {{data.tour.price}} - Url: https://www.triptable.com/tour/{{data.tour.slug}}" class="button medium border"><i class="sl sl-icon-envelope-open"></i> {{i18n "send_message"}}</a></div>
+  
 		
 				<div class="sharing-buttons no-border">
 				
@@ -28,36 +34,13 @@
 "><i class="fa fa-twitter"></i></a></li>
 						<li><a class="gplus-share" target="_blank" href="https://plus.google.com/share?url={{meta.url}}&text={{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}}&hl={{lang}}"><i class="fa fa-google-plus"></i></a></li>
 						<li><a class="linkedin-share" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{meta.url}}&title={{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}}&summary={{#if_eq lang "en"}} {{data.tour.description_eng.short}} {{else}} {{data.tour.description.short}} {{/if_eq}}"><i class="fa fa-linkedin"></i></a></li>
-						<li><a class="wa-share" href="https://api.whatsapp.com/send?text={{#if_eq lang "en"}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if_eq}} - {{meta.url}}">
-						<i class="fa fa-whatsapp"></i></a></li>
+						<li>
+							<a class="wa-share" href="https://api.whatsapp.com/send?text={{#if_eq lang "en"}}{{data.tour.name_eng}}{{else}} {{data.tour.name}} {{/if_eq}} - {{meta.url}}"> 	<i class="fa fa-whatsapp"></i></a>
+						</li>
 						<!-- <li><a class="pinterest-share" href="#"><i class="fa fa-pinterest-p"></i> Pin</a></li> -->
 					</ul>
 					<div class="clearfix"></div>
 			</div>
-						<!-- Contact Details -->
-		<!--
-							<div class="col-md-12 tour-summary-operator" style="padding-left:0px;">
-								<div class="user-profile-titlebar">
-									<div class="user-profile-avatar">
-										{{#if data.tour.owner.image.secure_url}}
-										<img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_120,w_120,g_auto/v1515719802/{{data.tour.owner.image.public_id}}.{{data.tour.owner.image.format}}" alt="{{data.tour.name}}">
-										{{else}}
-										<img src="http://res.cloudinary.com/triptable/image/upload/h_120,w_120,q_auto/v1525719611/Untitled-1.png" alt="">
-										{{/if}}
-										</div>
-									<div class="user-profile-name">
-										<p class="margin-bottom-0">{{i18n  "operator"}}:</p>
-										<a href="/u/{{data.tour.owner._id}}"><h4>{{data.tour.owner.name.first}} {{#if data.tour.owner.isVerified}} <i class="verified-icon"></i> {{/if}}</h4></a>
-											{{#if data.tour.nOfReviews }} 
-											<div class="star-rating" data-rating="{{data.tour.nOfStars}}"> 
-												({{data.tour.nOfReviews}} {{i18n "reviews"}})
-											</div>
-											{{else}}
-											{{/if}}
-										</div>
-									</div>
-								</div>
--->
 						
 			</section>
 		</div>
@@ -475,4 +458,3 @@
   //do work    
 });
   </script>
-

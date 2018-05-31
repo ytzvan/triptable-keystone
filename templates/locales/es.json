@@ -11,7 +11,7 @@
 	"featured_tours": "Tours Destacados",
 	"featured_tours_subtitle": "Estos tours han marcado tendencias en nuestros usuarios",
 	"sale": "Oferta",
-	"book_now": "Reservar Ahora",
+	"book_now": "Reservar",
 	"see_all": "Ver Todos",
 	"list_tour": "Listar un tour",
 	"list_tour_description": "Listar tus servicios turísticos en con nostros tiene muchas ventajas que potenciarán tu negocio.",
@@ -379,5 +379,6 @@
 	"my_profile": "my_profile",
 	"change_currency": "Change currency",
 	"sharing_this_tour": "Share this tour",
-	"share": "Share"
+	"share": "Compartir",
+	"from": "Desde"
 }

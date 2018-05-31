@@ -27,6 +27,16 @@ $(document).ready(function(){
 				var mmenuAPI = $(".mmenu-init").data( "mmenu" );
 				var $icon = $(".hamburger");
 
+
+
+
+			    //   Trigger a method
+			    
+
+
+
+
+
 				$(".mmenu-trigger").click(function() {
 					mmenuAPI.open();
 				});
@@ -42,13 +52,22 @@ $(document).ready(function(){
 				   });
 				});
 
+				$('#change-currency-elem').click( () => {
+					mmenuAPI.openPanel( $("#mm-4").trigger( "open.mm" ));
+					mmenuAPI.open();
+				});
+
+
 
 			}
 			$(".mm-next").addClass("mm-fullsubopen");
 		}
 		mmenuInit();
 		$(window).resize(function() { mmenuInit(); });
+
 	});
+
+
 
     /*  User Menu */
     $('.user-menu').on('click', function(){
