@@ -1,7 +1,7 @@
 <!-- Titlebar
 ================================================== -->
-<section>
-<div id="titlebar" class="gradient">
+<section style="background-color:#f8f8f8;">
+<div id="titlebar" >
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
@@ -25,7 +25,7 @@
 		{{#each data.cities}}
 
 		
-		<div class="col-md-4">
+		<div class="col-md-3">
 
 			<!-- Image Box -->
 			<a href="/destino/{{slug}}" class="img-box" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}">
@@ -47,12 +47,8 @@
 {{/unless}}
 <!-- Content
 ================================================== -->
-
 <div class="container">
 	<div class="row">
-		<div class="col-md-12 margin-top-15">
-			<p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
-		</div>
 
 <!-- Search
 
@@ -118,29 +114,61 @@
 				<button class="button">{{i18n "search"}}</button>
 			</div>
 		</div>
+		<div class="col-md-12 margin-bottom-15">
+			<p class=""> {{i18n "showing_from"}} <strong>{{data.tours.first}}</strong> {{i18n "to"}} <strong>{{data.tours.last}}</strong></p>
+		</div>
 		<div class="tour-search-list">
 		{{#each data.tours.results}}
 
-			<div class="col-md-4 col-sm-6 col-xs-12" id="search-tour-item-{{@index}}">
-					<a href="/tour/{{slug}}" class="listing-item-container compact">
-						<div class="listing-item user-profile">
+			<div class="col-md-4 col-lg-3 col-sm-6 col-xs-12" id="search-tour-item-{{@index}}">
+
+
+					<a href="/tour/{{slug}}" class="listing-item-container">
+						<div class="listing-item">
 							{{#if heroImage.secure_url}}
 							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
 							{{else}}
 							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
 							{{/if}}
-							<div class="listing-badge now-open"><strong>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}}</strong></div>
+						<!--	<div class="listing-item-details">
+								<ul>
+									<li> <i class="sl sl-icon-fire"></i> Más Vendidos</li>
+								</ul>
+							</div>-->
 
-							<div class="listing-item-content">
-								<div class="numerical-rating mid"><i class="fa fa-clock-o"></i> {{duration}} {{#if isMultiDay}}{{i18n "D"}} {{else}}{{i18n "H"}} {{/if}}</div>
-								<!--<div class="numerical-rating" data-rating="3.5"></div>-->
-								<h3>{{getTourLocName name name_eng}} </h3>
-								<span><i class="fa fa-map-marker"></i> {{city.city}}</span>
+							<!--<div class="listing-badge now-open"><strong>-20% OFF</strong></div>-->
+							
+							<!--<div class="listing-item-content">
+								<span class="tag">Mas Vendidos <i class="sl sl-icon-fire"></i></span>
+							</div> -->
+							<!--<span class="like-icon"></span>-->
+						</div>
+						
+						<div class="tour-info">
+							<h3 class="title giveMeEllipsis">{{getTourLocName name name_eng}}<!-- <i class="verified-icon"></i>--></h3>
+							<span class="description one-line"><i class="fa fa-map-marker"></i> {{city.city}} · <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</span>
+							{{#if nOfReviews}}
+							<div class="star-rating padding-top-5" data-rating="{{nOfStars}}">
+								<div class="rating-counter">({{nOfReviews}} {{i18n "reviews"}})</div>
 							</div>
-						<!--	<span class="like-icon"></span>-->
+							{{/if}}
+							<div class="row margin-top-10">
+							
+								<div class="col-md-12 price-box">
+									<div class="price">
+										{{#unless nOfReviews}}{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}}{{/unless}} <!--<span class="discount-price">$154 USD</span>-->
+										<h3>{{../data.tours.currency}} {{getPriceInCurrency price ../data.tours.currency}} <span>{{i18n "per_person"}}</span> <!--<span class="discount-price">$154 USD</span>--></h3>
+									</div>
+								</div>
+							
+							</div>
+							
 						</div>
 					</a>
+
+
 				</div>
+
 			{{/each}}	
 			</div>
 			<!-- Pagination -->
@@ -170,7 +198,7 @@
 
 			{{#if data.city}}
 			{{#if data.cities}}
-			 <div class="container">
+			 <div class="container more-destinations padding-bottom-30">
 				<div class="row">
 					<div class="col-md-12">
 						<h3 class="headline margin-bottom-15 margin-top-5">{{i18n "more_tours_in"}} {{data.country}}</h3>
@@ -179,7 +207,7 @@
 			 	
 					<div class="col-md-3 col-sm-3 col-xs-6 featured-city">
 					<ul>
-						<li><a href="/destino/{{slug}}">{{i18n "tours_in"}} {{city}}</a></li>
+						<li><a class="destination" href="/destino/{{slug}}">{{i18n "tours_in"}} {{city}}</a></li>
 					</ul>
 					</div>	
 			 		{{/each}}

@@ -48,9 +48,9 @@ exports = module.exports = function(req, res) {
 			}
 			locals.data.place = place;
 			locals.data.placeName = place.province;
-			console.log("place", place.province);
+	
 			var id = place._id;
-			var provinceName = place.slug;
+			var provinceName = place.province;
 			
 			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + provinceName + ".";
 			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;

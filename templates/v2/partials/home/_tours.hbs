@@ -49,17 +49,17 @@
 						
 						<div class="tour-info">
 							<h3 class="title giveMeEllipsis">{{getTourLocName name name_eng}}<!-- <i class="verified-icon"></i>--></h3>
-							<span class="description"><i class="im im-icon-Map2"></i> {{city.city}}</span> · <span><i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</span>
-							{{#if nOfReviews}}<div class="star-rating padding-top-5" data-rating="{{nOfStars}}">
-								<div class="rating-counter">({{nOfReviews}} reviews)</div>
-							</div>
+							<span class="description"><i class="fa fa-map-marker"></i> {{city.city}}</span> · <span><i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</span>
+							{{#if nOfReviews}}
+							<!--<div class="star-rating padding-top-5" data-rating="{{nOfStars}}">
+								<div class="rating-counter">({{nOfReviews}} {{i18n "reviews"}})</div>
+							</div>-->
 							{{/if}}
 							<div class="row margin-top-10">
 							
 								<div class="col-md-12 price-box">
 									<div class="price">
-										{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}}
-										<!--<p class="discount-price">$154 USD</p>-->
+										{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}} <!--<span class="discount-price">$154 USD</span>-->
 										<h3>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}} <span>{{i18n "per_person"}}</span></h3>
 									</div>
 								</div>
@@ -69,28 +69,6 @@
 						</div>
 					</a>
 			</div>
-
-
-		<!--<div class="col-md-4 col-sm-6 col-xs-12 panama-tour-item" id="panama-tour-item-{{@index}}">
-					<a href="/tour/{{slug}}" class="listing-item-container compact">
-						<div class="listing-item user-profile">
-							{{#if heroImage.secure_url}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
-							{{else}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
-							{{/if}}
-							<div class="listing-badge now-open"></div>
-
-							<div class="listing-item-content">
-								<div class="numerical-rating mid"><i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "D"}} {{else}} {{i18n "H"}} {{/if}}</div>
-						
-								<h2>{{getTourLocName name name_eng}}  </h2>
-								<span class="price">{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}} {{i18n "per_person"}}</span>
-							</div>
-						
-						</div>
-					</a>
-				</div>  -->
 		{{/each}}
 		</div>
 	</div>
@@ -98,74 +76,7 @@
 
 </section>
 <!-- Fullwidth Section -->
-<section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
 
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-12">
-				<h3 class="headline centered margin-bottom-45">
-					Most Visited Places
-					<span>Discover top-rated local businesses</span>
-				</h3>
-			</div>
-
-			<div class="col-md-4">
-				
-				<!-- Listing Item -->
-	
-					<a href="listings-single-page.html" class="listing-item-container">
-						<div class="listing-item">
-							<img src="images/listing-item-01.jpg" alt="">
-							<div class="listing-item-details">
-								<ul>
-									<li> <i class="sl sl-icon-fire"></i> Popular</li>
-								</ul>
-							</div>
-
-							<div class="listing-badge now-open"><strong>-20% OFF</strong></div>
-							
-							<!--<div class="listing-item-content">
-								<span class="tag">Mas Vendidos <i class="sl sl-icon-fire"></i></span>
-							</div>-->
-							<!--<span class="like-icon"></span>-->
-						</div>
-						
-						<div class="tour-info">
-							<h3 class="title">Pasadia A Playa Cristal En El Parque Nacional Tayrona <i class="verified-icon"></i></h3>
-							<span><i class="im im-icon-Map2"></i> Panama City, Panama</span> · <span><i class="fa fa-clock-o"></i> 8 h</span>
-							<div class="star-rating padding-top-5" data-rating="{{nOfStars}}">
-								<div class="rating-counter">({{nOfReviews}} reviews)</div>
-							</div>
-							<div class="row margin-top-5">
-							
-								<div class="col-md-12">
-									<div class="price">
-										<span>{{i18n "from"}}</span>
-										<!--<p class="discount-price">$154 USD</p>-->
-										<h3>$154 USD <span>{{i18n "per_person"}}</span></h3>
-									</div>
-								</div>
-								<!--<div class="col-md-4">
-									<span>{{i18n "from"}}</span>
-								</div>-->
-							</div>
-							
-						</div>
-					</a>
-			</div>
-
-		
-
-		</div>
-	</div>	
-				<!-- Listing Item / End -->
-
-</section>
-<!-- Fullwidth Section / End -->
-
-
-<!-- Fullwidth Section / End -->
 <script>
 $(document).ready(function() {
 	var panamaHomeTours = [];

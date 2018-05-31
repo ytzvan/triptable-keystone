@@ -865,7 +865,7 @@ label.payment-cash {
 }
 .img-box-content h4{
 	font-weight:600;
-	font-size: 24px;
+	font-size: 20px;
 }
 .search-title p{
 	padding:0;
@@ -925,7 +925,7 @@ h3.headline{
 }
 h4.headline{
 	margin:0;
-	font-weight: 500;
+	font-weight: 600;
 }
 h4.headline.search{
 	margin:0;
@@ -1268,7 +1268,7 @@ font-size: 14px;
 }
 
 .tour-info{
-	min-height: 185px;
+	min-height: 150px;
 	height: 100%;
 	padding:15px;
 }
@@ -1278,7 +1278,7 @@ font-size: 14px;
 .tour-info h3.title{
 	margin-bottom: 5px;
 }
-.tour-info p.discount-price{
+.tour-info .discount-price{
 	margin-bottom: 0px;
     font-size: 14px;
     text-decoration: line-through;
@@ -1307,3 +1307,18 @@ font-size: 14px;
 	color: #525252;
 }
 .listing-item-container:hover {    transform: translate3d(0,-6px,0)}
+.one-line {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   line-height: 20px;        /* fallback */
+   max-height: 40px;       /* fallback */
+}
+.more-destinations a.destination{
+	color: black;
+	font-size:18px;
+	font-weight: 500;
+	text-decoration: underline;
+}
