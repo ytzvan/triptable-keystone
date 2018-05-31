@@ -33,17 +33,17 @@
 							{{else}}
 							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
 							{{/if}}
-							<div class="listing-item-details">
+							<!--<div class="listing-item-details">
 								<ul>
 									<li> <i class="sl sl-icon-fire"></i> Popular</li>
 								</ul>
-							</div>
+							</div>-->
 
 							<!--<div class="listing-badge now-open"><strong>-20% OFF</strong></div>-->
 							
 							<!--<div class="listing-item-content">
 								<span class="tag">Mas Vendidos <i class="sl sl-icon-fire"></i></span>
-							</div>-->
+							</div> -->
 							<!--<span class="like-icon"></span>-->
 						</div>
 						
@@ -58,14 +58,12 @@
 							
 								<div class="col-md-12 price-box">
 									<div class="price">
-										<span class="from-price">{{i18n "from"}}</span>
-										<p class="discount-price">$154 USD</p>
+										{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}}
+										<!--<p class="discount-price">$154 USD</p>-->
 										<h3>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}} <span>{{i18n "per_person"}}</span></h3>
 									</div>
 								</div>
-								<!--<div class="col-md-4">
-									<span>{{i18n "from"}}</span>
-								</div>-->
+							
 							</div>
 							
 						</div>
