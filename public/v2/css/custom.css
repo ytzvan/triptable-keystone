@@ -1253,9 +1253,9 @@ font-size: 14px;
 	div#change-currency span{
 	position: absolute;
     right: 0;
-    top: 12%;
+    top: 9%;
     padding: 15px;
-    font-size: 22px;
+    font-size: 20px;
 	}
 }
 @media (min-width: 1025px) {
@@ -1279,7 +1279,7 @@ font-size: 14px;
 	margin-top: 0px;
 }
 .tour-info h3.title{
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
 .tour-info .discount-price{
 	margin-bottom: 0px;
@@ -1292,7 +1292,6 @@ font-size: 14px;
 	position: absolute;
     bottom: 0;
     margin-bottom: 15px;
-	
 }
 .giveMeEllipsis {
    overflow: hidden;
@@ -1304,7 +1303,12 @@ font-size: 14px;
    max-height: 46px;       /* fallback */
 }
 .tour-info span.description{
-	color: #2c73b3;
+	olor: #2c73b3;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 300;
 }
 .tour-info span.from-price{
 	color: #525252;
@@ -1324,4 +1328,14 @@ font-size: 14px;
 	font-size:18px;
 	font-weight: 500;
 	text-decoration: underline;
+}
+.tour-info .per-person{
+	font-weight: 500;
+	font-size: 15px;
+}
+#change-currency-elem:after {
+    content: '\f107';
+    padding-left: 3px;
+    font-family: "FontAwesome";
+    opacity: 0.5;
 }

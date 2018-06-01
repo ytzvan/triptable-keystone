@@ -48,18 +48,18 @@
 						
 						<div class="tour-info">
 							<h3 class="title giveMeEllipsis">{{getTourLocName name name_eng}}<!-- <i class="verified-icon"></i>--></h3>
-							<span class="description"><i class="fa fa-map-marker"></i> {{city.city}}</span> · <span><i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</span>
+							<span class="description one-line"><i class="fa fa-map-marker"></i> {{city.city}} · <i class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}}</span>
 							{{#if nOfReviews}}
-							<div class="star-rating padding-top-5" data-rating="{{nOfStars}}">
+							<div class="star-rating" data-rating="{{nOfStars}}">
 								<div class="rating-counter">({{nOfReviews}} {{i18n "reviews"}})</div>
 							</div>
 							{{/if}}
-							<div class="row margin-top-10">
+							<div class="row">
 							
 								<div class="col-md-12 price-box">
 									<div class="price">
-										{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}} <!--<span class="discount-price">$154 USD</span>-->
-										<h3>{{../toursPanama.currency}} {{getPriceInCurrency price ../toursPanama.currency}} <span>{{i18n "per_person"}}</span></h3>
+										{{#unless nOfReviews}}{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}}{{/unless}} <!--<span class="discount-price">$154 USD</span>-->
+										<h3>{{getPriceInCurrency price ../toursPanama.currency}} {{../toursPanama.currency}}<span class="per-person"> {{i18n "per_person"}}</span> <!--<span class="discount-price">$154 USD</span>--></h3>
 									</div>
 								</div>
 							
