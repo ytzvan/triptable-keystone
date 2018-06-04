@@ -1271,15 +1271,19 @@ font-size: 14px;
 }
 
 .tour-info{
-	min-height: 150px;
+	min-height: 135px;
 	height: 100%;
-	padding:15px;
+	padding:10px;
 }
 .tour-info .price h3{
 	margin-top: 0px;
+	font-size: 20px;
+	line-height: 0.7em;
 }
 .tour-info h3.title{
-	margin-bottom: 0px;
+	margin-bottom: 5px;
+	font-size: 16px;
+	line-height: 1.2em;
 }
 .tour-info .discount-price{
 	margin-bottom: 0px;
@@ -1303,12 +1307,12 @@ font-size: 14px;
    max-height: 46px;       /* fallback */
 }
 .tour-info span.description{
-	olor: #2c73b3;
+	color: #2c73b3;
     line-height: 20px;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 600;
 }
 .tour-info span.from-price{
 	color: #525252;
