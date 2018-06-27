@@ -6,12 +6,12 @@ require('newrelic');
 // Require keystone
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
-
+var connectMongo = require('connect-mongo');
 keystone.init({
 
 	'name': 'Triptable',
 	'brand': 'Triptable',
-
+	'port':'80',
 	'less': 'public',
 	'static': 'public/v2',
 	'favicon': 'public/favicon.ico',
@@ -30,14 +30,27 @@ keystone.init({
 	'mongo': process.env.MONGO_URI,
 	'auto update': true,
 	'session': true,
-	'session store': 'mongo',
+//	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
 	'signin url': '/signin',
 	'signin redirect' : '/',
 	'signout url' : '/signout',
 	'signout redirect' : '/',
-	'compress':true
+	'compress':true,
+	'session options': {    
+		cookie: { secure: false, maxAge: 31104000, domain:'.'+process.env.LOCALDOMAIN,  httpOnly: true  }
+  },
+//	'sesssion store options' : {cookie: { domain:'.localdomain.com'}}
+		// 'cookie signin options' : { 'maxAge': 5 * 60 * 1000, 'signed': true },
+//	'session cookie' : { 'secure': true,'maxAge': 5 * 30 * 1000, 'domain':'.localdomain.com' },
+	// 'session store': function(session){
+	// 	console.log(session);
+	// 	return new (connectMongo(session))({
+	// 		url: process.env.MONGO_URI,
+	// 		cookie: { domain:'.localdomain.com'}
+  //   });
+  // }
 });
 keystone.set('s3 config', { bucket: 'triptable', key: 'AKIAJGHX437Z664RXBXA', secret: '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' });
 

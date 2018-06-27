@@ -17,22 +17,30 @@ User.add({
   credit : {type: Types.Money, default: 0},
 	image: {type: Types.CloudinaryImage},
   socialmedia: {
-    facebook: {type: Types.Url},
-    twitter: {type: Types.Url},
-    instagram: {type: Types.Url},
+    facebook: {type: String},
+    twitter: {type: String},
+    instagram: {type: String},
+	},
+	bank: {
+    bankName: {type: String},
+    accountNumber: {type: String},
+    accountName: {type: String},
+    accountType: {type: String},
   },
 	toursPurchased: {type: Types.Relationship, ref: "Tour", many: true},
 	listings: {type: Types.Relationship, ref: "Tour", refPath: 'owner', many: true},
   description: {type: Types.Textarea },
-  createdAt: { type: Date, default: Date.now, noedit: true },
-  contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
-  personalIdentification: { type: Types.S3File, dependsOn: { isGuide: true } }, // copia de identificacion
-  operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
+  createdAt: { type: Date, default: Date.now, noedit: true }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isVerified: { type: Boolean, label: 'Verified User', index: true, defaults: false },
 	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true},
 	companyName: {type: String, dependsOn: { isGuide: true }},
+	countryCode: { type: String },
+	country: { type: Types.Relationship,  dependsOn: { isGuide: true }, ref: 'Country' },
+	contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
+  personalIdentification: { type: Types.S3File, dependsOn: { isGuide: true } }, // copia de identificacion
+  operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
 });
 
 // Provide access to Keystone

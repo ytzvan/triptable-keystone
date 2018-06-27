@@ -3,7 +3,7 @@ var striptags = require('striptags');
 var Review = keystone.list('Review');
 var TourModel = keystone.list('Tour');
 var Moment = require('moment');
-
+const getVideoId = require('get-video-id');
 
 exports = module.exports = function(req, res) {
 
@@ -91,6 +91,11 @@ exports = module.exports = function(req, res) {
 			} else {
 			var img = result.images[0];
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_900,w_1200,q_100/v"+img.version+"/"+img.public_id+"."+img.format;
+			}
+			if (result.videoId) {
+				 var videoId = getVideoId(result.videoId).id;
+				 result.videoId = videoId;
+				 console.log("youtube id", videoId);
 			}
 			locals.meta.canonical = req.url;
 		});

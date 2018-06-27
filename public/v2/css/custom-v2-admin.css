@@ -461,3 +461,19 @@ box-sizing: border-box; }
 	font-size: 32px;
 	margin-bottom: 15px;
 }
+img.featured{
+	margin: 30px;
+}
+input, input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea, select{
+color:#171515;
+}
+h3.dashboard{
+color: white;
+font-weight: 600;
+font-size: 24px;
+text-transform: capitalize;
+}
+.button.primary{
+	background-color: #3498db;
+	color: white;
+}

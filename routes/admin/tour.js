@@ -20,8 +20,8 @@ exports.add = function(req, res) {
       operator : req.user,
       bookingId : req.params.id
     };
-    locals.data.minPerson = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
-    locals.data.maxPerson = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+    locals.data.minPerson = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+    locals.data.maxPerson = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
     next();
   });
   
@@ -31,7 +31,9 @@ exports.add = function(req, res) {
 
     var body = req.body;
     var files = req.files;
-
+    console.log(body);
+   // Array of days.
+   
     var newPost = new Tour.model({
       name: body.name,
       duration: body.duration,
@@ -41,6 +43,19 @@ exports.add = function(req, res) {
       state: 'draft',
       description: { short :  body.description_short, extended: body.description_extended},
       tourType : body.tourType,
+      videoId : body.youtube,
+      hotelPickup: body.hotelPickup,
+      transportation: body.transportation,
+      maritimeTransportation: body.maritimeTransportation,
+      food:body.food,
+      drinks: body.drinks,
+      snacks: body.snacks,
+      insurance: body.insurance,
+      skipDays: body.skipDays,
+      departureTime: body.departureTime,
+      arrivalTime: body.arrivalTime,
+      country: req.user.country,
+      daysDisabled: body.daysDisabled
     });
     if (files.heroImage) {
         cloudinary.uploader.upload(files.heroImage.path, function(result) { 
@@ -101,6 +116,27 @@ exports.addImages = function(req, res) {
   view.render('admin/tour/new', {layout:"v2-admin"});
 };
 
+exports.delete = function(req, res) {
+  var locals = res.locals;
+    locals.data = {
+    bookings : [],
+    operator : req.user,
+    bookingId : req.params.id
+  };
+  var tourId = req.params['id'];
+  var view = new keystone.View(req, res);
+   Tour.model.findByIdAndRemove(tourId).exec(function(err, result){
+    if (err) {
+      console.log(err);
+      res.redirect('/admin/tour/list');
+    } else {
+      console.log("success");
+      res.redirect('/admin/tour/list');
+    }
+  });
+  
+}
+
 exports.edit = function(req, res) {
   var locals = res.locals;
     locals.data = {
@@ -108,5 +144,74 @@ exports.edit = function(req, res) {
     operator : req.user,
     bookingId : req.params.id
   };
+
+  var tourId = req.params['id'];
   var view = new keystone.View(req, res);
+
+  view.on('init', (next) => {
+    var success = req.query.success;
+    if (success) {
+      locals.data.success = true;
+    }
+    Tour.model.findById(tourId).exec(function(err, result){
+      if (err) {
+        console.log(err);
+        next();
+      } else {
+        locals.data.tour = result;
+        next();
+      }
+    });
+  });
+
+  view.on('post', (next) => {
+    var files = req.files;
+    var id = req.params['id'];
+    var body = req.body;
+
+    function checkAmenity(amenity) {
+      if(amenity in body){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    req.body.hotelPickup = checkAmenity("hotelPickup");
+    req.body.transportation = checkAmenity("transportation");
+    req.body.maritimeTransportation = checkAmenity("maritimeTransportation");
+    req.body.food = checkAmenity("food");
+    req.body.snacks = checkAmenity("snacks");
+    req.body.drinks = checkAmenity("drinks");
+    req.body.insurance = checkAmenity("insurance");
+
+    if (files.heroImage) {
+      cloudinary.uploader.upload(files.heroImage.path, function(result) { 
+      req.body.heroImage = result;  
+      Tour.model.findOneAndUpdate({_id: id}, req.body, {new: true}, function(err, model) {
+        if (err) {
+          console.log("error", err);
+          locals.data.validationErrors = err.errors;
+          next();
+        } else {
+          req.flash('success', 'success msg');
+          return res.redirect('/admin/tour/edit/'+model.tourId);
+        }
+       });
+
+      });
+      } else {
+        Tour.model.findOneAndUpdate({_id: id}, req.body, {new: true}, function(err, model) {
+          if (err) {
+            console.log("error", err);
+            locals.data.validationErrors = err.errors;
+            next();
+          } else {
+            req.flash('success', 'success msg');
+            return res.redirect('/admin/tour/edit/'+model.tourId);
+          }
+        });
+      }
+    });
+  view.render('admin/tour/edit', {layout:"v2-admin"});
 }

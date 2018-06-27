@@ -128,11 +128,7 @@
 				
 					<div class="col-md-6">
 
-					<label>{{i18n "country"}}</label>
-
-					<select data-placeholder="Select Item" name="country" class="chosen-select">
-						{{>static/_countrySelect}}
-						</select>
+					
 				</div>
 				<div class="col-md-6">
 					<label>{{i18n "my_main_activity_is"}}</label>
@@ -159,3 +155,51 @@
 			{{/if}}
 			</div>
 </div>
+
+<div class="container">
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<form method="post" action="/signup " class="register">
+							<input type="hidden" name="action" value="login">
+							<input type="hidden" name="{{token.key}}" value="{{token.value}}">
+							<input type="hidden" name="isGuide" value="true">
+							<p class="form-row form-row-wide">
+								<label for="username2">Name:
+									<i class="im im-icon-Male"></i>
+									<input required type="text" class="input-text" name="name" id="register_name" value="">
+								</label>
+							</p>
+								
+							<p class="form-row form-row-wide">
+								<label for="email2">Email Address:
+									<i class="im im-icon-Mail"></i>
+									<input  required type="text" class="input-text" name="email" id="register_email" value="">
+								</label>
+							</p>
+
+							<p class="form-row form-row-wide">
+								<label for="password1">Password:
+									<i class="im im-icon-Lock-2"></i>
+									<input required class="input-text" type="password" name="password" id="password1">
+								</label>
+							</p>
+
+							<p class="form-row form-row-wide">
+								<label for="password2">Repeat Password:
+									<i class="im im-icon-Lock-2"></i>
+									<input required class="input-text" type="password" name="password_confirm" id="password2">
+								</label>
+							</p>
+								<label>{{i18n "country"}}</label>
+
+						<select data-placeholder="Select Item" name="countryCode" class="chosen-select">
+							{{>static/_countrySelect}}
+							</select>
+
+							<input type="submit" class="button border text-center fw margin-top-10" name="register" value="{{i18n "become_partner"}}">
+	
+							</form>
+	</div>
+</div>
+</div>
+	

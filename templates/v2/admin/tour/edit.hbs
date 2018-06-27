@@ -5,13 +5,13 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>{{i18n "add_new_tour"}}</h2>
+					<h2>{{i18n "edit_activity"}}</h2>
 					<!-- Breadcrumbs -->
 					<nav id="breadcrumbs">
 						<ul>
 							<li><a href="#">{{i18n "home"}}</a></li>
 							<li><a href="#">{{i18n "dashboard"}}</a></li>
-							<li>{{i18n "add_new_tour"}}</li>
+							<li>{{i18n "edit_activitys"}}</li>
 						</ul>
 					</nav>
 				</div>
@@ -21,9 +21,20 @@
 	<p>error: {{data.validationErrors.name.message}}</p>
 	<p>error: {{data.validationErrors.duration.message}}</p>
 	{{/if}}
+
+	{{#if messages.success}}
+		<div class="notification success closeable">
+			<p><span>{{i18n "sucesss"}}!</span> {{i18n "activity_update_message_success"}}</p>
+			<a class="close"></a>
+		</div>
+		
+	{{/if}}
+	
+	
+
 		<div class="row">
 			<div class="col-lg-12">
-        <form method="POST" action="/admin/tour/add" enctype="multipart/form-data">
+        <form method="POST" action="/admin/tour/edit/{{data.tour.tourId}}" enctype="multipart/form-data">
 				<div id="add-listing">
 
 					<!-- Section -->
@@ -39,14 +50,14 @@
 						<div class="row with-forms">
 							<div class="col-md-12">
 								<h5>{{i18n "tour_title"}} <i class="tip" data-tip-content="{{i18n "tour_title_tip"}}"></i></h5>
-								<input class="search-field" name="name" type="text" value=""/>
+								<input class="search-field" name="name" type="text" value="{{data.tour.name}}"/>
 							</div>
 						</div>
             <div class="row">
 							<div class="col-md-12">
                 <div class="form">
                   <h5>{{i18n "description"}} <i class="tip" data-tip-content="{{i18n "description_tip"}}"></i></h5>
-                  <textarea class="WYSIWYG" name="description_extended" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
+										<textarea id="summernote" name="description.extended">{{data.tour.description.extended}}</textarea>
                 </div>
 						  </div>
 						</div>
@@ -56,31 +67,83 @@
 							<div class="col-md-6">
 								<h5>{{i18n "activity_type"}}</h5>
 								<div>
-								<input type="radio" id="1" name="tourType"  checked="checked" value="group tour">
-								<label for="1">{{i18n "group_activity"}}</label>
-								<input type="radio" id="2" name="tourType" value="private tour">
-								<label for="2">{{i18n "private_activity"}}</label>
-							
-									</div>
+									<select name="tourType" id="tourTypeSelect">
+										<option value="private tour">private tour</option>
+										<option value="group tour">group tour</option>
+									</select>
+								</div>
 							</div>
-
 							<!-- Status -->
 							<div class="col-md-6">
 								<h5>{{i18n "min_person"}}</h5>
-								<select name="minPerson">
-                  {{#each data.minPerson}}
-									<option>{{this}}</option>
-									{{/each}}
+								<select name="minPerson" id="minPersonSelect">
+                  <option value="1">1</option>
+									<option value="2">1</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
 								</select>
 							</div>
 
 							<!-- Type -->
 							<div class="col-md-6">
 								<h5>{{i18n "max_person"}} <i class="tip" data-tip-content=""></i></h5>
-								<select name="maxPerson">
-								  {{#each data.minPerson}}
-									<option>{{this}}</option>
-									{{/each}}
+								<select id="maxPersonSelect" name="maxPerson">
+									<option value="1">1</option>
+									<option value="2">1</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
 								</select>
 							</div>
 
@@ -93,10 +156,10 @@
 							<!-- Status -->
 							<div class="col-md-6">
 								<h5>{{i18n "activity_duration"}}</h5>
-                  <input name="duration" type="number">
-									<select name="isMultiDay">
-									<option selected value="false">{{i18n "hours"}}</option>
-									<option value="true">{{i18n "days"}}</option>
+                  <input name="duration" value="{{data.tour.duration}}" type="number">
+									<select id="isMultiDaySelect" name="isMultiDay">
+									<option value="false" >{{i18n "hours"}}</option>
+									<option value="true" >{{i18n "days"}}</option>
 								</select>
 		
 			
@@ -106,7 +169,7 @@
 							<!-- Type -->
 							<div class="col-md-6">
 								<h5>{{i18n "youtube_link"}} <i class="tip" data-tip-content="{{i18n "youtube_link_tip"}}"></i></h5>
-								<input class="search-field" name="youtube" type="url" value=""/>
+								<input class="search-field" name="youtube" type="url" value="{{data.tour.videoId}}"/>
 							</div>
 
 						</div>
@@ -180,6 +243,9 @@
 											<input id="sunday" type="checkbox" name="sunday">
 											<label for="sunday">{{i18n "sunday"}}</label>	
 										</fieldset>
+										
+
+								
 											</div>
 										</div>	
 									</div>
@@ -188,17 +254,17 @@
 
 									<div class="col-md-4">
 										<h5>{{i18n "days_before_booking"}} <i class="tip" data-tip-content="{{i18n "days_before_booking_tip"}}"></i></h5>
-										<input class="search-field" name="skipDays" type="number" min="0" max="30" value=""/>
+										<input class="search-field" name="skipDays" type="number" min="0" max="30" value="{{data.tour.skipDays}}"/>
 									</div>
 
 									<div class="col-md-4">
 										<h5>{{i18n "tour_departure_time"}} <i class="tip" data-tip-content="{{i18n "tour_departure_time_tip"}}"></i></h5>
-										<input class="search-field" name="departureTime" type="time" value=""/>
+										<input class="search-field" name="departureTime" type="time" value="{{data.tour.departureTime}}"/>
 									</div>
 
 									<div class="col-md-4">
 										<h5>{{i18n "tour_arrival_time"}} <i class="tip" data-tip-content="{{i18n "tour_arrival_time_tip"}}"></i></h5>
-										<input class="search-field" name="arrivalTime" type="time" value=""/>
+										<input class="search-field" name="arrivalTime" type="time" value="{{data.tour.arrivalTime}}"/>
 									</div>
 
 								</div>
@@ -213,7 +279,12 @@
 						</div>
 
 						<!-- Dropzone -->
+						{{#if data.tour.heroImage.secure_url}}
+						<img class="featured" async width="250" src="{{data.tour.heroImage.secure_url}}" />
 						<input type="file" name="heroImage" accept="image/*">
+						{{else}}
+						<input type="file" name="heroImage" accept="image/*">
+						{{/if}}
 
 
 					</div>
@@ -248,8 +319,55 @@
 <!-- Opening hours added via JS (this is only for demo purpose) -->
 <script>
 
+	$(document).ready(function(){
+
+		$('#minPersonSelect').val({{data.tour.minPerson}});
+		$('#maxPersonSelect').val({{data.tour.maxPerson}});
+		$('#tourTypeSelect').val("{{data.tour.tourType}}");
+		
+		// Checks
+		
+		if ({{data.tour.hotelPickup}}) $('#hotel_pickup').attr("checked", "checked"); 
+		if ({{data.tour.transportation}}) $('#ground_transportation').attr("checked", "checked"); 
+		if ({{data.tour.maritimeTransportation}}) $('#maritime_transportation').attr("checked", "checked"); 
+		if ({{data.tour.food}}) $('#food').attr("checked", "checked"); 
+		if ({{data.tour.drinks}}) $('#drinks').attr("checked", "checked"); 
+		if ({{data.tour.snacks}}) $('#snacks').attr("checked", "checked"); 
+		if ({{data.tour.insurance}}) $('#insurance').attr("checked", "checked"); 
+
+		var daysArray = "{{data.tour.daysDisabled}}";
+
+		if (!daysArray.includes(0)) $('#sunday').attr("checked", "checked"); 
+		if (!daysArray.includes(1)) $('#monday').attr("checked", "checked"); 
+		if (!daysArray.includes(2)) $('#tuesday').attr("checked", "checked"); 
+		if (!daysArray.includes(3)) $('#wednesday').attr("checked", "checked"); 
+		if (!daysArray.includes(4)) $('#thursday').attr("checked", "checked"); 
+		if (!daysArray.includes(5)) $('#friday').attr("checked", "checked"); 
+		if (!daysArray.includes(6)) $('#saturday').attr("checked", "checked"); 
+ 
+		if ({{data.tour.isMultiDay}}) $('#isMultiDaySelect').val("{{data.tour.isMultiDay}}");
+		
+	});
+
+
+	$(document).ready(function() {
+  	$('#tourList').addClass("active");
+		
+  $('#summernote').summernote({
+		 height: 300,
+		 toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']]
+  ]
+	});
+});
   document.addEventListener("DOMContentLoaded", function() {
-		$('#tourAdd').addClass("active");
+
 
     $(".opening-day.js-demo-hours .chosen-select").each(function() {
 	$(this).append(''+
@@ -305,6 +423,7 @@
 		if (!$('#sunday').is(":checked")) {
 			daysAv.push(0);
 		}
+
 		$('<input />').attr('type', 'hidden')
 		.attr('name', "daysDisabled")
 		.attr('value', daysAv)

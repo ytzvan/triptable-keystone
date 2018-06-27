@@ -77,47 +77,43 @@
 					<ul>
              {{#each data.bookings}}
 						<li id="status{{friendlyId}}" class="">
-							<div class="list-box-listing bookings">
-								<div class="list-box-listing-content">
+							<div class="list-box-listing bookings row">
+								<div class="list-box-listing-content col-md-8">
 									<div class="inner">
                     
-										<h3>{{getTourLocName tour.name tour.name_eng }}<span class="booking-status booking-status{{friendlyId}}"></span></h3>
+										<h3>{{name.full}}<span class="booking-status booking-status{{friendlyId}}"></span></h3>
                     <h5>{{i18n "booking_id"}}: <span class="booking-id">{{friendlyId}}</span></h5>
 
 										<div class="inner-booking-list">
-											<h5>{{i18n "booking_date"}}:</h5>
+											<h5>{{i18n "date"}}:</h5>
 											<ul class="booking-list">
-												<li class="highlighted">{{datePretty}}</li>
+												<li class="">{{datePretty}}</li>
+											</ul>
+											<h5>{{i18n "time"}}:</h5>
+											<ul class="booking-list">
+												<li class="">{{bookingTime}}</li>
 											</ul>
 										</div>
 													
 										<div class="inner-booking-list">
 											<h5>{{i18n "booking_details"}}:</h5>
 											<ul class="booking-list">
-												<li class="highlighted">{{people}} {{i18n "booking_people"}}</li>
+												<li class="">{{people}} {{i18n "booking_people"}}</li>
 											</ul>
 										</div>		
 										<div class="inner-booking-list">
-											<h5>{{i18n "contact"}}:</h5>
+											<h5>{{i18n "contact_details"}}:</h5>
 											<ul class="booking-list">
 												{{#if_eq bookingStatus 0}}
-												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
-												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
-												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
 												<li><strong>{{i18n "booking_need_confirm_message"}}</strong></li>
-												{{else}}
+												{{/if_eq}}
 												{{#if_eq bookingStatus 1}}
-												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
 												<li><i class="sl sl-icon-bubbles"></i> {{email}}</li>
 												<li><i class="sl sl-icon-phone"></i>  {{phone}}</li>
 												<li><i class="sl sl-icon-location-pin"></i> {{hotel}}</li>
-												<li><i class="sl sl-icon-clock"></i> {{bookingTime}}</li>
-												{{else}}
+												{{/if_eq}}
 												{{#if_eq bookingStatus 2}}
-												<li><i class="sl sl-icon-user"></i> {{name.full}}</li>
 												<li><strong>{{i18n "booking_declined_message"}}</strong></li>
-												{{/if_eq}}
-												{{/if_eq}}
 												{{/if_eq}}
 											
 											</ul>
@@ -127,16 +123,22 @@
 
 									</div>
 								</div>
-							</div>
-            	{{#if_eq bookingStatus 0}}
-							<div class="buttons-to-right">
-                 <form id="accept-form" method="POST" action="/admin/booking/{{friendlyId}}/update">
-                  <input type="hidden" name="action" value="accept">
-									<button type="submit" class="button gray approve"><i class="sl sl-icon-check"></i> Aceptar</button>
-									<button type="reset" class="button gray reject"><i class="sl sl-icon-close"></i> Declinar</button>
-                 </form>
-							</div> 
+								<div class="col-md-4">
+									{{#if_eq bookingStatus 0}}
+									<div class="buttons-to-right"></div>
+											<form id="accept-form" method="POST" action="/admin/booking/{{friendlyId}}/update" style="float: left;padding: 5px;">
+											<input type="hidden" id="hiddenField" name="action" value="accept">
+											<button type="submit" id="confirmBtn" class="button inner approve" style="background-color:#64bc36;"><i class="sl sl-icon-check"></i> {{i18n "accept"}}</button>
+											</form>
+												<form id="accept-form" method="POST" action="/admin/booking/{{friendlyId}}/update" style="float: left;padding: 5px;">
+											<input type="hidden" id="hiddenField" name="action" value="decline">
+											<button type="submit" id="declineBtn" class="button danger reject"><i class="sl sl-icon-close"></i> {{i18n "decline"}}</button>
+											</form>
+									</div> 
 							{{/if_eq}}
+								</div>
+							</div>
+            	
 						</li>
             <script type="text/javascript">
               var status = {{bookingStatus}};
@@ -169,7 +171,12 @@
           no booking
       {{/if}}
 </div>
-
+<script>
+	$(function(){
+		$('#bookingList').addClass("active");
+	})
+	
+</script>
 	<!-- Content / End -->
 
 <!-- Dashboard / End -->
