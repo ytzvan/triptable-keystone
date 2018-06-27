@@ -80,8 +80,8 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/admin"><img src="/images/logo3.png" alt=""></a>
-					<a href="/admin" class="dashboard-logo"><img src="/images/logo3.png" alt=""></a>
+					<a href="/"><img src="/images/logo3.png" alt=""></a>
+					<a target="_blank" href="/" class="dashboard-logo"><img src="/images/logo3.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -134,17 +134,17 @@
 					<div class="user-menu">
 						<div class="user-name"><span>
 							{{#if userInfo.image.secure_url}} 
-							<img src="https://res.cloudinary.com/triptable/image/upload/q_auto,h_150,w_150/v{{userInfo.image.version}}/{{userInfo.image.public_id}}.{{userInfo.image.format}}" alt=""></span>
+							<img src="https://res.cloudinary.com/triptable/image/upload/q_auto,h_150,w_150,c_fill,g_face/v{{userInfo.image.version}}/{{userInfo.image.public_id}}.{{userInfo.image.format}}" alt=""></span>
 							{{else}}
 							<img src="images/dashboard-avatar.jpg" alt=""></span>
 							{{/if}}
 							{{i18n "hello"}} {{userInfo.name.first}}!</div>
 						<ul>
-							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i>Logout</a></li>
+							<li><a href="/keystone/signout"><i class="sl sl-icon-power"></i>{{i18n "signout"}}</a></li>
 						</ul>
 					</div>
 
-					<a href="/admin/tour/add" class="button border with-icon">Add Listing<i class="sl sl-icon-plus"></i></a>
+					<a href="/admin/tour/add" class="button border with-icon">{{i18n "add_activity"}}<i class="sl sl-icon-plus"></i></a>
 				</div>
 				<!-- Header Widget / End -->
 			</div>

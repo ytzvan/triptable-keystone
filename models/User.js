@@ -36,6 +36,7 @@ User.add({
 	isVerified: { type: Boolean, label: 'Verified User', index: true, defaults: false },
 	isGuide: {type: Boolean, label: 'Is a Tour Provider', index: true},
 	companyName: {type: String, dependsOn: { isGuide: true }},
+	mainActivity: {type: String, dependsOn: { isGuide: true }},
 	countryCode: { type: String },
 	country: { type: Types.Relationship,  dependsOn: { isGuide: true }, ref: 'Country' },
 	contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato

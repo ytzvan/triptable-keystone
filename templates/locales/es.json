@@ -448,5 +448,19 @@
 	"admin_welcome_message": "¿Qué quieres hacer hoy?",
 	"photo": "Foto",
 	"pais": "Pais",
-	"become_partner": "Quiero ser Partner"
+	"become_partner": "Quiero ser Partner",
+	"about_me": "Acerca de mi",
+	"upload": "Subir",
+	"companyName": "Nombre de compañía",
+	"save_changes": "Guardar cambios",
+	"no_active_tours": "No hay tours activos",
+	"activities_pending_for_approval": "Tours pendientes de aprobación",
+	"inactive_tours": "Tours inactivos",
+	"inactive_tours_message": "No existen tours inactivos",
+	"view_on_triptable": "Ver en Triptable",
+	"no_bookings_message": "No tienes reservas",
+	"verified_user": "Usuario verificado",
+	"unverified_user": "usuario sin verificar",
+	"account": "Cuenta",
+	"mainActivity": "mainActivity"
 }

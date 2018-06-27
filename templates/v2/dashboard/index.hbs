@@ -62,7 +62,9 @@
 			<!-- Item -->
 			<div class="col-lg-3 col-md-6">
 				<div class="dashboard-stat color-4">
-					<div class="dashboard-stat-content"><h3 class="dashboard">{{i18n "account_status"}}:</h3> <span>{{i18n "status"}}</span></div>
+					<div class="dashboard-stat-content"><h3 class="dashboard">{{i18n "status"}}:</h3>
+					<span>{{#if userInfo.isVerified }} {{i18n "verified_user"}} <i class="fa fa-check-circle primary"></i> {{else}} {{i18n "unverified_user"}}{{/if}} </span>
+					</div>
 					<div class="dashboard-stat-icon"><i class="fa fa-info"></i></div>
 				</div>
 			</div>

@@ -69,7 +69,9 @@ exports = module.exports = function(req, res) {
             name: {
                 full: req.body.name
             },
-            isGuide: req.body.isGuide
+            isGuide: req.body.isGuide,
+            countryCode: req.body.countryCode,
+           // mainActivity: req.body.mainActivity
         });
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {

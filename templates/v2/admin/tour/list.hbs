@@ -49,6 +49,7 @@
 								</div>
 							</div>
 							<div class="buttons-to-right">
+								<a href="/tour/{{slug}}" target="_blank" class="button primary"><i class="fa fa-globe"></i> {{i18n "view_on_triptable"}}</a>
 								<a href="/admin/tour/edit/{{tourId}}" class="button gray"><i class="sl sl-icon-note"></i> {{i18n "edit"}}</a>
 								<a id="deleteBtn" href="/admin/tour/delete/{{tourId}}" class="button red"><i class="sl sl-icon-close"></i> {{i18n "delete"}}</a>
 							</div>
@@ -98,7 +99,7 @@
           {{else}}
           <div class="col-lg-12 col-md-12 padding-top-30">
 				  <div class="dashboard-list-box margin-top-0">
-          <h4>Tours Inactivos: No existen tours inactivos</h4>
+          <h4>{{i18n "inactive_tours"}}: {{i18n "inactive_tours_message"}}</h4>
           {{/if}}
 				</div>
 			</div>

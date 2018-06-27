@@ -11,7 +11,6 @@ keystone.init({
 
 	'name': 'Triptable',
 	'brand': 'Triptable',
-	'port':'80',
 	'less': 'public',
 	'static': 'public/v2',
 	'favicon': 'public/favicon.ico',
