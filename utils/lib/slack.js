@@ -3,6 +3,7 @@ var MY_SLACK_WEBHOOK_URL = "https://triptable.slack.com/services/hooks/incoming-
 var slack = require('slack-notify')(MY_SLACK_WEBHOOK_URL);
 	
 module.exports = {
+
     sendEnquiryToSlack: function(bookingModel){
        
     var model = bookingModel;
@@ -12,12 +13,26 @@ module.exports = {
         icon_url: 'http://example.com/my-icon.png',
         text: 'Nueva Reserva 🔥🙌: '+ fullName+ '. Personas: '+ model.people + '. Email: '+model.email+ '. Telefono: ' + model.phone +  '. Tour: '+model.tourName+ '. Fecha: '+model.datePretty+'. Hotel: '+model.hotel+'. Precio: $'+model.bookingTotalPrice+'. ID: '+model.friendlyId,
         username: 'triptable-bot'
-});
+    });
 
         slack.onError = function (err) {
+            console.log('API error:', err);
+        };
+    },
+    notifyNewGuide: function(model){
+        var model = model;
+        var fullName = model.name.first + ' ' + model.name.last;
+        slack.send({
+            channel: "general",
+            icon_url: 'http://example.com/my-icon.png',
+            text: 'Nuevo Guia Registrado 👨: '+ fullName+ '. Email: '+model.email + '. Pais: '+model.countryCode,
+            username: 'triptable-bot'
+        });
+    
+            slack.onError = function (err) {
                 console.log('API error:', err);
-                };
-            }
+        };
+    }
 
 };
 

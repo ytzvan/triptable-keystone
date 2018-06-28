@@ -1,6 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var Mailgun = require('machinepack-mailgun');
+var SlackUtils = require('../utils').SlackUtils;
 /**
  * User Model
  * ==========
@@ -86,7 +87,17 @@ User.relationship({ ref: 'Enquiry', path: 'enquiries', refPath: 'operator' });
 		},
 	});
 }
+User.schema.pre('save', function (next) {
+	this.wasNew = this.isNew;
+	next();
+});
 
+User.schema.post('save', function() {
+	if (this.wasNew && this.isGuide) {
+		SlackUtils.notifyNewGuide(this);
+	}
+	return true;
+});
 
 User.defaultColumns = 'name, email, isAdmin, isGuide, -createdAt, referalCode';
 User.register();
