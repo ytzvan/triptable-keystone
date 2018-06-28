@@ -172,18 +172,23 @@
 	<div class="dashboard-nav">
 		<div class="dashboard-nav-inner">
 			<ul data-submenu-title="{{i18n "quick_access"}}">
+				{{#if_eq isGuide true}}
 				<li id="admin"><a href="/admin"><i class="sl sl-icon-home"></i>Dashboard</a></li>
+				{{/if_eq}}
 				<li id="profile"><a href="/admin/profile"><i class="sl sl-icon-user"></i>{{i18n "my_profile"}}</a></li>
 			</ul>
-			
+			{{#if_eq isGuide true}}
 			<ul data-submenu-title="{{i18n "my_tours"}}">
 				<li id="tourList"><a href="/admin/tour/list"><i class="sl sl-icon-list"></i> {{i18n "my_tours"}}</a></li>
 				<li id="tourAdd"><a href="/admin/tour/add"><i class="sl sl-icon-plus"></i> {{i18n "add_new_tour"}}</a></li>
 			</ul>
+			{{/if_eq}}
 			<ul data-submenu-title="{{i18n "my_bookings"}}">
 				<!--<li><a href="/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>-->
 				{{#if_eq isGuide true}}
 				<li class="" id="bookingList"><a href="/admin/booking/list"><i class="sl sl-icon-bell"></i> {{i18n "my_bookings"}}</a></li>
+				{{else}}
+				<li class="" id="bookingList"><a href="/user"><i class="sl sl-icon-bell"></i> {{i18n "my_bookings"}}</a></li>
 				{{/if_eq}}
 			<!--	<li class=""><a href="/user"><i class="sl sl-icon-basket-loaded"></i> {{i18n "my_purchases"}}</a></li>-->
 			</ul>

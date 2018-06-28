@@ -48,9 +48,9 @@ exports = module.exports = function(app) {
 	app.all('/admin/tour/list', middleware.requireGuide, routes.admin.tour.list);
 	app.all('/admin/tour/edit/:id', middleware.requireGuide, routes.admin.tour.edit);
 	app.all('/admin/tour/delete/:id', middleware.requireGuide, routes.admin.tour.delete);
-	app.all('/admin/profile', middleware.requireGuide, routes.admin.profile.show);
-	app.post('/admin/profile/update', middleware.requireGuide, routes.admin.profile.update);
-	app.post('/admin/profile/addImage', middleware.requireGuide, routes.admin.profile.addImage);
+	app.all('/admin/profile', middleware.requireUser, routes.admin.profile.show);
+	app.post('/admin/profile/update', middleware.requireUser, routes.admin.profile.update);
+	app.post('/admin/profile/addImage', middleware.requireUser, routes.admin.profile.addImage);
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);

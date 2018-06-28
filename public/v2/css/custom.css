@@ -1233,3 +1233,17 @@ h2.tour-summary-name {
 .listing-nav-container.cloned{
 	display: none;
 }
+.element-center{
+	position: relative !important;
+	display: block !important;
+	margin-right : auto !important;
+	margin-left : auto !important;
+}
+h2.service{
+	font-size: 22px;
+}
+
+.crm-section form label {
+	font-size: 20px;
+	color:black;
+}	

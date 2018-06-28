@@ -43,9 +43,10 @@
 							<label>{{i18n "name"}}</label>
 							<input value="{{data.profile.name.full}}" name="name" type="text">
 
+							{{#if data.profile.isGuide}}
               <label>{{i18n "companyName"}}</label>
 							<input value="{{data.profile.companyName}}" name="companyName" type="text">
-
+							{{/if}}
               <label>{{i18n "phone_booking_message"}}</label>
 							<input type="tel"  id="phone" name="cellphone" value="{{data.profile.cellphone}}">
 
@@ -55,11 +56,13 @@
 							<label>{{i18n "about_me"}}</label>
 							<textarea name="description" id="notes"  cols="30" placeholder="{{i18n "about_me"}}" rows="10">{{data.profile.description}}</textarea>
 
+							{{#if data.profile.isGuide}}
               <label>{{i18n "country"}}</label>
               {{#if data.profile.country.country}}
 							<input value="{{data.profile.country.country}}" type="text" readonly>
               {{else}}
               <input value="{{data.profile.countryCode}}" type="text" readonly>
+              {{/if}}
               {{/if}}
 
 							<label><i class="fa fa-twitter"></i> {{i18n "twitter_username"}}</label>
