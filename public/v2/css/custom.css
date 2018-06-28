@@ -1342,4 +1342,19 @@ font-size: 14px;
     padding-left: 3px;
     font-family: "FontAwesome";
     opacity: 0.5;
+
 }
+.element-center{
+	position: relative !important;
+	display: block !important;
+	margin-right : auto !important;
+	margin-left : auto !important;
+}
+h2.service{
+	font-size: 22px;
+}
+
+.crm-section form label {
+	font-size: 20px;
+	color:black;
+}	

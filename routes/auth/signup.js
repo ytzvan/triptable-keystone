@@ -32,6 +32,9 @@ exports = module.exports = function(req, res) {
   var onSuccess = function (user) {
         var origin = url.parse(req.headers.referer);
         var redirectUrl = querystring.parse(origin.query);
+        if (user.isGuide) {
+          return res.redirect('/admin');
+        }
 			  if (redirectUrl.from) {
 				res.redirect(redirectUrl.from);
 			} else if ('string' === typeof keystone.get('signin redirect')) {
@@ -62,11 +65,13 @@ exports = module.exports = function(req, res) {
           //    next();
             }
           else {
-
         var newUser = new User.model({
             name: {
                 full: req.body.name
-            }
+            },
+            isGuide: req.body.isGuide,
+            countryCode: req.body.countryCode,
+           // mainActivity: req.body.mainActivity
         });
         var updater = newUser.getUpdateHandler(req);
         updater.process(req.body, {

@@ -31,40 +31,38 @@
 
 <div class="container margin-top-30 margin-bottom-30">
 	<div class="row">
-			{{#if enquirySubmitted}}
-			<h3 class="text-center">{{i18n "enquiry_send"}}</h3>
-			{{else}}
+			
 		<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px; color:#3498db;font-weight:600" class="im im-icon-Talk-Man"></i>
-			<h2>{{i18n "tour_operators"}}</h2>
+			<h2 class="service">{{i18n "tour_operators"}}</h2>
 			<p>{{i18n "tour_operators_message"}}</p>
 		</div>
 
 
 		<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px; color:#3498db;font-weight:600" class="im im-icon-Helicopter"></i>
-			<h2>{{i18n "activities_and_rentals"}}</h2>
+			<h2 class="service">{{i18n "activities_and_rentals"}}</h2>
 			<p>{{i18n "activities_message"}}</p>
 		</div>
 		
 		
 		<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Conference"></i>
-			<h2>{{i18n "tour_guides"}}</h2>
+			<h2 class="service">{{i18n "tour_guides"}}</h2>
 			<p>{{i18n "tour_guides_message"}}</p>
 		</div>
 
 		
 		<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Museum"></i>
-			<h2>{{i18n "tourism_attractions"}}</h2>
+			<h2 class="service">{{i18n "tourism_attractions"}}</h2>
 			<p>{{i18n "tourism_attractions_message"}}</p>
 		</div>
 
 
 			<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Phone-2"></i>
-			<h2>{{i18n "lodging_and_cabins"}}</h2>
+			<h2 class="service">{{i18n "lodging_and_cabins"}}</h2>
 			<p>{{i18n "lodging_message"}}</p>
 		</div>
 
@@ -72,90 +70,60 @@
 	
 		<div class="col-md-4 margin-top-20 center-text">
 			<i style="font-size:36px;color:#3498db;font-weight:600" class="im im-icon-Phone-2"></i>
-			<h2>{{i18n "ground_air_maritime_transfers"}}</h2>
+			<h2 class="service">{{i18n "ground_air_maritime_transfers"}}</h2>
 			<p>{{i18n "transportation_message"}}</p>
 		</div>
 
 </div>
 </div>
-
-<div class="container">
-	<div class="row">
-		<h3 class="text-center">{{i18n "become_a_partner"}}</h3>
-		<form method="post">
-			<input type="hidden" name="action" value="contact">	
-				<div class="col-md-6" class="{{#if validationErrors.name}}has-error{{/if}}" >
-					<label>{{i18n "full_name"}}</label>
-					<input type="text"  name="name.full" value="">
-				</div>
-
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons {{#if validationErrors.email}}has-error{{/if}}">
-						<label>{{i18n "email"}}</label>
-						<input type="email" name="email" value="">
-						<i class="im im-icon-Mail"></i>
-					</div>
-				</div>
-						<div class="col-md-6">
-					<div class="input-with-icon medium-icons ">
-						<label>{{i18n "phone"}}</label>
-						<input type="number" name="phone" value="">
-						<i class="im im-icon-Phone-2"></i>
-					</div>
-				</div>
-						<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "company"}}</label>
-						<input type="text" name="company" value="">
-						<i class="im im-icon-Phone-2"></i>
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "website"}}</label>
-						<input type="url" name="website" value="">
-						<i class="im im-icon-Phone-2"></i>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>{{i18n "facebook"}}</label>
-						<input type="url" name="facebook" value="">
-						<i class="im im-icon-Phone-2"></i>
-					</div>
-				</div>
-				
-					<div class="col-md-6">
-
-					<label>{{i18n "country"}}</label>
-
-					<select data-placeholder="Select Item" name="country" class="chosen-select">
-						{{>static/_countrySelect}}
-						</select>
-				</div>
-				<div class="col-md-6">
-					<label>{{i18n "my_main_activity_is"}}</label>
-						<select data-placeholder="{{i18n "select"}}" name="mainActivity" class="chosen-select">
-				<option label="blank"></option>	
-				<option value="tour-operator">{{i18n "tour_operator"}}</option>	<!-- all-included packages, provider -->
-				<option value="activities & rentals">{{i18n "activities_and_rentals"}}</option>	<!-- standup paddle, karting, car rental -->
-				<option value="tour-guide">{{i18n "tour_guide"}}</option>	<!-- individual tour guide, -->
-				<option value="tourism-attraction">{{i18n "tourism_attractions"}}</option>	<!-- museums, local attractions and amusement parks -->
-				<option value="tourism-attraction">{{i18n "tourism_attractions"}}</option>	<!-- museums, local attractions and amusement parks -->
-				<option value="lodging">{{i18n "lodging_and_cabins"}}</option>	<!-- museums, local attractions and amusement parks -->
-				<option value="yatch-and-boats">{{i18n "ground_air_maritime_transfers"}}</option>	<!-- museums, local attractions and amusement parks -->
-					</select>
-				</div>
-		
-
-				
-				
-		
-		<div class="col-md-12 margin-top-20">
-			<button class="button" type="submit">Enviar</button>
-		</div>
-			</form>
-			{{/if}}
 			</div>
 </div>
+
+<div class="container crm-section">
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<form method="post" action="/signup " class="register">
+							<input type="hidden" name="action" value="login">
+							<input type="hidden" name="{{token.key}}" value="{{token.value}}">
+							<input type="hidden" name="isGuide" value="true">
+							<p class="form-row form-row-wide">
+								<label for="username2">{{i18n "full_name"}}:
+									<i class="im im-icon-Male"></i>
+									<input required type="text" class="input-text" name="name" id="register_name" value="">
+								</label>
+							</p>
+								
+							<p class="form-row form-row-wide">
+								<label for="email2">{{i18n "email"}}:
+									<i class="im im-icon-Mail"></i>
+									<input  required type="text" class="input-text" name="email" id="register_email" value="">
+								</label>
+							</p>
+
+							<p class="form-row form-row-wide">
+								<label for="password1">{{i18n "password"}}:
+									<i class="im im-icon-Lock-2"></i>
+									<input required class="input-text" type="password" name="password" id="password1">
+								</label>
+							</p>
+
+							<p class="form-row form-row-wide">
+								<label for="password2">{{i18n "repeat_password"}}:
+									<i class="im im-icon-Lock-2"></i>
+									<input required class="input-text" type="password" name="password_confirm" id="password2">
+								</label>
+							</p>
+								<label>{{i18n "country"}}</label>
+
+						<select data-placeholder="Select Item" name="countryCode" class="chosen-select">
+							{{>static/_countrySelect}}
+							</select>
+							
+
+							<input type="submit" class="element-center button border margin-top-30" name="register" value="{{i18n "become_partner"}}">
+	
+							</form>
+	</div>
+</div>
+</div>
+	

@@ -390,7 +390,7 @@ module.exports = function() {
 
   _helpers.getLang = function() {
   
-  	var lang = process.env.LANG;
+		var lang = process.env.LANG;
   	return lang;
   };
 
@@ -428,8 +428,6 @@ module.exports = function() {
   };
 
 	_helpers.getPriceInCurrency = function(price, currency){
-		console.log("price", price);
-		console.log("currency", currency);
 		var currency = currency; 
 		var convert = fx(price).from('USD').to(currency); // ~8.0424
 		var priceInLocalCurrency = accounting.formatMoney(convert, {"precision": 0});

@@ -5,7 +5,7 @@ var Keen = require('keen-js');
 var i18n = require("i18n");
 var Url = require('url');
 var oxr = require('open-exchange-rates'),
-	fx = require('money');
+  fx = require('money');
 /**
 	Initialises the standard view locals
 */
@@ -214,11 +214,11 @@ if (!process.env.LANG) {
       locals.lang = process.env.LANG;
       return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }
-    if (subdomain != 'www' && subdomain != undefined) {
+    /*if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }
+    }*/
     if (langs.includes(browserLang)) {
       process.env.LANG = browserLang;
       locals.lang = process.env.LANG;

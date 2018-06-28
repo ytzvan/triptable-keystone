@@ -2,27 +2,31 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Mis Tours</h2>
+					<h2>{{i18n "my_tours"}}</h2>
 					<!-- Breadcrumbs -->
 					<nav id="breadcrumbs">
 						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Dashboard</a></li>
-							<li>Mis Tours</li>
+							<li><a href="#">{{i18n "home"}}</a></li>
+							<li>{{i18n "my_tours"}}</li>
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</div>
-
+		{{#if data.confirmedMessage}}
+			<div class="notification success closeable">
+				<p><span>Woha!</span> {{data.confirmedMessage}}</p>
+				<a class="close"></a>
+			</div>
+		{{/if}}
 		<div class="row">
-			
+		
 			<!-- Listings -->
       {{#if data.results_active}}
 			<div class="col-lg-12 col-md-12">
 				<div class="dashboard-list-box margin-top-0">
           
-					<h4>Tours Activos: {{data.results_active.length}}</h4>
+					<h4>{{i18n "active_tours"}}: {{data.results_active.length}}</h4>
 					<ul>
             
             {{#each data.results_active}}
@@ -39,16 +43,15 @@
 								<div class="list-box-listing-content">
 									<div class="inner">
 										<h3><a href="/keystone/tours/{{tourId}}">{{name}}</a></h3>
-										<span>{{description.extended}}</span>
-										<div class="star-rating" data-rating="3.5">
-											<div class="rating-counter">(12 purchases)</div>
-										</div>
+										<span>{{description.short}}</span>
+										<p>{{i18n "status"}}: {{i18n state}}</p>
 									</div>
 								</div>
 							</div>
 							<div class="buttons-to-right">
-								<a href="#" class="button gray"><i class="sl sl-icon-note"></i> Edit</a>
-								<a href="#" class="button gray"><i class="sl sl-icon-close"></i> Delete</a>
+								<a href="/tour/{{slug}}" target="_blank" class="button primary"><i class="fa fa-globe"></i> {{i18n "view_on_triptable"}}</a>
+								<a href="/admin/tour/edit/{{tourId}}" class="button gray"><i class="sl sl-icon-note"></i> {{i18n "edit"}}</a>
+								<a id="deleteBtn" href="/admin/tour/delete/{{tourId}}" class="button red"><i class="sl sl-icon-close"></i> {{i18n "delete"}}</a>
 							</div>
 						</li>
             {{/each}}
@@ -57,14 +60,14 @@
           {{else}}
           <div class="col-lg-12 col-md-12 padding-top-30">
 				  <div class="dashboard-list-box margin-top-0">
-          <h4>No existen tours activos</h4>
+          <h4>{{i18n "no_active_tours"}}</h4>
           {{/if}}
           </div>
           </div>
           {{#if data.results_draft}}
           <div class="col-lg-12 col-md-12 padding-top-30">
 				  <div class="dashboard-list-box margin-top-0">
-					<h4>Tours Pendientes de Aprobación: {{data.results_draft.length}}</h4>
+					<h4>{{i18n "activities_pending_for_approval"}}: {{data.results_draft.length}}</h4>
 					<ul>
             {{#each data.results_draft}}
 						<li>
@@ -80,16 +83,14 @@
 								<div class="list-box-listing-content">
 									<div class="inner">
 										<h3><a href="/keystone/tours/{{tourId}}">{{name}}</a></h3>
-										<span>{{description.extended}}</span>
-										<div class="star-rating" data-rating="3.5">
-											<div class="rating-counter">(12 purchases)</div>
-										</div>
+										<span>{{description.short}}</span>
+										<p>{{i18n "status"}}: {{state}}</p>
 									</div>
 								</div>
 							</div>
 							<div class="buttons-to-right">
-								<a href="#" class="button gray"><i class="sl sl-icon-note"></i> Edit</a>
-								<a href="#" class="button gray"><i class="sl sl-icon-close"></i> Delete</a>
+								<a href="/admin/tour/edit/{{tourId}}" class="button gray"><i class="sl sl-icon-note"></i> {{i18n "edit"}}</a>
+								<a id="deleteBtn" href="/admin/tour/delete/{{tourId}}" class="button red"><i class="sl sl-icon-close"></i> {{i18n "delete"}}</a>
 							</div>
 						</li>
             {{/each}}
@@ -98,7 +99,13 @@
           {{else}}
           <div class="col-lg-12 col-md-12 padding-top-30">
 				  <div class="dashboard-list-box margin-top-0">
-          <h4>Tours Inactivos: No existen tours inactivos</h4>
+          <h4>{{i18n "inactive_tours"}}: {{i18n "inactive_tours_message"}}</h4>
           {{/if}}
 				</div>
 			</div>
+
+<script>
+	$(function() {
+     $('#tourList').addClass("active");
+	});
+</script>

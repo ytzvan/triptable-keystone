@@ -1,0 +1,139 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/css/intlTelInput.css">
+<!-- Titlebar
+<!-- Titlebar -->
+		<div id="titlebar">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>{{i18n "my_profile"}}</h2>
+					<!-- Breadcrumbs -->
+					<nav id="breadcrumbs">
+						<ul>
+							<li><a href="/admin">{{i18n "home"}}</a></li>
+							<li>{{i18n "my_profile"}}</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<!-- Profile -->
+      <form action="/admin/profile/update"  method="post" enctype="multipart/form-data">
+			<div class="col-lg-6 col-md-12">
+				<div class="dashboard-list-box margin-top-0">
+					<h4 class="gray">{{i18n "profile_details"}}</h4>
+
+					<div class="dashboard-list-box-static">
+						
+						<!-- Avatar -->
+						<div class="edit-profile-photo">
+							<img id="profilePhoto" src="{{data.profile.image.secure_url}}" alt="">
+							<div class="change-photo-btn">
+								<div class="photoUpload">
+								    <span><i class="fa fa-upload"></i>{{i18n "upload"}}</span>
+								    <input type="file" name="avatar" id="uploadBtn" class="upload" />
+								</div>
+							</div>
+						</div>
+	
+						<!-- Details -->
+						<div class="my-profile">
+
+							<label>{{i18n "name"}}</label>
+							<input value="{{data.profile.name.full}}" name="name" type="text">
+
+							{{#if data.profile.isGuide}}
+              <label>{{i18n "companyName"}}</label>
+							<input value="{{data.profile.companyName}}" name="companyName" type="text">
+							{{/if}}
+              <label>{{i18n "phone_booking_message"}}</label>
+							<input type="tel"  id="phone" name="cellphone" value="{{data.profile.cellphone}}">
+
+							<label>{{i18n "email"}}</label>
+							<input value="{{data.profile.email}}" name="email" type="email">
+
+							<label>{{i18n "about_me"}}</label>
+							<textarea name="description" id="notes"  cols="30" placeholder="{{i18n "about_me"}}" rows="10">{{data.profile.description}}</textarea>
+
+							{{#if data.profile.isGuide}}
+              <label>{{i18n "country"}}</label>
+              {{#if data.profile.country.country}}
+							<input value="{{data.profile.country.country}}" type="text" readonly>
+              {{else}}
+              <input value="{{data.profile.countryCode}}" type="text" readonly>
+              {{/if}}
+              {{/if}}
+
+							<label><i class="fa fa-twitter"></i> {{i18n "twitter_username"}}</label>
+							<input placeholder="@triptable_es" name="socialmedia.twitter" value="{{data.profile.socialmedia.twitter}}" type="text">
+
+							<label><i class="fa fa-facebook-square"></i> Facebook</label>
+							<input placeholder="https://www.facebook.com/triptable" value="{{data.profile.socialmedia.facebook}}" name="socialmedia.facebook" type="text">
+
+							<label><i class="fa fa-google-plus"></i> {{i18n "instagram_username"}}</label>
+							<input placeholder="https://www.instagram.com/triptable" value="{{data.profile.socialmedia.instagram}}" name="socialmedia.instagram" type="text">
+						</div>
+	
+						<button class="button primary margin-top-15">{{i18n "save_changes"}}</button>
+
+					</div>
+				</div>
+			</div>
+      </form>
+			<!-- Change Password 
+      
+			<div class="col-lg-6 col-md-12">
+				<div class="dashboard-list-box margin-top-0">
+					<h4 class="gray">Change Password</h4>
+					<div class="dashboard-list-box-static">
+
+			
+						<div class="my-profile">
+							<label class="margin-top-0">Current Password</label>
+							<input type="password">
+
+							<label>New Password</label>
+							<input type="password">
+
+							<label>Confirm New Password</label>
+							<input type="password">
+
+							<button class="button margin-top-15">Change Password</button>
+						</div>
+
+					</div>
+				</div>-->
+			</div>
+
+      <script>
+        function readURL(input) {
+
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              $('#profilePhoto').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        };
+      
+        $ (document).ready(function(){
+          $("#phone").intlTelInput({
+            nationalMode: false,
+            preferredCountries : ["pa", "co", "cr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/utils.js",
+            autoPlaceholder: "polite"
+            });
+            $("#uploadBtn").change(function() {
+              readURL(this);
+            });
+
+		$('#profile').addClass("active");
+
+        })
+
+        
+      </script>
