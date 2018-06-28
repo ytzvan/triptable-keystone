@@ -36,10 +36,10 @@ keystone.init({
 	'signin redirect' : '/',
 	'signout url' : '/signout',
 	'signout redirect' : '/',
-	'compress':true,
-	'session options': {    
+	'compress':true
+	/*'session options': {    
 		cookie: { domain:'.triptable.com',  httpOnly: true  }
-  },
+  },*/
 //	'sesssion store options' : {cookie: { domain:'.localdomain.com'}}
 		// 'cookie signin options' : { 'maxAge': 5 * 60 * 1000, 'signed': true },
 //	'session cookie' : { 'secure': true,'maxAge': 5 * 30 * 1000, 'domain':'.localdomain.com' },
