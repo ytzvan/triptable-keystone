@@ -174,7 +174,7 @@ browserLang = browserLang.substring(0, 2);
 var subdomain = req.subdomains[0];
 var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 var url2  = Url.parse(fullUrl);
-
+var host = req.headers.host;
 
 /*else {
   if (req.query.lang === 'es') {
@@ -190,53 +190,49 @@ var url2  = Url.parse(fullUrl);
 if (!process.env.LANG) {
     if (req.query.lang == 'es') {
       locals.lang = 'es';
-      return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
+      return res.redirect('//es.'+host+url2.pathname);
     }
     if (req.query.lang == 'en') {
       locals.lang = 'en';
-        return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
+        return res.redirect('//en.'+host+url2.pathname);
     }
-    if (subdomain == 'www' && browserLang == 'es') {
-      process.env.LANG = browserLang;
-      i18n.setLocale(process.env.LANG);
-      locals.lang = process.env.LANG;
-      return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
+    if (subdomain == 'www') {
+      if(browserLang){
+        process.env.LANG = browserLang;
+        i18n.setLocale(process.env.LANG);
+        locals.lang = process.env.LANG;
+        return res.redirect('//'+subdomain+'.'+host+url2.pathname);
+      }
     }
-     if (subdomain == 'www' && browserLang == 'en') {
-      process.env.LANG = browserLang;
-      i18n.setLocale(process.env.LANG);
-      locals.lang = process.env.LANG;
-      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }
-    if (subdomain == 'es' && browserLang == 'en') {
+     /* if (subdomain == 'es' && browserLang == 'en') {
       process.env.LANG = browserLang;
       i18n.setLocale(process.env.LANG);
       locals.lang = process.env.LANG;
       return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }
+    }*/
     /*if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }*/
+    }
     if (langs.includes(browserLang)) {
       process.env.LANG = browserLang;
       locals.lang = process.env.LANG;
-      return res.redirect('//'+browserLang+'.'+process.env.LOCALDOMAIN+url2.pathname);
+      return res.redirect('//'+process.env.LANG+'.'+process.env.LOCALDOMAIN+url2.pathname);
     } else {
       process.env.LANG = "en";
       locals.lang = process.env.LANG;
       return res.redirect('//'+process.env.LANG+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }
+    } */
 }
 
 if (req.query.lang == 'es') {
     locals.lang = 'es';
-    return res.redirect('//es.'+process.env.LOCALDOMAIN+url2.pathname);
+    return res.redirect('//es.'+host+url2.pathname);
 }
 if (req.query.lang == 'en') {
     locals.lang = 'en';
-    return res.redirect('//en.'+process.env.LOCALDOMAIN+url2.pathname);
+    return res.redirect('//en.'+host+url2.pathname);
 }
 
 if (subdomain == 'es') {
