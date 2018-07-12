@@ -77,8 +77,8 @@ exports = module.exports = function(app) {
 	app.all('/tour/:slug', routes.views.tour);
 
 	//V1 API Routes
-	app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);
-	app.get('/api/tour/:id', keystone.middleware.api, routes.api.tour.get);
+//	app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);
+//	app.get('/api/tour/:id', keystone.middleware.api, routes.api.tour.get);
 	//Search Views
 	app.get('/:country', routes.search.country);
 	app.get('/:country/:province', routes.search.province);
