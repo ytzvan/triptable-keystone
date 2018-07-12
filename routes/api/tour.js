@@ -7,12 +7,23 @@ var Tour = keystone.list('Tour');
  * List Tour
  */
 exports.list = function(req, res) {
-	Tour.model.find(function(err, items) {
+	let query = req.query;
+	let search = {};
+	
+	if (query.q) {
+		search.keywords = { $regex: '.*' + query.q + '.*' };
+	}
+	if (query.hotelPickup) {
+		search.hotelPickup = {"hotelPickup": query.hotelPickup}
+	}
+
+	Tour.model.find(search, function(err, items) {
 
 		if (err) return res.apiError('database error', err);
-
+		console.log("total", items.length);
 		res.apiResponse({
-			posts: items
+			tours: items,
+			count: items.length
 		});
 
 	});
@@ -28,7 +39,7 @@ exports.get = function(req, res) {
 		if (!item) return res.apiError('not found');
 
 		res.apiResponse({
-			post: item
+			tour: item
 		});
 
 	});
@@ -48,7 +59,7 @@ exports.create = function(req, res) {
 		if (err) return res.apiError('error', err);
 
 		res.apiResponse({
-			post: item
+			tour: item
 		});
 
 	});
@@ -70,7 +81,7 @@ exports.update = function(req, res) {
 			if (err) return res.apiError('create error', err);
 
 			res.apiResponse({
-				post: item
+				tour: item
 			});
 
 		});
