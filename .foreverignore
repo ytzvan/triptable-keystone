@@ -2,7 +2,7 @@
 **/.git/**
 
 **/.tmp/**
-**/views/**
+**/templates/**
 **/assets/**
 
 # Restart only when js files are changed.

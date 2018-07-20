@@ -7,7 +7,7 @@ exports.index = function(req, res) {
     var userid = req.params.userid;
 
     view.on('init', function(next) {
-				keystone.list('Tour').model.find().where('owner', userid).populate('owner city').sort('-featured').exec(function(err, result) {
+      keystone.list('Tour').model.find({ 'owner': userid, 'state': 'published' }).populate('owner city').sort('-featured').exec(function(err, result) {
           if(result == null){ //si hay resultado
              console.log("sin bookings");
              return res.status(404).render('errors/404');
