@@ -135,11 +135,21 @@
 							<input type="tel"  id="phone" name="phone" id="phone">
 						</div>
 					</div>
+
+					{{#if data.tour.hotelPickup}}
 					<div class="col-md-12">
 						<div class="input-with-icon medium-icons">
 							<label>{{i18n "hotel_booking_message"}}</label>
 							<input type="text"  id="address" name="hotel"  value="">
-							<i class="im im-icon-Phone-2"></i>
+							<i class="im im-icon-Location-2"></i>
+						</div>
+					</div>
+					{{/if}}
+					<div class="col-md-12">
+						<div class="input-with-icon medium-icons">
+							<label>{{i18n "booking_aditional_message"}}</label>
+							<i class="im im-icon-Location-2"></i>
+							<textarea name="message" value="" placeholder="{{i18n "booking_aditional_message_placeholder"}}" rows="3" cols="50"></textarea>
 						</div>
 					</div>
 
