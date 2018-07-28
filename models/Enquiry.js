@@ -195,8 +195,8 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 			toEmail: email,
 			toName: name,
 			subject: 'Tu reserva de Triptable',
-			textMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el '+friendlyId+'. <br>Los datos de tu reservas son los siguientes: <br>Tour: '+obj.tourName+'. <br>Fecha de reserva: '+obj.datePretty+'. <br>Cantidad de Personas: '+ obj.people + '. <br> Precio total: '+obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
-			htmlMessage: 'Hola ' + name+', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el '+friendlyId+'. <br>Los datos de tu reservas son los siguientes: <br>Tour: '+obj.tourName+'. <br>Fecha de reserva: '+obj.datePretty+'. <br>Cantidad de Personas: '+ obj.people + '. <br> Precio total: '+obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
+			textMessage: 'Hola ' + name + ', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el ' + friendlyId + '. <br>Los datos de tu reservas son los siguientes: <br>Tour: ' + obj.tourName + '. <br>Fecha de reserva: ' + obj.datePretty + '. <br>Cantidad de Adultos: ' + obj.nOfAdults + '. <br>Cantidad de Niños: ' + obj.nOfChildren + '. <br>Cantidad de Infantes: ' + obj.nOfInfants + '. <br>Total de Viajeros: ' + obj.people + '. <br> Precio total: '+obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
+			htmlMessage: 'Hola ' + name + ', Hemos enviado tu solicitud de Reserva al operador del tour. <br> Tu ID de reserva es el ' + friendlyId + '. <br>Los datos de tu reservas son los siguientes: <br>Tour: ' + obj.tourName + '. <br>Fecha de reserva: ' + obj.datePretty + '. <br>Cantidad de Adultos: ' + obj.nOfAdults + '. <br>Cantidad de Niños: ' + obj.nOfChildren + '. <br>Cantidad de Infantes: ' + obj.nOfInfants + '. <br> Precio total: ' + obj.bookingTotalPrice + '.<br> Puedes el estado de tu reserva en: http://triptable.com/user. <br>Te notificaremos cuando tu reserva esté confirmada. <br> El equipo de Triptable ',
 			fromEmail: bookingEmail,
 			fromName: bookingEmailName,
 		}).exec({
@@ -225,19 +225,48 @@ Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
 			domain: process.env.MAILGUN_DOMAIN,
 			toEmail: email,
 			toName: name,
-			subject: 'Tienes una Solictud de Reserva',
-			htmlMessage: 'Hola '+name+', <br>' + bookerName + ' ha solicitado reservar el tour: <strong>' + tour.name +'</strong> para el día: ' + fecha + ' para '+ booking.people + ' personas. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> '+ tour.tourId +'.<br><strong>Ref:</strong> '+ obj.friendlyId + ' <br>El equipo de Triptable.' ,
-			textMessage: bookerName + ' ha solicitado reservar el tour' + tour.name +' para el día' + fecha + ' para '+ booking.people + ' personas. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: '+ tour.tourId +'.ref: '+ obj.friendlyId + ' \nEl equipo de Triptable.' ,
+			subject: "Tienes una Solictud de Reserva",
+			htmlMessage:
+				"Hola " +
+				name +
+				", <br>" +
+				bookerName +
+				" ha solicitado reservar el tour: <strong>" +
+				tour.name +
+				"</strong> para el día: " +
+				fecha +
+				" para <strong>" +
+				booking.nOfAdults +
+				"</strong> adultos,<strong>" +
+				booking.nOfChildren +
+				"</strong> niños, <strong>" +
+				booking.nOfInfants +
+				"</strong> infantes. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> " +
+				tour.tourId +
+				".<br><strong>Ref:</strong> " +
+				obj.friendlyId +
+				" <br>El equipo de Triptable.",
+			textMessage:
+				bookerName +
+				" ha solicitado reservar el tour" +
+				tour.name +
+				" para el día" +
+				fecha +
+				" para " +
+				booking.nOfAdults +
+				" adultos, " +
+				booking.nOfChildren +
+				" niños, " +
+				booking.nOfInfants +
+				" infantes.. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: " +
+				tour.tourId +
+				".ref: " +
+				obj.friendlyId +
+				" \nEl equipo de Triptable.",
 			fromEmail: bookingEmail,
-			fromName:  bookingEmailName,
-		}).exec({
-		// An unexpected error occurred.
-		error: function (err){
-		},
-		// OK.
-		success: function (){
-		},
-	});
+			fromName: bookingEmailName
+		}).exec({ // An unexpected error occurred.
+			error: function(err) {}, success: function() {} }); // OK.
 	});
 }
 Enquiry.defaultSort = '-date';

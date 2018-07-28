@@ -56,12 +56,13 @@
 				<ul>
 					<li>{{i18n "date"}} <span>{{formData.formatDate}}</span></li>
 					<li>{{i18n "time"}} <span>{{formData.bookingTime}}</span></li>
-					<li>{{i18n "adults"}} <i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.adults data.tour.currency}} {{data.tour.currency}}</span></li>
+					<li>{{i18n "adults"}}<br><i class="price">{{data.nOfAdults}} x {{getPriceInCurrency price.adultsPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.adults data.tour.currency}} {{data.tour.currency}}</span></li>
 					{{#if data.nOfChildren}}
-					<li>{{i18n "childre"}} <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.children data.tour.currency}} {{data.tour.currency}}</span></li>
+					<li>{{i18n "children"}} ({{data.tour.child.minAge}} - {{data.tour.child.maxAge}} {{i18n "years"}})<br> <i class="price"> {{data.nOfChildren}} x {{getPriceInCurrency data.tour.childPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.children data.tour.currency}} {{data.tour.currency}}</span></li>
 					{{/if}}
 					{{#if data.nOfInfants}}
-					<li>{{i18n "intants"}} <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.infant data.tour.currency}} {{data.tour.currency}}</span></li>
+					<li>{{i18n "infants"}} ({{data.tour.infant.minAge}} - {{data.tour.infant.maxAge}} {{i18n "years"}})
+					<br> <i class="price"> {{data.nOfInfants}} x {{getPriceInCurrency data.tour.infantPrice data.tour.currency}} {{data.tour.currency}}</i><span>{{getPriceInCurrency price.infant data.tour.currency}} {{data.tour.currency}}</span></li>
 					{{/if}}
 					<li class="total-costs">Sub-total<span>{{getPriceInCurrency price.subtotal data.tour.currency}} {{data.tour.currency}}</span></li>
 					<li class="subtotal-costs">{{i18n "service_fee"}}<span>{{getPriceInCurrency price.transacctionFee data.tour.currency}} {{data.tour.currency}}</span></li>

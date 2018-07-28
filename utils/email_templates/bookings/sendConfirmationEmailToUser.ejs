@@ -102,7 +102,7 @@ Reserva confirmada ID  <%= locals.friendlyId%>
                     <tr>
                         <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;">
                             <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;">
-                                Hola <%= locals.operatorName %>, has confirmado la solicitud de reserva ID <span style="text-transform: uppercase; font-weigth:800;"><%= locals.friendlyId %></span> para el <%= locals.datePretty %>  para <%= locals.people %>  personas.
+                                Hola <%= locals.operatorName %>, has confirmado la solicitud de reserva ID <span style="text-transform: uppercase; font-weigth:800;"><%= locals.friendlyId %></span> para el <%= locals.datePretty %>  para <%= locals.nOfAdults %>  adultos, <%= locals.nOfChildren %>  niños, <%= locals.nOfInfants %>  infantes, .
                             </p>
                         </td>
                     </tr>
@@ -151,7 +151,7 @@ Reserva confirmada ID  <%= locals.friendlyId%>
                                     <tr>
                                         <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                                             <p style="font-weight: 800;">Datos de la Reserva</p>
-                                            <p>Nombre del Tour: <%= locals.tourName %><br>Fecha de Reserva: <%= locals.datePretty %><br>Personas: <%= locals.people %><br>ID Reserva: <%= locals.friendlyId %></p>
+                                            <p>Nombre del Tour: <%= locals.tourName %><br>Fecha de Reserva: <%= locals.datePretty %><br>Total de Personas: <%= locals.people %><br>Adultos: <%= locals.nOfAdults %><br>Niños: <%= locals.nOfChildren %><br>Infantes: <%= locals.nOfInfants %><br>ID Reserva: <%= locals.friendlyId %></p>
                                         </td>
                                     </tr>
                                 </table>

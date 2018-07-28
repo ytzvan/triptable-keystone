@@ -21,123 +21,243 @@ var Tour = new keystone.List('Tour', {
 });
 
 Tour.add({
-	tourId: { type: String, index: true, noedit: true},
+	tourId: { type: String, index: true, noedit: true },
 	name: { type: String, required: true },
-	name_eng: { type: String},
-	state: { type: Types.Select, options: 'draft, published, archived, child', default: 'draft', index: true },
-	owner: { type: Types.Relationship, ref: 'User', filters: { isGuide: true }},
+	name_eng: { type: String },
+	state: {
+		type: Types.Select,
+		options: "draft, published, archived, child",
+		default: "draft",
+		index: true
+	},
+	owner: { type: Types.Relationship, ref: "User", filters: { isGuide: true } },
 	publishedDate: { type: Types.Date, index: true },
-	isParent: {type: Types.Boolean, default: false},
-	childs:  { type: Types.Relationship, ref: 'Tour', many: true, filters: { owner: ':owner' }, dependsOn:  {isParent: true} },
-  heroImage: { type: Types.CloudinaryImage },
+	isParent: { type: Types.Boolean, default: false },
+	childs: {
+		type: Types.Relationship,
+		ref: "Tour",
+		many: true,
+		filters: { owner: ":owner" },
+		dependsOn: { isParent: true }
+	},
+	heroImage: { type: Types.CloudinaryImage },
 	images: { type: Types.CloudinaryImages },
-	duration: {type: Types.Number, required: true, default: 2},
-	tourType: { type: Types.Select, options: 'group tour, private tour' },
-	isMultiDay: {label: '¿Es un tour de varios dias?', type: Types.Boolean, default: false, note : 'Esto le indica a la plataforma si muestra la duración en Horas o Minutos '},
+	duration: { type: Types.Number, required: true, default: 2 },
+	tourType: { type: Types.Select, options: "group tour, private tour" },
+	isMultiDay: {
+		label: "¿Es un tour de varios dias?",
+		type: Types.Boolean,
+		default: false,
+		note:
+			"Esto le indica a la plataforma si muestra la duración en Horas o Minutos "
+	},
 	description: {
-		short: { type: String},
+		short: { type: String },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-  description_eng: {
-		short: { type: String},
+	description_eng: {
+		short: { type: String },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	hasFixedSchedule: {type: Types.Boolean, note: "Fixed Schedule aplica si la actividad tiene un horario fijo de operación todo el año."}, 
+	hasFixedSchedule: {
+		type: Types.Boolean,
+		note:
+			"Fixed Schedule aplica si la actividad tiene un horario fijo de operación todo el año."
+	},
 	scheduleDescription: {
-		es: { type: Types.TextArray, note: "Descripción del Horario del tour / actividad en Español", dependsOn: {hasFixedSchedule: true}},
-		en: { type: Types.TextArray, note: "Descripción del Horario del tour / actividad en Inglés", dependsOn: {hasFixedSchedule: true}},
+		es: {
+			type: Types.TextArray,
+			note: "Descripción del Horario del tour / actividad en Español",
+			dependsOn: { hasFixedSchedule: true }
+		},
+		en: {
+			type: Types.TextArray,
+			note: "Descripción del Horario del tour / actividad en Inglés",
+			dependsOn: { hasFixedSchedule: true }
+		}
 	},
 	includesDescription: {
-		es: { type: Types.TextArray, note: "Descripción de lo que incluye en Español"},
-		en: { type: Types.TextArray, note: "Descripción de lo que incluye  en Inglés"},
+		es: {
+			type: Types.TextArray,
+			note: "Descripción de lo que incluye en Español"
+		},
+		en: {
+			type: Types.TextArray,
+			note: "Descripción de lo que incluye  en Inglés"
+		}
 	},
 	excludesDescription: {
-		es: { type: Types.TextArray, note: "Descripción de lo que no se incluye en Español"},
-		en: { type: Types.TextArray, note: "Descripción de lo que no se incluye  en Inglés"},
+		es: {
+			type: Types.TextArray,
+			note: "Descripción de lo que no se incluye en Español"
+		},
+		en: {
+			type: Types.TextArray,
+			note: "Descripción de lo que no se incluye  en Inglés"
+		}
 	},
 	instructions: {
-		es: {type: Types.Html, wysiwyg: true, height: 100},
-		en: {type: Types.Html, wysiwyg: true, height: 100},
+		es: { type: Types.Html, wysiwyg: true, height: 100 },
+		en: { type: Types.Html, wysiwyg: true, height: 100 }
 	},
 	cancelationPolicy: {
-		es: {type: Types.Html, wysiwyg: true, height: 100},
-		en: {type: Types.Html, wysiwyg: true, height: 100},
+		es: { type: Types.Html, wysiwyg: true, height: 100 },
+		en: { type: Types.Html, wysiwyg: true, height: 100 }
 	},
 	importantInfo: {
-		es: {type: Types.Html, wysiwyg: true, height: 100},
-		en: {type: Types.Html, wysiwyg: true, height: 100},
+		es: { type: Types.Html, wysiwyg: true, height: 100 },
+		en: { type: Types.Html, wysiwyg: true, height: 100 }
 	},
-	videoId : {type: String}, //Created if added a Video URL
-	keywords: {type: String},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
-	minPerson: {type: Types.Number, default: 1 },
-	maxPerson: {type: Types.Number, default: 10 },
-	departureTime: { type: String},
-	arrivalTime: {type: String},
-	price: {type: Types.Money, default: 0},
-	childPrice: {type: Types.Money, default: 0},
-	infantPrice: {type: Types.Money, default: 0},
-	cost: {type:Types.Money},
-  comission: {type: Types.Number, default: 15},
-	transportation: {type: Types.Boolean, default: false },
+	videoId: { type: String }, //Created if added a Video URL
+	keywords: { type: String },
+	categories: { type: Types.Relationship, ref: "PostCategory", many: true },
+	minPerson: { type: Types.Number, default: 1 },
+	maxPerson: { type: Types.Number, default: 10 },
+	departureTime: { type: String },
+	arrivalTime: { type: String },
+	price: { type: Types.Money, default: 0, label: "Precio por Adulto" },
+	childPrice: {
+		type: Types.Money,
+		default: 0,
+		label: "Precio por Niño",
+		dependsOn: { adultsOnly: false }
+	},
+	child: {
+		minAge: {
+			type: Types.Number,
+			default: "3",
+			label: "Edad mínima de niño",
+			dependsOn: { adultsOnly: false }
+		},
+		maxAge: {
+			type: Types.Number,
+			default: "12",
+			label: "Edad máxima de niño",
+			dependsOn: { adultsOnly: false }
+		}
+	},
+	infantPrice: {
+		type: Types.Money,
+		default: 0,
+		dependsOn: { adultsOnly: false }
+	},
+	infant: {
+		minAge: {
+			type: Types.Number,
+			default: "0",
+			label: "Edad mínima de infante",
+			dependsOn: { adultsOnly: false }
+		},
+		maxAge: {
+			type: Types.Number,
+			default: "2",
+			label: "Edad máxima de infante",
+			dependsOn: { adultsOnly: false }
+		}
+	},
+	adultsOnly: {
+		type: Boolean,
+		default: false,
+		label: "Este tour no ofrece precio para niños"
+	},
+	cost: { type: Types.Money },
+	comission: { type: Types.Number, default: 15 },
+	transportation: { type: Types.Boolean, default: false },
 	transportationDescription: {
-		es: { type: String,  dependsOn: { transportation: true } },
-		en: { type: String, dependsOn: { transportation: true }},
+		es: { type: String, dependsOn: { transportation: true } },
+		en: { type: String, dependsOn: { transportation: true } }
 	},
-	hotelPickup: {type: Types.Boolean, default: false },
+	hotelPickup: { type: Types.Boolean, default: false },
 	hotelPickupDescription: {
-		es: { type: String,  dependsOn: { hotelPickup: true } },
-		en: { type: String, dependsOn: { hotelPickup: true }},
+		es: { type: String, dependsOn: { hotelPickup: true } },
+		en: { type: String, dependsOn: { hotelPickup: true } }
 	},
-	maritimeTransportation: {type: Types.Boolean, default: false },
+	maritimeTransportation: { type: Types.Boolean, default: false },
 	maritimeTransportationDescription: {
-		es: { type: String,  dependsOn: { maritimeTransportation: true } },
-		en: { type: String, dependsOn: { maritimeTransportation: true }},
+		es: { type: String, dependsOn: { maritimeTransportation: true } },
+		en: { type: String, dependsOn: { maritimeTransportation: true } }
 	},
-	food: {type: Types.Boolean, default: false },
+	food: { type: Types.Boolean, default: false },
 	foodDescription: {
-		es: { type: String,  dependsOn: { food: true } },
-		en: { type: String, dependsOn: { food: true }},
+		es: { type: String, dependsOn: { food: true } },
+		en: { type: String, dependsOn: { food: true } }
 	},
-	snacks: {type: Types.Boolean, default: false },
-	drinks: {type: Types.Boolean, default: false },
+	snacks: { type: Types.Boolean, default: false },
+	drinks: { type: Types.Boolean, default: false },
 	drinksDescription: {
-		es: { type: String,  dependsOn: { drinks: true } },
-		en: { type: String, dependsOn: { drinks: true }},
+		es: { type: String, dependsOn: { drinks: true } },
+		en: { type: String, dependsOn: { drinks: true } }
 	},
-	featured: {type: Types.Boolean, default: false },
-	insurance: {type: Types.Boolean, default: false },
-	tourGuide: {type: Types.Boolean, default: true },
-	privateCabin: {type: Types.Boolean, default: false },
-	sharedCabin: {type: Types.Boolean, default: false },
-	triptableCertified: {type: Types.Boolean, default: false },
-	instantConfirmation: {type: Types.Boolean, default: false },
-	mobileVoucherAccepted: {type: Types.Boolean, default: false },
-  hasTaxes : {type : Types.Boolean, default: false},
-	taxes: {type: Types.Boolean, default: false,  dependsOn: { hasTaxes: true } },
-  hasTickets : {type : Types.Boolean, default: false},
-	tickets: {type: Types.Boolean, default: false, dependsOn: { hasTickets: true } },
-	latitude: {type: String },
-	longitude: {type: String },
-	country: { type: Types.Relationship, ref: 'Country' },
-	province : { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
-	city : { type: Types.Relationship, ref: 'City', filters: { province: ':province' } },
-	collections: { type: Types.Relationship, ref: 'Collection', many: true, filters: { city: ':city' }},
-	highlights: { type: Types.TextArray},
-	startingPoint : {type: String},
-	finishPoint: {type: String},
-  nOfReviews: {type: Types.Number, default: 0},
-	nOfStars: {type: Types.Number, default: 4.5},
-	reviews : { type: Types.Relationship, ref: 'Review', many: true },
-  attraction: { type: Types.Relationship, ref: 'Attraction', index: true },
-  createdAt: { type: Date, noedit: true },
+	featured: { type: Types.Boolean, default: false },
+	insurance: { type: Types.Boolean, default: false },
+	tourGuide: { type: Types.Boolean, default: true },
+	privateCabin: { type: Types.Boolean, default: false },
+	sharedCabin: { type: Types.Boolean, default: false },
+	triptableCertified: { type: Types.Boolean, default: false },
+	instantConfirmation: { type: Types.Boolean, default: false },
+	mobileVoucherAccepted: { type: Types.Boolean, default: false },
+	hasTaxes: { type: Types.Boolean, default: false },
+	taxes: { type: Types.Boolean, default: false, dependsOn: { hasTaxes: true } },
+	hasTickets: { type: Types.Boolean, default: false },
+	tickets: {
+		type: Types.Boolean,
+		default: false,
+		dependsOn: { hasTickets: true }
+	},
+	latitude: { type: String },
+	longitude: { type: String },
+	country: { type: Types.Relationship, ref: "Country" },
+	province: {
+		type: Types.Relationship,
+		ref: "Province",
+		filters: { country: ":country" }
+	},
+	city: {
+		type: Types.Relationship,
+		ref: "City",
+		filters: { province: ":province" }
+	},
+	collections: {
+		type: Types.Relationship,
+		ref: "Collection",
+		many: true,
+		filters: { city: ":city" }
+	},
+	highlights: { type: Types.TextArray },
+	startingPoint: { type: String },
+	finishPoint: { type: String },
+	nOfReviews: { type: Types.Number, default: 0 },
+	nOfStars: { type: Types.Number, default: 4.5 },
+	reviews: { type: Types.Relationship, ref: "Review", many: true },
+	attraction: { type: Types.Relationship, ref: "Attraction", index: true },
+	createdAt: { type: Date, noedit: true },
 	updatedAt: { type: Date, noedit: true },
-	schedule : {type: Types.TextArray, label: 'Horas', note: 'Estos son los multiples horarios que tiene un tour, si hay horarios establecidos, de otro modo se mostrará un mensaje que diga coodinar al momento de la reserva.'},
-  daysDisabled: { type: Types.TextArray, label: 'Dias Desactivados', note : '0 - Domingo, 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sábado'},
-  skipDays : {type: Types.Number, default: 0, label: 'Dias con los que se necesita reservar con anticipación', note: 'Esto define el mínimo de días necesarios para hacer una reserva'},
-  disabledDates : {type: Types.TextArray, label: 'Fechas no disponibles', note: 'Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28'},
-  multiPrice : {type : Types.Boolean, default:false},
-  multiPriceCatalog : {type : Types.TextArray, dependsOn: { multiPrice: true }},
+	schedule: {
+		type: Types.TextArray,
+		label: "Horas",
+		note:
+			"Estos son los multiples horarios que tiene un tour, si hay horarios establecidos, de otro modo se mostrará un mensaje que diga coodinar al momento de la reserva."
+	},
+	daysDisabled: {
+		type: Types.TextArray,
+		label: "Dias Desactivados",
+		note:
+			"0 - Domingo, 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sábado"
+	},
+	skipDays: {
+		type: Types.Number,
+		default: 0,
+		label: "Dias con los que se necesita reservar con anticipación",
+		note: "Esto define el mínimo de días necesarios para hacer una reserva"
+	},
+	disabledDates: {
+		type: Types.TextArray,
+		label: "Fechas no disponibles",
+		note:
+			"Estas son las fechas donde no estará disponible el tour, se añadiran automáticamente al momento de un booking para ese día, o se podrán añadir manualmente, ej: para un día feriado. Formato: 2016-06-28"
+	},
+	multiPrice: { type: Types.Boolean, default: false },
+	multiPriceCatalog: { type: Types.TextArray, dependsOn: { multiPrice: true } }
 });
 
 Tour.schema.virtual('content.full').get(function() {
