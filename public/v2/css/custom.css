@@ -1358,3 +1358,6 @@ h2.service{
 	font-size: 20px;
 	color:black;
 }	
+h5.price-disabled {
+	text-decoration: line-through;
+}

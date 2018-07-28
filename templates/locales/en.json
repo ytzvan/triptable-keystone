@@ -444,5 +444,10 @@
 	"save_changes": "Save changes",
 	"no_active_tours": "No active tours",
 	"activities_pending_for_approval": "Activities pending for approval",
-	"become_partner": "Apply Now"
+	"become_partner": "Apply Now",
+	"years_old": "years old",
+	"age": "age",
+	"ages": "ages",
+	"chiild_price_disabled_message": "Activity not Available for Children",
+	"infant_price_disabled_message": "Activity not Available for Infants"
 }

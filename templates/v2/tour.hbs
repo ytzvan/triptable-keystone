@@ -217,7 +217,7 @@
 						{{/if}}
 						{{#unless data.tour.multiPrice}}
 							<li>
-								<h5>{{i18n "adults"}}:</h5>
+								<h5>{{i18n "adults"}} ({{i18n "age"}}: {{data.tour.adultMinAge}}+)</h5>
 								<p><strong>{{getPriceInCurrency data.tour.price data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_person"}} </p>
 								<span><select data-placeholder="#" name="nOfAdults" class="">
 									{{#for data.tour.minPerson data.tour.maxPerson 1}}
@@ -227,29 +227,49 @@
 							></span>
 							</li>
 							{{/unless}}
-							{{#unless data.tour.adultsOnly}}
+							{{#if data.tour.disableChild}}
 							<li>
-								<h5>{{i18n "children"}}: ({{data.tour.child.minAge}}-{{data.tour.child.maxAge}} {{i18n "years"}})</h5>
-								<p><strong>{{getPriceInCurrency data.tour.childPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_child"}}</p>
-								<span><select data-placeholder="#" name="nOfChildren" class="">
-								{{#for 0 data.tour.maxPerson 1}}
-									<option>{{this}}</option>
-									{{/for}}	
-								</select
-							></span>
+								<h5 class="price-disabled">{{i18n "children"}}</h5>
+								<p>
+									<strong>{{i18n "chiild_price_disabled_message"}}</strong>
+								</p>
 							</li>
+							{{else}}
 							<li>
-								<h5>{{i18n "infants"}}: ({{data.tour.infant.minAge}}-{{data.tour.infant.maxAge}} {{i18n "years"}}) </h5>
-								<p><strong>{{getPriceInCurrency data.tour.infantPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_infant"}}</p>
-								<span><select data-placeholder="#" name="nOfInfants" class="">
-									{{#for 0 data.tour.maxPerson 1}}
-									<option>{{this}}</option>
-									{{/for}}	
-								</select
-							>
-							</span>
+								<h5>{{i18n "children"}} ({{i18n "ages"}}: {{data.tour.child.minAge}}-{{data.tour.child.maxAge}})</h5>
+								<p>
+									<strong>{{getPriceInCurrency data.tour.childPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_child"}}</p>
+								<span>
+									<select data-placeholder="#" name="nOfChildren" class="">
+										{{#for 0 data.tour.maxPerson 1}}
+										<option>{{this}}</option>
+										{{/for}}
+									</select>
+								</span>
 							</li>
-							{{/unless}}
+							 {{/if}}
+							 {{#if data.tour.disableInfant}}
+								<li>
+									<h5 class="price-disabled">{{i18n "infants"}}</h5>
+									<p>
+										<strong>{{i18n "infant_price_disabled_message"}}</strong>
+									</p>
+								</li>
+								{{else}}
+								<li>
+									<h5>{{i18n "infants"}} ({{i18n "ages"}}: {{data.tour.infant.minAge}}-{{data.tour.infant.maxAge}}) </h5>
+									<p>
+										<strong>{{getPriceInCurrency data.tour.infantPrice data.tour.currency}} {{data.tour.currency}}</strong> {{i18n "per_infant"}}</p>
+									<span>
+										<select data-placeholder="#" name="nOfInfants" class="">
+											{{#for 0 data.tour.maxPerson 1}}
+											<option>{{this}}</option>
+											{{/for}}
+										</select>
+								
+									</span>
+								</li>
+							{{/if}}
 						</ul>
 
 						<!-- Food List -->

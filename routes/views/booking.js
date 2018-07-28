@@ -28,13 +28,19 @@ exports = module.exports = function(req, res) {
 			locals.formData.date = Moment(req.query.date).format("YYYY-MM-DD");
 	    locals.formData.formatDate = Moment(req.query.date).format("dddd, MMMM Do YYYY");
 		}
-		console.log("PARAMS", req.params);
-		console.log("nofadults", req.query.nOfAdults);
 		if (req.query.nOfAdults) {
 			var nOfAdults = req.query.nOfAdults; //adult data from form.
+			if (req.query.nOfChildren) { 
 			var nOfChildren = req.query.nOfChildren;
-			var nOfInfants = req.query.nOfInfants;
-
+			} else {
+				var nOfChildren = 0;
+			}
+			if (req.query.nOfInfants) { 
+				var nOfInfants = req.query.nOfInfants; 
+			} else {
+				var nOfInfants = 0;
+			}
+		
 			nOfAdults = parseInt(nOfAdults);
 			nOfChildren = parseInt(nOfChildren);
 			nOfInfants = parseInt(nOfInfants);
@@ -79,7 +85,7 @@ exports = module.exports = function(req, res) {
 				}
 				locals.price.adults = adultTotalPrice;
 				locals.price.children = childrenTotalPrice;
-				locals.price.infant = infantTotalPrice;
+				locals.price.infant = infantTotalPrice;	
 				locals.price.subtotal = adultTotalPrice+childrenTotalPrice+infantTotalPrice;
 				//Processor fees
 				var processorTax = 3.9; // % del procesador

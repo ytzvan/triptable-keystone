@@ -115,51 +115,57 @@ Tour.add({
 	maxPerson: { type: Types.Number, default: 10 },
 	departureTime: { type: String },
 	arrivalTime: { type: String },
-	price: { type: Types.Money, default: 0, label: "Precio por Adulto" },
+	price: { type: Types.Money, default: 0, label: "Precio por Adulto en $ USD" },
+	adultMinAge: {
+		label: "Edad Mínima de Adulto",
+		type: Types.Number,
+		default: "12"
+	},
+	disableChild: { type: Boolean, label: "Desactivar precio de Niños" },
 	childPrice: {
 		type: Types.Money,
 		default: 0,
 		label: "Precio por Niño",
-		dependsOn: { adultsOnly: false }
+		dependsOn: { disableChild: false }
 	},
 	child: {
 		minAge: {
 			type: Types.Number,
 			default: "3",
 			label: "Edad mínima de niño",
-			dependsOn: { adultsOnly: false }
+			dependsOn: { disableChild: false }
 		},
 		maxAge: {
 			type: Types.Number,
 			default: "12",
 			label: "Edad máxima de niño",
-			dependsOn: { adultsOnly: false }
+			dependsOn: { disableChild: false }
 		}
+	},
+	disableInfant: {
+		type: Boolean,
+		label: "Desactivar precio de Infantes"
 	},
 	infantPrice: {
 		type: Types.Money,
 		default: 0,
-		dependsOn: { adultsOnly: false }
+		dependsOn: { disableInfant: false }
 	},
 	infant: {
 		minAge: {
 			type: Types.Number,
 			default: "0",
 			label: "Edad mínima de infante",
-			dependsOn: { adultsOnly: false }
+			dependsOn: { disableInfant: false }
 		},
 		maxAge: {
 			type: Types.Number,
 			default: "2",
 			label: "Edad máxima de infante",
-			dependsOn: { adultsOnly: false }
+			dependsOn: { disableInfant: false }
 		}
 	},
-	adultsOnly: {
-		type: Boolean,
-		default: false,
-		label: "Este tour no ofrece precio para niños"
-	},
+
 	cost: { type: Types.Money },
 	comission: { type: Types.Number, default: 15 },
 	transportation: { type: Types.Boolean, default: false },

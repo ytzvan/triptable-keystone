@@ -82,22 +82,29 @@
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
 <!--Tour CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TXZ459T');</script>
 <!-- End Google Tag Manager -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
-</head>
-<script>  
-		window.intercomSettings = {
-    		app_id: "eimw7fx8"
-  		};
-</script>
-<body>
 <!-- Google Tag Manager (noscript) -->
+<script>window.intercomSettings = {
+		app_id: "eimw7fx8"
+	};</script>
+<script type="text/javascript">
+	if (document.location.hostname.search("triptable.com") !== -1) {
+
+		//google analytics code goes here
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-TXZ459T');
+
+	}
+</script>
+</head>
+<body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXZ459T"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -379,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.js"></script>
 <script type="text/javascript">
-
+if (document.location.hostname.search("triptable.com") !== -1) {
 function setProductClick(productObj, listName) {
   dataLayer.push({
     'event': 'productClick',
@@ -411,20 +418,25 @@ var setImpressions = function (arr, name, tourId, price, brand, category, list, 
        		'position': pos
 	});
 };
+}
 </script>
-<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/eimw7fx8';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 
 {{#if userInfo}}
 <script type="text/javascript">
+	if (document.location.hostname.search("triptable.com") !== -1) {
   window.intercomSettings = {
     app_id: "eimw7fx8",
     name: "{{userInfo.name.full}}", // Full name
     email: "{{userInfo.email}}", // Email address
     //created_at: 1312182000 // Signup date as a Unix timestamp
   };
-  
+	}
 </script>
-<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/eimw7fx8';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 {{/if}}
+<script>
+		if (document.location.hostname.search("triptable.com") !== -1) {
+				(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/eimw7fx8';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()}
+				</script>
+
 </body>
 </html>
