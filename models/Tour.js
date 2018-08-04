@@ -30,7 +30,8 @@ Tour.add({
 		default: "draft",
 		index: true
 	},
-	owner: { type: Types.Relationship, ref: "User", filters: { isGuide: true } },
+	//owner: { type: Types.Relationship, ref: "User", filters: { isGuide: true } },
+	owner: { type: Types.Relationship, ref: "User" },
 	publishedDate: { type: Types.Date, index: true },
 	isParent: { type: Types.Boolean, default: false },
 	childs: {
