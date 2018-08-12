@@ -109,7 +109,7 @@ Enquiry.schema.pre('save', function(next) {
 		} catch (e) {
 		}
 	}
-	if (!this.place.country) {
+	if (!this.place.country && this.tour) {
 		let place;
 		let tourId;
 		tourId = this.tour;
