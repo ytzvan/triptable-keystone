@@ -35,6 +35,12 @@ Enquiry.add({
 	nOfAdults : {type: Types.Number},
 	nOfChildren : {type: Types.Number},
 	nOfInfants : {type: Types.Number},
+	//place: { country: { type: String }},
+	place: { country: { type: Types.Relationship, ref: 'Country' },
+						province: { type: Types.Relationship, ref: 'Province' },
+						city: { type: Types.Relationship, ref: 'City' },
+
+},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	tourName: { type: String },
 	tourUrl: { type: String },
@@ -93,15 +99,62 @@ Enquiry.schema.pre('save', function(next) {
 	/*if (this.preStatus == 0 && this.bookingStatus == 1) {
 		console.log("Enviar email de reserva confirmada");
 	} */
-	if (this.isModified() && this.bookingStatus == 1){
-	  Email.sendConfirmationEmailToUser(this);
-		next();
-	} else {
-		next();
+	let today = new moment();
+	let enquiryDate = new moment(this.date);
+	let sendEmail = moment(today).isBefore(enquiryDate); 
+
+	if (this.bookingStatus == 1 && sendEmail) {
+		try {
+		Email.sendConfirmationEmailToUser(this);
+		} catch (e) {
+		}
 	}
-	
+	if (!this.place.country) {
+		let place;
+		let tourId;
+		tourId = this.tour;
+		enquiryId = this._id;
+		place = getCountryfromTour(this.tour).then(function (placeData) {
+			updateEnquiryModel(enquiryId, placeData);
+		});
+	}
+	next();
 });
 
+function updateEnquiryModel(enquiryId, placeData) {
+	keystone
+		.list("Enquiry")
+		.model.findByIdAndUpdate(enquiryId, {
+			$set: { "place": placeData }
+		})
+		.exec(function(err, result) {
+			if (!err) {
+				return result;
+			} else {
+				return false;
+			}
+		});
+}
+function getCountryfromTour(tourId){
+	return new Promise((resolve, reject) => {
+		 keystone
+			.list("Tour")
+			.model.findById(tourId)
+			.exec(function (err, tour) {
+				if (!err) {
+					let place = {};
+					place.country = tour.country;
+					place.province = tour.province;
+					place.city = tour.city;
+					
+					resolve(place);
+				} else {
+					reject("not found");
+				}
+			});
+	});
+
+}
 Enquiry.schema.post('init', function(next){
 		var status = this.bookingStatus;
 		this.preStatus = this.bookingStatus;
