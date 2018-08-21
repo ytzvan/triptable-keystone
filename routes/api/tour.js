@@ -16,10 +16,21 @@ exports.list = function(req, res) {
 	if (query.hotelPickup) {
 		search.hotelPickup = {"hotelPickup": query.hotelPickup}
 	}
+	if (query.minPrice || query.maxPrice) {
+			let minPrice = 0;
+			let maxPrice = 999999999.99; //constant
+		if (query.minPrice) {
+			minPrice = query.minPrice;
+		}
+		if (query.maxPrice) {
+			maxPrice = query.maxPrice;
+		}
+		search.price = { $gt: minPrice, $lt: maxPrice };
+	}
 
 	Tour.model.find(search, function(err, items) {
 
-		if (err) return res.apiError('database error', err);
+		if (err) return res.sendStatus(404);
 		console.log("total", items.length);
 		res.apiResponse({
 			tours: items,
@@ -35,7 +46,7 @@ exports.list = function(req, res) {
 exports.get = function(req, res) {
 	Tour.model.findById(req.params.id).exec(function(err, item) {
 
-		if (err) return res.apiError('database error', err);
+		if (err) return res.sendStatus(404); // equivalent to res.status(404).send('Not Found')
 		if (!item) return res.apiError('not found');
 
 		res.apiResponse({
