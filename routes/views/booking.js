@@ -58,7 +58,7 @@ exports = module.exports = function(req, res) {
 		q.exec(function(err, result) {
 			if (err) {
 				
-			} else {
+			} if (result) {
 				result.currency = req.session.currency.currency;
 				locals.data.tour = result;
 				locals.data.userInfo = req.user;
@@ -97,6 +97,8 @@ exports = module.exports = function(req, res) {
 				locals.price.priceInUSD = locals.price.total.toFixed(2);
 				
 				next(err);
+			} else {
+				return res.status(404).render("errors/404");
 			}
 		});
 	});
