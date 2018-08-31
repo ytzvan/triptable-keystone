@@ -10,6 +10,9 @@ exports.list = function(req, res) {
 	let query = req.query;
 	let search = {};
 	
+	if (query.city) {
+		search.city = query.city;
+	}
 	if (query.q) {
 		search.keywords = { $regex: '.*' + query.q + '.*' };
 	}
@@ -27,8 +30,7 @@ exports.list = function(req, res) {
 		}
 		search.price = { $gt: minPrice, $lt: maxPrice };
 	}
-
-	Tour.model.find(search, function(err, items) {
+		Tour.model.find(search, function(err, items) {
 
 		if (err) return res.sendStatus(404);
 		console.log("total", items.length);
