@@ -49,15 +49,16 @@
 		      },
 		      'products': [{                            // List of productFieldObjects.
 		        'name': '{{bookingInfo.tourName}}',     // Name or ID is required.
-		        'id': '{{bookingInfo.friendlyId}}',
+		        'id': '{{data.tour._id}}',
 		        'price': {{bookingInfo.tourPrice}},
 		        'quantity': {{bookingInfo.people}},
-						'brand': "{{data.tour.categories.[0].name}}",
+						'brand': "{{data.tour.country.country}}",
 	        	'category': "{{data.tour.city.city}}",
 		        'coupon': ''                            // Optional fields may be omitted or set to empty string.
 		       }]
 		    }
 		  },
+			'tourId': "{{data.tour._id}}",
 			'bookingName': "{{bookingInfo.name.full}}",
 			'bookingFn': "{{bookingInfo.name.first}}",
 			'bookingLn': "{{bookingInfo.name.last}}",
