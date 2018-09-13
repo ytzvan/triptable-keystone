@@ -121,8 +121,6 @@
 			 var people = $("#nOfAdults").val();
 			 people = parseInt(people);
 
-			 console.log("bookingPerson", people);
-			 debugger
 			 if (minPerson > people ||  maxPerson < people) {
 				 	if (minPerson > people ) {
 						 alert ("Minimo de personas inválido, este tour requiere un mínimo de: " + minPerson + " adultos" );
@@ -139,7 +137,8 @@
 
 	$( "#bookingBtn" ).click(function( e ) {
 		var current = $("#datepicker").datepicker("getDate");
-		$('#hiddenDate').val(current);
+		$('#hiddenDate').val(current.toLocaleDateString());
+	
 		var people = $("#nOfadults").val();
 		var date = $("#hiddenDate").val();
 		//var time = $("#time").val();
