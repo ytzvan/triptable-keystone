@@ -92,6 +92,57 @@ exports.list = function(req, res) {
     };
 
   var view = new keystone.View(req, res);
+
+  function getDraftToursFromOperator() {
+      return new Promise(resolve => {
+        Tour.model.find({ owner: req.user.id, state: 'draft' }).exec(function(err, results) {
+          resolve(results);
+        })
+      });
+    }
+  function getActiveToursFromOperator() {
+    return new Promise(resolve => {
+      Tour.model.find({ owner: req.user.id, state: 'published' }).exec(function (err, results) {
+        resolve(results);
+      })
+    });
+  }
+  function getAllToursFromOperator() {
+		return new Promise(resolve => {
+			Tour.model
+				.find({ owner: req.user.id, state: "published" })
+				.exec(function(err, results) {
+					resolve(results);
+				});
+		});
+	}
+
+  function listActiveTours() {
+    var toursFromOp = getActiveToursFromOperator();
+      return toursFromOp;
+    }
+
+  function listDraftTours() {
+    var toursFromOp = getDraftToursFromOperator();
+    return toursFromOp;
+  }
+  try {
+  listActiveTours().then(
+      (toursFromOp) => {
+        locals.data.results_active = toursFromOp;
+        listDraftTours().then(
+          (toursFromOp) => {
+            locals.data.results_draft = toursFromOp;
+            view.render("admin/tour/list", { layout: "v2-admin" });
+          });
+      });
+    } catch (e) {
+      return res.status(404).render("errors/404");
+      }
+    
+
+    
+/* 
     Tour.model.find({owner: req.user.id, state:'published'})
     .exec(function(err, results) {
       locals.data.results_active = results;
@@ -107,7 +158,7 @@ exports.list = function(req, res) {
     });
     } catch (e) {
       return res.status(404).render("errors/404");
-    }
+    } */
   
 };
 
