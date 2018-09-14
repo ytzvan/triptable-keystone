@@ -96,11 +96,19 @@ exports.list = function(req, res) {
     .exec(function(err, results) {
       locals.data.results_active = results;
     });
+    try {
     Tour.model.find({owner: req.user.id, state:'draft'})
     .exec(function(err, results) {
+      if (err) {
+        return res.status(404).render("errors/404");
+      }
       locals.data.results_draft = results;
+      view.render('admin/tour/list', { layout: "v2-admin" });
     });
-  view.render('admin/tour/list', {layout:"v2-admin"});
+    } catch (e) {
+      return res.status(404).render("errors/404");
+    }
+  
 };
 
 exports.addImages = function(req, res) {
