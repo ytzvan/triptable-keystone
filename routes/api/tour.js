@@ -9,7 +9,9 @@ var Tour = keystone.list('Tour');
 exports.list = function(req, res) {
 	let query = req.query;
 	let search = {};
-	
+	if (query.country) {
+		search.country = query.country;
+	}
 	if (query.city) {
 		search.city = query.city;
 	}
