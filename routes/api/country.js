@@ -28,10 +28,19 @@ exports.getCountries = function (req, res) {
 }
 
 exports.getLocalHome = function(req, res, next){
+  let cities;
+  let tours;
   if (req.params.id) {
     let countryId = req.params.id;
     getCitiesFromCountryId(countryId).then(function(cities) {
-      res.apiResponse({ cities: cities });
+      cities = cities;
+      getToursByCountryId(countryId).then(function(tours) {
+        tours = tours;
+        res.apiResponse({ cities: cities, tours : tours });
+      }).catch(function XXX() {
+        return res.sendStatus(404);
+      });
+      
     
      //   res.apiResponse({ tours: tours });
 
@@ -74,7 +83,7 @@ function getCountryById(countryId) {
 function getToursByCountryId(countryId) {
   return new Promise (
     function (resolve, reject) {
-      Tour.model.find({country: countryId}).exec(function (err, result) {
+      Tour.model.find({country: countryId}).limit(10).sort('-featured').exec(function (err, result) {
         if (err) {
           reject(err);
         } else {
@@ -102,7 +111,7 @@ function getCitiesFromCountryId(countryId) {
 function getToursFromCityId(cityId){
   return new Promise (
     function (resolve, reject) {
-      Tour.model.find({city : cityId}).exec(function(err, tours){
+      Tour.model.find({city : cityId}).limit(10).exec(function(err, tours){
         if (err) {
           reject(err);
         } else {
