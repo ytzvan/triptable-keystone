@@ -82,6 +82,7 @@ exports = module.exports = function(app) {
 	app.get('/api/tour/:id', keystone.middleware.api, routes.api.tour.get);
 	app.get('/api/country', keystone.middleware.api, routes.api.country.getCountries);
 	app.get('/api/country/:id', keystone.middleware.api, routes.api.country.getCountry);
+	app.get("/api/home/:id", keystone.middleware.api, routes.api.country.getLocalHome);
 
 
 	//Search Views

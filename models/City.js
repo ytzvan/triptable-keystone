@@ -20,7 +20,8 @@ City.add({
 	featured: {type: Types.Boolean, default: false },
 	latitude: {type: String},
 	longitude: {type: String},
-	collections: {type: Types.Relationship, ref: 'Collection', many: true, filters: {city: ':cityId'}}
+	collections: {type: Types.Relationship, ref: 'Collection', many: true, filters: {city: ':cityId'}},
+	tours: {type: Types.Relationship, ref: 'Tour', many: true, filters: {city: ':cityId'}}
 });
 
 City.defaultColumns = 'City, description|20%, image|20%, publishedDate|20%';
