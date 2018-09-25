@@ -30,7 +30,7 @@ exports.getCountries = function (req, res) {
 exports.getLocalHome = function(req, res, next){
   if (req.params.id) {
     let countryId = req.params.id;
-    getCitiesFromCountryId(countryId, true).then(function(cities) {
+    getCitiesFromCountryId(countryId).then(function(cities) {
       res.apiResponse({ cities: cities });
     
      //   res.apiResponse({ tours: tours });
@@ -86,10 +86,10 @@ function getToursByCountryId(countryId) {
 }
 
 
-function getCitiesFromCountryId(countryId, featured) {
+function getCitiesFromCountryId(countryId) {
   return new Promise(
     function (resolve, reject) {
-      City.model.find({ country: countryId, featured: featured}).populate('tours').exec(function(err, cities) {
+      City.model.find({ country: countryId}).sort('-featured').limit(10).populate('tours').exec(function(err, cities) {
         if (err) {
           reject(err);
         } else {
