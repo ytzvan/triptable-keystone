@@ -9,6 +9,8 @@ var Tour = keystone.list('Tour');
 exports.list = function(req, res) {
 	let query = req.query;
 	let search = {};
+	//search.state = { "state": "published" };
+	search.state = 'published';
 	if (query.country) {
 		search.country = query.country;
 	}
@@ -31,11 +33,12 @@ exports.list = function(req, res) {
 			maxPrice = query.maxPrice;
 		}
 		search.price = { $gt: minPrice, $lt: maxPrice };
+	
 	}
 		Tour.model.find(search, function(err, items) {
 
 		if (err) return res.sendStatus(404);
-		console.log("total", items.length);
+		console.log("total", items[0]);
 		res.apiResponse({
 			tours: items,
 			count: items.length
@@ -48,10 +51,10 @@ exports.list = function(req, res) {
  * Get Tour by ID
  */
 exports.get = function(req, res) {
-	Tour.model.findById(req.params.id).exec(function(err, item) {
+	Tour.model.findById(req.params.id).where({'state' : 'published'}).exec(function(err, item) {
 
 		if (err) return res.sendStatus(404); // equivalent to res.status(404).send('Not Found')
-		if (!item) return res.apiError('not found');
+		if (!item) return res.sendStatus(404); 
 
 		res.apiResponse({
 			tour: item

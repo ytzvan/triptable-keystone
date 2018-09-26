@@ -83,13 +83,18 @@ function getCountryById(countryId) {
 function getToursByCountryId(countryId) {
   return new Promise (
     function (resolve, reject) {
-      Tour.model.find({country: countryId}).limit(10).sort('-featured').exec(function (err, result) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      })
+      Tour.model
+				.find({ country: countryId })
+				.where("state", "published")
+				.limit(10)
+				.sort("-featured")
+				.exec(function(err, result) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(result);
+					}
+				});
     }
   );
 }
@@ -111,7 +116,7 @@ function getCitiesFromCountryId(countryId) {
 function getToursFromCityId(cityId){
   return new Promise (
     function (resolve, reject) {
-      Tour.model.find({city : cityId}).limit(10).exec(function(err, tours){
+      Tour.model.find({ city: cityId }).where('state', 'published').limit(10).exec(function(err, tours){
         if (err) {
           reject(err);
         } else {
