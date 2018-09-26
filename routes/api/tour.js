@@ -51,7 +51,7 @@ exports.list = function(req, res) {
  * Get Tour by ID
  */
 exports.get = function(req, res) {
-	Tour.model.findById(req.params.id).where({'state' : 'published'}).exec(function(err, item) {
+	Tour.model.findById(req.params.id).where({'state' : 'published'}).populate('country city').exec(function(err, item) {
 
 		if (err) return res.sendStatus(404); // equivalent to res.status(404).send('Not Found')
 		if (!item) return res.sendStatus(404); 
