@@ -26,7 +26,7 @@ exports = module.exports = function(req, res) {
 		if (req.query.date) {
 			var date = req.query.date;
 			locals.formData.date = Moment(req.query.date, "DD/MM/YYYY").format("YYYY-MM-DD");
-	    locals.formData.formatDate = Moment(req.query.date).format("dddd, MMMM Do YYYY");
+			locals.formData.formatDate = Moment(req.query.date, "DD/MM/YYYY").format("dddd, MMMM Do YYYY");
 		}
 		if (req.query.nOfAdults) {
 			var nOfAdults = req.query.nOfAdults; //adult data from form.
