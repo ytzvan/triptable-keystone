@@ -8,6 +8,26 @@ var SlackUtils = require('../utils').SlackUtils;
  */
 var User = new keystone.List('User', {defaultSort: '-createdAt' });
 
+var storage = new keystone.Storage({
+  adapter: require('keystone-storage-adapter-s3'),
+  s3: {
+    key: 'AKIAJGHX437Z664RXBXA', // required; defaults to process.env.S3_KEY
+    secret: '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', // required; defaults to process.env.S3_SECRET
+    bucket: 'triptable', // required; defaults to process.env.S3_BUCKET
+    /*region: 'ap-southeast-2', // optional; defaults to process.env.S3_REGION, or if that's not specified, us-east-1
+    path: '/profilepics', // optional; defaults to "/"
+    publicUrl: "https://xxxxxx.cloudfront.net", // optional; sets a custom domain for public urls - see below for details*/
+    uploadParams: { // optional; add S3 upload params; see below for details
+      ACL: 'public-read',
+    },
+  },
+  /*schema: {
+    bucket: true, // optional; store the bucket the file was uploaded to in your db
+    etag: true, // optional; store the etag for the resource
+    path: true, // optional; store the path of the file in your db
+    url: true, // optional; generate & store a public URL
+  },*/
+});
 User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: {unique: true } },
@@ -40,9 +60,10 @@ User.add({
 	mainActivity: {type: String, dependsOn: { isGuide: true }},
 	countryCode: { type: String },
 	country: { type: Types.Relationship,  dependsOn: { isGuide: true }, ref: 'Country' },
-	contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
+	/*contract: { type: Types.S3File, dependsOn: { isGuide: true } }, // contrato
   personalIdentification: { type: Types.S3File, dependsOn: { isGuide: true } }, // copia de identificacion
-  operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones
+  operationsFile: { type: Types.S3File, dependsOn: { isGuide: true } }, // Aviso de operaciones*/
+	businessLicence : { type: Types.File, storage: storage }
 });
 
 // Provide access to Keystone

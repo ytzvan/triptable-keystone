@@ -65,7 +65,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 
-keystone.set('email locals', {
+/*keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
 	logo_width: 194,
 	logo_height: 76,
@@ -78,17 +78,17 @@ keystone.set('email locals', {
 			border_color: '#1a7cb7'
 		}
 	}
-});
+}); */
 
-keystone.set('email rules', [{
+/*keystone.set('email rules', [{
 	find: '/images/',
 	replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/images/' : 'http://localhost:3000/images/'
 }, {
 	find: '/keystone/',
 	replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/keystone/' : 'http://localhost:3000/keystone/'
-}]);
+}]); */
 
-keystone.set('email tests', require('./routes/emails'));
+//keystone.set('email tests', require('./routes/emails'));
 
 //keystone.set('session options', { cookie: { domain:'localdomain.com:3000', path: '/', secure: true,  maxAge   : 1000*60*60*24*30*12 }});
 keystone.set('nav', {
