@@ -230,8 +230,8 @@ exports = module.exports = function(req, res) {
 		   // return res.status(500).render('errors/404');
 		   	return res.redirect(req.get('referer'));
 		  } else {
-	    	console.log("update body", updateBody);				
-		  	createBooking(next, updateBody);
+			//	createBooking(next, updateBody);
+					newBooking(updateBody, next);
 		  }
 
 		});
@@ -280,6 +280,37 @@ exports = module.exports = function(req, res) {
 
 	};
 
+	function newBooking(modelData, next) {
+		var enquiry = new Enquiry.model();
+		Enquiry.updateItem(
+			enquiry,
+			modelData,
+			{
+				flashErrors: true,
+				fields:
+					"name, email, phone, people, nOfAdults, nOfChildren, nOfInfants, childPrice, infantPrice, date, bookingTime, bookingStatus, tour, tourName, tourUrl, message, hotel, operatorEmail, operatorName, operator, operatorCellphone, tourPrice, nOfInfants, nOfChildren, adultTotalPrice, childTotalPrice, infantPrice, infantTotalPrice, user, bookingTotalPrice, bookingFlatPrice, bookingTransactionFee, bookingOperatorFee, bookingRevenue, bookingComission, transactionResponseCode, transactionReference, transactionAuthorizationNumber, transactionTime, transactionDate, transactionBallot, cardholder"
+			},
+			function(err) {
+				if (err) {
+					console.log("err " + err);
+					next();
+				} else {
+					try{
+							let result = Enquiry.getData(enquiry)
+							locals.bookingInfo = result.fields;
+							locals.bookingInfo._id = result.id;
+							console.log(locals.bookingInfo);
+							locals.enquirySubmitted = true;
+							next();
+					} catch (e) {
+						console.log("ERROR",e);
+							next();
+					}
+					
+				}
+			}
+		);
+	}
 	view.render('confirmation');
 };
 

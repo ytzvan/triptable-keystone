@@ -79,7 +79,8 @@ Enquiry.add({
 	transactionTime : {type: String, noedit: true},
 	transactionDate : {type: String, noedit: true},
 	transactionBallot : {type: String, noedit: true},
-  	user: { type: Types.Relationship, ref: 'User', index: true },
+	cardholder: { type: String, noedit: true },
+		user: { type: Types.Relationship, ref: 'User', index: true },
   	isPay : {type : Types.Boolean},
   	dateOfPayment : {type:  Types.Date, dependsOn: {isPay: true}},
   	paymentConfirmationNumber : {type: String, dependsOn: {isPay: true}},
@@ -163,9 +164,10 @@ Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		this.prettyDate(this);
 		var email = this.operatorEmail;
-		this.sendUserEmail(this); //Send User email
-		this.sendBookingNotificationEmail(this, email); //Email al operadors
-		this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
+		Email.newBookingRequestUser(this);
+	//	this.sendUserEmail(this); //Send User email
+	//	this.sendBookingNotificationEmail(this, email); //Email al operadors
+	//s	this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
 		/*
 		var messagebird = require('messagebird')('d0CiSToNU18haOdnsJCLy3uoe');
 
@@ -174,7 +176,7 @@ Enquiry.schema.post('save', function() {
 		  'recipients': [
 		    '+50768080024'
 		  ],
-		  'body': 'Reseva completada. Descarga aquí tu e-ticket y preséntalo en la entrada.'
+		  'body': 'Reseva compuserNewBookingRequestada. Descarga aquí tu e-ticket y preséntalo en la entrada.'
 		};
 
 	messagebird.messages.create(params, function (err, data) {
@@ -262,66 +264,6 @@ Enquiry.schema.methods.sendUserEmail = function (obj) {
 	});
 }
 
-
-Enquiry.schema.methods.sendBookingNotificationEmail = function (obj, email) {
-	var booking = obj;
-	var tourId = obj.tour;
-	var email = email;
-	var name = obj.operatorName;
-	var bookerName = obj.name.first;
-	var fecha = moment(obj.date).format("dddd, Do MMMM YYYY");
-
-	keystone.list('Tour').model.findOne({'tourId': tourId}).exec(function(err, tour) {
-		if (err) return callback(err);
-		Mailgun.sendHtmlEmail({
-			apiKey: process.env.MAILGUN_APIKEY,
-			domain: process.env.MAILGUN_DOMAIN,
-			toEmail: email,
-			toName: name,
-			subject: "Tienes una Solictud de Reserva",
-			htmlMessage:
-				"Hola " +
-				name +
-				", <br>" +
-				bookerName +
-				" ha solicitado reservar el tour: <strong>" +
-				tour.name +
-				"</strong> para el día: " +
-				fecha +
-				" para <strong>" +
-				booking.nOfAdults +
-				"</strong> adultos,<strong>" +
-				booking.nOfChildren +
-				"</strong> niños, <strong>" +
-				booking.nOfInfants +
-				"</strong> infantes. <br>Por favor responde a este e-mail para confirmar o declinar esta solicitud de reserva. <br><strong>TourId:</strong> " +
-				tour.tourId +
-				".<br><strong>Ref:</strong> " +
-				obj.friendlyId +
-				" <br>El equipo de Triptable.",
-			textMessage:
-				bookerName +
-				" ha solicitado reservar el tour" +
-				tour.name +
-				" para el día" +
-				fecha +
-				" para " +
-				booking.nOfAdults +
-				" adultos, " +
-				booking.nOfChildren +
-				" niños, " +
-				booking.nOfInfants +
-				" infantes.. Responde a este e-mail para confirmar o declinar esta solicitud de reserva. \nTourId: " +
-				tour.tourId +
-				".ref: " +
-				obj.friendlyId +
-				" \nEl equipo de Triptable.",
-			fromEmail: bookingEmail,
-			fromName: bookingEmailName
-		}).exec({ // An unexpected error occurred.
-			error: function(err) {}, success: function() {} }); // OK.
-	});
-}
 Enquiry.defaultSort = '-date';
 Enquiry.defaultColumns =
 	"name|20%, bookingStatus|15%, people|10%, date|15%, bookingTotalPrice|15%, friendlyId|15%, isPay";
