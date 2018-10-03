@@ -164,8 +164,9 @@ Enquiry.schema.post('save', function() {
 	if (this.wasNew) {
 		this.prettyDate(this);
 		var email = this.operatorEmail;
-		Email.newBookingRequestUser(this);
-	//	this.sendUserEmail(this); //Send User email
+		Email.newBookingRequestOperator(this); //Send Operator email
+		Email.newBookingRequestUser(this); //Send User email
+	//	this.sendUserEmail(this); 
 	//	this.sendBookingNotificationEmail(this, email); //Email al operadors
 	//s	this.sendBookingNotificationEmail(this, bookingEmail); // Copia a hello@triptable.com
 		/*

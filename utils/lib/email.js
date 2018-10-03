@@ -6,7 +6,7 @@ var mailgunApiKey = process.env.MAILGUN_APIKEY;
 var mailgunDomain = process.env.MAILGUN_DOMAIN;
 
 module.exports = {
-  newBookingRequestUser: function (model) {
+  newBookingRequestOperator: function (model) {
     //
     var template = template; //template name
     var to = process.env.TO;
@@ -14,9 +14,9 @@ module.exports = {
     var mailgunDomain = process.env.MAILGUN_DOMAIN;
     var locals = model;
     var templateOptions = { pretty: true, locals: locals };
-    var templatePath = "utils/email_templates/notifications/user/newBookingRequest.ejs";
+    var templatePath = "utils/email_templates/notifications/operator/newBookingRequest.ejs";
     var subject = "Triptable - Nueva Solicitud de Reserva";
-    var toArray = [to, { name: locals.name.first, email: locals.email }];
+    var toArray = [to, { name: locals.operatorName, email: locals.operatorEmail }];
     sendEmailTemplate(
       templatePath,
       subject,
@@ -32,7 +32,34 @@ module.exports = {
             return res.send(result.html)
           }
         }); */
-  },
+	},
+	newBookingRequestUser: function (model) {
+		//
+		var template = template; //template name
+		var to = model.email;
+		var mailgunApiKey = process.env.MAILGUN_APIKEY;
+		var mailgunDomain = process.env.MAILGUN_DOMAIN;
+		var locals = model;
+		var templateOptions = { pretty: true, locals: locals };
+		var templatePath = "utils/email_templates/notifications/user/newBookingRequest.ejs";
+		var subject = "Triptable - Solicitud de Reserva Recibida";
+		var toArray = [to, { name: locals.name.first, email: locals.email }];
+		sendEmailTemplate(
+			templatePath,
+			subject,
+			templateOptions,
+			toArray,
+			mailgunApiKey,
+			mailgunDomain
+		);
+		return true;
+		/* var emaill = new Email(templatePath).render(locals, function(err, result) {
+
+          if (!err) {
+            return res.send(result.html)
+          }
+        }); */
+	},
 	sendEmail: function(obj, subject, message) {
 		var name = obj["name.full"];
 		Mailgun.sendHtmlEmail({
