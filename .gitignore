@@ -33,3 +33,4 @@ node_modules
 node_modules/
 nodemon-config.json
 triptable.sublime-project
+yarn.lock
