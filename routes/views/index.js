@@ -141,14 +141,14 @@ module.exports = function(req, res) {
 	});
 	
 	
-	view.on('init', function(next){
+	/*view.on('init', function(next){
 		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";
 		request(url, function(err, result){
 			var json = result.body;
 			var obj = (JSON.parse(json));
 		})
 		next();
-	});
+	}); */
 	// Render the view
 	view.render('index');
 };
