@@ -95,7 +95,6 @@ exports = module.exports = function(req, res) {
 			if (result.videoId) {
 				 var videoId = getVideoId(result.videoId).id;
 				 result.videoId = videoId;
-				 console.log("youtube id", videoId);
 			}
 			locals.meta.canonical = req.url;
 		});

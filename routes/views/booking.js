@@ -105,7 +105,6 @@ exports = module.exports = function(req, res) {
 
 	function getPrice(travelers, locals){
       var priceCatalog = [];
-//      console.log(locals.data.tour.multiPriceCatalog)
       for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
       var current = locals.data.tour.multiPriceCatalog[i].split(',');
         for (var index=0;index < current.length;index++){
@@ -121,7 +120,6 @@ exports = module.exports = function(req, res) {
             priceCatalog[i][1] = locals.data.tour.maxPerson;
          }
          //if logic
-				 console.log("priceCatalog",priceCatalog);
          if (travelers >= priceCatalog[i][0] && travelers <= priceCatalog[i][1]){
            var pricePerTraveler = priceCatalog[i][2];
            return pricePerTraveler;

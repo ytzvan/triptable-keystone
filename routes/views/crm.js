@@ -14,7 +14,6 @@ exports = module.exports = function (req, res) {
 
   view.on('init', function(next){
      // var x = Email.email(0);
-      // console.log(x);
       next();
   });
 

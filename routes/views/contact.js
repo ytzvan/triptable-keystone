@@ -369,7 +369,6 @@ function getPrice(travelers, locals){
 
 			function getCost(travelers, locals){
       var priceCatalog = [];
-      console.log(locals.data.tour.multiPriceCatalog)
       for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
       var current = locals.data.tour.multiPriceCatalog[i].split(',');
         for (var index=0;index < current.length;index++){
