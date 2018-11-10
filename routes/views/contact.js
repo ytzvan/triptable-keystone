@@ -38,8 +38,7 @@ exports = module.exports = function(req, res) {
 	var transactionInfo = {};
 
 	view.on('post', {action: 'booking'}, function(next) {
-		console.log("body", req.body);
-	    var body = req.body;
+	  var body = req.body;
 		var result;
 		var response;
         var invalidTravelers = isNaN(req.body.nOfAdults);
@@ -99,7 +98,6 @@ exports = module.exports = function(req, res) {
       };
       body.tourPrice = tourPrice;
       req.body.tourPrice = tourPrice;
-			console.log("bookingTime", body.bookingTime);
 	    var flatPrice = tourPrice * travelers; // precio individual del tour * cantidad de viajeros
 	    flatPrice = flatPrice + childrenPrice + infantsPrice;
 	    var processorTax = 4; // % del procesador
@@ -299,7 +297,6 @@ exports = module.exports = function(req, res) {
 							let result = Enquiry.getData(enquiry)
 							locals.bookingInfo = result.fields;
 							locals.bookingInfo._id = result.id;
-							console.log(locals.bookingInfo);
 							locals.enquirySubmitted = true;
 							next();
 					} catch (e) {
@@ -372,7 +369,6 @@ function getPrice(travelers, locals){
 
 			function getCost(travelers, locals){
       var priceCatalog = [];
-      console.log(locals.data.tour.multiPriceCatalog)
       for (var i=0; i<locals.data.tour.multiPriceCatalog.length; i++) {
       var current = locals.data.tour.multiPriceCatalog[i].split(',');
         for (var index=0;index < current.length;index++){

@@ -12,11 +12,9 @@ exports = module.exports = function(req, res) {
 	  };
 
     var enquiryId =  req.params.enquiryId;
-    console.log(enquiryId);
     view.on('init', function(next) {
 				keystone.list('Enquiry').model.findOne({ _id: enquiryId}).populate('operator tour').exec(function(err, enquiry) {
           if(enquiry == null){ //si hay resultado
-             console.log("sin bookings");
              return res.send('404');
             }
           else {
@@ -28,7 +26,6 @@ exports = module.exports = function(req, res) {
             let path = "/confirmBooking/"+enquiry.friendlyId+"/"+enquiry.operator._id; 
             let fullUrl = req.protocol + '://' + req.get('host') + path;
             locals.data.fullUrl = fullUrl;
-            console.log("fullUrl", fullUrl);
             QRCode.toDataURL(fullUrl)
             .then(url => {
               locals.data.qrcode = url;
