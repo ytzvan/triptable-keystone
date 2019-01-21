@@ -137,10 +137,11 @@
 
 	$( "#bookingBtn" ).click(function( e ) {
 		var current = $("#datepicker").datepicker("getDate");
-		$('#hiddenDate').val(current.toLocaleDateString());
-	
+		var date = $.datepicker.formatDate( "yy-mm-dd", current);
+		$('#hiddenDate').val(date);
+
 		var people = $("#nOfadults").val();
-		var date = $("#hiddenDate").val();
+	//	var date = $("#hiddenDate").val();
 		//var time = $("#time").val();
 	/*	if(!people) {
 		  e.preventDefault();

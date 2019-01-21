@@ -24,7 +24,7 @@ exports = module.exports = function(req, res) {
 
 	view.on('init', function(next) {
 		if (req.query.date) {
-			var date = Moment(req.query.date, "DD/MM/YYYY");
+			var date = Moment(req.query.date, "YYYY-MM-DD");
 			locals.formData.date = Moment(date).format("YYYY-MM-DD");
 			locals.formData.formatDate = Moment(date).format("dddd, MMMM Do YYYY");
 		}
