@@ -86,7 +86,7 @@ exports = module.exports = function(app) {
 
 
 	//Search Views
-	app.get('/:country', routes.search.country);
+	app.get('/:country', routes.search.search);
 	app.get('/:country/:province', routes.search.province);
 
 
