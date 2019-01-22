@@ -48,7 +48,8 @@
     "slack-notify": "^0.1.6",
     "striptags": "^2.1.1",
     "underscore": "^1.8.3",
-    "upper-case": "^1.1.3"
+    "upper-case": "^1.1.3",
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
@@ -59,11 +60,12 @@
     "jshint-stylish": "^0.1.3"
   },
   "engines": {
-    "node": "=8.12.0",
+    "node": "=10.14.2",
     "npm": "=6.1.0"
   },
   "scripts": {
-    "start": "node keystone.js"
+    "start": "node keystone.js",
+    "nodev": "nvm use 10.14.2"
   },
   "main": "keystone.js"
 }

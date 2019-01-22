@@ -449,5 +449,6 @@
 	"age": "age",
 	"ages": "ages",
 	"chiild_price_disabled_message": "Activity not Available for Children",
-	"infant_price_disabled_message": "Activity not Available for Infants"
+	"infant_price_disabled_message": "Activity not Available for Infants",
+	"verified_user": "verified_user"
 }
