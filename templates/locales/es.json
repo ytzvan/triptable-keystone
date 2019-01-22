@@ -289,7 +289,7 @@
 	"see_price": "Ver Precio",
 	"from_the_blog": "Desde nuestro blog",
 	"filter_results": "Filter results",
-	"footer_message": "Programado con ❤️en Ciudad de Panamá",
+	"footer_message": "Todos los Derechos Reservados. Creado con ❤️en Ciudad de Panamá",
 	"confirmation_message_bookingId": "ID de Reserva",
 	"all_cities": "all_cities",
 	"data.placeName": "data.placeName",
@@ -470,5 +470,7 @@
 	"age": "age",
 	"chiild_price_disabled_message": "Actividad no disponible para niños",
 	"infant_price_disabled_message": "Actividad no disponible para infantes",
-	"ages": "ages"
+	"ages": "ages",
+	"panama_city": "Ciudad de Panamá",
+	"book_from_whatsapp": "Reserva desde WhatsApp"
 }

@@ -289,7 +289,7 @@
 	"see_price": "See Price",
 	"filter_results": "Filter results",
 	"from_the_blog": "From our blog",
-	"footer_message": "Coded with ❤️in Panama City",
+	"footer_message": "All Rights Reserved. Created with ❤️in Panama City",
 	"confirmation_message_bookingId": "Booking ID",
 	"all_destinations_in": "All destinations in",
 	"all_cities": "All cities",
@@ -449,5 +449,7 @@
 	"age": "age",
 	"ages": "ages",
 	"chiild_price_disabled_message": "Activity not Available for Children",
-	"infant_price_disabled_message": "Activity not Available for Infants"
+	"infant_price_disabled_message": "Activity not Available for Infants",
+	"panama_city": "Panama City",
+	"book_from_whatsapp": "Book from WhatsApp"
 }
