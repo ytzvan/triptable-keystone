@@ -46,7 +46,7 @@ exports = module.exports = function(req, res) {
 			
 			var id = place._id;
 			cityId = place._id;
-			var provinceName = locals.data.placeName;
+			var cityName = locals.data.placeName;
 			locals.data.country = place.country.slug;
 			var countryName = place.country.country;
 			locals.data.collections = place.collections;
@@ -64,11 +64,11 @@ exports = module.exports = function(req, res) {
 				locals.data.cities = results;
 			});
 
-			locals.meta.title = "Cosas que Hacer en " + provinceName + ". Reserva tours y actividades en " + countryName;
-			locals.meta.keywords = "turismo en " +  provinceName + ", cosas que hacer en " +provinceName+ ", tours a " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
-			locals.meta.description =  "Reserva tours y actividades en " + provinceName  + ". Con Triptable reservas tours baratos en " +provinceName;
+			locals.meta.title = "Top 2019 Tours, Actividades y Qué hacer en " + cityName + ", "+ countryName +" - Triptable ";
+			locals.meta.keywords = "turismo en " + cityName + ", que hacer en " + cityName + ", tours en " + cityName + ", actividades en " + cityName + ", excursiones en " + cityName;
+			locals.meta.description = "Reserva tours en " + cityName + ", actividades, viajes y turismo en " + cityName + ". Con Triptable reservas experiencias locales unicas en " + cityName;
 			locals.meta.ogTitle = locals.meta.title;
-			locals.meta.ogDescription = locals.meta.description + ". Los mejores tours y actividades en " + provinceName;
+			locals.meta.ogDescription = locals.meta.description + ". Top 2019 Mejores tours y actividades en " + cityName;
 			locals.meta.canonical = req.url;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/w_900/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;

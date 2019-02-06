@@ -11,13 +11,13 @@
 			</div>
 			{{else}} 
 			<div class="col-md-6 text-center">
-			<img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_375,g_center/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}"/>
+			<img alt="{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}} {{data.tour.name}} {{/if_eq}}" async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_375,g_center/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}"/>
 			</div>
 			{{/if}}
 		<!-- Contact Form -->
 		<div class="col-md-6 tour-summary">
 			<section id="contact tour-summary">
-				<h2 class="headline margin-bottom-0 tour-summary-name">{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}} {{data.tour.name}} {{/if_eq}}</h2>
+				<h1 class="headline margin-bottom-0 tour-summary-name">{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}} {{data.tour.name}} {{/if_eq}}</h1>
 				<p class="margin-bottom-10"> <i class="fa fa-map-marker"></i><a target="_blank" href="/destino/{{data.tour.city.slug}}"> {{data.tour.city.city}}, {{data.tour.country.country}} </a> · <i class="fa fa-users"></i> {{data.tour.minPerson}} - {{data.tour.maxPerson}} {{i18n "people"}} · <i class="fa fa-clock-o"></i> {{data.tour.duration}} {{#if data.tour.isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}} {{/if}} · 	{{#if_eq data.tour.tourType "group tour"}} <i class="im im-icon-MaleFemale"></i> {{i18n "group_tour"}}{{/if_eq}}
 					{{#if_eq data.tour.tourType "private tour"}} <i class="im im-icon-Male"></i>{{i18n "private_tour"}}{{/if_eq}} 
 

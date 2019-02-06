@@ -391,6 +391,7 @@ module.exports = function() {
   _helpers.getLang = function() {
   
 		var lang = process.env.LANG;
+		lang = lang.substring(0, 2);
   	return lang;
   };
 

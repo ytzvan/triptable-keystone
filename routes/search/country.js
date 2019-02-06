@@ -25,7 +25,6 @@ exports = module.exports = function(req, res) {
 	query = {
 		'slug' : req.params.country,
 	};
-	locals.data.country =req.params.country;
 	locals.data.city = "";
 	
 	view.on('init', function(next) {
@@ -66,12 +65,13 @@ exports = module.exports = function(req, res) {
 
 			locals.data.place = place;
 			locals.data.placeName = place.country;
+			locals.data.country = place.country;
 			var country = place.country;
-			locals.meta.title = "Triptable: Reserva Tours, Actividades y Qué hacer en " + place.country;
+			locals.meta.title = "Top 2019 Tours, Actividades y Qué hacer en " + country + " - Triptable ";
 			locals.meta.keywords = "turismo en " +  country + ", cosas que hacer en " +country+ ", tours en " +country+ ", actividades en " + country + ", excursiones en " +country + ".";
-			locals.meta.description =  "Reserva tours en " + country  + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " +country;
+			locals.meta.description = "Reserva tours en " + country + ", actividades, viajes y turismo en " + country + ". Con Triptable reservas experiencias locales unicas en " + country;
 			locals.meta.ogTitle = locals.meta.title;
-			locals.meta.ogDescription = locals.meta.description + " Tours y actividades baratas en " + country;
+			locals.meta.ogDescription = locals.meta.description;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}

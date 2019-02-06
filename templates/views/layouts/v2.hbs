@@ -1,7 +1,6 @@
 <!DOCTYPE html>
+<html lang="{{{getLang}}}">
 <head>
-<!-- Basic Page Needs
-================================================== -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -71,16 +70,15 @@
 <!-- CSS
 ================================================== -->
 
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/colors/blue.css" id="colors">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 <link rel="stylesheet" href="/css/custom.css">
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
-<!--Tour CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
 <!-- End Google Tag Manager -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
@@ -361,26 +359,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript" src="/scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 <script type="text/javascript" src="/scripts/custom.js"></script>
-
-
-<!--maps scripts -->
-
 <script type="text/javascript" src="/scripts/infobox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js" integrity="sha256-eOXHHkYbq+SyQdCB77WF6zxVYz2BcBjdXHeNZyiwvk4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/scripts/maps.js"></script>
 <!--Booking page scripts -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/intlTelInput.min.js"></script>
-
-<!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker 
-<link href="/css/plugins/datedropper.css" rel="stylesheet" type="text/css">
-<script src="/scripts/datedropper.js"></script>
-<script>$('#booking-date').dateDropper();</script>  -->
-
-<!-- Tour Page 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.js"></script>-->
-<!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker
-<script src="/scripts/timedropper.js"></script> -->
-
 
 <!--Algolia scripts -->
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
@@ -424,12 +407,6 @@ var setImpressions = function (arr, name, tourId, price, brand, category, list, 
 {{#if userInfo}}
 <script type="text/javascript">
 	if (document.location.hostname.search("triptable.com") !== -1) {
-  /*window.intercomSettings = {
-    app_id: "null",
-    name: "name var", // Full name
-    email: "email var", // Email address
-    //created_at: 1312182000 // Signup date as a Unix timestamp
-  };*/
 	}
 </script>
 {{/if}}
