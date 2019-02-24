@@ -24,7 +24,8 @@ var routes = {
 	dashboard: importRoutes('./dashboard'),
 	v2: importRoutes('./v2'),
 	utils: importRoutes('./utils'),
-	api: importRoutes('./api')
+	api: importRoutes('./api'),
+	widget: importRoutes('./widget'),
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
@@ -56,7 +57,10 @@ exports = module.exports = function(app) {
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
   app.get('/destino/:city', routes.search.city);
-  app.all('/search', routes.search.search);
+	app.all('/search', routes.search.search);
+	
+	//WIDGET
+	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
 	app.all('/u/:userid', routes.views.operator.index);
 	
