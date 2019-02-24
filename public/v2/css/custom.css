@@ -391,11 +391,10 @@ span.like-icon{
 	height: 530px;			
 }
 .main-search-container:before {
-background: linear-gradient(
-	rgba(20,10,10, .95), 
-	rgba(20,20,20, .1));
-	background-size: cover;
-	background-position: center;
+	
+background: linear-gradient( rgba(20,10,10, .25), rgba(20,20,20, .1));
+    background-size: cover;
+    background-position: center;
 }
 .main-search-input-item.location a {		
 	position: relative;			
