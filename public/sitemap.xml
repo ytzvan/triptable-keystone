@@ -1,283 +1,1719 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+	  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
+<!-- www.check-domains.com sitemap generator -->
+
 <url>
-  <loc>https://www.triptable.com/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>1.00</priority>
+   <loc>https://www.triptable.com/</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/partners</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/about</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/signup</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/faq</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/signin</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/colombia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/nosotros</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/caminata-a-la-cima-del-volcan-baru-ruta-volcan-paso-ancho</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/anton-valley-tour-a-beauty-of-its-nature-and-culture</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/costa-rica</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/pasadia-a-las-islas-de-san-blas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/estadia-en-san-blas-isla-franklin-con-tour-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/day-tour-a-isla-tres-islas-isla-leones-y-el-golfo-de-montijo-con-langosta-de-almuerzo</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/recorrido-panoramico-en-boquete-chiriqui</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/avistamiento-de-ballenas-en-el-golfo-de-chiriqui</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/tour-por-el-canal-de-panama-transito-parcial-tour-de-medio-dia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/inshore-fishing-day-trip</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/full-day-a-las-islas-de-san-blas-con-snorkel</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/tour-a-cayo-zapatilla-y-bahia-los-delfines-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/panama-city</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/tour/tour-de-cafe-a-la-finca-rio-cristal-en-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/chiriqui</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/tour/2-dias-y-1-noche-en-isla-aguja-san-blas-cabana-con-bano-privado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/veraguas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/tour/3-dias-y-2-noche-en-isla-aguja-san-blas-cabana-con-bano-privado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/bocas-del-toro</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/4-dias-y-3-noches-en-guna-yala-todo-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/comarca-guna-yala-san-blas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+   <loc>https://www.triptable.com/tour/full-day-al-pueblo-de-guatape-y-el-penon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/colon</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/tour-al-parque-tematico-hacienda-napoles-desde-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/cocle</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/city-tour-recorrido-por-la-historia-de-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/terminos</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+   <loc>https://www.triptable.com/tour/tour-de-un-dia-al-acuario-del-rodadero-y-a-playa-blanca-desde-santa-marta</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/portobelo-history-and-beach-tour-full-day</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-privado-de-cafe-en-santa-fe-de-antioquia-desde-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/panama-city-and-canal-tour-with-guide</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/cartagena-trolley-city-tour</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-acampar</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-de-pasadia-a-las-islas-del-rosario-y-playa-blanca-en-yate</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-colon-con-visita-a-la-zona-libre-y-esclusas-de-agua-clara</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/city-tour-medellin-de-4-horas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/panama-city-half-day-tour</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-privado-en-medellin-con-visita-a-la-comuna-13</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/panama-city-tour</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-a-tula-y-tepotzotlan-desde-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/monkey-island-indian-village-and-lake-gatun-tour</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-privado-tlatelolco-basilica-de-guadalupe-y-teotihuacan</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/panama-food-tours-visita-gastronomica-al-casco-viejo</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-a-coyoacan-y-a-la-casa-azul-de-frida-kahlo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/caminata-a-la-cima-del-volcan-baru-ruta-boquete</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/disfruta-del-ballet-folklorico-amalia-hernandez-en-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/explore-boquete-with-an-experienced-guide</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-privado-de-1-dia-a-cholula-y-puebla-desde-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-coffee-farm-in-boquete</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/day-tour-a-cacaxtla-desde-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/day-tour-de-pesca-offshore</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/city-tour-en-la-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/take-a-trip-to-coiba-island</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/tour-del-taco-en-ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/pasa-dia-en-el-parque-natural-coiba</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/tour/circuito-cancun-tour-de-4-dias-con-visita-a-xcaret-y-hotel-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-en-bote-en-bocas-del-toro-cayo-zapatilla</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/san-blas-guna-yala</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-cabanas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-iguana</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/day-tour-en-isla-aguja-san-blas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/santa-marta</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/snorkeling-adventure-on-portobelo</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-to-el-valle-de-anton</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/cocle?page=false</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/barranquilla</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/panama/cocle?page=1</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+   <loc>https://www.triptable.com/destino/cali</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-franklin</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/tour-silleteros-y-de-flores-feria-de-las-flores</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/casco-viejo-nightlife-experience</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/camino-a-jerico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/island-hopping-en-san-blas-day-tour</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/rio-claro-de-aventura</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/transporte-hacia-desde-el-aeropuerto-de-tocumen</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/pasadia-a-hispania-andes-y-jardin-recorrido-del-suroeste</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-la-comarca-embera</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/pasadia-recorriendo-la-ruta-de-la-leche-con-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/transporte-a-las-islas-de-san-blas</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/pasadia-al-aviario-nacional-y-playa-blanca-baru</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/tour-a-san-blas-noche-en-isla-aguja</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/dia-de-playa-y-buceo-en-playa-blanca-baru</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/casa-bruja-craft-beer-tour</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/comuna-9-y-city-tour-en-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/afro-panamanian-food-tour-in-panama-city</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/city-tour-en-cartagena-en-el-turibus</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/zip-line-aventure-in-panama-1</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/pasadia-a-playa-cristal-en-el-parque-nacional-tayrona</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/transito-por-el-canal-de-panama</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/tour/shopping-tour-barranquilla</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/panama-beer-experience</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/destino/boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
 </url>
 <url>
-  <loc>https://www.triptable.com/tour/take-a-walking-tour-of-the-real-panama-city</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
+   <loc>https://www.triptable.com/destino/el-valle-de-anton</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/pedasi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/boca-chica</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/coiba</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/colon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/panama-city</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/farallon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/cerro-punta</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-por-los-mejores-puntos-de-tierras-altas-y-volcan</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-a-las-islas-de-san-blas-con-almuerzo-y-snorkel</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-gastronomico-en-ciudad-de-panama-by-bite-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/camping-en-isla-iguana</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-a-las-islas-de-san-blas-desde-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-por-las-islas-del-golfo-de-chiriqui-isla-bolanos-gamez-y-las-paridas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-day-a-san-blas-desde-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-privado-en-bote-de-dia-entero-al-archipielago-de-las-perlas-saliendo-de-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-privado-en-bote-por-la-bahia-de-panama-o-isla-de-taboga-saliendo-de-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/ciudad-de-mexico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/cancun</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-cultural-e-historico-de-quepos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paquete-turistico-por-volcan-arenal-y-playa-tambor-desde-san-jose-6-dias-y-5-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paquete-turistico-a-rio-pacuare-y-playa-puerto-viejo-4-dias-3-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paquete-turistico-a-el-volcan-arenal-y-el-bosque-nuboso-de-monteverde-5-dias</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paquete-turistico-a-tortuguero-desde-san-jose-3-dias-2-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-en-canoa-por-el-parque-nacional-tortuguero</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-por-las-cataratas-la-paz-y-cafetal-doka-desde-san-jose</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/fullday-al-parque-nacional-y-playa-manuel-antonio-desde-san-jose</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-al-volcan-arenal-y-aguas-termales-de-tabacon-desde-san-jose</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-en-san-blas-sin-traslado-desde-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-isla-perro-chico-3-dias-2-noches-en-habitacion</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tres-dias-y-dos-noches-en-isla-guanidub-cabanas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-isla-perro-chico-san-blas-todo-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-isla-perro-chico-san-blas-3-dias-2-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-isla-perro-chico-2-dias-1-noche-en-habitacion</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/cabana-casso-isla-sichirtupo-dos-dias-y-una-noche</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-cabana-casso-isla-sichirtupo-tres-dias-y-dos-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-san-blas-4-dias-y-3-noches-todo-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-cultural-y-de-playa-en-san-blas-guna-yala</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/las-tablas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/montijo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/penonome</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/destino/tonosi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-5d-4n-en-mini-cabanas-sobre-el-mar-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-day-a-cayo-zapatilla-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-a-isla-pajaros-y-playa-estrella-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-3d-2n-en-mini-cabanas-sobre-el-mar-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/descubre-boca-del-drago-playa-estrella-isla-pajaros</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/6d-y-5n-en-bocas-del-toro-y-red-frog-en-selina</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/4-dias-y-3-noches-en-selina-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/oreba-chocolate-tour-en-bocas-del-toro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-cayo-zapatilla-cayo-coral-y-bahia-de-los-delfines</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/noche-de-rumba-en-chiva-en-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-islas-del-rosario-isla-encanto</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-la-champeta-en-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-a-las-islas-del-rosario-y-playa-blanca-en-lancha-rapida</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-corralito-de-piedra</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-islas-del-rosario-desde-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/chiva-rumbera-con-musica-en-vivo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-en-chiva-tour-cartagena-compartido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-pie-en-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-privado-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pesca-artesanal-en-cartagena-con-un-pescador-local</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/visita-el-santuario-de-flora-y-fauna-los-colorados</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/salsa-tour-en-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-day-a-taganga-desde-santa-marta</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/excursion-de-un-dia-a-cabo-san-juan-del-guia-en-el-parque-nacional-tayrona</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-playa-buritica-y-valencia-desde-santa-marta</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-por-la-ciudad-de-santa-marta-tour-compartido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-zipaquira-y-laguna-de-guatavita-desde-bogota-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-catedral-de-sal-de-zipaquira-desde-bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-privado-de-medio-dia-en-bogota-con-visita-a-monserrate</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/conoce-bogota-durante-tu-escala-en-el-dorado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/santuario-del-divino-nino-tour-bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/visita-guiada-a-andres-dc</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/guatavita-la-leyenda-de-la-laguna-tour-en-bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/el-mejor-city-tour-de-bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-del-cafe-en-fusagasuga-desde-bogota</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/aventura-parapente-en-medellin-15-minutos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-guatape-desde-medellin-con-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-en-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/conoce-el-metro-cable-y-parque-explora-en-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-day-city-tour-medellin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/ruta-artesanal-por-galapa</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/bocas-de-ceniza</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-museo-barranquilla</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-monumento-historicos-puerta-de-oro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-zoologico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/daytour-por-el-atlantico</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-la-puerta-de-oro-con-las-flores</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-tradicional-en-la-arenosa</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-la-uva-y-el-arte-la-union-y-roldanillo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-hacienda-el-paraiso-en-cali</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-piedechinche-en-cali</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-panoramico-a-buga</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-buga-y-lago-calima</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-reserva-natural-de-nirvana-y-hacienda-el-paraiso</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/aprende-a-bailar-salsa-con-clase-personalizada</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-por-la-plaza-mercado-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-hacienda-el-paraiso-y-piedechinche-museo-de-la-cana-de-azucar</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-hacienda-el-paraiso-y-deportes-de-aventuras</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-idavuelta-al-aeropuerto-de-cali-horario-de-dia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-idavuelta-al-aeropuerto-de-cali-horario-de-noche</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-a-cali</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-con-clases-de-salsa</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-con-clases-de-salsa-con-guia-en-ingles-o-frances</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-con-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-compras-por-cali</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/city-tour-a-cali-con-guia-en-ingles-o-frances</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-comunidad-del-palenque-de-san-basilio</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-pie-por-cartagena-con-un-guia-zenu</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/aventura-del-mercado-bazurto-en-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/expedicion-a-la-verdadera-cartagena</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/cartagena-trolley-city-tour-noche</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-avistamiento-de-ballenas-en-pedasi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-y-taller-cultura-del-cafe-especial-en-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/snorkeling-tour-en-el-archipielago-de-las-perlas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-ballenas-disponible-de-julio-a-septiembre</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-isla-bolanos-e-isla-gamez-desde-david-chiriqui</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/recorre-el-volcan-baru-en-4x4</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/visita-una-finca-de-cafe-de-especialidad-en-boquete-cafe</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-en-helicoptero-en-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paseo-por-la-comunidad-embera</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/fullday-a-isla-mangote-en-colon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/conoce-lo-mejor-de-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-cerro-punta-haras-y-los-petroglificos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-aves-en-en-boquete-3-horas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-aves-en-en-boquete-10-horas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-aves-en-en-boquete-8-horas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-aves-en-en-boquete-5-horas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-medio-dia-en-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/3-dias-y-2-noche-en-el-valle-de-anton-desde-chiriqui</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/senderismo-en-el-parque-internacional-la-amistad-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/caminata-al-sendero-los-quetzales</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/senderismo-a-la-cascada-escondida-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paseo-a-caballo-en-las-escenicas-tierras-altas-de-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/6-dias-en-bocas-de-los-rios-river-site-para-carnavales</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-valle-de-anton-belleza-de-su-naturaleza-y-cultura</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/isla-iguana-tour-pedasi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/selina-pedasi-estadia-deluxe-4d3n-con-actividades</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/6-dias-y-5-noches-en-selina-pedasi-y-venao</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/observacion-de-tortugas-nocturno</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/dia-de-playa-en-isla-canas-tonosi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/experiencia-de-canopy-en-tonosi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-privado-a-isla-bolanos-con-visita-a-las-islas-paridas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/day-tour-a-isla-gamez-y-las-islas-paridas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-a-tres-isla-isla-leones-y-el-golfo-de-montijo-con-langosta-de-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-de-pesca-offshore</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/excursion-de-un-dia-de-pesca-costera</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-en-kayak-o-cayuco-bahia-de-portobelo-rios-y-manglares</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/paseo-historico-y-bosque-tropical-en-portobelo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-3-en-1-de-actividades-en-portobelo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-privado-de-compras-a-la-zona-libre-de-colon-desde-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-buceo-en-el-caribe</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-historico-a-portobelo-y-dia-de-playa</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/aventura-de-snorkeling-en-portobelo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-cerveza-artesanal-en-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/food-by-foot-san-felipe-and-santa-ana</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-compras-en-los-centros-comerciales-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-moon-party-panama-entrada-con-trago-de-bienvenida</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-panama-pacifico-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/full-day-a-la-playa-del-caribe-y-canopy-con-almuerzo-y-bebidas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/isla-grande-truck-tour-con-todo-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/expedicion-a-isla-monos-y-canal-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-1-dia-a-portobelo-y-esclusas-de-agua-clara-desde-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/panama-bar-crawl-casco-antiguo-guias-y-tragos-incluidos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/jet-ski-tour-a-isla-farallon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-snuba-en-farallon</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/caminata-a-la-cima-del-volcan-baru-ruta-volcan-paso-ancho</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tres-dias-y-dos-noches-en-cabanas-demar-achudup</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/dos-dias-y-una-noche-acampando-en-isla-perro-chico-assudub-bibbi</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/cabanas-demar-achudup-san-blas-4-dias-3-noches-en-guna-yala</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/dos-dias-y-una-noche-en-isla-guanidub-cabanas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/dos-dias-y-una-noche-acampando-en-isla-bambu-masargandub</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-2-dias-y-1-noche-en-cabana-demar-achudup</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/acampar-en-isla-diablo-2-dias-1-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/2-dias-y-1-noche-en-isla-aguja-acampando</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-laguna-de-san-carlos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/kayak-tirolinas-canopy-con-transporte</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/cabanas-sobre-el-mar-wailidub-en-san-blas-estadia-2-dias-1-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-4-dias-a-ciudad-de-panama-e-islas-de-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/daytour-a-los-cayos-holandeses-en-las-islas-de-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-colon-en-tren-con-almuerzo-incluido</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/2-dias-1-noche-en-isla-naranjo-chico-san-blas-cabana-con-bano-privado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/bar-hopping-en-el-casco-antiguo-7-bares-7-tragos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/visita-el-canon-gualaca-los-cangilones-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/caminata-en-el-sendero-de-las-tres-cascadas-con-guia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/aventura-gastronomica-y-cultural-en-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-canopy-en-boquete-tree-trek</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/recorrido-por-museos-y-visita-al-teatro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/puentes-colgantes-de-rio-cristal</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-hacia-desde-el-aeropuerto-de-tocumen</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/avistamiento-de-aves-en-la-reserva-natural-rio-cristal</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-las-esclusas-de-agua-clara-y-el-fuerte-sherman</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-por-el-canal-de-panama-transito-completo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/transporte-de-ida-y-vuelta-a-isla-grande</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-en-isla-contadora-con-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/acampar-en-isla-diablo-3-dias-2-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/cabanas-sobre-el-mar-en-san-blas-estadia-3-dias-2-noches</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-la-miel-con-degustacion-y-visita-al-mariposario</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/3-dias-2-noche-en-isla-naranjo-chico-san-blas-cabana-con-bano-privado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-2-dias-1-noche-en-cabanas-sobre-el-mar-en-isla-naranjo-chico-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-5-dias-a-ciudad-de-panama-e-islas-de-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-2-dias-1-noche-en-hotel-kikirdub-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-1-dia-a-isla-contadora-y-archipielago-de-las-perlas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-aeropuerto-de-tocumen-hacia-playa-blanca-una-via</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/estadia-en-isla-niadub-diablo-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/3-dias-y-2-noches-en-isla-niadub-diablo-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-playa-a-isla-taboga-en-yate-privado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-en-segway-en-casco-viejo-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/traslado-en-lancha-carti-isla-perro</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/3-dias-y-2-noches-en-las-islas-de-san-blas-guna-yala</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-iglesias-del-casco-antiguo-con-accesos-exclusivos</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-en-nitrocity-con-paintball-y-tiro-con-arco</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-con-guia-a-la-ciudad-de-panama-y-el-canal</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-acampar</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/subida-guiada-a-la-cima-del-volcan-baru-ruta-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/panama-city-tour-medio-dia</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-san-blas-de-2-dias-y-1-noche-cabanas-no-incluye-tour</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-de-la-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-isla-monos-indian-village-y-lago-gatun</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-culinario-visita-gastronomica-al-casco-viejo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/pasadia-en-isla-perro-chico-con-almuerzo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/acampa-en-san-blas-isla-franklin</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/experiencia-nocturna-del-casco-viejo</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-comarca-embera</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/transporte-en-auto-a-las-islas-de-san-blas</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/explora-boquete-con-un-guia-experimentado</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-la-cerveceria-casa-bruja</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-afro-panameno-en-la-ciudad-de-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/zip-line-aventura-en-panama</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
+</url>
+<url>
+   <loc>https://www.triptable.com/tour/tour-a-una-granja-de-cafe-en-boquete</loc>
+   <lastmod>2019-03-08T01:05:14+00:00</lastmod>
+   <changefreq>daily</changefreq>
+   <priority>0.5120</priority>
 </url>
 </urlset>

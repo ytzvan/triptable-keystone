@@ -456,7 +456,7 @@ background: linear-gradient( rgba(20,10,10, .25), rgba(20,20,20, .1));
 .qtyButtons .price{
 	font-weight: 300;
 	font-size: 12px;
-	//font-family: "Open-sans";
+	/*font-family: "Open-sans";*/
 	font-family: 'Source Sans Pro', sans-serif;
 }
 .chosen-container-active.chosen-with-drop .chosen-drop{
