@@ -36,7 +36,8 @@ exports.setCurrency = function(req, res, next) {
     	console.log("current currency set", req.session.currency)
       	res.redirect('back');
      
-    }
+		}
+	
   };
 
 

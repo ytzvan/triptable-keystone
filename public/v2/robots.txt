@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /admin
+Disallow: /terms
+Disallow: /mybooking
+Disallow: /?page
+Disallow:/404
+
+Sitemap: https://www.triptable.com/public/sitemap.xml

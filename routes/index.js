@@ -58,7 +58,6 @@ exports = module.exports = function(app) {
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
   app.get('/destino/:city', routes.search.city);
 	app.all('/search', routes.search.search);
-	
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
