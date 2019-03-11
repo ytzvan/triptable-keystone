@@ -24,7 +24,7 @@ keystone.init({
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs'
 	}).engine,
-
+	'compress': true,
 	'emails': 'templates/emails',
 	'mongo': process.env.MONGO_URI,
 	'auto update': true,
