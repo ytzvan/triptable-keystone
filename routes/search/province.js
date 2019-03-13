@@ -51,6 +51,7 @@ exports = module.exports = function(req, res) {
 	
 			var id = place._id;
 			var provinceName = place.province;
+			locals.data.provinceName = provinceName;
 			
 			locals.meta.title = "Reserva Tours, Actividades y Qué hacer en " + provinceName + " - Triptable";
 			locals.meta.keywords = "turismo en " +  provinceName + ", que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;

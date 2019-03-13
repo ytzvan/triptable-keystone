@@ -5,7 +5,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
-				{{#if data.country}}<h1 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}}, {{/if}} {{data.country}}:  <span><strong>{{data.tours.total}}</strong> {{i18n "search_subtitle"}}</span></h1>{{/if}}
+				{{#if data.country}}<h1 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}},{{/if}}
+					{{#if data.provinceName}} {{data.placeName}},{{/if}}
+					{{data.country}}:  <span><strong>{{data.tours.total}}</strong> {{i18n "search_subtitle"}}</span></h1>{{/if}}
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="hidden-xs">
 					<ul>
@@ -91,6 +93,7 @@
 						<option value="panama">{{i18n "panama"}}</option>
 						<option value="mexico">{{i18n "mexico"}}</option>
 						<option value="colombia">Colombia</option>
+						<option value="costa-rica">Costa Rica</option>
 					</select>
 				</div>
 	
