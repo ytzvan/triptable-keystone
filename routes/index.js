@@ -26,6 +26,7 @@ var routes = {
 	utils: importRoutes('./utils'),
 	api: importRoutes('./api'),
 	widget: importRoutes('./widget'),
+	reviews: importRoutes('./reviews')
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
@@ -78,7 +79,7 @@ exports = module.exports = function(app) {
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
 	app.all('/tour/:slug', routes.views.tour);
-
+	app.post("/tour/review/add", routes.reviews.reviews.new);
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
 	app.get('/api/tour/list', keystone.middleware.api, routes.api.tour.list);

@@ -1,62 +1,149 @@
-<!-- Reviews -->
-			<div id="listing-reviews" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">{{#if data.reviews}} {{i18n "reviews"}} <span>( {{data.reviews.length}} ){{else}} {{i18n "not_reviews_yet"}}
-				{{/if}}</span></h3>
+<div class="rating-overview row" id="listing-reviews">
+	<div class="rating-overview-box col-sm-3">
+		<span class="rating-overview-box-total">4.2</span>
+		<span class="rating-overview-box-percent">{{i18n "out_of"}} 5.0</span>
+		<div class="star-rating" data-rating="4.2"></div>
+		<div><p>{{data.reviews.length}} {{i18n "reviews"}}</p></div>
+	</div>
 
-				<div class="clearfix"></div>
+	<div class="col-sm-9">
+		<div class="col-sm-12">
+			<h4>{{i18n "operated_by"}}: {{i18n "experienced_operator_in"}} {{data.tour.city.city}}, {{data.tour.country.country}}</h4>
+			<p>Description: San Blas Experienced tour operator with 15+ years in the market validated personally by our team.</p>
+		</div>
+	</div>
+</div>
 
-				<!-- Reviews -->
-				<section class="comments listing-reviews">
-
-					<ul>
-
-						{{#each data.reviews}}
-
-						<li>
-							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-							<div class="comment-content"><div class="arrow-comment"></div>
-								<div class="comment-by">{{author.name.full}}<span class=""></span>
-									<div class="star-rating" data-rating="{{score}}"></div>
-								</div>
-								<p>{{message}}</p>
-								
-								<div class="review-images mfp-gallery-container">
-									<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
-								</div>
-							<!--	<a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a> -->
-							</div>
-						</li>
-
-						{{/each}}
-
-						
-					 </ul>
-				</section>
-
-				<!-- Pagination 
-				<div class="clearfix"></div>
-				<div class="row">
-					<div class="col-md-12">
-
-						<div class="pagination-container margin-top-30">
-							<nav class="pagination">
-								<ul>
-									<li><a href="#" class="current-page">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
+<section class="comments listing-reviews">
+		<div>
+			
+		</div>
+	<ul>
+		{{#each data.reviews}}
+		<li>
+			<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70"
+					alt=""></div>
+			<div class="comment-content">
+				<div class="arrow-comment"></div>
+				<div class="comment-by">{{name}} <!--<i class="tip"
+						data-tip-content="Person who left this review actually was a customer">
+						<div class="tip-content">Person who left this review actually was a customer</div>
+					</i> -->
+					<span class="date">Viajó: {{date date format='MMMM YYYY'}}</span>
+					<div class="star-rating" data-rating="{{score}}"></div>
 				</div>
-				<div class="clearfix"></div>
-				<! Pagination / End -->
-			</div>
-			<script>
-				$(document).ready( function(){
-					var elem = $('.date').html();
-					date = moment(elem).format("MMMM YYYY");;
-					$('.date').html(date);
-				});
+				<p>{{message}}</p>
+	
+				<!--<div class="review-images mfp-gallery-container">
+					<a href="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/mzada1slz5ljt0dzqguc.jpg" class="mfp-gallery"><img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/mzada1slz5ljt0dzqguc.jpg" alt=""></a>
+					<a href="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/frduvhtcs6h6sfficgcx.jpg" class="mfp-gallery"><img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/frduvhtcs6h6sfficgcx.jpg" alt=""></a>
+				</div>-->
 				
-			</script>
+				<!--a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>-->
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+</section>
+
+<!-- Add Review Box -->
+<div id="add-review" class="add-review-box">
+		<form id="review-form" action="/tour/review/add" class="add-comment" method="post">
+	<!-- Add Review -->
+
+
+	<!-- Subratings Container -->
+	<h3 class="listing-desc-headline margin-bottom-10">Añade un Review</h3>
+	<p class="comment-notes">¿Cómo estuvo tu experiencia?</p>
+	<div class="sub-ratings-container">
+			
+		<!-- Subrating #1 -->
+		<div class="add-sub-rating">
+			<div class="sub-rating-title">Puntuación <i class="tip"
+					data-tip-content="Cuéntanos cómo estuvo tu experiencia y cual es la puntuación."></i></div>
+			<div class="sub-rating-stars">
+				<!-- Leave Rating -->
+				<div class="clearfix"></div>
+				<div class="leave-rating">
+					<input type="radio" name="score" id="rating-0" value="0" />
+					<input type="radio" name="score" id="rating-1" value="5" />
+					<label for="rating-1" class="fa fa-star"></label>
+					<input type="radio" name="score" id="rating-2" value="4" />
+					<label for="rating-2" class="fa fa-star"></label>
+					<input type="radio" name="score" id="rating-3" value="3" />
+					<label for="rating-3" class="fa fa-star"></label>
+					<input type="radio" name="score" id="rating-4" value="2" />
+					<label for="rating-4" class="fa fa-star"></label>
+					<input type="radio" name="score" id="rating-5" value="1" />
+					<label for="rating-5" class="fa fa-star"></label>
+			</div>
+		</div>
+		</div>
+
+		<!-- Uplaod Photos 
+		<div class="uploadButton margin-top-15">
+			<input class="uploadButton-input" type="file" name="attachments[]" accept="image/*, application/pdf" id="upload"
+				multiple />
+			<label class="uploadButton-button ripple-effect" for="upload">Add Photos</label>
+			<span class="uploadButton-file-name"></span>
+		</div> -->
+		<!-- Uplaod Photos / End -->
+
+	</div>
+
+		<fieldset>
+
+			<div class="row">
+				
+				<div class="col-md-6">
+					<label>Nombre Completo:</label>
+					<input type="text" required name="name" value="" />
+				</div>
+
+				<div class="col-md-6">
+					<label>Email:</label>
+					<input type="email" name="email" required value="" />
+				</div>
+			</div>
+
+			<div>
+				<label>Review:</label>
+				<textarea cols="40"  minlength="100" name="message" required rows="3"></textarea>
+			</div>
+
+		</fieldset>
+
+		<input type="submit" class="button" value="Enviar Review">
+		<div class="clearfix"></div>
+		
+		<input type="hidden" name="tour" value="{{data.tour._id}}">
+	</form>
+
+</div>
+<!-- Add Review Box / End -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/jquery.barrating.min.js"></script>
+<script>
+	
+	let amount = 0;
+	$(document).ready( () => {
+		
+		$("#review-form").submit(function (e) {
+			if (!amount || amount === 0 || amount === undefined) {
+				alert("Ingrese la puntuación de la experiencia")
+				return false;
+			}
+			console.log(amount);
+			return true;
+		});
+	})
+
+
+	$(".leave-rating").click(function(e){
+	//	this.amount = getAmount();
+			console.log("click", e.target.value);
+			amount = e.target.value;
+			console.log("amount", amount);
+	});
+
+</script>

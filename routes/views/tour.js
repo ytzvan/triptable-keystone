@@ -28,7 +28,6 @@ exports = module.exports = function(req, res) {
 	locals.meta.url = "https://www.triptable.com"+url;
 	// Load the current post
 	view.on('init', function(next) {
-
 		var q = keystone.list('Tour').model.findOne({
 			state: 'published',
 			slug: locals.filters.tour
@@ -101,8 +100,21 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	view.on('post', { action: 'review' }, function(next) {
-		var newReview = new Review.model(),
+	view.on('post', { action: 'review' }, (next) => {
+		// To create a new item
+		let model = new Review.model(); // new model instance
+		Review.model().updateItem(model, req.body, {}, function(err) {
+			if (err) {
+				// Error handling
+				next();
+			} else {
+				let savedItem = Review.getData(model);
+				next();
+			}
+		});
+
+
+	/*	var newReview = new Review.model(),
 			updater = newReview.getUpdateHandler(req);
 		updater.process(req.body, {
 			flashErrors: true,
@@ -116,7 +128,7 @@ exports = module.exports = function(req, res) {
         		return res.redirect('back');
 			}
 			next();
-		});
+		}); */
 
 	});
 
@@ -134,7 +146,6 @@ exports = module.exports = function(req, res) {
 	
 	// Load other posts
 	view.on('init', function(next) {
-
 		var q = keystone.list('Tour').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
 
 		q.exec(function(err, results) {

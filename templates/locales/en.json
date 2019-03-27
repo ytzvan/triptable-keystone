@@ -451,5 +451,10 @@
 	"chiild_price_disabled_message": "Activity not Available for Children",
 	"infant_price_disabled_message": "Activity not Available for Infants",
 	"panama_city": "Panama City",
-	"book_from_whatsapp": "Book from WhatsApp"
+	"book_from_whatsapp": "Book from WhatsApp",
+	"out_of": "out of",
+	"operated_by": "operated_by",
+	"experienced_tour_operator_in": "experienced_tour_operator_in",
+	"experienced_operator_in": "experienced_operator_in",
+	"from_travelers": "from_travelers"
 }
