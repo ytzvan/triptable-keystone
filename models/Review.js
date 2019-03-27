@@ -1,7 +1,8 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var Tour = require('./Tour');
-var tour = keystone.list('Tour');
+let query = require("../utils/index");
+
 /**
  * Reviews Model
  * ==================
@@ -11,9 +12,9 @@ var t = keystone.list('Tour').model.find()
 			t.exec(function(err, results) {
         return true;
 			});
-var Review = new keystone.List('Review', {
+var Review = new keystone.List("Review", {
 	//autokey: { from: 'name', path: 'key', unique: true }
-	autokey: { path: 'slug', from: 'author', unique: true }
+	autokey: { path: "slug", from: "id", unique: true }
 });
 
 Review.add({
@@ -24,6 +25,16 @@ Review.add({
 	score: {type: Types.Number},
 	tour: { type: Types.Relationship, ref: 'Tour', index: true },
 	createdAt: { type: Date, default: Date.now, noedit: true },
+});
+
+Review.schema.post('save', function() {
+	console.log(this);
+	try {
+		query.QueryUtils.updateTourScore(this.tour, this.score);
+	} catch(e) {
+		console.log(e);
+		return true;
+	}
 });
 
 /*Review.schema.post('save', function() {
@@ -88,5 +99,7 @@ Review.schema.post('remove', function(){
 });
 
 Review.relationship({ ref: 'Tour', path: 'reviews' });
-Review.defaultColumns = 'author, score|20%, message|20%';
+Review.defaultColumns =
+	"name|20%, score|20%, createdAt|20%, message|20%";
+Review.defaultSort = "-createdAt";
 Review.register();

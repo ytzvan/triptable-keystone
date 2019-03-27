@@ -9964,7 +9964,7 @@ input:checked + .slider:before {
 
 .tip:after {
 	font-family: "FontAwesome";
-	content: "\f128";
+	content: "\f00c";
 	line-height: 19px;
 	display: inline-block;
 	position: relative;

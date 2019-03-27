@@ -1,15 +1,25 @@
 <div class="rating-overview row" id="listing-reviews">
 	<div class="rating-overview-box col-sm-3">
+		{{#if data.reviews.length}}
 		<span class="rating-overview-box-total">4.2</span>
 		<span class="rating-overview-box-percent">{{i18n "out_of"}} 5.0</span>
 		<div class="star-rating" data-rating="4.2"></div>
 		<div><p>{{data.reviews.length}} {{i18n "reviews"}}</p></div>
+		{{else}}
+		<span class="rating-overview-box-total">**</span>
+		<span class="rating-overview-box-percent">Sin reviews</span>
+				<div>
+					<a target="_blank" href="/partners">Evalúa esta Experiencia</a>
+				</div>
+		{{/if}}
 	</div>
 
 	<div class="col-sm-9">
 		<div class="col-sm-12">
-			<h4>{{i18n "operated_by"}}: {{i18n "experienced_operator_in"}} {{data.tour.city.city}}, {{data.tour.country.country}}</h4>
-			<p>Description: San Blas Experienced tour operator with 15+ years in the market validated personally by our team.</p>
+			<h4>{{i18n "operated_by"}}: {{i18n "experienced_operator_in"}} {{data.tour.city.city}}, {{data.tour.country.country}} <i class="tip" data-tip-content="This operator was verified in person by Triptable.com"></i></h4>
+			<div class="tip-content">This operator was verified by Triptable.com</div>
+			</i>
+				<p>Description: {{data.tour.owner.description}}.</p> 
 		</div>
 	</div>
 </div>
@@ -20,28 +30,26 @@
 		</div>
 	<ul>
 		{{#each data.reviews}}
-		<li>
-			<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70"
-					alt=""></div>
-			<div class="comment-content">
-				<div class="arrow-comment"></div>
-				<div class="comment-by">{{name}} <!--<i class="tip"
-						data-tip-content="Person who left this review actually was a customer">
-						<div class="tip-content">Person who left this review actually was a customer</div>
-					</i> -->
-					<span class="date">Viajó: {{date date format='MMMM YYYY'}}</span>
-					<div class="star-rating" data-rating="{{score}}"></div>
-				</div>
-				<p>{{message}}</p>
 	
-				<!--<div class="review-images mfp-gallery-container">
-					<a href="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/mzada1slz5ljt0dzqguc.jpg" class="mfp-gallery"><img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/mzada1slz5ljt0dzqguc.jpg" alt=""></a>
-					<a href="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/frduvhtcs6h6sfficgcx.jpg" class="mfp-gallery"><img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_800,g_center/frduvhtcs6h6sfficgcx.jpg" alt=""></a>
-				</div>-->
-				
-				<!--a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>-->
-			</div>
-		</li>
+			<li>
+				<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="">
+				</div>
+				<div class="comment-content">
+					<div class="arrow-comment"></div>
+					<div class="comment-by">{{name}} <i class="tip"
+							data-tip-content="Verified Purchase">
+							<div class="tip-content">Verified Purchase</div>
+						</i> <span class="date">Viajó: {{date date format='MMMM YYYY'}}</span>
+						<div class="star-rating" data-rating="{{score}}"></div>
+					</div>
+					<p style="overflow-wrap: break-word;"> {{message}} </p>
+			
+					<div class="review-images mfp-gallery-container">
+						<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
+					</div>
+					<!--<a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>-->
+				</div>
+			</li>
 		{{/each}}
 	</ul>
 </section>
@@ -117,6 +125,7 @@
 		<div class="clearfix"></div>
 		
 		<input type="hidden" name="tour" value="{{data.tour._id}}">
+		<input type="hidden" name="author" value="5807217c3273500300446165">
 	</form>
 
 </div>
@@ -141,9 +150,6 @@
 
 	$(".leave-rating").click(function(e){
 	//	this.amount = getAmount();
-			console.log("click", e.target.value);
-			amount = e.target.value;
-			console.log("amount", amount);
-	});
+			amount = e.target.value;	});
 
 </script>

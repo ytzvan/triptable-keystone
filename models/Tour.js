@@ -238,7 +238,7 @@ Tour.add({
 	reviews: { type: Types.Relationship, ref: "Review", many: true },
 	attraction: { type: Types.Relationship, ref: "Attraction", index: true },
 	createdAt: { type: Date, noedit: true },
-	updatedAt: { type: Date, noedit: true },
+	updatedAt: { type: Date, noedit: true, default: Date.now() },
 	schedule: {
 		type: Types.TextArray,
 		label: "Horas",
