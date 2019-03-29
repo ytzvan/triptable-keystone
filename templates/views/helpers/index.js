@@ -453,6 +453,13 @@ module.exports = function() {
         accum += block.fn(i);
     return accum;
 	};
+
+	_helpers.getPhoneNumberNoSpace = function() {
+			return process.env.PHONE_NUMBER_NO_SPACE;
+	}
+	_helpers.getPhoneNumberPretty = function () {
+		return process.env.PHONE_NUMBER_PRETTY;
+	}
 	
 	return _helpers;
 };
