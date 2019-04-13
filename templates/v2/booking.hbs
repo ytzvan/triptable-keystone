@@ -45,7 +45,8 @@
 
 					<div class="listing-item-content">
 						<!--<div class="numerical-rating" data-rating="5.0"></div>-->
-						<h3>{{data.tour.name}}</h3>
+						<h3>{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}}
+						{{data.tour.name}} {{/if_eq}}</h3>
 						<span><i class="fa fa-map-marker"></i> {{data.tour.city.city}}, {{data.tour.country.country}}</span>
 					</div>
 				</div>
