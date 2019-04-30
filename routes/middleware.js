@@ -167,7 +167,7 @@ exports.intl = function (req, res, next) {
   if (browserLang) {
     browserLang = browserLang.substring(0, 2);
   } else {
-    browserLang = 'es';
+    browserLang = 'en';
   }
 
   //get subdomain

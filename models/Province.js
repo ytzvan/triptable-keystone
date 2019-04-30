@@ -13,6 +13,14 @@ var Province = new keystone.List('Province', {
 Province.add({
 	provinceId: { type: String, index: true, noedit: true},
 	province: { type: String },
+	seoES: {
+		title: {type: String},
+		description: {type: String}
+	},
+	seoEN: {
+		title: { type: String },
+		description: { type: String }
+	},
 	description:  { type: String },
 	image: { type: Types.CloudinaryImage },
 	country: { type: Types.Relationship, ref: 'Country' },
@@ -23,7 +31,7 @@ Province.relationship({ ref: 'Tour', path: 'province' });
 Province.relationship({ ref: 'City', path: 'province' });
 Province.relationship({ ref: 'Collection', path: 'province' });
 Province.relationship({ ref: 'Attraction', path: 'province' });
-Province.defaultColumns = 'Province, description|20%, image|20%, publishedDate|20%';
+Province.defaultColumns = 'provinceId, seoES|20%, image|20%, publishedDate|20%';
 Province.schema.pre('save', function(next) {
     this.provinceId = this.id;
     next();

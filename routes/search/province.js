@@ -41,7 +41,7 @@ exports = module.exports = function(req, res) {
 	});
 	view.on('init', function(next) {
 
-		keystone.list('Province').model.findOne(query).exec(function(err, place) { //Query states
+		keystone.list('Province').model.findOne(query).populate('country').exec(function(err, place) { //Query states
 
 			if (err || !place) {
 				return res.status(404).render('errors/404');
@@ -51,11 +51,28 @@ exports = module.exports = function(req, res) {
 	
 			var id = place._id;
 			var provinceName = place.province;
+			let countryName = place.country.country;
+			let placeTitle = provinceName + ", " + countryName;
 			locals.data.provinceName = provinceName;
-			
-			locals.meta.title = "Reserva Tours, Actividades y Qué hacer en " + provinceName + " - Triptable";
-			locals.meta.keywords = "turismo en " +  provinceName + ", que hacer en " +provinceName+ ", tours en " +provinceName+ ", actividades en " + provinceName + ", excursiones en " +provinceName;
-			locals.meta.description =  "Reserva tours en " + provinceName  + ", actividades, viajes y turismo en " + provinceName + ". Con Triptable reservas experiencias locales unicas en " +provinceName;
+			if (process.env.LANG == "es") {
+				if (place.seoES.title) {
+					locals.meta.title = place.seoES.title;
+					locals.meta.description = place.seoES.description;
+				} else {
+					locals.meta.title = placeTitle + ". Tours, Actividades y Qué Hacer | Triptable.com";
+					locals.meta.description = "Qué Hacer en " + placeTitle + ". Reserva excursiones, estadias y experiencias en " + provinceName +".";
+				}
+				locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle; // Remover defaults en Layout
+			}
+			if (process.env.LANG == "en") {
+				locals.meta.title = place.seoEN.title;
+				locals.meta.description = place.seoEN.description;
+			} else {
+				locals.meta.title = placeTitle + ". Tours, Activities & Things to do | Triptable.com";
+				locals.meta.description = "Things to do in " + placeTitle + ". Book tours, stays y experiences in " + provinceName + ".";
+			}
+			locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle; // TODO: Traducir
+
 			locals.meta.ogTitle = locals.meta.title;
 			locals.meta.ogDescription = locals.meta.description;
 			locals.meta.canonical = req.url;
@@ -116,6 +133,6 @@ exports = module.exports = function(req, res) {
 
 
 	// Render the view
-	view.render('search/country');
+	view.render('search/province');
 
 };
