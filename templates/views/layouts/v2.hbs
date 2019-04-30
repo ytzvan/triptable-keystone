@@ -20,19 +20,22 @@
 	{{else}}
 	<meta name="description" content="{{i18n "meta_description"}}">
 	{{/if}}
-
 	{{#if meta.canonical}}
-	<meta property="og:url" content="https://www.triptable.com{{meta.canonical}}" />
-	<link rel="canonical" href="https://www.triptable.com{{meta.canonical}}" />
-    <link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}">
-    <link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}">
-    <link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}">
+	<meta property="og:url" content="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
+	<link rel="canonical" href="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}">
+	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}">
+	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com{{meta.canonical}}">
+	<link rel="alternate" hreflang="en" href="https://www.triptable.com{{meta.canonical}}">
+	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com{{meta.canonical}}">
 	{{else}}
-	<meta property="og:url" content="https://www.triptable.com" />
-	<link rel="canonical" href="https://www.triptable.com/" />
-    <link rel="alternate" hreflang="es" href="https://es.triptable.com/">
-    <link rel="alternate" hreflang="en" href="https://en.triptable.com/">
-    <link rel="alternate" hreflang="es-419" href="https://es.triptable.com/">
+	<meta property="og:url" content="https://{{{getLang}}}.triptable.com" />
+	<link rel="canonical" href="https://{{{getLang}}}.triptable.com/" />
+	<link rel="alternate" hreflang="es" href="https://es.triptable.com/">
+	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com/">
+	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com/">
+	<link rel="alternate" hreflang="en" href="https://www.triptable.com/">
+	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com/">
 	{{/if}}
 	{{#if meta.nextUrl}}
 	<link rel="next" href="{{meta.nextUrl}}" />
@@ -54,7 +57,7 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@triptable_es" />
 	<meta name="twitter:creator" content="@triptable_es" />
-	<meta property="og:site_name" content="Triptable.com: Reserva Tours y Actividades"/>
+	<meta property="og:site_name" content="Triptable.com"/>
 	<meta property="og:locale" content="{{lang}}" />
 	<meta property="og:locale:alternate" content="en_US" />
 	<meta property="og:locale:alternate" content="es_ES" />

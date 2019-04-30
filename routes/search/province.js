@@ -55,26 +55,44 @@ exports = module.exports = function(req, res) {
 			let placeTitle = provinceName + ", " + countryName;
 			locals.data.provinceName = provinceName;
 			if (process.env.LANG == "es") {
+
 				if (place.seoES.title) {
 					locals.meta.title = place.seoES.title;
+				} else {
+					locals.meta.title = placeTitle + ". Mejores Tours, Actividades y Qué Hacer | Triptable.com";
+				}
+
+				if (place.seoES.description) {
 					locals.meta.description = place.seoES.description;
 				} else {
-					locals.meta.title = placeTitle + ". Tours, Actividades y Qué Hacer | Triptable.com";
-					locals.meta.description = "Qué Hacer en " + placeTitle + ". Reserva excursiones, estadias y experiencias en " + provinceName +".";
+					locals.meta.description = "Qué Hacer en " + placeTitle + ". Descubre y Reserva en línea los mejores tours, actividades y experiencias de viaje en " + provinceName + ".";
 				}
-				locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle; // Remover defaults en Layout
-			}
-			if (process.env.LANG == "en") {
-				locals.meta.title = place.seoEN.title;
-				locals.meta.description = place.seoEN.description;
-			} else {
-				locals.meta.title = placeTitle + ". Tours, Activities & Things to do | Triptable.com";
-				locals.meta.description = "Things to do in " + placeTitle + ". Book tours, stays y experiences in " + provinceName + ".";
-			}
-			locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle; // TODO: Traducir
 
-			locals.meta.ogTitle = locals.meta.title;
-			locals.meta.ogDescription = locals.meta.description;
+				locals.meta.keywords = "tours " + placeTitle + ", que hacer en " + placeTitle + ", actividades en " + placeTitle + ",  viajes a " + placeTitle + ", viajar a " + placeTitle + ", excursiones " + placeTitle; // Remover defaults en Layout
+				locals.meta.ogTitle = locals.meta.title;
+				locals.meta.ogDescription = locals.meta.description;
+
+			}
+
+			if (process.env.LANG == "en" || !process.env.LANG) {
+
+				if (place.seoEN.title) {
+					locals.meta.title = place.seoEN.title;
+				} else {
+					locals.meta.title = placeTitle + ". Best Tours, Activities and Things to Do | Triptable";
+				}
+
+				if (place.seoEN.description) {
+					locals.meta.description = place.seoEN.description;
+				} else {
+					locals.meta.description = "Things to Do in " + placeTitle + ". Book online the best tours, activities and travel experiences in " + provinceName + ".";
+				}
+
+				locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle;
+				locals.meta.ogTitle = locals.meta.title;
+				locals.meta.ogDescription = locals.meta.description;
+			}
+
 			locals.meta.canonical = req.url;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
