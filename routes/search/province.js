@@ -54,21 +54,21 @@ exports = module.exports = function(req, res) {
 			let countryName = place.country.country;
 			let placeTitle = provinceName + ", " + countryName;
 			locals.data.provinceName = provinceName;
+			locals.data.placeTitle = placeTitle;
 			if (process.env.LANG == "es") {
 
 				if (place.seoES.title) {
 					locals.meta.title = place.seoES.title;
 				} else {
-					locals.meta.title = placeTitle + ". Mejores Tours, Actividades y Qué Hacer | Triptable.com";
+					locals.meta.title = placeTitle +" - Tours, Actividades y Experiencias | Triptable.com";
 				}
 
 				if (place.seoES.description) {
 					locals.meta.description = place.seoES.description;
 				} else {
-					locals.meta.description = "Qué Hacer en " + placeTitle + ". Descubre y Reserva en línea los mejores tours, actividades y experiencias de viaje en " + provinceName + ".";
+					locals.meta.description = "Tours en " + provinceName + ". Reserva Excursiones, Actividades, y Que hacer en " + placeTitle + ". Reseñas reales de "+provinceName +". Precios Exclusivos en Triptable.com";
 				}
-
-				locals.meta.keywords = "tours " + placeTitle + ", que hacer en " + placeTitle + ", actividades en " + placeTitle + ",  viajes a " + placeTitle + ", viajar a " + placeTitle + ", excursiones " + placeTitle; // Remover defaults en Layout
+				locals.meta.keywords = provinceName + ", tours en " + provinceName + ", que hacer en " + provinceName + ", actividades en " + provinceName + ", excursiones en " + provinceName + ", experiencias " + provinceName; // Remover defaults en Layout
 				locals.meta.ogTitle = locals.meta.title;
 				locals.meta.ogDescription = locals.meta.description;
 
@@ -79,13 +79,13 @@ exports = module.exports = function(req, res) {
 				if (place.seoEN.title) {
 					locals.meta.title = place.seoEN.title;
 				} else {
-					locals.meta.title = placeTitle + ". Best Tours, Activities and Things to Do | Triptable";
+					locals.meta.title = placeTitle + " - Tours, Activities and Things to Do | Triptable";
 				}
 
 				if (place.seoEN.description) {
 					locals.meta.description = place.seoEN.description;
 				} else {
-					locals.meta.description = "Things to Do in " + placeTitle + ". Book online the best tours, activities and travel experiences in " + provinceName + ".";
+					locals.meta.description = provinceName + " Tours. Discover Tours, Activities and Excursions in " + placeTitle + ". Real reviews about " +provinceName + ". Book Now Triptable.com";
 				}
 
 				locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle;

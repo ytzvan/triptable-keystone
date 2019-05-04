@@ -6,19 +6,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 {{#if meta.title}}
 	<title>{{meta.title}}</title>
+	<meta property="og:title" content="{{meta.title}}" />
 	{{else}}
 	<title>{{i18n "title"}}</title>
+	<meta property="og:title" content="{{i18n "title"}}" />
 	{{/if}}
 	<meta name="author" content="Triptable">
 	{{#if meta.keywords}}
-	<meta name="keywords" content="tours, experiencias, excursiones, {{meta.keywords}}" />
+	<meta name="keywords" content="{{meta.keywords}}" />
 	{{else}}
 	<meta name="keywords" content="tours en panama, tours en colombia, tours en costa rica, tours en san blas, excursiones en panama" />
 	{{/if}}
 	{{#if meta.description}}
 	<meta name="description" content="{{meta.description}}">
+	<meta property="og:description" content="{{meta.description}}" />
 	{{else}}
 	<meta name="description" content="{{i18n "meta_description"}}">
+	<meta property="og:description" content="{{i18n "meta_description"}}" />
 	{{/if}}
 	{{#if meta.canonical}}
 	<meta property="og:url" content="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
@@ -44,16 +48,7 @@
 	<link rel="prev" href="{{meta.prevUrl}}" />
 	{{/if}}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	{{#if meta.ogTitle}}
-	<meta property="og:title" content="{{meta.ogTitle}}"/>
-	{{else}}
-	<meta property="og:title" content="Triptable: Reserva Tours y Actividades en Panamá."/>
-	{{/if}}
-	{{#if meta.ogDescription}}
-	<meta property="og:description" content="{{meta.ogDescription}}" />
-	{{else}}
-	<meta property="og:description" content="Descubre y reserva tours, actividades, viajes y turismo en Panama. Con Triptable reservas experiencias locales unicas." />
-	{{/if}}
+
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@triptable_es" />
 	<meta name="twitter:creator" content="@triptable_es" />
