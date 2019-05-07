@@ -25,21 +25,23 @@
 	<meta property="og:description" content="{{i18n "meta_description"}}" />
 	{{/if}}
 	{{#if meta.canonical}}
-	<meta property="og:url" content="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
-	<link rel="canonical" href="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}">
-	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}">
-	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com{{meta.canonical}}">
-	<link rel="alternate" hreflang="en" href="https://www.triptable.com{{meta.canonical}}">
-	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com{{meta.canonical}}">
+	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com{{meta.canonical}}" />
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}"/>
 	{{else}}
-	<meta property="og:url" content="https://{{{getLang}}}.triptable.com" />
-	<link rel="canonical" href="https://{{{getLang}}}.triptable.com/" />
-	<link rel="alternate" hreflang="es" href="https://es.triptable.com/">
-	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com/">
-	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com/">
-	<link rel="alternate" hreflang="en" href="https://www.triptable.com/">
-	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com/">
+	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
+	<link rel="alternate" hreflang="es" href="https://es.triptable.com/" />
+	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com/" />
+	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com/" />
+	<link rel="alternate" hreflang="en" href="https://en.triptable.com/" />
+	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com/"/>
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com/" />
 	{{/if}}
 	{{#if meta.nextUrl}}
 	<link rel="next" href="{{meta.nextUrl}}" />

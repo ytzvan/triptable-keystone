@@ -460,6 +460,10 @@ module.exports = function() {
 	_helpers.getPhoneNumberPretty = function () {
 		return process.env.PHONE_NUMBER_PRETTY;
 	}
+
+	_helpers.getSubdomain = function () {
+		return process.env.SUBDOMAIN;
+	}
 	
 	return _helpers;
 };
