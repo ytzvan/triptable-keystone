@@ -69,7 +69,7 @@ exports = module.exports = function(req, res) {
 					locals.meta.description = "Tours en " + provinceName + ". Reserva Excursiones, Actividades, y Que hacer en " + placeTitle + ". Reseñas reales de "+provinceName +". Precios Exclusivos en Triptable.com";
 				}
 				locals.meta.keywords = provinceName + ", tours en " + provinceName + ", que hacer en " + provinceName + ", actividades en " + provinceName + ", excursiones en " + provinceName + ", experiencias " + provinceName; // Remover defaults en Layout
-				locals.meta.ogTitle = locals.meta.title;
+				locals.meta.ogTitle = locals.meta.title + " | Triptable.com";
 				locals.meta.ogDescription = locals.meta.description;
 
 			}
@@ -89,7 +89,7 @@ exports = module.exports = function(req, res) {
 				}
 
 				locals.meta.keywords = "tours " + placeTitle + ", things to do " + placeTitle + ", activities in " + placeTitle + ", tourism in " + placeTitle + ", travel " + placeTitle + ", trips " + placeTitle;
-				locals.meta.ogTitle = locals.meta.title;
+				locals.meta.ogTitle = locals.meta.title + " | Triptable.com";
 				locals.meta.ogDescription = locals.meta.description;
 			}
 

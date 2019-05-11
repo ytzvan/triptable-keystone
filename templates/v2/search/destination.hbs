@@ -5,22 +5,23 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 padding-top-15">
-         <h1 class="search-title">
+          <h1 class="search-title">
+
             {{#if_eq lang "en"}}
-              {{data.provinceName}} tours
+            {{data.cityName}}, {{data.countryName}} Tours
             {{/if_eq}}
             {{#if_eq lang "es"}}
-             Tours en {{data.provinceName}}
+            Tours en {{data.cityName}}, {{data.countryName}}
             {{/if_eq}}
-         </h1>
-         <p class="col-md-8">
-          {{#if_eq lang "en"}}
+          </h1>
+          <p class="col-md-8">
+            {{#if_eq lang "en"}}
             {{data.place.description.en}}
-          {{/if_eq}} 
-          {{#if_eq lang "es"}}
+            {{/if_eq}}
+            {{#if_eq lang "es"}}
             {{data.place.description.es}}
-          {{/if_eq}}
-         </p>
+            {{/if_eq}}
+          </p>
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="hidden-xs">
             <ul>
@@ -117,8 +118,8 @@
           <div class="main-search-input-item">
             <select data-placeholder="{{i18n "all_cities"}}" id="cities-select" class="chosen-select">
               <option value="{{data.country.country}}">{{i18n "all_destinations"}} </option>
-              {{#each data.province}}
-              <option value="{{slug}}">{{province}}</option>
+              {{#each data.cities}}
+              <option value="{{slug}}">{{city}}</option>
               {{/each}}
             </select>
           </div>
@@ -291,7 +292,7 @@
   $(document).ready(function () {
     var tourList = [];
     var pos = 0;
-    var listName = "Search List - " + "{{data.placeName}}";
+    var listName = "Search List - " + "{{data.cityName}}";
     { { #each data.tours.results } }
     setImpressions(tourList, "{{name}}", "{{tourId}}", {{ price }}, "{{city.city}}", "", listName, pos);
   $("#search-tour-item-" + pos).data("tourObj", tourList[pos]); // Seed id with obj data

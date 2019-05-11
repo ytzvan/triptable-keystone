@@ -13,7 +13,18 @@ var City = new keystone.List('City', {
 City.add({
 	cityId: { type: String, index: true, noedit: true},
 	city: { type: String },
-	description:  { type: String },
+	seoES: {
+		title: {type: String},
+		description: {type: String}
+	},
+	seoEN: {
+		title: { type: String },
+		description: { type: String }
+	},
+	description: {
+		es: { type: String },
+		en: { type: String }
+	},
 	image: { type: Types.CloudinaryImage },
 	country: { type: Types.Relationship, ref: 'Country' },
 	province: { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
