@@ -41,7 +41,9 @@ exports = module.exports = function(req, res) {
 	});
 	view.on('init', function(next) {
 
-		keystone.list('Province').model.findOne(query).populate('country').exec(function(err, place) { //Query states
+		keystone.list('Province').
+		model.findOne(query)
+		.populate('country').exec(function(err, place) { //Query states
 
 			if (err || !place) {
 				return res.status(404).render('errors/404');
@@ -97,6 +99,27 @@ exports = module.exports = function(req, res) {
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,q_50,h_400,w_600/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
+
+			keystone.list('City').model
+				.where("province", place._id)
+				.sort("city")
+				.exec(function (err, results) { //Query Pais
+					if (err || !results) {
+						return res.status(404);
+					}
+					locals.data.destinationList = results;
+			});
+
+			keystone.list('Province').model
+				.where("country", place.country._id)
+				.sort("province")
+				.exec(function (err, results) { //Query Pais
+					if (err || !results) {
+						return res.status(404);
+					}
+					locals.data.provinceList = results;
+			});
+
 			var q = keystone.list('Tour')
   			.paginate({
   				page: req.query.page || 1,

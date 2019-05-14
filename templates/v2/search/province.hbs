@@ -33,20 +33,19 @@
       </div>
     </div>
   </div>
-  {{#unless data.city}}
-  {{#if data.cities}}
+  {{#if data.provincesList}}
   <div class="container">
     <div class="row">
-      {{#each data.cities}}
+      {{#each data.provincesList}}
 
 
       <div class="col-md-3 col-lg-2 col-sm-3 col-xs-6">
 
         <!-- Image Box -->
-        <a href="/destino/{{slug}}" class="img-box"
+        <a href="/panama/{{slug}}" class="img-box"
           data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}">
           <div class="img-box-content visible">
-            <h4>{{city}} </h4>
+            <h4>{{province}} </h4>
 
           </div>
           <div class="img-box-background"
@@ -63,7 +62,6 @@
     </div>
   </div>
   {{/if}}
-  {{/unless}}
   <!-- Content
 ================================================== -->
   <div class="container">
@@ -117,7 +115,7 @@
           <div class="main-search-input-item">
             <select data-placeholder="{{i18n "all_cities"}}" id="cities-select" class="chosen-select">
               <option value="{{data.country.country}}">{{i18n "all_destinations"}} </option>
-              {{#each data.province}}
+              {{#each data.provincesList}}
               <option value="{{slug}}">{{province}}</option>
               {{/each}}
             </select>
@@ -271,7 +269,7 @@
     $("#cities-select").change(function () {
       var city = $(this).val();
       if (city) {
-        window.location.href = "/destino/" + city;
+        window.location.href = "/" + country + "/" + city;
       } else {
         window.location.href = "/{{data.country}}";
       }
@@ -281,7 +279,7 @@
       if (collection) {
         window.location.href = "?filter=" + collection;
       } else {
-        window.location.href = "/destino/{{data.city}}";
+        window.location.href = "/" + country + "/{{data.province}}";
       }
     });
   });

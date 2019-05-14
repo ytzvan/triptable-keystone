@@ -103,16 +103,6 @@ exports = module.exports = function(req, res) {
 				locals.meta.ogDescription = locals.meta.description;
 			}
 
-
-			//locals.meta.title = "Top 2019 Tours, Actividades y Qué hacer en " + cityName + ", "+ countryName +" - Triptable ";
-
-
-
-		//	locals.meta.keywords = "turismo en " + cityName + ", que hacer en " + cityName + ", tours en " + cityName + ", actividades en " + cityName + ", excursiones en " + cityName;
-
-			//locals.meta.description = "Reserva tours en " + cityName + ", actividades, viajes y turismo en " + cityName + ". Con Triptable reservas experiencias locales unicas en " + cityName;
-		//	locals.meta.ogTitle = locals.meta.title;
-		//	locals.meta.ogDescription = locals.meta.description + ". Top 2019 Mejores tours y actividades en " + cityName;
 			locals.meta.canonical = req.url;
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/w_900/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
