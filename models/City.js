@@ -21,10 +21,10 @@ City.add({
 		title: { type: String },
 		description: { type: String }
 	},
-	description: {
-		es: { type: String },
-		en: { type: String }
-	},
+	description: {type:String },
+	pageContent: {
+		es: { type: Types.Html, wysiwyg: true },
+		en: { type: Types.Html, wysiwyg: true }	},
 	image: { type: Types.CloudinaryImage },
 	country: { type: Types.Relationship, ref: 'Country' },
 	province: { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },

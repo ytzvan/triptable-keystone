@@ -15,10 +15,10 @@
           </h1>
           <p class="col-md-8">
             {{#if_eq lang "en"}}
-            {{data.place.description.en}}
+            {{data.place.seoEN.description}}
             {{/if_eq}}
             {{#if_eq lang "es"}}
-            {{data.place.description.es}}
+            {{data.place.seoES.description}}
             {{/if_eq}}
           </p>
           <!-- Breadcrumbs -->
@@ -68,27 +68,6 @@
 ================================================== -->
   <div class="container">
     <div class="row">
-
-      <!-- Search
-
-	<div class="col-md-12 margin-bottom-30">
-		{{#each data.collections}}
-		{{#if featured}}
-		<div class="col-md-3">
-		<a href="?filter={{_id}}" class="img-box" data-background-image="{{image.secure_url}}">
-			<div class="img-box-content visible">
-				<h4>{{#if_eq lang "en"}} {{title.en}} {{else}} {{title.es}}{{/if_eq}}</h4>
-				<span>3 {{i18n "listings"}}</span>
-			</div>
-			<div class="img-box-background" style="background-image: url('{{image.secure_url}}');"></div></a>
-		</div>
-		{{/if}}
-		{{/each}}
-	</div>  -->
-
-      <!-- Search Section / End -->
-      <!--
-		<div class="col-md-12">
 
 			<!-- Sorting - Filtering Section -->
       <div class="margin-top-15 margin-bottom-15">
@@ -155,18 +134,7 @@
                 src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}"
                 alt="{{name}}">
               {{/if}}
-              <!--	<div class="listing-item-details">
-								<ul>
-									<li> <i class="sl sl-icon-fire"></i> Más Vendidos</li>
-								</ul>
-							</div>-->
-
-              <!--<div class="listing-badge now-open"><strong>-20% OFF</strong></div>-->
-
-              <!--<div class="listing-item-content">
-								<span class="tag">Mas Vendidos <i class="sl sl-icon-fire"></i></span>
-							</div> -->
-              <!--<span class="like-icon"></span>-->
+        
             </div>
 
             <div class="tour-info">
@@ -213,23 +181,23 @@
           <div class="pagination-container margin-top-50 margin-bottom-40">
             <nav class="pagination">
               <ul>
-                <!--
-								{{#if data.tours.previous}}
-								<li><a href="{{data.url}}&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
-								{{/if}} -->
+              
                 {{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}}
 
 
-                <!--{{#if data.tours.next}}
-								<li><a href="{{data.url}}&page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
-								{{/if}}-->
               </ul>
             </nav>
           </div>
         </div>
       </div>
       <!-- Pagination / End -->
-
+      <div>
+        {{#if_eq lang "es"}}
+        <p>{{{data.place.pageContent.es}}}</p>
+        {{/if_eq}} {{#if_eq lang "en"}}
+        <p>{{{data.place.pageContent.en}}}</p>
+        {{/if_eq}}
+      </div>
       {{#if data.city}}
       {{#if data.cities}}
       <div class="container more-destinations padding-bottom-30">
