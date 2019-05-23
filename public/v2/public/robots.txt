@@ -6,5 +6,6 @@ Disallow: /mybooking
 Disallow: /?page
 Disallow: /404
 Disallow: /booking
+Disallow: /currency
 
 Sitemap: https://www.triptable.com/public/sitemap.xml
