@@ -26,22 +26,22 @@
 	{{/if}}
 	{{#if meta.canonical}}
 	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
-	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
 	<link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}" />
 	<link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}"/>
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
 	{{else}}
 	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com" />
-	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
 	<link rel="alternate" hreflang="es" href="https://es.triptable.com/" />
 	<link rel="alternate" hreflang="en" href="https://en.triptable.com/" />
-	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com/" />
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
 	{{/if}}
 	{{#if meta.nextUrl}}
-	<link rel="next" href="{{meta.nextUrl}}" />
+	<link rel="next" href="https://{{{getSubdomain}}}.triptable.com{{meta.nextUrl}}" />
 	{{/if}}
 	{{#if meta.prevUrl}}
-	<link rel="prev" href="{{meta.prevUrl}}" />
+	<link rel="prev" href="https://{{{getSubdomain}}}.triptable.com{{meta.prevUrl}}" />
 	{{/if}}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -50,8 +50,8 @@
 	<meta name="twitter:creator" content="@triptable_es" />
 	<meta property="og:site_name" content="Triptable.com"/>
 	<meta property="og:locale" content="{{lang}}" />
-	<meta property="og:locale:alternate" content="en_US" />
-	<meta property="og:locale:alternate" content="es_ES" />
+	<meta property="og:locale:alternate" content="en" />
+	<meta property="og:locale:alternate" content="es" />
   {{#if meta.ogType}}
   <meta property="og:type" content="{{meta.ogType}}"/>
   {{else}}
