@@ -44,13 +44,13 @@
 
         <!-- Image Box -->
         <a href="/destino/{{slug}}" class="img-box"
-          data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}">
+          data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_90,g_center,f_auto/{{image.public_id}}.{{image.format}}">
           <div class="img-box-content visible">
             <h4>{{city}} </h4>
 
           </div>
           <div class="img-box-background"
-            style="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}">
+            style="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_90,g_center,f_auto/{{image.public_id}}.{{image.format}}">
           </div>
         </a>
 
@@ -127,11 +127,11 @@
             <div class="listing-item">
               {{#if heroImage.secure_url}}
               <img async
-                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
+                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
                 alt="{{name}}">
               {{else}}
               <img async
-                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}"
+                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}"
                 alt="{{name}}">
               {{/if}}
         
