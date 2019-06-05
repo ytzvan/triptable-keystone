@@ -77,7 +77,7 @@ exports = module.exports = function(req, res) {
                 req.flash('success', 'Cuenta creada. Por favor inicia sesión');
                 if (process.env.NODE_ENV === 'production'){
                   // sendNotificationEmail(result); //Email interno
-                  Email.sendWelcomeEmail(result); // email a usuario registrado
+                //  Email.sendWelcomeEmail(result); // email a usuario registrado
                  // Mailchimp.addToMainList(result);
 								//	Utils.addEventToMixPanel('Cuenta Creada');
                 };
