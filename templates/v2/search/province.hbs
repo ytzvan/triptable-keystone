@@ -215,7 +215,15 @@
 								{{#if data.tours.previous}}
 								<li><a href="{{data.url}}&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
 								{{/if}} -->
-                {{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}}
+                {{#if data.tours.previous}}
+                <li><a href="?&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
+                {{/if}}
+                <!--	{{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}} -->
+                
+                
+                {{#if data.tours.next}}
+                <li><a href="?&page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
+                {{/if}}
 
 
                 <!--{{#if data.tours.next}}
