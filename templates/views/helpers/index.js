@@ -465,5 +465,10 @@ module.exports = function() {
 		return process.env.SUBDOMAIN;
 	}
 	
+	_helpers.parseDate = function(date) {
+		let parsed = moment(date, "YYYY-MM-DD HH:mm z").format("YYYY-MM-DD");
+		console.log(parsed);
+		return parsed;
+	}
 	return _helpers;
 };

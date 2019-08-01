@@ -38,7 +38,7 @@ keystone.init({
 	'signout redirect' : '/',
 	'compress':true,
 	'session options': {    
-		cookie: { domain:'.'+process.env.LOCALDOMAIN,  httpOnly: true  }
+	//	cookie: { domain:'.'+process.env.LOCALDOMAIN,  httpOnly: true  }
   }
 //	'sesssion store options' : {cookie: { domain:'.localdomain.com'}}
 		// 'cookie signin options' : { 'maxAge': 5 * 60 * 1000, 'signed': true },

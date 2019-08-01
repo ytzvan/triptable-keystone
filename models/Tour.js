@@ -52,6 +52,12 @@ Tour.add({
 		note:
 			"Esto le indica a la plataforma si muestra la duración en Horas o Minutos "
 	},
+	isExcursion: {type: Types.Boolean, defaultsTo: false},
+	datesAvailable: {
+		type: Types.DateArray,
+		utc: true,
+		dependsOn: {isExcursion: true}
+	},
 	description: {
 		short: { type: String },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
@@ -284,8 +290,20 @@ Tour.schema.pre('save', function(next) {
 		if (this.childPrice == null || this.childPrice == undefined){
 			this.childPrice = this.price;
 		};	
+		try {
+			for (let i=0; i<this.datesAvailable.length; i++) {
+				//let momentDate = moment(this.datesAvailable[i], "YYYY-MM-DD").utcOffset(60).format('YYYY-MM-DD HH:mm');
+				this.datesAvailable[i]  = parseDate(this.datesAvailable[i]);
+			}
+		} catch(e) {
+			console.log(e);
+		}
   	next()
 });
+
+function parseDate(strDate) {
+	return moment(strDate, "YYYY-MM-DD").utcOffset(60).format('YYYY-MM-DD HH:mm');
+}
 
 /*	var client = algoliasearch("PATK6GCBGK", "9cf27aede99e95d39b600cab81c3f350");
 	var index = client.initIndex('tours');
