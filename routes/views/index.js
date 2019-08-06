@@ -140,6 +140,20 @@ module.exports = function(req, res) {
     })
 	});
 	
+	view.on('init', function (next) {
+		let excursions = keystone.list('Tour')
+			.model.where({ "isExcursion": true, "state": "published" })
+			.populate('city')
+			.exec((err, excursions) => {
+				if (!err) {
+				//	console.log(excursions);
+					locals.data.excursions = excursions;
+				} else {
+					console.log("error", err);
+				}
+				next();
+			});
+	})
 	
 	/*view.on('init', function(next){
 		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";

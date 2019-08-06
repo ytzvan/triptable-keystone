@@ -465,5 +465,22 @@ module.exports = function() {
 		return process.env.SUBDOMAIN;
 	}
 	
+	_helpers.parseDate = function(date) {
+		let parsed = moment(date, "YYYY-MM-DD HH:mm z").format("YYYY-MM-DD");
+		console.log(parsed);
+		return parsed;
+	}
+
+	_helpers.parsePrettyDate = function (date) {
+		let parsed = moment(date).format("DD MMM YYYY");
+		console.log(parsed);
+		return parsed;
+	}
+
+	_helpers.reduceString = function (string, reducer) {
+		let str = string.substring(0, reducer);
+		return str; 
+	}
+
 	return _helpers;
 };

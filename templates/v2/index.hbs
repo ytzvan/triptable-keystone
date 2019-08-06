@@ -45,6 +45,32 @@
 </div>
 <!-- Categories Partial %- partial("partials/home/_cities") %> -->
 <!-- Info Partial %- partial("partials/home/_info") %> -->
+<div class="calendar container">
+    <div class="col-md-12">
+      <h1 class="title text-center margin-top-10">Próximos Trips</h1>
+      {{#each data.excursions}}
+      <div class="row" style="border: 1px solid black;margin-bottom:5px;">
+        
+        <div class="col-xs-12 col-sm-6">
+          <p class="excursion-title margin-bottom-0" style="font-weight: 600;font-size:20px;">{{ this.name}}</p>
+          <p>{{this.duration}} {{#if isMultiDay}} dias {{else}} horas {{/if}}</p>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <p class="excursion-title" style="text-transform:capitalize;"><a href="/destino/{{this.city.slug}}">Trips to {{this.city.city}}</a></p>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <p class="margin-bottom-0">Fecha:</p>
+          <p class="excursion-title">{{{parsePrettyDate this.datesAvailable.[0]}}}</p>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <p class="excursion-title text-right margin-bottom-0">From ${{this.price}} Per Person 
+          <p><a class="button btn">Book Now</a></p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  
+</div>
  {{>home/_cities}}
  {{>home/_tours}}
  {{>home/_topToursColombia}}

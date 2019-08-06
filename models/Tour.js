@@ -52,6 +52,12 @@ Tour.add({
 		note:
 			"Esto le indica a la plataforma si muestra la duración en Horas o Minutos "
 	},
+	isExcursion: { type: Types.Boolean, defaultsTo: false, index: true},
+	datesAvailable: {
+		type: Types.DateArray,
+		utc: true,
+		dependsOn: {isExcursion: true}
+	},
 	description: {
 		short: { type: String },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
