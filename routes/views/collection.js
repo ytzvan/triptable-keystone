@@ -71,7 +71,7 @@ exports.getLanding = function (req, res) {
   view.on('init', function (next) {
     Landing.findOne({ "slug": lid})
     .populate({ 
-      path: 'collections', 
+      path: 'collections', options: { sort: { 'featured': -1 } },
       //Deep population
       populate: 
         { path: 'tours' }
