@@ -68,7 +68,7 @@ exports.getLanding = function (req, res) {
   const Landing = keystone.list('Landing').model;
 
   view.on('init', function (next) {
-    Landing.findOne({ "slug": lid })
+    Landing.findOne({ "slug": lid, "state": "published" })
     .populate({ 
       path: 'collections', 
       //populate: { path: 'country', } 
