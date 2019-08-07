@@ -40,6 +40,7 @@ exports.getAllCollections = function (req, res) {
   view.on('init', function (next) {
    // const model = keystone.list('Collection').model;
     Collection.find()
+    .where("state", "published")
     .populate('tours')
     .sort('-featured')
     .exec(function(err, result){
@@ -68,11 +69,10 @@ exports.getLanding = function (req, res) {
   const Landing = keystone.list('Landing').model;
 
   view.on('init', function (next) {
-    Landing.findOne({ "slug": lid, "state": "published" })
+    Landing.findOne({ "slug": lid})
     .populate({ 
       path: 'collections', 
-      //populate: { path: 'country', } 
-     // populate: { path: 'tours', model: 'Tour' }
+      //Deep population
       populate: 
         { path: 'tours' }
     }) 
