@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 padding-top-15">
+      <h1 class="search-title text-center">
+        {{{getTourLocName data.collection.title.es data.collection.title.en}}} 
+      </h1>
+      <p>
+        {{{getTourLocName data.collection.description.es data.collection.description.en}}}
+      </p>
+      <p class="col-md-8">
+
+      </p>
+    </div>
+    <div class="col-md-12">
+
+      <div class="tour-search-list">
+        {{#each data.collection.tours}}
+      
+        <div class="col-md-3 col-sm-6 col-xs-12" id="search-tour-item-{{@index}}">
+      
+      
+          <a href="/tour/{{slug}}" class="listing-item-container">
+            <div class="listing-item">
+              {{#if heroImage.secure_url}}
+              <img async
+                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
+                alt="{{name}}">
+              {{else}}
+              <img async
+                src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}"
+                alt="{{name}}">
+              {{/if}}
+      
+            </div>
+      
+            <div class="tour-info">
+              <h3 class="title giveMeEllipsis">{{getTourLocName name name_eng}}
+                <!-- <i class="verified-icon"></i>-->
+              </h3>
+              <span class="description one-line"><i class="fa fa-map-marker"></i> {{city.city}} · <i
+                  class="fa fa-clock-o"></i> {{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}
+                {{/if}}</span>
+              {{#if nOfReviews}}
+              <div class="star-rating" data-rating="{{nOfStars}}">
+                <div class="rating-counter">({{nOfReviews}} {{i18n "reviews"}})</div>
+              </div>
+              {{/if}}
+              <div class="row margin-top-10">
+      
+                <div class="col-md-12 price-box">
+                  <div class="price">
+                    {{#unless nOfReviews}}{{#if multiPrice}}<span class="from-price">{{i18n "from"}}</span>{{/if}}{{/unless}}
+                    <!--<span class="discount-price">$154 USD</span>-->
+                    <h3>{{getPriceInCurrency price ../data.currency}} {{../data.currency}}<span
+                        class="per-person"> {{i18n "per_person"}}</span>
+                      <!--<span class="discount-price">$154 USD</span>-->
+                    </h3>
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+          </a>
+      
+      
+        </div>
+      
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

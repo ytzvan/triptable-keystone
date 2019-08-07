@@ -280,12 +280,26 @@
 			<!-- Food Menu / End -->
 			<div class="listing-overview">
 						<div class="col-lg-6 col-md-12">
-						<!--<i class="im im-icon-Calendar-4"></i> 
-						<span>Fecha: </span> -->
-						<div class="wc-bookings-date-picker" id="datepicker">
-						<input type="hidden" id="hiddenDate" name="date" value="">
-						<input type="hidden" name="tourId" value="{{data.tour.tourId}}">
-						</div>
+							{{#if data.tour.isExcursion}}
+							<div>
+								<h4> <i class="im im-icon-Calendar "></i> {{i18n "pick_a_date"}}: </h4>
+								<select name="date" size="1">
+									{{#each data.dates}}
+									<option value="{{{parseDate this}}}">{{{parseDate this}}}</option>
+									{{/each}}
+								</select>
+							</div>
+							{{else}}
+							<!--<i class="im im-icon-Calendar-4"></i> 
+													<span>Fecha: </span> -->
+							<div class="wc-bookings-date-picker" id="datepicker">
+														<input type="hidden" id="hiddenDate" name="date" value="">
+														<input type="hidden" name="tourId" value="{{data.tour.tourId}}">
+														</div> 
+							{{/if}}
+						
+					
+									
 					</div>
 							<div class="col-lg-6 col-md-12">
 

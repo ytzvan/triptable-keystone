@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{{getLang}}}">
 <head>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//www.google-analytics.com">
+	<link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
+	<link href="https://res.cloudinary.com" rel="preconnect" crossorigin />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,28 +30,22 @@
 	{{/if}}
 	{{#if meta.canonical}}
 	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
-	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
 	<link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com{{meta.canonical}}" />
 	<link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com{{meta.canonical}}" />
-	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}"/>
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
 	{{else}}
 	<meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com" />
-	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
 	<link rel="alternate" hreflang="es" href="https://es.triptable.com/" />
-	<link rel="alternate" hreflang="es-419" href="https://es.triptable.com/" />
-	<link rel="alternate" hreflang="es-ES" href="https://es.triptable.com/" />
 	<link rel="alternate" hreflang="en" href="https://en.triptable.com/" />
-	<link rel="alternate" hreflang="en-US" href="https://en.triptable.com/"/>
-	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com/" />
+	<link rel="alternate" hreflang="x-default" href="https://www.triptable.com" />
+	<link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
 	{{/if}}
 	{{#if meta.nextUrl}}
-	<link rel="next" href="{{meta.nextUrl}}" />
+	<link rel="next" href="https://{{{getSubdomain}}}.triptable.com{{meta.nextUrl}}" />
 	{{/if}}
 	{{#if meta.prevUrl}}
-	<link rel="prev" href="{{meta.prevUrl}}" />
+	<link rel="prev" href="https://{{{getSubdomain}}}.triptable.com{{meta.prevUrl}}" />
 	{{/if}}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -56,8 +54,8 @@
 	<meta name="twitter:creator" content="@triptable_es" />
 	<meta property="og:site_name" content="Triptable.com"/>
 	<meta property="og:locale" content="{{lang}}" />
-	<meta property="og:locale:alternate" content="en_US" />
-	<meta property="og:locale:alternate" content="es_ES" />
+	<meta property="og:locale:alternate" content="en" />
+	<meta property="og:locale:alternate" content="es" />
   {{#if meta.ogType}}
   <meta property="og:type" content="{{meta.ogType}}"/>
   {{else}}
@@ -77,15 +75,22 @@
 <!-- CSS
 ================================================== -->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/colors/blue.css" id="colors">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-<link rel="stylesheet" href="/css/custom.css">
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
-<script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+
+
+<link rel="stylesheet" href="/css/imports.min.css">
+<link rel="stylesheet" href="/css/custom.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
 <!-- End Google Tag Manager -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
@@ -280,7 +285,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<a href="https://triptable.tours/address">{{i18n "address_message"}}</span> <br>
 					<i class="fa fa-whatsapp"></i> {{i18n "book_from_whatsapp"}}: <span><a href="https://api.whatsapp.com/send?phone={{getPhoneNumberNoSpace}}">{{getPhoneNumberPretty}}</a> </span><br>
 					<i class="flag-icon flag-icon-pa"></i> {{i18n "panama"}}: <span>+507 833-6195 </span><br>
-					<i class="flag-icon flag-icon-us"></i> US: <span>+1-415-574-0992 </span><br>
 					<span> <a href="mailto:hello@triptable.com">hello@triptable.com</a> </span><br>
 					<a class="social-icon footer" target="_blank" href="http://facebook.com/triptable"><i class="fa fa-facebook"></i></a>
 					<a class="social-icon footer" target="_blank" href="http://twitter.com/triptable_es"><i class="fa fa-twitter"></i></a>
@@ -293,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="col-md-3">
 				<h4 class="footer-title">Top {{i18n "destinations"}}</h4>
 				<ul class="footer-links">
-					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} Guna Yala</a></li>
+					<li><a href="/destino/san-blas-guna-yala">{{i18n "tours_in"}} San Blas</a></li>
 					<li><a href="/destino/bocas-del-toro">{{i18n "tours_in"}} Bocas del Toro</a></li>
 					<li><a href="/destino/cartagena">{{i18n "tours_in"}} Cartagena</a></li>
 					<li><a href="/destino/santa-marta">{{i18n "tours_in"}} Santa Marta</a></li>
@@ -326,6 +330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<li><a href="/partners">{{i18n "tour_guides"}}</a></li>
 					<li><a href="/partners">{{i18n "activities_and_rentals"}}</a></li>
 					<li><a href="/partners">{{i18n "hotels"}}</a></li>
+					<img style="width: 140px;" src="/images/cc-2.png" />
 				</ul>
 				
 
@@ -358,17 +363,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Scripts
 ================================================== -->
 <script src="https://cdn.jsdelivr.net/combine/npm/jpanel-menu@1.4.1,npm/chosen-js@1.6.2,npm/slick-carousel@1.6.0,npm/rangeslider.js@2.3.0,npm/magnific-popup@1.0.0,npm/jquery-waypoints@2.0.3,npm/counterup@1.0.0/jquery.counterup.min.js,npm/jquery.mmenu@6.1.8"></script>
-
 <script type="text/javascript" src="/scripts/mmenu.min.js"></script>
-
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/scripts/tooltips.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-<script type="text/javascript" src="/scripts/custom.js"></script>
+<script type="text/javascript" src="/scripts/custom.min.js"></script>
 <script type="text/javascript" src="/scripts/infobox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js" integrity="sha256-eOXHHkYbq+SyQdCB77WF6zxVYz2BcBjdXHeNZyiwvk4=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/scripts/maps.js"></script>
+<script type="text/javascript" src="/scripts/maps.min.js"></script>
 <!--Booking page scripts -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/intlTelInput.min.js"></script>
 

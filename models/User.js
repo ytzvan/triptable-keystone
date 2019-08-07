@@ -32,7 +32,7 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: {unique: true } },
   cellphone: {type: String},
-	password: { type: Types.Password, initial: true, required: true },
+	password: { type: Types.Password, initial: true, required: true, min: 4, rejectCommon: false },
   referalCode : {type: String},
   promoCode: { type: Types.Relationship, ref: 'PromoCode', index: true, many: true},
   credit : {type: Types.Money, default: 0},

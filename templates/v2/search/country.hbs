@@ -5,9 +5,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 padding-top-15">
-				{{#if data.country}}<h1 class="search-title">{{i18n "search_title"}} {{#if data.city}} {{data.placeName}},{{/if}}
+				{{#if data.country}}
+				<h1 class="search-title">{{i18n "search_title"}} 
+					{{#if data.city}} {{data.placeName}},{{/if}}
 					{{#if data.provinceName}} {{data.placeName}},{{/if}}
-					{{data.country}}:  <span><strong>{{data.tours.total}}</strong> {{i18n "search_subtitle"}}</span></h1>{{/if}}
+					{{data.country}}</h1>{{/if}}
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="hidden-xs">
 					<ul>
@@ -129,9 +131,9 @@
 					<a href="/tour/{{slug}}" class="listing-item-container">
 						<div class="listing-item">
 							{{#if heroImage.secure_url}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
 							{{else}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_340/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
 							{{/if}}
 						<!--	<div class="listing-item-details">
 								<ul>
@@ -182,16 +184,16 @@
 					<div class="pagination-container margin-top-50 margin-bottom-40">
 						<nav class="pagination">
 							<ul>
-								<!--
+							
 								{{#if data.tours.previous}}
-								<li><a href="{{data.url}}&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
-								{{/if}} -->
-								{{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}}
+								<li><a href="?&page={{data.tours.previous}}"><i class="sl sl-icon-arrow-left"></i></a></li>
+								{{/if}}
+							<!--	{{{paginationNavigation data.tours.pages data.tours.currentPage data.tours.totalPages}}} -->
 
 								
-							 	<!--{{#if data.tours.next}}
-								<li><a href="{{data.url}}&page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
-								{{/if}}-->
+							 	{{#if data.tours.next}}
+								<li><a href="?&page={{data.tours.next}}"><i class="sl sl-icon-arrow-right"></i></a></li>
+								{{/if}}
 							</ul>
 						</nav>
 					</div>

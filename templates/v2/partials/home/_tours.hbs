@@ -29,9 +29,9 @@
 					<a href="tour/{{slug}}" class="listing-item-container">
 						<div class="listing-item">
 							{{#if heroImage.secure_url}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_90,h_350/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="{{name}}">
 							{{else}}
-							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_auto,h_600/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
+							<img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_90,h_350/v{{images.0.version}}/{{images.0.public_id}}.{{images.0.format}}" alt="{{name}}">
 							{{/if}}
 							<!--<div class="listing-item-details">
 								<ul>

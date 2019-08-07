@@ -42,7 +42,8 @@ exports = module.exports = function(req, res) {
 			locals.data.tour = result;
 			tourId = result._id;
 			cart = [];
-	
+			locals.data.dates = result.datesAvailable;
+
 			if (result.multiPrice){
 				for (let i=0;i<result.multiPriceCatalog.length;1){
 					var element = {};
