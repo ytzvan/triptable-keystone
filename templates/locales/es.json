@@ -137,7 +137,7 @@
 	"language": "Idioma",
 	"english": "English",
 	"spanish": "Español",
-	"featured": "Destacados",
+	"featured": "Destacado",
 	"frequently_questions": "Preguntas Frecuentes",
 	"terms_and_cond": "Términos y Condiciones",
 	"work_with_us": "Trabaja con Nostros",
@@ -475,5 +475,7 @@
 	"book_from_whatsapp": "Reserva desde WhatsApp",
 	"address_message": "Ave. Los Periodistas, Urb. Industrial Los Angeles, Ciudad de Panamá",
 	"results": "resultados",
-	"meet_our_team": "Conoce nuestro equipo"
+	"meet_our_team": "Conoce nuestro equipo",
+	"pick_a_date": "pick_a_date",
+	"featured_collections": "Colecciones Destacadas"
 }

@@ -46,8 +46,10 @@
 <!-- Categories Partial %- partial("partials/home/_cities") %> -->
 <!-- Info Partial %- partial("partials/home/_info") %> -->
 <div class="calendar container">
+  <!-- 
     <div class="col-md-12">
       <h1 class="title text-center margin-top-10">Próximos Trips</h1>
+
       {{#each data.excursions}}
       <div class="row" style="border: 1px solid black;margin-bottom:5px;">
         
@@ -68,7 +70,48 @@
         </div>
       </div>
       {{/each}}
-    </div>
+
+    </div> -->
+    <section class="fullwidth margin-top-0 padding-top-75 padding-bottom-75">
+      <div class="container">
+    
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="headline centered margin-bottom-55">
+              <strong class="headline-with-separator">{{i18n "featured_collections"}}</strong>
+            </h3>
+          </div>
+        </div>
+    
+        <div class="row">
+          <!-- Blog Post Item -->
+
+          {{#each data.fCollections}}
+          <div class="col-md-3">
+            <a href="/l/{{slug}}" class="blog-compact-item-container">
+              <div class="blog-compact-item">
+                <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_700,g_center,q_90/{{image.public_id}}.{{image.format}}" alt="">
+                <span class="blog-item-tag">{{i18n "featured"}}</span>
+                <div class="blog-compact-item-content">
+                  <ul class="blog-post-tags">
+                    <li></li>
+                  </ul>
+                  <h3>{{name}}</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          {{/each}}
+          <!-- Blog post Item / End -->
+    
+          
+
+
+    
+        </div>
+    
+      </div>
+    </section>
   
 </div>
  {{>home/_cities}}

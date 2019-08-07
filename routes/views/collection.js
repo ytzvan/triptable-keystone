@@ -70,6 +70,7 @@ exports.getLanding = function (req, res) {
 
   view.on('init', function (next) {
     Landing.findOne({ "slug": lid})
+    .where("state", "published")
     .populate({ 
       path: 'collections', options: { sort: { 'featured': -1 } },
       //Deep population

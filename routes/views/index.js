@@ -139,8 +139,22 @@ module.exports = function(req, res) {
       next();
     })
 	});
-	
 	view.on('init', function (next) {
+	let featuredColl = keystone.list('Landing')
+		.model.find()
+		.where("state", "published")
+		.limit(4)
+		.exec((err, fCollections) => {
+			if (!err) {
+			//	console.log(excursions);
+				locals.data.fCollections = fCollections;
+			} else {
+				console.log("error", err);
+			}
+			next();
+		});
+})
+/*	view.on('init', function (next) {
 		let excursions = keystone.list('Tour')
 			.model.where({ "isExcursion": true, "state": "published" })
 			.populate('city')
@@ -153,7 +167,7 @@ module.exports = function(req, res) {
 				}
 				next();
 			});
-	})
+	})*/
 	
 	/*view.on('init', function(next){
 		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";
