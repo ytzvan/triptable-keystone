@@ -479,8 +479,11 @@ $(document).ready(function(){
 
 	$('.simple-slick-carousel').slick({
 		infinite: true,
-		slidesToShow: 3,
-		slidesToScroll: 3,
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		speed: 1000,
+		autoplaySpeed: 3000,
+		autoplay:true,
 		dots: true,
 		arrows: true,
 		responsive: [

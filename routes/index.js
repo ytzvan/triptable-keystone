@@ -62,7 +62,10 @@ exports = module.exports = function(app) {
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
 	app.all('/u/:userid', routes.views.operator.index);
-	
+	//Collections
+	app.get('/c/:cid', routes.views.collection.getCollection);
+	app.get('/c/', routes.views.collection.getAllCollections);
+	app.get('/l/:lid', routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
 	app.get('/currency/:currency', routes.utils.index.setCurrency);

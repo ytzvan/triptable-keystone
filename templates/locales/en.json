@@ -452,7 +452,8 @@
 	"infant_price_disabled_message": "Activity not Available for Infants",
 	"panama_city": "Panama City",
 	"book_from_whatsapp": "Book from WhatsApp",
-	"address_message": "#L-54, 63 C Street, Los Angeles Industrial Urbanization, Panama",
-	"select_date": "select_date",
-	"pick_a_date": "pick_a_date"
+	"address_message": "Los Periodistas Ave., Los Angeles Industrial Urbanization, Panama",
+	"select_date": "Select Date",
+	"pick_a_date": "Pick a Date",
+	"meet_our_team": "Meet Our Team"
 }

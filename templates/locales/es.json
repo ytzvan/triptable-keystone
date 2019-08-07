@@ -467,12 +467,13 @@
 	"account": "Cuenta",
 	"mainActivity": "mainActivity",
 	"years_old": "Años",
-	"age": "age",
+	"age": "Edad",
 	"chiild_price_disabled_message": "Actividad no disponible para niños",
 	"infant_price_disabled_message": "Actividad no disponible para infantes",
-	"ages": "ages",
+	"ages": "Edades",
 	"panama_city": "Ciudad de Panamá",
 	"book_from_whatsapp": "Reserva desde WhatsApp",
-	"address_message": "#L-54, Calle 63C, Urb. Industrial Los Angeles, Ciudad de Panamá",
-	"results": "resultados"
+	"address_message": "Ave. Los Periodistas, Urb. Industrial Los Angeles, Ciudad de Panamá",
+	"results": "resultados",
+	"meet_our_team": "Conoce nuestro equipo"
 }
