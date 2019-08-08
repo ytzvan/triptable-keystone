@@ -3,7 +3,7 @@ var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
 var cache = require('express-redis-cache')({
-	host: "ec2-3-221-250-213.compute-1.amazonaws.com", port: 28309, auth_pass: "p937a48aec32d8516a17b608f0c41ab2572b4e573a90b757442c68375dd8ad1d3"
+	host: "ec2-3-221-250-213.compute-1.amazonaws.com", port: 27769, auth_pass: "p025055075984cf54e7c8af5c44107628be5bcf451da617a5de79b04fa1aaf3f1"
 });
 
 // Common Middleware
