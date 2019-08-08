@@ -18,7 +18,6 @@ exports.getCollection = function (req, res) {
         return res.status(404).render('errors/404');
       }
       if (!err) {
-        console.log("result", result);
         locals.data.collection = result;
         next();
       } else {
@@ -65,7 +64,6 @@ exports.getLanding = function (req, res) {
   var locals = res.locals;
   locals.data.currency = req.session.currency.currency;
   const lid = req.params.lid;
-  console.log("lid",lid)
   const Landing = keystone.list('Landing').model;
 
   view.on('init', function (next) {
@@ -86,7 +84,6 @@ exports.getLanding = function (req, res) {
         locals.data.collections = result.collections;
         next();
       } else {
-
         console.log("console.log:", err);
         return res.status(404).render('errors/404');  
         //next();
