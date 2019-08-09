@@ -61,16 +61,16 @@ exports = module.exports = function(app) {
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
-	app.get('/destino/:city', cache.route(), routes.search.city);
+	app.get('/destino/:city', routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
 	app.all('/u/:userid', routes.views.operator.index);
 	//Collections
-	app.get('/c/:cid', cache.route(), routes.views.collection.getCollection);
+	app.get('/c/:cid', routes.views.collection.getCollection);
 	//app.get('/c/', routes.views.collection.getAllCollections);
-	app.get('/l/:lid', cache.route(), routes.views.collection.getLanding);
+	app.get('/l/:lid', routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
 	app.get('/currency/:currency', routes.utils.index.setCurrency);
@@ -85,7 +85,7 @@ exports = module.exports = function(app) {
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
-	app.all('/tour/:slug', cache.route(), routes.views.tour);
+	app.all('/tour/:slug', routes.views.tour);
 
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
@@ -97,8 +97,8 @@ exports = module.exports = function(app) {
 
 
 	//Search Views
-	app.get('/:country', cache.route(), routes.search.country);
-	app.get('/:country/:province', cache.route(), routes.search.province);
+	app.get('/:country', routes.search.country);
+	app.get('/:country/:province', routes.search.province);
 
 
 	//Fallback
