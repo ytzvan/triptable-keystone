@@ -34,7 +34,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	// Views
-	app.get('/', cache.route('home'), routes.views.index);
+	app.get('/', routes.views.index);
 	
 	//Static views
 	app.all('/signup', routes.auth.signup);
