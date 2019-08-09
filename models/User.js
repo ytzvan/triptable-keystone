@@ -6,7 +6,9 @@ var SlackUtils = require('../utils').SlackUtils;
  * User Model
  * ==========
  */
-var User = new keystone.List('User', {defaultSort: '-createdAt' });
+var User = new keystone.List('User', {
+	defaultSort: '-createdAt', nodelete: true
+ });
 
 var storage = new keystone.Storage({
   adapter: require('keystone-storage-adapter-s3'),

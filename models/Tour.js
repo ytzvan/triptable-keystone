@@ -17,7 +17,8 @@ var algoliasearch = require('algoliasearch');
 
 var Tour = new keystone.List('Tour', {
 	map: { name: 'name' },
-	autokey: { path: 'slug', from: 'name', unique: true }
+	autokey: { path: 'slug', from: 'name', unique: true },
+	nodelete: true
 });
 
 Tour.add({

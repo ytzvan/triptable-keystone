@@ -23,7 +23,8 @@ var bookingEmailName = "Reservas Triptable";
 
 
 var Enquiry = new keystone.List('Enquiry', {
-	nocreate: true
+	nocreate: true,
+	nodelete: true
 });
 
 Enquiry.add({
