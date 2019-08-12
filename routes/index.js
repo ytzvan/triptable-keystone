@@ -3,7 +3,7 @@ var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
 var cache = require('express-redis-cache')({
-	host: "ec2-3-221-250-213.compute-1.amazonaws.com", port: 28309, auth_pass: "p937a48aec32d8516a17b608f0c41ab2572b4e573a90b757442c68375dd8ad1d3"
+	host: "ec2-3-221-250-213.compute-1.amazonaws.com", port: 27769, auth_pass: "p025055075984cf54e7c8af5c44107628be5bcf451da617a5de79b04fa1aaf3f1"
 });
 
 // Common Middleware
@@ -34,7 +34,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	// Views
-	app.get('/', cache.route('home'), routes.views.index);
+	app.get('/', routes.views.index);
 	
 	//Static views
 	app.all('/signup', routes.auth.signup);
@@ -61,16 +61,16 @@ exports = module.exports = function(app) {
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
-	app.get('/destino/:city', cache.route(), routes.search.city);
+	app.get('/destino/:city', routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
 	app.all('/u/:userid', routes.views.operator.index);
 	//Collections
-	app.get('/c/:cid', cache.route(), routes.views.collection.getCollection);
+	app.get('/c/:cid', routes.views.collection.getCollection);
 	//app.get('/c/', routes.views.collection.getAllCollections);
-	app.get('/l/:lid', cache.route(), routes.views.collection.getLanding);
+	app.get('/l/:lid', routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
 	app.get('/currency/:currency', routes.utils.index.setCurrency);
@@ -85,7 +85,7 @@ exports = module.exports = function(app) {
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
-	app.all('/tour/:slug', cache.route(), routes.views.tour);
+	app.all('/tour/:slug', routes.views.tour);
 
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
@@ -97,8 +97,8 @@ exports = module.exports = function(app) {
 
 
 	//Search Views
-	app.get('/:country', cache.route(), routes.search.country);
-	app.get('/:country/:province', cache.route(), routes.search.province);
+	app.get('/:country', routes.search.country);
+	app.get('/:country/:province', routes.search.province);
 
 
 	//Fallback
