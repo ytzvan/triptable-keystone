@@ -114,6 +114,13 @@ exports = module.exports = function(app) {
 		console.log("connected");
 	});
 
+	cache.del(/** String */ 'home', /** Function ( Error, Number deletions ) */ function(err, succ) { // del on init
+		if (!err) {
+			console.log(succ);
+		} else {
+			console.log(err);
+		}
 
+	});
 
 };

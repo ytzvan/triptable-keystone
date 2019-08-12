@@ -1,4 +1,18 @@
 <style>
+   .main-search-inner h1.title {
+      font-size: 2.7em;
+      font-weight: 500;
+      color:#ecf0f1
+  }
+  
+    h2.subtitle  {
+      font-size: 1.9em;
+      font-weight: 400;
+      color:#ecf0f1
+  }
+  .tour-info .price h3{
+    margin-bottom:0px;
+  }
   @media(max-width:767px){
     .blog-compact-item{
       height: 200px;
@@ -24,20 +38,45 @@
     height: 40vh;
     min-height: 40vh;
   }
+
+  .main-search-inner h1.title {
+      font-size: 2em;
+      font-weight: 500;
+      color:#ecf0f1
+  }
+  
+    h2.subtitle  {
+      font-size: 1.2em;
+      font-weight: 400;
+      color:#ecf0f1
+  }
   
   }
+  
   .home-feature-tours-slider{
       background-color: #f8f8f8;
   }
   .tour-info {
     min-height: 145px;
   }
-  
+  .tour-info h3.title{
+    margin-top: 0px;
+  }
+  .giveMeEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 23px;
+    max-height: 46px;
+}
+ 
 </style>
 <!-- Banner
 ================================================== -->
 {{#if data.homeImage.image}}
-       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_scale,q_85,h_800/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
+       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/f_auto,c_scale,q_85,h_700/{{data.homeImage.image.public_id}}.{{data.homeImage.image.format}}" style="background-position: center {{data.homeImage.verticalPosition}}%;">
       {{else}}
       <div class="main-search-container" data-background-image="https://res.cloudinary.com/triptable/image/upload/c_fit,h_1200,q_auto:eco/v1522689386/eeipmxfzwzggjtyuls2y.jpg"  style="background-position: center 50%";>
       {{/if}}
@@ -163,6 +202,11 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+
+  setTimeout(function () { 
+    $(".tour-info h3.title").css("line-height", "19px");
+    $(".one-line").css("line-height", "19px");
+    }, 500);
 
 
   $('.tour-item-desc p').css( {"-webkit-line-clamp":"1","-webkit-box-orient":"verticals", "overflow" :"hidden","text-overflow":"ellipsis","display": "-webkit-box"});

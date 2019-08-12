@@ -472,7 +472,7 @@ $(document).ready(function(){
 		centerMode: false,
 		centerPadding: '10%',
 		slidesToShow: 4, 
-		autoplay:true,
+		autoplay:false,
 		arrows: true,
 		dots:true,
 		 responsive: [

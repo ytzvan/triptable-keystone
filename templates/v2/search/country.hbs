@@ -226,7 +226,13 @@
 </div>
 </section>
 <script type="text/javascript">
+
   $(document).ready(function(){
+		 setTimeout(function () {
+			$(".tour-info h3.title").css("line-height", "19px");
+			$(".one-line").css("line-height", "19px");
+		}, 500);
+		
 		$('#countries-select').val("{{data.country}}"); //value of your default option
 		$('#cities-select').val("{{data.city}}"); //value of your default option
 		$('#collections-select').val("{{data.activeCollection}}"); //value of your default option

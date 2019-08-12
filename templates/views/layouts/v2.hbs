@@ -77,22 +77,6 @@
 ================================================== -->
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
-
-
-<link rel="stylesheet" href="/css/imports.min.css">
-<link rel="stylesheet" href="/css/custom.min.css">
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600">
-
-
-<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
-<!-- End Google Tag Manager -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
 <!-- Google Tag Manager (noscript) -->
 <script>window.intercomSettings = {
 		app_id: "eimw7fx8"
@@ -112,6 +96,9 @@
 
 	}
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/imports.min.css">
+
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXZ459T"
@@ -209,26 +196,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 			<!-- Left Side Content / End -->
 			<script>
-				$(document).ready(function(){
-
-					var lang= "{{data.country}}";
-					if (lang === "panama"){
-						var str = '<i class="flag-icon flag-icon-pa">';
-						$('#country-select').prepend(str);
-					} 
-					if (lang === "colombia") {
-						var str = '<i class="flag-icon flag-icon-co">';
-						$('#country-select').prepend(str);
-					};
-					if (lang === "mexico") {
-						var str = '<i class="flag-icon flag-icon-mx">';
-						$('#country-select').prepend(str);
-					};
-					var currency =  "{{session.userCurrency.value}}";
-				
-					$('#currency-select').append(currency);
-					$('#change-currency-elem').append(currency);
-				});
+			
 
 			
 			</script>
@@ -359,16 +327,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <!-- Wrapper / End -->
 
+<link rel="preload" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css" as="style"
+	onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+	<link rel="stylesheet" href="styles.css"></noscript>
+
+
+<link rel="stylesheet" href="/css/custom.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/jquery.raty.min.css">
+<!-- End Google Tag Manager -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVYjgNwW9kByNu97M0G-BKZYCe1HO2uv0"></script>
+
 <!-- Scripts
 ================================================== -->
 <script src="https://cdn.jsdelivr.net/combine/npm/jpanel-menu@1.4.1,npm/chosen-js@1.6.2,npm/slick-carousel@1.6.0,npm/rangeslider.js@2.3.0,npm/magnific-popup@1.0.0,npm/jquery-waypoints@2.0.3,npm/counterup@1.0.0/jquery.counterup.min.js,npm/jquery.mmenu@6.1.8"></script>
-<script type="text/javascript" src="/scripts/mmenu.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script async type="text/javascript" src="/scripts/mmenu.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script type="text/javascript" src="/scripts/tooltips.min.js"></script>
-<script type="text/javascript" src="/scripts/custom.min.js"></script>
-<script type="text/javascript" src="/scripts/infobox.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js" integrity="sha256-eOXHHkYbq+SyQdCB77WF6zxVYz2BcBjdXHeNZyiwvk4=" crossorigin="anonymous"></script>
+<script async type="text/javascript" src="/scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="/scripts/custom.js"></script>
+<script async type="text/javascript" src="/scripts/infobox.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js" integrity="sha256-eOXHHkYbq+SyQdCB77WF6zxVYz2BcBjdXHeNZyiwvk4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/scripts/maps.min.js"></script>
 <!--Booking page scripts -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.1/js/intlTelInput.min.js"></script>
@@ -377,6 +362,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.js"></script>
 <script type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+     	var lang = "{{data.country}}";
+	if (lang === "panama") {
+		var str = '<i class="flag-icon flag-icon-pa">';
+		$('#country-select').prepend(str);
+	}
+	if (lang === "colombia") {
+		var str = '<i class="flag-icon flag-icon-co">';
+		$('#country-select').prepend(str);
+	};
+	if (lang === "mexico") {
+		var str = '<i class="flag-icon flag-icon-mx">';
+		$('#country-select').prepend(str);
+	};
+	var currency = "{{session.userCurrency.value}}";
+
+	$('#currency-select').append(currency);
+	$('#change-currency-elem').append(currency);
+});
+				
 if (document.location.hostname.search("triptable.com") !== -1) {
 function setProductClick(productObj, listName) {
   dataLayer.push({

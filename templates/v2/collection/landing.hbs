@@ -1,6 +1,84 @@
+
 <style>
+  .main-search-inner h1.title {
+    font-size: 2.7em;
+    font-weight: 500;
+    color: #ecf0f1
+  }
+
+  h2.subtitle {
+    font-size: 1.9em;
+    font-weight: 400;
+    color: #ecf0f1
+  }
+
+  @media(max-width:767px) {
+    .blog-compact-item {
+      height: 200px;
+    }
+
+    .blog-compact-item-content {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      padding: 0 5px;
+      width: 100%;
+      z-index: 50;
+      box-sizing: border-box;
+    }
+
+    span.blog-item-tag {
+      display: none;
+    }
+
+    .blog-compact-item-content h3 {
+      padding: 5px 5px;
+      line-height: 20px;
+    }
+
+    .listing-slider,
+    .listing-slider .item {
+      height: 40vh;
+      min-height: 40vh;
+    }
+
+    .main-search-inner h1.title {
+      font-size: 2em;
+      font-weight: 500;
+      color: #ecf0f1
+    }
+
+    h2.subtitle {
+      font-size: 1.2em;
+      font-weight: 400;
+      color: #ecf0f1
+    }
+
+  }
+
+  .home-feature-tours-slider {
+    background-color: #f8f8f8;
+  }
+
   .tour-info {
     min-height: 145px;
+  }
+
+  .tour-info h3.title {
+    margin-top: 0px;
+  }
+   .tour-info {
+    min-height: 145px;
+  }
+
+  .giveMeEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 23px;
+    max-height: 46px;
   }
 </style>
 <!-- Fullwidth Section -->
@@ -12,8 +90,8 @@
   </div>
 </div>
 
-<section class="fullwidth margin-top-20 padding-bottom-20" data-background-color="#f8f8f8">
-<div class="container">
+<section class="fullwidth margin-top-20 padding-bottom-20">
+<div class="container"> 
   <div class="row">
 {{#each data.collections}}
 <div class="col-md-12 margin-top-25 padding-top-15">
@@ -22,10 +100,10 @@
 </div>
 
 <div class="col-md-12">
-<div class="simple-slick-carousel dots-nav">
+<div class="listing-slider dots-nav">
   {{#each tours}}
   <!-- Listing Item -->
-  <div class="carousel-item">
+  <div class="carousel-item col-md-3" style="background-color: #f8f8f8;">
     <a href="/tour/{{slug}}" class="listing-item-container">
       <div class="listing-item">
         {{#if heroImage.secure_url}}
@@ -80,3 +158,13 @@
 </div>
 </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+setTimeout(function () {
+$(".tour-info h3.title").css("line-height", "19px");
+$(".one-line").css("line-height", "19px");
+}, 500);
+});
+</script>
