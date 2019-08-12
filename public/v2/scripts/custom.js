@@ -469,11 +469,42 @@ $(document).ready(function(){
 
 
 	 $('.listing-slider').slick({
-		centerMode: true,
-		centerPadding: '0%',
-		slidesToShow: 1, 
-		autoplaySpeed: 2000,
-		autoplay:true
+		centerMode: false,
+		centerPadding: '10%',
+		slidesToShow: 4, 
+		autoplay:true,
+		arrows: true,
+		dots:true,
+		 responsive: [
+			 {
+				 breakpoint: 1366,
+				 settings: {
+					 slidesToShow: 4,
+					 slidesToScroll: 4,
+				 }
+			 },
+			 {
+				 breakpoint: 980,
+				 settings: {
+					 slidesToShow: 3,
+					 slidesToScroll: 3,
+				 }
+			 },
+			 {
+				 breakpoint: 735,
+				 settings: {
+					 slidesToShow: 2,
+					 slidesToScroll: 2,
+				 }
+			 },
+			 {
+				 breakpoint: 579,
+				 settings: {
+					 slidesToShow: 1,
+					 slidesToScroll: 1
+				 }
+			 }
+		 ]
 	});
 
 
@@ -490,17 +521,17 @@ $(document).ready(function(){
 		    {
 		      breakpoint: 992,
 		      settings: {
-		        slidesToShow: 2,
-		        slidesToScroll: 2
+		        slidesToShow: 3,
+		        slidesToScroll: 3
 		      }
 		    },
 		    {
 		      breakpoint: 769,
 		      settings: {
-		        slidesToShow: 1,
-		        slidesToScroll: 1
+		        slidesToShow: 2,
+		        slidesToScroll: 2
 		      }
-		    }
+				}
 	  ]
 	});
 

@@ -1,3 +1,39 @@
+<style>
+  @media(max-width:767px){
+    .blog-compact-item{
+      height: 200px;
+    }
+    .blog-compact-item-content{
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      padding: 0 5px;
+      width: 100%;
+      z-index: 50;
+      box-sizing: border-box;
+    }
+   span.blog-item-tag {
+     display: none;
+   } 
+   .blog-compact-item-content h3 {
+    padding: 5px 5px;
+    line-height: 20px;
+  }
+
+  .listing-slider, .listing-slider .item {
+    height: 40vh;
+    min-height: 40vh;
+  }
+  
+  }
+  .home-feature-tours-slider{
+      background-color: #f8f8f8;
+  }
+  .tour-info {
+    min-height: 145px;
+  }
+  
+</style>
 <!-- Banner
 ================================================== -->
 {{#if data.homeImage.image}}
@@ -72,7 +108,7 @@
       {{/each}}
 
     </div> -->
-    <section class="fullwidth margin-top-0 padding-top-75">
+    <section class="fullwidth margin-top-0 padding-top-75 home-tours">
       <div class="container">
     
         <div class="row">
@@ -90,13 +126,13 @@
           <div class="col-md-3 col-xs-6">
             <a href="/l/{{slug}}" class="blog-compact-item-container">
               <div class="blog-compact-item">
-                <img src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_700,g_center,q_90/{{image.public_id}}.{{image.format}}" alt="">
+                <img src="https://res.cloudinary.com/triptable/image/upload/q_auto,f_auto,c_fill,h_600,g_center/{{image.public_id}}.{{image.format}}" alt="">
                 <span class="blog-item-tag">{{i18n "featured"}}</span>
                 <div class="blog-compact-item-content">
                   <ul class="blog-post-tags">
                     <li></li>
                   </ul>
-                  <h3>{{name}}</h3>
+                  <h3>{{{getTourLocName title.es title.en}}}</h3>
                 </div>
               </div>
             </a>

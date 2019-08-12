@@ -1,4 +1,8 @@
-
+<style>
+  .tour-info {
+    min-height: 145px;
+  }
+</style>
 <!-- Fullwidth Section -->
 <div class="container">
   <div class="row">
@@ -14,7 +18,7 @@
 {{#each data.collections}}
 <div class="col-md-12 margin-top-25 padding-top-15">
   <h2 style="font-weight: 500;">{{{getTourLocName title.es title.en}}}</h2>
-  <p><a href="/c/{{slug}}">Ver todos</a></p>
+  <p><a href="/c/{{slug}}">{{i18n "see_all"}}</a></p>
 </div>
 
 <div class="col-md-12">
