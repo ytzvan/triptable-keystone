@@ -11,7 +11,7 @@
 			</div>
 			{{else}} 
 			<div class="col-md-6 text-center">
-			<img alt="{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}} {{data.tour.name}} {{/if_eq}}" async src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_375,g_center/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}"/>
+			<img alt="{{#if_eq lang "en"}} {{#if data.tour.name_eng}} {{data.tour.name_eng}} {{else}} {{data.tour.name}} {{/if}} {{else}} {{data.tour.name}} {{/if_eq}}" async data-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_375,g_center/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}" class="lazyload" />
 			</div>
 			{{/if}}
 		<!-- Contact Form -->
