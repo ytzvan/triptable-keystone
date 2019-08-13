@@ -3,9 +3,9 @@ var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
 var cache = require('express-redis-cache')({
-	host: "ec2-3-221-250-213.compute-1.amazonaws.com", port: 27769, auth_pass: "p025055075984cf54e7c8af5c44107628be5bcf451da617a5de79b04fa1aaf3f1"
+	host: "ec2-3-221-250-213.compute-1.amazonaws.com", 
+	port: 27769, auth_pass: "p025055075984cf54e7c8af5c44107628be5bcf451da617a5de79b04fa1aaf3f1",
 });
-
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -33,8 +33,13 @@ var routes = {
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	// Views
-	app.get('/', routes.views.index);
+	app.get('/', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		pathUrl = path;
+		console.log("path", this.pathUrl);
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(),routes.views.index);
 	
 	//Static views
 	app.all('/signup', routes.auth.signup);
@@ -61,16 +66,32 @@ exports = module.exports = function(app) {
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
-	app.get('/destino/:city', routes.search.city);
+	app.get('/destino/:city', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
-	app.all('/u/:userid', routes.views.operator.index);
+	app.all('/u/:userid', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(),routes.views.operator.index);
 	//Collections
-	app.get('/c/:cid', routes.views.collection.getCollection);
+	app.get('/c/:cid', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.views.collection.getCollection);
 	//app.get('/c/', routes.views.collection.getAllCollections);
-	app.get('/l/:lid', routes.views.collection.getLanding);
+	app.get('/l/:lid', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
 	app.get('/currency/:currency', routes.utils.index.setCurrency);
@@ -85,7 +106,11 @@ exports = module.exports = function(app) {
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
-	app.all('/tour/:slug', routes.views.tour);
+	app.all('/tour/:slug', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.views.tour);
 
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
@@ -97,8 +122,17 @@ exports = module.exports = function(app) {
 
 
 	//Search Views
-	app.get('/:country', routes.search.country);
-	app.get('/:country/:province', routes.search.province);
+	app.get('/:country', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.search.country);
+	app.get('/:country/:province', function (req, res, next) {
+		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+		console.log("path", path);
+		res.express_redis_cache_name = path;
+		next();
+	}, cache.route(), routes.search.province);
 
 
 	//Fallback
@@ -107,20 +141,14 @@ exports = module.exports = function(app) {
 	});
 
 	cache.on('message', function (message) {
-		console.log("redis", message);
 	});
 
 	cache.on('connected', function () {
-		console.log("connected");
 	});
 
-	cache.del(/** String */ 'home', /** Function ( Error, Number deletions ) */ function(err, succ) { // del on init
-		if (!err) {
-			console.log(succ);
-		} else {
-			console.log(err);
-		}
 
-	});
+	cache.del('/*', function(err, del){ console.log("del", del) });
+
+
 
 };
