@@ -33,7 +33,7 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'signin url': '/signin',
-	'signin redirect' : '/',
+	'signin redirect' : '/user',
 	'signout url' : '/signout',
 	'signout redirect' : '/',
 	'compress':true,

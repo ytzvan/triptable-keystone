@@ -2,10 +2,8 @@ var keystone = require('keystone');
 var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
-var cache = require('express-redis-cache')({
-	host: "ec2-3-221-250-213.compute-1.amazonaws.com", 
-	port: 27769, auth_pass: "p025055075984cf54e7c8af5c44107628be5bcf451da617a5de79b04fa1aaf3f1",
-});
+var cache = require('express-redis-cache')({ client: require('redis').createClient(process.env.REDIS_URL) })
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -34,11 +32,20 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	app.get('/', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		pathUrl = path;
-		console.log("path", this.pathUrl);
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			pathUrl = path;
+			console.log("using cache: true");
+			console.log("path", this.pathUrl);
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(),routes.views.index);
 	
 	//Static views
@@ -67,30 +74,60 @@ exports = module.exports = function(app) {
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
 	app.get('/destino/:city', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(), routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
 	//User
 	app.all('/u/:userid', function (req, res, next) {
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
 		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
 		res.express_redis_cache_name = path;
 		next();
+		}
 	}, cache.route(),routes.views.operator.index);
 	//Collections
 	app.get('/c/:cid', function (req, res, next) {
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
 		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
 		res.express_redis_cache_name = path;
 		next();
+		}
 	}, cache.route(), routes.views.collection.getCollection);
 	//app.get('/c/', routes.views.collection.getAllCollections);
 	app.get('/l/:lid', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(), routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
@@ -107,9 +144,17 @@ exports = module.exports = function(app) {
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
 	app.all('/tour/:slug', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(), routes.views.tour);
 
 	//V1 API Routes
@@ -123,15 +168,30 @@ exports = module.exports = function(app) {
 
 	//Search Views
 	app.get('/:country', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(), routes.search.country);
 	app.get('/:country/:province', function (req, res, next) {
-		let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-		console.log("path", path);
-		res.express_redis_cache_name = path;
-		next();
+		if (req.session.userId) {
+			console.log(req.session.userId);
+			console.log("using cache: false");
+			res.use_express_redis_cache = false;
+			next();
+		}
+		else {
+			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
+			res.express_redis_cache_name = path;
+			next();
+		}
 	}, cache.route(), routes.search.province);
 
 
