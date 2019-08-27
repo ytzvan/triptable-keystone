@@ -7,7 +7,58 @@ exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	let searchQuery = {};
+	//req.query
+	if (req.query.hotel_pickup) {
+		searchQuery.hotelPickup = true;
+	}
+	console.log(searchQuery);
+	if (req.query.multiday) {
+		searchQuery.isMultiDay = true; //Only Tour + Stay Package: Packages always have a place to sleep. 
+	}
+	console.log(searchQuery);
+	if (req.query.transportation) {
+		searchQuery.isTransport = true;
+	}
+	console.log(searchQuery);
+	if (req.query.group_excursions) {
+		searchQuery.isExcursion = true;
+	}
+	console.log(searchQuery);
 
+	if (req.query.range) {
+		let range = req.query.range;
+		let split = range.split(';');
+		let minPrice = split[0];
+		let maxPrice = split[1];
+	//	searchQuery.price = { $gte: minPrice};
+	searchQuery.price = { $gte: minPrice, $lte: maxPrice};
+	}
+	const sortQuery = {};
+	const sort = req.query.sort;
+	console.log("sort", sort);
+	if (sort) {
+		if (sort == 0) {
+			sortQuery.mostSell = -1;
+			sortQuery.featured = -1;
+		}
+		if (sort == 1) { // Sort From low - to high price
+			console.log("sort by lowest Price");
+			sortQuery.price = 1;
+		}
+		if (sort == 2) { // Sort from High Price - to Low
+			sortQuery.price = -1;
+		}
+		if (sort == 3) { // Sort from Latest added / updated
+		}
+		sortQuery.publishedDate = -1;
+	} else {
+		sortQuery.mostSell = -1;
+		sortQuery.featured = -1;
+		sortQuery.publishedDate = -1;
+	}
+	searchQuery.state = "published";
+	console.log(searchQuery);
 	// Init locals
 	locals.section = 'city';
 	locals.data = {
@@ -32,9 +83,19 @@ exports = module.exports = function(req, res) {
 	locals.data.url = url;
 
 	view.on('init', function(next) {
-
 		keystone.list('City').model.findOne(query)
-		.populate('country collections')
+	//	.populate('country collections')
+		.populate({
+			path: 'country collections',
+		//	match: { featured: { $equals: true } },
+		//	select: 'slug title image.version image.public_id image.format image.secure_url',
+			options: { limit: 5}
+		//	select: 'name',
+			/*	populate: {
+					path: 'tours'
+				}*/
+			}
+		)
 		.exec(function(err, place) { //Query tours from city
 
 			if (err || !place) {
@@ -107,12 +168,39 @@ exports = module.exports = function(req, res) {
 			if (place.image) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/w_900/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
-
-			var q = keystone.list('Tour')
-  				.paginate({page: req.query.page || 1, perPage: 30})
-		        .find({"state": "published"})
+			let limit = 10; // tours per page
+			let page = req.query.page || 1;
+			let skip;
+			page = parseInt(page);
+			if (page !== 1 ) {
+				skip = page * limit - limit;
+				console.log("skip",skip);
+				console.log("page",page);
+			} else {
+				skip = 0;
+				console.log("skip", skip);
+			}
+			locals.data.currentPage = page;
+			let count;
+			keystone.list('Tour').model.count({
+				"state": "published",
+				"city": cityId
+			}, function (err, c) {
+					console.log("count ", c);
+					console.log("pages ", c/limit);
+					let pages = c / limit;
+					count = Math.floor(pages) + 1;
+					locals.data.pages = count;
+					return count = c;
+			});
+			var q = keystone.list('Tour').model
+					//	.paginate({page: req.query.page || 1, perPage: 10})
+						.find(searchQuery)
 						.where("city", id)
-		        .sort('-publishedDate')
+						.limit(limit)
+						.skip(skip)
+				//		.sort('-publishedDate')
+						.sort(sortQuery)
 						.populate('province country categories city')
 					if (locals.data.filter) {
 							q.where('collections', locals.data.filter)
@@ -120,15 +208,18 @@ exports = module.exports = function(req, res) {
 
 						}
 	  			q.exec(function(err, results) {
-
+						const tourTotal = results.length;
 	  				var origin = req.get('origin');
-	  				let base = req.path;
+						let base = req.path;
+						
 	  				if (results.next) {
 	  					locals.meta.nextUrl = base+"?page="+results.next;
 	  				}
 	  				if (results.previous) {
 	  					locals.meta.prevUrl = base+"?page="+results.previous;
 						}
+
+
 						results.currency = req.session.currency.currency;
 	  				locals.data.tours = results;
 	  				next(err);
@@ -143,6 +234,6 @@ exports = module.exports = function(req, res) {
 
 
 	// Render the view
-	view.render('search/destination');
+	view.render('../v3/search/destination', { layout: 'v3' });
 
 };

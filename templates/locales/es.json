@@ -477,5 +477,20 @@
 	"results": "resultados",
 	"meet_our_team": "Conoce nuestro equipo",
 	"pick_a_date": "pick_a_date",
-	"featured_collections": "Colecciones Destacadas"
+	"featured_collections": "Colecciones Destacadas",
+	"all_experiences": "all_experiences",
+	"im_looking_for": "im_looking_for",
+	"hotel_or_airport_pickup": "hotel_or_airport_pickup",
+	"tour_plus_accomodation": "tour_plus_accomodation",
+	"group_excursions": "group_excursions",
+	"transportation_services": "transportation_services",
+	"sort_by_recommended": "sort_by_recommended",
+	"sort_by_low_price": "sort_by_low_price",
+	"sort_by_high_price": "sort_by_high_price",
+	"sort_by_last_add": "sort_by_last_add",
+	"popular": "popular",
+	"most_sell": "most_sell",
+	"reset_filter": "reset_filter",
+	"filters": "filters",
+	"no_reviews": "no_reviews"
 }

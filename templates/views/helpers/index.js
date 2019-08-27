@@ -482,5 +482,69 @@ module.exports = function() {
 		return str; 
 	}
 
+	_helpers.calcReview = function(review) {
+		const value = parseFloat(review);
+		let rounded = Math.floor(value);
+		let remanente = 5-rounded;
+		let str = '<i class="icon-star voted"></i>';
+		let gray_star = '<i class="icon-star"></i>';
+		let voted = "";
+		let unvoted="";
+		for (let i=0; i <rounded; i++) {
+			voted = str + voted;
+		}
+		for (let y=0; y < remanente; y++) {
+			unvoted = gray_star + unvoted;
+		}
+		let result = voted+unvoted;
+		return result;
+	}
+
+	_helpers.paginateHelper = (currentPage, totalPages) => {
+		let current = currentPage;
+		let total = totalPages; // 3
+
+		let str="";
+
+		for (let i=1; i<=totalPages;i++) {
+			if (i != current) {
+				str = str + '<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>'; 
+			} else {
+				str = str + '<li class="page-item active"><span class="page-link">' + i +'<span class="sr-only">(current)</span></span>';
+			}
+		}
+		return str;
+	}
+
+	_helpers.nextHelper = (currentPage, totalPages) => {
+		if (!currentPage) {
+			let currentPage = 1;
+		}
+		let difference = totalPages - currentPage;
+		let nextPage = currentPage + 1;
+		let nextUrl = "?&page="+nextPage;
+		console.log("nextUrl", nextUrl);
+		if (difference == 0) { // you're in last page
+			return null;
+		} else {
+			return ;
+		}
+	};
+
+	_helpers.prevHelper = (currentPage) => {
+		if (!currentPage) {
+			let currentPage = 1;
+		}
+		let prevPage = currentPage - 1;
+		let prevUrl = "?page=" + prevPage;
+		console.log("prevUrl", prevUrl);
+		if (currentPage == 1 || !currentPage || currentPage == 0)  { //you're in first page 
+			return null;
+		} else {
+			return prevPage;
+		}
+
+
+	};
 	return _helpers;
 };

@@ -53,6 +53,7 @@ Tour.add({
 			"Esto le indica a la plataforma si muestra la duración en Horas o Minutos "
 	},
 	isExcursion: { type: Types.Boolean, defaultsTo: false, index: true},
+	isTransport: { type: Types.Boolean, defaultsTo: false},
 	datesAvailable: {
 		type: Types.DateArray,
 		utc: true,
@@ -202,6 +203,7 @@ Tour.add({
 		en: { type: String, dependsOn: { drinks: true } }
 	},
 	featured: { type: Types.Boolean, default: false },
+	mostSell: { type: Types.Boolean, default: false },
 	insurance: { type: Types.Boolean, default: false },
 	tourGuide: { type: Types.Boolean, default: true },
 	privateCabin: { type: Types.Boolean, default: false },
@@ -228,7 +230,8 @@ Tour.add({
 	city: {
 		type: Types.Relationship,
 		ref: "City",
-		filters: { province: ":province" }
+		filters: { province: ":province" },
+		index: true
 	},
 	collections: {
 		type: Types.Relationship,

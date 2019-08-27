@@ -5,7 +5,8 @@ var Types = keystone.Field.Types;
  * ==========
  */
 var Collection = new keystone.List('Collection', {
-	autokey: { path: 'slug', from: 'name', unique: true, index: true }
+	autokey: { path: 'slug', from: 'name', unique: true, index: true },
+	track: true
 });
 
 Collection.add({
@@ -25,6 +26,7 @@ Collection.add({
 		index: true
 	},
 	image: { type: Types.CloudinaryImage },
+	icon: { type: String },
 	featured: {type: Types.Boolean, default: false },
     country: { type: Types.Relationship, ref: 'Country' },
 	province : { type: Types.Relationship, ref: 'Province', filters: { country: ':country' } },
