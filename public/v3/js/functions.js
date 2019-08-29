@@ -258,13 +258,16 @@ $('#remember-me').iCheck({
 		const sort = urlParams.get("sort");
 		console.log("sort", sort);
 		const elem = $("#sort_price");
-		const currentVal = elem.val();
+		const currentVal = parseInt(elem.val());
+		const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+
 		elem.on("change", function () {
 			console.log(elem.val());
 			if (window.location.search) {
 				console.log(window.location.search);
 				let url = window.location.search;
 				if (sort) {
+					debugger
 					console.log("sort value", sort)
 					let paramUrl = url.replace("&sort=" + currentVal, '&sort=' + elem.val());
 					console.log("paramUrl", paramUrl);
@@ -279,3 +282,14 @@ $('#remember-me').iCheck({
 			}
 		});
 	});
+
+function replacePageParam(pageTo) {
+	const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+	let urlParams = new URLSearchParams(window.location.search);
+	let param = parseInt(urlParams.get('page'));
+	if (param || param !== 1) {
+		urlParams.delete('page');
+		urlParams.append('page', param)
+	}
+	window.location.href = url + '?' + urlParams.toString();
+}

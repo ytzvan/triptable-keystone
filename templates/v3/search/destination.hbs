@@ -14,37 +14,71 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="mt-3 mb-3">{{data.place.city}} {{i18n "tours"}}</h1>
-        <p class="d-none d-md-block">{{data.place.description}} - {{data.collections.tours}}</p>
+        <h1 class="mt-2 mb-2 title">{{data.place.city}} {{i18n "tours"}}</h1>
+        <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> Tours, Actividades y Experiencias. </p>
+        <p class="d-none d-md-block pb-2">{{data.place.description}}</p>
       </div>
     </div>
   </div>
-  <!-- Position -->
-  <div class="collapse" id="collapseMap">
-    <div id="map" class="map"></div>
+
+  {{#if data.collections}}
+  <div class="glide container">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+
+        {{#each data.collections}}
+        <li class="glide__slide">
+        <div class="col-12 collection-container">
+          <div class="tour_container">
+           <!-- {{#if featured}}
+            <div class="ribbon_3 popular collection"><span>Popular</span></div>
+            {{/if}} -->
+            <div class="img_container collection-img-container">
+              <a href="single_tour.html">
+                <img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_85,h_270/v{{image.version}}/{{image.public_id}}.{{image.format}}" width="600" height="533" class="img-fluid" alt="image">
+                <div class="short_info">
+                  <strong>{{#if_eq ../lang "es"}}{{title.es}} {{/if_eq}} {{#if_eq ../lang "en"}}{{title.en}} {{/if_eq}}</strong>
+                </div>
+              </a>
+            </div>
+           
+          </div>
+          <!-- End box tour -->
+        </div>
+        </li>
+        {{/each}}
+
+
+      </ul>
+    </div>    
+   
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        {{#each data.collections}}
+        <button class="glide__bullet" data-glide-dir="={{@index}}"></button>
+        {{/each}}
+      </div>
   </div>
+  {{/if}}
+  <!-- Position -->
   <!-- End Map -->
   <div class="container margin_10">
     <div class="row">
       <aside class="col-lg-3">
-       <!-- <p>
-          <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false"
-            aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-        </p> -->
+
         <div class="row">
-          <div class="col-6 col-md-12">
+          <div class="col-6 col-md-12 d-none d-md-block">
             <div class="box_style_cat">
               <ul id="cat_nav">
-                <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>{{i18n "all_experiences"}} <span>(141)</span></a>
+                <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>{{i18n "all_experiences"}} <span>({{data.totalTours}})</span></a>
                 </li>
                 {{#each data.collections}}
-                <li><a href="#" id=""><i class="icon_set_1_icon-51"></i>{{#if_eq ../lang "es"}} {{title.es}} {{/if_eq}} {{#if_eq ../lang "en"}}{{title.en}} {{/if_eq}}<span>(141)</span></a>
+                <li><a href="#" id=""><i class="icon_set_1_icon-51"></i>{{#if_eq ../lang "es"}} {{title.es}} {{/if_eq}} {{#if_eq ../lang "en"}}{{title.en}} {{/if_eq}}<span>({{tours.length}})</span></a>
                 </li>
                 {{/each}}
               </ul>
-            </div>
+            </div> 
           </div>
-        <div class="col-12">
+        <div class="col-12 ">
           <div id="filters_col">
             <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters"
               id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Filters</a>
@@ -81,11 +115,11 @@
                 </ul>
               </div>
                 <div class="row">
-              <div class="col-6 col-md-8 buttons pr-0">
-                  <input type="submit" class="btn btn-primary" value="Apply Filters">
+              <div class="col-6 col-lg-12 mb-2 buttons">
+                  <input type="submit" id="apply-btn" class="btn btn-success" value="{{i18n "apply_filters"}}">
               </div>
-              <div class="col-6 col-md-4 buttons text-right">
-                <a id="reset-filter" style="text-decoration: underline;" onclick="resetFilter();" class="reset-btn">{{i18n "reset_filter"}}</a>
+              <div class="col-6 col-lg-12 buttons">
+                <a id="reset-filter" onclick="resetFilter();" class="btn btn-danger">{{i18n "reset_filter"}}</a>
               </div>
               </div>
               </form>
@@ -105,18 +139,21 @@
       </aside>
       <!--End aside -->
       <div class="col-lg-9">
-
+      <p class="mb-0 d-block d-md-none ">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
         <div id="tools">
           <div class="row">
             <div class="col-6">
               <div class="styled-select-filters">
                 <select name="sort_price" id="sort_price">
-                  <option value="0" selected>{{i18n "sort_by_recommended"}}</option>
+                  <option value="0" selected>{{i18n "sort_by_popular"}}</option>
                   <option value="1">{{i18n "sort_by_low_price"}}</option>
                   <option value="2">{{i18n "sort_by_high_price"}}</option>
                   <option value="3">{{i18n "sort_by_last_add"}}</option>
                 </select>
               </div>
+            </div>
+            <div class="col-6 d-none d-md-block text-right">
+              <p class="mb-0 pt-2">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
             </div>
             <div class="col-6 d-block d-md-none mobile-filter">
               <p class="text-right"><span class="filter_text_mobile">{{i18n "filters"}}:</span> <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters"><i id="filter_modal" class="pe-7s-edit mobile-filter-icon"></i></a></p></span>
@@ -134,7 +171,7 @@
 
       {{#if featured}}
       <div class="ribbon_3 popular">
-        <span>{{i18n "popular"}}</span>
+        <span>{{i18n "featured"}}</span>
       </div>
       {{/if}}
       {{#if mostSell}}
@@ -151,7 +188,7 @@
       <div class="img_list">
         <a href="/tour/explora-boquete-con-un-guia-experimentado">
           <img async
-            src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_85,h_300/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
+            src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_270/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
             alt="Image">
         </a>
       </div>
@@ -163,19 +200,33 @@
           {{#if nOfReviews}}
           <div class="rating">
             {{{ calcReview nOfStars}}}
-            <small>({{nOfReviews}})</small>
+            <small>({{nOfReviews}} {{i18n "reviews"}})</small>
           </div>
           {{else}}
           <div class="">
-            <p>{{i18n "no_reviews"}}</p>
+            <p>{{i18n "not_reviews_yet"}}</p>
           </div>
           {{/if}}
 
 
-          <p><i class=""> </i>{{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}{{/if}}</p>
+          <p><i class="icon_set_1_icon-52"> </i>{{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}{{/if}}</p>
           <p>{{city.city}}, {{country.country}}</p>
-          <p class="price"><span>{{../data.tours.currency}}   </span>{{getPriceInCurrency price ../data.tours.currency}}<span class="normal_price_list"></span><small></small></p>
-          
+          {{#if isDeal}}
+          <p class="price-discount"><small>{{../../data.tours.currency}} {{getPriceInCurrency price ../../data.tours.currency}}</small></p>
+          <p class="price deal">
+              <span>{{../../data.tours.currency}}</span>
+              {{getPriceInCurrency dealPrice ../../data.tours.currency}}
+              <span class="normal_price_list"></span>
+            </p>
+          {{else}}
+            <p class="price">
+            <span>{{../../data.tours.currency}}</span>
+            {{getPriceInCurrency price ../../data.tours.currency}}
+            <span class="normal_price_list"></span>
+            </p>
+          {{/if}}
+            
+
         </div>
       </a>
     </div>
@@ -187,7 +238,7 @@
   <div class="row">
     <div class="col-lg-4 col-md-4">
       {{#if featured}}
-      <div class="ribbon_3 popular"><span>{{i18n "popular"}}</span>
+      <div class="ribbon_3 popular"><span>{{i18n "featured"}}</span>
       </div>
       {{/if}}
 
@@ -200,75 +251,99 @@
               class="tooltip-back">Add to wishlist</span></span></a>
       </div>-->
       <div class="img_list">
-        <a href="/tour/{{slug}}"><img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_85,h_300/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="Image">
-          <div class="short_info"><i class="icon_set_1_icon-52"></i>{{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}
+        <a href="/tour/{{slug}}"><img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_90,h_330/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="Image">
+          <div class="short_info"><i class="icon_set_1_icon-52"></i>{{duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}</strong>
           {{/if}} </div>
         </a>
       </div>
     </div>
     <div class="col-lg-6 col-md-6">
       <div class="tour_list_desc">
+        
         <div class="rating">
+          {{#if nOfReviews}}
           {{{ calcReview nOfStars}}}
-         
-          <small>({{nOfReviews}})</small>
+          <small>({{nOfReviews}} {{i18n "reviews"}})</small>
+          {{else}}
+          <small>{{i18n "not_reviews_yet"}}</small>
+          {{/if}}
         </div>
         <h2 class="tour-title"><strong>{{getTourLocName name name_eng}}</strong></h2>
         <p>{{getTourLocName description.short description_eng.short}}</p>
         <ul class="add_info">
+          {{#if mobileVoucherAccepted}}
+          <li>
+            <div class="tooltip_styled tooltip-effect-4">
+              <span class="tooltip-item"><i class="icon_set_1_icon-62"></i></span>
+              <div class="tooltip-content">
+                <h4>{{i18n "mobile_voucher_accepted"}}</h4>
+                <p class="mb-0">{{i18n "mobile_voucher_accepted_message"}}</p>
+              </div>
+            </div>
+          </li>
+          {{/if}}
+          {{#if hotelPickup}}
+          <li>
+            <div class="tooltip_styled tooltip-effect-4">
+              <span class="tooltip-item"><i class="icon_set_1_icon-23"></i></span>
+              <div class="tooltip-content">
+                <h4>{{i18n "includes"}} {{i18n "hotel_pickup"}}</h4>
+                <p class="mb-0">{{#if_eq ../../lang "es" }}{{hotelPickupDescription.es}}{{/if_eq}} 
+                  {{#if_eq ../../lang "en"}} {{hotelPickupDescription.en}}{{/if_eq}}</p>
+              </div>
+            </div>
+          </li>
+          {{/if}}
+          {{#if transportation}}
+          <li>
+            <div class="tooltip_styled tooltip-effect-4">
+              <span class="tooltip-item"><i class=" icon_set_1_icon-27"></i></span>
+              <div class="tooltip-content">
+                <h4>{{i18n "includes"}} {{i18n "transportation"}}</h4>
+                <p class="mb-0">{{#if_eq ../../lang "es" }}{{transportationDescription.es}}{{/if_eq}}
+                  {{#if_eq ../../lang "en"}} {{transportationDescription.en}}{{/if_eq}}</p>
+              </div>
+            </div>
+          </li>
+          {{/if}}
+          {{#if maritimeTransportation}}
           <li>
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
               <div class="tooltip-content">
-                <h4>Schedule</h4>
-                <strong>Monday to Friday</strong> 09.00 AM - 5.30 PM
-                <br>
-                <strong>Saturday</strong> 09.00 AM - 5.30 PM
-                <br>
-                <strong>Sunday</strong> <span class="label label-danger">Closed</span>
+                <h4>{{i18n "includes"}} {{i18n "maritime_transportation"}}</h4>
+                <p class="mb-0">{{#if_eq ../../lang "es" }}{{maritimeTransportationDescription.es}}{{/if_eq}}
+                  {{#if_eq ../../lang "en"}} {{maritimeTransportationDescription.en}}{{/if_eq}}</p>
               </div>
             </div>
           </li>
+          {{/if}}
+          {{#if privateCabin}}
           <li>
             <div class="tooltip_styled tooltip-effect-4">
-              <span class="tooltip-item"><i class="icon_set_1_icon-41"></i></span>
+              <span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
               <div class="tooltip-content">
-                <h4>Address</h4> Musée du Louvre, 75058 Paris - France
-                <br>
+                <h4>{{i18n "includes"}} {{i18n "private_accomodation"}}</h4>
+                <p class="mb-0">{{i18n "privade_accomodation_available_message"}}</p>
               </div>
             </div>
           </li>
+          {{/if}}
+          {{#if food}}
           <li>
             <div class="tooltip_styled tooltip-effect-4">
-              <span class="tooltip-item"><i class="icon_set_1_icon-97"></i></span>
+              <span class="tooltip-item"><i class=" icon_set_1_icon-58"></i></span>
               <div class="tooltip-content">
-                <h4>Languages</h4> English - French - Chinese - Russian - Italian
+                <h4>{{i18n "includes"}} {{i18n "food"}}</h4>
+                <p class="mb-0">{{#if_eq ../../lang "es" }}{{foodDescription.es}}{{/if_eq}}
+                  {{#if_eq ../../lang "en"}} {{foodDescription.en}}{{/if_eq}}</p>
               </div>
             </div>
           </li>
-          <li>
-            <div class="tooltip_styled tooltip-effect-4">
-              <span class="tooltip-item"><i class="icon_set_1_icon-27"></i></span>
-              <div class="tooltip-content">
-                <h4>Parking</h4> 1-3 Rue Elisée Reclus
-                <br> 76 Rue du Général Leclerc
-                <br> 8 Rue Caillaux 94923
-                <br>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="tooltip_styled tooltip-effect-4">
-              <span class="tooltip-item"><i class="icon_set_1_icon-25"></i></span>
-              <div class="tooltip-content">
-                <h4>Transport</h4>
-                <strong>Metro: </strong>Musée du Louvre station (line 1)
-                <br>
-                <strong>Bus:</strong> 21, 24, 27, 39, 48, 68, 69, 72, 81, 95
-                <br>
-              </div>
-            </div>
-          </li>
+          {{/if}}
+          
+
+          
         </ul>
       </div>
     </div>
@@ -286,24 +361,26 @@
 <!--End strip -->
 {{/each}}
   <hr>
-  pages : {{data.pages}} - current {{data.currentPage}}
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
+      {{#if data.page}}
       <li class="page-item">
         <a class="page-link" id="pagPrev" onclick="paginatePrev();" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span
             class="sr-only">Previous</span></a>
       </li>
+      {{/if}}
       {{{paginateHelper data.currentPage data.pages}}}
 
      <!-- <li class="page-item active"><span class="page-link">1<span class="sr-only">(current)</span></span>
       </li>
       <li class="page-item"><a class="page-link" href="#">2</a></li>
       <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-
+      {{#if data.page}}
       <li class="page-item">
         <a class="page-link" onclick="paginateNext();" aria-label="Next"><span aria-hidden="true">&raquo;</span><span
             class="sr-only">Next</span></a>
       </li>
+      {{/if}}
     </ul>
   </nav>
   <!-- end pagination-->
@@ -333,7 +410,15 @@
       urlParams.append('page', prevPage)
       window.location.href = url +'?'+ urlParams.toString();
   }
+  function navigatoToPage(toPage) {
+    const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    let urlParams = new URLSearchParams(window.location.search);
+    let page = toPage;
+    urlParams.delete('page');
+    urlParams.append('page', page);
+    return  window.location.href = url + '?' + urlParams.toString();
 
+  }
   function paginateNext() {
     const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
     let urlParams = new URLSearchParams(window.location.search);
@@ -414,3 +499,31 @@
 
   });
 </script>
+{{#if data.collections}}
+<script src="/js/glide-js/glide.min.js"></script>
+<script>
+  new Glide('.glide', {
+    //  type: 'carousel',
+      startAt: 0,
+      perView: 4,
+     // focusAt: 0,
+      autoplay: false,
+      peek: {
+        before: 0,
+        after: 75
+      },
+      breakpoints: {
+        1024: {
+          perView: 3
+        },
+        767: {
+          perView: 2,
+        }
+      }
+    }).mount()
+</script>
+{{/if}}
+<!-- Required Core Stylesheet -->
+<link async rel="stylesheet" href="/css/glide-css/glide.core.min.css">
+<!-- Optional Theme Stylesheet -->
+<link async rel="stylesheet" href="/css/glide-css/glide.theme.min.css">

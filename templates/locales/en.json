@@ -251,7 +251,7 @@
 	"created_at": "Created At",
 	"booking_status": "Booking Status",
 	"schedule": "Schedule",
-	"not_reviews_yet": "Not reviews yet",
+	"not_reviews_yet": "No Reviews",
 	"departure_point": "Starting Point",
 	"starting_point": "Starting Point",
 	"personal_details": "Customer Information",
@@ -476,5 +476,12 @@
 	"popular": "popular",
 	"most_sell": "most_sell",
 	"reset_filter": "reset_filter",
-	"no_reviews": "no_reviews"
+	"no_reviews": "no_reviews",
+	"apply_filters": "apply_filters",
+	"sort_by_popular": "sort_by_popular",
+	"private_accomodation": "private_accomodation",
+	"privade_accomodation_available_message": "privade_accomodation_available_message",
+	"maritimeTransportation": "maritimeTransportation",
+	"mobile_voucher_accepted": "mobile_voucher_accepted",
+	"mobile_voucher_accepted_message": "mobile_voucher_accepted_message"
 }

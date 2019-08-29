@@ -8,21 +8,28 @@ exports = module.exports = function(req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	let searchQuery = {};
+	let filters = {};
 	//req.query
 	if (req.query.hotel_pickup) {
 		searchQuery.hotelPickup = true;
+		filters.hotelPickup = true;
 	}
 	console.log(searchQuery);
 	if (req.query.multiday) {
 		searchQuery.isMultiDay = true; //Only Tour + Stay Package: Packages always have a place to sleep. 
+		filters.multiDay = true;
+
 	}
 	console.log(searchQuery);
 	if (req.query.transportation) {
 		searchQuery.isTransport = true;
+		filters.transport = true;
 	}
 	console.log(searchQuery);
 	if (req.query.group_excursions) {
 		searchQuery.isExcursion = true;
+		filters.excursion = true;
+
 	}
 	console.log(searchQuery);
 
@@ -33,6 +40,9 @@ exports = module.exports = function(req, res) {
 		let maxPrice = split[1];
 	//	searchQuery.price = { $gte: minPrice};
 	searchQuery.price = { $gte: minPrice, $lte: maxPrice};
+	filters.minPrice = minPrice;
+	filters.maxPrice = maxPrice;
+
 	}
 	const sortQuery = {};
 	const sort = req.query.sort;
@@ -174,21 +184,17 @@ exports = module.exports = function(req, res) {
 			page = parseInt(page);
 			if (page !== 1 ) {
 				skip = page * limit - limit;
-				console.log("skip",skip);
-				console.log("page",page);
+		
 			} else {
 				skip = 0;
-				console.log("skip", skip);
 			}
 			locals.data.currentPage = page;
 			let count;
-			keystone.list('Tour').model.count({
-				"state": "published",
-				"city": cityId
-			}, function (err, c) {
-					console.log("count ", c);
-					console.log("pages ", c/limit);
+			let countQuery = searchQuery;
+			countQuery.city = id;
+			keystone.list('Tour').model.count(countQuery, function (err, c) {
 					let pages = c / limit;
+					locals.data.totalTours = c;
 					count = Math.floor(pages) + 1;
 					locals.data.pages = count;
 					return count = c;

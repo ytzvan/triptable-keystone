@@ -508,7 +508,7 @@ module.exports = function() {
 
 		for (let i=1; i<=totalPages;i++) {
 			if (i != current) {
-				str = str + '<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>'; 
+				str = str + '<li class="page-item"><a class="page-link" onclick="navigatoToPage('+i+')">' + i + '</a></li>'; 
 			} else {
 				str = str + '<li class="page-item active"><span class="page-link">' + i +'<span class="sr-only">(current)</span></span>';
 			}

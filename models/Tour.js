@@ -124,6 +124,8 @@ Tour.add({
 	departureTime: { type: String },
 	arrivalTime: { type: String },
 	price: { type: Types.Money, default: 0, label: "Precio por Adulto en $ USD" },
+	isDeal: {type: Boolean, default: false},
+	dealPrice: { type: Types.Money, default: 0, dependsOn: {'isDeal': true}}, //this field will reaplce the price field on booking still not developed
 	adultMinAge: {
 		label: "Edad Mínima de Adulto",
 		type: Types.Number,

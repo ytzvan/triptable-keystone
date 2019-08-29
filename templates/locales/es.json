@@ -250,7 +250,7 @@
 	"created_at": "Creado",
 	"booking_status": "Estado de Reserva",
 	"schedule": "Horario",
-	"not_reviews_yet": "No hay reviews",
+	"not_reviews_yet": "Sin Reseñas",
 	"departure_point": "Punto de Inicio",
 	"personal_details": "Información del Cliente",
 	"first_name": "Primer Nombre",
@@ -492,5 +492,14 @@
 	"most_sell": "most_sell",
 	"reset_filter": "reset_filter",
 	"filters": "filters",
-	"no_reviews": "no_reviews"
+	"no_reviews": "no_reviews",
+	"apply_filters": "apply_filters",
+	"sort_by_popular": "sort_by_popular",
+	"experiences": "experiences",
+	"mobile_voucher_accepted": "e-Ticket Disponible",
+	"mobile_voucher_accepted_message": "Muestra la Reserva desde tu celular.",
+	"privade_accomodation_available_message": "Esta Experiencia ofrece Alojamiento Privado",
+	"privade_accomodation_available": "privade_accomodation_available",
+	"private_accomodation": "private_accomodation",
+	"icon_set_1_icon-23": "icon_set_1_icon-23"
 }
