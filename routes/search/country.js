@@ -137,7 +137,7 @@ exports = module.exports = function(req, res) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
 			locals.meta.canonical = req.url;
-			let limit = 10; // tours per page
+			let limit = 20; // tours per page
 			let page = req.query.page || 1;
 			let skip;
 			page = parseInt(page);
