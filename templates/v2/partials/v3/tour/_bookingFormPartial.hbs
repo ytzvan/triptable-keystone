@@ -1,0 +1,76 @@
+<div class="box_style_1 expose" id="booking_box mt-3">
+<h3 class="inner">- {{i18n "check_availability"}} -</h3>
+<form action="/booking/{{data.tour.tourId}}" id="bookingForm" method="get">
+  <input type="hidden" id="hiddenDate" name="date" value="">
+  <input type="hidden" name="tourId" value="{{data.tour.tourId}}">
+  <div class="row">
+    <div class="col-sm-6 mt-2">
+      <div class="form-group">
+        <label><i class="icon-calendar-7"></i> {{i18n "date"}}</label>
+        <div class="bookings-date-picker" id="datepicker">
+        </div>
+        <input type="hidden" id="hiddenDate" name="date" value="">
+      </div>
+    </div>
+    <div class="col-sm-6 mt-2">
+        <div class="form-group">
+          <label><i class=" icon-clock"></i> Time</label>
+          <select data-placeholder="{{i18n "schedule"}}" id="bookingTime" name="bookingTime" class="chosen-select">
+            {{#if data.tour.schedule}}
+            {{#each data.tour.schedule}}
+            <option> {{this}}</option>
+            {{/each}}
+            {{else}}
+            <option>{{i18n "custom"}}</option>
+            {{/if}}
+          </select>
+        </div>
+        <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>{{i18n "adults"}} - {{i18n "from"}} {{data.tour.adultMinAge}} {{i18n "years_old"}}</label>
+            <div class="numbers-row">
+              <input type="number" min="{{data.tour.minPerson}}" max="{{data.tour.maxPerson}}" value="{{data.tour.minPerson}}"
+                id="adults" class="qty2 form-control" name="nOfAdults">
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            {{#if data.tour.disableChild}}
+            <p>{{i18n "chiild_price_disabled_message"}}</p>
+            {{else}}
+            <label>{{i18n "children"}} - {{data.tour.child.minAge}} {{i18n "to"}} {{data.tour.child.maxAge}} {{i18n "years_old"}}</label>
+            <div class="numbers-row">
+              <input type="number" value="0" max="10" id="children" class="qty2 form-control" name="nOfChildren">
+            </div>
+            
+            {{/if}}
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            {{#if data.tour.disableInfant}}
+            <p>{{i18n "infant_price_disabled_message"}}</p>
+            {{else}}
+            <label>{{i18n "infants"}} - {{data.tour.infant.minAge}} {{i18n "to"}} {{data.tour.infant.maxAge}} {{i18n "years_old"}}</label>
+            <div class="numbers-row">
+              <input type="number" value="0" nmax="10" id="infants" class="qty2 form-control" name="nOfInfants">
+            </div>
+            {{/if}}
+            
+          </div>
+        </div>
+        </div>
+      </div>
+    
+  </div>
+  <div class="row">
+    
+  </div>
+  <br>
+
+  <input type="submit" class="btn_full" value="Book now">
+  <a class="btn_full_outline" href="#"><i class=" icon-whats-app"></i> {{i18n "send__whatsapp_message"}}</a>
+</form>
+</div>

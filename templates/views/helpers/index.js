@@ -395,6 +395,32 @@ module.exports = function() {
   	return lang;
   };
 
+	_helpers.getInLocale = function (name, name_eng, reduceStr) {
+		var name = name;
+		var name_eng = name_eng;
+		var defaultLang;
+		if (process.env.LANG == 'en') {
+			if (name_eng) {
+				defaultLang = name_eng;
+				if (reduceStr) {
+					reduceStr = parseInt(reduceStr);
+					defaultLang = defaultLang.substring(0, reduceStr);
+				}
+				return defaultLang;
+			} else {
+				defaultLang = name;
+				return defaultLang;
+			}
+		} else {
+			defaultLang = name; // return in spanish
+			if (reduceStr) {
+				reduceStr = parseInt(reduceStr);
+				defaultLang = defaultLang.substring(0, reduceStr);
+			}
+			return defaultLang;
+		}
+	};
+
   _helpers.getTourLocName = function(name, name_eng) {
   	var name = name;
   	var name_eng = name_eng;

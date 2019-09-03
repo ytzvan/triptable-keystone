@@ -6,7 +6,68 @@ exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	let searchQuery = {};
+	let filters = {};
+	//req.query
+	if (req.query.hotel_pickup) {
+		searchQuery.hotelPickup = true;
+		filters.hotelPickup = true;
+	}
+	console.log(searchQuery);
+	if (req.query.multiday) {
+		searchQuery.isMultiDay = true; //Only Tour + Stay Package: Packages always have a place to sleep. 
+		filters.multiDay = true;
 
+	}
+	console.log(searchQuery);
+	if (req.query.transportation) {
+		searchQuery.isTransport = true;
+		filters.transport = true;
+	}
+	console.log(searchQuery);
+	if (req.query.group_excursions) {
+		searchQuery.isExcursion = true;
+		filters.excursion = true;
+
+	}
+	console.log(searchQuery);
+
+	if (req.query.range) {
+		let range = req.query.range;
+		let split = range.split(';');
+		let minPrice = split[0];
+		let maxPrice = split[1];
+		//	searchQuery.price = { $gte: minPrice};
+		searchQuery.price = { $gte: minPrice, $lte: maxPrice };
+		filters.minPrice = minPrice;
+		filters.maxPrice = maxPrice;
+
+	}
+	const sortQuery = {};
+	const sort = req.query.sort;
+	console.log("sort", sort);
+	if (sort) {
+		if (sort == 0) {
+			sortQuery.mostSell = -1;
+			sortQuery.featured = -1;
+		}
+		if (sort == 1) { // Sort From low - to high price
+			console.log("sort by lowest Price");
+			sortQuery.price = 1;
+		}
+		if (sort == 2) { // Sort from High Price - to Low
+			sortQuery.price = -1;
+		}
+		if (sort == 3) { // Sort from Latest added / updated
+		}
+		sortQuery.publishedDate = -1;
+	} else {
+		sortQuery.mostSell = -1;
+		sortQuery.featured = -1;
+		sortQuery.publishedDate = -1;
+	}
+	searchQuery.state = "published";
+	console.log(searchQuery);
 	// Init locals
 	locals.section = 'country';
 
@@ -76,20 +137,44 @@ exports = module.exports = function(req, res) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,w_600,q_50/v"+place.image.version+"/"+place.image.public_id+"."+place.image.format;
 			}
 			locals.meta.canonical = req.url;
-			var q = keystone.list('Tour')
-				.paginate({
-					page: req.query.page || 1,
-					perPage: 30,
-				})
-        .find({"state": "published"})
-				.where("country", id)
-        .sort('-publishedDate')
-				.populate('city province categories');
-				if (category) {
-					q.where('categories').in([locals.data.filters]);
-				}
+			let limit = 10; // tours per page
+			let page = req.query.page || 1;
+			let skip;
+			page = parseInt(page);
+			if (page !== 1) {
+				skip = page * limit - limit;
+
+			} else {
+				skip = 0;
+			}
+			locals.data.currentPage = page;
+			let count;
+			let countQuery = searchQuery;
+			countQuery.country = place._id;
+			keystone.list('Tour').model.count(countQuery, function (err, c) {
+				let pages = c / limit;
+				locals.data.totalTours = c;
+				count = Math.floor(pages) + 1;
+				locals.data.pages = count;
+				return count = c;
+			});
+			var q = keystone.list('Tour').model
+				//	.paginate({page: req.query.page || 1, perPage: 10})
+				.find(searchQuery)
+				.where("country", place._id)
+				.limit(limit)
+				.skip(skip)
+				//		.sort('-publishedDate')
+				.sort(sortQuery)
+				.populate('province city categories')
+			if (locals.data.filter) {
+				q.where('collections', locals.data.filter)
+				locals.data.activeCollection = locals.data.filter;
+
+			}
 
 				q.exec(function(err, results) {
+					locals.data.results = results;
 					var origin = req.get('origin');
 					let base = req.path;
 					if (results.next) {
@@ -110,6 +195,7 @@ exports = module.exports = function(req, res) {
 	// Load the tour categories
  view.on('init', function(next) {
 			var id = locals.data.placeId;
+
 			keystone.list('Tour').paginate({
 					page: req.query.page || 1,
 					perPage: 4,
@@ -142,6 +228,6 @@ exports = module.exports = function(req, res) {
 
 
 	// Render the view
-	view.render('search/country');
+	view.render('../v3/search/country', { layout: 'v3' });
 
 };

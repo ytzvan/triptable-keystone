@@ -145,6 +145,6 @@ exports = module.exports = function(req, res) {
 
 	});
 	// Render the view
-	view.render('tour');
+	view.render('../v3/tour', {layout: 'v3'});
 
 };

@@ -1,0 +1,539 @@
+<!-- End section -->
+<main>
+  <div id="position">
+    <div class="container">
+      <ul>
+        <li><a href="/">{{i18n "home"}}</a>
+        </li>
+        <li><a href="/{{data.place.slug}}">{{data.place.country}}</a>
+        </li>
+      
+
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mt-2 mb-2 title">{{data.place.country}} {{i18n "tours"}}</h1>
+        <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> Tours, Actividades y Experiencias.
+        </p>
+        <p class="d-none d-md-block pb-2">{{data.place.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  {{#if data.cities}}
+  <div class="glide container">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+
+        {{#each data.cities}}
+        <li class="glide__slide">
+          <div class="col-12 collection-container">
+            <div class="tour_container">
+              <!-- {{#if featured}}
+            <div class="ribbon_3 popular collection"><span>Popular</span></div>
+            {{/if}} -->
+              <div class="img_container collection-img-container">
+                <a target="_blank" href="/destino/{{slug}}">
+                  <img async
+                    src="https://res.cloudinary.com/triptable/image/upload/c_fit,h_600,q_auto,g_center,f_auto/{{image.public_id}}.{{image.format}}"
+                    width="600" height="533" class="img-fluid" alt="image">
+                  <div class="short_info">
+                    <strong>{{city}}</strong>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+            <!-- End box tour -->
+          </div>
+        </li>
+        {{/each}}
+
+
+      </ul>
+    </div>
+
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+      {{#each data.cities}}
+      <button class="glide__bullet" data-glide-dir="={{@index}}"></button>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+  <!-- Position -->
+  <!-- End Map -->
+  <div class="container margin_10">
+    <div class="row">
+      <aside class="col-lg-3">
+
+        <div class="row">
+          <div class="col-6 col-md-12 d-none d-md-block">
+            <div class="box_style_cat">
+              <ul id="cat_nav">
+                <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>{{i18n "all_experiences"}}
+                    <span>({{data.totalTours}})</span></a>
+                </li>
+                {{#each data.cities}}
+                <li><a href="/destino/{{city}}" id=""><i class="icon_set_1_icon-51"></i>{{city}}</a>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 ">
+            <div id="filters_col">
+              <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters"
+                id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Filters</a>
+              <div class="collapse show" id="collapseFilters">
+                <form id="filters_form" method="GET">
+                  <div class="filter_type">
+                    <h6>{{i18n "price"}}</h6>
+                    <input type="text" id="range" name="range" value="">
+                  </div>
+
+                  <div class="filter_type" id="tourType">
+                    <h6>{{i18n "im_looking_for"}}</h6>
+                    <ul>
+                      <li>
+                        <label>
+                          <input name="hotel_pickup" id="hotel_pickup"
+                            type="checkbox">{{i18n "hotel_or_airport_pickup"}}
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input name="multiday" id="multiday" type="checkbox">{{i18n "tour_plus_accomodation"}}
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input name="group_excursions" id="group_excursions"
+                            type="checkbox">{{i18n "group_excursions"}}
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input name="transportation" id="transportation"
+                            type="checkbox">{{i18n "transportation_services"}}
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-lg-12 mb-2 buttons">
+                      <input type="submit" id="apply-btn" class="btn btn-success" value="{{i18n "apply_filters"}}">
+                    </div>
+                    <div class="col-6 col-lg-12 buttons">
+                      <a id="reset-filter" onclick="resetFilter();" class="btn btn-danger">{{i18n "reset_filter"}}</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!--End collapse -->
+            </div>
+          </div>
+        </div>
+
+        <!--End filters col-->
+        <div class="box_style_2 d-none d-md-block">
+          <i class="icon_set_1_icon-57"></i>
+          <h4>{{i18n "need"}} <span>{{i18n "help"}}?</span></h4>
+          <a href="https://api.whatsapp.com/send?phone=50761005609" class="phone">+507 6100 5609</a>
+          <P class="mb-0">Soporte Teléfonico y Whatsapp</P>
+          <small>Lunes a Domingo 5:00 am - 8:00pm</small>
+        </div>
+      </aside>
+      <!--End aside -->
+      <div class="col-lg-9">
+        <p class="mb-0 d-block d-md-none ">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
+        <div id="tools">
+          <div class="row">
+            <div class="col-6">
+              <div class="styled-select-filters">
+                <select name="sort_price" id="sort_price">
+                  <option value="0" selected>{{i18n "sort_by_popular"}}</option>
+                  <option value="1">{{i18n "sort_by_low_price"}}</option>
+                  <option value="2">{{i18n "sort_by_high_price"}}</option>
+                  <option value="3">{{i18n "sort_by_last_add"}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6 d-none d-md-block text-right">
+              <p class="mb-0 pt-2">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
+            </div>
+            <div class="col-6 d-block d-md-none mobile-filter">
+              <p class="text-right"><span class="filter_text_mobile">{{i18n "filters"}}:</span> <a
+                  data-toggle="collapse" href="#collapseFilters" aria-expanded="false"
+                  aria-controls="collapseFilters"><i id="filter_modal" class="pe-7s-edit mobile-filter-icon"></i></a>
+              </p></span>
+              <!-- Modal -->
+            </div>
+
+          </div>
+        </div>
+        <!--/tools -->
+        {{#each data.tours}}
+        <div class="strip_all_tour_list item-mobile-list d-block d-md-none
+">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-4" id="item-mobile-container">
+
+              {{#if featured}}
+              <div class="ribbon_3 popular">
+                <span>{{i18n "featured"}}</span>
+              </div>
+              {{/if}}
+              {{#if mostSell}}
+              <div class="ribbon_3 popular most-sell">
+                <span>{{i18n "most_sell"}}</span>
+              </div>
+              {{/if}}
+
+
+              <!--<div class="wishlist">
+          <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span
+                class="tooltip-back">Add to wishlist</span></span></a>
+        </div>-->
+              <div class="img_list">
+                <a href="/tour/{{slug}}" target="_blank">
+                  <img async
+                    src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_85,h_270/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
+                    alt="Image">
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-8 pl-0 pr-0">
+              <a href="/tour/{{slug}}" target="_blank">
+                <div class="tour_list_desc">
+                  <h2 class="tour-title"><strong>{{getTourLocName name name_eng}} </strong> </h2>
+                  {{#if nOfReviews}}
+                  <div class="rating">
+                    {{{ calcReview nOfStars}}}
+                    <small>({{nOfReviews}} {{i18n "reviews"}})</small>
+                  </div>
+                  {{else}}
+                  <div class="">
+                    <p>{{i18n "not_reviews_yet"}}</p>
+                  </div>
+                  {{/if}}
+
+                  <p><i class="icon_set_1_icon-52"> </i>{{duration}}{{#if isMultiDay}} {{i18n "days"}} {{else}}
+                    {{i18n "hours"}}{{/if}}</p>
+                  <p>{{city.city}}, {{country.country}}</p>
+                  <p>
+
+                  </p>
+
+                  {{#if isDeal}}
+                  <p class="price-discount"><small>{{../../data.tours.currency}}
+                      {{getPriceInCurrency price ../../data.tours.currency}}</small></p>
+                  <p class="price deal">
+                    <span>{{../../data.tours.currency}}</span>
+                    {{getPriceInCurrency dealPrice ../../data.tours.currency}}
+                    <span class="normal_price_list"></span>
+                  </p>
+                  {{else}}
+                  <p class="price">
+                    <span>{{../../data.tours.currency}}</span>
+                    {{getPriceInCurrency price ../../data.tours.currency}}
+                    <span class="normal_price_list"></span>
+                  </p>
+                  {{/if}}
+
+
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="strip_all_tour_list d-none d-md-block">
+          <div class="row">
+            <div class="col-lg-4 col-md-4">
+              {{#if featured}}
+              <div class="ribbon_3 popular"><span>{{i18n "featured"}}</span>
+              </div>
+              {{/if}}
+
+              {{#if mostSell}}
+              <div class="ribbon_3 popular most-sell"><span>{{i18n "most_sell"}}</span>
+              </div>
+              {{/if}}
+              <!--<div class="wishlist">
+        <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span
+              class="tooltip-back">Add to wishlist</span></span></a>
+      </div>-->
+              <div class="img_list">
+                <a href="/tour/{{slug}}"><img async
+                    src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_90,h_330/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"
+                    alt="Image">
+                  <div class="short_info"><i class="icon_set_1_icon-52"></i>{{duration}} {{#if isMultiDay}}
+                    {{i18n "days"}} {{else}} {{i18n "hours"}}</strong>
+                    {{/if}} </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="tour_list_desc">
+
+                <div class="rating">
+                  {{#if nOfReviews}}
+                  {{{ calcReview nOfStars}}}
+                  <small>({{nOfReviews}} {{i18n "reviews"}})</small>
+                  {{else}}
+                  <small>{{i18n "not_reviews_yet"}}</small>
+                  {{/if}}
+                </div>
+                <h2 class="tour-title"><strong>{{getTourLocName name name_eng}}</strong></h2>
+                <p>{{{getInLocale description.short description_eng.short 100}}}...</p>
+                <ul class="add_info">
+                  {{#if mobileVoucherAccepted}}
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="icon_set_1_icon-62"></i></span>
+                      <div class="tooltip-content">
+                        <h4>{{i18n "mobile_voucher_accepted"}}</h4>
+                        <p class="mb-0">{{i18n "mobile_voucher_accepted_message"}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  {{/if}}
+                  {{#if hotelPickup}}
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="icon_set_1_icon-23"></i></span>
+                      <div class="tooltip-content">
+                        <h4>{{i18n "includes"}} {{i18n "hotel_pickup"}}</h4>
+                        <p class="mb-0">{{#if_eq ../../lang "es" }}{{hotelPickupDescription.es}}{{/if_eq}}
+                          {{#if_eq ../../lang "en"}} {{hotelPickupDescription.en}}{{/if_eq}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  {{/if}}
+                  {{#if transportation}}
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class=" icon_set_1_icon-27"></i></span>
+                      <div class="tooltip-content">
+                        <h4>{{i18n "includes"}} {{i18n "transportation"}}</h4>
+                        <p class="mb-0">{{#if_eq ../../lang "es" }}{{transportationDescription.es}}{{/if_eq}}
+                          {{#if_eq ../../lang "en"}} {{transportationDescription.en}}{{/if_eq}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  {{/if}}
+                  {{#if privateCabin}}
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
+                      <div class="tooltip-content">
+                        <h4>{{i18n "includes"}} {{i18n "private_accomodation"}}</h4>
+                        <p class="mb-0">{{i18n "privade_accomodation_available_message"}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  {{/if}}
+                  {{#if food}}
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class=" icon_set_1_icon-58"></i></span>
+                      <div class="tooltip-content">
+                        <h4>{{i18n "includes"}} {{i18n "food"}}</h4>
+                        <p class="mb-0">{{#if_eq ../../lang "es" }}{{foodDescription.es}}{{/if_eq}}
+                          {{#if_eq ../../lang "en"}} {{foodDescription.en}}{{/if_eq}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  {{/if}}
+
+
+
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 pl-0">
+              <div class="price_list">
+                <div>
+                  <p>{{../data.tours.currency}}</p>{{getPriceInCurrency price ../data.tours.currency}}<span
+                    class="normal_price_list"></span><small></small>
+                  <p><a target="_blank" href="/tour/{{slug}}" class="btn_1">{{i18n "details"}}</a>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End strip -->
+        {{/each}}
+        <hr>
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {{#if data.page}}
+            <li class="page-item">
+              <a class="page-link" id="pagPrev" onclick="paginatePrev();" aria-label="Previous"><span
+                  aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
+            </li>
+            {{/if}}
+            {{{paginateHelper data.currentPage data.pages}}}
+
+            <!-- <li class="page-item active"><span class="page-link">1<span class="sr-only">(current)</span></span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+            {{#if data.page}}
+            <li class="page-item">
+              <a class="page-link" onclick="paginateNext();" aria-label="Next"><span
+                  aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
+            </li>
+            {{/if}}
+          </ul>
+        </nav>
+        <!-- end pagination-->
+
+
+
+
+        <script>
+          function resetFilter() {
+            const url = location.protocol + '//' + location.host + location.pathname;
+            return window.location.href = url;
+          }
+
+          // al presionar obtener la URL actual, reemplazar parametros usando del y add de urlparameter API, redireccionar. Si hay search params, mantenerlos y solo eliminar el de page. Primero capturar el evento / function
+          function paginatePrev() {
+            const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            let urlParams = new URLSearchParams(window.location.search);
+            let page;
+            if (urlParams.get('page')) {
+              page = urlParams.get('page');
+            } else {
+              page = 1
+            }
+            let prevPage = parseInt(page);
+            prevPage = prevPage - 1;
+            urlParams.delete('page');
+            urlParams.append('page', prevPage)
+            window.location.href = url + '?' + urlParams.toString();
+          }
+          function navigatoToPage(toPage) {
+            const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            let urlParams = new URLSearchParams(window.location.search);
+            let page = toPage;
+            urlParams.delete('page');
+            urlParams.append('page', page);
+            return window.location.href = url + '?' + urlParams.toString();
+
+          }
+          function paginateNext() {
+            const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            let urlParams = new URLSearchParams(window.location.search);
+            let page;
+            if (urlParams.get('page')) {
+              page = urlParams.get('page');
+            } else {
+              page = 1
+            }
+            let nextPage = parseInt(page);
+            nextPage = nextPage + 1;
+            urlParams.delete('page');
+            urlParams.append('page', nextPage)
+            window.location.href = url + '?' + urlParams.toString();
+          }
+
+          document.addEventListener('DOMContentLoaded', (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let initRange;
+            let lastRange;
+            try {
+              const range = urlParams.get("range");
+              const priceRange = range.split(';');
+              initRange = priceRange[0];
+              lastRange = priceRange[1];
+            } catch (e) {
+              console.log(e);
+              initRange = 0;
+              lastRange = 600;
+              console.log("initRange", initRange);
+              console.log("lastRange", lastRange);
+
+            }
+
+            /* Input range slider */
+            $("#range").ionRangeSlider({
+              hide_min_max: true,
+              keyboard: true,
+              min: 0,
+              max: 600,
+              from: initRange,
+              to: lastRange,
+              type: 'double',
+              step: 1,
+              prefix: "$",
+              grid: true
+            });
+            let elem = $(".irs-grid-text.js-grid-text-4").text();
+            $(".irs-grid-text.js-grid-text-4").text(elem + "+");
+
+            const hotel = urlParams.get("hotel_pickup");
+            const multi = urlParams.get("multiday");
+            const group = urlParams.get("group_excursions");
+            const transport = urlParams.get("transportation");
+            const sort = urlParams.get("sort");
+
+            if (hotel) {
+              $("#hotel_pickup").prop("checked", true)
+              $("#hotel_pickup").parent().addClass("checked");
+            }
+
+            if (multi) {
+              $("#multiday").prop("checked", true)
+              $("#multiday").parent().addClass("checked");
+            }
+            if (group) {
+              $("#group_excursions").prop("checked", true)
+              $("#group_excursions").parent().addClass("checked");
+            }
+            if (transport) {
+              $("#transportation").prop("checked", true)
+              $("#transportation").parent().addClass("checked");
+            }
+
+            if (sort) {
+              $("#sort_price").val(sort);
+            }
+
+          });
+        </script>
+        {{#if data.cities}}
+        <script src="../v3/js/glide-js/glide.min.js"></script>
+        <script>
+          new Glide('.glide', {
+            //  type: 'carousel',
+            startAt: 0,
+            perView: 4,
+            // focusAt: 0,
+            autoplay: false,
+            peek: {
+              before: 0,
+              after: 75
+            },
+            breakpoints: {
+              1024: {
+                perView: 3
+              },
+              767: {
+                perView: 2,
+              }
+            }
+          }).mount()
+        </script>
+        {{/if}}
+        <!-- Required Core Stylesheet -->
+        <link async rel="stylesheet" href="../v3/css/glide-css/glide.core.min.css">
+        <!-- Optional Theme Stylesheet -->
+        <link async rel="stylesheet" href="../v3/css/glide-css/glide.theme.min.css">

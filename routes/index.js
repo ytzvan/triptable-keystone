@@ -73,7 +73,7 @@ exports = module.exports = function(app) {
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
-	app.get('/destino/:city',/* function (req, res, next) {
+	app.get('/destino/:city', function (req, res, next) {
 		if (req.session.userId) {
 			res.use_express_redis_cache = false;
 			next();
@@ -83,7 +83,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(),*/ routes.search.city);
+	}, cache.route(), routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);

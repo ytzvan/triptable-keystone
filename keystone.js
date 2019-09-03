@@ -12,7 +12,7 @@ keystone.init({
 	'name': 'Triptable',
 	'brand': 'Triptable',
 	'less': 'public',
-	'static': 'public/v3',
+	'static': 'public/v2',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/v2',
 	'view engine': 'hbs',
