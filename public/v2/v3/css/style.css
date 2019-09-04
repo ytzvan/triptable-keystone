@@ -416,7 +416,7 @@ header.sticky #logo_home h1 a, header#plain #logo_home h1 a{
 }
 header.sticky#colored #logo_home h1 a{
     background-image: url(../img/logo_sticky_colored_2x.png);
-	background-size: auto 34px;
+	background-size: auto 31px;
 }
 }
 
