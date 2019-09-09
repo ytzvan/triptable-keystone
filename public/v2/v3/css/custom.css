@@ -499,3 +499,6 @@ span.lang-select  {
 a.destinations-link {
   text-transform: capitalize;
 }
+.tour-description img {
+  width: 100%;
+}
