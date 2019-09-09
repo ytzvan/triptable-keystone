@@ -465,8 +465,8 @@
 	"day_tours": "Day Tours",
 	"multiday_packages": "multiday_packages",
 	"package_with_stays": "package_with_stays",
-	"hotel_or_airport_pickup": "hotel_or_airport_pickup",
-	"tour_plus_accomodation": "tour_plus_accomodation",
+	"hotel_or_airport_pickup": "Hotel Or Airport Pickup",
+	"tour_plus_accomodation": "Tour + Accomodation",
 	"filters": "Filters",
 	"all_experiences": "All Experiences",
 	"sort_by_recommended": "Sort By Recommended",
@@ -497,7 +497,7 @@
 	"mobile_voucher_available": "mobile_voucher_available",
 	"24_hour_support": "24 Hour Support",
 	"transportation_included": "Transportation Included",
-	"support_message": "WhatApp & Telephone support",
+	"support_message": "WhatsApp & Telephone support",
 	"support_schedule": "Monday to Sunday from 5:00 am - 8:00pm",
-	"sign_in": "sign_in"
+	"sign_in": "Sign In"
 }

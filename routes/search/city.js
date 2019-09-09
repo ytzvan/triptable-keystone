@@ -50,6 +50,7 @@ exports = module.exports = function(req, res) {
 	if (sort) {
 		if (sort == 0) {
 			sortQuery.mostSell = -1;
+			sortQuery.nOfReviews = -1;
 			sortQuery.featured = -1;
 		}
 		if (sort == 1) { // Sort From low - to high price
@@ -64,6 +65,7 @@ exports = module.exports = function(req, res) {
 		sortQuery.publishedDate = -1;
 	} else {
 		sortQuery.mostSell = -1;
+		sortQuery.nOfReviews = -1;
 		sortQuery.featured = -1;
 		sortQuery.publishedDate = -1;
 	}
