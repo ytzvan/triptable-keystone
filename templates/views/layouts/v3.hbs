@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{{getLang}}}">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-  <link href="https://res.cloudinary.com" rel="preconnect" crossorigin />
-  <link href="https://www.google-analytics.com" rel="preconnect" crossorigin />
-  <link href="https://www.googletagmanager.com" rel="preconnect" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com"  crossorigin />
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+  <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com"  crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com"  crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,17 +40,15 @@
   {{/if}}
 
   {{#if meta.canonical}}
-  <meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
+  <meta property="og:url" content="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
   <link rel="alternate" hreflang="es" href="https://es.triptable.com{{meta.canonical}}" />
   <link rel="alternate" hreflang="en" href="https://en.triptable.com{{meta.canonical}}" />
-  <link rel="alternate" hreflang="x-default" href="https://www.triptable.com{{meta.canonical}}" />
-  <link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com{{meta.canonical}}" />
+  <link rel="canonical" href="https://{{{getLang}}}.triptable.com{{meta.canonical}}" />
   {{else}}
-  <meta property="og:url" content="https://{{{getSubdomain}}}.triptable.com" />
+  <meta property="og:url" content="https://{{{getLang}}}.triptable.com" />
   <link rel="alternate" hreflang="es" href="https://es.triptable.com/" />
   <link rel="alternate" hreflang="en" href="https://en.triptable.com/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.triptable.com" />
-  <link rel="canonical" href="https://{{{getSubdomain}}}.triptable.com/" />
+  <link rel="canonical" href="https://{{{getLang}}}.triptable.com/" />
   {{/if}}
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="../v3/img/favicon.png" type="image/x-icon">
@@ -66,10 +67,11 @@
           <link href="../v3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Optional Theme Stylesheet -->
 <script type="text/javascript">
-  if (document.location.hostname.search("triptable.com") !== -1) {
+ // if (document.location.hostname.search("triptable.com") !== -1) {
 
     //google analytics code goes here
     (function (w, d, s, l, i) {
+      console.log("tag manager loaded")
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
           new Date().getTime(), event: 'gtm.js'
@@ -78,12 +80,13 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-TXZ459T');
 
-  }
+  //}
 </script>
 </head>
 
 <body>
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXZ459T" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
 	<div id="preloader">
 		<div class="sk-spinner sk-spinner-wave">
 			<div class="sk-rect1"></div>

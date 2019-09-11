@@ -273,7 +273,7 @@ ul.add_info li i{
     border-top: 3px solid #E14E4D;
 }
 .price_list div {
-  color: #454950;
+  color: #454950 !important;
 }
 a.cart_bt strong {
   background-color: #E14E4D;
@@ -501,4 +501,10 @@ a.destinations-link {
 }
 .tour-description img {
   width: 100%;
+}
+.desktop-item-list a{
+  color: #777;
+}
+a.tour-price {
+    color: #454950;
 }

@@ -196,7 +196,7 @@ a.btn_1, .btn_1{
 	border: none;
 	font-family: inherit;
 	font-size: inherit;
-	color:#fff;
+	color:#fff !important;
 	background: #51bce6;
 	cursor: pointer;
 	padding: 7px 20px;

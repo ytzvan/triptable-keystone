@@ -17,8 +17,8 @@
     <div class="row">
       <div class="col-12">
         <h1 class="mt-2 mb-2 title">{{data.place.city}} {{i18n "tours"}}</h1>
-        <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> Tours, Actividades y Experiencias. </p>
-        <p class="d-none d-md-block pb-2">{{data.place.description}}</p>
+        <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> {{i18n "tours_activities_and_experiences"}}</p>
+        <p class="d-none d-md-block pb-2">{{{getInLocale data.place.description data.place.description_eng false}}}</p>
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@
       <p class="mb-0 d-block d-md-none ">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
         <div id="tools">
           <div class="row">
-            <div class="col-6">
+            <div class="col-8">
               <div class="styled-select-filters">
                 <select name="sort_price" id="sort_price">
                   <option value="0" selected>{{i18n "sort_by_popular"}}</option>
@@ -158,7 +158,7 @@
             <div class="col-6 d-none d-md-block text-right">
               <p class="mb-0 pt-2">Navegando Página: {{data.currentPage}} de {{data.pages}}</p>
             </div>
-            <div class="col-6 d-block d-md-none mobile-filter">
+            <div class="col-4 d-block d-md-none mobile-filter">
               <p class="text-right"><span class="filter_text_mobile">{{i18n "filters"}}:</span> <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters"><i id="filter_modal" class="pe-7s-edit mobile-filter-icon"></i></a></p></span>
               <!-- Modal -->
             </div>
@@ -240,7 +240,9 @@
   </div>
 </div>
 
-<div class="strip_all_tour_list d-none d-md-block">
+
+
+<div class="strip_all_tour_list desktop-item-list d-none d-md-block">
   <div class="row">
     <div class="col-lg-4 col-md-4">
       {{#if featured}}
@@ -252,18 +254,17 @@
       <div class="ribbon_3 popular most-sell"><span>{{i18n "most_sell"}}</span>
       </div>
       {{/if}}
-      <!--<div class="wishlist">
-        <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span
-              class="tooltip-back">Add to wishlist</span></span></a>
-      </div>-->
+  
       <div class="img_list">
-        <a href="/tour/{{slug}}"><img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_90,h_330/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="Image">
+        <a href="/tour/{{slug}}" target="_blank"><img async src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_90,h_330/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" alt="Image">
           <div class="short_info"><i class="icon_set_1_icon-52"></i>{{duration}} {{#if isMultiDay}} {{i18n "days"}} {{else}} {{i18n "hours"}}</strong>
           {{/if}} </div>
         </a>
       </div>
     </div>
     <div class="col-lg-6 col-md-6">
+      <!-- init tour desc -->
+      <a href="/tour/{{slug}}" target="_blank">
       <div class="tour_list_desc">
         
         <div class="rating">
@@ -334,24 +335,27 @@
               </div>
             </div>
           </li>
-          {{/if}}
-          
-
-          
+          {{/if}}          
         </ul>
       </div>
+      </a>
+      <!--end tour desc -->
     </div>
     <div class="col-lg-2 col-md-2 pl-0">
       <div class="price_list">
-        <div><p>{{../data.tours.currency}}</p>{{getPriceInCurrency price ../data.tours.currency}}<span class="normal_price_list"></span><small></small>
-          <p><a target="_blank" href="/tour/{{slug}}" class="btn_1">{{i18n "details"}}</a>
-          </p>
+        <a class="tour-price" href="#">
+        <div>
+          <p>{{../data.tours.currency}}</p>
+          {{getPriceInCurrency price ../data.tours.currency}}
+          <span class="normal_price_list"></span><small></small>
+          <p><a target="_blank" href="/tour/{{slug}}" class="btn_1">{{i18n "details"}}</a></p>
         </div>
-
+        </a>
       </div>
     </div>
   </div>
 </div>
+
 <!--End strip -->
 {{/each}}
   <hr>
