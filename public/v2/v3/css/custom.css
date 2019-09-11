@@ -144,10 +144,6 @@ ul.add_info li i{
     margin-bottom: 20px;
   }
 
-  header #colored.sticky {
-
-  }
-
   
   .parallax-content-1 {
     height: 90px;
@@ -161,10 +157,6 @@ ul.add_info li i{
     top: 20%;
     position: absolute;
     right: 15px;
-  }
-
-  #filters_col_bt.collapse {
-
   }
   a#filters_col_bt {
     display: none;
@@ -238,11 +230,7 @@ ul.add_info li i{
   .main-menu > ul > li > a {
     color:#454950;
   }
-  .ribbon_3.popular.most-sell span {
-  /* background:linear-gradient(#663399 0%, #49236f 100%);*/
-  /* background: linear-gradient(#FF9800 0%, #FF9800 100%);*/
-   
-  }
+
  .ribbon_3.popular.most-sell span::before {
     border-left: 3px solid #FF9800;
     border-right: 3px solid transparent;
@@ -324,8 +312,6 @@ i.mobile-filter-icon {
 }
 .buttons input, .buttons a {
   width: 100%;
-}
-.btn.btn-danger {
 }
 
 p.search-subtitle{
