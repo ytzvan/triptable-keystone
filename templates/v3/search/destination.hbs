@@ -36,7 +36,7 @@
             <div class="ribbon_3 popular collection"><span>Popular</span></div>
             {{/if}} -->
             <div class="img_container collection-img-container">
-              <a target="_blank" href="/tour/{{slug}}">
+              <a target="_blank" href="/c/{{slug}}">
                 <img async src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_85,h_270/v{{image.version}}/{{image.public_id}}.{{image.format}}" width="600" height="533" class="img-fluid" alt="image">
                 <div class="short_info">
                   <strong>{{#if_eq ../lang "es"}}{{title.es}} {{/if_eq}} {{#if_eq ../lang "en"}}{{title.en}} {{/if_eq}}</strong>
@@ -74,7 +74,7 @@
                 <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>{{i18n "all_experiences"}} <span>({{data.totalTours}})</span></a>
                 </li>
                 {{#each data.collections}}
-                <li><a href="#" id=""><i class="icon_set_1_icon-51"></i>{{#if_eq ../lang "es"}} {{title.es}} {{/if_eq}} {{#if_eq ../lang "en"}}{{title.en}} {{/if_eq}}<span>({{tours.length}})</span></a>
+                <li><a href="/c/{{slug}}" id=""><i class="icon_set_1_icon-51">{{{getInLocale title.es title.en false}}}</i><span></span></a>
                 </li>
                 {{/each}}
               </ul>
