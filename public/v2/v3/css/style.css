@@ -3937,7 +3937,7 @@ blockquote.styled {
 /* 4.1 Home 7: search function */
 #search_container {
 	position: relative;
-	height: 700px;
+	height: 500px;
 	background: #4d536d url(../img/slide_hero.jpg) no-repeat center top;
 	background-size: cover;
 	color: #fff;
@@ -5989,7 +5989,7 @@ only screen and (min-device-pixel-ratio: 2) and (max-width: 991px) {
 	
 	#search {
 		padding: 0 5%;
-		padding-top: 130px;
+		padding-top: 100px;
 	}
 	
 	.plan {

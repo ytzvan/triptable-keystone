@@ -89,6 +89,8 @@ module.exports = function(req, res) {
 		keystone.list('City')
 			.model.find()
 			.where('featured', true)
+			.sort('-updatedAt')
+			.limit(8)
 			.exec(function(err, results) { //Query Pais
 				if (err || !results) {
 
@@ -178,5 +180,4 @@ module.exports = function(req, res) {
 		next();
 	}); */
 	// Render the view
-	view.render('index');
-};
+	view.render('../v3/index', { layout: 'v3' });};

@@ -7,7 +7,8 @@ var Types = keystone.Field.Types;
  */
 var City = new keystone.List('City', {
 	map: { name: 'city' },
-	autokey: { path: 'slug', from: 'city', unique: true }
+	autokey: { path: 'slug', from: 'city', unique: true },
+	track: true
 });
 
 City.add({
