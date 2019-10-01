@@ -173,7 +173,7 @@
 	"invoice": "invoice",
 	"bookingId": "Booking ID",
 	"company": "Company",
-	"home_main_1": "Latin America's Unique Travel Experiences",
+	"home_main_1": "Book Tours & Experiences",
 	"home_main_2": "Discover & Book the best Tours and Activities across Latin America",
 	"tours_in_panama": "Tours in Panama",
 	"booking_pending": "Awaiting confirmation",
@@ -500,5 +500,8 @@
 	"support_message": "WhatsApp & Telephone support",
 	"support_schedule": "Monday to Sunday from 5:00 am - 8:00pm",
 	"sign_in": "Sign In",
-	"tours_activities_and_experiences": "Tours Activities and Experiences"
+	"tours_activities_and_experiences": "Tours Activities and Experiences",
+	"countries": "countries",
+	"Costa_Rica": "Costa_Rica",
+	"all_countries": "all_countries"
 }

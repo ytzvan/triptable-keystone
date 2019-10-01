@@ -97,7 +97,7 @@ h2 span, h3 span, h4 span, h5 span, h6 span{color:#3498db;}
 }
 
 /*General links color*/
-a {color: #51bce6;text-decoration: none;-webkit-transition: all 0.2s ease;transition: all 0.2s ease; outline:none;}
+a {color: #3498db;text-decoration: none;-webkit-transition: all 0.2s ease;transition: all 0.2s ease; outline:none;}
 a:hover,a:focus {color: #111;text-decoration: none; outline:none;}
 
 p {margin: 0 0 20px 0;}
@@ -3883,7 +3883,7 @@ blockquote.styled {
 
 /** tabs **/
 .tab-content {
-	padding: 30px;
+	padding: 15px;
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-top: none;
@@ -3951,7 +3951,7 @@ blockquote.styled {
 	vertical-align: middle;
 	padding: 0 20%;
 	padding-top: 100px;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.3);
 }
 
 #search .nav-tabs {
@@ -4917,7 +4917,7 @@ a#lang_link, a#currency_link{
 
 #lang_link:before{content: "\ea26";}
 
-#currency_link:before{content: "\e8b8";}
+#currency_link:before{content: "\e91d";}
 
 /*-------- 5.4 Gallery overlay --------*/
 .img_wrapper_gallery {
@@ -5879,7 +5879,7 @@ a.social_bt.linkedin:before {
 	}
 	
 	#search {
-		padding: 0 15%;
+		padding: 0 10%;
 		padding-top: 100px;
 	}
 }
@@ -5988,7 +5988,7 @@ only screen and (min-device-pixel-ratio: 2) and (max-width: 991px) {
 	}
 	
 	#search {
-		padding: 0 5%;
+		padding: 0 10%;
 		padding-top: 100px;
 	}
 	
@@ -6114,7 +6114,7 @@ only screen and (min-device-pixel-ratio: 2) and (max-width: 991px) {
 	
 	/* New v1.4 */
 	#search {
-		padding: 0 5%;
+		padding: 0 10%;
 		padding-top: 100px;
 	}
 	

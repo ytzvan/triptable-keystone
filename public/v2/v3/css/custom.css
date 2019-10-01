@@ -379,6 +379,9 @@ a.btn_full, .btn_full {
 .table-condensed .disabled.day {
   background:linear-gradient(45deg,#ffffff 49%,#464646 50%,#ffffff 51%);
 }
+.table-condensed .disabled.day:hover {
+  background:linear-gradient(45deg,#ffffff 49%,#464646 50%,#ffffff 51%);
+}
 .table-condensed .active.day {
     color: white !important;
     background-color: #A8A718 !important;
@@ -493,4 +496,17 @@ a.destinations-link {
 }
 a.tour-price {
     color: #454950;
+}
+.datepicker table {
+    width: 100%;
+}
+a.btn_1.green, .btn_1.green {
+  width: 100%;
+}
+h1.title {
+  margin:0;
+  font-size: 26px;
+}
+label {
+    margin-bottom: .2em;
 }

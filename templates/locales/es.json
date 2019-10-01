@@ -173,7 +173,7 @@
 	"invoice": "Factura",
 	"bookingId": "ID de Reserva",
 	"company": "compañía",
-	"home_main_1": "Experiencias de Viaje en Latinoamérica",
+	"home_main_1": "Reservar Tours y Experiencias",
 	"home_main_2": "Descubre y Reserva los mejores Tours y Actividades a lo largo de Latinoamérica",
 	"tours_in_panama": "Tours en Panama",
 	"booking_pending": "Pendiente de confirmación",
@@ -523,5 +523,8 @@
 	"sign_in": "sign_in",
 	"tours_activities_and_experiences": "Tours, Actividades y Experiencias",
 	"more_info": "más información",
-	"view_all_destinations": "view_all_destinations"
+	"view_all_destinations": "view_all_destinations",
+	"countries": "Países",
+	"all_countries": "all_countries",
+	"Costa_Rica": "Costa_Rica"
 }

@@ -334,6 +334,7 @@
 <script>
   function getDayOfTheWeek(day) {
       var disabledDays = "{{data.tour.daysDisabled}}";
+      console.log("disabled days:", disabledDays.includes(day));
       return disabledDays.includes(day);     // true
     }
 
@@ -354,19 +355,19 @@
         }
       }
     var daysDisabled = "{{data.tour.daysDisabled}}";
-    var disabledDates = "{{data.tour.disabledDates}}";
-    $(".datepicker").datepicker({
-      format: 'yyyy-MM-DD',
-      daysOfWeekDisabled: [1, 2],
-      daysOfWeekHighlighted:[4],
-      language:	'es',
-      beforeShowDay : (date) => {
-      },
-    });
+    
+   
     //$("#datepicker").datepicker('setDate', 'today');
     var date2 = new Date();
+    var disabledD = "{{data.tour.daysDisabled}}";
+    var disabledDates = ["{{data.tour.disabledDates}}"];
+    console.log("disableddates", disabledDates);
     date2.setDate(date2.getDate() - 0);
       $('#datepicker').datepicker({
+        daysOfWeekDisabled: disabledD,
+        format: 'dd/m/yyyy',
+        datesDisabled: ["14/10/2019"],
+        language: 'es-ES',
         startDate: date2
       });
     //.datepicker('daysOfWeekDisabled', '[1,2]');

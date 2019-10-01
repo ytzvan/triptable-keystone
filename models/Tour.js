@@ -22,8 +22,8 @@ var Tour = new keystone.List('Tour', {
 
 Tour.add({
 	tourId: { type: String, index: true, noedit: true },
-	name: { type: String, required: true },
-	name_eng: { type: String },
+	name: { type: String, required: true, index: true  },
+	name_eng: { type: String, index: true  },
 	state: {
 		type: Types.Select,
 		options: "draft, published, archived, child",
@@ -60,12 +60,12 @@ Tour.add({
 		dependsOn: {isExcursion: true}
 	},
 	description: {
-		short: { type: String },
+		short: { type: String, index: true },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
 	description_eng: {
-		short: { type: String },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+		short: { type: String, index: true  },
+		extended: { type: Types.Html, wysiwyg: true, height: 400  }
 	},
 	hasFixedSchedule: {
 		type: Types.Boolean,
@@ -330,4 +330,5 @@ function parseDate(strDate) {
 		console.log("hubo un errir al añadir el tour a la db", e);
 	}
 });*/
+
 Tour.register();
