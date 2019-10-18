@@ -28,6 +28,7 @@
     "handlebars": "^2.0.0",
     "humanname": "^0.2.2",
     "i18n": "^0.8.3",
+    "ioredis": "^4.14.1",
     "jsonfile": "^4.0.0",
     "keen-js": "^3.4.1",
     "keystone": "4.2.1",

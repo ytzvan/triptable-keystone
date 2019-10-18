@@ -35,3 +35,4 @@ nodemon-config.json
 triptable.sublime-project
 yarn.lock
 package-lock.json
+.env

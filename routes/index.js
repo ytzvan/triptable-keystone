@@ -2,7 +2,18 @@ var keystone = require('keystone');
 var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
-var cache = require('express-redis-cache')({ client: require('redis').createClient(process.env.REDIS_URL) })
+var fs = require('fs');
+var Redis = require('ioredis');
+
+var cert = "/Users/ytzvan/triptable-keystone/do-redis.crt";
+
+var client = new Redis(process.env.REDIS_URL);
+
+var cache = require('express-redis-cache')({
+	client: client
+})
+
+
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -201,13 +212,17 @@ exports = module.exports = function(app) {
 	});
 
 	cache.on('message', function (message) {
+		console.log("message", message);
 	});
 
 	cache.on('connected', function () {
+		console.log("connected");
 	});
 
 
-	cache.del('/*', function(err, del){ console.log("del", del) });
+	cache.del('/*', function(err, del){ 
+		console.log("del", del) 
+	});
 
 
 
