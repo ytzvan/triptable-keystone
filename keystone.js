@@ -116,8 +116,6 @@ function updateCurrencyFile() {
 //	 	if (err) {
 	 		var rates =  __dirname + '/routes/rates.json';
 		  	jsonfile.readFile(rates, function(err, result) {
-					console.log("result json: ", result);
-					console.log("error json: ", err);
 			    fx.rates =  result;
 			    fx.base = "USD";
 			    var appData = keystone.app.locals;

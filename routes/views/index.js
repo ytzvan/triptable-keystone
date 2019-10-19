@@ -180,4 +180,5 @@ module.exports = function(req, res) {
 		next();
 	}); */
 	// Render the view
-	view.render('../v3/index', { layout: 'v3' });};
+//	view.render('../v3/index', { layout: 'v3' });};
+	view.render('index')};
