@@ -111,21 +111,24 @@ function updateCurrencyFile() {
 	fx = require('money');
 	//fx.settings = { from: "USD"};
 	var jsonfile = require('jsonfile');
-	 oxr.set({ app_id: process.env.OXR_API_KEY })
-	 oxr.latest(function(err, result) {
-	 	if (err) {
-	 		var rates =  __dirname + 'routes/rates.json';
+//	 oxr.set({ app_id: process.env.OXR_API_KEY })
+//	 oxr.latest(function(err, result) {
+//	 	if (err) {
+	 		var rates =  __dirname + '/routes/rates.json';
 		  	jsonfile.readFile(rates, function(err, result) {
+					console.log("result json: ", result);
+					console.log("error json: ", err);
 			    fx.rates =  result;
 			    fx.base = "USD";
 			    var appData = keystone.app.locals;
-				appData.currency = "USD";
+					appData.currency = "USD";
 			    return true;
 		  	});
-	 	} else {
-		fx.rates =  oxr.rates;
-		fx.base = "USD";
-		return result;
-		} 
-	});
-}
+		 } 
+	//	else {
+//		fx.rates =  oxr.rates;
+//		fx.base = "USD";
+//		return result;
+//		} 
+//	});
+//}

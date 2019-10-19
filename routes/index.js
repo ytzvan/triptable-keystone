@@ -2,7 +2,6 @@ var keystone = require('keystone');
 var middleware = require('./middleware');
 var proxy = require('express-http-proxy');
 var importRoutes = keystone.importer(__dirname);
-var fs = require('fs');
 var Redis = require('ioredis');
 
 var cert = "/Users/ytzvan/triptable-keystone/do-redis.crt";
