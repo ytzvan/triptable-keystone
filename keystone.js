@@ -27,7 +27,7 @@ keystone.init({
 	'compress': true,
 	'emails': 'templates/emails',
 	'mongo': process.env.MONGO_URI,
-	'auto update': true,
+	'auto update': false,
 	'session': true,
 	'session store': 'mongo',
 	'auth': true,

@@ -218,10 +218,10 @@ exports = module.exports = function(app) {
 		console.log("connected");
 	});
 
-
+	/*
 	cache.del('/*', function(err, del){ 
 		console.log("del", del) 
-	});
+	});*/
 
 
 

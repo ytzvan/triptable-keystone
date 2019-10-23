@@ -3,7 +3,7 @@
     margin-bottom:10px;
   }
 </style>
-<section style="" class="parallax-window mobile-parallax-window" data-parallax="scroll" data-image-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,g_center,q_90/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}">
+<section style="" class="parallax-window mobile-parallax-window" data-parallax="scroll" data-image-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,g_center,q_90,f_auto/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}">
   <div class="parallax-content-2">
     <div class="container">
       <div class="row">
@@ -78,16 +78,16 @@
           <div class="sp-slides">
             {{#each data.tour.images}}
             <div class="sp-slide">
-              <img async alt="{{{getInLocale data.tour.name data.tour.name_eng false}}}" class="sp-image" src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-small="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-medium="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-large="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-retina="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
+              <img async alt="{{{getInLocale data.tour.name data.tour.name_eng false}}}" class="sp-image" src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-small="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-medium="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-large="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-retina="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
             </div>
             {{/each}}
           </div>
           <div class="sp-thumbnails">
             {{#each data.tour.images}}
-              <img async alt="Image" class="sp-thumbnail" src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
+              <img async alt="Image" class="sp-thumbnail" src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
             {{/each}}
           </div>
         </div>
