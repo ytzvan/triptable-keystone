@@ -142,7 +142,7 @@ exports = module.exports = function(req, res) {
 			var formatDate = cardDate.format("MMYY");
       cardDate = formatDate;
 		  var options = { method: 'POST',
-      proxy: process.env.QUOTAGUARDSTATIC_URL,
+   //   proxy: process.env.QUOTAGUARDSTATIC_URL,
       headers: {
         'User-Agent': 'node.js'
       },
