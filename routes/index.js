@@ -214,14 +214,16 @@ exports = module.exports = function(app) {
 		console.log("message", message);
 	});
 
-	cache.on('connected', function () {
-		console.log("connected");
-	});
 
-	/*
+		cache.on('connected', function () {
+			console.log("connected");
+		});
+
+if (process.env.DELETE_CACHE) {
 	cache.del('/*', function(err, del){ 
 		console.log("del", del) 
-	});*/
+	});
+}
 
 
 

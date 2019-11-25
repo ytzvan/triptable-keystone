@@ -20,18 +20,18 @@ module.exports = function(req, res) {
 		provinces: [],
     homeImage: [],
 	};
+	locals.data.currency = req.session.currency.currency;
 
 
 
 	function asyncFunc(countryId) { //Async func 
 			return new Promise(
 				function (resolve, reject) {
+
+
+
 					var query = keystone.list('Tour')
-					.paginate({
-						page: req.query.page || 1,
-						perPage: 9,
-						maxPages: 1
-					})
+					.model
 					.where('country',countryId)
 					.where('state','published')
 					.where('featured',true)
@@ -46,6 +46,9 @@ module.exports = function(req, res) {
 							reject(err);
 						}
 					});
+
+
+					
 				});
 			};
 	// Load the places
@@ -180,5 +183,5 @@ module.exports = function(req, res) {
 		next();
 	}); */
 	// Render the view
-//	view.render('../v3/index', { layout: 'v3' });};
-	view.render('index')};
+	view.render('../v3/index', { layout: 'v3' });};
+//	view.render('index')};
