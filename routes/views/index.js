@@ -4,7 +4,7 @@ var Email = require('../../utils').Email;
 var q = require('q');
 var request = require('request');
 
-module.exports = function(req, res) {
+module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
@@ -18,66 +18,63 @@ module.exports = function(req, res) {
 		tours: [],
 		categories: [],
 		provinces: [],
-    homeImage: [],
+		homeImage: [],
 	};
-	locals.data.currency = req.session.currency.currency;
 
 
 
 	function asyncFunc(countryId) { //Async func 
-			return new Promise(
-				function (resolve, reject) {
-
-
-
-					var query = keystone.list('Tour')
-					.model
-					.where('country',countryId)
-					.where('state','published')
-					.where('featured',true)
+		return new Promise(
+			function (resolve, reject) {
+				var query = keystone.list('Tour')
+					.paginate({
+						page: req.query.page || 1,
+						perPage: 9,
+						maxPages: 1
+					})
+					.where('country', countryId)
+					.where('state', 'published')
+					.where('featured', true)
 					.sort('-publishedDate')
 					.populate('province categories city');
 
-					query.exec(function(err, results) {
-						if (!err){
-							results.currency = req.session.currency.currency;
+				query.exec(function (err, results) {
+					if (!err) {
+						results.currency = req.session.currency.currency;
 						resolve(results);
-						} else {
-							reject(err);
-						}
-					});
-
-
-					
+					} else {
+						reject(err);
+					}
 				});
-			};
+			});
+	};
 	// Load the places
-      
-		view.on('init', function(next){
-		asyncFunc ("5704494210326b0300cb6a2f")
-		.then(function (results) {
-			 locals.toursPanama = results;
-			 return asyncFunc("593ab9bd397cff0400419584")
-		})
-		 .then(function (toursColombia) {
-		 	if (toursColombia) {
-				locals.toursColombia = toursColombia;
-			}
-			return asyncFunc("58dec56592896d0400161fd3")
-		})
-		 .then(function(toursMexico){
-		 	if (toursMexico) {
-				locals.toursMexico = toursMexico;
-			}
-			next();
-		 });
 
-    });
+	view.on('init', function (next) {
+		asyncFunc("5704494210326b0300cb6a2f")
+			.then(function (results) {
+				locals.toursPanama = results;
+				return asyncFunc("593ab9bd397cff0400419584")
+			})
+			.then(function (toursColombia) {
+				if (toursColombia) {
+					locals.toursColombia = toursColombia;
+				}
+				return asyncFunc("58dec56592896d0400161fd3")
+			})
+			.then(function (toursMexico) {
+				if (toursMexico) {
+					locals.toursMexico = toursMexico;
+				}
+				next();
+			});
 
-	view.on('init', function(next) {
+	});
+
+	view.on('init', function (next) {
 		keystone.list('Province')
 			.model.find()
-			.exec(function(err, results) { //Query Pais
+			.exec(function (err, results) { //Query Pais
 				if (err || !results) {
 
 					return res.status(404);
@@ -88,13 +85,13 @@ module.exports = function(req, res) {
 			});
 
 	});
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 		keystone.list('City')
 			.model.find()
 			.where('featured', true)
 			.sort('-updatedAt')
 			.limit(8)
-			.exec(function(err, results) { //Query Pais
+			.exec(function (err, results) { //Query Pais
 				if (err || !results) {
 
 					return res.status(404);
@@ -106,9 +103,9 @@ module.exports = function(req, res) {
 
 	});
 
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
-		keystone.list('PostCategory').model.find().exec(function(err, results) { //Query Pais
+		keystone.list('PostCategory').model.find().exec(function (err, results) { //Query Pais
 			if (err || !results) {
 
 				return res.status(404);
@@ -120,9 +117,9 @@ module.exports = function(req, res) {
 
 	});
 
-  view.on('init', function(next) {
+	view.on('init', function (next) {
 
-		keystone.list('Country').model.find().exec(function(err, results) { //Query attractions
+		keystone.list('Country').model.find().exec(function (err, results) { //Query attractions
 			if (err || !results) {
 
 				return res.status(404);
@@ -134,46 +131,46 @@ module.exports = function(req, res) {
 
 	});
 
-  view.on('init', function(next){
-    keystone.list('homeGallery').model.find()
-    .exec(function(err, result){
-      if (result){
-        var id = Math.floor((Math.random() * result.length));
-        locals.data.homeImage = result[id];
-      }
-      next();
-    })
+	view.on('init', function (next) {
+		keystone.list('homeGallery').model.find()
+			.exec(function (err, result) {
+				if (result) {
+					var id = Math.floor((Math.random() * result.length));
+					locals.data.homeImage = result[id];
+				}
+				next();
+			})
 	});
 	view.on('init', function (next) {
-	let featuredColl = keystone.list('Landing')
-		.model.find()
-		.where("state", "published")
-		.limit(4)
-		.exec((err, fCollections) => {
-			if (!err) {
-			//	console.log(excursions);
-				locals.data.fCollections = fCollections;
-			} else {
-				console.log("error", err);
-			}
-			next();
-		});
-})
-/*	view.on('init', function (next) {
-		let excursions = keystone.list('Tour')
-			.model.where({ "isExcursion": true, "state": "published" })
-			.populate('city')
-			.exec((err, excursions) => {
+		let featuredColl = keystone.list('Landing')
+			.model.find()
+			.where("state", "published")
+			.limit(4)
+			.exec((err, fCollections) => {
 				if (!err) {
-				//	console.log(excursions);
-					locals.data.excursions = excursions;
+					//	console.log(excursions);
+					locals.data.fCollections = fCollections;
 				} else {
 					console.log("error", err);
 				}
 				next();
 			});
-	})*/
-	
+	})
+	/*	view.on('init', function (next) {
+			let excursions = keystone.list('Tour')
+				.model.where({ "isExcursion": true, "state": "published" })
+				.populate('city')
+				.exec((err, excursions) => {
+					if (!err) {
+					//	console.log(excursions);
+						locals.data.excursions = excursions;
+					} else {
+						console.log("error", err);
+					}
+					next();
+				});
+		})*/
+
 	/*view.on('init', function(next){
 		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";
 		request(url, function(err, result){
@@ -183,5 +180,6 @@ module.exports = function(req, res) {
 		next();
 	}); */
 	// Render the view
-//	view.render('../v3/index', { layout: 'v3' });};
-	view.render('index')};
+	//	view.render('../v3/index', { layout: 'v3' });};
+	view.render('index')
+};
