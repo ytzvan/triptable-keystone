@@ -15,7 +15,7 @@ module.exports = {
     var locals = model;
     var templateOptions = { pretty: true, locals: locals };
     var templatePath = "utils/email_templates/notifications/operator/newBookingRequest.ejs";
-    var subject = "Triptable - Nueva Solicitud de Reserva";
+    var subject = "Triptable Operadores - Nueva Solicitud de Reserva ID " + model.friendlyId;
     var toArray = [to, { name: locals.operatorName, email: locals.operatorEmail }];
     sendEmailTemplate(
       templatePath,
@@ -42,7 +42,7 @@ module.exports = {
 		var locals = model;
 		var templateOptions = { pretty: true, locals: locals };
 		var templatePath = "utils/email_templates/notifications/user/newBookingRequest.ejs";
-		var subject = "Triptable - Solicitud de Reserva Recibida";
+		var subject = "Triptable - Solicitud de Reserva Recibida ID " + model.friendlyId;
 		var toArray = [to, { name: locals.name.first, email: locals.email }];
 		sendEmailTemplate(
 			templatePath,
@@ -295,7 +295,7 @@ module.exports = {
      {
       to: toArray,
       subject: subject,
-      from: { name: 'Triptable', email: 'hello@triptable.com' },
+      from: { name: 'Triptable.com', email: 'hello@triptable.com' },
       apiKey: mailgunApiKey,
       domain: mailgunDomain,
     },

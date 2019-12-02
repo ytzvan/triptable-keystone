@@ -11,7 +11,7 @@ module.exports = {
     slack.send({
         channel: process.env.SLACK_CHANNEL,
         icon_url: 'http://example.com/my-icon.png',
-        text: 'Nueva Reserva 🔥🙌: ' + fullName + '. Adultos: ' + model.nOfAdults + '. Niños: ' + model.nOfChildren + '. Infantes: ' + model.nOfInfants + '. Total de Personas: ' + model.people + '. Email: ' + model.email + '. Telefono: ' + model.phone + '. Tour: ' + model.tourName + '. Fecha: ' + model.datePretty + '. Hotel: ' + model.hotel + '. Precio: $' + model.bookingTotalPrice + '. ID: ' + model.friendlyId + '. Propietario de la Tarjeta: ' + model.cardholder,
+        text: 'Nueva Reserva 🔥🙌: ' + fullName + '. Adultos: ' + model.nOfAdults + '. Niños: ' + model.nOfChildren + '. Infantes: ' + model.nOfInfants + '. Total de Personas: ' + model.people + '. Email: ' + model.email + '. Telefono: ' + model.phone + '. Tour: ' + model.tourName + '. Fecha: ' + model.datePretty + '. Hotel: ' + model.hotel + '. Precio: $' + model.bookingTotalPrice + '. ID: ' + model.friendlyId + '. Propietario de la Tarjeta: ' + model.cardholder + '. Comentarios del Cliente: ' + model.message,
         username: 'triptable-bot'
     });
 
@@ -25,7 +25,7 @@ module.exports = {
         slack.send({
             channel: "general",
             icon_url: 'http://example.com/my-icon.png',
-            text: 'Nuevo Guia Registrado 👨: '+ fullName+ '. Email: '+model.email + '. Pais: '+model.countryCode,
+            text: 'Nuevo Guia Registrado 👨: ' + fullName + '. Email: ' + model.email + '. Pais: ' + model.countryCode + '. Telefono: ' + model.cellphone,
             username: 'triptable-bot'
         });
     

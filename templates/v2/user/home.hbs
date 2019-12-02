@@ -56,7 +56,7 @@
 								<div class="list-box-listing-content">
 									<div class="inner">
                     
-										<h3>{{getTourLocName tour.name tour.name_eng }} <span class="booking-status booking-status{{friendlyId}}"></span></h3>
+										<h3><a href="/tour/{{tour.slug}}" target="_blank"> {{getTourLocName tour.name tour.name_eng }} <span class="booking-status booking-status{{friendlyId}}"></span></h3>
 										
 										<div class="inner-booking-list">
 											<h5>{{i18n "name"}}:</h5>
@@ -96,6 +96,9 @@
 											<ul class="booking-list">
 												<li><a href="/invoice/{{_id}}" target="_blank">{{i18n "see_invoice"}}</a></li>
 											</ul>
+										</div>
+										<div class="inner-booking-list">
+											<a class="button btn btn-primary" target="_blank" href="/tour/{{tour.slug}}">{{i18n "book_again"}}</a>
 										</div>
 
 										<!--<a href="#small-dialog" class="rate-review popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>-->
