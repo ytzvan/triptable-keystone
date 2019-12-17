@@ -22,7 +22,10 @@ City.add({
 		title: { type: String },
 		description: { type: String }
 	},
-	description: {type:String },
+	descripcion: {
+		es: { type: String },
+		en: { type: String }
+	},
 	pageContent: {
 		es: { type: Types.Html, wysiwyg: true },
 		en: { type: Types.Html, wysiwyg: true }	},

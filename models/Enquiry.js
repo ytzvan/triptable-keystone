@@ -27,63 +27,72 @@ var Enquiry = new keystone.List('Enquiry', {
 });
 
 Enquiry.add({
-	name: { type: Types.Name, required: true, default: "Customer 1"},
-	email: { type: Types.Email, required: true, default: "hello@triptable.com"},
+	name: { type: Types.Name, required: true, default: "Customer 1" },
+	email: { type: Types.Email, required: true, default: "hello@triptable.com" },
 	phone: { type: String },
 	hotel: { type: String },
-	people : {type: Types.Number},
-	nOfAdults : {type: Types.Number},
-	nOfChildren : {type: Types.Number},
-	nOfInfants : {type: Types.Number},
+	people: { type: Types.Number },
+	nOfAdults: { type: Types.Number },
+	nOfChildren: { type: Types.Number },
+	nOfInfants: { type: Types.Number },
 	//place: { country: { type: String }},
-	place: { country: { type: Types.Relationship, ref: 'Country' },
-						province: { type: Types.Relationship, ref: 'Province' },
-						city: { type: Types.Relationship, ref: 'City' },
-
-},
-	tour: { type: Types.Relationship, ref: 'Tour', index: true },
+	place: {
+		country: { type: Types.Relationship, ref: "Country" },
+		province: { type: Types.Relationship, ref: "Province" },
+		city: { type: Types.Relationship, ref: "City" }
+	},
+	tour: { type: Types.Relationship, ref: "Tour", index: true },
 	tourName: { type: String },
 	tourUrl: { type: String },
-	date: { type: Types.Date },
-	bookingTime: {type: String},
-  promocode: { type: Types.Relationship, ref: 'PromoCode', many: true },
-	bookingStatus: { type: Types.Select, options: [
-		{ value: '0', label: 'Pendiente' },
-		{ value: '1', label: 'Confirmada' },
-		{ value: '2', label: 'Declinada' }
-	], default: '0' },
-	operatorEmail:{ type: String },
-	operatorName: {type: String},
-	operatorCellphone: {type: String},
-  	operator: { type: Types.Relationship, ref: 'User', index: true, filters: { isGuide: true } },
-	message: { type: Types.Textarea},
-	tourPrice: {type: Types.Money},
-	adultTotalPrice: {type: Types.Money},
-	childPrice: {type: Types.Money},
-	childTotalPrice: {type: Types.Money},
-	infantPrice: {type: Types.Money},
-	infantTotalPrice: {type: Types.Money},
+	date: { type: Types.Date, utc: true },
+	datePretty: { type: String },
+	bookingTime: { type: String },
+	promocode: { type: Types.Relationship, ref: "PromoCode", many: true },
+	bookingStatus: {
+		type: Types.Select,
+		options: [
+			{ value: "0", label: "Pendiente" },
+			{ value: "1", label: "Confirmada" },
+			{ value: "2", label: "Declinada" }
+		],
+		default: "0"
+	},
+	operatorEmail: { type: String },
+	operatorName: { type: String },
+	operatorCellphone: { type: String },
+	operator: {
+		type: Types.Relationship,
+		ref: "User",
+		index: true,
+		filters: { isGuide: true }
+	},
+	message: { type: Types.Textarea },
+	tourPrice: { type: Types.Money },
+	adultTotalPrice: { type: Types.Money },
+	childPrice: { type: Types.Money },
+	childTotalPrice: { type: Types.Money },
+	infantPrice: { type: Types.Money },
+	infantTotalPrice: { type: Types.Money },
 	createdAt: { type: Date, default: Date.now, noedit: true },
 	updatedAt: { type: Date, noedit: true },
-	friendlyId: {type: String, unique: true, noedit:true},
-	datePretty: {type: String},
-	bookingTotalPrice : {type: Types.Money, noedit: true}, //precio total
-	bookingFlatPrice : {type: Types.Money, noedit: true}, //precio sin costo de metro pago
-	bookingTransactionFee : {type: Types.Money, noedit: true}, // cantidad a pagar a metro pago
-	bookingOperatorFee : {type: Types.Money, noedit: true}, // cantidad a pagar a operador
-	bookingRevenue : {type: Types.Money, noedit: true}, // cantidad que nos toca
-	bookingComission : {type: Types.Number, noedit: true}, // % de comision establecida
-	transactionResponseCode : {type: String, noedit: true},
-	transactionReference : {type: String, noedit: true},
-	transactionAuthorizationNumber : {type: String, noedit: true},
-	transactionTime : {type: String, noedit: true},
-	transactionDate : {type: String, noedit: true},
-	transactionBallot : {type: String, noedit: true},
+	friendlyId: { type: String, unique: true, noedit: true },
+	bookingTotalPrice: { type: Types.Money, noedit: true }, //precio total
+	bookingFlatPrice: { type: Types.Money, noedit: true }, //precio sin costo de metro pago
+	bookingTransactionFee: { type: Types.Money, noedit: true }, // cantidad a pagar a metro pago
+	bookingOperatorFee: { type: Types.Money, noedit: true }, // cantidad a pagar a operador
+	bookingRevenue: { type: Types.Money, noedit: true }, // cantidad que nos toca
+	bookingComission: { type: Types.Number, noedit: true }, // % de comision establecida
+	transactionResponseCode: { type: String, noedit: true },
+	transactionReference: { type: String, noedit: true },
+	transactionAuthorizationNumber: { type: String, noedit: true },
+	transactionTime: { type: String, noedit: true },
+	transactionDate: { type: String, noedit: true },
+	transactionBallot: { type: String, noedit: true },
 	cardholder: { type: String, noedit: true },
-		user: { type: Types.Relationship, ref: 'User', index: true },
-  	isPay : {type : Types.Boolean},
-  	dateOfPayment : {type:  Types.Date, dependsOn: {isPay: true}},
-  	paymentConfirmationNumber : {type: String, dependsOn: {isPay: true}},
+	user: { type: Types.Relationship, ref: "User", index: true },
+	isPay: { type: Types.Boolean },
+	dateOfPayment: { type: Types.Date, dependsOn: { isPay: true } },
+	paymentConfirmationNumber: { type: String, dependsOn: { isPay: true } }
 });
 
 Enquiry.schema.pre('save', function(next) {

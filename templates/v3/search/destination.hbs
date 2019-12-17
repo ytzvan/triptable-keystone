@@ -13,12 +13,13 @@
       </ul>
     </div>
   </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-12">
         <h1 class="mt-2 mb-2 title">{{data.place.city}} {{i18n "tours"}}</h1>
         <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> {{i18n "tours_activities_and_experiences"}}</p>
-        <p class="d-none d-md-block pb-2">{{{getInLocale data.place.description data.place.description_eng false}}}</p>
+        <p class="d-none d-md-block pb-2">{{#if_eq lang 'es'}} {{{data.place.descripcion.es}}} {{else}} {{{data.place.descripcion.en}}} {{/if_eq}}</p>
       </div>
     </div>
   </div>
@@ -382,9 +383,13 @@
     </ul>
   </nav>
   <!-- end pagination-->
+  </div>
 
-
-
+<div class="container mb-5">
+  <div class="row">
+    <div style="padding: 10px; font-size: 18px;line-height:1.5;">{{#if_eq lang 'es'}} {{{data.place.pageContent.es}}} {{else}} {{{data.place.pageContent.en}}} {{/if_eq}}</div>
+  </div>
+</div>
 
 <script>
   function resetFilter() {

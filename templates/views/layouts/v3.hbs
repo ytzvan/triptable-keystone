@@ -111,8 +111,30 @@
 
       <div class="col-sm-6 col-7">
         <ul id="top_links">
-          <li><a href="#sign-in-dialog" id="access_link">Sign in</a></li>
+          <li>
+            <a href="#sign-in-dialog" id="access_link">Sign in</a>
           </li>
+          {{#if userInfo}}
+          <li>
+            <div class="dropdown dropdown-mini">
+    
+              <a href="#" class="lang-select" data-toggle="dropdown"><span class="lang-select">{{i18n "welcome"}} {{userInfo.name.first}}</span></a>
+                <div class="dropdown-menu">
+                  <ul id="lang_menu">
+                    {{#unless isGuide}}
+                    <li><a href="/user">{{i18n "my_bookings"}}</a></li>
+                    {{/unless}}
+                    {{#if isGuide}}
+                    <li><a href="/admin">{{i18n "my_bookings_admin"}}</a></li>
+                    {{/if}}
+                    {{#if isAdmin}}
+                    <li><a href="/keystone">Keystone</a></li>
+                    {{/if}}
+                    <li><a href="/keystone/signout">{{i18n "signout"}}</a></li>
+                  </ul>
+                </div>
+              </li>
+          {{/if}}
           <li>
             <div class="dropdown dropdown-mini">
               <a href="#" class="lang-select" data-toggle="dropdown"><span class="lang-select">{{{getLang}}}</span></a>
@@ -156,7 +178,7 @@
     <div class="row">
       <div class="col-3">
         <div id="logo_home">
-          <h1><a href="/" title="Triptable.com">Triptable.com</a></h1>
+          <h1><a href="/" title="Triptable Tours and Activities">Triptable.com</a></h1>
         </div>
       </div>
       <nav class="col-9">
@@ -171,15 +193,15 @@
             <li class="submenu">
               <a class="destinations-link" href="javascript:void(0);" class="show-submenu">{{i18n "destinations"}} <i class="icon-down-open-mini"></i></a>
               <ul>
-                <li><a href="/panama">Panamá</a>
+                <li><a href="/panama">{{i18n "Panama"}}</a>
                   <ul>
-                    <li><a href="/destino/san-blas-guna-yala">Islas de San Blas</a></li>
+                    <li><a href="/destino/san-blas-guna-yala">{{i18n "san_blas_islands"}}</a></li>
                     <li><a href="/destino/bocas-del-toro">Bocas del Toro</a></li>
-                    <li><a href="/destino/panama-city">Ciudad de Panamá</a></li>
+                    <li><a href="/destino/panama-city">{{i18n "panama_city"}}</a></li>
                     <li><a href="/destino/pedasi">Pedasí</a></li>
                     <li><a href="/destino/boquete">Boquete</a></li>
                     <li><a href="/destino/el-valle-de-anton">El Valle de Antón</a></li>
-                    <li><a href="/panama">Ver Todos los destinos en Panamá</a></li>
+                    <li><a href="/panama">{{i18n "all_destinations"}}</a></li>
                   </ul>
                 </li>
 
@@ -191,23 +213,23 @@
                     <li><a href="/destino/santa-marta">Santa Marta</a></li>
                     <li><a href="/destino/cali">Cali</a></li>
                     <li><a href="/destino/barranquilla">Barranquilla</a></li>
-                    <li><a href="/colombia">Ver Todos los destinos en Colombia</a></li>
+                    <li><a href="/colombia">{{i18n "all_destinations"}}</a></li>
                   </ul>
                 </li>
                 
                 <li><a href="/costa-rica">Costa Rica</a>
                   <ul>
                     <li><a href="/destino/san-jose">San José</a></li>
-                    <li><a href="/costa-rica">Ver Todos los destinos en Costa Rica</a></li>
+                    <li><a href="/costa-rica">{{i18n "all_destinations"}}</a></li>
                   </ul>
                 </li>
 
-                <li><a href="/mexico">México</a>
+                <li><a href="/mexico">{{i18n "mexico"}}</a>
                   <ul>
                     <li><a href="/destino/ciudad-de-mexico">Ciudad de México (Nuevo)</a></li>
                     <li><a href="#">Cancún (pronto)</a></li>
                     <li><a href="#">Puerto Vallarta (pronto) </a></li>
-                    <li><a href="/mexico">Ver Todos los destinos en México</a></li>
+                    <li><a href="/mexico">{{i18n "all_destinations"}}</a></li>
                   </ul>
                 </li>
               </ul>
@@ -216,10 +238,10 @@
               <a href="/mybooking">Verificar Mi Reserva <i class="icon-down-open-mini"></i></a>
             </li>
             <li class="submenu">
-              <a href="javascript:void(0);" class="show-submenu">Acerca de <i class="icon-down-open-mini"></i></a>
+              <a href="javascript:void(0);" class="show-submenu">{{i18n "about"}} <i class="icon-down-open-mini"></i></a>
               <ul>
-                <li><a href="/about">Nosotros</a></li>
-                <li><a href="/faq">Ayuda</a></li>
+                <li><a href="/about">{{i18n "about_us"}}</a></li>
+                <li><a href="/faq">{{i18n "faq"}}</a></li>
   
               </ul>
             </li>

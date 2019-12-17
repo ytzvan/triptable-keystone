@@ -502,8 +502,9 @@
 	"sign_in": "Sign In",
 	"tours_activities_and_experiences": "Tours Activities and Experiences",
 	"countries": "countries",
-	"Costa_Rica": "Costa_Rica",
-	"all_countries": "all_countries",
-	"verified_user": "verified_user",
-	"book_again": "Book Again"
+	"Costa_Rica": "Costa Rica",
+	"all_countries": "all countries",
+	"verified_user": "verified user",
+	"book_again": "Book Again",
+	"san_blas_islands": "San Blas Islands"
 }
