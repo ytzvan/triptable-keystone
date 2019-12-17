@@ -246,7 +246,7 @@ Enquiry.schema.methods.sendReviewEmail = function (enquiry) {
 
 Enquiry.schema.methods.prettyDate = function (obj) {
   	var date = obj.date;
-	var datePretty = moment(date).format("dddd, Do MMMM YYYY");
+	var datePretty = moment.utc(date).format("dddd, Do MMMM YYYY");
 	this.datePretty = datePretty;
 }
 
