@@ -25,7 +25,7 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-less": "^3.0.5",
     "gulp-rename": "^1.2.2",
-    "handlebars": "^2.0.0",
+    "handlebars": "^4.5.3",
     "humanname": "^0.2.2",
     "i18n": "^0.8.3",
     "ioredis": "^4.14.1",
