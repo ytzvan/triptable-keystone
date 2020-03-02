@@ -1,9 +1,115 @@
 <style>
+  p{
+    font-size:18px; 
+  }
+  ul.price li{
+    font-size:18px; 
+    line-height: 1.5;
+  }
   #logo_home{
     margin-bottom:10px;
   }
+  #position ul li a {
+    color: #fff;
+    opacity: 1;
+    font-size:14px;
+    font-weight:600;
+}
+
+
+.box_style_1 h3.inner {
+    background: transparent !important;
+    color: black  !important;
+    font-weight: 600;
+}
 </style>
-<section style="" class="parallax-window mobile-parallax-window" data-parallax="scroll" data-image-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,g_center,q_90,f_auto/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}">
+<div style="margin-top:85px;"></div>
+<div id="position" class="mt-0">
+  <div class="container">
+    <ul>
+      <li><a href="/">{{i18n "home"}}</a>
+      </li>
+      <li><a href="/{{data.tour.country.slug}}">{{i18n "tours_in"}} {{data.tour.country.country}}</a>
+      </li>
+      <!-- <li><a href="/{{data.tour.country.slug}}/{{data.tour.province.slug}}">{{data.tour.province.province}}</a>
+        </li> -->
+      <li> <a href="/destino/{{data.tour.city.slug}}">{{i18n "tours_in"}} {{data.tour.city.city}}</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container" id="main-container">
+  <div class="row mt-1">
+    <div class="col-12 col-lg-6 ">
+      <!-- Carousel -->
+        <div id="Img_carousel" class="slider-pro">
+          <div class="sp-slides">
+            {{#each data.tour.images}}
+            <div class="sp-slide">
+              <img async alt="{{{getInLocale data.tour.name data.tour.name_eng false}}}" class="sp-image"
+                src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-small="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-medium="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-large="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
+                data-retina="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
+            </div>
+            {{/each}}
+          </div>
+          <div class="sp-thumbnails">
+            {{#each data.tour.images}}
+            <img async alt="Image" class="sp-thumbnail"
+              src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
+            {{/each}}
+          </div>
+        </div>
+      <!-- end carousel -->
+    </div> 
+    <div class="col-12 col-lg-6">
+        <h1 style="font-size: 32px; font-weight:600;">{{{getInLocale data.tour.name data.tour.name_eng false}}}</h1>
+        <p style="font-size: 20px;font-weight:400;">{{data.tour.description.short}}</p>
+        <p style="font-size: 20px;font-weight:600; margin-top:10px;">Precios:</p>
+        <ul class="price">
+        {{#if data.tour.multiPrice}}
+        <li>👨‍💼{{i18n "adults"}}: <span style="font-weight: 600; color:coral;">{{session.userCurrency.value}}{{getPriceInCurrency data.tour.price data.tour.currency}}</span>
+        {{i18n "per_person"}}</li>
+        {{else}}
+        <li>👨‍💼{{i18n "adults"}}</li>
+        <ul>
+          <li> De 1 a 2 Adultos: <span
+              style="font-weight: 600; color:coral;">{{session.userCurrency.value}}{{getPriceInCurrency data.tour.price data.tour.currency}}</span>
+            {{i18n "per_person"}}
+          </li>
+          <li>De 2 a 4 Adultos: <span
+              style="font-weight: 600; color:coral;">{{session.userCurrency.value}}{{getPriceInCurrency data.tour.price data.tour.currency}}</span>
+            {{i18n "per_person"}}
+          </li>
+        </ul>
+        {{/if}}
+        
+        <li>🙇‍♂️ Niños: {{i18n "from"}}
+          {{session.userCurrency.value}}<span>{{getPriceInCurrency data.tour.childPrice data.tour.currency}}</span>
+          {{i18n "per_person"}}</li>
+          <li>👼 Infantes: {{i18n "from"}}
+            {{session.userCurrency.value}}<span>{{getPriceInCurrency data.tour.infantPrice data.tour.currency}}</span>
+            {{i18n "per_person"}}</li>
+        </ul>
+        <div class="row">
+        
+        <p  class="col-12 col-md-6" style="margin-top:5px;"><a class="btn_map" target="_blank"
+            href="https://api.whatsapp.com/send?phone=50761005609&text=Tour: {{data.tour.name}} - Precio / Price: {{getCurrency}} {{data.tour.price}} - Url https://www.triptable.com/tour/{{data.tour.slug}}"><i
+              class="icon-whats-app"></i> {{i18n "Contact_via_whatsapp"}}</a></p>
+              <p class="col-12 col-md-6" style="margin-top:5px;">
+                <a class="btn_full_outline"
+                  href="mailto:hello@triptable.com">{{i18n "contact_via_email"}}</a>
+              </p></div>
+              
+              <p style="margin-top:10px; text-align:center;">{{i18n "or_book_online_bellow"}}</p><hr>
+    </div>
+  </div>
+
+<!-- 
+<section class="parallax-window mobile-parallax-window" data-parallax="scroll" data-image-src="https://res.cloudinary.com/triptable/image/upload/c_fill,h_600,g_center,q_90,f_auto/{{data.tour.heroImage.public_id}}.{{data.tour.heroImage.format}}">
   <div class="parallax-content-2">
     <div class="container">
       <div class="row">
@@ -26,29 +132,19 @@
     </div>
   </div>
 </section>
-<!-- End section -->
+End section -->
 <main>
-  <div id="position" class="mt-0">
-    <div class="container">
-      <ul>
-        <li><a href="/">{{i18n "home"}}</a>
-        </li>
-        <li><a href="/{{data.tour.country.slug}}">{{data.tour.country.country}}</a>
-        </li>
-       <!-- <li><a href="/{{data.tour.country.slug}}/{{data.tour.province.slug}}">{{data.tour.province.province}}</a>
-        </li> -->
-        <li> <a href="/destino/{{data.tour.city.slug}}">{{data.tour.city.city}}</a></li>
-      </ul>
-    </div>
-  </div>
+
   <!-- End Position -->
 
 
   <!-- End Map -->
-
-  <div class="container margin_60">
+<div class="container">
+<div class="row">
+  <div class="col-lg-8">
     <div class="row">
-      <div class="col-lg-8" id="single_tour_desc">
+
+      <!--<div class="col-lg-8" id="single_tour_desc">
         <div id="single_tour_feat">
           <ul>
             <li><i class=" icon_set_1_icon-63"></i>{{i18n "mobile_voucher_accepted"}}</li>
@@ -58,185 +154,174 @@
             {{#if data.tour.transportation}}<li><i class="icon_set_1_icon-26"></i>{{i18n "transportation_included"}}</li>{{/if}}
 
           </ul>
-        </div>
+        </div> -->
+        <div id="single_tour_desc">
         <div id="booking-container" class="container pr-0 pl-0">
-          <div class="collapse" id="collapseMap">
             <!--booking form --> 
             <div>
             {{>v3/tour/_bookingFormPartial}}
             </div>
             <!-- end booking form -->
-          </div>
         </div>
 
         <p class="d-block d-lg-none mb-2"><a class="btn_map" id="open_booking_form" data-toggle="collapse" href="#collapseMap"
             aria-expanded="false" aria-controls="collapseMap" data-text-swap="{{i18n "check_availability"}}"
             data-text-original="{{i18n "check_availability"}}">{{i18n "check_availability"}}</a></p>
-        <!-- Map button for tablets/mobiles -->
-
-        <div id="Img_carousel" class="slider-pro">
-          <div class="sp-slides">
-            {{#each data.tour.images}}
-            <div class="sp-slide">
-              <img async alt="{{{getInLocale data.tour.name data.tour.name_eng false}}}" class="sp-image" src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-small="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-medium="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}" data-large="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}"
-                data-retina="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
-            </div>
-            {{/each}}
-          </div>
-          <div class="sp-thumbnails">
-            {{#each data.tour.images}}
-              <img async alt="Image" class="sp-thumbnail" src="https://res.cloudinary.com/triptable/image/upload/f_auto,c_fill,h_400,g_center,q_90/{{public_id}}.{{format}}">
-            {{/each}}
-          </div>
-        </div>
-
+          <!-- Map button for tablets/mobiles -->
+        </div> <!-- end single-tour-dessc -->
+      </div> <!-- end row--> 
         <hr>
-
-        <div class="row">
-          <div class="col-lg-3">
-            <h3>{{i18n "description"}}</h3>
-          </div>
-          <div class="col-lg-9 tour-description">
-            <p class="tour-description">
-             {{{getInLocale data.tour.description.extended data.tour.description_eng.extended false}}}
-            </p>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-lg-3">
-              <h4>{{i18n "whats_included"}}</h4>
-          </div>
-          <div class="col-lg-9">            
-            <div class="row">
-              <div class="col-md-6">
-                <ul class="list_ok">
-                  {{#if data.tour.hotelPickup}}
-                  <li>{{i18n "hotel_pickup"}}</li>
-                  {{/if}}
-                  {{#if data.tour.transportation}}
-                  <li>{{i18n "ground_transportation"}}</li>
-                  {{/if}}
-                  {{#if data.tour.food}}
-                  <li>{{i18n "food"}}</li>
-                  {{/if}}
-                  {{#if data.tour.drinks}}
-                  <li>{{i18n "drinks"}}</li>
-                  {{/if}}
-                  {{#if data.tour.insurance}}
-                  <li>{{i18n "insurance"}}</li>
-                  {{/if}}
-                  {{#if data.tour.taxes}}
-                  <li>{{i18n "taxes"}}</li>
-                  {{/if}}
-                  {{#if data.tour.tickets}}
-                  <li>{{i18n "tickets"}}</li>
-                  {{/if}}
-                  {{#if data.tour.maritimeTransportation}}
-                  <li>{{i18n "maritime_transportation"}}</li>
-                  {{/if}}
-                  {{#if data.tour.snacks}}
-                  <li>{{i18n "snacks"}}</li>
-                  {{/if}}
-                  {{#if data.tour.tourGuide}}
-                  <li>{{i18n "tour_guide"}}</li>
-                  {{/if}}
-                  {{#if data.tour.privateCabin}}
-                  <li>{{i18n "private_lodging"}}</li>
-                  {{/if}}
-                  {{#if data.tour.sharedCabin}}
-                  <li>{{i18n "shared_lodging"}}</li>
-                  {{/if}}
-                </ul>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                      aria-controls="collapseOne">
+                    {{i18n "description"}}
+                    </button>
+                  </h5>
+                </div>
+              
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    {{{getInLocale data.tour.description.extended data.tour.description_eng.extended false}}}
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <ul class="list_ok disabled">
-                  {{#if_eq data.tour.hotelPickup false}}
-                  <li>{{i18n "hotel_pickup"}}</li>
-                  {{/if_eq}}
-                  {{#if_eq data.tour.transportation false}}
-                  <li>{{i18n "ground_transportation"}}</li>
-                  {{/if_eq}}
-                  {{#if_eq data.tour.food false}}
-                  <li>{{i18n "food"}}</li>
-                  {{/if_eq}}
-                  {{#if_eq data.tour.drinks false}}
-                  <li>{{i18n "drinks"}}</li>
-                  {{/if_eq}}
-                  {{#if_eq data.tour.insurance false}}
-                  <li>{{i18n "insurance"}}</li>
-                  {{/if_eq}}
-                  <li>{{i18n "tips"}}</li>
-                  {{#if_eq data.tour.tourGuide false}}
-                  <li>{{i18n "tour_guide"}}</li>
-                  {{/if_eq}}
-                  <!--
-                              {{#if_eq data.tour.privateCabin false}}
-                              <li>{{i18n "private_lodging"}}</li>
-                              {{/if_eq}}
-                              {{#if_eq data.tour.sharedCabin false}}
-                              <li>{{i18n "shared_lodging"}}</li>
-                              {{/if_eq}}
-                              -->
-                </ul>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                      aria-controls="collapseTwo">
+                      {{i18n "whats_included"}}
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ul class="list_ok">
+                          {{#if data.tour.hotelPickup}}
+                          <li>{{i18n "hotel_pickup"}}</li>
+                          {{/if}}
+                          {{#if data.tour.transportation}}
+                          <li>{{i18n "ground_transportation"}}</li>
+                          {{/if}}
+                          {{#if data.tour.food}}
+                          <li>{{i18n "food"}}</li>
+                          {{/if}}
+                          {{#if data.tour.drinks}}
+                          <li>{{i18n "drinks"}}</li>
+                          {{/if}}
+                          {{#if data.tour.insurance}}
+                          <li>{{i18n "insurance"}}</li>
+                          {{/if}}
+                          {{#if data.tour.taxes}}
+                          <li>{{i18n "taxes"}}</li>
+                          {{/if}}
+                          {{#if data.tour.tickets}}
+                          <li>{{i18n "tickets"}}</li>
+                          {{/if}}
+                          {{#if data.tour.maritimeTransportation}}
+                          <li>{{i18n "maritime_transportation"}}</li>
+                          {{/if}}
+                          {{#if data.tour.snacks}}
+                          <li>{{i18n "snacks"}}</li>
+                          {{/if}}
+                          {{#if data.tour.tourGuide}}
+                          <li>{{i18n "tour_guide"}}</li>
+                          {{/if}}
+                          {{#if data.tour.privateCabin}}
+                          <li>{{i18n "private_lodging"}}</li>
+                          {{/if}}
+                          {{#if data.tour.sharedCabin}}
+                          <li>{{i18n "shared_lodging"}}</li>
+                          {{/if}}
+                        </ul>
+                      </div>
+                      <div class="col-md-6">
+                        <ul class="list_ok disabled">
+                          {{#if_eq data.tour.hotelPickup false}}
+                          <li>{{i18n "hotel_pickup"}}</li>
+                          {{/if_eq}}
+                          {{#if_eq data.tour.transportation false}}
+                          <li>{{i18n "ground_transportation"}}</li>
+                          {{/if_eq}}
+                          {{#if_eq data.tour.food false}}
+                          <li>{{i18n "food"}}</li>
+                          {{/if_eq}}
+                          {{#if_eq data.tour.drinks false}}
+                          <li>{{i18n "drinks"}}</li>
+                          {{/if_eq}}
+                          {{#if_eq data.tour.insurance false}}
+                          <li>{{i18n "insurance"}}</li>
+                          {{/if_eq}}
+                          <li>{{i18n "tips"}}</li>
+                          {{#if_eq data.tour.tourGuide false}}
+                          <li>{{i18n "tour_guide"}}</li>
+                          {{/if_eq}}
+                          <!--
+                                                  {{#if_eq data.tour.privateCabin false}}
+                                                  <li>{{i18n "private_lodging"}}</li>
+                                                  {{/if_eq}}
+                                                  {{#if_eq data.tour.sharedCabin false}}
+                                                  <li>{{i18n "shared_lodging"}}</li>
+                                                  {{/if_eq}}
+                                                  -->
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- End row  -->
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                      aria-controls="collapseThree">
+                      {{i18n "cancelation_policy"}}
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    {{{getInLocale data.tour.cancelationPolicy.es data.tour.cancelationPolicy.en false}}}
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+              <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseFour">
+                  {{i18n "important_information"}}
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                  {{{getInLocale data.tour.importantInfo.es data.tour.importantInfo.en false}}}
+                </div>
+              </div>
+              </div>
+            
               </div>
             </div>
-            <!-- End row  -->
           </div>
         </div>
-        <hr>
-
         <div class="row">
-          <div class="col-lg-3">
-            <h3>{{i18n "usage_instruction"}}</h3>
-          </div>
-          <div class="col-lg-9 tour-description">
-            <p class="tour-description">
-              {{{getInLocale data.tour.instructions.es data.tour.instructions.en false}}}
-            </p>
-          </div>
-        </div>    
-        <hr>
-
-        {{#if data.tour.cancelationPolicy}}
-        <div class="row">
-          <div class="col-lg-3">
-            <h3>{{i18n "cancelation_policy"}}</h3>
-          </div>
-          <div class="col-lg-9 tour-description">
-            <p class="tour-description">
-              {{{getInLocale data.tour.cancelationPolicy.es data.tour.cancelationPolicy.en false}}}
-            </p>
-          </div>
-        </div>
-        <hr>
-        {{/if}}
-        {{#if data.tour.importantInfo.es}}
-        <div class="row">
-          <div class="col-lg-3">
-            <h3>{{i18n "important_information"}}</h3>
-          </div>
-          <div class="col-lg-9 tour-description">
-            <p class="tour-description">
-              {{{getInLocale data.tour.importantInfo.es data.tour.importantInfo.en false}}}
-            </p>
-          </div>
-        </div>
-        <hr>
-        {{/if}}
-
-        <div class="row">
-          <div class="col-lg-3">
-            <h3>{{i18n "reviews"}} </h3>
-            <a href="/signin" class="btn_1 add_bottom_30">{{i18n "leave_review"}}</a>
-          </div>
-          <div class="col-lg-9">
-
+          <div class="card-body">
+          <div class="col-12">
+          
             <div id="general_rating">
+              <div><a href="/signin" class="btn_1 add_bottom_30">{{i18n "leave_review"}}</a></div>
               {{#if data.reviews.length}}
-              {{data.reviews.length}} {{i18n "reviews"}}
+              <p>{{data.reviews.length}} {{i18n "reviews"}}</p>
               <div class="rating">
                 {{{ calcReview data.tour.nOfStars}}}
               </div>
@@ -244,15 +329,15 @@
               <div>{{i18n "not_reviews_yet"}}</div>
               {{/if}}
             </div>
-
+          
             <!-- End general_rating -->
-            
+          
             {{#if data.reviews.length}}
             <hr>
             {{#each data.reviews}}
             <div class="review_strip_single rating">
               <img src="../v3/img/avatartt.png" alt="Image" class="rounded-circle">
-              
+          
               <h4>{{author.name.full}}</h4>
               <p>
                 {{message}}
@@ -262,20 +347,18 @@
             {{/each}}
             <!-- End review strip -->
             {{/if}}
-
+          
+          </div>
           </div>
         </div>
+
+        
       </div>
       <!--End  single_tour_desc-->
-
       <aside class="col-lg-4" id="sidebar">
         <div class="theiaStickySidebar">
           <!--booking form -->
-        <p>
-          <a id="open_booking_form_sidebar" class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap"
-            data-text-swap="{{i18n "check_availability"}}" data-text-original="{{i18n "check_availability"}}">{{i18n "check_availability"}}</a>
-        </p>
-         <p><a class="btn_full_outline" target="_blank" href="https://api.whatsapp.com/send?phone=50761005609&text=Tour: {{data.tour.name}} - Precio / Price: {{getCurrency}} {{data.tour.price}} - Url https://www.triptable.com/tour/{{data.tour.slug}}"><i class="icon-whats-app"></i> {{i18n "send__whatsapp_message"}}</a></p>
+        
         <div class="box_style_2 d-none d-md-block">
           <i class="icon_set_1_icon-57"></i>
           <h4>{{i18n "need"}} <span>{{i18n "help"}}?</span></h4>
@@ -290,8 +373,8 @@
 
       </aside>
     </div>
+</div>
     <!--End row -->
-  </div>
   <!--End container -->
 
   <div id="overlay"></div>
@@ -304,17 +387,17 @@
   document.addEventListener("DOMContentLoaded", () => {
     $('#Img_carousel').sliderPro({
       width: 960,
-      height: 500,
+      height: 550,
       fade: true,
       arrows: true,
       buttons: false,
-      fullScreen: false,
+      fullScreen: true,
       smallSize: 500,
       startSlide: 0,
       mediumSize: 1000,
       largeSize: 3000,
       thumbnailArrows: true,
-      autoplay: false
+      autoplay: true
     });
 
    // $('input.date-pick');

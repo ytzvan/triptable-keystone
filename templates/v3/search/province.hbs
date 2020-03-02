@@ -7,7 +7,7 @@
         </li>
         <li><a href="/{{data.place.country.slug}}">{{data.place.country.country}}</a>
         </li>
-        <li>{{data.place.city}}, {{data.place.country.country}}</li>
+        <li><a href="/{{data.place.country.slug}}/{{data.place.slug}}">{{data.place.province}}</a></li>
 
         
       </ul>
@@ -16,9 +16,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="mt-2 mb-2 title">{{data.place.city}} {{i18n "tours"}}</h1>
-        <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> Tours, Actividades y Experiencias. </p>
-        <p class="d-none d-md-block pb-2">{{data.place.description}}</p>
+      <h1 class="mt-2 mb-2 title">{{data.place.province}} {{i18n "tours"}}</h1>
+      <p class="mb-0 search-subtitle pb-2"><strong>{{data.totalTours}}</strong> {{i18n "tours_activities_and_experiences"}}
+      </p>
+      <p class="d-none d-md-block pb-2">{{#if_eq lang 'es'}} {{{data.place.description.es}}} {{else}}
+        {{{data.place.descripcion.en}}} {{/if_eq}}</p>
       </div>
     </div>
   </div>
@@ -363,18 +365,15 @@
             class="sr-only">Previous</span></a>
       </li>
       {{/if}}
+      
       {{{paginateHelper data.currentPage data.pages}}}
+
 
      <!-- <li class="page-item active"><span class="page-link">1<span class="sr-only">(current)</span></span>
       </li>
       <li class="page-item"><a class="page-link" href="#">2</a></li>
       <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-      {{#if data.page}}
-      <li class="page-item">
-        <a class="page-link" onclick="paginateNext();" aria-label="Next"><span aria-hidden="true">&raquo;</span><span
-            class="sr-only">Next</span></a>
-      </li>
-      {{/if}}
+      
     </ul>
   </nav>
   <!-- end pagination-->
