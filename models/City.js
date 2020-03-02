@@ -39,7 +39,7 @@ City.add({
 	tours: {type: Types.Relationship, ref: 'Tour', many: true, filters: {city: ':cityId'}}
 });
 
-City.defaultColumns = 'City, description|20%, image|20%, publishedDate|20%';
+City.defaultColumns = 'city, description, image, featured, publishedDate';
 City.relationship({ ref: 'Tour', path: 'City' });
 City.relationship({ ref: 'Collection', path: 'City' });
 City.relationship({ ref: 'Attraction', path: 'City' });
@@ -47,4 +47,5 @@ City.schema.pre('save', function(next) {
     this.cityId = this.id;
     next();
 });
+City.defaultSort = '-featured';
 City.register();

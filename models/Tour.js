@@ -330,5 +330,6 @@ function parseDate(strDate) {
 		console.log("hubo un errir al añadir el tour a la db", e);
 	}
 });*/
+Tour.schema.index({ name: 'text', name_eng: 'text', 'description.sort': 'text', 'description.extended': 'text'});
 
 Tour.register();
