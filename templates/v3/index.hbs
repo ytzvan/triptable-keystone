@@ -3,56 +3,125 @@
     margin-top:25px;
   }
 </style>
+
+
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
-<section id="search_container" style="background: url('https://res.cloudinary.com/triptable/image/upload/c_fill,h_500,w_1000,g_center,q_auto/ti5gwsdvcrxo134zujvi.jpg') no-repeat center center;
-	background-size: cover;">
-  <div id="search">
-    <ul class="nav nav-tabs">
-      <!--<li><a href="#tours" data-toggle="tab" class="active show">Tours</a></li>
-      <li><a href="#hotels" data-toggle="tab">Hotels</a></li>
-      <li><a href="#transfers" data-toggle="tab">Transfers</a></li>
-      <li><a href="#restaurants" data-toggle="tab">Restaurants</a></li>-->
-    </ul>
-    <div class="tab-content col-md-6 col-12">
-      <form action="/search" method="GET" id="searchForm">
-      <div class="tab-pane active show" id="tours">
-        <h1 class="title">{{i18n "home_main_1"}}</h1>
-        <div class="row">
-          <div class="col-12">
+<div id="search_container_2" class="mt-2">
+<div id="search_2">
+  <ul class="nav nav-tabs">
+    <li><a href="#tours" data-toggle="tab" class="active show" id="tab_bt_1"><span>Tours</span></a></li>
+    <!--  <li><a href="#hotels" data-toggle="tab" id="tab_bt_2"><span>Hotels</a></li>
+      <li><a href="#restaurants" data-toggle="tab" id="tab_bt_3"><span>Restaurants</span></a></li> -->
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade active show" id="tours">
+      <form id="tour-search-form" action="/search">
+        <div class="row no-gutters custom-search-input-2">
+          <div class="col-lg-6">
             <div class="form-group">
-              <label>{{i18n "search"}}</label>
-              <input type="text" class="form-control" id="firstname_booking" name="q"
-                placeholder="Medellin o Canal de Panamá...">
+              <input class="form-control" type="text" placeholder="{{i18n "search_message"}}." id="autocomplete">
+              <i class="icon_pin_alt"></i>
             </div>
           </div>
-          <div class="col-8">
+          <div class="col-lg-4">
             <div class="form-group">
-              <label>{{i18n "countries"}}</label>
-              <select id="country-select" class="ddslick">
-                <option value="/search" data-imagesrc="../v3/img/icons_search/all_tours.png" selected>{{i18n "all_countries"}}
-                </option>
-                <option value="/colombia" data-imagesrc="../v3/img/icons_search/museums.png">{{i18n "Colombia"}}</option>
-                <option value="/panama" data-imagesrc="../v3/img/icons_search/sightseeing.png">{{i18n "Panama"}}</option>
-                <option value="/costa-rica" data-imagesrc="../v3/img/icons_search/historic.png">{{i18n "Costa_Rica"}}</option>
-                <option value="/mexico" data-imagesrc="../v3/img/icons_search/walking.png">{{i18n "Mexico"}}</option>
-              </select>
+              <input class="form-control date-pick" type="text" name="dates" placeholder="When..">
+              <i class="icon_calendar"></i>
             </div>
-            
           </div>
-          <div class="col-4">
-            <div class="form-group submit_search_cont">
-              <button type="submit" class="btn_1 green submit-search-btn 2">{{i18n "search"}}</button>
-            </div>
+          <div class="col-lg-2">
+            <input type="submit" class="btn_search" value="Search">
           </div>
         </div>
-        <!-- End row -->
-      </div>
-      </form>
-    
+        <!-- /row -->
+      </form id="tour-search-form">
     </div>
+    <!-- End tab -->
+    <div class="tab-pane fade" id="hotels">
+      <form>
+        <div class="row no-gutters custom-search-input-2">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <input class="form-control" type="text" name="location" placeholder="Hotel Name, City...">
+              <i class="icon_pin_alt"></i>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <input class="form-control date-pick" type="text" name="date" placeholder="When..">
+              <i class="icon_calendar"></i>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel-dropdown">
+              <a href="#">Guests <span class="qtyTotal hotels">1</span></a>
+              <div class="panel-dropdown-content">
+                <!-- Quantity Buttons -->
+                <div class="qtyButtons hotels">
+                  <label>Adults</label>
+                  <input type="text" name="qtyInput_hotels" value="1">
+                </div>
+                <div class="qtyButtons hotels">
+                  <label>Childrens</label>
+                  <input type="text" name="qtyInput_hotels" value="0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <input type="submit" class="btn_search" value="Search">
+          </div>
+        </div>
+        <!-- /row -->
+      </form>
+    </div>
+    <!-- End tab -->
+    <div class="tab-pane" id="restaurants">
+      <form>
+        <div class="row no-gutters custom-search-input-2">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Restaurant Name, City...">
+              <i class="icon_pin_alt"></i>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <input class="form-control date-pick" type="text" name="dates" placeholder="When..">
+              <i class="icon_calendar"></i>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel-dropdown">
+              <a href="#">Guests <span class="qtyTotal restaurants">1</span></a>
+              <div class="panel-dropdown-content">
+                <!-- Quantity Buttons -->
+                <div class="qtyButtons restaurants">
+                  <label>Adults</label>
+                  <input type="text" name="qtyInput_restaurants" value="1">
+                </div>
+                <div class="qtyButtons restaurants">
+                  <label>Childrens</label>
+                  <input type="text" name="qtyInput_restaurants" value="0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <input type="submit" class="btn_search" value="Search">
+          </div>
+        </div>
+        <!-- /row -->
+      </form>
+    </div>
+    <!-- End tab -->
   </div>
-</section>
+</div>
+<!-- End search_container_2 -->
+</div>
+ 
 
 <main>
   <div class="container margin_30">
@@ -64,7 +133,7 @@
     <div class="row">
 
       {{#each data.cities}}
-      <div class="col-lg-3 col-xl-3 col-md-3 col-6">
+      <div class="col-lg-3 col-xl-3 col-md-4 col-6">
         <a href="#">
         <div class="tour_container">
           <!--<div class="ribbon_3"><span>Popular</span></div>-->
@@ -76,7 +145,7 @@
           </div>
           <a href="/destino/{{slug}}">
           <div class="tour_title">
-            <h3><strong>{{city}}</strong></h3>
+            <h2>{{city}}</h2>
           </div>
           </a>
         </div><!-- End box tour -->
@@ -92,58 +161,52 @@
   </div><!-- End container -->
 
 
-  <div class="white_bg">
-    <!-- Slider main container -->
-    <div class="swiper-container container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper col-12">
-        <!-- Slides -->
-        {{#each toursPanama}}
-        <div class="swiper-slide col-6 col-md-4 col-lg-3  ">
-          <div class="wow"
-            style="visibility: visible;">
-            <div class="tour_container">
-              <div class="ribbon_3 popular"><span>Popular</span>
-              </div>
-              <div class="img_container">
-                <a href="/tour/{{slug}}" target="_blank">
-                  <img async style="height: 150px;" data-src="{{heroImage.secure_url}}" class="img-fluid lazyload" alt="{{name}}">
-                  <div class="short_info">
-                    <i class="icon_set_1_icon-44"></i>{{city.city}}<span class="price"><sup>$</sup>45</span>
-                  </div>
-                </a>
-              </div>
-              <div class="tour_title">
-                <h3>{{name}}</h3>
-                <div class="rating">
-                  <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i
-                    class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                </div>
-                <!-- end rating -->
-            
-                <!-- End wish list-->
-              </div>
-            </div>
-            <!-- End box tour -->
-          </div>
+<div class="container-fluid margin_30 white-bg">
 
-
-
-        </div>
-        {{/each}}
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-    
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
-    </div>
+  <div class="main_title">
+    <h2>Top<span> {{i18n "tours"}}</span></h2>
   </div>
-  <!-- End white_bg -->
+
+  <div class="row">
+
+  {{#each toursPanama}}
+    <div class="col-lg-3 col-xl-3 col-md-3 col-6">
+      <a href="/tour/{{slug}}">
+        <div class="tour_container">
+         <!-- <div class="ribbon_3 popular">
+            <span>Popular</span>
+          </div> -->
+          <div class="img_container">
+            <a href="/tour/{{slug}}">
+              <img async data-src="https://res.cloudinary.com/triptable/image/upload/c_fill,f_auto,q_auto,h_400/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}"class="img-fluid lazyload" alt="{{name}}">
+              <div class="short_info">
+              <span class="price"><sup>{{currency}}</sup>{{getPriceInCurrency price ../toursPanama.currency}} {{../toursPanama.currency}}</span>
+              </div>
+            </a>
+          </div>
+          <div class="tour_title">
+            <h3>{{name}}</h3>
+            <p>{{city.city}}</p>
+            <div class="rating">
+              <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i
+                class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
+            </div>
+            <!-- end rating -->
+        
+            <!-- End wish list-->
+          </div>
+        </div>
+        <!-- End box tour -->
+      </a>
+    </div><!-- End col -->
+    {{/each}}
+
+  </div><!-- End row -->
+
+</div><!-- End container -->
+
+
+     
 
   <div class="container margin_60 d-none d-md-block">
   

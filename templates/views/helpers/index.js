@@ -413,14 +413,11 @@ module.exports = function() {
 			}
 		} else {
 			defaultLang = name; // return in spanish
-			console.log("reducestr", reduceStr);
-			console.log("name", name);
 			if (reduceStr) {
 				reduceStr = parseInt(reduceStr);
 				try {
 				defaultLang = defaultLang.substring(0, reduceStr);
 				} catch(e) {
-					console.log("not reduced");
 				}
 			}
 			return defaultLang;

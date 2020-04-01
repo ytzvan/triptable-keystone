@@ -290,3 +290,30 @@ function replacePageParam(pageTo) {
 	}
 	window.location.href = url + '?' + urlParams.toString();
 }
+
+// Panel Dropdown
+function close_panel_dropdown() {
+	$('.panel-dropdown').removeClass("active");
+}
+$('.panel-dropdown a').on('click', function (e) {
+	if ($(this).parent().is(".active")) {
+		close_panel_dropdown();
+	} else {
+		close_panel_dropdown();
+		$(this).parent().addClass('active');
+	}
+	e.preventDefault();
+});
+
+// Closes dropdown on click outside the conatainer
+var mouse_is_inside = false;
+
+$('.panel-dropdown').hover(function () {
+	mouse_is_inside = true;
+}, function () {
+	mouse_is_inside = false;
+});
+
+$("body").mouseup(function () {
+	if (!mouse_is_inside) close_panel_dropdown();
+});
