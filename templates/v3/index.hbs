@@ -2,6 +2,10 @@
   .submit_search_cont{
     margin-top:25px;
   }
+  .feature_home img{
+    height: 100px;
+    width: 100px;
+  }
 </style>
 
 
@@ -19,19 +23,13 @@
     <div class="tab-pane fade active show" id="tours">
       <form id="tour-search-form" action="/search">
         <div class="row no-gutters custom-search-input-2">
-          <div class="col-lg-6">
+          <div class="col-lg-9">
             <div class="form-group">
               <input class="form-control" type="text" placeholder="{{i18n "search_message"}}." id="autocomplete">
               <i class="icon_pin_alt"></i>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <input class="form-control date-pick" type="text" name="dates" placeholder="When..">
-              <i class="icon_calendar"></i>
-            </div>
-          </div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <input type="submit" class="btn_search" value="Search">
           </div>
         </div>
@@ -40,7 +38,7 @@
     </div>
     <!-- End tab -->
     <div class="tab-pane fade" id="hotels">
-      <form>
+      <form id="search-form">
         <div class="row no-gutters custom-search-input-2">
           <div class="col-lg-4">
             <div class="form-group">
@@ -124,6 +122,50 @@
  
 
 <main>
+    <div class="container margin_60">
+    
+      <div class="main_title">
+        <h2>Como Funciona <span>Triptable.com</span> </h2>
+        <p>
+          Ofrecemos el mayor inventario de tours, actividades y atracciones en Panamá
+        </p>
+      </div>
+    
+      <div class="row">
+    
+        <div class="col-6 col-lg-3">
+          <div class="feature_home">
+            <img src="/images/icons/search.svg" />
+            <h3><span>Busca</span> Tours y Actividades</h3>
+            <p>
+    
+            </p>
+          </div>
+        </div>
+    
+        <div class="col-6 col-lg-3">
+          <div class="feature_home">
+            <img src="/images/icons/booking.svg" />
+            <h3><span>Reserva</span> En línea</h3>
+          </div>
+        </div>
+    
+        <div class="col-6 col-lg-3">
+          <div class="feature_home">
+            <img src="/images/icons/eticket.svg" />
+            <h3>Recibe tu<span>E-ticket</span></h3>
+          </div>
+        </div>
+    
+        <div class="col-6 col-lg-3">
+          <div class="feature_home">
+            <img src="/images/icons/enjoy.svg" />
+            <h3><span>Disfruta</span></h3>
+          </div>
+        </div>
+    
+      </div>
+      <!--End row -->
   <div class="container margin_30">
 
     <div class="main_title">
@@ -161,7 +203,7 @@
   </div><!-- End container -->
 
 
-<div class="container-fluid margin_30 white-bg">
+<div class="container margin_30 white-bg">
 
   <div class="main_title">
     <h2>Top<span> {{i18n "tours"}}</span></h2>
@@ -204,90 +246,24 @@
   </div><!-- End row -->
 
 </div><!-- End container -->
-
-
-     
-
-  <div class="container margin_60 d-none d-md-block">
-  
-    <div class="main_title">
-      <h2>Some <span>good</span> reasons</h2>
-      <p>
-        Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-      </p>
-    </div>
-  
-    <div class="row">
-  
-      <div class="col-6 col-lg-3">
-        <div class="feature_home">
-          <i class="icon_set_1_icon-41"></i>
-          <h3><span>+120</span> Premium tours</h3>
-          <p>
-            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet
-            deterruisset.
-          </p>
-          <a href="about.html" class="btn_1 outline">Read more</a>
-        </div>
-      </div>
-  
-      <div class="col-6 col-lg-3">
-        <div class="feature_home">
-          <i class="icon_set_1_icon-30"></i>
-          <h3><span>+1000</span> Customers</h3>
-          <p>
-            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet
-            deterruisset.
-          </p>
-          <a href="about.html" class="btn_1 outline">Read more</a>
-        </div>
-      </div>
-
-      <div class="col-6 col-lg-3">
-        <div class="feature_home">
-          <i class="icon_set_1_icon-30"></i>
-          <h3><span>+1000</span> Customers</h3>
-          <p>
-            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet
-            deterruisset.
-          </p>
-          <a href="about.html" class="btn_1 outline">Read more</a>
-        </div>
-      </div>
-  
-      <div class="col-6 col-lg-3">
-        <div class="feature_home">
-          <i class="icon_set_1_icon-57"></i>
-          <h3><span>H24 </span> Support</h3>
-          <p>
-            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet
-            deterruisset.
-          </p>
-          <a href="about.html" class="btn_1 outline">Read more</a>
-        </div>
-      </div>
-  
-    </div>
-    <!--End row -->
   
     <hr>
   
     <div class="row">
       <div class="col-md-6">
-        <img src="img/laptop.png" alt="Laptop" class="img-fluid laptop">
+        <img src="/images/icons/tourism.jpg" alt="Laptop" class="img-fluid laptop">
       </div>
       <div class="col-md-6">
-        <h3><span>Get started</span> with CityTours</h3>
+        <h3><span>Registra tu Empresa de Turismo en </span> Triptable.com</h3>
         <p>
-          Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet
-          deterruisset.
+          Somos la plataforma de E-commerce turístico de mayor crecimiento en Panamá
         </p>
         <ul class="list_order">
-          <li><span>1</span>Select your preferred tours</li>
-          <li><span>2</span>Purchase tickets and options</li>
-          <li><span>3</span>Pick them directly from your office</li>
+          <li><span>1</span>Regístrate cómo proveedor</li>
+          <li><span>2</span>Completa la documentación requerida</li>
+          <li><span>3</span>Empieza a vender con Triptable.com</li>
         </ul>
-        <a href="all_tour_list.html" class="btn_1">Start now</a>
+        <a href="/partners" class="btn_1">Regístrate</a>
       </div>
     </div>
     <!-- End row -->
