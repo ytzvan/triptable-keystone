@@ -175,6 +175,8 @@ exports.intl = function (req, res, next) {
   console.log("subdomain", subdomain);
   process.env.SUBDOMAIN = subdomain; 
   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  process.env.FULL_URL = fullUrl;
+  process.env.ORIGINAL_URL = req.originalUrl;
   var url2 = Url.parse(fullUrl);
 
 

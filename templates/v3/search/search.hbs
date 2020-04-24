@@ -277,7 +277,10 @@
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="tour_list_desc">
-
+                <p> <span class="tooltip-item"><i class=" icon_set_1_icon-58"></i></span> {{city.city}}, {{country.country}}</p>
+                
+                <h2 class="tour-title"><strong>{{getTourLocName name name_eng}}</strong></h2>
+                <p>{{{getInLocale description.short description_eng.short 95}}}...</p>
                 <div class="rating">
                   {{#if nOfReviews}}
                   {{{ calcReview nOfStars}}}
@@ -285,10 +288,9 @@
                   {{else}}
                   <small>{{i18n "not_reviews_yet"}}</small>
                   {{/if}}
+                
                 </div>
-                <h2 class="tour-title"><strong>{{getTourLocName name name_eng}}</strong></h2>
-                <p>{{{getInLocale description.short description_eng.short 100}}}...</p>
-                <ul class="add_info">
+                <!--<ul class="add_info">
                   {{#if mobileVoucherAccepted}}
                   <li>
                     <div class="tooltip_styled tooltip-effect-4">
@@ -350,7 +352,7 @@
 
 
 
-                </ul>
+                </ul> -->
               </div>
             </div>
             <div class="col-lg-2 col-md-2 pl-0">

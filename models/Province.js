@@ -27,7 +27,9 @@ Province.add({
 	 },
 	image: { type: Types.CloudinaryImage },
 	country: { type: Types.Relationship, ref: 'Country' },
-	featured: {type: Types.Boolean, default: false }
+	featured: {type: Types.Boolean, default: false },
+	collections: { type: Types.Relationship, ref: 'Collection', many: true, filters: { province: ':provinceId' } },
+
 });
 
 Province.relationship({ ref: 'Tour', path: 'province' });

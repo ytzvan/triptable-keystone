@@ -415,7 +415,10 @@ module.exports = function() {
 			defaultLang = name; // return in spanish
 			if (reduceStr) {
 				reduceStr = parseInt(reduceStr);
+				try {
 				defaultLang = defaultLang.substring(0, reduceStr);
+				} catch(e) {
+				}
 			}
 			return defaultLang;
 		}
@@ -548,12 +551,11 @@ module.exports = function() {
 		}
 		let difference = totalPages - currentPage;
 		let nextPage = currentPage + 1;
-		let nextUrl = "?&page="+nextPage;
-		console.log("nextUrl", nextUrl);
+		let nextUrl = "&page="+nextPage;
 		if (difference == 0) { // you're in last page
 			return null;
 		} else {
-			return ;
+			return nextUrl;
 		}
 	};
 
@@ -562,12 +564,12 @@ module.exports = function() {
 			let currentPage = 1;
 		}
 		let prevPage = currentPage - 1;
-		let prevUrl = "?page=" + prevPage;
+		let prevUrl = "&page=" + prevPage;
 		console.log("prevUrl", prevUrl);
 		if (currentPage == 1 || !currentPage || currentPage == 0)  { //you're in first page 
 			return null;
 		} else {
-			return prevPage;
+			return prevUrl;
 		}
 
 

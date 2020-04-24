@@ -6,6 +6,8 @@ exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	locals.data.currency = req.session.currency.currency
+	console.log("locals.data.currency", locals.data.currency);
 	let query = req.query;
 	let searchQuery = {};
 	if (query.q) {
@@ -19,10 +21,10 @@ exports = module.exports = function(req, res) {
 	};
 
   view.on('init', function(next) {
-		console.log(searchQuery.name)
-		const sortQuery = {};
+		let sortQuery = {
+			score: { $meta: 'textScore' }
+		};
 		const sort = req.query.sort;
-		console.log("sort", sort);
 		if (sort) {
 			if (sort == 0) {
 				sortQuery.mostSell = -1,
@@ -32,64 +34,55 @@ exports = module.exports = function(req, res) {
 				sortQuery.publishedDate = -1
 			}
 			if (sort == 1) { // Sort From low - to high price
-				console.log("sort by lowest Price");
-				sortQuery.price = 1;
+				sortQuery = {};
+				sortQuery = {
+					score: { $meta: 'textScore' },
+					price: 1
+				};
 			}
 			if (sort == 2) { // Sort from High Price - to Low
 				sortQuery.price = -1;
 			}
 			if (sort == 3) { // Sort from Latest added / updated
+				sortQuery.publishedDate = -1;
 			}
-			sortQuery.publishedDate = -1;
 		} else {
 			sortQuery.mostSell = -1;
 			sortQuery.nOfReviews = -1;
 			sortQuery.featured = -1;
 			sortQuery.publishedDate = -1;
 		}
+	//	console.log("sort", sort);
+	//	console.log("search query", searchQuery.name)
 		Tour.model
-			/*	.where("state","published")
-				.sort("-createdAt")
-				.limit(10)*/
-			.aggregate([
-				{
-					$match: {
-						state: 'published',
-						$or: [
-							{
-								name: {
-									$regex: searchQuery.name,
-									$options: 'si'
-								}
-							},
-						{
-							keywords: {
-								$regex: searchQuery.name,
-								$options: 'mis'
-							}
-						},
-							{
-								'description.extended': {
-									$regex: searchQuery.name,
-									$options: 'mis'
-								}
-							}
-					]
-				}	
-			},
-				{
-					$sort: sortQuery
-				},
-				{ $limit: 20},
-		])
+				.find(
+					{ $text: { $search: searchQuery.name } },
+					{ score: { $meta: "textScore" } }
+				)
+				.where("state", "published")
+				.limit(10)
+			//	.sort({  })
+				.sort(sortQuery)
+				.populate('city country')
 				.exec(function(err, results) {
-					console.log("res", results.name);
-					 try {
-						results.currency = req.session.currency.currency;	
-						locals.data.tours = results;
-						 next(err);
-					 } catch (e) { next(err);}
-						
+				//	if (results) {
+		//				console.log(results)
+					//	results.currency = req.session.currency.currency;
+					try {
+					locals.data.tours = results;
+					locals.data.tours.currency = req.session.currency.currency;
+					next(err);
+					} catch (e) {
+						console.log("empty results", e );
+						next(err);
+					}
+				/*	} else {
+						console.log("no tours found");
+						next();
+					}*/
+					// } catch (e) { 
+					//	 console.log("no tours found");
+				//		 next(err);} 	
 				});
 			})
 

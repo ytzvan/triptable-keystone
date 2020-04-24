@@ -26,17 +26,13 @@ module.exports = function (req, res) {
 	function asyncFunc(countryId) { //Async func 
 		return new Promise(
 			function (resolve, reject) {
-				var query = keystone.list('Tour')
-					.paginate({
-						page: req.query.page || 1,
-						perPage: 9,
-						maxPages: 1
-					})
+				var query = keystone.list('Tour').model.find()
 					.where('country', countryId)
 					.where('state', 'published')
 					.where('featured', true)
 					.sort('-publishedDate')
-					.populate('province categories city');
+					.populate('province categories city')
+					.limit(8);
 
 				query.exec(function (err, results) {
 					if (!err) {
@@ -54,6 +50,7 @@ module.exports = function (req, res) {
 		asyncFunc("5704494210326b0300cb6a2f")
 			.then(function (results) {
 				locals.toursPanama = results;
+				console.log(locals.toursPanama);
 				return asyncFunc("593ab9bd397cff0400419584")
 			})
 			.then(function (toursColombia) {
@@ -180,6 +177,6 @@ module.exports = function (req, res) {
 		next();
 	}); */
 	// Render the view
-	//	view.render('../v3/index', { layout: 'v3' });};
-	view.render('index')
+		view.render('../v3/index', { layout: 'home-layout' });
+	//view.render('index')
 };
