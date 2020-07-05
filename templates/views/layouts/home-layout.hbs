@@ -92,74 +92,7 @@
 	<!-- Mobile menu overlay mask -->
 
 
-  <header id="plain">
-    <div id="top_line">
-      <div class="container">
-        <div class="row">
-          <div class="col-6"><i class="icon-phone"></i><strong>+507 6808 0024</strong></div>
-          <div class="col-6">
-            <ul id="top_links">
-             
-
-            </ul>
-          </div>
-        </div><!-- End row -->
-      </div><!-- End container-->
-    </div><!-- End top line-->
-  
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <div id="logo_home">
-            <h1><a href="/" title="Triptable.com">Triptable.com</a></h1>
-          </div>
-        </div>
-        <nav class="col-9">
-          <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu
-              mobile</span></a>
-          <div class="main-menu">
-            <div id="header_menu">
-              <img src="/v3/img/logo_sticky_2x.png" width="160" height="34" alt="Triptable.com" data-retina="true">
-            </div>
-            <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
-            <ul>
-              <li class="submenu">
-                <a href="javascript:void(0);" class="show-submenu">Home <i class="icon-down-open-mini"></i></a>
-                <ul>
-                  <li><a href="/panama">Tours en Panamá</a></li>
-                  <li><a href="/destino/bocas-del-toro.html">Tours en Bocas del Toro</a></li>
-                  <li><a href="/destino/boquete">Boquete</a></li>
-
-                </ul>
-              </li>
-              <li class="submenu">
-                <a href="javascript:void(0);" class="show-submenu">Acerca de Nosotros <i class="icon-down-open-mini"></i></a>
-                <ul>
-                  <li><a href="/about">Acerca de Triptable.com</a></li>
-               
-             
-                </ul>
-              </li>
-              <li class="submenu">
-                <a href="/partners" class="show-submenu">Regístra tu Empresa</a>
-              </li>
-              
-              
-              
-              
-              
-            </ul>
-          </div><!-- End main-menu -->
-          <ul id="top_tools">
-           <!-- <li>
-              <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
-            </li> -->
-            
-          </ul>
-        </nav>
-      </div>
-    </div><!-- container -->
-  </header><!-- End Header -->
+  {{>v3/home/header}}
   
   <!--<header>
     <div id="top_line">
@@ -363,8 +296,10 @@
       <div class="col-lg-2 col-md-3 ml-md-auto">
         <h3>{{i18n "destinations"}}</h3>
         <ul>
-          <li><a href="/panama">Panamá</a>
-          </li>
+          <li><a href="/panama">{{i18n "panama"}}</a></li>
+          <li><a href="/colombia">Colombia</a></li>
+          <li><a href="/costa-rica">Costa Rica</a></li>
+          <li><a href="/mexico">Mexico</a></li>
           </li>
           
           </li>
@@ -667,12 +602,6 @@
     ul#top_links a:hover {
       color: #e04f67;
     }
-  
-
- /*-------- Home Search V2--------*/
- /*-------- Home Search V2--------*/
-
-
     
   </style>
 </body>

@@ -1,0 +1,174 @@
+<style>
+  @media (min-width: 992px) {
+    .container-fluid.header {
+      padding-right: 15%;
+      padding-left: 15%;
+    }
+  ul li.submenu.featured{
+    float: right;
+    vertical-align: middle;
+    bottom: 5px;
+   }
+
+  li a.featured-btn{
+    background-color: #3498db !important;
+    color: whitesmoke !important;
+    padding: 5px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    }
+   }
+
+   img.lang-flag{
+     width: 30px !important;
+     height: auto;
+   }
+
+  .no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+.cmn-toggle-switch {
+  right: 0px !important;
+}
+}
+
+@media (max-width: 767px) {
+a#lang_link, a#currency_link {
+     text-indent: 0 !important;
+}
+}
+
+
+  .center {
+    text-align: center;
+  }
+ 
+</style>
+
+<header id="plain">
+  <div id="top_line">
+    <div class="container-fluid header">
+      <div class="row no-gutters">
+        <div class="col-6"><i class="icon-phone"></i><strong>+507 6121 5632</strong></div>
+        <div class="col-6">
+          <ul id="top_links">
+            <li>
+              <div class="dropdown dropdown-mini">
+                <a href="#" data-toggle="dropdown" id="currency_link"><span>{{session.userCurrency.value}}</span></a>
+                <div class="dropdown-menu">
+                  <ul id="lang_menu">
+                    <li><a href="/currency/USD">$ USD</a></li>
+                    <li><a href="/currency/EUR">€ EUR</a></li>
+                    <li><a href="/currency/COP">$ COP</a></li>
+                    <li><a href="/currency/MXN">$ MXN</a></li>
+                    <li><a href="/currency/CNY">¥ CNY</a></li>
+                    <li><a href="/currency/BRL">R$ BRL</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Dropdown access -->
+            </li>
+            <li>
+            <div class="dropdown dropdown-mini">
+              <a href="#" class="lang-select" data-toggle="dropdown"><span class="lang-select"><img class="lang-flag" src="/v3/img/flags/{{{getLang}}}.png"></span></a>
+              <div class="dropdown-menu">
+                <ul id="lang_menu">
+                  <li><a href="?lang=es">Español</a>
+                  </li>
+                  <li><a href="?lang=en">English</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </li>
+
+          </ul>
+        </div>
+      </div><!-- End row -->
+    </div><!-- End container-->
+  </div><!-- End top line-->
+
+  <div class="container-fluid header">
+    <div class="row">
+      <div class="col-4">
+        <div id="logo_home">
+          <h1><a href="/" title="Triptable.com">Triptable.com</a></h1>
+        </div>
+      </div>
+      <nav class="col-8 header-menu-items">
+        <div class="row">
+        <div class="col-1 offset-5 offset-sm-8 d-md-block d-lg-none dropdown dropdown-mini center">
+          <a href="#" data-toggle="dropdown" id="currency_link">{{session.userCurrency.value}}</a>
+          <div class="dropdown-menu">
+            <ul id="lang_menu">
+              <li><a href="/currency/USD">$ USD</a></li>
+              <li><a href="/currency/EUR">€ EUR</a></li>
+              <li><a href="/currency/COP">$ COP</a></li>
+              <li><a href="/currency/MXN">$ MXN</a></li>
+              <li><a href="/currency/CNY">¥ CNY</a></li>
+              <li><a href="/currency/BRL">R$ BRL</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2 offset-1 offset-sm-0 d-md-block d-lg-none dropdown dropdown-mini center">
+          <a href="#" class="lang-select" data-toggle="dropdown"><span class="lang-select"><img class="lang-flag"
+                src="/v3/img/flags/{{{getLang}}}.png"></span></a>
+          <div class="dropdown-menu">
+            <ul id="lang_menu">
+              <li><a href="?lang=es">Español</a>
+              </li>
+              <li><a href="?lang=en">English</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2 col-sm-1">
+        <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Triptable.com</span></a>
+        </div>
+        </div> <!-- end row-->
+        <div class="main-menu">
+          <div id="header_menu">
+            <img src="/v3/img/logo_sticky_2x.png" width="160" height="34" alt="Triptable.com" data-retina="true">
+          </div>
+          <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+          <ul>
+            <li class="submenu">
+              <a href="javascript:void(0);" class="show-submenu">{{i18n "home"}} <i class="icon-down-open-mini"></i></a>
+              <ul>
+                <li><a href="/panama">{{i18n "tours_in_panama"}}</a></li>
+                <li><a href="/destino/bocas-del-toro">{{i18n "tours_in"}} {{i18n "bocas_del_toro"}}</a></li>
+                <li><a href="/destino/boquete">{{i18n "tours_in"}} {{i18n "boquete"}}</a></li>
+
+              </ul>
+            </li>
+            <li class="submenu">
+              <a href="javascript:void(0);" class="show-submenu">{{i18n "about_us"}} <i
+                  class="icon-down-open-mini"></i></a>
+              <ul>
+                <li><a href="/about">{{i18n "about_us"}}</a></li>
+              </ul>
+            </li>
+            <li class="submenu featured">
+              <a href="/partners" class="show-submenu featured-btn">{{i18n 'register_my_business'}}</a>
+            </li>
+          </ul>
+        </div><!-- End main-menu -->
+        <ul id="top_tools">
+          <!-- <li>
+              <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
+            </li> -->
+
+        </ul>
+      </nav>
+    </div>
+  </div><!-- container -->
+</header><!-- End Header -->

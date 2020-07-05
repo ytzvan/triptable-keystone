@@ -190,7 +190,7 @@
 	"my_bookings_admin": "Panel de Administración",
 	"starting_from": "Desde",
 	"most_reserved_tours_message": "Descubre los tours más populares",
-	"search_message": "Busca por destino o tour",
+	"search_message": "Ingresa un Destino, lugar o Provincia...",
 	"tours_to": "Tours a",
 	"panama_canal": "Canal de Panamá",
 	"home_message_title_1": "Escoge un Tour",
@@ -300,7 +300,7 @@
 	"categories": "categories",
 	"all_categories": "Todas las categorias",
 	"choose_country": "Elige un País",
-	"destinations": "destinos",
+	"destinations": "Destinos",
 	"students": "students",
 	"seniors": "seniors",
 	"entrance_tickets": "Boletas",
@@ -530,7 +530,10 @@
 	"book_again": "Reserva Nuevamente",
 	"san_blas_islands": "Islas San Blas",
 	"activity_description": "Descripción de la Actividad",
-	"Contact_via_whatsapp": "Contact_via_whatsapp",
-	"contact_via_email": "contact_via_email",
-	"or_book_online_bellow": "or_book_online_bellow"
+	"Contact_via_whatsapp": "Contáctanos por Whatsapp",
+	"contact_via_email": "Contáctanos por Email",
+	"or_book_online_bellow": "O Reserva en línea",
+	"bocas_del_toro": "Bocas del Toro",
+	"boquete": "Boquete",
+	"register_my_business": "Registrar Mi Negocio"
 }

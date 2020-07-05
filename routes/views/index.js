@@ -46,7 +46,7 @@ module.exports = function (req, res) {
 	};
 	// Load the places
 
-	view.on('init', function (next) {
+ 	view.on('init', function (next) {
 		asyncFunc("5704494210326b0300cb6a2f")
 			.then(function (results) {
 				locals.toursPanama = results;
@@ -66,22 +66,7 @@ module.exports = function (req, res) {
 				next();
 			});
 
-	});
-
-	view.on('init', function (next) {
-		keystone.list('Province')
-			.model.find()
-			.exec(function (err, results) { //Query Pais
-				if (err || !results) {
-
-					return res.status(404);
-				}
-				locals.data.provinces = results;
-				return next();
-
-			});
-
-	});
+	}); 
 	view.on('init', function (next) {
 		keystone.list('City')
 			.model.find()
@@ -97,20 +82,6 @@ module.exports = function (req, res) {
 				return next();
 
 			});
-
-	});
-
-	view.on('init', function (next) {
-
-		keystone.list('PostCategory').model.find().exec(function (err, results) { //Query Pais
-			if (err || !results) {
-
-				return res.status(404);
-			}
-			locals.data.categories = results;
-			return next();
-
-		});
 
 	});
 
@@ -138,21 +109,7 @@ module.exports = function (req, res) {
 				next();
 			})
 	});
-	view.on('init', function (next) {
-		let featuredColl = keystone.list('Landing')
-			.model.find()
-			.where("state", "published")
-			.limit(4)
-			.exec((err, fCollections) => {
-				if (!err) {
-					//	console.log(excursions);
-					locals.data.fCollections = fCollections;
-				} else {
-					console.log("error", err);
-				}
-				next();
-			});
-	})
+
 	/*	view.on('init', function (next) {
 			let excursions = keystone.list('Tour')
 				.model.where({ "isExcursion": true, "state": "published" })

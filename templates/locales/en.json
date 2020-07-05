@@ -190,7 +190,7 @@
 	"my_bookings_admin": "Admin Panel",
 	"starting_from": "Starting from",
 	"most_reserved_tours_message": "Discover the most popular tours",
-	"search_message": "Search by destination or tour",
+	"search_message": "Type a Destination, Place or Region...",
 	"tours_to": "Tours to",
 	"panama_canal": "Panama Canal",
 	"home_message_title_1": "Choose a Tour",
@@ -297,7 +297,7 @@
 	"listings": "listings",
 	"all_categories": "All Categories",
 	"choose_country": "Choose your country",
-	"destinations": "destinations",
+	"destinations": "Destinations",
 	"mobile_voucher_av": "E-ticket without print",
 	"instant_confirmation": "Instant Confirmation",
 	"duration": "Duration",
@@ -508,7 +508,10 @@
 	"book_again": "Book Again",
 	"san_blas_islands": "San Blas Islands",
 	"activity_description": "Activity Description",
-	"Contact_via_whatsapp": "Contact_via_whatsapp",
-	"contact_via_email": "contact_via_email",
-	"or_book_online_bellow": "or_book_online_bellow"
+	"Contact_via_whatsapp": "Contact Via WhatsApp",
+	"contact_via_email": "Contact Via Email",
+	"or_book_online_bellow": "Or Book Online Bellow",
+	"bocas_del_toro": "Bocas del Toro",
+	"boquete": "Boquete",
+	"register_my_business": "Register My Business"
 }
