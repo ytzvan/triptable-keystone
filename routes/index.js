@@ -153,7 +153,7 @@ exports = module.exports = function(app) {
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
-	app.all('/tour/:slug', function (req, res, next) {
+	app.all('/tour/:slug', /*function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
 			console.log("using cache: false");
@@ -165,7 +165,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(), routes.views.tour);
+	}, cache.route(),*/ routes.views.tour);
 
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
@@ -177,7 +177,7 @@ exports = module.exports = function(app) {
 
 
 	//Search Views
-	app.get('/:country', function (req, res, next) {
+	app.get('/:country',/* function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
 			console.log("using cache: false");
@@ -189,8 +189,8 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(), routes.search.country);
-	app.get('/:country/:province', function (req, res, next) {
+	}, cache.route(),*/ routes.search.country);
+	app.get('/:country/:province',/* function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
 			console.log("using cache: false");
@@ -202,7 +202,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(), routes.search.province);
+	}, cache.route(),*/ routes.search.province);
 
 
 	//Fallback
