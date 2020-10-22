@@ -202,7 +202,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(),*/ routes.search.province);
+	}, cache.route(), */routes.search.province);
 
 
 	//Fallback
