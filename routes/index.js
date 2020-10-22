@@ -41,22 +41,7 @@ var routes = {
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	app.get('/', /*function (req, res, next) {
-		if (req.session.userId) {
-			console.log(req.session.userId);
-			console.log("using cache: false");
-			res.use_express_redis_cache = false;
-			next();
-		}
-		else {
-			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-			pathUrl = path;
-			console.log("using cache: true");
-			console.log("path", this.pathUrl);
-			res.express_redis_cache_name = path;
-			next();
-		}
-	}, cache.route(),*/routes.views.index);
+	app.get('/', routes.views.index);
 	
 	//Static views
 	app.all('/signup', routes.auth.signup);
