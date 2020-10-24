@@ -68,7 +68,7 @@ exports = module.exports = function(app) {
   app.all('/admin',middleware.requireGuide, routes.dashboard.index.init);
 	app.get('/mybooking', routes.v2.myBookings.index);
 	app.post('/mybooking', routes.v2.myBookings.getInvoice);
-	app.get('/destino/:city', function (req, res, next) {
+	app.get('/destino/:city', /*function (req, res, next) {
 		if (req.session.userId) {
 			res.use_express_redis_cache = false;
 			next();
@@ -78,7 +78,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(), routes.search.city);
+	}, cache.route(), */ routes.search.city);
 	app.all('/search', routes.search.search);
 	//WIDGET
 	app.get('/w/:widgetId', routes.widget.widget.init);
@@ -97,7 +97,7 @@ exports = module.exports = function(app) {
 		}
 	}, cache.route(),routes.views.operator.index);
 	//Collections
-	app.get('/c/:cid', function (req, res, next) {
+	app.get('/c/:cid', /* function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
 			console.log("using cache: false");
@@ -109,9 +109,9 @@ exports = module.exports = function(app) {
 		res.express_redis_cache_name = path;
 		next();
 		}
-	}, cache.route(), routes.views.collection.getCollection);
+	}, cache.route(), */ routes.views.collection.getCollection);
 	//app.get('/c/', routes.views.collection.getAllCollections);
-	app.get('/l/:lid', function (req, res, next) {
+	app.get('/l/:lid', /*function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
 			console.log("using cache: false");
@@ -123,7 +123,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(), routes.views.collection.getLanding);
+	}, cache.route(), */ routes.views.collection.getLanding);
  	//functions
 	app.get('/utils/actions/cartAbandon', routes.utils.index.cartAbandon);
 	app.get('/currency/:currency', routes.utils.index.setCurrency);
