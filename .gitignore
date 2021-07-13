@@ -34,6 +34,5 @@ node_modules/
 nodemon-config.json
 triptable.sublime-project
 yarn.lock
-.env
 dump/
 dump.rdb
