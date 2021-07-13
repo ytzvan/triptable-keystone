@@ -85,7 +85,12 @@ exports = module.exports = function(req, res) {
 				locals.meta.description = cleanStr;
 			}
 			locals.meta.ogTitle = locals.meta.title
-			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", "+result.country.country +".";
+			if (locals.meta.description !== undefined && locals.meta.description !== null && result.city.city !== undefined && result.city.city !== null) {
+				locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", " + result.country.country +".";
+			} else {
+				locals.meta.ogDescription = locals.meta.description + ". Tours y Actividades";
+			}
+			locals.meta.ogDescription = locals.meta.description + ". Tours en " + result.city.city + ", " +result.country.country +".";
 
 			if (result.heroImage) {
 				locals.meta.image = "https://res.cloudinary.com/triptable/image/upload/c_fill,h_900,w_1200,q_100/v"+result.heroImage.version+"/"+result.heroImage.public_id+"."+result.heroImage.format;
