@@ -1,40 +1,49 @@
 <!-- Fullwidth Section -->
-<section class="fullwidth padding-top-30" data-background-color="#f8f8f8" >
+<section class="fullwidth padding-top-30 padding-bottom-15" data-background-color="#f8f8f8">
+
 	<div class="container">
 		<div class="row">
+
 			<div class="col-xs-8">
-				<h2 class="headline margin-bottom-5">
-					{{i18n "most_popular_tours_in"}} {{i18n "panama"}}
+				<h2 class="headline margin-bottom-15">
+					{{i18n "most_popular_tours_in"}} {{i18n "costa_rica"}}
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
 				</h2>
 			</div>
 			<div class="col-xs-4 text-right padding-top-10">
 				<span class="view-more margin-bottom-15">
-					<a href="/panama" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
+					<a href="/costa-rica" target="_blank">{{i18n "view_all"}} <i class="sl sl-icon-arrow-right"></i></a>
 				<!--	<span>{{i18n "most_reserved_tours_message"}}</span> -->
 				</span>
 			</div>
 		</div>
 	</div>
 	<!-- Carousel / Start -->
-<!--	<div class="simple-fw-slick-carousel dots-nav">-->
-	<div class="container home-tours">
+		<div class="container home-tours">
 		<div class="row">
 		<div class="home-feature-tours-slider listing-slider dots-nav" style="background-color: #f8f8f8">
-		{{#each toursPanama }}
-		<div class="col-md-4 col-sm-6 panama-tour-item" id="panama-tour-item-{{@index}}">
-				
-				<!-- Listing Item -->
-	
+		{{#each toursCostaRica }}
+		<div class="col-md-4 col-sm-6 col-xs-12 mexico-tour-item" id="mexico-tour-item-{{@index}}">
 					<a href="tour/{{slug}}" class="listing-item-container">
 						<div class="listing-item">
 							{{#if heroImage.secure_url}}
-							<img async data-src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_90,h_350/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" class="lazyload" alt="{{name}}">
-							{{else}}
 							<img async data-src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_90,h_350/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" class="lazyload"  alt="{{name}}">
+							{{else}}
+							<img async data-src="https://res.cloudinary.com/triptable/image/upload/c_fit,f_auto,q_90,h_350/v{{heroImage.version}}/{{heroImage.public_id}}.{{heroImage.format}}" class="lazyload" alt="{{name}}">
 							{{/if}}
+							<!--<div class="listing-item-details">
+								<ul>
+									<li> <i class="sl sl-icon-fire"></i> Popular</li>
+								</ul>
+							</div>-->
+
+							<!--<div class="listing-badge now-open"><strong>-20% OFF</strong></div>-->
+							
+							<!--<div class="listing-item-content">
+								<span class="tag">Mas Vendidos <i class="sl sl-icon-fire"></i></span>
+							</div> -->
+							<!--<span class="like-icon"></span>-->
 						</div>
-						
 						
 						<div class="tour-info">
 							<h3 class="title giveMeEllipsis">{{getTourLocName name name_eng}}<!-- <i class="verified-icon"></i>--></h3>
@@ -57,38 +66,45 @@
 							
 						</div>
 					</a>
-			</div>
+				</div>
 		{{/each}}
 		</div>
-		</div>
+
+	</div>
 	</div>
 	<!-- Carousel / End -->
 
 </section>
-<!-- Fullwidth Section -->
+<!-- Fullwidth Section / End -->
 
 <script>
+
+// Measures product impressions and also tracks a standard
+// pageview for the tag configuration.
+// Product impressions are sent by pushing an impressions object
+// containing one or more impressionFieldObject
 if (document.location.hostname.search("triptable.com") !== -1) {
 $(document).ready(function() {
-	var panamaHomeTours = [];
+	
+	var mexicoHomeTours = [];
 	var pos = 0;
-	var listName = "Home - Panama Tours Featured";
-	{{#each toursPanama.results }}
-		setImpressions(panamaHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
-		$( "#panama-tour-item-"+pos).data( "tourObj", panamaHomeTours[pos]); // Seed id with obj data
+	var listName = "Home - Colombia Tours Featured";
+	{{#each toursMexico.results }}
+		setImpressions(mexicoHomeTours,"{{name}}","{{tourId}}",{{price}},"{{city.city}}","",listName,pos); 
+		$( "#mexico-tour-item-"+pos).data( "tourObj", mexicoHomeTours[pos]); // Seed id with obj data
 		pos = pos + 1;
 	{{/each}}
 
 	dataLayer.push({
-			'event': 'productImpressions',
+		'event': 'productImpressions',
 	  	'ecommerce': {
 	    	'currencyCode': "USD",                       // Local currency is optional.
-	    	'impressions': panamaHomeTours
+	    	'impressions': mexicoHomeTours
 	  	}
 	});
 
  	//On click event
-	$('.panama-tour-item').click(function(e){
+	$('.mexico-tour-item').click(function(e){
 		var target = e.currentTarget.id;
 		var productObj = $('#'+target).data().tourObj;
 		setProductClick(productObj, listName);

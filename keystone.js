@@ -1,7 +1,7 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').load();
-require('newrelic');
+//require('newrelic');
 
 // Require keystone
 var keystone = require('keystone');
@@ -29,7 +29,7 @@ keystone.init({
 	'mongo': process.env.MONGO_URI,
 	'auto update': false,
 	'session': true,
-	'session store': 'mongo',
+	//'session store': 'connect-redis',
 	'auth': true,
 	'user model': 'User',
 	'signin url': '/signin',
@@ -37,11 +37,11 @@ keystone.init({
 	'signout url' : '/signout',
 	'signout redirect' : '/',
 	'compress':true,
-	'session options': {    
+	/*'session options': {    
 		cookie: { domain:'.'+process.env.LOCALDOMAIN,  httpOnly: true  }
-  }
-//	'sesssion store options' : {cookie: { domain:'.localdomain.com'}}
-		// 'cookie signin options' : { 'maxAge': 5 * 60 * 1000, 'signed': true },
+  }, */
+//	'sesssion store options' : {cookie: { domain:'localhost:3000'}},
+//	'cookie signin options' : { 'maxAge': 5 * 60 * 1000, 'signed': true },
 //	'session cookie' : { 'secure': true,'maxAge': 5 * 30 * 1000, 'domain':'.localdomain.com' },
 	// 'session store': function(session){
 	// 	console.log(session);

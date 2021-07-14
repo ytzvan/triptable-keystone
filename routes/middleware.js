@@ -191,67 +191,63 @@ exports.intl = function (req, res, next) {
       }
   } */
 
-  if (!process.env.LANG) {
-    if (req.query.lang == 'es') {
-      locals.lang = 'es';
+  if (!locals.LANG) {
+  /*  if (req.query.lang == 'es') {
+      locals.LANG = 'es';
       return res.redirect('//es.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
+    } 
     if (req.query.lang == 'en') {
-      locals.lang = 'en';
+      locals.LANG = 'en';
       return res.redirect('//en.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
-    if (subdomain == 'www' && browserLang == 'es') {
-      process.env.LANG = browserLang;
-      i18n.setLocale(process.env.LANG);
-      locals.lang = process.env.LANG;
+    } */
+   /* if (subdomain == 'www' && browserLang == 'es') {
+      locals.LANG = browserLang;
+      i18n.setLocale(locals.LANG);
       return res.redirect('//' + subdomain + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
-    if (subdomain == 'www' && browserLang == 'en') {
-      process.env.LANG = browserLang;
-      i18n.setLocale(process.env.LANG);
-      locals.lang = process.env.LANG;
+    }*/
+    /*if (subdomain == 'www' && browserLang == 'en') {
+      locals.LANG = browserLang;
+      i18n.setLocale(locals.LANG);
       return res.redirect('//' + browserLang + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
-    if (subdomain == 'es' && browserLang == 'en') {
-      process.env.LANG = browserLang;
-      i18n.setLocale(process.env.LANG);
-      locals.lang = process.env.LANG;
+    }*/
+   /* if (subdomain == 'es' && browserLang == 'en') {
+      locals.LANG = browserLang;
+      i18n.setLocale(locals.LANG);
+      locals.lang = locals.LANG;
       return res.redirect('//' + browserLang + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
+    }*/
     /*if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
     }*/
-    if (langs.includes(browserLang)) {
-      process.env.LANG = browserLang;
-      locals.lang = process.env.LANG;
-      return res.redirect('//' + browserLang + '.' + process.env.LOCALDOMAIN + url2.pathname);
+   /* if (langs.includes(browserLang)) {
+      locals.LANG = browserLang;
+      return res.redirect('//' + locals.LANG + '.' + process.env.LOCALDOMAIN + url2.pathname);
     } else {
-      process.env.LANG = "en";
-      locals.lang = process.env.LANG;
-      return res.redirect('//' + process.env.LANG + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }
+      locals.LANG = "en";
+      return res.redirect('//' + locals.LANG + '.' + process.env.LOCALDOMAIN + url2.pathname);
+    }*/
   }
 
-  if (req.query.lang == 'es') {
-    locals.lang = 'es';
+ /* if (req.query.lang == 'es') {
+    locals.LANG = 'es';
     return res.redirect('//es.' + process.env.LOCALDOMAIN + url2.pathname);
-  }
-  if (req.query.lang == 'en') {
-    locals.lang = 'en';
+  } */
+/*  if (req.query.lang == 'en') {
+    locals.LANG = 'en';
     return res.redirect('//en.' + process.env.LOCALDOMAIN + url2.pathname);
-  }
+  }*/
 
   if (subdomain == 'es') {
-    process.env.LANG = 'es';
-    i18n.setLocale(process.env.LANG);
-    locals.lang = 'es';
+    locals.LANG = 'es';
+    i18n.setLocale(locals.LANG);
+    locals.LANG = 'es';
   }
   if (subdomain == 'en') {
-    process.env.LANG = 'en';
-    i18n.setLocale(process.env.LANG);
-    locals.lang = 'en';
+    locals.LANG = 'en';
+    i18n.setLocale(locals.LANG);
+    locals.LANG = 'en';
   }
 
   if (subdomain == 'www') {
@@ -261,9 +257,8 @@ exports.intl = function (req, res, next) {
         return res.redirect('http://en.localdomain.com:3000');
       } */
 
-    process.env.LANG = browserLang;
-    i18n.setLocale(process.env.LANG);
-    locals.lang = process.env.LANG;
+    locals.LANG = browserLang;
+    i18n.setLocale(locals.LANG);
     //return res.redirect('http://'+browserLang+'.localdomain.com:3000'/+req.url);
   }
 
@@ -285,7 +280,6 @@ exports.intl = function (req, res, next) {
       process.env.LANG = req.query.lang;
       i18n.setLocale(process.env.LANG);
     } */
-  locals.lang = process.env.LANG;
   next();
 
 };

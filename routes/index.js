@@ -41,7 +41,7 @@ var routes = {
 };
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	app.get('/', routes.views.index);
+	app.get('/', cache.route(), routes.views.index);
 	
 	//Static views
 	app.all('/signup', routes.auth.signup);
@@ -138,19 +138,7 @@ exports = module.exports = function(app) {
 	app.post('/contact/:tourId', routes.views.contact); //al momento del post
 	app.get('/invoice/:enquiryId', routes.views.invoice);
 	
-	app.all('/tour/:slug', /*function (req, res, next) {
-		if (req.session.userId) {
-			console.log(req.session.userId);
-			console.log("using cache: false");
-			res.use_express_redis_cache = false;
-			next();
-		}
-		else {
-			let path = req.url + '~' + process.env.LANG + '~' + res.locals.session.userCurrency.value;
-			res.express_redis_cache_name = path;
-			next();
-		}
-	}, cache.route(),*/ routes.views.tour);
+	app.all('/tour/:slug', function (req, res, next) {res.express_redis_cache_name = req.url + '~' + "es" + '~' + "USD"; next()}, cache.route(), routes.views.tour);
 
 	//V1 API Routes
 	app.all("/api*", keystone.middleware.cors);
@@ -174,7 +162,7 @@ exports = module.exports = function(app) {
 			res.express_redis_cache_name = path;
 			next();
 		}
-	}, cache.route(),*/ routes.search.country);
+	}, */cache.route(), routes.search.country);
 	app.get('/:country/:province',/* function (req, res, next) {
 		if (req.session.userId) {
 			console.log(req.session.userId);
@@ -199,6 +187,11 @@ exports = module.exports = function(app) {
 		console.log("message", message);
 	});
 
+	cache.on('error', function (error) {
+		console.log("error", error);
+		throw new Error('Cache error!');
+	});
+
 
 		cache.on('connected', function () {
 			console.log("connected");
@@ -209,6 +202,8 @@ if (process.env.DELETE_CACHE) {
 		console.log("del", del) 
 	});
 }
+
+
 
 
 

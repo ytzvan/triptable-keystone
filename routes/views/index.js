@@ -22,7 +22,6 @@ module.exports = function (req, res) {
 	};
 
 
-
 	function asyncFunc(countryId) { //Async func 
 		return new Promise(
 			function (resolve, reject) {
@@ -50,14 +49,20 @@ module.exports = function (req, res) {
 		asyncFunc("5704494210326b0300cb6a2f")
 			.then(function (results) {
 				locals.toursPanama = results;
-				console.log(locals.toursPanama);
 				return asyncFunc("593ab9bd397cff0400419584")
 			})
 			.then(function (toursColombia) {
 				if (toursColombia) {
 					locals.toursColombia = toursColombia;
 				}
-				return asyncFunc("58dec56592896d0400161fd3")
+				return asyncFunc("5b3b93fe29754804009b394b")
+			})
+			.then(function (toursCostaRica) {
+				if (toursCostaRica) {
+					locals.toursCostaRica = toursCostaRica;
+				}
+				next()
+			//	return asyncFunc("58dec56592896d0400161fd3")
 			})
 			.then(function (toursMexico) {
 				if (toursMexico) {
@@ -110,13 +115,12 @@ module.exports = function (req, res) {
 			})
 	});
 
-	/*	view.on('init', function (next) {
+		/*view.on('init', function (next) {
 			let excursions = keystone.list('Tour')
 				.model.where({ "isExcursion": true, "state": "published" })
 				.populate('city')
 				.exec((err, excursions) => {
 					if (!err) {
-					//	console.log(excursions);
 						locals.data.excursions = excursions;
 					} else {
 						console.log("error", err);
@@ -124,6 +128,19 @@ module.exports = function (req, res) {
 					next();
 				});
 		})*/
+
+		/*view.on('init', function (next) {
+			let excursions = keystone.list('Collection')
+				.model.where({ "state": "published",  "featured": true})
+				.exec((err, fCollection) => {
+					if (!err) {
+						locals.data.fCollections = fCollection;
+					} else {
+						console.log("error", err);
+					}
+					next();
+				});
+		}) */
 
 	/*view.on('init', function(next){
 		let url = "https://blog.triptable.com/wp-json/wp/v2/posts?per_page=3";
@@ -134,6 +151,6 @@ module.exports = function (req, res) {
 		next();
 	}); */
 	// Render the view
-		view.render('../v3/index', { layout: 'home-layout' });
-	//view.render('index')
+	//	view.render('../v3/index', { layout: 'home-layout' });
+	view.render('index')
 };

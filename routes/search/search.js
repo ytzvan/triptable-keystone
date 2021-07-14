@@ -7,7 +7,6 @@ exports = module.exports = function(req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	locals.data.currency = req.session.currency.currency
-	console.log("locals.data.currency", locals.data.currency);
 	let query = req.query;
 	let searchQuery = {};
 	if (query.q) {
