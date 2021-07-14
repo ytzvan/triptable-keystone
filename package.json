@@ -49,7 +49,7 @@
     "qrcode": "^1.2.0",
     "request": "^2.72.0",
     "slack-notify": "^0.1.6",
-    "striptags": "^2.1.1",
+    "striptags": "^3.2.0",
     "underscore": "^1.8.3",
     "upper-case": "^1.1.3"
   },
