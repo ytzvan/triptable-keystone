@@ -192,52 +192,52 @@ exports.intl = function (req, res, next) {
   } */
 
   if (!locals.LANG) {
-  /*  if (req.query.lang == 'es') {
+    if (req.query.lang == 'es') {
       locals.LANG = 'es';
       return res.redirect('//es.' + process.env.LOCALDOMAIN + url2.pathname);
     } 
     if (req.query.lang == 'en') {
       locals.LANG = 'en';
       return res.redirect('//en.' + process.env.LOCALDOMAIN + url2.pathname);
-    } */
-   /* if (subdomain == 'www' && browserLang == 'es') {
+    } 
+    if (subdomain == 'www' && browserLang == 'es') {
       locals.LANG = browserLang;
       i18n.setLocale(locals.LANG);
       return res.redirect('//' + subdomain + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }*/
-    /*if (subdomain == 'www' && browserLang == 'en') {
+    }
+    if (subdomain == 'www' && browserLang == 'en') {
       locals.LANG = browserLang;
       i18n.setLocale(locals.LANG);
       return res.redirect('//' + browserLang + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }*/
-   /* if (subdomain == 'es' && browserLang == 'en') {
+    }
+    if (subdomain == 'es' && browserLang == 'en') {
       locals.LANG = browserLang;
       i18n.setLocale(locals.LANG);
       locals.lang = locals.LANG;
       return res.redirect('//' + browserLang + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }*/
-    /*if (subdomain != 'www' && subdomain != undefined) {
+    }
+    if (subdomain != 'www' && subdomain != undefined) {
       process.env.LANG = subdomain;
       locals.lang = process.env.LANG;
       return res.redirect('//'+subdomain+'.'+process.env.LOCALDOMAIN+url2.pathname);
-    }*/
-   /* if (langs.includes(browserLang)) {
+    }
+    if (langs.includes(browserLang)) {
       locals.LANG = browserLang;
       return res.redirect('//' + locals.LANG + '.' + process.env.LOCALDOMAIN + url2.pathname);
     } else {
       locals.LANG = "en";
       return res.redirect('//' + locals.LANG + '.' + process.env.LOCALDOMAIN + url2.pathname);
-    }*/
+    }
   }
 
- /* if (req.query.lang == 'es') {
+  if (req.query.lang == 'es') {
     locals.LANG = 'es';
     return res.redirect('//es.' + process.env.LOCALDOMAIN + url2.pathname);
-  } */
-/*  if (req.query.lang == 'en') {
+  } 
+  if (req.query.lang == 'en') {
     locals.LANG = 'en';
     return res.redirect('//en.' + process.env.LOCALDOMAIN + url2.pathname);
-  }*/
+  }
 
   if (subdomain == 'es') {
     locals.LANG = 'es';
